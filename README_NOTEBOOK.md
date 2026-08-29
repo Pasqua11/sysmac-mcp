@@ -13,7 +13,7 @@ simulatore, libreria blocchi, indice istruzioni NJ/NX). Cosa *non* c'è: vedi l'
 | Python | 3.13.12 (`C:\Program Files\Python313\python.exe`) | Va bene qualsiasi 3.11+; annota il percorso reale, serve al punto 3 |
 | Pacchetto Python | `mcp` 1.29.1 | **unica dipendenza esterna**: tutto il resto è libreria standard |
 | Git | 2.53 | per il clone |
-| Sysmac Studio | installato | necessario solo per le funzioni che pilotano la UI |
+| Sysmac Studio | installato | necessario per le funzioni che pilotano la UI; richiede le scorciatoie di `_ambiente\` |
 | Claude Cowork | installato | stesso account `trentalucas74@gmail.com` |
 
 Installazione della dipendenza:
@@ -65,6 +65,12 @@ Se serve anche il controllo del desktop Windows (usato da diverse skill), aggiun
 `uvx` si ottiene con `pip install uv`.
 
 Poi **chiudere e riaprire Claude** (non basta chiudere la finestra: uscire dalla tray icon).
+
+## 3-bis. Ambiente Sysmac Studio (obbligatorio)
+
+Il clone non basta: sul notebook vanno reimportate le **scorciatoie da tastiera personalizzate**
+e copiate le **librerie FB**, altrimenti il server preme tasti non mappati e i progetti non compilano.
+Procedura in `_ambiente\LEGGIMI.md`.
 
 ## 4. Verifica
 

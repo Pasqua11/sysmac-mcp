@@ -1,4 +1,4 @@
-# /// script
+﻿# /// script
 # requires-python = ">=3.11"
 # dependencies = ["mcp"]
 # ///
@@ -331,7 +331,12 @@ def _send_keys(keys: str) -> None:
 # leggere e pilotare per NOME e' molto piu' affidabile. La logica UIA sta nella
 # libreria PowerShell sysmac_ui.ps1, riusabile anche fuori dall'MCP.
 
-_UI_PS1 = r"C:\Users\tecni\Claude\sysmac_ui.ps1"
+# Risoluzione portabile: prima accanto a questo file (repo), poi il percorso
+# storico del PC fisso, infine la variabile d'ambiente SYSMAC_UI_PS1.
+_UI_PS1 = os.environ.get("SYSMAC_UI_PS1") or ""
+if not _UI_PS1 or not os.path.exists(_UI_PS1):
+    _cand = os.path.join(os.path.dirname(os.path.abspath(__file__)), "sysmac_ui.ps1")
+    _UI_PS1 = _cand if os.path.exists(_cand) else r"C:\Users\tecni\Claude\sysmac_ui.ps1"
 
 def _uia(script: str, timeout: int = 120) -> str:
     """Esegue uno snippet PowerShell con sysmac_ui.ps1 gia' caricato.
