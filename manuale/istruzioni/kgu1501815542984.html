@@ -1,0 +1,694 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>**_TO_*** (Integer-to-Bit String Conversion Group)</title>
+</head>
+<body class="kgu1501815542984"><div class="layer02" id="kgu1501815542984">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">**_TO_*** (Integer-to-Bit String Conversion Group)</h1>
+
+<div class="body conbody">
+<p class="p" id="kgu1501815542984__ID0E2KAI">These instructions convert integers to bit strings.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="kgu1501815542984__table_N10017_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:13%" />
+<col style="width:14%" />
+<col style="width:6%" />
+<col style="width:35%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d544756e37">Instruction</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d544756e40">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d544756e43">
+<p class="p">FB/</p>
+
+<p class="p">FUN</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d544756e52">Graphic expression</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d544756e55">ST expression</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d544756e37 "><span class="indexterm">**_TO_*** (Integer-to-Bit String Conversion Group)</span>**_TO_***</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d544756e40 "><span class="indexterm">Integer-to-Bit String Conversion Group</span>Integer-to-Bit String Conversion Group</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d544756e43 ">FUN</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d544756e52 ">
+<br /><div class="imagecenter"><img class="image imagecenter" id="kgu1501815542984__image_D51C53AA13B74C0FB870A3C8DE020AD4" src="rlz1501815542332.gif" /></div><br />
+<p class="p"><span class="ph phtype_quote"><span class="termtype">"**"</span></span> must be an integer data type. <span class="ph phtype_quote"><span class="termtype">"***"</span></span> must be a bit string data type.</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d544756e55 ">
+<p class="p" id="kgu1501815542984__ID0EVPAI">Out:=**_TO_*** (In);</p>
+
+<p class="p linespace_7pt"><span class="ph phtype_quote"><span class="termtype">"**"</span></span> must be an integer data type. <span class="ph phtype_quote"><span class="termtype">"***"</span></span> must be a bit string data type.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="upk1501816149624">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="upk1501816149624__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:20%" />
+<col style="width:9%" />
+<col style="width:20%" />
+<col style="width:14%" />
+<col style="width:14%" />
+<col style="width:8%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d991140e55">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d991140e57">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d991140e60">I/O</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d991140e63">Description</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d991140e66">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d991140e70">Unit</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d991140e73">Default</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d991140e55 ">In</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d991140e57 ">Data to convert</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d991140e60 ">Input</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d991140e63 ">Data to convert</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d991140e66 "><a class="xref" href="kgu1501815542984.html#upk1501816149624__fn_qhx_22j_sz"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d991140e70 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d991140e73 ">0</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d991140e55 ">Out</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d991140e57 ">Conversion result</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d991140e60 ">Output</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d991140e63 ">Conversion result</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d991140e66 "><a class="xref" href="kgu1501815542984.html#upk1501816149624__fn_qhx_22j_sz"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d991140e70 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d991140e73 ">---</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="upk1501816149624__fn_qhx_22j_sz" id="upk1501816149624__fn_qhx_22j_sz"><sup>*1</sup></a>  The valid ranges depend on the data types of <span class="ph phtype_variable"><span class="termtype">In</span></span> and <span class="ph phtype_variable"><span class="termtype">Out</span></span>. Refer to <a class="xref" href="kgu1501815542984.html#owv1501816149445"><i style="display:none;">☆</i>Valid Range</a>, below, for details. </div>
+</div></div>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="upk1501816149624__table_N10101_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:5%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cell-norowborder" style="text-align:left;vertical-align:top;" id="d991140e197">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d991140e199">Boolean</th>
+
+<th class="entry cellrowborder" colspan="4" style="text-align:center;vertical-align:middle;" id="d991140e202">Bit strings</th>
+
+<th class="entry cellrowborder" colspan="8" style="text-align:center;vertical-align:middle;" id="d991140e205">Integers</th>
+
+<th class="entry cellrowborder" colspan="2" style="text-align:center;vertical-align:middle;" id="d991140e208">Real numbers</th>
+
+<th class="entry cellrowborder" colspan="5" style="text-align:center;vertical-align:middle;" id="d991140e212">Times, durations, dates, and text strings</th>
+
+</tr>
+
+<tr class="row rotate_right">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d991140e218">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d991140e220">BOOL</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d991140e223">BYTE</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d991140e226">WORD</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d991140e229">DWORD</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d991140e233">LWORD</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d991140e236">USINT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d991140e239">UINT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d991140e242">UDINT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d991140e245">ULINT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d991140e248">SINT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d991140e252">INT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d991140e255">DINT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d991140e258">LINT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d991140e261">REAL</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d991140e264">LREAL</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d991140e267">TIME</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d991140e271">DATE</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d991140e274">TOD</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d991140e277">DT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d991140e280">STRING</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d991140e197 d991140e218 ">In</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d991140e199 d991140e220 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d991140e202 d991140e223 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d991140e202 d991140e226 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d991140e202 d991140e229 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d991140e202 d991140e233 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d991140e205 d991140e236 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d991140e205 d991140e239 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d991140e205 d991140e242 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d991140e205 d991140e245 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d991140e205 d991140e248 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d991140e205 d991140e252 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d991140e205 d991140e255 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d991140e205 d991140e258 "><span class="ph font_Wingdings"></span>OK <a class="xref" href="kgu1501815542984.html#upk1501816149624__fn_fz4_llg_b1b"><i style="display:none;">☆</i><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d991140e208 d991140e261 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d991140e208 d991140e264 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d991140e212 d991140e267 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d991140e212 d991140e271 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d991140e212 d991140e274 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d991140e212 d991140e277 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d991140e212 d991140e280 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d991140e197 d991140e218 ">Out</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d991140e199 d991140e220 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d991140e202 d991140e223 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d991140e202 d991140e226 "><span class="ph font_Wingdings"></span>OK <a class="xref" href="kgu1501815542984.html#upk1501816149624__fn_fz4_llg_b1b"><i style="display:none;">☆</i><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d991140e202 d991140e229 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d991140e202 d991140e233 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d991140e205 d991140e236 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d991140e205 d991140e239 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d991140e205 d991140e242 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d991140e205 d991140e245 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d991140e205 d991140e248 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d991140e205 d991140e252 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d991140e205 d991140e255 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d991140e205 d991140e258 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d991140e208 d991140e261 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d991140e208 d991140e264 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d991140e212 d991140e267 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d991140e212 d991140e271 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d991140e212 d991140e274 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d991140e212 d991140e277 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d991140e212 d991140e280 ">&#160;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+
+<div class="fn"><a name="upk1501816149624__fn_fz4_llg_b1b" id="upk1501816149624__fn_fz4_llg_b1b"><sup>*2</sup></a>  For an NX1P2 CPU Unit, a CPU Unit with unit version 1.14 or later and Sysmac Studio version 1.18 or higher are required to use the LINT_TO_WORD instruction.</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="ayp1501816151132">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function</h1>
+ 
+<div class="body conbody">
+<p class="p" id="ayp1501816151132__ID0ETVBI">These instructions convert an integer, <span class="ph phtype_variable"><span class="termtype">In</span></span>, to a bit string.</p>
+
+<p class="p" id="ayp1501816151132__ID0EWVBI">The name of the instruction is determined by the data types of <span class="ph phtype_variable"><span class="termtype">In</span></span> and conversion result <span class="ph phtype_variable"><span class="termtype">Out</span></span>. For example, if <span class="ph phtype_variable"><span class="termtype">In</span></span> is INT data and <span class="ph phtype_variable"><span class="termtype">Out</span></span> is WORD data, the name of the instruction is INT_TO_WORD.</p>
+
+<p class="p linespace_7pt">The following example for the INT_TO_WORD instruction is for when <span class="ph phtype_variable"><span class="termtype">In</span></span> is INT#-1234.</p>
+
+<br /><img class="image" id="ayp1501816151132__image_88678FCD56B742A1A1FA74B5FD155A2D" src="zph1501816149891.gif" /><br />
+<br /><img class="image" id="ayp1501816151132__image_DEAC36E34A40453B82B5971D64173957" src="zrm1501816150523.gif" /><br />
+</div>
+ 
+<div class="related-links"></div></div><div class="layer04" id="owv1501816149445">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Valid Range</h1>
+
+<div class="body conbody">
+<p class="p">The following table shows the valid ranges for <span class="ph phtype_variable"><span class="termtype">In</span></span> and <span class="ph phtype_variable"><span class="termtype">Out</span></span> according to their data types.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="owv1501816149445__table_mnd_gwg_b1b" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:11%" />
+<col style="width:38%" />
+<col style="width:38%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d744689e43">Data type of <span class="ph phtype_variable"><span class="termtype">In</span></span></th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d744689e48">Data type of <span class="ph phtype_variable"><span class="termtype">Out</span></span></th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d744689e53">Valid range for <span class="ph phtype_variable"><span class="termtype">In</span></span></th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d744689e58">Valid range for <span class="ph phtype_variable"><span class="termtype">Out</span></span></th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" rowspan="4" style="text-align:left;vertical-align:middle;" headers="d744689e43 ">USINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e48 ">BYTE</td>
+
+<td class="entry cellrowborder" rowspan="4" style="text-align:left;vertical-align:middle;" headers="d744689e53 ">0 to 255</td>
+
+<td class="entry cellrowborder" rowspan="4" style="text-align:left;vertical-align:middle;" headers="d744689e58 ">16#00 to 16#FF</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e48 ">WORD</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e48 ">DWORD</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e48 ">LWORD</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" rowspan="4" style="text-align:left;vertical-align:middle;" headers="d744689e43 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e48 ">BYTE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e53 ">0 to 255</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e58 ">16#00 to 16#FF</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e48 ">WORD</td>
+
+<td class="entry cellrowborder" rowspan="3" style="text-align:left;vertical-align:middle;" headers="d744689e53 ">0 to 65535</td>
+
+<td class="entry cellrowborder" rowspan="3" style="text-align:left;vertical-align:middle;" headers="d744689e58 ">16#0000 to 16#FFFF</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e48 ">DWORD</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e48 ">LWORD</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" rowspan="4" style="text-align:left;vertical-align:middle;" headers="d744689e43 ">UDINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e48 ">BYTE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e53 ">0 to 255</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e58 ">16#00 to 16#FF</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e48 ">WORD</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e53 ">0 to 65535</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e58 ">16#0000 to 16#FFFF</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e48 ">DWORD</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d744689e53 ">0 to 4294967295</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d744689e58 ">16#0000_0000 to 16#FFFF_FFFF</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e48 ">LWORD</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" rowspan="4" style="text-align:left;vertical-align:middle;" headers="d744689e43 ">ULINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e48 ">BYTE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e53 ">0 to 255</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e58 ">16#00 to 16#FF</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e48 ">WORD</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e53 ">0 to 65535</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e58 ">16#0000 to 16#FFFF</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e48 ">DWORD</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e53 ">0 to 4294967295</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e58 ">16#0000_0000 to 16#FFFF_FFFF</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e48 ">LWORD</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e53 ">0 to 18446744073709551645</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e58 ">16#0000_0000_0000_0000 to 16#FFFF_FFFF_FFFF_FFFF</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" rowspan="4" style="text-align:left;vertical-align:middle;" headers="d744689e43 ">SINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e48 ">BYTE</td>
+
+<td class="entry cellrowborder" rowspan="4" style="text-align:left;vertical-align:middle;" headers="d744689e53 ">-128 to 127</td>
+
+<td class="entry cellrowborder" rowspan="4" style="text-align:left;vertical-align:middle;" headers="d744689e58 ">16#00 to 16#FF</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e48 ">WORD</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e48 ">DWORD</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e48 ">LWORD</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" rowspan="4" style="text-align:left;vertical-align:middle;" headers="d744689e43 ">INT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e48 ">BYTE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e53 ">-128 to 127</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e58 ">16#00 to 16#FF</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e48 ">WORD</td>
+
+<td class="entry cellrowborder" rowspan="3" style="text-align:left;vertical-align:middle;" headers="d744689e53 ">-32768 to 32767</td>
+
+<td class="entry cellrowborder" rowspan="3" style="text-align:left;vertical-align:middle;" headers="d744689e58 ">16#0000 to 16#FFFF</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e48 ">DWORD</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e48 ">LWORD</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" rowspan="4" style="text-align:left;vertical-align:middle;" headers="d744689e43 ">DINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e48 ">BYTE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e53 ">-128 to 127</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e58 ">16#00 to 16#FF</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e48 ">WORD</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e53 ">-32768 to 32767</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e58 ">16#0000 to 16#FFFF</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e48 ">DWORD</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d744689e53 ">-2147483648 to 2147483647</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d744689e58 ">16#0000_0000 to 16#FFFF_FFFF</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e48 ">LWORD</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" rowspan="4" style="text-align:left;vertical-align:middle;" headers="d744689e43 ">LINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e48 ">BYTE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e53 ">-128 to 127</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e58 ">16#00 to 16#FF</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e48 ">WORD</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e53 ">-32768 to 32767</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e58 ">16#0000 to 16#FFFF</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e48 ">DWORD</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e53 ">-2147483648 to 2147483647</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e58 ">16#0000_0000 to 16#FFFF_FFFF</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e48 ">LWORD</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e53 ">-9223372036854775808 to 9223372036854775807</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d744689e58 ">16#0000_0000_0000_0000 to 16#FFFF_FFFF_FFFF_FFFF</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="spv1501816151388">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Additional Information</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="spv1501816151388__li_N10015_N10012_N1000F_N10002">To convert a bit string to an integer, use the instruction, <a class="xref" href="zux1501815544841.html#zux1501815544841"><i style="display:none;">☆</i>**_TO_*** (Bit String-to-Integer Conversion Group)</a>.</li>
+
+<li class="li" id="spv1501816151388__li_N10020_N10012_N1000F_N10002">To convert data with any data type to a bit string, use the instruction, <a class="xref" href="rza1501815559968.html#rza1501815559968"><i style="display:none;">☆</i>TO_** (Bit String Conversion Group)</a>.</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="gje1501816149144">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Precautions for Correct Use</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="gje1501816149144__li_N10015_N10012_N1000F_N10002">
+<p class="p">Always use the correct instruction name for the data types of <span class="ph phtype_variable"><span class="termtype">In</span></span> and <span class="ph phtype_variable"><span class="termtype">Out</span></span>.</p>
+
+</li>
+
+<li class="li" id="gje1501816149144__li_N10028_N10012_N1000F_N10002">
+<p class="p">If <span class="ph phtype_variable"><span class="termtype">In</span></span> is a signed integer and the data size of <span class="ph phtype_variable"><span class="termtype">Out</span></span> is larger than the data size of <span class="ph phtype_variable"><span class="termtype">In</span></span>, sign extension is performed.</p>
+
+</li>
+
+<li class="li" id="gje1501816149144__li_N1003F_N10012_N1000F_N10002">
+<p class="p">If <span class="ph phtype_variable"><span class="termtype">In</span></span> is an unsigned integer and the data size of <span class="ph phtype_variable"><span class="termtype">Out</span></span> is larger than the data size of <span class="ph phtype_variable"><span class="termtype">In</span></span>, the upper digits of <span class="ph phtype_variable"><span class="termtype">Out</span></span> will contain 0.</p>
+
+</li>
+
+<li class="li" id="gje1501816149144__li_N1005B_N10012_N1000F_N10002">
+<p class="p">If the data size of <span class="ph phtype_variable"><span class="termtype">Out</span></span> is smaller than the data size of <span class="ph phtype_variable"><span class="termtype">In</span></span>, the upper digits will be truncated.</p>
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+
+
+

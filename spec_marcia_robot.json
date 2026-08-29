@@ -1,0 +1,76 @@
+{
+  "out_dir": "C:\\Users\\tecni\\Claude\\sysmac-mcp\\out",
+  "sections": {
+    "Marcia_Robot": [
+      {"cmt": "GIRO IL BIT DI MARCIA", "chain": ["/IN_MARCIA", "(Marcia_ON)"]},
+
+      {"cmt": "RITARDO ABILITAZIONE SERVO", "chain": ["Marcia_ON",
+        {"fb": "TON", "inst": "Tim_Marcia", "p": {"PT": "T#3s"}}]},
+
+      {"cmt": "ABILITAZIONE SERVO ASSE X", "chain": ["Tim_Marcia.Q", "mc_x.DrvStatus.Ready", "mc_x.DrvStatus.MainPower",
+        {"fb": "MC_Power", "inst": "Power_x", "p": {"Axis": "mc_x", "OUT:Axis": "mc_x"}}]},
+
+      {"cmt": "ABILITAZIONE SERVO ASSE Y", "chain": ["Tim_Marcia.Q", "mc_y.DrvStatus.Ready", "mc_y.DrvStatus.MainPower",
+        {"fb": "MC_Power", "inst": "Power_y", "p": {"Axis": "mc_y", "OUT:Axis": "mc_y"}}]},
+
+      {"cmt": "RITARDO ABILITAZIONE GRUPPO ASSI", "chain": ["End_Reset_Robot",
+        {"fb": "TON", "inst": "Tim3", "p": {"PT": "T#2s"}}]},
+
+      {"cmt": "CONSENSO GRUPPO ASSI", "chain": ["Tim3.Q", "(GruppoEnable)"]},
+
+      {"cmt": "ABILITAZIONE GRUPPO ASSI PER INTERPOLAZIONI", "chain": ["GruppoEnable",
+        {"fb": "MC_GroupEnable", "inst": "Group1", "p": {"AxesGroup": "MC_Group000", "OUT:AxesGroup": "MC_Group000"}}]},
+
+      {"cmt": "DISABILITAZIONE GRUPPO ASSI", "chain": ["/GruppoEnable",
+        {"fb": "MC_GroupDisable", "inst": "Group1_OFF", "p": {"AxesGroup": "MC_Group000", "OUT:AxesGroup": "MC_Group000"}}]},
+
+      {"cmt": "RESET ERRORI ASSE X", "chain": ["IN_RESET",
+        {"fb": "MC_Reset", "inst": "X_Reset_Error", "p": {"Axis": "mc_x", "OUT:Axis": "mc_x"}}]},
+
+      {"cmt": "RESET ERRORI GRUPPO ASSI", "chain": ["IN_RESET",
+        {"fb": "MC_GroupReset", "inst": "Group_Reset_Error", "p": {"AxesGroup": "MC_Group000", "OUT:AxesGroup": "MC_Group000"}}]},
+
+      {"cmt": "ARRESTO ASSE X", "chain": ["/End_Reset_Robot",
+        {"fb": "MC_Stop", "inst": "MC_X_Stop", "p": {"Axis": "mc_x", "Deceleration": "200", "OUT:Axis": "mc_x"}}]},
+
+      {"cmt": "ROBOT READY", "chain": ["mc_x.DrvStatus.ServoOn", "mc_y.DrvStatus.ServoOn",
+        "/mc_x.MFaultLvl.Active", "/mc_y.MFaultLvl.Active", "(Robot_Ready)"]},
+
+      {"cmt": "MANUALE ASSE X", "chain": ["Robot_Ready", "X_Jog_SX",
+        {"fb": "MC_MoveJog", "inst": "Manu_X", "p": {"Axis": "mc_x", "NegativeEnable": "X_Jog_DX",
+          "Velocity": "40", "Acceleration": "15", "Deceleration": "100000", "OUT:Axis": "mc_x"}}]},
+
+      {"cmt": "CALCOLO QUOTE MOVIMENTAZIONE", "chain": ["P_On",
+        {"ist": "Distance1[0]:=X_PRESA+X_AGGANCIO;\nDistance1[1]:=0;"}]},
+
+      {"cmt": "MOV1 - TRASLAZIONE INTERPOLATA SOPRA LA PRESA", "chain": ["Movim_Prenotati",
+        {"fb": "MC_MoveLinearAbsolute", "inst": "MOV1", "p": {"AxesGroup": "MC_Group000", "Position": "Distance1",
+          "Velocity": "300", "Acceleration": "500", "Deceleration": "500", "OUT:AxesGroup": "MC_Group000"}}]}
+    ]
+  },
+  "variables": [
+    {"name": "IN_MARCIA", "type": "BOOL", "comment": "0=MARCIA ON"},
+    {"name": "IN_RESET", "type": "BOOL"},
+    {"name": "Marcia_ON", "type": "BOOL"},
+    {"name": "End_Reset_Robot", "type": "BOOL"},
+    {"name": "GruppoEnable", "type": "BOOL"},
+    {"name": "Robot_Ready", "type": "BOOL"},
+    {"name": "Movim_Prenotati", "type": "BOOL"},
+    {"name": "X_Jog_SX", "type": "BOOL"},
+    {"name": "X_Jog_DX", "type": "BOOL"},
+    {"name": "Tim_Marcia", "type": "TON"},
+    {"name": "Tim3", "type": "TON"},
+    {"name": "Power_x", "type": "MC_Power"},
+    {"name": "Power_y", "type": "MC_Power"},
+    {"name": "Group1", "type": "MC_GroupEnable"},
+    {"name": "Group1_OFF", "type": "MC_GroupDisable"},
+    {"name": "X_Reset_Error", "type": "MC_Reset"},
+    {"name": "Group_Reset_Error", "type": "MC_GroupReset"},
+    {"name": "MC_X_Stop", "type": "MC_Stop"},
+    {"name": "Manu_X", "type": "MC_MoveJog"},
+    {"name": "MOV1", "type": "MC_MoveLinearAbsolute"},
+    {"name": "Distance1", "type": "ARRAY[0..3] OF LREAL"},
+    {"name": "X_PRESA", "type": "REAL", "retain": true},
+    {"name": "X_AGGANCIO", "type": "REAL", "retain": true}
+  ]
+}

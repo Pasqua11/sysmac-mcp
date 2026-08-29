@@ -1,0 +1,207 @@
+﻿<Rungs>
+  <RungXML Comment="ABILITAZIONE SERVO" Label="" Height="345" Width="1057.91">
+    <LadderElement instanceID="0x000041F0" ladderElementType="Contact" inverted="false" diffUp="false" diffDown="false" elementComment="" variableName="Tim_Marcia.Q" baseVariableName="Tim_Marcia.Q" ProgramName="Programma0" baseVariableDataType="TON">
+      <ConnectionPoint connectionPointType="input" instanceID="0x000041F1">
+        <Edge instanceID="0x0000424C" />
+      </ConnectionPoint>
+      <ConnectionPoint connectionPointType="output" instanceID="0x000041F2">
+        <Edge instanceID="0x0000424D" />
+      </ConnectionPoint>
+    </LadderElement>
+    <LadderElement instanceID="0x000041F4" ladderElementType="Contact" inverted="false" diffUp="false" diffDown="false" elementComment="" variableName="MC_X.DrvStatus.Ready" baseVariableName="MC_X.DrvStatus.Ready" ProgramName="" baseVariableDataType="_sAXIS_REF">
+      <ConnectionPoint connectionPointType="input" instanceID="0x000041F5">
+        <Edge instanceID="0x0000424E" />
+      </ConnectionPoint>
+      <ConnectionPoint connectionPointType="output" instanceID="0x000041F6">
+        <Edge instanceID="0x0000424F" />
+      </ConnectionPoint>
+    </LadderElement>
+    <LadderElement instanceID="0x000041F8" ladderElementType="Contact" inverted="false" diffUp="false" diffDown="false" elementComment="" variableName="MC_Y.DrvStatus.Ready" baseVariableName="MC_Y.DrvStatus.Ready" ProgramName="" baseVariableDataType="_sAXIS_REF">
+      <ConnectionPoint connectionPointType="input" instanceID="0x000041F9">
+        <Edge instanceID="0x0000424F" />
+      </ConnectionPoint>
+      <ConnectionPoint connectionPointType="output" instanceID="0x000041FA">
+        <Edge instanceID="0x00004250" />
+      </ConnectionPoint>
+    </LadderElement>
+    <LadderElement instanceID="0x000041FC" ladderElementType="Contact" inverted="false" diffUp="false" diffDown="false" elementComment="" variableName="MC_X.DrvStatus.MainPower" baseVariableName="MC_X.DrvStatus.MainPower" ProgramName="" baseVariableDataType="_sAXIS_REF">
+      <ConnectionPoint connectionPointType="input" instanceID="0x000041FD">
+        <Edge instanceID="0x00004250" />
+      </ConnectionPoint>
+      <ConnectionPoint connectionPointType="output" instanceID="0x000041FE">
+        <Edge instanceID="0x00004251" />
+      </ConnectionPoint>
+    </LadderElement>
+    <LadderElement instanceID="0x00004200" ladderElementType="Contact" inverted="false" diffUp="false" diffDown="false" elementComment="" variableName="MC_Y.DrvStatus.MainPower" baseVariableName="MC_Y.DrvStatus.MainPower" ProgramName="" baseVariableDataType="_sAXIS_REF">
+      <ConnectionPoint connectionPointType="input" instanceID="0x00004201">
+        <Edge instanceID="0x00004251" />
+      </ConnectionPoint>
+      <ConnectionPoint connectionPointType="output" instanceID="0x00004202">
+        <Edge instanceID="0x00004252" />
+      </ConnectionPoint>
+    </LadderElement>
+    <LadderElement instanceID="0x00004204" ladderElementType="Contact" inverted="true" diffUp="false" diffDown="false" elementComment="" variableName="Allarme_Bit[7]" baseVariableName="Allarme_Bit[7]" ProgramName="" baseVariableDataType="ARRAY[1..80] OF bool">
+      <ConnectionPoint connectionPointType="input" instanceID="0x00004205">
+        <Edge instanceID="0x0000424D" />
+      </ConnectionPoint>
+      <ConnectionPoint connectionPointType="output" instanceID="0x00004206">
+        <Edge instanceID="0x0000424E" />
+      </ConnectionPoint>
+    </LadderElement>
+    <LadderElement instanceID="0x00004207" ladderElementType="FunctionBlock" elementComment="" typeName="MC_Power" IsUserDefinedType="false" ArePinsGeneratedByVariableTableOrder="false" variableName="Power_x" baseVariableName="Power_x" ProgramName="Programma0">
+      <ConnectionPoint connectionPointType="input" instanceID="0x00004209" PowerPin="false">
+        <Edge instanceID="0x00004253" />
+      </ConnectionPoint>
+      <ConnectionPoint connectionPointType="input" instanceID="0x0000420B" PowerPin="true">
+        <Edge instanceID="0x00004258" />
+      </ConnectionPoint>
+      <ConnectionPoint connectionPointType="output" instanceID="0x0000420D" PowerPin="false">
+        <Edge instanceID="0x00004254" />
+      </ConnectionPoint>
+      <ConnectionPoint connectionPointType="output" instanceID="0x0000420F" PowerPin="true">
+        <Edge instanceID="0x0000425F" />
+      </ConnectionPoint>
+      <ConnectionPoint connectionPointType="output" instanceID="0x00004211" PowerPin="false">
+        <Edge instanceID="0x00004255" />
+      </ConnectionPoint>
+      <ConnectionPoint connectionPointType="output" instanceID="0x00004213" PowerPin="false">
+        <Edge instanceID="0x00004256" />
+      </ConnectionPoint>
+      <ConnectionPoint connectionPointType="output" instanceID="0x00004215" PowerPin="false">
+        <Edge instanceID="0x00004257" />
+      </ConnectionPoint>
+      <PinViewModel IsInput="true" Name="Axis" Datatype="_sAXIS_REF" Comment="Axis" Negated="false" IsInOutVariable="true" PowerPin="false" Visible="true" EdgeDirectionType="NoEdge" />
+      <PinViewModel IsInput="true" Name="Enable" Datatype="BOOL" Comment="Enable" Negated="false" IsInOutVariable="false" PowerPin="true" Visible="true" EdgeDirectionType="NoEdge" />
+      <PinViewModel IsInput="false" Name="Axis" Datatype="_sAXIS_REF" Comment="Axis" Negated="false" IsInOutVariable="true" PowerPin="false" Visible="true" EdgeDirectionType="NoEdge" />
+      <PinViewModel IsInput="false" Name="Status" Datatype="BOOL" Comment="Servo ON" Negated="false" IsInOutVariable="false" PowerPin="true" Visible="true" EdgeDirectionType="NoEdge" />
+      <PinViewModel IsInput="false" Name="Busy" Datatype="BOOL" Comment="Executing" Negated="false" IsInOutVariable="false" PowerPin="false" Visible="true" EdgeDirectionType="NoEdge" />
+      <PinViewModel IsInput="false" Name="Error" Datatype="BOOL" Comment="Error" Negated="false" IsInOutVariable="false" PowerPin="false" Visible="true" EdgeDirectionType="NoEdge" />
+      <PinViewModel IsInput="false" Name="ErrorID" Datatype="WORD" Comment="Error Code" Negated="false" IsInOutVariable="false" PowerPin="false" Visible="true" EdgeDirectionType="NoEdge" />
+    </LadderElement>
+    <LadderElement instanceID="0x00004216" ladderElementType="FunctionBlock" elementComment="" typeName="MC_Power" IsUserDefinedType="false" ArePinsGeneratedByVariableTableOrder="false" variableName="Power_y" baseVariableName="Power_y" ProgramName="Programma0">
+      <ConnectionPoint connectionPointType="input" instanceID="0x00004218" PowerPin="false">
+        <Edge instanceID="0x00004259" />
+      </ConnectionPoint>
+      <ConnectionPoint connectionPointType="input" instanceID="0x0000421A" PowerPin="true">
+        <Edge instanceID="0x0000425E" />
+      </ConnectionPoint>
+      <ConnectionPoint connectionPointType="output" instanceID="0x0000421C" PowerPin="false">
+        <Edge instanceID="0x0000425A" />
+      </ConnectionPoint>
+      <ConnectionPoint connectionPointType="output" instanceID="0x0000421E" PowerPin="true">
+        <Edge instanceID="0x00004260" />
+      </ConnectionPoint>
+      <ConnectionPoint connectionPointType="output" instanceID="0x00004220" PowerPin="false">
+        <Edge instanceID="0x0000425B" />
+      </ConnectionPoint>
+      <ConnectionPoint connectionPointType="output" instanceID="0x00004222" PowerPin="false">
+        <Edge instanceID="0x0000425C" />
+      </ConnectionPoint>
+      <ConnectionPoint connectionPointType="output" instanceID="0x00004224" PowerPin="false">
+        <Edge instanceID="0x0000425D" />
+      </ConnectionPoint>
+      <PinViewModel IsInput="true" Name="Axis" Datatype="_sAXIS_REF" Comment="Axis" Negated="false" IsInOutVariable="true" PowerPin="false" Visible="true" EdgeDirectionType="NoEdge" />
+      <PinViewModel IsInput="true" Name="Enable" Datatype="BOOL" Comment="Enable" Negated="false" IsInOutVariable="false" PowerPin="true" Visible="true" EdgeDirectionType="NoEdge" />
+      <PinViewModel IsInput="false" Name="Axis" Datatype="_sAXIS_REF" Comment="Axis" Negated="false" IsInOutVariable="true" PowerPin="false" Visible="true" EdgeDirectionType="NoEdge" />
+      <PinViewModel IsInput="false" Name="Status" Datatype="BOOL" Comment="Servo ON" Negated="false" IsInOutVariable="false" PowerPin="true" Visible="true" EdgeDirectionType="NoEdge" />
+      <PinViewModel IsInput="false" Name="Busy" Datatype="BOOL" Comment="Executing" Negated="false" IsInOutVariable="false" PowerPin="false" Visible="true" EdgeDirectionType="NoEdge" />
+      <PinViewModel IsInput="false" Name="Error" Datatype="BOOL" Comment="Error" Negated="false" IsInOutVariable="false" PowerPin="false" Visible="true" EdgeDirectionType="NoEdge" />
+      <PinViewModel IsInput="false" Name="ErrorID" Datatype="WORD" Comment="Error Code" Negated="false" IsInOutVariable="false" PowerPin="false" Visible="true" EdgeDirectionType="NoEdge" />
+    </LadderElement>
+    <LadderElement instanceID="0x00004226" ladderElementType="Variable" variableName="MC_X" baseVariableName="MC_X" ProgramName="" baseVariableDataType="_sAXIS_REF">
+      <ConnectionPoint connectionPointType="output" instanceID="0x00004227">
+        <Edge instanceID="0x00004253" />
+      </ConnectionPoint>
+    </LadderElement>
+    <LadderElement instanceID="0x00004229" ladderElementType="Variable" variableName="MC_X" baseVariableName="MC_X" ProgramName="" baseVariableDataType="_sAXIS_REF">
+      <ConnectionPoint connectionPointType="input" instanceID="0x0000422A">
+        <Edge instanceID="0x00004254" />
+      </ConnectionPoint>
+    </LadderElement>
+    <LadderElement instanceID="0x0000422C" ladderElementType="Variable" variableName="" baseVariableName="" ProgramName="Programma0">
+      <ConnectionPoint connectionPointType="input" instanceID="0x0000422D">
+        <Edge instanceID="0x00004255" />
+      </ConnectionPoint>
+    </LadderElement>
+    <LadderElement instanceID="0x0000422F" ladderElementType="Variable" variableName="" baseVariableName="" ProgramName="Programma0">
+      <ConnectionPoint connectionPointType="input" instanceID="0x00004230">
+        <Edge instanceID="0x00004256" />
+      </ConnectionPoint>
+    </LadderElement>
+    <LadderElement instanceID="0x00004232" ladderElementType="Variable" variableName="" baseVariableName="" ProgramName="Programma0">
+      <ConnectionPoint connectionPointType="input" instanceID="0x00004233">
+        <Edge instanceID="0x00004257" />
+      </ConnectionPoint>
+    </LadderElement>
+    <LadderElement instanceID="0x00004235" ladderElementType="Variable" variableName="MC_Y" baseVariableName="MC_Y" ProgramName="" baseVariableDataType="_sAXIS_REF">
+      <ConnectionPoint connectionPointType="output" instanceID="0x00004236">
+        <Edge instanceID="0x00004259" />
+      </ConnectionPoint>
+    </LadderElement>
+    <LadderElement instanceID="0x00004238" ladderElementType="Variable" variableName="MC_Y" baseVariableName="MC_Y" ProgramName="" baseVariableDataType="_sAXIS_REF">
+      <ConnectionPoint connectionPointType="input" instanceID="0x00004239">
+        <Edge instanceID="0x0000425A" />
+      </ConnectionPoint>
+    </LadderElement>
+    <LadderElement instanceID="0x0000423B" ladderElementType="Variable" variableName="" baseVariableName="" ProgramName="Programma0">
+      <ConnectionPoint connectionPointType="input" instanceID="0x0000423C">
+        <Edge instanceID="0x0000425B" />
+      </ConnectionPoint>
+    </LadderElement>
+    <LadderElement instanceID="0x0000423E" ladderElementType="Variable" variableName="" baseVariableName="" ProgramName="Programma0">
+      <ConnectionPoint connectionPointType="input" instanceID="0x0000423F">
+        <Edge instanceID="0x0000425C" />
+      </ConnectionPoint>
+    </LadderElement>
+    <LadderElement instanceID="0x00004241" ladderElementType="Variable" variableName="" baseVariableName="" ProgramName="Programma0">
+      <ConnectionPoint connectionPointType="input" instanceID="0x00004242">
+        <Edge instanceID="0x0000425D" />
+      </ConnectionPoint>
+    </LadderElement>
+    <LadderElement instanceID="0x00004243" ladderElementType="Connection" IsLeftPowerRail="true" IsRightPowerRail="false">
+      <ConnectionPoint connectionPointType="output" instanceID="0x00004244">
+        <Edge instanceID="0x0000424C" />
+      </ConnectionPoint>
+    </LadderElement>
+    <LadderElement instanceID="0x00004245" ladderElementType="Connection" IsLeftPowerRail="false" IsRightPowerRail="true">
+      <ConnectionPoint connectionPointType="input" instanceID="0x00004246">
+        <Edge instanceID="0x0000425F" />
+      </ConnectionPoint>
+      <ConnectionPoint connectionPointType="input" instanceID="0x00004247">
+        <Edge instanceID="0x00004260" />
+      </ConnectionPoint>
+    </LadderElement>
+    <LadderElement instanceID="0x00004248" ladderElementType="Connection" IsLeftPowerRail="false" IsRightPowerRail="false">
+      <ConnectionPoint connectionPointType="input" instanceID="0x00004249">
+        <Edge instanceID="0x00004252" />
+      </ConnectionPoint>
+      <ConnectionPoint connectionPointType="output" instanceID="0x0000424A">
+        <Edge instanceID="0x00004258" />
+      </ConnectionPoint>
+      <ConnectionPoint connectionPointType="output" instanceID="0x0000424B">
+        <Edge instanceID="0x0000425E" />
+      </ConnectionPoint>
+    </LadderElement>
+    <LadderElement instanceID="0x0000424C" ladderElementType="Edge" sourceID="0x00004244" targetID="0x000041F1" Focusable="true" />
+    <LadderElement instanceID="0x0000424D" ladderElementType="Edge" sourceID="0x000041F2" targetID="0x00004205" Focusable="true" />
+    <LadderElement instanceID="0x0000424E" ladderElementType="Edge" sourceID="0x00004206" targetID="0x000041F5" Focusable="true" />
+    <LadderElement instanceID="0x0000424F" ladderElementType="Edge" sourceID="0x000041F6" targetID="0x000041F9" Focusable="true" />
+    <LadderElement instanceID="0x00004250" ladderElementType="Edge" sourceID="0x000041FA" targetID="0x000041FD" Focusable="true" />
+    <LadderElement instanceID="0x00004251" ladderElementType="Edge" sourceID="0x000041FE" targetID="0x00004201" Focusable="true" />
+    <LadderElement instanceID="0x00004252" ladderElementType="Edge" sourceID="0x00004202" targetID="0x00004249" Focusable="true" />
+    <LadderElement instanceID="0x00004253" ladderElementType="Edge" sourceID="0x00004227" targetID="0x00004209" Focusable="false" />
+    <LadderElement instanceID="0x00004254" ladderElementType="Edge" sourceID="0x0000420D" targetID="0x0000422A" Focusable="false" />
+    <LadderElement instanceID="0x00004255" ladderElementType="Edge" sourceID="0x00004211" targetID="0x0000422D" Focusable="false" />
+    <LadderElement instanceID="0x00004256" ladderElementType="Edge" sourceID="0x00004213" targetID="0x00004230" Focusable="false" />
+    <LadderElement instanceID="0x00004257" ladderElementType="Edge" sourceID="0x00004215" targetID="0x00004233" Focusable="false" />
+    <LadderElement instanceID="0x00004258" ladderElementType="Edge" sourceID="0x0000424A" targetID="0x0000420B" Focusable="true" />
+    <LadderElement instanceID="0x00004259" ladderElementType="Edge" sourceID="0x00004236" targetID="0x00004218" Focusable="false" />
+    <LadderElement instanceID="0x0000425A" ladderElementType="Edge" sourceID="0x0000421C" targetID="0x00004239" Focusable="false" />
+    <LadderElement instanceID="0x0000425B" ladderElementType="Edge" sourceID="0x00004220" targetID="0x0000423C" Focusable="false" />
+    <LadderElement instanceID="0x0000425C" ladderElementType="Edge" sourceID="0x00004222" targetID="0x0000423F" Focusable="false" />
+    <LadderElement instanceID="0x0000425D" ladderElementType="Edge" sourceID="0x00004224" targetID="0x00004242" Focusable="false" />
+    <LadderElement instanceID="0x0000425E" ladderElementType="Edge" sourceID="0x0000424B" targetID="0x0000421A" Focusable="true" />
+    <LadderElement instanceID="0x0000425F" ladderElementType="Edge" sourceID="0x0000420F" targetID="0x00004246" Focusable="true" />
+    <LadderElement instanceID="0x00004260" ladderElementType="Edge" sourceID="0x0000421E" targetID="0x00004247" Focusable="true" />
+  </RungXML>
+</Rungs>

@@ -1,0 +1,2292 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>MC_CamInCurve</title>
+</head>
+<body class="mme1761114518394"><div class="layer02" id="mme1761114518394">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">MC_CamInCurve</h1>
+
+<div class="body conbody">
+<p class="p">The MC_CamInCurve instruction starts a cam operation based on the <span class="ph phtype_variable"><span class="termtype">CamProperty</span></span> (Cam Properties) and <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> (Cam Nodes) specified in the In-Out variables.</p>
+
+<p class="p">It performs a smoother cam operation compared to the MC_CamIn (Start Cam Operation) instruction as it interpolates between cam nodes using a specified curve.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="mme1761114518394__table_N10024_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:16%" />
+<col style="width:12%" />
+<col style="width:5%" />
+<col style="width:35%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d94352e46">Instruction</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d94352e49">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d94352e52">FB/FUN</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d94352e55">Graphic expression</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d94352e58">ST expression</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94352e46 "><span class="indexterm">MC_CamInCurve (Start Cam Operation With Specified Curve)</span>MC_CamInCurve</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94352e49 "><span class="indexterm">Start Cam Operation With Specified Curve</span>Start Cam Operation With Specified Curve</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d94352e52 ">FB</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94352e55 ">
+<br /><img class="image" id="mme1761114518394__image_in2_3dd_bhc" src="ref1761114847360.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94352e58 ">
+<p class="p" id="mme1761114518394__ID0E6JBQ">MC_CamInCurve_instance (</p>
+
+<p class="p">Master :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Slave :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">CamProperty :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">CamNodes :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Execute :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Periodic :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">StartMode :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">StartPosition :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">MasterStartDistance :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">MasterScaling :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">SlaveScaling :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">MasterOffset :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">SlaveOffset :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">ReferenceType :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Direction :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">CamTransition :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">BufferMode :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">InCam =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">InSync =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">EndOfProfile =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">NodePointIndex =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span></p>
+
+<p class="p">Busy =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Active =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter,</span></span>,</p>
+
+<p class="p">CommandAborted =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Error =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">ErrorID =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span></p>
+
+<p class="p">ErrorParameterCode =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">ErrorNodePointIndex =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span></p>
+
+<p class="p">);</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="okx1761115161109">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Variables</h1>
+
+<div class="body conbody">
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="nuo1761115196373">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Input Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="nuo1761115196373__table_N10013_N10010_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:14%" />
+<col style="width:11%" />
+<col style="width:17%" />
+<col style="width:19%" />
+<col style="width:7%" />
+<col style="width:30%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d108861e70">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d108861e73">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d108861e76">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d108861e79">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d108861e82">Default</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d108861e86">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e70 ">Execute</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e73 ">Execute</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e76 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d108861e79 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d108861e82 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e86 ">
+<p class="p" id="nuo1761115196373__ID0EUSBQ">Executes the instruction when this variable changes to TRUE.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e70 ">Periodic</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e73 ">Periodic Mode</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e76 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d108861e79 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d108861e82 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e86 ">
+<p class="p" id="nuo1761115196373__ID0EBVBQ">Specifies whether to execute the specified <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> periodically or only once.</p>
+
+<p class="p" id="nuo1761115196373__ID0EIVBQ">TRUE: Periodic</p>
+
+<p class="p" id="nuo1761115196373__ID0EPVBQ">FALSE: Non-periodic</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e70 ">StartMode</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e73 ">Start Mode</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e76 ">_eMC_START_MODE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e79 ">
+<p class="p" id="nuo1761115196373__ID0EGXBQ">0: _mcAbsolutePosition</p>
+
+<p class="p" id="nuo1761115196373__ID0ENXBQ">1: _mcRelativePosition</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d108861e82 ">0 <a class="xref" href="#nuo1761115196373__fn_vhh_fld_bhc"><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e86 ">
+<p class="p" id="nuo1761115196373__ID0EIYBQ">Specifies the coordinates used by <span class="ph phtype_variable"><span class="termtype">MasterStartDistance</span></span>.</p>
+
+<p class="p" id="nuo1761115196373__ID0EPYBQ">0: Absolute position</p>
+
+<p class="p" id="nuo1761115196373__ID0EWYBQ">1: Relative position</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e70 ">StartPosition</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e73 ">Cam Nodes Start Position</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e76 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d108861e79 ">Negative number, positive number, or 0</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d108861e82 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e86 ">
+<p class="p" id="nuo1761115196373__ID0ED2BQ">Specifies the starting point of the <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> (phase = 0) as an absolute position of the master axis.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e70 ">MasterStartDistance</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e73 ">Master Following Distance</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e76 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d108861e79 ">Negative number, positive number, or 0</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d108861e82 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e86 ">
+<p class="p" id="nuo1761115196373__ID0EY4BQ">Specifies the position of the master axis when the slave axis starts the cam motion.</p>
+
+<p class="p" id="nuo1761115196373__ID0E64BQ">When <span class="ph phtype_choice"><span class="termtype">0: _mcAbsolutePosition</span></span> is specified with <span class="ph phtype_variable"><span class="termtype">StartMode</span></span>, specify the absolute position of the master axis. When <span class="ph phtype_choice"><span class="termtype">1: _mcRelativePosition</span></span> is specified, specify a relative distance from the <span class="ph phtype_variable"><span class="termtype">StartPosition</span></span> (Cam Nodes Start Position).</p>
+
+<p class="p" id="nuo1761115196373__ID0EG5BQ">The unit is command units. <a class="xref" href="#nuo1761115196373__fn_mcy_fld_bhc"><sup>*2</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e70 ">MasterScaling</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e73 ">Master Coefficient</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e76 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d108861e79 ">Positive value (&gt; 0.0)</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d108861e82 ">1.0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e86 ">
+<p class="p" id="nuo1761115196373__ID0EYACQ">Extends or contracts the master axis phase using the specified scale.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e70 ">SlaveScaling</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e73 ">Slave Axis Coefficient</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e76 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d108861e79 ">Negative number or positive number</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d108861e82 ">1.0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e86 ">
+<p class="p" id="nuo1761115196373__ID0EDDCQ">Extends and contracts the slave axis displacement using the specified scale.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e70 ">MasterOffset</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e73 ">Master Offset</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e76 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d108861e79 ">Negative number, positive number, or 0</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d108861e82 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e86 ">
+<p class="p" id="nuo1761115196373__ID0EQFCQ">Shifts the phase of the master axis by using the specified offset value.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e70 ">SlaveOffset</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e73 ">Slave Offset</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e76 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d108861e79 ">Negative number, positive number, or 0</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d108861e82 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e86 ">
+<p class="p" id="nuo1761115196373__ID0E4HCQ">Shifts the displacement of the slave axis by using the specified offset value.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e70 ">ReferenceType</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e73 ">Position Type Selection</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e76 ">_eMC_REFERENCE_TYPE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e79 ">
+<p class="p" id="nuo1761115196373__ID0EAKCQ">0: _mcCommand</p>
+
+<p class="p" id="nuo1761115196373__ID0EHKCQ">1: _mcFeedback</p>
+
+<p class="p" id="nuo1761115196373__ID0EOKCQ">2: _mcLatestCommand</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d108861e82 ">0 <a class="xref" href="#nuo1761115196373__fn_vhh_fld_bhc"><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e86 ">
+<p class="p" id="nuo1761115196373__ID0EGLCQ">Specifies the position type of the master axis.</p>
+
+<p class="p" id="nuo1761115196373__ID0ENLCQ">0: Command position (value calculated in the previous task period <a class="xref" href="#nuo1761115196373__fn_zkk_gld_bhc"><sup>*3</sup></a>)</p>
+
+<p class="p" id="nuo1761115196373__ID0EYLCQ">1: Actual position (value obtained in the same task period <a class="xref" href="#nuo1761115196373__fn_zkk_gld_bhc"><sup>*3</sup></a>)</p>
+
+<p class="p" id="nuo1761115196373__ID0E6LCQ">2: Command position (value calculated in the same task period <a class="xref" href="#nuo1761115196373__fn_zkk_gld_bhc"><sup>*3</sup></a>)</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e70 ">Direction</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e73 ">Direction</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e76 ">_eMC_DIRECTION</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e79 ">
+<p class="p" id="nuo1761115196373__ID0EUNCQ">0: _mcPositiveDirection</p>
+
+<p class="p" id="nuo1761115196373__ID0E2NCQ">2: _mcNegativeDirection</p>
+
+<p class="p" id="nuo1761115196373__ID0ECOCQ">4: _mcNoDirection</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d108861e82 ">4 <a class="xref" href="#nuo1761115196373__fn_vhh_fld_bhc"><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e86 ">
+<p class="p" id="nuo1761115196373__ID0E1OCQ">Moves the slave axis cams when the master axis moves in the specified direction only. If the master axis is moving opposite to the direction specified, the slave axis cam is stopped.</p>
+
+<p class="p" id="nuo1761115196373__ID0EBPCQ">0: Positive direction</p>
+
+<p class="p" id="nuo1761115196373__ID0EIPCQ">2: Negative direction</p>
+
+<p class="p" id="nuo1761115196373__ID0EPPCQ">4: No direction specified</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e70 ">
+<p class="p" id="nuo1761115196373__ID0E5PCQ">CamTransition</p>
+
+<p class="p" id="nuo1761115196373__ID0EHQCQ">(Reserved)</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e73 ">Cam Transition Selection</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e76 ">_eMC_CAM_TRANSITION</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e79 ">
+<p class="p" id="nuo1761115196373__ID0ENRCQ">0: _mcCTNone</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d108861e82 ">0 <a class="xref" href="#nuo1761115196373__fn_vhh_fld_bhc"><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e86 ">
+<p class="p" id="nuo1761115196373__ID0EFSCQ">(Reserved)</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e70 ">BufferMode</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e73 ">Buffer Mode Selection</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e76 ">_eMC_BUFFER_MODE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e79 ">
+<p class="p" id="nuo1761115196373__ID0E3TCQ">0: _mcAborting</p>
+
+<p class="p" id="nuo1761115196373__ID0EDUCQ">1: _mcBuffered</p>
+
+<p class="p" id="nuo1761115196373__ID0EKUCQ">2: _mcBlendingLow <a class="xref" href="#nuo1761115196373__fn_vdx_gld_bhc"><sup>*4</sup></a></p>
+
+<p class="p" id="nuo1761115196373__ID0EUUCQ">3: _mcBlendingPrevious <a class="xref" href="#nuo1761115196373__fn_vdx_gld_bhc"><sup>*4</sup></a></p>
+
+<p class="p" id="nuo1761115196373__ID0E2UCQ">4: _mcBlendingNext <a class="xref" href="#nuo1761115196373__fn_vdx_gld_bhc"><sup>*4</sup></a></p>
+
+<p class="p" id="nuo1761115196373__ID0ECVCQ">5: _mcBlendingHigh <a class="xref" href="#nuo1761115196373__fn_vdx_gld_bhc"><sup>*4</sup></a></p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d108861e82 ">0 <a class="xref" href="#nuo1761115196373__fn_vhh_fld_bhc"><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108861e86 ">
+<p class="p" id="nuo1761115196373__ID0E1VCQ">Specifies the operation when executing more than one motion control instruction.</p>
+
+<p class="p" id="nuo1761115196373__ID0EBWCQ">0: Aborting</p>
+
+<p class="p" id="nuo1761115196373__ID0EIWCQ">1: Buffered</p>
+
+<p class="p" id="nuo1761115196373__ID0EPWCQ">2: Blending low</p>
+
+<p class="p" id="nuo1761115196373__ID0EWWCQ">3: Blending previous</p>
+
+<p class="p" id="nuo1761115196373__ID0E4WCQ">4: Blending next</p>
+
+<p class="p" id="nuo1761115196373__ID0EEXCQ">5: Blending high</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="nuo1761115196373__fn_vhh_fld_bhc" id="nuo1761115196373__fn_vhh_fld_bhc"><sup>*1</sup></a>  <p class="p" id="nuo1761115196373__ID0EBTLT">The default value for an enumeration variable is actually not the number, but the enumerator.</p>
+</div>
+<div class="fn"><a name="nuo1761115196373__fn_mcy_fld_bhc" id="nuo1761115196373__fn_mcy_fld_bhc"><sup>*2</sup></a>  <p class="p" id="nuo1761115196373__ID0EUTLT">Refer to <span class="ph phtype_type2"><span class="termtype">Unit Conversion Settings</span></span> in the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Motion Control User&#8217;s Manual (Cat. No. W507)</span></span></span>.</p>
+</div>
+<div class="fn"><a name="nuo1761115196373__fn_zkk_gld_bhc" id="nuo1761115196373__fn_zkk_gld_bhc"><sup>*3</sup></a>  <p class="p" id="nuo1761115196373__ID0ERULT">The task period is the primary period if the task is the primary periodic task and the task period of the priority-5 periodic task if the task is the priority-5 periodic task.</p>
+</div>
+<div class="fn"><a name="nuo1761115196373__fn_vdx_gld_bhc" id="nuo1761115196373__fn_vdx_gld_bhc"><sup>*4</sup></a>  <p class="p">The operation is the same regardless of which of the four types of blending is specified.</p>
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="zsn1761115233351">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Output Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="zsn1761115233351__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:13%" />
+<col style="width:12%" />
+<col style="width:10%" />
+<col style="width:10%" />
+<col style="width:5%" />
+<col style="width:47%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d221922e58">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d221922e61">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d221922e64">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d221922e67">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d221922e70">Unit</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d221922e74">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e58 ">InCam</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e61 ">Cam Motion</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e64 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d221922e67 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d221922e70 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e74 ">
+<p class="p" id="zsn1761115233351__ID0EL4CQ">TRUE when the start point of <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> is executed.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e58 ">InSync</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e61 ">In Sync</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e64 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d221922e67 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d221922e70 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e74 ">
+<p class="p" id="zsn1761115233351__ID0EW6CQ">TRUE when the cam is in sync with the master axis.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e58 ">EndOfProfile</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e61 ">End of Cam Cycle</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e64 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d221922e67 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d221922e70 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e74 ">
+<p class="p" id="zsn1761115233351__ID0EBCDQ">TRUE when the end point of <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> is executed.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e58 ">NodePointIndex</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e61 ">Node Point Element Number</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e64 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d221922e67 ">Positive number or 0</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d221922e70 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e74 ">
+<p class="p" id="zsn1761115233351__ID0EOEDQ">Contains the index number of <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span>. <a class="xref" href="#zsn1761115233351__fn_mhw_lmd_bhc"><sup>*1</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e58 ">Busy</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e61 ">Executing</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e64 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d221922e67 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d221922e70 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e74 ">
+<p class="p" id="zsn1761115233351__ID0E3GDQ">TRUE when the instruction is acknowledged.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e58 ">Active</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e61 ">Controlling</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e64 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d221922e67 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d221922e70 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e74 ">
+<p class="p" id="zsn1761115233351__ID0EHJDQ">TRUE when the axis is being controlled.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e58 ">CommandAborted</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e61 ">Command Aborted</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e64 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d221922e67 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d221922e70 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e74 ">
+<p class="p" id="zsn1761115233351__ID0EULDQ">TRUE when the instruction is aborted.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e58 ">Error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e61 ">Error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e64 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d221922e67 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d221922e70 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e74 ">
+<p class="p" id="zsn1761115233351__ID0E6NDQ">TRUE while there is an error.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e58 ">ErrorID</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e61 ">Error Code</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e64 ">WORD</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d221922e67 "><a class="xref" href="#zsn1761115233351__fn_ikc_mmd_bhc"><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d221922e70 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e74 ">
+<p class="p" id="zsn1761115233351__ID0EMQDQ">Contains the error code when an error occurs.</p>
+
+<p class="p">A value of 16#0000 indicates normal execution.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e58 ">ErrorParameterCode</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e61 ">Parameter Detail Code</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e64 ">WORD</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d221922e67 "><a class="xref" href="#zsn1761115233351__fn_ikc_mmd_bhc"><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d221922e70 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e74 ">Contains the attached information depending on the <span class="ph phtype_variable"><span class="termtype">ErrorID</span></span> (Error Code). If the information is contained, the detail code of the parameter code for which the error occurred is output.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e58 ">ErrorNodePointIndex</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e61 ">Error Node Point Element Number</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e64 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d221922e67 "><a class="xref" href="#zsn1761115233351__fn_ikc_mmd_bhc"><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d221922e70 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d221922e74 ">Contains the attached information depending on the <span class="ph phtype_variable"><span class="termtype">ErrorID</span></span> (Error Code). If the information is contained, the element number of the node point array for which the error occurred is output.</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="zsn1761115233351__fn_mhw_lmd_bhc" id="zsn1761115233351__fn_mhw_lmd_bhc"><sup>*1</sup></a>  <p class="p" id="zsn1761115233351__ID0EXVLT">The value is 0 while <span class="ph phtype_variable"><span class="termtype">InCam</span></span> (Cam Motion) is FALSE.</p>
+</div>
+<div class="fn"><a name="zsn1761115233351__fn_ikc_mmd_bhc" id="zsn1761115233351__fn_ikc_mmd_bhc"><sup>*2</sup></a>  <p class="p" id="zsn1761115233351__ID0EKWLT">The upper four digits of the event code give the ErrorID (Error Code). For details, refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series Troubleshooting Manual (Cat. No. W503)</span></span></span>.</p>
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="ifh1761115259760">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Output Variable Update Timing</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ifh1761115259760__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:17%" />
+<col style="width:41%" />
+<col style="width:40%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d61228e29">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d61228e32">Timing for changing to TRUE</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d61228e35">Timing for changing to FALSE</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d61228e29 ">InSync</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d61228e32 ">
+<p class="p">When the slave axis starts cam operation.</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d61228e35 ">
+<ul class="ul" id="ifh1761115259760__ul_421B91EDD61D43CF818DD0B99F4200D9">
+<li class="li" id="ifh1761115259760__li_A6C824ED61E146038BDA46B480B19FF2">
+<p class="p" id="ifh1761115259760__ID0EJUDQ">When <span class="ph phtype_variable"><span class="termtype">Periodic</span></span> is FALSE and <span class="ph phtype_variable"><span class="termtype">EndOfProfile</span></span> changes to TRUE.</p>
+
+</li>
+
+<li class="li" id="ifh1761115259760__li_3D9F78228B3B483D9AE2791BB49A57E8">
+<p class="p" id="ifh1761115259760__ID0EUUDQ">When <span class="ph phtype_variable"><span class="termtype">Error</span></span> changes to TRUE.</p>
+
+</li>
+
+<li class="li" id="ifh1761115259760__li_6759999430304A1BA4F72E1B59618260">
+<p class="p" id="ifh1761115259760__ID0E6UDQ">When <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> changes to TRUE.</p>
+
+</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d61228e29 ">EndOfProfile</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d61228e32 ">
+<p class="p" id="ifh1761115259760__ID0EYVDQ">The period where the phase and displacement of the end point of the <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> are output as the command position.</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d61228e35 ">
+<p class="p" id="ifh1761115259760__ID0EEWDQ">One period after <span class="ph phtype_variable"><span class="termtype">EndOfProfile</span></span> changes to TRUE.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d61228e29 ">Busy</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d61228e32 ">
+<p class="p" id="ifh1761115259760__ID0E6WDQ">When <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to TRUE.</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d61228e35 ">
+<ul class="ul" id="ifh1761115259760__ul_AA9D39CECF204C9D9C8C914253A8CD57">
+<li class="li" id="ifh1761115259760__li_C4465BE3AE99458AAB640E6A1513DA88">
+<p class="p" id="ifh1761115259760__ID0EXXDQ">When <span class="ph phtype_variable"><span class="termtype">Periodic</span></span> is FALSE and <span class="ph phtype_variable"><span class="termtype">EndOfProfile</span></span> changes to TRUE.</p>
+
+</li>
+
+<li class="li" id="ifh1761115259760__li_6CCD43F4522D42989F62A07CE82C2895">
+<p class="p" id="ifh1761115259760__ID0ECYDQ">When <span class="ph phtype_variable"><span class="termtype">Error</span></span> changes to TRUE.</p>
+
+</li>
+
+<li class="li" id="ifh1761115259760__li_48EA5DB8C0D24AB0A8797D90D2634568">
+<p class="p" id="ifh1761115259760__ID0ENYDQ">When <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> changes to TRUE.</p>
+
+</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d61228e29 ">InCam</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d61228e32 ">
+<p class="p" id="ifh1761115259760__ID0EGZDQ">When the master axis passes the <span class="ph phtype_variable"><span class="termtype">StartPosition</span></span> (Cam Nodes Start Position).</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d61228e35 ">
+<ul class="ul" id="ifh1761115259760__ul_49E3489FEC7A40B9871B8C8ECA9663B8">
+<li class="li" id="ifh1761115259760__li_C840161C15094320858626B2D04EEAAE">
+<p class="p" id="ifh1761115259760__ID0E5ZDQ">When <span class="ph phtype_variable"><span class="termtype">Periodic</span></span> is FALSE and <span class="ph phtype_variable"><span class="termtype">EndOfProfile</span></span> changes to TRUE.</p>
+
+</li>
+
+<li class="li" id="ifh1761115259760__li_2716DE2401E34051A1039F909A42B22F">
+<p class="p" id="ifh1761115259760__ID0EJ1DQ">When <span class="ph phtype_variable"><span class="termtype">Error</span></span> changes to TRUE.</p>
+
+</li>
+
+<li class="li" id="ifh1761115259760__li_8AB40969D4C941A887F887982F414D24">
+<p class="p" id="ifh1761115259760__ID0EU1DQ">When <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> changes to TRUE.</p>
+
+</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d61228e29 ">Active</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d61228e32 ">
+<p class="p" id="ifh1761115259760__ID0EN2DQ">When the instruction is started.</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d61228e35 ">
+<ul class="ul" id="ifh1761115259760__ul_A9F6458D2EE7439B9709DEA9CE783330">
+<li class="li" id="ifh1761115259760__li_C799D09C6B3C45CAB7B29948A427D548">
+<p class="p" id="ifh1761115259760__ID0EF3DQ">When <span class="ph phtype_variable"><span class="termtype">Periodic</span></span> is FALSE and <span class="ph phtype_variable"><span class="termtype">EndOfProfile</span></span> changes to TRUE.</p>
+
+</li>
+
+<li class="li" id="ifh1761115259760__li_F6DA31F7E93F401CA42E2305E6BAFA6D">
+<p class="p" id="ifh1761115259760__ID0EQ3DQ">When <span class="ph phtype_variable"><span class="termtype">Error</span></span> changes to TRUE.</p>
+
+</li>
+
+<li class="li" id="ifh1761115259760__li_CD2CC9256FE04E05998994A537A380F0">
+<p class="p" id="ifh1761115259760__ID0E23DQ">When <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> changes to TRUE.</p>
+
+</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d61228e29 ">CommandAborted</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d61228e32 ">
+<ul class="ul" id="ifh1761115259760__ul_69CED2D3F8B24925B8CFBF37F646310D">
+<li class="li" id="ifh1761115259760__li_EA87F3EE2B9A41D4B542083521CC20DE">
+<p class="p" id="ifh1761115259760__ID0EA5DQ">When this instruction is aborted because another motion control instruction was executed with the Buffer Mode set to <span class="ph phtype_choice"><span class="termtype">Aborting</span></span>.</p>
+
+</li>
+
+<li class="li" id="ifh1761115259760__li_C46E414E13AB47A3A8AADB5CA8787A2A">
+<p class="p" id="ifh1761115259760__ID0EL5DQ">When this instruction is canceled due to an error.</p>
+
+</li>
+
+<li class="li" id="ifh1761115259760__li_3C802912ED9145C8B7839875BFEF4EB9">
+<p class="p" id="ifh1761115259760__ID0EW5DQ">When this instruction is executed while there is an error.</p>
+
+</li>
+
+<li class="li" id="ifh1761115259760__li_3DA4F4A400E14EEE88D755C4FC18E2B2">
+<p class="p" id="ifh1761115259760__ID0EB6DQ">When you start this instruction during MC_Stop instruction execution.</p>
+
+</li>
+
+<li class="li" id="ifh1761115259760__li_4AC9975E8D134EEA80E352750A8AC971">
+<p class="p" id="ifh1761115259760__ID0EM6DQ">When the MC_CamOut instruction is executed.</p>
+
+</li>
+
+</ul>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d61228e35 ">
+<ul class="ul" id="ifh1761115259760__ul_5901CC8E62E44550AA620B817E6CBD99">
+<li class="li" id="ifh1761115259760__li_139FC254FE5D4AABA9446800E03D5BEF">
+<p class="p" id="ifh1761115259760__ID0ECAEQ">When <span class="ph phtype_variable"><span class="termtype">Execute</span></span> is TRUE and changes to FALSE<span class="ph phtype_variable"><span class="termtype"></span></span>.</p>
+
+</li>
+
+<li class="li" id="ifh1761115259760__li_C64E4274E6754D45ABBA3FCC2DE9B089">
+<p class="p" id="ifh1761115259760__ID0ENAEQ">After one period when <span class="ph phtype_variable"><span class="termtype">Execute</span></span> is FALSE.</p>
+
+</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d61228e29 ">Error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d61228e32 ">
+<p class="p" id="ifh1761115259760__ID0EGBEQ">When there is an error in the execution conditions or input parameters for the instruction.</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d61228e35 ">
+<p class="p" id="ifh1761115259760__ID0ESBEQ">When the error is cleared.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="tet1761115284117">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">In-Out Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="tet1761115284117__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:13%" />
+<col style="width:12%" />
+<col style="width:18%" />
+<col style="width:9%" />
+<col style="width:46%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d162971e52">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d162971e55">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d162971e58">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d162971e61">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d162971e64">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d162971e52 ">Master</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d162971e55 ">Master Axis</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d162971e58 ">_sAXIS_REF</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d162971e61 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d162971e64 ">
+<p class="p" id="tet1761115284117__ID0EBHEQ">Specifies the master axis. <a class="xref" href="#tet1761115284117__fn_obs_1rd_bhc"><sup>*1</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d162971e52 ">Slave</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d162971e55 ">Slave Axis</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d162971e58 ">_sAXIS_REF</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d162971e61 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d162971e64 ">
+<p class="p" id="tet1761115284117__ID0EDJEQ">Specifies the slave axis. <a class="xref" href="#tet1761115284117__fn_obs_1rd_bhc"><sup>*1</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d162971e52 ">CamProperty</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d162971e55 ">Cam Properties</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d162971e58 ">_sMC_CAM_PROPERTY</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d162971e61 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d162971e64 ">
+<p class="p">Sets the cam properties. Specifies a user-defined variable with a data type of _sMC_CAM_PROPERTY or a cam property variable created on the Sysmac Studio.</p>
+
+<p class="p">When <span class="ph phtype_variable"><span class="termtype">CycleTime</span></span> is set to 0, the units for the velocity and acceleration of the cam properties and cam nodes are phase-based. For details, refer to <a class="xref" href="mme1761114518394.html"><i style="display:none;">☆</i>MC_CamInCurve</a> in <a class="xref" href="mme1761114518394.html"><i style="display:none;">☆</i>MC_CamInCurve</a>.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d162971e52 ">CamNodes</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d162971e55 ">Cam Nodes</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d162971e58 ">ARRAY[0..N] OF _sMC_CAM_NODE</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d162971e61 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d162971e64 ">
+<p class="p">Uses an array variable of the cam node structure _sMC_CAM_NODE as cam nodes. Specifies a user-defined variable<a class="xref" href="#tet1761115284117__fn_fsz_1rd_bhc"><sup>*2</sup></a> with a data type of _sMC_CAM_NODE or a cam node variable created on the Sysmac Studio.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="tet1761115284117__fn_obs_1rd_bhc" id="tet1761115284117__fn_obs_1rd_bhc"><sup>*1</sup></a>  <p class="p" id="tet1761115284117__ID0EFXLT">Use the axis variable name of a user-defined variable created in the Axis Basic Settings of the Sysmac Studio (default: MC_Axis*) or the axis variable name of a system-defined variable (_MC_AX[*], _MC1_AX[*], _MC2_AX[*]).</p>
+</div>
+<div class="fn"><a name="tet1761115284117__fn_fsz_1rd_bhc" id="tet1761115284117__fn_fsz_1rd_bhc"><sup>*2</sup></a>  <p class="p" id="tet1761115284117__ID0EYXLT">If you use a user-defined variable, create an array variable with a starting element number of 0 and a maximum of 358 array elements <span class="ph phtype_quote"><span class="termtype">"N"</span></span>.</p>
+</div></div></div>
+
+<div class="note" id="tet1761115284117__note_st1_yrd_bhc"><div class="use"><span class="notetitle use">use:</span>
+<p class="p">If you specify the same axis for the master axis and slave axis, a Master and Slave Defined as Same Axis minor fault (error code 5436 hex) will occur.</p>
+
+</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="sdi1761115314437">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function</h1>
+
+<div class="body conbody">
+<p class="p">The MC_CamInCurve instruction executes the cam operation by calculating the displacement (slave axis) corresponding to the phase (master axis) based on the <span class="ph phtype_variable"><span class="termtype">CamProperty</span></span> (Cam Properties) and <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> (Cam Nodes) values specified in the in-out variables when <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to TRUE.</p>
+
+<p class="p linespace_14pt"></p>
+
+<p class="p">The command position for the slave axis is calculated by interpolating the displacement (slave axis) corresponding to the phase (master axis) with a specified curve between two node points.</p>
+
+<br /><img class="image" id="sdi1761115314437__image_rkt_rsd_bhc" src="gmf1761121863109.gif" /><br />
+<br /><img class="image" id="sdi1761115314437__image_kx2_5sd_bhc" src="dpv1761121908665.gif" /><br />
+<p class="p">During execution of this instruction, rewriting the contents of the <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> (Cam Nodes) and/or <span class="ph phtype_variable"><span class="termtype">CamProperty</span></span> (Cam Properties) in-out variables in the user program is not reflected in the instruction. To have changes made to the <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> (Cam Nodes) or <span class="ph phtype_variable"><span class="termtype">CamProperty</span></span> (Cam Properties) reflected during execution of this instruction, restart the instruction after making the changes.</p>
+
+<p class="p">You cannot use the MC_CamMonitor (Cam Monitor) instruction to monitor the cam operation of this instruction. To monitor the cam operation of this instruction, use the MC_CamMonitorCurve (Cam Monitor With Specified Curve) instruction.</p>
+
+<p class="p">If the absolute value of the product of the cam profile curve displacement and the <span class="ph phtype_variable"><span class="termtype">SlaveScaling</span></span> (Slave Axis Coefficient) exceeds the 40-bit data range when it is converted into pulses, a Cam Operation Displacement Overflow error (error code: 5758 hex) will occur. If a Cam Operation Displacement Overflow error (error code: 5758 hex) occurs, the instruction will stop without updating the command position of the slave axis.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="wyy1761115659975">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Cam Operation Displacement Overflow</h1>
+
+<div class="body conbody">
+<p class="p">A <span class="ph phtype_type2"><span class="termtype">Cam Operation Displacement Overflow</span></span> error occurs if the cam profile curve displacement or the <span class="ph phtype_variable"><span class="termtype">SlaveScaling</span></span> (Slave Axis Coefficient) is too large.</p>
+
+<p class="p">Adjust the <span class="ph phtype_variable"><span class="termtype">Distance</span></span> (Slave Axis Displacement) of <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> and the <span class="ph phtype_variable"><span class="termtype">SlaveScaling</span></span> (Slave Axis Coefficient) so that the absolute value of the product of the cam profile curve displacement and the <span class="ph phtype_variable"><span class="termtype">SlaveScaling</span></span> (Slave Axis Coefficient) does not exceed the 40-bit data range when it is converted to pulses.</p>
+
+<p class="p">If the <span class="ph phtype_variable"><span class="termtype">Curve</span></span> (Curve Shape) is a polynomic 3 or polynomic 5 curve, the <span class="ph phtype_variable"><span class="termtype">InitVel</span></span> (Initial Velocity) and <span class="ph phtype_variable"><span class="termtype">InitAcc</span></span> (Initial Acceleration) cam property variables as well as the <span class="ph phtype_variable"><span class="termtype">ConnectingVel</span></span> (Connecting Velocity) and <span class="ph phtype_variable"><span class="termtype">ConnectingAcc</span></span> (Connecting Acceleration) cam node variables are also related. Refer to the following calculation methods for displacement of the polynomic 3 or polynomic 5 curve and correct the values in the <span class="ph phtype_variable"><span class="termtype">CamProperty</span></span> (Cam Properties) and <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> in-out variables.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="vcb1761115684927">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Displacement Calculation Method for Polynomic 3</h1>
+
+<div class="body conbody">
+<p class="p">The element number in the array variable specified for <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> is &#8220;m.&#8221;</p>
+
+<p class="p">When polynomic 3 is specified for <span class="ph phtype_variable"><span class="termtype">Curve</span></span> (Curve Shape) of element m, <span class="ph phtype_variable"><span class="termtype">Phase</span></span> of element m-1 is set as the initial value P<sub class="ph sub">init</sub> of the master axis phase. In the same way, <span class="ph phtype_variable"><span class="termtype">Distance</span></span> is set to the initial value d<sub class="ph sub">init</sub> of the slave axis displacement. When m = 0, calculations are performed with P<sub class="ph sub">init</sub> and d<sub class="ph sub">init</sub> set to 0. Also, <span class="ph phtype_variable"><span class="termtype">Phase</span></span> of element m is set to the final value P<sub class="ph sub">final</sub> of the master axis phase. In the same way, <span class="ph phtype_variable"><span class="termtype">Distance</span></span> for element m is set to the final value d<sub class="ph sub">final</sub> of the slave axis displacement.</p>
+
+<p class="p">Let d(P) be the <span class="ph phtype_variable"><span class="termtype">Distance</span></span> (Slave Axis Displacement) at the master axis phase P. Then, d(P) is given by the following equation.</p>
+
+<p class="p linespace_14pt"><strong class="ph b">When P<sub class="ph sub">init</sub> &#8804; P &lt; P<sub class="ph sub">final</sub></strong></p>
+
+<br /><img class="image linespace_7pt" id="vcb1761115684927__image_rb3_3vd_bhc" src="jdw1761123079251.gif" /><br />
+<p class="p linespace_14pt"></p>
+
+<p class="p"><strong class="ph b">When P = P<sub class="ph sub">final</sub></strong></p>
+
+<br /><img class="image linespace_7pt" id="vcb1761115684927__image_grg_rrs_3hc" src="vif1763462043691.gif" /><br />
+<br /><img class="image linespace_7pt" id="vcb1761115684927__image_zkm_vrs_3hc" src="ceb1763462116605.gif" /><br />
+<br /><img class="image linespace_7pt" id="vcb1761115684927__image_kvv_bwd_bhc" src="wkm1761123419265.gif" /><br />
+<br /><img class="image linespace_7pt" id="vcb1761115684927__image_jkk_gwd_bhc" src="nub1761123500049.gif" /><br />
+<p class="p linespace_7pt">where <img class="image" id="vcb1761115684927__image_wzq_yrs_3hc" src="taq1763462175412.gif" /></p>
+
+<p class="p linespace_7pt">When CycleTime &gt; 0, T is calculated as follows.</p>
+
+<br /><img class="image linespace_7pt" id="vcb1761115684927__image_agp_2xd_bhc" src="eoi1761123925357.gif" /><br />
+<p class="p linespace_7pt">When CycleTime = 0 (phase-based unit system specified), T is calculated as follows.</p>
+
+<br /><img class="image linespace_7pt" id="vcb1761115684927__image_yhq_css_3hc" src="aii1763462241550.gif" /><br />
+<p class="p linespace_7pt">CycleTime: <span class="ph phtype_variable"><span class="termtype">CycleTime</span></span> (Cycle Time) in <span class="ph phtype_variable"><span class="termtype">CamProperty</span></span> (Cam Properties)</p>
+
+<p class="p linespace_7pt">P<sub class="ph sub">max</sub>: Largest value of <span class="ph phtype_variable"><span class="termtype">Phase</span></span> (Master Axis Phase) in valid nodes of <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span></p>
+
+<p class="p linespace_7pt">V<sub class="ph sub">init</sub>: Initial velocity of cam profile curve [command units/s or command units/master axis command units]</p>
+
+<p class="p linespace_14pt"></p>
+
+<p class="p">However, when m = 0,</p>
+
+<br /><img class="image linespace_7pt" id="vcb1761115684927__image_f3g_hss_3hc" src="sqo1763462324621.gif" /><br />
+<p class="p linespace_7pt">When m &#8805; 1 and <span class="ph phtype_variable"><span class="termtype">Curve</span></span> (Curve Shape) of element m-1 in <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> is a straight line (_mcStraightLine),</p>
+
+<br /><img class="image linespace_7pt" id="vcb1761115684927__image_hpq_syd_bhc" src="bbr1761124620169.gif" /><br />
+<p class="p linespace_7pt">When m &#8805; 1 and <span class="ph phtype_variable"><span class="termtype">Curve</span></span> (Curve Shape) of element m-1 in <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> is polynomic 3 or polynomic 5,</p>
+
+<ul class="ul" id="vcb1761115684927__ul_lvn_zyd_bhc">
+<li class="li linespace_7pt" id="vcb1761115684927__li_N10165_N10161_N1000F_N10002">
+<p class="p"><span class="ph phtype_variable"><span class="termtype">ConnectingVelEnable</span></span> (Connecting Velocity Enable) of element m-1 in <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> is TRUE</p>
+
+<br /><img class="image" id="vcb1761115684927__image_mtt_lss_3hc" src="oxl1763462401273.gif" /><br />
+</li>
+
+<li class="li linespace_7pt" id="vcb1761115684927__li_N1018C_N10161_N1000F_N10002">
+<p class="p"><span class="ph phtype_variable"><span class="termtype">ConnectingVelEnable</span></span> (Connecting Velocity Enable) of element m-1 in <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> is FALSE</p>
+
+<br /><img class="image" id="vcb1761115684927__image_q1y_pss_3hc" src="oer1763462482325.gif" /><br />
+</li>
+
+</ul>
+
+<p class="p linespace_7pt">When m &#8805; 1 and the Curve Shape is other than the above,</p>
+
+<br /><img class="image linespace_7pt" id="vcb1761115684927__image_pdh_sss_3hc" src="oer1763462482325.gif" /><br />
+<p class="p linespace_7pt">V<sub class="ph sub">final</sub>: Final velocity of cam profile curve [command units/s or command units/master axis command units]</p>
+
+<p class="p linespace_7pt">However, when <span class="ph phtype_variable"><span class="termtype">ConnectingVelEnable</span></span> (Connecting Velocity Enable) of element m in <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> is TRUE,</p>
+
+<br /><img class="image linespace_7pt" id="vcb1761115684927__image_x1y_wss_3hc" src="epw1763462601988.gif" /><br />
+<p class="p linespace_7pt">When <span class="ph phtype_variable"><span class="termtype">ConnectingVelEnable</span></span> (Connecting Velocity Enable) of element m in <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> is FALSE,</p>
+
+<ul class="ul linespace_7pt" id="vcb1761115684927__ul_xqr_p12_bhc">
+<li class="li" id="vcb1761115684927__li_N101FE_N101F9_N1000F_N10002">
+<p class="p"><span class="ph phtype_variable"><span class="termtype">Curve</span></span> (Curve Shape) of element m+1 in <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> is a straight line (_mcStraightLine)</p>
+
+<p class="p">
+<br /><img class="image linespace_7pt" id="vcb1761115684927__image_gbs_512_bhc" src="dfw1761125587072.gif" /><br />
+</p>
+
+</li>
+
+<li class="li linespace_7pt" id="vcb1761115684927__li_N1021B_N101F9_N1000F_N10002">
+<p class="p"><span class="ph phtype_variable"><span class="termtype">Curve</span></span> (Curve Shape) of element m+1 in <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> is not a straight line (_mcStraightLine)</p>
+
+<br /><img class="image" id="vcb1761115684927__image_flh_bts_3hc" src="fnq1763462663438.gif" /><br />
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="icd1761115708845">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Displacement Calculation Method for Polynomic 5</h1>
+
+<div class="body conbody">
+<p class="p">The element number in the array variable specified for <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> is &#8220;m.&#8221;</p>
+
+<p class="p">When polynomic 5 is specified for <span class="ph phtype_variable"><span class="termtype">Curve</span></span> (Curve Shape) of element m, <span class="ph phtype_variable"><span class="termtype">Phase</span></span> of element m-1 is set as the initial value P<sub class="ph sub">init</sub> of the master axis phase. In the same way, <span class="ph phtype_variable"><span class="termtype">Distance</span></span> is set to the initial value d<sub class="ph sub">init</sub> of the slave axis displacement. When m = 0, calculations are performed with P<sub class="ph sub">init</sub> and d<sub class="ph sub">init</sub> set to 0. Also, <span class="ph phtype_variable"><span class="termtype">Phase</span></span> of element m is set to the final value P<sub class="ph sub">final</sub> of the master axis phase. In the same way, <span class="ph phtype_variable"><span class="termtype">Distance</span></span> for element m is set to the final value d<sub class="ph sub">final</sub> of the slave axis displacement.</p>
+
+<p class="p">Let d(P) be the <span class="ph phtype_variable"><span class="termtype">Distance</span></span> (Slave Axis Displacement) at the master axis phase P. Then, d(P) is given by the following equation.</p>
+
+<p class="p linespace_14pt"><strong class="ph b">When P<sub class="ph sub">init</sub> &#8804; P &lt; P<sub class="ph sub">final</sub></strong></p>
+
+<br /><img class="image linespace_7pt" id="icd1761115708845__image_y2c_cc2_bhc" src="wgb1761126172703.gif" /><br />
+<p class="p linespace_14pt"></p>
+
+<p class="p"><strong class="ph b">When P = P<sub class="ph sub">final</sub></strong></p>
+
+<br /><img class="image linespace_7pt" id="icd1761115708845__image_grg_rrs_3hc" src="vif1763462043691.gif" /><br />
+<br /><img class="image linespace_7pt" id="icd1761115708845__image_zkm_vrs_3hc" src="ceb1763462116605.gif" /><br />
+<br /><img class="image linespace_7pt" id="icd1761115708845__image_crp_jc2_bhc" src="ufm1761126300424.gif" /><br />
+<br /><img class="image linespace_7pt" id="icd1761115708845__image_qpx_4c2_bhc" src="dcu1761126392728.gif" /><br />
+<br /><img class="image linespace_7pt" id="icd1761115708845__image_x5y_rc2_bhc" src="uti1761126451569.gif" /><br />
+<br /><img class="image linespace_7pt" id="icd1761115708845__image_nbw_vc2_bhc" src="mud1761126511128.gif" /><br />
+<p class="p linespace_7pt">where <img class="image" id="icd1761115708845__image_wzq_yrs_3hc" src="taq1763462175412.gif" /></p>
+
+<p class="p linespace_7pt">When CycleTime &gt; 0, T is calculated as follows.</p>
+
+<br /><img class="image linespace_7pt" id="icd1761115708845__image_agp_2xd_bhc" src="eoi1761123925357.gif" /><br />
+<p class="p linespace_7pt">When CycleTime = 0 (phase-based unit system specified), T is calculated as follows.</p>
+
+<br /><img class="image linespace_7pt" id="icd1761115708845__image_yhq_css_3hc" src="aii1763462241550.gif" /><br />
+<p class="p linespace_7pt">CycleTime: <span class="ph phtype_variable"><span class="termtype">CycleTime</span></span> (Cycle Time) in <span class="ph phtype_variable"><span class="termtype">CamProperty</span></span> (Cam Properties)</p>
+
+<p class="p linespace_7pt">P<sub class="ph sub">max</sub>: Largest value of <span class="ph phtype_variable"><span class="termtype">Phase</span></span> (Master Axis Phase) in valid nodes of <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span></p>
+
+<p class="p linespace_7pt">A<sub class="ph sub">init</sub>: Initial acceleration of cam profile curve [command units/s<sup class="ph sup">2</sup> or command units/master axis command units<sup class="ph sup">2</sup>]</p>
+
+<p class="p linespace_14pt"></p>
+
+<p class="p">However, when m = 0,</p>
+
+<br /><img class="image linespace_7pt" id="icd1761115708845__image_plk_mts_3hc" src="vht1763462868165.gif" /><br />
+<p class="p linespace_7pt">When m &#8805; 1 and <span class="ph phtype_variable"><span class="termtype">Curve</span></span> (Curve Shape) of element m-1 in <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> is polynomic 5,</p>
+
+<ul class="ul" id="icd1761115708845__ul_lvn_zyd_bhc">
+<li class="li linespace_7pt" id="icd1761115708845__li_N10165_N10161_N1000F_N10002">
+<p class="p"><span class="ph phtype_variable"><span class="termtype">ConnectingVelEnable</span></span> (Connecting Velocity Enable) of element m-1 in <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> is TRUE</p>
+
+<br /><img class="image" id="icd1761115708845__image_nkk_qts_3hc" src="yjq1763462936870.gif" /><br />
+</li>
+
+<li class="li linespace_7pt" id="icd1761115708845__li_N1018C_N10161_N1000F_N10002">
+<p class="p"><span class="ph phtype_variable"><span class="termtype">ConnectingVelEnable</span></span> (Connecting Velocity Enable) of element m-1 in <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> is FALSE</p>
+
+<br /><img class="image" id="icd1761115708845__image_aw3_wts_3hc" src="kma1763463042499.gif" /><br />
+</li>
+
+</ul>
+
+<p class="p linespace_7pt">When m &#8805; 1 and <span class="ph phtype_variable"><span class="termtype">Curve</span></span> (Curve Shape) of element m-1 in <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> is not polynomic 5,</p>
+
+<br /><img class="image linespace_7pt" id="icd1761115708845__image_hy4_xts_3hc" src="kma1763463042499.gif" /><br />
+<p class="p linespace_7pt">A<sub class="ph sub">final</sub>: Final acceleration of cam profile curve [command units/s<sup class="ph sup">2</sup> or command units/master axis command units<sup class="ph sup">2</sup>]</p>
+
+<p class="p linespace_7pt">However, when <span class="ph phtype_variable"><span class="termtype">ConnectingAccEnable</span></span> (Connecting Acceleration Enable) of element m in <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> is TRUE,</p>
+
+<br /><img class="image linespace_7pt" id="icd1761115708845__image_qfb_b5s_3hc" src="oji1763463130701.gif" /><br />
+<p class="p linespace_7pt">When <span class="ph phtype_variable"><span class="termtype">ConnectingAccEnable</span></span> (Connecting Acceleration Enable) of element m in <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> is FALSE,</p>
+
+<br /><img class="image linespace_7pt" id="icd1761115708845__image_gcl_25s_3hc" src="sgf1763463191828.gif" /><br />
+<p class="p">Refer to <a class="xref" href="mme1761114518394.html"><i style="display:none;">☆</i>MC_CamInCurve</a> for information on V<sub class="ph sub">init</sub> (initial velocity of cam profile curve) and V<sub class="ph sub">final</sub> (final velocity of cam curve).</p>
+
+<div class="note" id="icd1761115708845__note_mjt_hf2_bhc"><div class="use"><span class="notetitle use">use:</span>
+<p class="p">If you want to use the MC_SetPosition instruction for the <span class="ph phtype_variable"><span class="termtype">Master</span></span> (Master Axis), disable the relationship between the <span class="ph phtype_variable"><span class="termtype">Master</span></span> (Master Axis) and <span class="ph phtype_variable"><span class="termtype">Slave</span></span> (Slave Axis) before executing the instruction.</p>
+
+<p class="p">When executed or re-executed, this instruction checks if the phases are in ascending order. If the phases are not in ascending order, a Cam Node Master Axis Phase Not in Ascending Order error (error code: 5740 hex) occurs.</p>
+
+<p class="p">If you change the values of cam node variables or cam property variables from more than one task, program the changes so that there is no race condition in writing the value from more than one task.</p>
+
+<p class="p">If a cam node variable or cam property variable is switched by re-executing the instruction during a cam motion, the velocity or acceleration of the slave axis may change rapidly before or after the cam table is switched. Since this may affect the mechanical machine, be sure to thoroughly verify that there will be no excessive changes in velocity or acceleration before switching the cam node variable or cam property variable.</p>
+
+</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="xxa1761115898850">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Relation to MC_CamIn Instruction</h1>
+
+<div class="body conbody">
+<p class="p">Unlike the MC_CamIn (Start Cam Operation) instruction, the MC_CamInCurve instruction uses cam definition variables (cam node variables and cam property variables) as input variables.</p>
+
+<p class="p">Cam definition variables contain data on points and a curve shape between the points with respect to phase and displacement. The Sysmac Studio Cam Editor or the MC_GenerateCamTable instruction discretizes the cam definition variable data into a cam table for use with the MC_CamIn instruction.</p>
+
+<p class="p">Due to use of cam definition variables as input variables, this instruction provides the following improvements compared to the MC_CamIn (Start Cam Operation) instruction.</p>
+
+<ul class="ul" id="xxa1761115898850__ul_tp5_wf2_bhc">
+<li class="li" id="xxa1761115898850__li_N10022_N1001E_N1000F_N10002">There is no need to wait for completion of cam table generation by the MC_GenerateCamTable (Generate Cam Table) instruction.</li>
+
+<li class="li" id="xxa1761115898850__li_N10027_N1001E_N1000F_N10002">More precise slave axis command values can be output because cam definition variables are not discretized by phase pitch.</li>
+
+</ul>
+
+<br /><img class="image" id="xxa1761115898850__image_qjh_ytc_bhc" src="xcx1761110542794.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="mhl1761115764956">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Instruction Details</h1>
+
+<div class="body conbody">
+<p class="p">This section describes the instruction in detail.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="bub1761116282839">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Instruction Execution Condition</h1>
+
+<div class="body conbody">
+<p class="p">You can execute this instruction while the master axis is stopped, during position control, velocity control, or synchronized control.</p>
+
+<p class="p">For details on the slave axis, refer to <a class="xref" href="mme1761114518394.html"><i style="display:none;">☆</i>MC_CamInCurve</a> and <a class="xref" href="mme1761114518394.html"><i style="display:none;">☆</i>MC_CamInCurve</a> .</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="wnd1761116303662">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Software Limits</h1>
+
+<div class="body conbody">
+<p class="p">If the slave axis exceeds the software limit during cam operation, an error occurs.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="hpl1761116344665">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Cam Node Variables</h1>
+
+<div class="body conbody">
+<p class="p">For details on cam node variables, refer to <a class="xref" href="lza1484548105593.html"><i style="display:none;">☆</i>MC_GenerateCamTable</a>.</p>
+
+<p class="p linespace_14pt"></p>
+
+<p class="p">Unlike the MC_GenerateCamTable (Generate Cam Table) instruction, the MC_CamInCurve instruction does not round the <span class="ph phtype_variable"><span class="termtype">Phase</span></span> (Master Axis Phase), <span class="ph phtype_variable"><span class="termtype">Distance</span></span> (Slave Axis Displacement), <span class="ph phtype_variable"><span class="termtype">ConnectingVel</span></span> (Connecting Velocity), and <span class="ph phtype_variable"><span class="termtype">ConnectingAcc</span></span> (Connecting Acceleration) values of cam node variables to the fourth decimal place. However, the Sysmac Studio Cam Editor does not allow you to specify the fourth decimal place or beyond. To specify the fourth decimal place or beyond, use cam node variables that are defined as user-defined variables.</p>
+
+<p class="p linespace_14pt"></p>
+
+<p class="p">Specify the values of <span class="ph phtype_variable"><span class="termtype">Phase</span></span> (Master Axis Phase) so that the difference in <span class="ph phtype_variable"><span class="termtype">Phase</span></span> (Master Axis Phase) between the cam nodes is greater than 0.001. If the difference in <span class="ph phtype_variable"><span class="termtype">Phase</span></span> (Master Axis Phase) is less than 0.001, a <span class="ph phtype_variable"><span class="termtype">Cam Node Master Axis Phase Not in Ascending Order error (error code: 5740 hex)</span></span> occurs.</p>
+
+<p class="p linespace_14pt"></p>
+
+<p class="p">This instruction does not use the value entered in <span class="ph phtype_variable"><span class="termtype">PhasePitch</span></span> (Phase Pitch).</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="qws1761116366441">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Cam Property Variables</h1>
+
+<div class="body conbody">
+<p class="p">For details on cam property variables, refer to <a class="xref" href="lza1484548105593.html"><i style="display:none;">☆</i>MC_GenerateCamTable</a>.</p>
+
+<p class="p linespace_14pt"></p>
+
+<p class="p">Unlike the MC_GenerateCamTable (Generate Cam Table) instruction, the MC_CamInCurve instruction does not round the <span class="ph phtype_variable"><span class="termtype">InitVel</span></span> (Initial Velocity), <span class="ph phtype_variable"><span class="termtype">InitAcc</span></span> (Initial Acceleration), and <span class="ph phtype_variable"><span class="termtype">CycleTime</span></span> (Cycle Time) values of cam property variables to the fourth decimal place. However, the Sysmac Studio Cam Editor does not allow you to specify the fourth decimal place or beyond. To specify the fourth decimal place or beyond, use cam property variables that are defined as user-defined variables.</p>
+
+<p class="p linespace_14pt"></p>
+
+<p class="p">For this instruction, you can specify 0 for <span class="ph phtype_variable"><span class="termtype">CycleTime</span></span> (Cycle Time). If you specify 0, the instruction recognizes the <span class="ph phtype_variable"><span class="termtype">InitVel</span></span> (Initial Velocity) and <span class="ph phtype_variable"><span class="termtype">InitAcc</span></span> (Initial Acceleration) cam property variables and the <span class="ph phtype_variable"><span class="termtype">ConnectingVel</span></span> (Connecting Velocity) and <span class="ph phtype_variable"><span class="termtype">ConnectingAcc</span></span> (Connecting Acceleration) cam node variables as values based on the master axis phase.</p>
+
+<p class="p">For example, velocity based on the master axis phase refers to the amount of change in the slave axis displacement relative to the travel distance of the master axis phase.</p>
+
+<p class="p linespace_14pt"></p>
+
+<p class="p">The units for each parameter corresponding to the <span class="ph phtype_variable"><span class="termtype">CycleTime</span></span> (Cycle Time) value are as follows.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="qws1761116366441__table_n1d_z32_bhc" class="rules_all " frame="hsides" border="1">
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d142269e82">Parameter</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d142269e85">CycleTime &gt; 0</th>
+
+<th class="entry row-nocellborder" style="text-align:left;vertical-align:top;" id="d142269e88">CycleTime = 0</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d142269e82 ">InitVel (Initial Velocity)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d142269e85 ">Command units for slave axis/s</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d142269e88 ">Command units for slave axis/Command units for master axis</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d142269e82 ">InitAcc (Initial Acceleration)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d142269e85 ">Command units for slave axis/s<sup class="ph sup">2</sup></td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d142269e88 ">Command units for slave axis/Command units for master axis<sup class="ph sup">2</sup></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d142269e82 ">ConnectingVel (Connecting Velocity)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d142269e85 ">Command units for slave axis/s</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d142269e88 ">Command units for slave axis/Command units for master axis</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d142269e82 ">ConnectingAcc (Connecting Acceleration)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d142269e85 ">Command units for slave axis/s<sup class="ph sup">2</sup></td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d142269e88 ">Command units for slave axis/Command units for master axis<sup class="ph sup">2</sup></td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p">When you want to specify a value other than 0 for <span class="ph phtype_variable"><span class="termtype">CycleTime</span></span> (Cycle Time), specify the time for one cam operation cycle.</p>
+
+<p class="p">The Sysmac Studio Cam Editor does not allow you to specify 0 for the <span class="ph phtype_variable"><span class="termtype">CycleTime</span></span> (Cycle Time) cam property variable. To use phase-based units, use cam node variables or cam property variables that are defined as user-defined variables.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="evh1761116387713">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Starting Cam Operation</h1>
+
+<div class="body conbody">
+<p class="p">After instruction execution, the instruction waits for the master axis to reach <span class="ph phtype_variable"><span class="termtype">StartPosition</span></span> (Cam Nodes Start Position).</p>
+
+<p class="p">After the master axis passes the <span class="ph phtype_variable"><span class="termtype">StartPosition</span></span> (Cam Nodes Start Position), the start point of the cam nodes is executed and the <span class="ph phtype_variable"><span class="termtype">InCam</span></span> output variable (Cam Motion) changes to TRUE.</p>
+
+<p class="p">Since the phase and displacement of the cam nodes are given as relative values with the start point as zero, the absolute position of each axis at each phase is a relative value originating from the absolute position of each axis at the start of the cam nodes. For example, suppose the Count Mode of the master axis is <span class="ph phtype_choice"><span class="termtype">Rotary Mode</span></span> (0&#176; to 360&#176;) and the <span class="ph phtype_variable"><span class="termtype">StartPosition</span></span> (Cam Nodes Start Position) is 60. The absolute position of the master axis is the phase of the cam nodes added by the <span class="ph phtype_variable"><span class="termtype">StartPosition</span></span> value and the absolute position of the slave axis is the displacement of the cam nodes added by the absolute position of the slave axis at the start of the cam nodes.</p>
+
+<br /><img class="image" id="evh1761116387713__image_tfp_dgh_4hc" src="tvi1765179545993.gif" /><br />
+<p class="p linespace_7pt">Then, when the master axis passes the <span class="ph phtype_variable"><span class="termtype">MasterStartDistance</span></span> (Master Following Distance), the cam operation of the slave axis starts and the <span class="ph phtype_variable"><span class="termtype">InSync</span></span> output variable changes to TRUE.</p>
+
+<p class="p">The <span class="ph phtype_variable"><span class="termtype">MasterStartDistance</span></span> (Master Following Distance) is specified either as an absolute position or as a relative distance from the <span class="ph phtype_variable"><span class="termtype">StartPosition</span></span> (Cam Nodes Start Position). Set whether to specify an absolute position or relative position in <span class="ph phtype_variable"><span class="termtype">StartMode</span></span>.</p>
+
+<p class="p linespace_7pt"><strong class="ph b">Example 1: Differences in Slave Axis Operation Due to Differences in <span class="ph phtype_variable"><span class="termtype">MasterStartDistance</span></span></strong></p>
+
+<p class="p">In this example, the same cam nodes and same master axis are used.</p>
+
+<p class="p linespace_7pt">The cam nodes settings are given in the following table.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="evh1761116387713__table_N1008F_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d34782e99">CamNodes</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d34782e102">Master axis</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d34782e105">Slave axis</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d34782e108">Cam curve</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d34782e111">Connecting Velocity</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d34782e115">Connecting Acceleration</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e99 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e102 ">0.000</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e105 ">0.000</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e108 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e111 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e115 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e99 ">CamNodes[0]</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e102 ">80.000</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e105 ">80.000</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e108 ">Straight line</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e111 ">360.000</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e115 ">0.000</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e99 ">CamNodes[1]</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e102 ">120.000</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e105 ">200.000</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e108 ">Straight line</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e111 ">1080.000</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e115 ">0.000</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e99 ">CamNodes[2]</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e102 ">360.000</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e105 ">360.000</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e108 ">Straight line</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e111 ">240.000</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e115 ">0.000</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt">The conditions for starting cam operation are given in the following table.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="evh1761116387713__ID0E23FQ" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:37%" />
+<col style="width:31%" />
+<col style="width:31%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d34782e231">Input variable</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d34782e234">Condition 1</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d34782e237">Condition 2</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e231 ">Periodic (Periodic Mode)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e234 ">TRUE: Periodic</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e237 ">TRUE: Periodic</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e231 ">StartMode (Start Mode)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e234 ">_mcRelativePosition (Relative Position)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e237 ">_mcRelativePosition (Relative Position)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e231 ">StartPosition (Cam Nodes Start Position)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e234 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e237 ">0</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e231 ">MasterStartDistance (Master Following Distance)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e234 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e237 ">80</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt">For condition 1, the <span class="ph phtype_variable"><span class="termtype">InCam</span></span> (Cam Motion) and <span class="ph phtype_variable"><span class="termtype">InSync</span></span> output variables both change to TRUE and the slave axis starts cam operation when the master axis passes 0&#176;.</p>
+
+<p class="p linespace_7pt">For condition 2, the <span class="ph phtype_variable"><span class="termtype">InCam</span></span> (Cam Motion) changes to TRUE when the master axis passes 0&#176;. Then, the <span class="ph phtype_variable"><span class="termtype">InSync</span></span> output variable changes to TRUE and the slave axis starts cam operation when the master axis passes 80&#176; <sup class="ph sup">*1</sup>. For condition 2, cam operation starts in the middle of the cam nodes, so the slave axis will accelerate rapidly.</p>
+
+<p class="p linespace_7pt"></p>
+
+<ul class="ul liststyle_asterisk1" id="evh1761116387713__ul_jpn_l3x_2x">
+<li class="li" id="evh1761116387713__li_N10239_N10234_N1000F_N10001">
+    
+    *<span class="num"></span>.
+  
+<p class="p linespace_7pt">Because <span class="ph phtype_variable"><span class="termtype">StartMode</span></span> is set to _mcRelativePosition, the cam operation starts at <span class="ph phtype_variable"><span class="termtype">StartPosition</span></span> + <span class="ph phtype_variable"><span class="termtype">MasterStartDistance</span></span>, or 80&#176;.</p>
+
+</li>
+
+</ul>
+
+<br /><img class="image linespace_7pt" id="evh1761116387713__image_0C940614CAE241A0A8B0B2D8FCFF07EE" src="tem1484547513130.gif" /><br />
+<div class="note" id="evh1761116387713__note_N1025B_N1000F_N10001"><div class="memo"><span class="notetitle memo">memo:</span> <p class="p" id="evh1761116387713__ID0E2EGQ">For condition 2, if <span class="ph phtype_variable"><span class="termtype">SlaveOffset</span></span> is set to 0, the slave axis accelerates rapidly as shown in the figure below.</p>
+
+<br /><img class="image linespace_7pt" id="evh1761116387713__image_B907E93596A7473FA563F1AA71F7E21C" src="net1484547514222.gif" /><br />
+<p class="p linespace_7pt" id="evh1761116387713__ID0E2FGQ">If <span class="ph phtype_variable"><span class="termtype">SlaveOffset</span></span> is set to -80, the slave axis starts synchronization from a displacement of <span class="ph phtype_variable"><span class="termtype">MasterStartDistance</span></span> (Master Following Distance) and rapid acceleration is prevented.</p>
+
+<br /><img class="image linespace_7pt" id="evh1761116387713__image_47C4E484010F44F7A4BF6B93B33017B0" src="loa1484547515189.gif" /><br />
+</div></div>
+
+<p class="p linespace_7pt"><strong class="ph b">Example 2: Differences in Slave Axis Operation due to Differences in <span class="ph phtype_variable"><span class="termtype">StartPosition</span></span> and <span class="ph phtype_variable"><span class="termtype">MasterStartDistance</span></span></strong></p>
+
+<p class="p" id="evh1761116387713__ID0EVHGQ">The cam nodes settings are the same as in the previous example. The conditions for starting cam operation are given in the following table.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="evh1761116387713__ID0EDIGQ" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:37%" />
+<col style="width:20%" />
+<col style="width:20%" />
+<col style="width:20%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d34782e388">Input variable</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d34782e391">Condition 1</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d34782e394">Condition 2</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d34782e397">Condition 3</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e388 ">Periodic (Periodic Mode)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e391 ">TRUE: Periodic</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e394 ">TRUE: Periodic</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e397 ">TRUE: Periodic</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e388 ">StartMode (Start Mode)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e391 ">_mcRelativePosition (Relative Position)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e394 ">_mcRelativePosition (Relative Position)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e397 ">_mcRelativePosition (Relative Position)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e388 ">StartPosition (Cam Nodes Start Position)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e391 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e394 ">40</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e397 ">40</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e388 ">MasterStartDistance (Master Following Distance)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e391 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e394 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e397 ">80</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt" id="evh1761116387713__ID0EYQGQ">For condition 1, the <span class="ph phtype_variable"><span class="termtype">InCam</span></span> (Cam Motion) and <span class="ph phtype_variable"><span class="termtype">InSync</span></span> output variables both change to TRUE and the slave axis starts cam operation when the master axis passes 0&#176;.</p>
+
+<p class="p linespace_7pt" id="evh1761116387713__ID0E6QGQ">For condition 2, the <span class="ph phtype_variable"><span class="termtype">InCam</span></span> (Cam Motion) and <span class="ph phtype_variable"><span class="termtype">InSync</span></span> output variables both change to TRUE and the slave axis starts cam operation when the master axis passes 40&#176; (the value that is specified for <span class="ph phtype_variable"><span class="termtype">StartPosition</span></span> (Cam Table Start Position)).</p>
+
+<p class="p linespace_7pt" id="evh1761116387713__ID0EGRGQ">For condition 3, the <span class="ph phtype_variable"><span class="termtype">InCam</span></span> (Cam Motion) changes to TRUE when the master axis passes 40&#176;. Then, the <span class="ph phtype_variable"><span class="termtype">InSync</span></span> output variable changes to TRUE and the slave axis starts cam operation when the master axis passes 120&#176; <sup class="ph sup">*1</sup>.</p>
+
+<p class="p linespace_7pt"></p>
+
+<ul class="ul liststyle_asterisk1" id="evh1761116387713__ul_w3j_2jx_2x">
+<li class="li" id="evh1761116387713__li_N1039C_N10397_N1000F_N10001">
+    
+    *<span class="num"></span>.
+  
+<p class="p linespace_7pt">Because <span class="ph phtype_variable"><span class="termtype">StartMode</span></span> is set to _mcRelativePosition, the cam operation starts at <span class="ph phtype_variable"><span class="termtype">StartPosition</span></span> + <span class="ph phtype_variable"><span class="termtype">MasterStartDistance</span></span>, or 120&#176;.</p>
+
+</li>
+
+</ul>
+
+<br /><img class="image linespace_7pt" id="evh1761116387713__image_3C3879DF762D4A6B8AF43F9E29BC7372" src="wlw1484547516141.gif" /><br />
+<p class="p linespace_7pt"><strong class="ph b">Example 3: Differences in Starting Cam Operation of the Slave Axis due to Differences in <span class="ph phtype_variable"><span class="termtype">StartMode</span></span></strong></p>
+
+<p class="p" id="evh1761116387713__ID0ENSGQ">You can use <span class="ph phtype_variable"><span class="termtype">StartMode</span></span> to specify whether the value that is specified for <span class="ph phtype_variable"><span class="termtype">MasterStartDistance</span></span> (Master Following Distance) is treated as an absolute position or a relative position.</p>
+
+<p class="p" id="evh1761116387713__ID0EQSGQ">This example describes the differences in starting cam operation of the slave axis due to differences in <span class="ph phtype_variable"><span class="termtype">StartMode</span></span>. The cam nodes settings are the same as in the previous example.</p>
+
+<p class="p" id="evh1761116387713__ID0EXSGQ">The conditions for starting cam operation are given in the following table.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="evh1761116387713__ID0EJTGQ" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:36%" />
+<col style="width:31%" />
+<col style="width:31%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d34782e563">Input variable</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d34782e566">Condition 1</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d34782e569">Condition 2</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e563 ">Periodic (Periodic Mode)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e566 ">TRUE: Periodic</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e569 ">TRUE: Periodic</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e563 ">StartMode (Start Mode)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e566 ">_mcAbsolutePosition (Absolute Position)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e569 ">_mcRelativePosition (Relative Position)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e563 ">StartPosition (Cam Nodes Start Position)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e566 ">40</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e569 ">40</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e563 ">MasterStartDistance (Master Following Distance)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e566 ">80</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d34782e569 ">80</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt" id="evh1761116387713__ID0EC1GQ">For both conditions 1 and 2, the <span class="ph phtype_variable"><span class="termtype">InCam</span></span> (Cam Motion) output variable changes to TRUE when the master axis passes 40&#176;. For condition 1, <span class="ph phtype_variable"><span class="termtype">StartMode</span></span> is set to _mcAbsolutePosition (absolute position), so the <span class="ph phtype_variable"><span class="termtype">InSync</span></span> output variable changes to TRUE and the slave axis starts cam operation when the master axis passes 80&#176;.</p>
+
+<p class="p linespace_7pt" id="evh1761116387713__ID0EJ1GQ">For condition 2, <span class="ph phtype_variable"><span class="termtype">StartMode</span></span> is set to _mcRelativePosition (relative position), so the <span class="ph phtype_variable"><span class="termtype">InSync</span></span> output variable changes to TRUE and the slave axis starts cam operation when the master axis passes 120&#176;(= 40&#176; + 80&#176;).</p>
+
+<br /><img class="image linespace_7pt" id="evh1761116387713__image_7E19D4BF8F414D7C9313953293C9C565" src="hfc1484547517342.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="lmi1761116455338">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Periodic (Periodic Mode)</h1>
+
+<div class="body conbody">
+<p class="p" id="lmi1761116455338__ID0EZ3GQ">If you specify TRUE (periodic) for <span class="ph phtype_variable"><span class="termtype">Periodic</span></span>, the cam motion will be repeated from the start to the end point of the <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> (Cam Nodes).</p>
+
+<p class="p" id="lmi1761116455338__ID0E33GQ">If you specify FALSE (non-periodic), the cam operation ends when the last point of the <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> (Cam Nodes) is executed.</p>
+
+<p class="p" id="lmi1761116455338__ID0ED4GQ">If the stroke position of the slave axis is the same at the start and end points of the <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> (Cam Nodes) when TRUE (periodic) is set, the cam operates as a reciprocal cam. (Refer to <span class="ph phtype_type2"><span class="termtype">Reciprocal Cam Operation</span></span> below.) If the stroke position of the slave axis differs at the start point and end point, the cam operates as a feeding cam. (Refer to <span class="ph phtype_type2"><span class="termtype">Feeding Cam Operation</span></span> below.)</p>
+
+<p class="p linespace_14pt"></p>
+
+<p class="p" id="lmi1761116455338__ID0EK4GQ">In the following chart, the horizontal axis indicates the master axis and the vertical axis indicates the slave axis.</p>
+
+<p class="p linespace_7pt" id="lmi1761116455338__p_jj1_q3r_jz"><strong class="ph b">Reciprocal Cam Operation</strong></p>
+
+<br /><img class="image linespace_7pt" id="lmi1761116455338__image_pf3_lm2_bhc" src="pzr1484547518606.gif" /><br />
+<p class="p linespace_7pt" id="lmi1761116455338__p_t4j_q3r_jz"><strong class="ph b">Feeding Cam Operation</strong></p>
+
+<br /><img class="image linespace_7pt" id="lmi1761116455338__image_qf3_lm2_bhc" src="jsd1484547519542.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="kti1761116486552">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">EndOfProfile (End of Cam Cycle)</h1>
+
+<div class="body conbody">
+<p class="p" id="kti1761116486552__ID0EKAHQ"><span class="ph phtype_variable"><span class="termtype">EndOfProfile</span></span> (End of Cam Cycle) is TRUE for one period when the command value of the cam motion for the phase and displacement defined by the end point of the <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> (Cam Nodes) is output.</p>
+
+<p class="p" id="kti1761116486552__ID0ENAHQ">Set the absolute position of the master axis as the <span class="ph phtype_variable"><span class="termtype">StartPosition</span></span> (Cam Nodes Start Position) and the <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> (Cam Nodes) becomes relative to that position.</p>
+
+<p class="p" id="kti1761116486552__ID0EUAHQ"><span class="ph phtype_variable"><span class="termtype">EndOfProfile</span></span> (End of Cam Cycle) functions as an output indicating the end of the <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> (Cam Nodes).</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="fht1761116507200">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Ending Cam Operation</h1>
+
+<div class="body conbody">
+<p class="p" id="fht1761116507200__ID0EQBHQ">Use the MC_CamOut (End Cam Operation) instruction or MC_Stop instruction to stop cam operation before it is completed.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="lkx1761116532753">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Scaling Factor</h1>
+
+<div class="body conbody">
+<p class="p" id="lkx1761116532753__ID0EICHQ">You can specify a scaling factor to scale up or scale down the master axis phase and slave axis displacement of a specified <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> (Cam Nodes).</p>
+
+<p class="p" id="lkx1761116532753__ID0ELCHQ">You can apply separate factors to the master and slave axes.</p>
+
+<p class="p">For details, refer to <a class="xref" href="ick1484547506187.html"><i style="display:none;">☆</i>MC_CamIn</a>.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="kbh1761116559354">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Offset</h1>
+
+<div class="body conbody">
+<p class="p" id="kbh1761116559354__ID0EAEHQ">You can shift the phase and displacement by an offset from the specified <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> (Cam Nodes).</p>
+
+<p class="p" id="kbh1761116559354__ID0EDEHQ">You can specify separate offsets for the master axis phase and slave axis displacement.</p>
+
+<p class="p">For details, refer to <a class="xref" href="ick1484547506187.html"><i style="display:none;">☆</i>MC_CamIn</a>.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="ylb1761116588167">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">ReferenceType (Position Type Selection)</h1>
+
+<div class="body conbody">
+<p class="p" id="ylb1761116588167__ID0EBJHQ">Any of the following position types can be selected for the master axis to which the slave axis is synchronized.</p>
+
+<ul class="ul" id="ylb1761116588167__ul_srw_nn2_bhc">
+<li class="li" id="ylb1761116588167__li_N1001B_N10018_N1000F_N10001">
+<p class="p" id="ylb1761116588167__ID0EQJHQ">_mcCommand: Command position (value calculated in the previous task period)</p>
+
+<p class="p">The master axis command position that was calculated in the previous task period is used for the current period.</p>
+
+<p class="p">The command value that was calculated for the master axis in the last periodic task is used to calculate the command position of the slave axis in the current period.</p>
+
+</li>
+
+<li class="li" id="ylb1761116588167__li_N10031_N10018_N1000F_N10001">
+<p class="p" id="ylb1761116588167__ID0EAKHQ">_mcFeedback: Value obtained in the same task period</p>
+
+<p class="p">The actual position of the master axis that was obtained in the same task period is used.</p>
+
+</li>
+
+<li class="li" id="ylb1761116588167__li_N10042_N10018_N1000F_N10001">
+<p class="p" id="ylb1761116588167__ID0EOKHQ">_mcLatestCommand: Command position (value calculated in the same task period)</p>
+
+<p class="p">The command position of the master axis that was calculated in the same task period is used.</p>
+
+<p class="p">This enables the use of information that is more recent than for _mcCommand. However, the axis number of the master axis must be set lower than the axis number of the slave axis.</p>
+
+<p class="p">If the axis number of the slave axis is lower than the axis number of the master axis, <span class="ph phtype_variable"><span class="termtype">Error</span></span> will change to TRUE. A Master/Slave Axis Numbers Not in Ascending Order error (error code: 5438 hex) will be output to <span class="ph phtype_variable"><span class="termtype">ErrorID</span></span>.</p>
+
+</li>
+
+</ul>
+
+<div class="note" id="ylb1761116588167__note_N10065_N1000F_N10001"><div class="use"><span class="notetitle use">use:</span>
+<p class="p" id="ylb1761116588167__ID0EYLHQ">Here, the task period is the primary period if the task is the primary periodic task and the task period of the priority-5 periodic task if the task is the priority-5 periodic task. In the same way, the periodic task is the primary periodic task or the priority-5 periodic task.</p>
+
+            
+</div></div>
+
+<div class="note" id="ylb1761116588167__note_N10073_N1000F_N10001"><div class="memo"><span class="notetitle memo">memo:</span>
+<p class="p" id="ylb1761116588167__ID0E4MHQ">The command position that is calculated in the same task period enables greater precision in synchronization than the command position that was calculated in the previous task period.</p>
+
+<p class="p" id="ylb1761116588167__ID0EENHQ">However, the axis number set for the <span class="ph phtype_variable"><span class="termtype">Master</span></span> (Master Axis) in the system-defined variable for motion control must be lower than the axis number set for the <span class="ph phtype_variable"><span class="termtype">Slave</span></span> (Slave Axis) in the system-defined variable for motion control.</p>
+
+</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="vud1761116618303">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Direction</h1>
+
+<div class="body conbody">
+<p class="p">For details, refer to <a class="xref" href="ick1484547506187.html"><i style="display:none;">☆</i>MC_CamIn</a>.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="xwv1761116641116">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Node Point Element Number</h1>
+
+<div class="body conbody">
+<p class="p">The <span class="ph phtype_variable"><span class="termtype">CamNodeIndex</span></span> (Cam Node Index) output variable outputs the larger index number between the two cam nodes corresponding to the current phase. If it is located between the start point and the first cam node element, <span class="ph phtype_variable"><span class="termtype">CamNodeIndex</span></span> (Cam Node Index) outputs 0.</p>
+
+<p class="p">The table below shows the CamNodesIndex value at each phase when CamNodes[99] is the end point.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="xwv1761116641116__table_y1y_c42_bhc" class="rules_all " frame="hsides" border="1">
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d202623e39">Section</th>
+
+<th class="entry row-nocellborder" style="text-align:center;vertical-align:top;" id="d202623e42">CamNodeIndex</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d202623e39 ">0 - Phase - CamNodes[0].Phase</td>
+
+<td class="entry row-nocellborder" style="text-align:center;vertical-align:top;" headers="d202623e42 ">0</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d202623e39 ">CamNodes[0].Phase - Phase - CamNodes[1].Phase</td>
+
+<td class="entry row-nocellborder" style="text-align:center;vertical-align:top;" headers="d202623e42 ">1</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d202623e39 ">CamNodes[1].Phase - Phase - CamNodes[2].Phase</td>
+
+<td class="entry row-nocellborder" style="text-align:center;vertical-align:top;" headers="d202623e42 ">2</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d202623e39 ">...</td>
+
+<td class="entry row-nocellborder" style="text-align:center;vertical-align:top;" headers="d202623e42 ">...</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d202623e39 ">CamNodes[98].Phase - Phase - CamNodes[99].Phase</td>
+
+<td class="entry row-nocellborder" style="text-align:center;vertical-align:top;" headers="d202623e42 ">99</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d202623e39 ">CamNodes[99].Phase (end point, start point) - Phase - CamNodes[0].Phase</td>
+
+<td class="entry row-nocellborder" style="text-align:center;vertical-align:top;" headers="d202623e42 ">0</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="sqn1761116681470">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Buffer Mode Specification</h1>
+
+<div class="body conbody">
+<p class="p">For details, refer to <a class="xref" href="ick1484547506187.html"><i style="display:none;">☆</i>MC_CamIn</a>.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="eel1761116720096">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Timing Charts</h1>
+
+<div class="body conbody">
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="sao1761116792163">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Non-periodic Operation</h1>
+
+<div class="body conbody">
+<p class="p" id="sao1761116792163__ID0EVTIQ">The following timing chart shows the operation when <span class="ph phtype_variable"><span class="termtype">Periodic</span></span> (Periodic Mode) is FALSE (non-periodic) for the MC_CamInCurve (Start Cam Operation With Specified Curve) instruction.</p>
+
+<br /><img class="image linespace_7pt" id="sao1761116792163__image_e55_t42_bhc" src="jrb1484547536328.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="jau1761116813375">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Periodic Operation</h1>
+
+<div class="body conbody">
+<p class="p" id="jau1761116813375__ID0EAVIQ">The cam motion is repeatedly executed.</p>
+
+<p class="p" id="jau1761116813375__ID0EDVIQ">The slave axis decelerates to 0 when the cam operation is ended with the MC_CamOut (End Cam Operation) instruction.</p>
+
+<p class="p" id="jau1761116813375__ID0EKVIQ">The operation of the master axis is not affected.</p>
+
+<p class="p linespace_7pt" id="jau1761116813375__ID0E4VIQ">The following timing chart shows the operation when <span class="ph phtype_variable"><span class="termtype">Periodic</span></span> (Periodic Mode) for this instruction is set to TRUE (periodic) and then the MC_CamOut (End Cam Operation) instruction is executed.</p>
+
+<br /><img class="image" id="jau1761116813375__image_fxx_qfj_bhc" src="ddx1761187204403.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="fuo1761116846514">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Aborting the Instruction</h1>
+
+<div class="body conbody">
+<p class="p" id="fuo1761116846514__ID0EZZIQ">If an axis error occurs for the slave axis during execution of this instruction, the slave axis decelerates to a stop at the maximum deceleration rate for the axis. If the MC_Stop instruction is executed for the slave axis, <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> changes to TRUE and the slave axis decelerates to a stop at the deceleration rate that is specified in the MC_Stop instruction.</p>
+
+<p class="p" id="fuo1761116846514__ID0E3ZIQ">Refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series Troubleshooting Manual (Cat. No. W503)</span></span></span> for information on isolating the causes of axis errors.</p>
+
+<p class="p" id="fuo1761116846514__ID0EM1IQ">If an axis error occurs on the master axis, cam operation will continue.</p>
+
+<br /><img class="image linespace_7pt" id="fuo1761116846514__image_AFF5D31DAD1C411B94CE0A1BE19685F9" src="eef1484547540556.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="ifc1761116881446">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Re-execution of Motion Control Instructions</h1>
+
+<div class="body conbody">
+<p class="p" id="ifc1761116881446__ID0ER3IQ">You can re-execute this instruction to change the <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> (Cam Nodes) and <span class="ph phtype_variable"><span class="termtype">CamProperty</span></span> (Cam Properties) in operation. To change any conditions other than the <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> (Cam Nodes) and <span class="ph phtype_variable"><span class="termtype">CamProperty</span></span> (Cam Properties), use multi-execution of instructions for this instruction.</p>
+
+<p class="p" id="ifc1761116881446__ID0EU3IQ">When re-executing the instruction, <span class="ph phtype_variable"><span class="termtype">InCam</span></span> and <span class="ph phtype_variable"><span class="termtype">InSync</span></span> retain the status that they had prior to the re-execution.</p>
+
+<p class="p linespace_7pt" id="ifc1761116881446__ID0EO4IQ">Only the <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> (Cam Nodes) and <span class="ph phtype_variable"><span class="termtype">CamProperty</span></span> (Cam Properties) are affected by re-execution.</p>
+
+<div class="note" id="ifc1761116881446__note_N1002B_N1000F_N10001"><div class="use"><span class="notetitle use">use:</span> <p class="p" id="ifc1761116881446__ID0ET5IQ">If a cam node variable or cam property variable is switched by re-executing the instruction during a cam motion, the velocity or acceleration of the slave axis may change rapidly before or after the cam table is switched.</p>
+
+<p class="p" id="ifc1761116881446__ID0E15IQ">Be careful when re-executing the instruction because the mechanical composition may be affected.</p>
+
+</div></div>
+
+<p class="p" id="ifc1761116881446__ID0ET6IQ">For details on re-execution of motion control instructions, refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Motion Control User&#8217;s Manual (Cat. No. W507)</span></span></span>.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="phg1761116942109">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Multi-execution of Motion Control Instructions</h1>
+
+<div class="body conbody">
+<p class="p" id="phg1761116942109__ID0E2PAG">For details on multi-execution of motion control instructions, refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Motion Control User&#8217;s Manual (Cat. No. W507)</span></span></span>.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="rbh1761116982022">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Execution of Other Instructions during Instruction Execution</h1>
+
+<div class="body conbody">
+<p class="p" id="rbh1761116982022__ID0EGEJQ">To use multi-execution of axis command instructions for this instruction, specify the slave axis.</p>
+
+<p class="p" id="rbh1761116982022__ID0ENEJQ">When multi-execution of another instruction is performed while this instruction is in execution, the following limits apply depending on the <span class="ph phtype_variable"><span class="termtype">Buffer Mode</span></span>.</p>
+
+<ul class="ul" id="rbh1761116982022__ul_mzv_5p2_bhc">
+<li class="li" id="rbh1761116982022__li_N10031_N1002E_N1000F_N10001">
+<p class="p" id="rbh1761116982022__ID0EAFJQ">When another instruction is executed by using multi-execution with the Buffer Mode set to <span class="ph phtype_choice"><span class="termtype">Aborting</span></span>, the cam motion is aborted and the next operation is started.</p>
+
+</li>
+
+<li class="li" id="rbh1761116982022__li_N10042_N1002E_N1000F_N10001">
+<p class="p" id="rbh1761116982022__ID0ELFJQ">When another instruction is executed with the Buffer Mode set to <span class="ph phtype_choice"><span class="termtype">Buffered</span></span>, the command value for the next operation is output when <span class="ph phtype_variable"><span class="termtype">EndOfProfile</span></span> (End of Cam Cycle) changes to TRUE.</p>
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="jru1761117009297">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Multi-execution of the MC_CamInCurve Instruction with Blending</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="jru1761117009297__li_N10015_N10012_N1000F_N10001">
+<p class="p" id="jru1761117009297__ID0EKGJQ">You can specify <span class="ph phtype_choice"><span class="termtype">Blending</span></span> only for multi-execution of the MC_CamInCurve instruction. You cannot execute this instruction with <span class="ph phtype_choice"><span class="termtype">Blending</span></span> during execution of other instructions, including the MC_CamIn (Start Cam Operation) instruction.</p>
+
+</li>
+
+<li class="li" id="jru1761117009297__li_N1002B_N10012_N1000F_N10001">
+<p class="p" id="jru1761117009297__ID0EVGJQ">Specify the same values for <span class="ph phtype_variable"><span class="termtype">Master</span></span> (Master Axis) and <span class="ph phtype_variable"><span class="termtype">ReferenceType</span></span> (Position Type Selection) as those specified in the instruction that is currently in operation. If you specify different values, a Motion Control Instruction Multi-execution Disabled error will occur.</p>
+
+</li>
+
+<li class="li" id="jru1761117009297__li_N10040_N10012_N1000F_N10001">
+<p class="p" id="jru1761117009297__ID0EAHJQ">The <span class="ph phtype_variable"><span class="termtype">InSync</span></span> output variable from the buffered instruction changes to TRUE in the period in which the current instruction is completed normally, and cam operation starts without the slave axis ever stopping.</p>
+
+</li>
+
+<li class="li" id="jru1761117009297__li_N10051_N10012_N1000F_N10001">
+<p class="p" id="jru1761117009297__ID0ELHJQ">Even if <span class="ph phtype_variable"><span class="termtype">StartPosition</span></span> (Cam Nodes Start Position) and <span class="ph phtype_variable"><span class="termtype">MasterStartDistance</span></span> (Master Following Distance) are specified, the slave axis starts cam operation as soon as instruction execution starts regardless of the values that are specified. The starting point in the <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> (Cam Nodes) is the final position for the current instruction. The operation is the same regardless of which of the four types of blending is specified.</p>
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="peg1761117054878">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Execution during Execution of Other Instructions</h1>
+
+<div class="body conbody">
+<p class="p">You can switch to this instruction or buffer this instruction if you execute it during execution of another instruction. You can buffer one instruction per axis.</p>
+
+<p class="p">Specify the operation of this instruction using <span class="ph phtype_variable"><span class="termtype">BufferMode</span></span> (Buffer Mode Selection) for multi-execution of instructions. For details, refer to <a class="xref" href="ick1484547506187.html"><i style="display:none;">☆</i>MC_CamIn</a>.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="ixz1761117086136">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Master Axis and Slave Axis Compensations</h1>
+
+<div class="body conbody">
+<p class="p" id="ixz1761117086136__ID0E3IJQ">There are the following three instructions that shift the phase of master and slave axes during synchronized control.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ixz1761117086136__table_i3w_m11_kgb" class="rules_all " frame="hsides" border="1">
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d64030e30">Compensations</th>
+
+<th class="entry row-nocellborder" style="text-align:left;vertical-align:top;" id="d64030e33">Instruction</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d64030e30 ">Master axis compensations</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d64030e33 ">
+<p class="p" id="ixz1761117086136__ID0ELJJQ">MC_Phasing (Shift Master Axis Phase)</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d64030e30 ">Slave axis compensations</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d64030e33 ">
+<p class="p" id="ixz1761117086136__ID0EWJJQ">MC_SyncOffsetPosition (Cyclic Synchronous Position Offset Compensation)</p>
+
+<p class="p">MC_OffsetPosition (Position Offset Compensation)</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt" id="ixz1761117086136__ID0EHKJQ">If multi-execution of instructions causes any synchronized control instruction other than the MC_CamIn (Start Cam Operation) and MC_CamInCurve (Start Cam Operation With Specified Curve) instructions to be aborted (i.e., if the <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> output variable changes to TRUE), any instructions that shift the phase are also aborted as <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> changes to TRUE.</p>
+
+<p class="p" id="ixz1761117086136__ID0EOKJQ">If blending is used for multi-execution of the MC_CamInCurve (Start Cam Operation With Specified Curve) instruction, any instances of the instruction that shift the phase are not aborted as <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> does not change to TRUE, and processing is continued.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="osk1761117113980">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Errors</h1>
+
+<div class="body conbody">
+<p class="p" id="osk1761117113980__ID0ET2AI">If an error occurs during execution of this instruction, <span class="ph phtype_variable"><span class="termtype">Error</span></span> will change to TRUE.</p>
+
+<p class="p" id="osk1761117113980__ID0EW2AI">You can find out the cause of the error by referring to the value output by <span class="ph phtype_variable"><span class="termtype">ErrorID</span></span> (Error Code).</p>
+
+<p class="p">Depending on <span class="ph phtype_variable"><span class="termtype">ErrorID</span></span> (Error Code), attached information is output to <span class="ph phtype_variable"><span class="termtype">ErrorParameterCode</span></span> (Parameter Detail Code) and <span class="ph phtype_variable"><span class="termtype">ErrorNodePointIndex</span></span> (Error Node Point Element Number).</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="xzx1761117160004">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Timing Chart When Error Occurs</h1>
+
+<div class="body conbody">
+<br /><img class="image" id="xzx1761117160004__image_izg_lr2_bhc" src="cxu1761133183030.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="tip1761117193246">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Error Codes</h1>
+
+<div class="body conbody">
+<p class="p" id="tip1761117193246__ID0E6UAG">Refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series Troubleshooting Manual (Cat. No. W503)</span></span></span> for errors that may occur with this instruction.</p>
+
+</div>
+
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,824 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>RecRangeSearch</title>
+</head>
+<body class="jgf1501815650758"><div class="layer02" id="jgf1501815650758">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">RecRangeSearch</h1>
+ 
+<div class="body conbody">
+<p class="p">The RecRangeSearch instruction searches an array of structures for elements that match the search condition range with the specified method.</p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="jgf1501815650758__table_N10016_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:13%" />
+<col style="width:14%" />
+<col style="width:6%" />
+<col style="width:35%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d487577e37">Instruction</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d487577e40">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d487577e43">
+<p class="p">FB/</p>
+
+<p class="p">FUN</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d487577e52">Graphic expression</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d487577e55">ST expression</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d487577e37 "><span class="indexterm">RecRangeSearch (Range Record Search)</span>RecRangeSearch</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d487577e40 "><span class="indexterm">Range Record Search</span>Range Record Search</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d487577e43 ">FUN</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d487577e52 ">
+<br /><img class="image" id="jgf1501815650758__image_05D22FD695A740E3900E1F1179D09E54" src="aqo1501815650070.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d487577e55 ">Out:=RecRangeSearch(In, Size, Member, MN, MX, Condition, Mode, InOutPos, Num);</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="bgq1501816492715">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="bgq1501816492715__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:20%" />
+<col style="width:9%" />
+<col style="width:20%" />
+<col style="width:14%" />
+<col style="width:14%" />
+<col style="width:8%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d63943e47">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d63943e49">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d63943e52">I/O</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d63943e55">Description</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d63943e58">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d63943e62">Unit</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d63943e65">Default</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e47 ">In[] (array)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e49 ">Array to search</td>
+
+<td class="entry cellrowborder" rowspan="7" style="text-align:left;vertical-align:middle;" headers="d63943e52 ">Input</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e55 ">Array of structures to search</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e58 ">---</td>
+
+<td class="entry cellrowborder" rowspan="7" style="text-align:left;vertical-align:middle;" headers="d63943e62 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e65 "><a class="xref" href="jgf1501815650758.html#bgq1501816492715__fn_ybg_552_c1b"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e47 ">Size</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e49 ">Number of elements to search</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e55 ">Number of array elements to search</td>
+
+<td class="entry cellrowborder" rowspan="4" style="text-align:left;vertical-align:middle;" headers="d63943e58 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e65 ">1</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e47 ">Member</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e49 ">Member to search</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e55 ">Member of In[] structure to search</td>
+
+<td class="entry cellrowborder" rowspan="3" style="text-align:left;vertical-align:middle;" headers="d63943e65 "><a class="xref" href="jgf1501815650758.html#bgq1501816492715__fn_ybg_552_c1b"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e47 ">MN</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e49 ">Search condition lower limit</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e55 ">Search condition lower limit</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e47 ">MX</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e49 ">Search condition upper limit</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e55 ">Search condition upper limit</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e47 ">Condition</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e49 ">Search condition</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e55 ">Search condition</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e58 ">_EQ_BOTH, _EQ_MIN, _EQ_MAX, _NE_BOTH</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e65 ">_EQ_BOTH</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e47 ">Mode</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e49 ">Search method</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e55 ">Search method</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e58 ">_LINEAR, _BIN_ASC, _BIN_DESC</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e65 ">_LINEAR</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e47 ">InOutPos[] (array)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e49 ">Element numbers of matching elements</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e52 ">In-out</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e55 ">Element numbers of matching elements</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e58 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e62 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e65 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e47 ">Out</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e49 ">Search result</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d63943e52 ">Output</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e55 ">
+<p class="p" id="bgq1501816492715__ID0EKGBM">TRUE: There are elements that match conditions</p>
+
+<p class="p" id="bgq1501816492715__ID0ERGBM">FALSE: There are no elements that match conditions</p>
+
+</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d63943e58 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d63943e62 ">---</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d63943e65 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e47 ">Num</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e49 ">Number of matches</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e55 ">Number of matches</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="bgq1501816492715__fn_ybg_552_c1b" id="bgq1501816492715__fn_ybg_552_c1b"><sup>*1</sup></a>  If you omit the input parameter, the default value is not applied. A building error will occur.</div>
+</div></div>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="bgq1501816492715__table_N101F8_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:5%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:top;" id="d63943e328">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d63943e330">Boolean</th>
+
+<th class="entry cellrowborder" colspan="4" style="text-align:center;vertical-align:middle;" id="d63943e333">Bit strings</th>
+
+<th class="entry cellrowborder" colspan="8" style="text-align:center;vertical-align:middle;" id="d63943e336">Integers</th>
+
+<th class="entry cellrowborder" colspan="2" style="text-align:center;vertical-align:middle;" id="d63943e339">Real numbers</th>
+
+<th class="entry cellrowborder" colspan="5" style="text-align:center;vertical-align:middle;" id="d63943e343">Times, durations, dates, and text strings</th>
+
+</tr>
+
+<tr class="row">
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d63943e349">BOOL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d63943e352">BYTE</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d63943e355">WORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d63943e358">DWORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d63943e361">LWORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d63943e365">USINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d63943e368">UINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d63943e371">UDINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d63943e374">ULINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d63943e377">SINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d63943e380">INT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d63943e384">DINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d63943e387">LINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d63943e390">REAL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d63943e393">LREAL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d63943e396">TIME</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d63943e399">DATE</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d63943e403">TOD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d63943e406">DT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d63943e409">STRING</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e328 d63943e349 ">In[] (array)</td>
+
+<td class="entry cellrowborder" colspan="20" style="text-align:center;vertical-align:middle;" headers="d63943e330 d63943e333 d63943e336 d63943e339 d63943e343 d63943e352 d63943e355 d63943e358 d63943e361 d63943e365 d63943e368 d63943e371 d63943e374 d63943e377 d63943e380 d63943e384 d63943e387 d63943e390 d63943e393 d63943e396 d63943e399 d63943e403 d63943e406 d63943e409 ">Specify an array of structures.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e328 d63943e349 ">Size</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e330 d63943e352 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e333 d63943e355 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e333 d63943e358 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e333 d63943e361 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e333 d63943e365 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e336 d63943e368 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e336 d63943e371 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e336 d63943e374 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e336 d63943e377 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e336 d63943e380 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e336 d63943e384 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e336 d63943e387 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e336 d63943e390 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e339 d63943e393 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e339 d63943e396 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e343 d63943e399 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e343 d63943e403 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e343 d63943e406 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e343 d63943e409 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e343 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d63943e328 d63943e349 ">Member</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e330 d63943e352 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e333 d63943e355 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e333 d63943e358 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e333 d63943e361 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e333 d63943e365 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e336 d63943e368 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e336 d63943e371 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e336 d63943e374 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e336 d63943e377 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e336 d63943e380 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e336 d63943e384 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e336 d63943e387 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e336 d63943e390 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e339 d63943e393 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e339 d63943e396 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e343 d63943e399 "><span class="ph font_Wingdings"></span>OK <a class="xref" href="jgf1501815650758.html#bgq1501816492715__fn_cnr_xv2_c1b"><i style="display:none;">☆</i><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e343 d63943e403 "><span class="ph font_Wingdings"></span>OK <a class="xref" href="jgf1501815650758.html#bgq1501816492715__fn_cnr_xv2_c1b"><i style="display:none;">☆</i><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e343 d63943e406 "><span class="ph font_Wingdings"></span>OK <a class="xref" href="jgf1501815650758.html#bgq1501816492715__fn_cnr_xv2_c1b"><i style="display:none;">☆</i><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e343 d63943e409 "><span class="ph font_Wingdings"></span>OK <a class="xref" href="jgf1501815650758.html#bgq1501816492715__fn_cnr_xv2_c1b"><i style="display:none;">☆</i><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e343 "><span class="ph font_Wingdings"></span>OK <a class="xref" href="jgf1501815650758.html#bgq1501816492715__fn_cnr_xv2_c1b"><i style="display:none;">☆</i><sup>*2</sup></a></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" colspan="20" style="text-align:center;vertical-align:middle;" headers="d63943e330 d63943e333 d63943e336 d63943e339 d63943e343 d63943e352 d63943e355 d63943e358 d63943e361 d63943e365 d63943e368 d63943e371 d63943e374 d63943e377 d63943e380 d63943e384 d63943e387 d63943e390 d63943e393 d63943e396 d63943e399 d63943e403 d63943e406 d63943e409 ">Specify the same data type as the search member of In[]</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e328 d63943e349 ">MN</td>
+
+<td class="entry cellrowborder" colspan="20" style="text-align:center;vertical-align:middle;" headers="d63943e330 d63943e333 d63943e336 d63943e339 d63943e343 d63943e352 d63943e355 d63943e358 d63943e361 d63943e365 d63943e368 d63943e371 d63943e374 d63943e377 d63943e380 d63943e384 d63943e387 d63943e390 d63943e393 d63943e396 d63943e399 d63943e403 d63943e406 d63943e409 ">Must be the same data type as <span class="ph phtype_variable"><span class="termtype">Member</span></span>.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e328 d63943e349 ">MX</td>
+
+<td class="entry cellrowborder" colspan="20" style="text-align:center;vertical-align:middle;" headers="d63943e330 d63943e333 d63943e336 d63943e339 d63943e343 d63943e352 d63943e355 d63943e358 d63943e361 d63943e365 d63943e368 d63943e371 d63943e374 d63943e377 d63943e380 d63943e384 d63943e387 d63943e390 d63943e393 d63943e396 d63943e399 d63943e403 d63943e406 d63943e409 ">Must be the same data type as <span class="ph phtype_variable"><span class="termtype">Member</span></span>.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e328 d63943e349 ">Condition</td>
+
+<td class="entry cellrowborder" colspan="20" style="text-align:center;vertical-align:middle;" headers="d63943e330 d63943e333 d63943e336 d63943e339 d63943e343 d63943e352 d63943e355 d63943e358 d63943e361 d63943e365 d63943e368 d63943e371 d63943e374 d63943e377 d63943e380 d63943e384 d63943e387 d63943e390 d63943e393 d63943e396 d63943e399 d63943e403 d63943e406 d63943e409 ">Refer to <a class="xref" href="jgf1501815650758.html"><i style="display:none;">☆</i>RecRangeSearch</a> for the enumerators of the enumerated type _eSEARCH_CONDITION.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e328 d63943e349 ">Mode</td>
+
+<td class="entry cellrowborder" colspan="20" style="text-align:center;vertical-align:middle;" headers="d63943e330 d63943e333 d63943e336 d63943e339 d63943e343 d63943e352 d63943e355 d63943e358 d63943e361 d63943e365 d63943e368 d63943e371 d63943e374 d63943e377 d63943e380 d63943e384 d63943e387 d63943e390 d63943e393 d63943e396 d63943e399 d63943e403 d63943e406 d63943e409 ">Refer to <a class="xref" href="jgf1501815650758.html"><i style="display:none;">☆</i>RecRangeSearch</a> for the enumerators of the enumerated type _eSEARCH_MODE.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e328 d63943e349 ">InOutPos[] (array)</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e330 d63943e352 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e333 d63943e355 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e333 d63943e358 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e333 d63943e361 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e333 d63943e365 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e336 d63943e368 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e336 d63943e371 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e336 d63943e374 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e336 d63943e377 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e336 d63943e380 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e336 d63943e384 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e336 d63943e387 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e336 d63943e390 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e339 d63943e393 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e339 d63943e396 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e343 d63943e399 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e343 d63943e403 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e343 d63943e406 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e343 d63943e409 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e343 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e328 d63943e349 ">Out</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e330 d63943e352 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e333 d63943e355 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e333 d63943e358 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e333 d63943e361 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e333 d63943e365 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e336 d63943e368 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e336 d63943e371 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e336 d63943e374 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e336 d63943e377 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e336 d63943e380 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e336 d63943e384 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e336 d63943e387 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e336 d63943e390 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e339 d63943e393 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e339 d63943e396 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e343 d63943e399 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e343 d63943e403 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e343 d63943e406 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e343 d63943e409 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e343 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d63943e328 d63943e349 ">Num</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e330 d63943e352 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e333 d63943e355 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e333 d63943e358 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e333 d63943e361 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e333 d63943e365 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e336 d63943e368 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e336 d63943e371 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e336 d63943e374 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e336 d63943e377 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e336 d63943e380 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e336 d63943e384 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e336 d63943e387 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e336 d63943e390 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e339 d63943e393 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e339 d63943e396 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e343 d63943e399 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e343 d63943e403 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e343 d63943e406 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e343 d63943e409 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d63943e343 ">&#160;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+
+<div class="fn"><a name="bgq1501816492715__fn_cnr_xv2_c1b" id="bgq1501816492715__fn_cnr_xv2_c1b"><sup>*2</sup></a>  You can specify TIME, DATE, TOD, DT, and STRING data with CPU Units with unit version 1.01 or later and Sysmac Studio version 1.02 or higher.</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="tnw1501816496606">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function</h1>
+ 
+<div class="body conbody">
+<p class="p">The RecRangeSearch instruction searches <span class="ph phtype_variable"><span class="termtype">Size</span></span> elements in the array of structures In[], i.e., from In[0] to In[<span class="ph phtype_variable"><span class="termtype">Size</span></span>-1], for <span class="ph phtype_variable"><span class="termtype">Member</span></span> (member to search) that matches the search condition.</p>
+
+<p class="p"><span class="ph phtype_variable"><span class="termtype">Condition</span></span> specifies the search condition, and <span class="ph phtype_variable"><span class="termtype">Mode</span></span> specifies the search method. Details are provided below.</p>
+
+<p class="p">The member to search of an element in In[] is passed to <span class="ph phtype_variable"><span class="termtype">Member</span></span> as an argument.</p>
+
+<p class="p">If any element that matches the search condition is found, the value of search result <span class="ph phtype_variable"><span class="termtype">Out</span></span> changes to TRUE. The element number of the matching element is assigned to InOutPos[0] and the number of matching elements is assigned to <span class="ph phtype_variable"><span class="termtype">Num</span></span>. If there is more than one matching element, the element number of the lowest matching element in In[] is assigned to InOutPos[0].</p>
+
+<p class="p">If there are no matching elements, the value of <span class="ph phtype_variable"><span class="termtype">Out</span></span> will be FALSE, and InOutPos[0] and <span class="ph phtype_variable"><span class="termtype">Num</span></span> will be 0.</p>
+
+<p class="p linespace_7pt">Always attach the element number to input parameter that is passed to In[], e.g., array[3].</p>
+
+<p class="p linespace_7pt">The data type of <span class="ph phtype_variable"><span class="termtype">Condition</span></span> (search condition) is enumerated type _eSEARCH_CONDITION. The meanings of the enumerators are as follows:</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="tnw1501816496606__table_N10066_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d931468e81">Enumerator</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d931468e84">Meaning</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d931468e81 ">_EQ_BOTH</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d931468e84 "><span class="ph phtype_variable"><span class="termtype">MN</span></span> &#8804; <span class="ph phtype_variable"><span class="termtype">Member</span></span> &#8804; <span class="ph phtype_variable"><span class="termtype">MX</span></span></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d931468e81 ">_EQ_MIN</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d931468e84 "><span class="ph phtype_variable"><span class="termtype">MN</span></span> &#8804; <span class="ph phtype_variable"><span class="termtype">Member</span></span> &lt; <span class="ph phtype_variable"><span class="termtype">MX</span></span></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d931468e81 ">_EQ_MAX</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d931468e84 "><span class="ph phtype_variable"><span class="termtype">MN</span></span> &lt; <span class="ph phtype_variable"><span class="termtype">Member</span></span> &#8804; <span class="ph phtype_variable"><span class="termtype">MX</span></span></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d931468e81 ">_NE_BOTH</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d931468e84 "><span class="ph phtype_variable"><span class="termtype">MN</span></span> &lt; <span class="ph phtype_variable"><span class="termtype">Member</span></span> &lt; <span class="ph phtype_variable"><span class="termtype">MX</span></span></td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt">The data type of <span class="ph phtype_variable"><span class="termtype">Mode</span></span> (search method) is enumerated type _eSEARCH_MODE. The meanings of the enumerators are as follows:</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="tnw1501816496606__table_N10115_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d931468e176">Enumerator</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d931468e179">Meaning</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d931468e176 ">_LINEAR</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d931468e179 ">Linear search</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d931468e176 ">_BIN_ASC</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d931468e179 ">Ascending binary search</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d931468e176 ">_BIN_DESC</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d931468e179 ">Descending binary search</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt">For a linear search, the search is performed in order from the first element of In[].</p>
+
+<p class="p linespace_7pt">The following shows an example where <span class="ph phtype_variable"><span class="termtype">Size</span></span> is UINT#5, <span class="ph phtype_variable"><span class="termtype">MN</span></span> is INT#1000, <span class="ph phtype_variable"><span class="termtype">MX</span></span> is INT#2000, <span class="ph phtype_variable"><span class="termtype">Condition</span></span> is _EQ_BOTH, and <span class="ph phtype_variable"><span class="termtype">Mode</span></span> is _LINEAR.</p>
+
+<br /><img class="image" id="tnw1501816496606__image_E6D4E7B523EF4CC6A1287180F47B58B8" src="ffi1501816492977.gif" /><br />
+<br /><img class="image" id="tnw1501816496606__image_4C012FF286AC40E297BBA42013B89609" src="uyl1501816493929.gif" /><br />
+<p class="p linespace_7pt">For an ascending binary search, the array elements in the input parameter that is passed to In[] must be in ascending order before this instruction is executed. Then a binary search is performed by executing this instruction.</p>
+
+<p class="p linespace_7pt">Using the same example as before, the order of the array elements and the processing results will be as shown below for an ascending binary search.</p>
+
+<br /><img class="image" id="tnw1501816496606__image_07D353B6A29A44C9887CCCC1C44CC88B" src="klp1501816494818.gif" /><br />
+<p class="p linespace_7pt">For a descending binary search, the array elements in the input parameter that is passed to In[] must be in descending order before this instruction is executed. Then a binary search is performed by executing this instruction.</p>
+
+<p class="p linespace_7pt">Using the same example as before, the order of the array elements and the processing results will be as shown below for a descending binary search.</p>
+
+<br /><img class="image" id="tnw1501816496606__image_0C7DD1BB683244DE9834037952C8BE71" src="vpq1501816495744.gif" /><br />
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="fsc1501816496894">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Additional Information</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="fsc1501816496894__li_N10015_N10012_N1000F_N10002">
+<p class="p" id="fsc1501816496894__ID0EVPDM">In[] can be a member of a higher-level structure.</p>
+
+<p class="p">Example: In[0]=str0.str1[0]</p>
+
+</li>
+
+<li class="li" id="fsc1501816496894__li_N10023_N10012_N1000F_N10002">In[] can be an array with two or more dimensions. If In[] is a two-dimensional array, the element number in the first dimension of the element that matches the search conditions is assigned to InOutPos[0] and the element number in the second dimension is assigned to InOutPos[1].</li>
+
+<li class="li" id="fsc1501816496894__li_N10028_N10012_N1000F_N10002">If In[] is a three-dimensional array, the element number in the first dimension of the element that matches the search conditions is assigned to InOutPos[0], the element number in the second dimension is assigned to InOutPos[1], and the element number in the third dimension is assigned to InOutPos[2].</li>
+
+<li class="li" id="fsc1501816496894__li_N1002D_N10012_N1000F_N10002">When you search TIME, DT, or TOD data, adjust the accuracy of <span class="ph phtype_variable"><span class="termtype">Member</span></span>, <span class="ph phtype_variable"><span class="termtype">MN</span></span>, and <span class="ph phtype_variable"><span class="termtype">MX</span></span> to the same. You can use the following instructions for the adjustment: <a class="xref" href="zqq1501815712778.html#zqq1501815712778"><i style="display:none;">☆</i>TruncTime</a>, <a class="xref" href="iqk1501815713791.html#iqk1501815713791"><i style="display:none;">☆</i>TruncDt</a>, and <a class="xref" href="qub1501815714668.html#qub1501815714668"><i style="display:none;">☆</i>TruncTod</a>.</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="sna1501816497133">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Precautions for Correct Use</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="sna1501816497133__li_N10015_N10012_N1000F_N10002">
+<p class="p">Use the same data type for <span class="ph phtype_variable"><span class="termtype">Member</span></span>, <span class="ph phtype_variable"><span class="termtype">MN</span></span>, and <span class="ph phtype_variable"><span class="termtype">MX</span></span> as that of the In[] structure member to search. Otherwise, a building error will occur.</p>
+
+</li>
+
+<li class="li" id="sna1501816497133__li_N1002C_N10012_N1000F_N10002">
+<p class="p">Use an array that is the element of a structure for In[]. Otherwise, a building error will occur.</p>
+
+</li>
+
+<li class="li" id="sna1501816497133__li_N10035_N10012_N1000F_N10002">
+<p class="p">When an element in the array is passed to In[], all elements below the passed element are processed.</p>
+
+</li>
+
+<li class="li" id="sna1501816497133__li_N1003E_N10012_N1000F_N10002">
+<p class="p">If <span class="ph phtype_variable"><span class="termtype">Member</span></span> is a real number, the desired results may not be achieved due to error, depending on the value.</p>
+
+</li>
+
+<li class="li" id="sna1501816497133__li_N1004B_N10012_N1000F_N10002">
+<p class="p">If <span class="ph phtype_variable"><span class="termtype">MN</span></span> or <span class="ph phtype_variable"><span class="termtype">MX</span></span> is a real number, do not specify nonnumeric data.</p>
+
+</li>
+
+<li class="li" id="sna1501816497133__li_N1005D_N10012_N1000F_N10002">
+<p class="p">If the value of <span class="ph phtype_variable"><span class="termtype">Size</span></span> is 0, the value of <span class="ph phtype_variable"><span class="termtype">Out</span></span> is FALSE and the value of <span class="ph phtype_variable"><span class="termtype">Num</span></span> is 0. InOutPos[] does not change.</p>
+
+</li>
+
+<li class="li" id="sna1501816497133__li_N10074_N10012_N1000F_N10002">
+<p class="p">A correct result will not be obtained if the value of <span class="ph phtype_variable"><span class="termtype">Mode</span></span> is _BIN_ASC or _BIN_DESC and the elements of In[] are not in ascending or descending order. Sort the elements in ascending or descending order before executing this instruction.</p>
+
+</li>
+
+<li class="li" id="sna1501816497133__li_N10081_N10012_N1000F_N10002">
+<p class="p">An error will occur in the following cases. <span class="ph phtype_variable"><span class="termtype">ENO</span></span> will be FALSE, and <span class="ph phtype_variable"><span class="termtype">Out</span></span>, InOutPos[], and <span class="ph phtype_variable"><span class="termtype">Num</span></span> will not change.</p>
+
+<ol class="ol liststyle_alphabet1">
+<li class="li" id="sna1501816497133__li_N1009C_N10098_N10081_N10012_N1000F_N10002"><span class="ph phtype_variable"><span class="termtype">MN</span></span> is greater than <span class="ph phtype_variable"><span class="termtype">MX</span></span>.</li>
+
+<li class="li" id="sna1501816497133__li_N100AA_N10098_N10081_N10012_N1000F_N10002">The value of <span class="ph phtype_variable"><span class="termtype">Condition</span></span> is outside the valid range.</li>
+
+<li class="li" id="sna1501816497133__li_N100B3_N10098_N10081_N10012_N1000F_N10002">The value of <span class="ph phtype_variable"><span class="termtype">Mode</span></span> is outside the valid range.</li>
+
+<li class="li" id="sna1501816497133__li_N100BC_N10098_N10081_N10012_N1000F_N10002">The value of <span class="ph phtype_variable"><span class="termtype">Size</span></span> exceeds the array area of In[].</li>
+
+<li class="li" id="sna1501816497133__li_N100C5_N10098_N10081_N10012_N1000F_N10002"><span class="ph phtype_variable"><span class="termtype">Member</span></span> is not a member of In[].</li>
+
+<li class="li" id="sna1501816497133__li_N100CE_N10098_N10081_N10012_N1000F_N10002">The array size of InOutPos[] is smaller than the number of dimensions of In[].</li>
+
+</ol>
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+
+

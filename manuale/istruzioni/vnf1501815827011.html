@@ -1,0 +1,1603 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>BackupToMemoryCard</title>
+</head>
+<body class="vnf1501815827011"><div class="layer02" id="vnf1501815827011">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">BackupToMemoryCard</h1>
+ 
+<div class="body conbody">
+<p class="p" id="vnf1501815827011__ID0ECJRO">The BackupToMemoryCard instruction backs up data to an SD Memory Card.</p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="vnf1501815827011__table_N10017_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:13%" />
+<col style="width:14%" />
+<col style="width:6%" />
+<col style="width:35%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1030125e37">Instruction</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1030125e40">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1030125e43">
+<p class="p" id="vnf1501815827011__ID0EVKRO">FB/</p>
+
+<p class="p">FUN</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1030125e52">Graphic expression</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1030125e55">ST expression</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1030125e37 "><span class="indexterm">BackupToMemoryCard (SD Memory Card Backup)</span>BackupToMemoryCard</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1030125e40 "><span class="indexterm">SD Memory Card Backup</span>SD Memory Card Backup</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1030125e43 ">FB</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1030125e52 ">
+<br /><img class="image" id="vnf1501815827011__image_6F5BAF35F63D4213B5355B310BFC116D" src="egh1501815826311.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1030125e55 ">BackupToMemoryCard _instance(Execute, DirName, Cancel, Option, Done, Busy, Error, Canceled, ErrorID);</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt"></p>
+
+<div class="note" id="vnf1501815827011__note_N100B0_N1000F_N10002"><div class="ver"><span class="notetitle ver">ver:</span> A CPU Unit with unit version 1.08 or later and Sysmac Studio version 1.09 or higher are required to use this instruction.</div></div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="gof1501817565325">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Variables</h1>
+ 
+<div class="body conbody">
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="gof1501817565325__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:20%" />
+<col style="width:9%" />
+<col style="width:20%" />
+<col style="width:14%" />
+<col style="width:14%" />
+<col style="width:8%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d320050e38">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d320050e40">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d320050e43">I/O</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d320050e46">Description</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d320050e49">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d320050e53">Unit</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d320050e56">Default</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d320050e38 ">DirName</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d320050e40 ">Directory to save in</td>
+
+<td class="entry cellrowborder" rowspan="3" style="text-align:left;vertical-align:middle;" headers="d320050e43 ">Input</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d320050e46 ">Name of directory in which to save the backup data</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d320050e49 ">64 bytes max. (63 single-byte alphanumeric characters plus the final NULL character)</td>
+
+<td class="entry cellrowborder" rowspan="3" style="text-align:left;vertical-align:middle;" headers="d320050e53 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d320050e56 ">''</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d320050e38 ">Cancel</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d320050e40 ">Cancel</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d320050e46 ">
+<p class="p" id="gof1501817565325__ID0EQWRO">Canceling the backup</p>
+
+<p class="p">TRUE: Cancel</p>
+
+<p class="p">FALSE: Do not cancel</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d320050e49 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d320050e56 ">FALSE</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d320050e38 ">Option</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d320050e40 ">For future expansion</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d320050e46 ">
+<p class="p" id="gof1501817565325__ID0ETYRO">This variable is for future expansion.</p>
+
+<p class="p">It is not necessary to connect a parameter.</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d320050e49 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d320050e56 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d320050e38 ">Canceled</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d320050e40 ">Cancel completed</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d320050e43 ">Output</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d320050e46 ">
+<p class="p" id="gof1501817565325__ID0EA2RO">A flag that indicates if canceling was completed</p>
+
+<p class="p">TRUE: Canceling completed</p>
+
+<p class="p">FALSE: Canceling failed</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d320050e49 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d320050e53 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d320050e56 ">---</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="gof1501817565325__table_N10146_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:5%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:top;" id="d320050e229">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d320050e231">Boolean</th>
+
+<th class="entry cellrowborder" colspan="4" style="text-align:center;vertical-align:middle;" id="d320050e234">Bit strings</th>
+
+<th class="entry cellrowborder" colspan="8" style="text-align:center;vertical-align:middle;" id="d320050e237">Integers</th>
+
+<th class="entry cellrowborder" colspan="2" style="text-align:center;vertical-align:middle;" id="d320050e240">Real numbers</th>
+
+<th class="entry cellrowborder" colspan="5" style="text-align:center;vertical-align:middle;" id="d320050e244">Times, durations, dates, and text strings</th>
+
+</tr>
+
+<tr class="row">
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d320050e250">BOOL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d320050e253">BYTE</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d320050e256">WORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d320050e259">DWORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d320050e262">LWORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d320050e266">USINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d320050e269">UINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d320050e272">UDINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d320050e275">ULINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d320050e278">SINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d320050e281">INT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d320050e285">DINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d320050e288">LINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d320050e291">REAL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d320050e294">LREAL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d320050e297">TIME</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d320050e300">DATE</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d320050e304">TOD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d320050e307">DT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d320050e310">STRING</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d320050e229 d320050e250 ">DirName</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e231 d320050e253 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e234 d320050e256 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e234 d320050e259 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e234 d320050e262 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e234 d320050e266 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e237 d320050e269 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e237 d320050e272 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e237 d320050e275 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e237 d320050e278 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e237 d320050e281 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e237 d320050e285 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e237 d320050e288 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e237 d320050e291 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e240 d320050e294 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e240 d320050e297 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e244 d320050e300 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e244 d320050e304 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e244 d320050e307 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e244 d320050e310 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d320050e244 "><span class="ph font_Wingdings"></span>OK</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d320050e229 d320050e250 ">Cancel</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d320050e231 d320050e253 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e234 d320050e256 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e234 d320050e259 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e234 d320050e262 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e234 d320050e266 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e237 d320050e269 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e237 d320050e272 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e237 d320050e275 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e237 d320050e278 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e237 d320050e281 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e237 d320050e285 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e237 d320050e288 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e237 d320050e291 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e240 d320050e294 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e240 d320050e297 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e244 d320050e300 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e244 d320050e304 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e244 d320050e307 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e244 d320050e310 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e244 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d320050e229 d320050e250 ">Option</td>
+
+<td class="entry cellrowborder" colspan="20" style="text-align:center;vertical-align:middle;" headers="d320050e231 d320050e234 d320050e237 d320050e240 d320050e244 d320050e253 d320050e256 d320050e259 d320050e262 d320050e266 d320050e269 d320050e272 d320050e275 d320050e278 d320050e281 d320050e285 d320050e288 d320050e291 d320050e294 d320050e297 d320050e300 d320050e304 d320050e307 d320050e310 ">For future expansion. It is not necessary to connect a parameter.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d320050e229 d320050e250 ">Canceled</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d320050e231 d320050e253 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e234 d320050e256 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e234 d320050e259 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e234 d320050e262 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e234 d320050e266 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e237 d320050e269 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e237 d320050e272 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e237 d320050e275 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e237 d320050e278 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e237 d320050e281 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e237 d320050e285 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e237 d320050e288 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e237 d320050e291 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e240 d320050e294 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e240 d320050e297 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e244 d320050e300 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e244 d320050e304 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e244 d320050e307 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e244 d320050e310 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d320050e244 ">&#160;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="lsx1501817565576">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function</h1>
+ 
+<div class="body conbody">
+<p class="p" id="lsx1501817565576__ID0EF6SO">The BackupToMemoryCard instruction backs up data to an SD Memory Card.</p>
+
+<p class="p" id="lsx1501817565576__ID0EI6SO">This instruction performs the same processing as the processing that is performed for the front panel switch on the CPU Unit, the _Card1BkupCmd system-defined variable, or the SD Memory Card backup performed from the SD Memory Card Window on the Sysmac Studio.</p>
+
+<p class="p linespace_7pt" id="lsx1501817565576__ID0EV6SO">Use <span class="ph phtype_variable"><span class="termtype">DirName</span></span> to specify the name of the directory in which to save the backup data.</p>
+
+<p class="p" id="lsx1501817565576__ID0E36SO">If the value of <span class="ph phtype_variable"><span class="termtype">DirName</span></span> is '' (i.e., a text string with a length of 0 characters), the backup data is saved in the root directory of the SD Memory Card.</p>
+
+<p class="p" id="lsx1501817565576__ID0EDATO"><span class="ph phtype_variable"><span class="termtype">DirName</span></span> can be omitted. If you omit <span class="ph phtype_variable"><span class="termtype">DirName</span></span>, data is saved as below.</p>
+
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="lsx1501817565576__table_N1003D_N1000E_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d627699e54">Instruction execution</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d627699e57">Directory to save in</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d627699e54 ">1st execution</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d627699e57 ">Root directory</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d627699e54 ">2nd execution and beyond</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d627699e57 ">The previously specified directory</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+<p class="p linespace_7pt" id="lsx1501817565576__ID0ERDTO">If the directory specified with <span class="ph phtype_variable"><span class="termtype">DirName</span></span> does not exist in the SD Memory Card, a new directory is created and the backup data is saved in it.</p>
+
+<p class="p" id="lsx1501817565576__ID0EYDTO">If a file with the same name as the backup file already exists in the directory specified with <span class="ph phtype_variable"><span class="termtype">DirName</span></span>, the backup file is overwritten.</p>
+
+<p class="p linespace_7pt" id="lsx1501817565576__ID0EFETO">If the value of <span class="ph phtype_variable"><span class="termtype">Cancel</span></span> is changed to TRUE during backup processing, the backup processing is canceled.</p>
+
+<p class="p">If backup processing is canceled, the backup file will not be created.</p>
+
+<p class="p linespace_7pt">If a backup file already exists in the directory specified with <span class="ph phtype_variable"><span class="termtype">DirName</span></span>, the backup file is not overwritten and remains unchanged.</p>
+
+<p class="p" id="lsx1501817565576__ID0EMETO">You can cancel only the backup processing that is being executed for the same function block instance.</p>
+
+<p class="p" id="lsx1501817565576__ID0ETETO">When the cancellation is completed, the value of <span class="ph phtype_variable"><span class="termtype">Canceled</span></span> changes to TRUE.</p>
+
+<p class="p">If the change of <span class="ph phtype_variable"><span class="termtype">Cancel</span></span> to TRUE is not completed in time, the value change for cancellation may not be received in time, and the backup process may be continued until completed. If the value change for cancellation is not received in time, the value of <span class="ph phtype_variable"><span class="termtype">Canceled</span></span> will be FALSE, and the value of <span class="ph phtype_variable"><span class="termtype">Done</span></span> will be TRUE.</p>
+
+<p class="p linespace_7pt" id="lsx1501817565576__ID0EAFTO">If the value of <span class="ph phtype_variable"><span class="termtype">Cancel</span></span> is TRUE, backup processing is not performed even if the value of <span class="ph phtype_variable"><span class="termtype">Execute</span></span> is TRUE.</p>
+
+<p class="p linespace_7pt" id="lsx1501817565576__ID0ENFTO"><span class="ph phtype_variable"><span class="termtype">Option</span></span> is for future expansion. Do not connect a parameter to it.</p>
+
+</div>
+ 
+<div class="related-links"></div></div><div class="layer04" id="feb1501817565815">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Timing Chart for Canceling</h1>
+<div class="body conbody"><p class="p" id="feb1501817565815__ID0E4GTO">Timing charts for the instruction variables are provided below for canceling.</p>
+</div>
+<div class="related-links"></div></div><div class="layer05" id="iem1501817566997">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">To Change Execute to FALSE Before Canceled Changes to TRUE for a Successful Cancellation</h1>
+
+<div class="body conbody">
+<ul class="ul" id="iem1501817566997__ul_llr_gfh_p1b">
+<li class="li" id="iem1501817566997__li_N10020_N1001C_N10019_N10002">Backup processing is executed when <span class="ph phtype_variable"><span class="termtype">Execute</span></span> is changed to TRUE. The value of <span class="ph phtype_variable"><span class="termtype">Busy</span></span> changes to TRUE.</li>
+
+<li class="li" id="iem1501817566997__li_N1002E_N1001C_N10019_N10002">Backup processing is canceled when <span class="ph phtype_variable"><span class="termtype">Cancel</span></span> is changed to TRUE.</li>
+
+<li class="li" id="iem1501817566997__li_N10037_N1001C_N10019_N10002">When the cancellation is completed, <span class="ph phtype_variable"><span class="termtype">Busy</span></span> changes to FALSE, and <span class="ph phtype_variable"><span class="termtype">Canceled</span></span> changes to TRUE.</li>
+
+<li class="li" id="iem1501817566997__li_N10046_N1001C_N10019_N10002">Change the value of <span class="ph phtype_variable"><span class="termtype">Execute</span></span> to FALSE before <span class="ph phtype_variable"><span class="termtype">Canceled</span></span> changes to TRUE.</li>
+
+<li class="li" id="iem1501817566997__li_N10054_N1001C_N10019_N10002">The value of <span class="ph phtype_variable"><span class="termtype">Canceled</span></span> changes to FALSE after one task period.</li>
+
+<li class="li" id="iem1501817566997__li_N1005D_N1001C_N10019_N10002">Since the cancellation is successfully completed, <span class="ph phtype_variable"><span class="termtype">Done</span></span> remains FALSE.</li>
+
+</ul>
+
+<br /><img class="image" id="iem1501817566997__image_exm_v3b_n1b" src="xyi1501817566035.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="cii1501817568334">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">To Change Execute to FALSE After Canceled Changes to TRUE for a Successful Cancellation</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="cii1501817568334__li_N1001F_N1001C_N10019_N10002">
+<p class="p" id="cii1501817568334__ID0EDLTO">Backup processing is executed when <span class="ph phtype_variable"><span class="termtype">Execute</span></span> is changed to TRUE. The value of <span class="ph phtype_variable"><span class="termtype">Busy</span></span> changes to TRUE.</p>
+
+</li>
+
+<li class="li" id="cii1501817568334__li_N10032_N1001C_N10019_N10002">
+<p class="p" id="cii1501817568334__ID0EOLTO">Backup processing is canceled when <span class="ph phtype_variable"><span class="termtype">Cancel</span></span> is changed to TRUE.</p>
+
+</li>
+
+<li class="li" id="cii1501817568334__li_N10040_N1001C_N10019_N10002">
+<p class="p" id="cii1501817568334__ID0EZLTO">When the cancellation is completed, <span class="ph phtype_variable"><span class="termtype">Busy</span></span> changes to FALSE, and <span class="ph phtype_variable"><span class="termtype">Canceled</span></span> changes to TRUE.</p>
+
+</li>
+
+<li class="li" id="cii1501817568334__li_N10054_N1001C_N10019_N10002">
+<p class="p" id="cii1501817568334__ID0EEMTO">Change the value of <span class="ph phtype_variable"><span class="termtype">Execute</span></span> to FALSE after <span class="ph phtype_variable"><span class="termtype">Canceled</span></span> changes to TRUE.</p>
+
+</li>
+
+<li class="li" id="cii1501817568334__li_N10067_N1001C_N10019_N10002">
+<p class="p" id="cii1501817568334__ID0EPMTO">The value of <span class="ph phtype_variable"><span class="termtype">Canceled</span></span> remains TRUE until <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to FALSE.</p>
+
+</li>
+
+<li class="li" id="cii1501817568334__li_N1007A_N1001C_N10019_N10002">
+<p class="p" id="cii1501817568334__ID0E1MTO">Since the cancellation is successfully completed, <span class="ph phtype_variable"><span class="termtype">Done</span></span> remains FALSE.</p>
+
+</li>
+
+</ul>
+
+<br /><img class="image" id="cii1501817568334__image_t5x_djb_n1b" src="gsl1501817567229.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="kfv1501817569538">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">When Canceling Is Not Performed in Time</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="kfv1501817569538__li_N10015_N10012_N1000F_N10002">Backup processing is executed when <span class="ph phtype_variable"><span class="termtype">Execute</span></span> is changed to TRUE. The value of <span class="ph phtype_variable"><span class="termtype">Busy</span></span> changes to TRUE.</li>
+
+<li class="li" id="kfv1501817569538__li_N10023_N10012_N1000F_N10002">The value of <span class="ph phtype_variable"><span class="termtype">Cancel</span></span> is changed to TRUE. The value change for cancellation is not received in time, and the backup process is continued.</li>
+
+<li class="li" id="kfv1501817569538__li_N1002C_N10012_N1000F_N10002">When the backup process is completed, the value of <span class="ph phtype_variable"><span class="termtype">Busy</span></span> changes to FALSE.</li>
+
+<li class="li" id="kfv1501817569538__li_N10036_N10012_N1000F_N10002">The backup process was continued to the end, so the value of <span class="ph phtype_variable"><span class="termtype">Done</span></span> changes to TRUE.</li>
+
+<li class="li" id="kfv1501817569538__li_N10040_N10012_N1000F_N10002">The cancellation was not received in time, so the value of <span class="ph phtype_variable"><span class="termtype">Canceled</span></span> remains FALSE.</li>
+
+</ul>
+
+<br /><img class="image" id="kfv1501817569538__image_hdt_hjb_n1b" src="mrv1501817568578.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="rqx1501817570838">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">To Change Execute to TRUE While Cancel Is TRUE</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="rqx1501817570838__li_N1001E_N1001B_N10018_N10002">Change the value of <span class="ph phtype_variable"><span class="termtype">Cancel</span></span> to TRUE.</li>
+
+<li class="li" id="rqx1501817570838__li_N10027_N1001B_N10018_N10002">Backup processing is not executed even if <span class="ph phtype_variable"><span class="termtype">Execute</span></span> is changed to TRUE. Therefore, the value of <span class="ph phtype_variable"><span class="termtype">Busy</span></span> remains FALSE.</li>
+
+<li class="li" id="rqx1501817570838__li_N10035_N1001B_N10018_N10002">It is assumed that backup processing was canceled, so <span class="ph phtype_variable"><span class="termtype">Canceled</span></span> changes to TRUE.</li>
+
+<li class="li" id="rqx1501817570838__li_N1003F_N1001B_N10018_N10002">If the value of <span class="ph phtype_variable"><span class="termtype">Execute</span></span> is changed to FALSE, <span class="ph phtype_variable"><span class="termtype">Canceled</span></span> changes to FALSE.</li>
+
+</ul>
+
+<br /><img class="image" id="rqx1501817570838__image_lg5_mjb_n1b" src="hci1501817569776.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="snr1501817572060">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Notation Example</h1>
+<div class="body conbody"><p class="p" id="snr1501817572060__ID0ESUTO">The following figure shows a programming example. The backup file is saved in a directory called &#8216;Dir1&#8217;.</p>
+<br /><img class="image" src="jvu1501817571080.gif" /><br /></div>
+<div class="related-links"></div></div><div class="layer03" id="nhb1539741030820">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Related System-defined Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="nhb1539741030820__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:20%" />
+<col style="width:20%" />
+<col style="width:9%" />
+<col style="width:50%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d682232e52">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d682232e55">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d682232e58">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d682232e61">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d682232e52 ">_Card1Ready</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d682232e55 ">SD Memory Card Ready Flag</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d682232e58 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d682232e61 ">
+<p class="p" id="nhb1539741030820__ID0EJ3AG">This flag indicates if the SD Memory Card can be accessed by instructions and communications commands. <a class="xref" href="vnf1501815827011.html#nhb1539741030820__fn_gkg_1hz_l1b"><i style="display:none;">☆</i><sup>*1</sup></a></p>
+
+<p class="p">TRUE: Can be used.</p>
+
+<p class="p" id="nhb1539741030820__ID0EV3AG">FALSE: Cannot be used.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d682232e52 ">_Card1Protect<a class="xref" href="vnf1501815827011.html#nhb1539741030820__fn-1352739"><i style="display:none;">☆</i><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d682232e55 ">SD Memory Card Write Protected Flag</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d682232e58 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d682232e61 ">
+<p class="p" id="nhb1539741030820__ID0EL5AG">This flag indicates if the SD Memory Card is write protected when it is inserted and ready to use.</p>
+
+<p class="p">TRUE: Write protected.</p>
+
+<p class="p">FALSE: Not write protected.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d682232e52 ">_Card1Err<a class="xref" href="vnf1501815827011.html#nhb1539741030820__fn-1352739"><i style="display:none;">☆</i><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d682232e55 ">SD Memory Card Error Flag</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d682232e58 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d682232e61 ">
+<p class="p" id="nhb1539741030820__ID0ECABG">This flag indicates if an SD Memory Card that cannot be used is mounted or if a format error occurs.</p>
+
+<p class="p">TRUE: Error.</p>
+
+<p class="p">FALSE: No error.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d682232e52 ">_Card1Access<a class="xref" href="vnf1501815827011.html#nhb1539741030820__fn-1352739"><i style="display:none;">☆</i><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d682232e55 ">SD Memory Card Access Flag</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d682232e58 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d682232e61 ">
+<p class="p" id="nhb1539741030820__ID0EZBBG">This flag indicates if the SD Memory Card is currently being accessed.</p>
+
+<p class="p">TRUE: Being accessed.</p>
+
+<p class="p">FALSE: Not being accessed.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d682232e52 ">_Card1Deteriorated<a class="xref" href="vnf1501815827011.html#nhb1539741030820__fn-1352739"><i style="display:none;">☆</i><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d682232e55 ">SD Memory Card Life Warning Flag</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d682232e58 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d682232e61 ">
+<p class="p">This flag indicates if the end of the life of the SD Memory Card is detected.</p>
+
+<p class="p">TRUE: End of life detected.</p>
+
+<p class="p">FALSE: Not detected.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d682232e52 ">_Card1PowerFail</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d682232e55 ">SD Memory Card Power Interruption Flag</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d682232e58 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d682232e61 ">
+<p class="p" id="nhb1539741030820__ID0EQDBG">This flag indicates if an error occurred in completing processing when power was interrupted during access.<a class="xref" href="vnf1501815827011.html#nhb1539741030820__fn-1352740"><i style="display:none;">☆</i><sup>*3</sup></a> This flag is not cleared automatically.</p>
+
+<p class="p">TRUE: Error.</p>
+
+<p class="p">FALSE: No error.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d682232e52 ">_BackupBusy</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d682232e55 ">Backup Function Busy Flag</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d682232e58 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d682232e61 ">
+<p class="p">This flag indicates if a backup, restoration, or verification is in progress.</p>
+
+<p class="p">TRUE: Backup, restore, or compare operation is in progress.</p>
+
+<p class="p">FALSE: Backup, restore, or compare operation is not in progress.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="nhb1539741030820__fn_gkg_1hz_l1b" id="nhb1539741030820__fn_gkg_1hz_l1b"><sup>*1</sup></a>  For the NJ/NX-series, it is a precondition that the SD Memory Card is physically inserted and mounted normally. For an NY-series Controller, it is a precondition that the shared folder (Virtual SD Memory Card) is detected by the Controller.</div>
+<div class="fn"><a name="nhb1539741030820__fn-1352739" id="nhb1539741030820__fn-1352739"><sup>*2</sup></a>  These variables are not used for the NY-series Controller. They are fixed to FALSE.</div>
+<div class="fn"><a name="nhb1539741030820__fn-1352740" id="nhb1539741030820__fn-1352740"><sup>*3</sup></a>  For the NJ/NX-series, this indicates an access to the SD Memory Card. For an NY-series Controller, this indicates an access to the shared folder (Virtual SD Memory Card).</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="bxa1501817572291">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Additional Information</h1>
+
+<div class="body conbody">
+<ul class="ul">
+            
+<li class="li" id="bxa1501817572291__li_N10022_N10012_N1000F_N10002">Refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Software User&#8217;s Manual (Cat. No. W501)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Industrial Panel PC / Industrial Box PC Software User&#8217;s Manual (Cat. No. W558)</span></span></span> for details on the backup functions.</li>
+
+<li class="li" id="bxa1501817572291__li_N10036_N10012_N1000F_N10002">The root directory of the file name is the top level of the SD Memory Card.</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="nhx1501817572531">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Precautions for Correct Use</h1>
+
+<div class="body conbody">
+<ul class="ul"><li class="li" id="nhx1501817572531__li_N10017_N10013_N10010_N10002">Execution of this instruction is continued until completed even when the value of <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to FALSE or the execution time exceeds the task period. The value of <span class="ph phtype_variable"><span class="termtype">Done</span></span> changes to TRUE when the execution is completed. Use this to confirm normal completion of processing.</li>
+<li class="li" id="nhx1501817572531__li_N1001C_N10013_N10010_N10002">Refer to <a class="xref" href="aag1501815842589.html"><i style="display:none;">☆</i>Using this Section</a> for a timing chart of <span class="ph phtype_variable"><span class="termtype">Execute</span></span>, <span class="ph phtype_variable"><span class="termtype">Done</span></span>, <span class="ph phtype_variable"><span class="termtype">Busy</span></span>, and <span class="ph phtype_variable"><span class="termtype">Error</span></span>.</li>
+
+<li class="li" id="nhx1501817572531__li_N1004C_N10013_N10010_N10002">For an NJ/NX-series CPU Unit, if a file is open and the SD Memory Card is removed before the SD Memory Card power supply switch is pressed, the contents of the file will sometimes be corrupted. Always turn OFF the power supply before removing the SD Memory Card.</li>
+
+<li class="li" id="nhx1501817572531__li_N10048_N10012_N1000F_N10002">Even if data backup to the SD Memory Card is prohibited, you can execute this instruction to backup the data. No error will occur.</li>
+
+<li class="li" id="nhx1501817572531__li_N1004D_N10012_N1000F_N10002">The values of the following system-defined variables, which are related to backup, do not change when this instruction is executed. <ol class="ol liststyle_alphabet1">
+<li class="li" id="nhx1501817572531__li_N10055_N10051_N1004D_N10012_N1000F_N10002">SD Memory Card Backup Command: _CardBkupCmd</li>
+
+<li class="li" id="nhx1501817572531__li_N1005A_N10051_N1004D_N10012_N1000F_N10002">SD Memory Card Backup Status: _Card1BkupSta</li>
+
+</ol>
+</li>
+
+<li class="li" id="nhx1501817572531__li_N10060_N10012_N1000F_N10002">Do not read or write backup-related files during execution of this instruction. If you read a file that is being written, unexpected processing may occur.</li>
+
+<li class="li" id="nhx1501817572531__li_N10065_N10012_N1000F_N10002">Backup processing will continue even if the operating mode of the CPU Unit is changed during execution of this instruction. If you change the operating mode from RUN mode to PROGRAM mode and then back to RUN mode, the value of <span class="ph phtype_variable"><span class="termtype">Busy</span></span> will be FALSE even if backup processing is in progress. If you cancel backup processing under that condition, the value of <span class="ph phtype_variable"><span class="termtype">Canceled</span></span> will change to TRUE.</li>
+
+<li class="li" id="nhx1501817572531__li_N100B3_N10013_N10010_N10002">If the power supply to the Controller is turned OFF while this instruction is in execution, a major fault level error may occur when the power supply is turned ON next time.</li>
+
+<li class="li" id="nhx1501817572531__li_N10074_N10012_N1000F_N10002">An error will occur in the following cases. <span class="ph phtype_variable"><span class="termtype">Error</span></span> will change to TRUE. <ol class="ol liststyle_alphabet1"><li class="li" id="nhx1501817572531__li_N10074_N1006F_N10064_N10013_N10010_N10002">The SD Memory Card is not in a usable condition.</li>
+<li class="li" id="nhx1501817572531__li_N10079_N1006F_N10064_N10013_N10010_N10002">The SD Memory Card is write protected.</li>
+<li class="li" id="nhx1501817572531__li_N1007E_N1006F_N10064_N10013_N10010_N10002">There is insufficient space available on the SD Memory Card.</li>
+<li class="li" id="nhx1501817572531__li_N10083_N1006F_N10064_N10013_N10010_N10002">The maximum number of files or directories is exceeded.</li>
+<li class="li" id="nhx1501817572531__li_N10095_N1007D_N10074_N10012_N1000F_N10002">A file already exists with the name specified with <span class="ph phtype_variable"><span class="termtype">DirName</span></span>.</li>
+<li class="li" id="nhx1501817572531__li_N10093_N1006F_N10064_N10013_N10010_N10002">The value of <span class="ph phtype_variable"><span class="termtype">DirName</span></span> is not a valid directory name.</li>
+<li class="li" id="nhx1501817572531__li_N100AC_N1007D_N10074_N10012_N1000F_N10002">Another backup operation is already in progress.</li>
+
+<li class="li" id="nhx1501817572531__li_N100B1_N1007D_N10074_N10012_N1000F_N10002">Backup processing failed.</li>
+<li class="li" id="nhx1501817572531__li_N100A4_N1006F_N10064_N10013_N10010_N10002">While the SD Memory Card is being accessed, an error occurs and causes an access failure. </li>
+</ol>
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="vuz1501817572760">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Sample Programming</h1>
+
+<div class="body conbody">
+<p class="p" id="vuz1501817572760__ID0EISUO">In this example, the BackupToMemoryCard instruction backs up data to an SD Memory Card every day just after midnight.</p>
+
+<p class="p">The backup-related files are stored in directories named /Backup/yyyy-mm-dd in the SD Memory Card.</p>
+
+<p class="p">The directory name gives the date when the backup was executed.</p>
+
+<p class="p"><span class="ph phtype_quote"><span class="termtype">"yyyy"</span></span> is the year, <span class="ph phtype_quote"><span class="termtype">"mm"</span></span> is the month, and <span class="ph phtype_quote"><span class="termtype">"dd"</span></span> is the day of the month.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="jcg1501817572993">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Touch Panel Specifications</h1>
+<div class="body conbody"><p class="p" id="jcg1501817572993__ID0EOTUO">This example assumes that a touch panel is connected to the Controller.</p>
+<p class="p" id="jcg1501817572993__ID0ERTUO">The touch panel has the following lamps.</p>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="jcg1501817572993__table_N1001C_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all"><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d482430e22">Lamp name</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d482430e24">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d482430e22 ">Backup normal end lamp</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d482430e24 ">Lights when backup processing ends normally.</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d482430e22 ">Backup canceled lamp</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d482430e24 ">Lights when backup processing is successfully canceled.</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d482430e22 ">Backup error end lamp</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d482430e24 ">Lights when backup processing ends in an error.</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d482430e22 ">SD Memory Card life warning lamp</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d482430e24 ">Lights when the life of the SD Memory Card was exceeded.</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d482430e22 ">SD Memory Card power interrupted lamp</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d482430e24 ">Lights when power to the SD Memory Card was interrupted during backup processing.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p linespace_7pt">The touch panel also has the following buttons.</p>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="jcg1501817572993__table_N100A2_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all"><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d482430e60">Button name</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d482430e62">Operation when button is pressed</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d482430e60 ">Lamps OFF button</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d482430e62 ">Turns OFF the Backup Normal End Lamp, Backup Canceled Lamp, Backup Error End Lamp, and SD Memory Card Power Interrupted Lamp.</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d482430e60 ">Cancel button</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d482430e62 ">Cancels the backup.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="related-links"></div></div><div class="layer04" id="rpb1501816500359">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Definitions of Global Variables</h1>
+<div class="body conbody"></div>
+<div class="related-links"></div></div><div class="layer05" id="nym1501817573240">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Global Variables</h1>
+<div class="body conbody">
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="rules_all " frame="border" border="1" rules="all"><col style="width:37%" /><col style="width:12%" /><col style="width:12%" /><col style="width:37%" /><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d708316e23">Variable</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d708316e25">Data type</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d708316e27">Initial value</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d708316e29">Comment</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d708316e23 ">PTOut_Warning_SDLife</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d708316e25 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d708316e27 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d708316e29 ">Output to SD Memory Card life warning lamp</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d708316e23 ">PTOut_Warning_PwrFail_onBackup</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d708316e25 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d708316e27 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d708316e29 ">Output to SD Memory Card power interrupted lamp</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d708316e23 ">PTOut_Done</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d708316e25 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d708316e27 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d708316e29 ">Output to backup normal end lamp</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d708316e23 ">PTOut_Cancel</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d708316e25 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d708316e27 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d708316e29 ">Output to backup canceled lamp</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d708316e23 ">PTOut_Error</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d708316e25 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d708316e27 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d708316e29 ">Output to backup error end lamp</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d708316e23 ">PTIn_Check_Backup</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d708316e25 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d708316e27 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d708316e29 ">Input from lamps OFF button</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d708316e23 ">PTIn_Cancel</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d708316e25 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d708316e27 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d708316e29 ">Input from cancel button</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="related-links"></div></div><div class="layer04" id="ojp1501817588411">
+<h1 class="title topictitle1"  topicstatus="Localization:done">LD</h1>
+<div class="body conbody">
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ojp1501817588411__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all"><col style="width:13%" /><col style="width:27%" /><col style="width:16%" /><col style="width:13%" /><col style="width:27%" /><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d725992e24">Internal Variables</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d725992e26">Variable</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d725992e28">Data type</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d725992e30">Initial value</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d725992e32">Comment</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d725992e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e26 ">CardOK</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e28 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e30 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e32 ">SD Memory Card Normal Flag</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d725992e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e26 ">Backup_inst</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e28 ">BackupToMemoryCard</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e30 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e32 ">Instance of BackupToMemoryCard instruction</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d725992e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e26 ">PreviousDay</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e28 ">USINT</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e30 ">0</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e32 ">Date of previous task period</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d725992e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e26 ">CurrentDT</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e28 ">DATE_AND_TIME</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e30 ">ST#1970-01-01-00:00:00.000000000</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e32 ">Current date and time</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d725992e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e26 ">Current_sDt</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e28 ">_sDT</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e30 ">(Year:=0, Month:=0, Day:=0, Hour:=0, Min:=0, Sec:=0, NSec:=0)</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e32 ">The current date and time separated into the year, month, day, hour, minutes, seconds, and nanoseconds.</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d725992e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e26 ">BackupCondition</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e28 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e30 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e32 ">Backup Condition Established Flag</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d725992e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e26 ">tmpString</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e28 ">STRING[256]</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e30 ">''</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e32 ">Temporary text string used when creating directory name</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d725992e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e26 ">tmpString2</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e28 ">STRING[256]</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e30 ">''</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e32 ">Temporary text string used when creating directory name</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d725992e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e26 ">BackupPath</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e28 ">STRING[64]</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e30 ">''</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e32 ">Directory name</td>
+</tr>
+<tr class="row"><td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d725992e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e26 ">Cancel</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e28 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e30 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e32 ">Cancel Conditions Established Flag.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ojp1501817588411__table_N101B2_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all"><col style="width:13%" /><col style="width:28%" /><col style="width:9%" /><col style="width:13%" /><col style="width:34%" /><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d725992e143">External Variables</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d725992e145">Variable</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d725992e147">Data type</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d725992e149">Constant</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d725992e151">Comment</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d725992e143 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e145 ">_Card1Ready</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e147 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d725992e149 "><br /><img class="image" id="ojp1501817588411__image_29D7654038AF4F0A9DAA4FFFE0C3C5A1" src="nlh1501817573483.gif" /><br /></td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e151 ">SD Memory Card Ready Flag</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d725992e143 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e145 ">_Card1Protect</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e147 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d725992e149 "><br /><img class="image" id="ojp1501817588411__image_A167194C666B41F1BF2A3121C91E29F4" src="nlh1501817573483.gif" /><br /></td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e151 ">SD Memory Card Write Protected Flag</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d725992e143 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e145 ">_Card1Err</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e147 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d725992e149 "><br /><img class="image" id="ojp1501817588411__image_2F0311EC3FA54F448679241F1DAE6704" src="nlh1501817573483.gif" /><br /></td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e151 ">SD Memory Card Error Flag</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d725992e143 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e145 ">_Card1Deteriorated</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e147 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d725992e149 "><br /><img class="image" id="ojp1501817588411__image_BB93778519A546E8A72D367319BC5F86" src="nlh1501817573483.gif" /><br /></td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e151 ">SD Memory Card Life Warning Flag</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d725992e143 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e145 ">_Card1PowerFail</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e147 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d725992e149 "><br /><img class="image" id="ojp1501817588411__image_978F5BD6E7AC40EB860F631AC6A574B8" src="uxi1501817574356.gif" /><br /></td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e151 ">SD Memory Card Power Interruption Flag</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d725992e143 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e145 ">_BackupBusy</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e147 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d725992e149 "><br /><img class="image" id="ojp1501817588411__image_2F75264456554EDAB5613E1BCBC4A318" src="nlh1501817573483.gif" /><br /></td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e151 ">Backup Function Busy Flag</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d725992e143 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e145 ">PTOut_Warning_SDLife</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e147 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d725992e149 "><br /><img class="image" id="ojp1501817588411__image_EEC7A1B66BC649FC88461C3AF4CDD44B" src="uxi1501817574356.gif" /><br /></td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e151 ">Output to SD Memory Card life warning lamp</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d725992e143 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e145 ">PTOut_Warning_PwrFail_onBackup</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e147 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d725992e149 "><br /><img class="image" id="ojp1501817588411__image_B42338CF50D046AEB9A1D0E7D6D61146" src="uxi1501817574356.gif" /><br /></td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e151 ">Output to SD Memory Card power interrupted lamp</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d725992e143 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e145 ">PTOut_Done</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e147 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d725992e149 "><br /><img class="image" id="ojp1501817588411__image_007E0D09FA62401CA896ECDF371EC738" src="uxi1501817574356.gif" /><br /></td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e151 ">Output to backup normal end lamp</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d725992e143 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e145 ">PTOut_Cancel</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e147 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d725992e149 "><br /><img class="image" id="ojp1501817588411__image_F2C8CCD5983C4D0BB710B2AB9592CF86" src="uxi1501817574356.gif" /><br /></td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e151 ">Output to backup canceled lamp</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d725992e143 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e145 ">PTOut_Error</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e147 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d725992e149 "><br /><img class="image" id="ojp1501817588411__image_BE2C2AAB8D9B4DF2ADC6EC26ABC0C9D0" src="uxi1501817574356.gif" /><br /></td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e151 ">Output to backup error end lamp</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d725992e143 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e145 ">PTIn_Check_Backup</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e147 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d725992e149 "><br /><img class="image" id="ojp1501817588411__image_1D53F2285D5F4DC697C84CAF2A4396C7" src="uxi1501817574356.gif" /><br /></td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e151 ">Input from lamps OFF button</td>
+</tr>
+<tr class="row"><td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d725992e143 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e145 ">PTIn_Cancel</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e147 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d725992e149 "><br /><img class="image" id="ojp1501817588411__image_08E06EBD9CA648BA978E72CD3F92E54E" src="uxi1501817574356.gif" /><br /></td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d725992e151 ">Input from cancel button</td>
+</tr>
+</tbody>
+</table>
+</div>
+<br /><img class="image" id="ojp1501817588411__image_5D10C96187F74324971F29B8C4C232C7" src="apd1501817575246.gif" /><br /><br /><img class="image" id="ojp1501817588411__image_hg5_55m_r1b" src="omv1501817576431.gif" /><br /><br /><img class="image" id="ojp1501817588411__image_pgb_v5m_r1b" src="biz1501817577526.gif" /><br /><br /><img class="image" id="ojp1501817588411__image_k13_v5m_r1b" src="jwk1501817578609.gif" /><br /><br /><img class="image" id="ojp1501817588411__image_az4_v5m_r1b" src="nfu1501817579747.gif" /><br /><br /><img class="image" id="ojp1501817588411__image_arv_v5m_r1b" src="tax1501817580726.gif" /><br /><br /><img class="image" id="ojp1501817588411__image_B17940C2A85E413BBC4A4046A7705BEE" src="rkz1501817581589.gif" /><br /><br /><img class="image" id="ojp1501817588411__image_qc2_wvm_r1b" src="xrj1501817582571.gif" /><br /><br /><img class="image" id="ojp1501817588411__image_wxj_wvm_r1b" src="gbw1501817583549.gif" /><br /><br /><img class="image" id="ojp1501817588411__image_mpp_wvm_r1b" src="gxa1501817585177.gif" /><br /><br /><img class="image" id="ojp1501817588411__image_rwv_wvm_r1b" src="rrp1501817586337.gif" /><br /><br /><img class="image" id="ojp1501817588411__image_vw2_xvm_r1b" src="ulv1501817587284.gif" /><br /></div>
+<div class="related-links"></div></div><div class="layer04" id="hmd1501817588720">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">ST</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="hmd1501817588720__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:13%" />
+<col style="width:27%" />
+<col style="width:16%" />
+<col style="width:13%" />
+<col style="width:27%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d392679e37">Internal Variables</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d392679e40">Variable</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d392679e43">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d392679e46">Initial value</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d392679e49">Comment</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d392679e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e40 ">CardOK</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e43 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e46 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e49 ">SD Memory Card Normal Flag</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d392679e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e40 ">Backup_inst</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e43 ">BackupToMemoryCard</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e49 ">Instance of BackupToMemoryCard instruction</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d392679e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e40 ">PreviousDay</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e43 ">USINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e46 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e49 ">Date of previous task period</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d392679e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e40 ">CurrentDT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e43 ">DATE_AND_TIME</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e46 ">ST#1970-01-01-00:00:00.000000000</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e49 ">Current date and time</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d392679e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e40 ">Current_sDt</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e43 ">_sDT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e46 ">(Year:=0, Month:=0, Day:=0, Hour:=0, Min:=0, Sec:=0, NSec:=0)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e49 ">The current date and time separated into the year, month, day, hour, minutes, seconds, and nanoseconds.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d392679e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e40 ">BackupCondition</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e43 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e46 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e49 ">Backup Condition Established Flag</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d392679e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e40 ">tmpString</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e43 ">STRING[256]</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e46 ">''</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e49 ">Temporary text string used when creating directory name</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d392679e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e40 ">tmpString2</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e43 ">STRING[256]</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e46 ">''</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e49 ">Temporary text string used when creating directory name</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d392679e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e40 ">BackupPath</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e43 ">STRING[64]</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e46 ">''</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e49 ">Directory name</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d392679e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e40 ">Cancel</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e43 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e46 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e49 ">Cancel Conditions Established Flag</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d392679e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e40 ">RS1</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e43 ">RS</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e49 ">Instance 1 of Reset-Priority Keep instruction</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d392679e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e40 ">RS2</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e43 ">RS</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e49 ">Instance 2 of Reset-Priority Keep instruction</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d392679e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e40 ">RS3</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e43 ">RS</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e49 ">Instance 3 of Reset-Priority Keep instruction</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d392679e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e40 ">RS4</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e43 ">RS</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e49 ">Instance 4 of Reset-Priority Keep instruction</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d392679e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e40 ">RS5</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e43 ">RS</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e49 ">Instance 5 of Reset-Priority Keep instruction</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d392679e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e40 ">RS6</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e43 ">RS</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e49 ">Instance 6 of Reset-Priority Keep instruction</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="hmd1501817588720__table_N10272_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:13%" />
+<col style="width:28%" />
+<col style="width:9%" />
+<col style="width:13%" />
+<col style="width:34%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d392679e345">External Variables</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d392679e348">Variable</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d392679e351">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d392679e354">Constant</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d392679e357">Comment</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d392679e345 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e348 ">_Card1Ready</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e351 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d392679e354 "><br /><img class="image" id="hmd1501817588720__image_F70011716A0A4DA6917F1FED9049B682" src="nlh1501817573483.gif" /><br /></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e357 ">SD Memory Card Ready Flag</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d392679e345 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e348 ">_Card1Protect</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e351 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d392679e354 "><br /><img class="image" id="hmd1501817588720__image_C052AC88DA1949CE97F27CAE36CBDE1A" src="nlh1501817573483.gif" /><br /></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e357 ">SD Memory Card Write Protected Flag</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d392679e345 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e348 ">_Card1Err</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e351 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d392679e354 "><br /><img class="image" id="hmd1501817588720__image_E9730EA17F98412AB79923F1A62933C3" src="nlh1501817573483.gif" /><br /></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e357 ">SD Memory Card Error Flag</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d392679e345 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e348 ">_Card1Deteriorated</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e351 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d392679e354 "><br /><img class="image" id="hmd1501817588720__image_14AEC292B4C348019962F50B0042AB62" src="nlh1501817573483.gif" /><br /></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e357 ">SD Memory Card Life Warning Flag</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d392679e345 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e348 ">_Card1PowerFail</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e351 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d392679e354 "><br /><img class="image" id="hmd1501817588720__image_65184CE5A9664CCB970FE923D4E9F6E6" src="uxi1501817574356.gif" /><br /></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e357 ">SD Memory Card Power Interruption Flag</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d392679e345 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e348 ">_BackupBusy</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e351 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d392679e354 "><br /><img class="image" id="hmd1501817588720__image_D35D815A0A4D4C0A9B8A0D33177A7F6F" src="nlh1501817573483.gif" /><br /></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e357 ">Backup Function Busy Flag</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d392679e345 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e348 ">PTOut_Warning_SDLife</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e351 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d392679e354 "><br /><img class="image" id="hmd1501817588720__image_0B19E23FCA3A4D4DBE59DF1114F75D5B" src="uxi1501817574356.gif" /><br /></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e357 ">Output to SD Memory Card life warning lamp</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d392679e345 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e348 ">PTOut_Warning_PwrFail_onBackup</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e351 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d392679e354 "><br /><img class="image" id="hmd1501817588720__image_40C8C2B64A8F4B2B8F4B99E30381953A" src="uxi1501817574356.gif" /><br /></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e357 ">Output to SD Memory Card power interrupted lamp</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d392679e345 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e348 ">PTOut_Done</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e351 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d392679e354 "><br /><img class="image" id="hmd1501817588720__image_5FE863B7AF37443EB285E7CE6B9CFE2F" src="uxi1501817574356.gif" /><br /></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e357 ">Output to backup normal end lamp</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d392679e345 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e348 ">PTOut_Cancel</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e351 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d392679e354 "><br /><img class="image" id="hmd1501817588720__image_AF1510E057904044AEE0C7E719A92307" src="uxi1501817574356.gif" /><br /></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e357 ">Output to backup canceled lamp</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d392679e345 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e348 ">PTOut_Error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e351 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d392679e354 "><br /><img class="image" id="hmd1501817588720__image_DEACD3B2913143438DF157C9E31FD205" src="uxi1501817574356.gif" /><br /></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e357 ">Output to backup error end lamp</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d392679e345 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e348 ">PTIn_Check_Backup</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e351 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d392679e354 "><br /><img class="image" id="hmd1501817588720__image_A1C4C6D9A55B45B8BA37807CD6F0C5FF" src="uxi1501817574356.gif" /><br /></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e357 ">Input from lamps OFF button</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d392679e345 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e348 ">PTIn_Cancel</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e351 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d392679e354 "><br /><img class="image" id="hmd1501817588720__image_C0AA66B82ACA4641BDB72AB00B6C19FE" src="uxi1501817574356.gif" /><br /></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d392679e357 ">Input from cancel button</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt"></p>
+
+<pre class="pre codeblock">
+// Check status of SD Memory Card.
+CardOK := _Card1Ready OR NOT(_Card1Protect) OR NOT(_Card1Err);
+PTOut_Warning_SDCardLife := _Card1Deteriorated;
+RS1(Set := _Card1PowerFail, Reset1 := PTIn_Check_Backup, Q1=&gt;PTOut_Warning_PwrFail_onBackup);
+
+ // Light the Backup Normal End Lamp, Canceled Lamp, or Error End Lamp as required.
+ RS2(Set    := Backup_inst.Done,
+     Reset1 := PTIn_Check_Backup,
+     Q1     =&gt; PTOut_Done);
+ RS3(Set    := Backup_inst.Canceled,
+     Reset1 := PTIn_Check_Backup,
+     Q1     =&gt; PTOut_Cancel);
+ RS4(Set    := Backup_inst.Error,
+     Reset1 := PTIn_Check_Backup,
+     Q1     =&gt; PTOut_Error);
+ 
+ // See if date has changed.
+ PreviousDay := Current_sDT.Day;
+ CurrentDT:=GetTime();
+ DtToDateStruct(In := CurrentDT,DateStruct=&gt;Current_sDT);
+ RS5(Set    := ( NOT (P_First_RunMode) &amp; (Current_sDT.Day&lt;&gt;PreviousDay),
+     Reset1 := (Backup_inst.Done OR Backup_inst.Canceled OR Backup_inst.Error),
+     Q1     =&gt; BackupCondition);
+ 
+ // Create directory name.
+ IF(BackupCondition) THEN
+    BackupPath := CONCAT('/Backup/', Left(In:= DtToString(CurrentDT), L:=SINT#10));
+ END_IF;
+ 
+ // Detect pressing of the Cancel Button.
+ RS6(Set    := (PTIn_Cancel &amp;Backup_inst.Busy),
+     Reset1 := (Backup_inst.Done OR Backup_inst.Canceled OR Backup_inst.Error),
+     Q1     =&gt; Cancel);
+
+// Execute BackupToMemoryCard instruction.
+Backup_inst(Execute := (BackupCondition &amp; CardOK &amp; NOT (_BackupBusy)),
+            DirName := BackupPath,
+            Cancel  := Cancel);</pre>
+
+</div>
+
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

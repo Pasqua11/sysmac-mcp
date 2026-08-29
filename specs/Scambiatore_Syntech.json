@@ -1,0 +1,120 @@
+{
+ "progetto": "Scambiatore_Syntech",
+ "guid": "cb7c35ea-8cd7-463c-913e-675be0b99d4b",
+ "sections": {
+  "Sezione0": {
+   "rungs": [
+    {
+     "cmt": "RISCALDAMENTO VASCA1",
+     "chain": [
+      "P_On",
+      {
+       "or": [
+        {
+         "f": "MOVE",
+         "p": {
+          "In": "SET_Riscalda_V1",
+          "OUT:Out": "SET_Real_Riscalda_V1"
+         }
+        },
+        [
+         "V_S_Riscalda_V1",
+         "Tim1.Q",
+         "IN_TERMOSTATO",
+         {
+          "f": "<",
+          "p": {
+           "In1": "PV_Temper_Sicurezza",
+           "In2": "SET_Temp_Safety_Resistenza"
+          }
+         },
+         {
+          "or": [
+           "(/STOP_Ch1_Temperatura)",
+           "(OUT_CONTATTORE)"
+          ]
+         }
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "cmt": "TEMPORIZZAZIONE LIVELLO",
+     "chain": [
+      "IN_LIVELLO",
+      {
+       "fb": "TON",
+       "inst": "Tim1",
+       "p": {
+        "PT": "T#2S"
+       }
+      }
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "IN_LIVELLO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TERMOSTATO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_CONTATTORE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Temper_Sicurezza",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Real_Riscalda_V1",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Riscalda_V1",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Temp_Safety_Resistenza",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "STOP_Ch1_Temperatura",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim1",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_S_Riscalda_V1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  }
+ }
+}

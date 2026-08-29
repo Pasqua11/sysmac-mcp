@@ -1,0 +1,1804 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>FTPGetFile</title>
+</head>
+<body class="vqy1501815792246"><div class="layer02" id="vqy1501815792246">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">FTPGetFile</h1>
+ 
+<div class="body conbody">
+<p class="p" id="vqy1501815792246__ID0EH6CR">The FTPGetFile instruction downloads a file from the FTP server.</p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="vqy1501815792246__table_N10017_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:13%" />
+<col style="width:14%" />
+<col style="width:6%" />
+<col style="width:35%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1032504e37">Instruction</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1032504e40">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1032504e43">
+<p class="p" id="vqy1501815792246__ID0E1ADR">FB/</p>
+
+<p class="p">FUN</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1032504e52">Graphic expression</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1032504e55">ST expression</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1032504e37 "><span class="indexterm">FTPGetFile (Get File from FTP Server)</span>FTPGetFile</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1032504e40 "><span class="indexterm">Get File from FTP Server</span>Get File from FTP Server</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1032504e43 ">FB</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1032504e52 ">
+<br /><img class="image" id="vqy1501815792246__image_B4874037C99C48BE9434823F4D3723FC" src="yrc1501815791491.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1032504e55 ">FTPGetFile_instance(Execute, ConnectSvr, SvrDirName, LocalDirName, FileName, ExecOption, RetryCfg, Cancel, GetFileResult, Done, Busy, CommandCanceled, Error, ErrorID, ErrorIDEx,GetNum);</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<div class="note" id="vqy1501815792246__note_N100AC_N1000F_N10002"><div class="ver"><span class="notetitle ver">ver:</span> A CPU Unit with unit version 1.08 or later and Sysmac Studio version 1.09 or higher are required to use this instruction.</div></div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="upg1501817276628">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="upg1501817276628__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:20%" />
+<col style="width:9%" />
+<col style="width:20%" />
+<col style="width:14%" />
+<col style="width:14%" />
+<col style="width:8%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d987088e91">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d987088e93">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d987088e96">I/O</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d987088e99">Description</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d987088e102">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d987088e106">Unit</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d987088e109">Default</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e91 ">ConnectSvr</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e93 ">Connected FTP server settings</td>
+
+<td class="entry cellrowborder" rowspan="7" style="text-align:left;vertical-align:middle;" headers="d987088e96 ">Input</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e99 ">Setting parameters for the connected FTP server</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e102 ">---</td>
+
+<td class="entry cellrowborder" rowspan="7" style="text-align:left;vertical-align:middle;" headers="d987088e106 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e109 "><a class="xref" href="vqy1501815792246.html#upg1501817276628__fn-1902996"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e91 ">SvrDirName</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e93 ">FTP server directory name</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e99 ">Name of FTP server directory from which to download a file</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e102 ">256 bytes max. (255 single-byte alphanumeric characters plus the final NULL character)<a class="xref" href="vqy1501815792246.html#upg1501817276628__fn-1903122"><i style="display:none;">☆</i><sup>*2</sup></a><a class="xref" href="#upg1501817276628__fn_ekq_jlh_14b"><sup>*3</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e109 ">''<a class="xref" href="vqy1501815792246.html#upg1501817276628__fn-1903093"><i style="display:none;">☆</i><sup>*4</sup></a></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e91 ">LocalDirName</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e93 ">Local directory name</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e99 ">Name of the directory in which to store the file downloaded from the FTP server</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e102 ">256 bytes max. (255 single-byte alphanumeric characters plus the final NULL character)<a class="xref" href="#upg1501817276628__fn_ekq_jlh_14b"><sup>*3</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e109 ">'/'</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e91 ">FileName</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e93 ">File name</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e99 ">Name of file to download<a class="xref" href="vqy1501815792246.html#upg1501817276628__fn-1902999"><i style="display:none;">☆</i><sup>*5</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e102 ">256 bytes max. (255 single-byte alphanumeric characters plus the final NULL character)<a class="xref" href="#upg1501817276628__fn_ekq_jlh_14b"><sup>*3</sup></a><a class="xref" href="vqy1501815792246.html#upg1501817276628__fn-1903123"><i style="display:none;">☆</i><sup>*6</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e109 "><a class="xref" href="vqy1501815792246.html#upg1501817276628__fn-1902996"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e91 ">ExecOption</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e93 ">FTP execution options</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e99 ">Options for FTP execution</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d987088e102 ">---</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d987088e109 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e91 ">RetryCfg</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e93 ">Execution retry settings</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e99 ">Instruction execution retry settings</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e91 ">Cancel</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e93 ">Cancel</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e99 ">
+<p class="p" id="upg1501817276628__ID0E1WDR">TRUE: Instruction execution is canceled.</p>
+
+<p class="p">FALSE: Instruction execution is not canceled.</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e102 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e109 ">FALSE</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e91 ">GetFile Result[] array<a class="xref" href="vqy1501815792246.html#upg1501817276628__fn-1903000"><i style="display:none;">☆</i><sup>*7</sup></a><a class="xref" href="vqy1501815792246.html#upg1501817276628__fn-1903001"><i style="display:none;">☆</i><sup>*8</sup></a><a class="xref" href="vqy1501815792246.html#upg1501817276628__fn-1903002"><i style="display:none;">☆</i><sup>*9</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e93 ">Downloaded file results</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e96 ">In-out</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e99 ">Downloaded file results</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e102 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e106 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e109 "><a class="xref" href="vqy1501815792246.html#upg1501817276628__fn-1902996"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e91 ">CommandCanceled</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e93 ">Cancel completed</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d987088e96 ">Output</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e99 ">
+<p class="p" id="upg1501817276628__ID0EL3DR">TRUE: Canceling completed.</p>
+
+<p class="p">FALSE: Canceling not completed.</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e102 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d987088e106 ">---</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d987088e109 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e91 ">GetNum</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e93 ">Number of files to download</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e99 ">Number of files to download</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e102 ">---</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="upg1501817276628__fn-1902996" id="upg1501817276628__fn-1902996"><sup>*1</sup></a>  If you omit an input parameter, the default value is not applied. A building error will occur.</div>
+<div class="fn"><a name="upg1501817276628__fn-1903122" id="upg1501817276628__fn-1903122"><sup>*2</sup></a>  <p class="p">You cannot use the following characters in FTP server directory names:</p>
+
+<p class="p">* ? &lt; &gt; | "</p>
+</div>
+<div class="fn"><a name="upg1501817276628__fn_ekq_jlh_14b" id="upg1501817276628__fn_ekq_jlh_14b"><sup>*3</sup></a>  <p class="p">The use of single-byte spaces is not recommended because it may change the behavior of some FTP servers.</p>
+
+<p class="p">Single-byte spaces are treated as two characters.</p>
+</div>
+<div class="fn"><a name="upg1501817276628__fn-1903093" id="upg1501817276628__fn-1903093"><sup>*4</sup></a>  The default is the home directory when you log onto the FTP server.</div>
+<div class="fn"><a name="upg1501817276628__fn-1902999" id="upg1501817276628__fn-1902999"><sup>*5</sup></a>  You can use wildcards in file names.</div>
+<div class="fn"><a name="upg1501817276628__fn-1903123" id="upg1501817276628__fn-1903123"><sup>*6</sup></a>  <p class="p">You cannot use the following character in file names:</p>
+
+<p class="p">|</p>
+</div>
+<div class="fn"><a name="upg1501817276628__fn-1903000" id="upg1501817276628__fn-1903000"><sup>*7</sup></a>  The array can have a maximum of 1,000 elements.</div>
+<div class="fn"><a name="upg1501817276628__fn-1903001" id="upg1501817276628__fn-1903001"><sup>*8</sup></a>  This is a one-dimensional array. If an array with more than one dimension is specified, a building error will occur.</div>
+<div class="fn"><a name="upg1501817276628__fn-1903002" id="upg1501817276628__fn-1903002"><sup>*9</sup></a>  The first array element number is 0. If a number other than 0 is specified for the first array element, a building error will occur.</div></div></div>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="upg1501817276628__table_N10283_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:5%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:top;" id="d987088e413">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d987088e415">Boolean</th>
+
+<th class="entry cellrowborder" colspan="4" style="text-align:center;vertical-align:middle;" id="d987088e418">Bit strings</th>
+
+<th class="entry cellrowborder" colspan="8" style="text-align:center;vertical-align:middle;" id="d987088e421">Integers</th>
+
+<th class="entry cellrowborder" colspan="2" style="text-align:center;vertical-align:middle;" id="d987088e424">Real numbers</th>
+
+<th class="entry cellrowborder" colspan="5" style="text-align:center;vertical-align:middle;" id="d987088e428">Times, durations, dates, and text strings</th>
+
+</tr>
+
+<tr class="row">
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d987088e434">BOOL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d987088e437">BYTE</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d987088e440">WORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d987088e443">DWORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d987088e446">LWORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d987088e450">USINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d987088e453">UINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d987088e456">UDINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d987088e459">ULINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d987088e462">SINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d987088e465">INT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d987088e469">DINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d987088e472">LINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d987088e475">REAL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d987088e478">LREAL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d987088e481">TIME</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d987088e484">DATE</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d987088e488">TOD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d987088e491">DT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d987088e494">STRING</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e413 d987088e434 ">ConnectSvr</td>
+
+<td class="entry cellrowborder" colspan="20" style="text-align:center;vertical-align:middle;" headers="d987088e415 d987088e418 d987088e421 d987088e424 d987088e428 d987088e437 d987088e440 d987088e443 d987088e446 d987088e450 d987088e453 d987088e456 d987088e459 d987088e462 d987088e465 d987088e469 d987088e472 d987088e475 d987088e478 d987088e481 d987088e484 d987088e488 d987088e491 d987088e494 ">Refer to <a class="xref" href="vqy1501815792246.html"><i style="display:none;">☆</i>FTPGetFile</a> for details on the structure _sFTP_CONNECT_SVR.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e413 d987088e434 ">SvrDirName</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e415 d987088e437 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e418 d987088e440 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e418 d987088e443 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e418 d987088e446 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e418 d987088e450 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e453 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e456 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e459 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e462 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e465 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e469 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e472 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e475 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e424 d987088e478 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e424 d987088e481 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e428 d987088e484 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e428 d987088e488 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e428 d987088e491 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e428 d987088e494 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e428 "><span class="ph font_Wingdings"></span>OK</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e413 d987088e434 ">LocalDirName</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e415 d987088e437 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e418 d987088e440 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e418 d987088e443 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e418 d987088e446 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e418 d987088e450 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e453 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e456 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e459 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e462 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e465 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e469 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e472 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e475 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e424 d987088e478 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e424 d987088e481 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e428 d987088e484 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e428 d987088e488 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e428 d987088e491 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e428 d987088e494 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e428 "><span class="ph font_Wingdings"></span>OK</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e413 d987088e434 ">FileName</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e415 d987088e437 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e418 d987088e440 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e418 d987088e443 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e418 d987088e446 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e418 d987088e450 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e453 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e456 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e459 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e462 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e465 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e469 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e472 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e475 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e424 d987088e478 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e424 d987088e481 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e428 d987088e484 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e428 d987088e488 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e428 d987088e491 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e428 d987088e494 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e428 "><span class="ph font_Wingdings"></span>OK</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e413 d987088e434 ">ExecOption</td>
+
+<td class="entry cellrowborder" colspan="20" style="text-align:center;vertical-align:middle;" headers="d987088e415 d987088e418 d987088e421 d987088e424 d987088e428 d987088e437 d987088e440 d987088e443 d987088e446 d987088e450 d987088e453 d987088e456 d987088e459 d987088e462 d987088e465 d987088e469 d987088e472 d987088e475 d987088e478 d987088e481 d987088e484 d987088e488 d987088e491 d987088e494 ">Refer to <a class="xref" href="vqy1501815792246.html"><i style="display:none;">☆</i>FTPGetFile</a> for details on the structure _sFTP_EXEC_OPTION.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e413 d987088e434 ">RetryCfg</td>
+
+<td class="entry cellrowborder" colspan="20" style="text-align:center;vertical-align:middle;" headers="d987088e415 d987088e418 d987088e421 d987088e424 d987088e428 d987088e437 d987088e440 d987088e443 d987088e446 d987088e450 d987088e453 d987088e456 d987088e459 d987088e462 d987088e465 d987088e469 d987088e472 d987088e475 d987088e478 d987088e481 d987088e484 d987088e488 d987088e491 d987088e494 ">Refer to <a class="xref" href="vqy1501815792246.html"><i style="display:none;">☆</i>FTPGetFile</a> for details on the structure _sFTP_RETRY_CFG.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e413 d987088e434 ">Cancel</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e415 d987088e437 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e418 d987088e440 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e418 d987088e443 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e418 d987088e446 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e418 d987088e450 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e453 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e456 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e459 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e462 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e465 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e469 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e472 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e475 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e424 d987088e478 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e424 d987088e481 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e428 d987088e484 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e428 d987088e488 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e428 d987088e491 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e428 d987088e494 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e428 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e413 d987088e434 ">GetFileResult[] array</td>
+
+<td class="entry cellrowborder" colspan="20" style="text-align:center;vertical-align:middle;" headers="d987088e415 d987088e418 d987088e421 d987088e424 d987088e428 d987088e437 d987088e440 d987088e443 d987088e446 d987088e450 d987088e453 d987088e456 d987088e459 d987088e462 d987088e465 d987088e469 d987088e472 d987088e475 d987088e478 d987088e481 d987088e484 d987088e488 d987088e491 d987088e494 ">Refer to <a class="xref" href="vqy1501815792246.html"><i style="display:none;">☆</i>FTPGetFile</a> for details on the structure _sFTP_FILE_RESULT.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e413 d987088e434 ">CommandCanceled</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e415 d987088e437 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e418 d987088e440 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e418 d987088e443 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e418 d987088e446 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e418 d987088e450 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e453 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e456 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e459 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e462 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e465 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e469 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e472 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e475 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e424 d987088e478 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e424 d987088e481 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e428 d987088e484 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e428 d987088e488 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e428 d987088e491 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e428 d987088e494 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e428 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d987088e413 d987088e434 ">GetNum</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e415 d987088e437 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e418 d987088e440 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e418 d987088e443 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e418 d987088e446 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e418 d987088e450 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e453 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e456 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e459 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e462 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e465 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e469 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e472 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e421 d987088e475 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e424 d987088e478 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e424 d987088e481 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e428 d987088e484 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e428 d987088e488 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e428 d987088e491 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e428 d987088e494 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d987088e428 ">&#160;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="rzy1501817276953">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function</h1>
+
+<div class="body conbody">
+<p class="p" id="rzy1501817276953__ID0E11FR">The FTPGetFile instruction downloads the file specified with <span class="ph phtype_variable"><span class="termtype">FileName</span></span> from the specified directory <span class="ph phtype_variable"><span class="termtype">SvrDirName</span></span> on the connected FTP server <span class="ph phtype_variable"><span class="termtype">ConnectSvr</span></span> to the directory specified with <span class="ph phtype_variable"><span class="termtype">LocalDirName</span></span> in the SD Memory Card.</p>
+
+<p class="p">If the specified directory <span class="ph phtype_variable"><span class="termtype">LocalDirName</span></span> does not exist in the SD Memory Card, a new directory is created and the specified file is downloaded.</p>
+
+<p class="p" id="rzy1501817276953__ID0E41FR">You can use wildcards in <span class="ph phtype_variable"><span class="termtype">FileName</span></span>. This allows you to download more than one file at one time.</p>
+
+<p class="p linespace_7pt" id="rzy1501817276953__ID0EK2FR">The results of downloading is stored in GetFileResult[] for each file.</p>
+
+<p class="p">Store the number of files to download in <span class="ph phtype_variable"><span class="termtype">GetNum</span></span>.</p>
+
+<p class="p">If you use a wildcard in <span class="ph phtype_variable"><span class="termtype">FileName</span></span>, store the number of files with names that match the wildcard.</p>
+
+<p class="p linespace_7pt" id="rzy1501817276953__ID0EX2FR">If the actual number of transferred files is different, the value of <span class="ph phtype_variable"><span class="termtype">GetFileResult[].TxError</span></span> changes to TRUE.</p>
+
+<p class="p" id="rzy1501817276953__ID0E52FR">If an error occurs when deleting the source file after the download, the value of <span class="ph phtype_variable"><span class="termtype">GetFileResult[].RemoveError</span></span> changes to TRUE.</p>
+
+<p class="p linespace_7pt" id="rzy1501817276953__ID0EL3FR">With an NY-series Controller, files are downloaded into the shared folder (Virtual SD Memory Card). Before downloading files to the Virtual SD Memory Card, you must make the settings for the Virtual SD Memory Card. Refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Industrial Panel PC / Industrial Box PC Software User&#8217;s Manual (Cat. No. W558)</span></span></span> for details on a Virtual SD Memory Card.</p>
+
+<p class="p linespace_7pt" id="rzy1501817276953__ID0E43FR">The data type of <span class="ph phtype_variable"><span class="termtype">ConnectSvr</span></span> is structure _sFTP_CONNECT_SVR. The specifications are as follows:</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="rzy1501817276953__table_N10081_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:2%" />
+<col style="width:4%" />
+<col style="width:9%" />
+<col style="width:13%" />
+<col style="width:22%" />
+<col style="width:13%" />
+<col style="width:15%" />
+<col style="width:6%" />
+<col style="width:11%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" colspan="3" style="text-align:center;vertical-align:middle;" id="d873036e186">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d873036e189">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d873036e192">Description</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d873036e195">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d873036e198">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d873036e202">Unit</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d873036e205">Default</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cell-norowborder" colspan="3" style="text-align:left;vertical-align:middle;" headers="d873036e186 ">ConnectSvr</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d873036e189 ">Connected FTP server settings</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d873036e192 ">Setting parameters for the connected FTP server</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d873036e195 ">_sFTP_CONNECT_SVR</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d873036e198 ">---</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d873036e202 ">---</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d873036e205 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:middle;" headers="d873036e186 ">&#160;</td>
+
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d873036e186 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e189 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e192 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e195 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e198 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e202 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e205 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" rowspan="4" style="text-align:left;vertical-align:middle;" headers="d873036e186 ">&#160;</td>
+
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d873036e186 ">Adr</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e189 ">Address</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e192 ">IP address or host name<a class="xref" href="vqy1501815792246.html#rzy1501817276953__fn-1903068"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e195 ">STRING</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e198 ">1 to 200 bytes<a class="xref" href="vqy1501815792246.html#rzy1501817276953__fn-1903116"><i style="display:none;">☆</i><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" rowspan="4" style="text-align:left;vertical-align:middle;" headers="d873036e202 ">---</td>
+
+<td class="entry cellrowborder" rowspan="4" style="text-align:left;vertical-align:middle;" headers="d873036e205 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d873036e186 ">PortNo</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e189 ">Port number</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e192 ">TCP port number of FTP server control connection</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e195 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e198 ">0 to 65535<a class="xref" href="vqy1501815792246.html#rzy1501817276953__fn-1903086"><i style="display:none;">☆</i><sup>*3</sup></a></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d873036e186 ">UserName</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e189 ">User name</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e192 ">User name on FTP server</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e195 ">STRING</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e198 ">33 bytes max.<a class="xref" href="vqy1501815792246.html#rzy1501817276953__fn_k4q_khn_p1b"><i style="display:none;">☆</i><sup>*4</sup></a><a class="xref" href="vqy1501815792246.html#rzy1501817276953__fn-1903117"><i style="display:none;">☆</i><sup>*5</sup></a><a class="xref" href="vqy1501815792246.html#rzy1501817276953__fn-1903128"><i style="display:none;">☆</i><sup>*6</sup></a></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d873036e186 ">Password</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e189 ">Password</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e192 ">FTP server password</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e195 ">STRING</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e198 ">33 bytes max.<a class="xref" href="vqy1501815792246.html#rzy1501817276953__fn_k4q_khn_p1b"><i style="display:none;">☆</i><sup>*4</sup></a><a class="xref" href="vqy1501815792246.html#rzy1501817276953__fn-1903117"><i style="display:none;">☆</i><sup>*5</sup></a><a class="xref" href="vqy1501815792246.html#rzy1501817276953__fn-1903128"><i style="display:none;">☆</i><sup>*6</sup></a></td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="rzy1501817276953__fn-1903068" id="rzy1501817276953__fn-1903068"><sup>*1</sup></a>  A separate DNS or Hosts setting is required to specify a host name.</div>
+<div class="fn"><a name="rzy1501817276953__fn-1903116" id="rzy1501817276953__fn-1903116"><sup>*2</sup></a>  You can use the following single-byte characters: <span class="ph phtype_quote"><span class="termtype">"A to Z"</span></span>, <span class="ph phtype_quote"><span class="termtype">"a to z"</span></span>, <span class="ph phtype_quote"><span class="termtype">"0 to 9"</span></span>, <span class="ph phtype_quote"><span class="termtype">"-"</span></span> (hyphen), <span class="ph phtype_quote"><span class="termtype">"."</span></span> (period), and <span class="ph phtype_quote"><span class="termtype">"_"</span></span> (underbar).</div>
+<div class="fn"><a name="rzy1501817276953__fn-1903086" id="rzy1501817276953__fn-1903086"><sup>*3</sup></a>  If you specify <span class="ph phtype_settingvalue"><span class="termtype">0</span></span>, TCP port number 21 is used.</div>
+<div class="fn"><a name="rzy1501817276953__fn_k4q_khn_p1b" id="rzy1501817276953__fn_k4q_khn_p1b"><sup>*4</sup></a>  You can use the following single-byte characters: <span class="ph phtype_quote"><span class="termtype">"A to Z"</span></span>, <span class="ph phtype_quote"><span class="termtype">"a to z"</span></span>, <span class="ph phtype_quote"><span class="termtype">"0 to 9"</span></span>, <span class="ph phtype_quote"><span class="termtype">"-"</span></span> (hyphen), <span class="ph phtype_quote"><span class="termtype">"."</span></span> (period), and <span class="ph phtype_quote"><span class="termtype">"_"</span></span> (underbar). You can also use <span class="ph phtype_quote"><span class="termtype">"<span class="ph font_Arial">\</span>"</span></span> (backslash) and <span class="ph phtype_quote"><span class="termtype">"@"</span></span> for a CPU Unit with unit version 1.16 or later.</div>
+<div class="fn"><a name="rzy1501817276953__fn-1903117" id="rzy1501817276953__fn-1903117"><sup>*5</sup></a>  The NULL character at the end must be counted in the number of bytes.</div>
+<div class="fn"><a name="rzy1501817276953__fn-1903128" id="rzy1501817276953__fn-1903128"><sup>*6</sup></a>  For CPU Units with unit version 1.08, specify a text string of one character or more. An error will occur if you specify a text string that contains only the final NULL character.</div>
+</div></div>
+
+<p class="p linespace_7pt" id="rzy1501817276953__ID0E3MGR">The data type of GetFileResult[] is structure _sFTP_FILE_RESULT. The specifications are as follows:</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="rzy1501817276953__table_N1029F_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:2%" />
+<col style="width:4%" />
+<col style="width:9%" />
+<col style="width:13%" />
+<col style="width:22%" />
+<col style="width:13%" />
+<col style="width:15%" />
+<col style="width:6%" />
+<col style="width:11%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" colspan="3" style="text-align:center;vertical-align:middle;" id="d873036e407">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d873036e410">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d873036e413">Description</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d873036e416">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d873036e419">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d873036e423">Unit</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d873036e426">Default</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cell-norowborder" colspan="3" style="text-align:left;vertical-align:middle;" headers="d873036e407 ">GetFileResult</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d873036e410 ">Downloaded file results</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d873036e413 ">Transferred file results</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d873036e416 ">_sFTP_FILE_RESULT</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d873036e419 ">---</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d873036e423 ">---</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d873036e426 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:middle;" headers="d873036e407 ">&#160;</td>
+
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d873036e407 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e410 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e413 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e416 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e419 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e423 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e426 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" rowspan="4" style="text-align:left;vertical-align:middle;" headers="d873036e407 ">&#160;</td>
+
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d873036e407 ">Name</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e410 ">File name<a class="xref" href="vqy1501815792246.html#rzy1501817276953__fn-1903008"><i style="display:none;">☆</i><sup>*7</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e413 ">Transferred file name</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e416 ">STRING</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e419 ">256 bytes max. (255 single-byte alphanumeric characters plus the final NULL character)</td>
+
+<td class="entry cellrowborder" rowspan="4" style="text-align:left;vertical-align:middle;" headers="d873036e423 ">---</td>
+
+<td class="entry cellrowborder" rowspan="3" style="text-align:left;vertical-align:middle;" headers="d873036e426 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d873036e407 ">TxError</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e410 ">Transfer error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e413 ">
+<p class="p" id="rzy1501817276953__ID0EBXGR">TRUE: Transfer ended in an error.</p>
+
+<p class="p">FALSE: Transfer ended normally.</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e416 ">BOOL</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d873036e419 ">Depends on data type.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d873036e407 ">RemoveError</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e410 ">Deletion error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e413 ">
+<p class="p" id="rzy1501817276953__ID0ECZGR">TRUE: Deletion ended in an error.</p>
+
+<p class="p">FALSE: Deletion ended normally.</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e416 ">BOOL</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d873036e407 ">Reserved</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e410 ">Reserved</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e413 ">Reserved by the system.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e416 ">ARRAY[0..3] Of Byte</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e419 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d873036e426 ">0</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+
+
+
+
+
+
+<div class="fn"><a name="rzy1501817276953__fn-1903008" id="rzy1501817276953__fn-1903008"><sup>*7</sup></a>  The file name extension is included. </div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="jwg1501817278036">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Using Wildcards to Specify File Names</h1>
+
+<div class="body conbody">
+<p class="p" id="jwg1501817278036__ID0EK4GR">You can use wildcards to specify the names of the files to download in <span class="ph phtype_variable"><span class="termtype">FileName</span></span>.</p>
+
+<p class="p" id="jwg1501817278036__ID0EN4GR">As wildcards, you can specify <span class="ph phtype_quote"><span class="termtype">"*"</span></span> and <span class="ph phtype_quote"><span class="termtype">"?"</span></span>.</p>
+
+<p class="p"><span class="ph phtype_quote"><span class="termtype">"*"</span></span> represents one or more characters. <span class="ph phtype_quote"><span class="termtype">"?"</span></span> represents only one character.</p>
+
+<p class="p" id="jwg1501817278036__ID0EU4GR">Examples of using wildcard specifications are given below.</p>
+
+<p class="p linespace_7pt" id="jwg1501817278036__ID0EB5GR">Assume that the FTP server directory has the following file structure.</p>
+
+<br /><img class="image" id="jwg1501817278036__image_866E239186474B18AA876C08D0284CAA" src="oun1501817277210.gif" /><br />
+<p class="p linespace_7pt" id="jwg1501817278036__ID0EP5GR">As shown in the following table, the way that the wildcards are used determines the files that are specified.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="jwg1501817278036__table_N10038_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d525417e69">Wildcard specification</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d525417e72">Specified files</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d525417e69 ">Log*.log</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d525417e72 ">LogA01.log, LogB.log</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d525417e69 ">Log?.log</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d525417e72 ">LogB.log</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d525417e69 ">Log?.*</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d525417e72 ">LogB.log, LogC.txt</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d525417e69 ">*Data*</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d525417e72 ">ControlDataA1.csv, ControlDataA10.csv, ControlDataA100.csv, ControlDataB10.csv, ControlDataC100.csv, (ControlSubDataFiles)<a class="xref" href="vqy1501815792246.html#jwg1501817278036__fn-1903120"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d525417e69 ">*</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d525417e72 ">All files except for those in the subdirectory</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d525417e69 ">*.*</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d525417e72 ">All files except for those in the subdirectory</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d525417e69 ">?.?</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d525417e72 ">No files</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d525417e69 ">????.???</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d525417e72 ">LogB.log, LogC.txt</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="jwg1501817278036__fn-1903120" id="jwg1501817278036__fn-1903120"><sup>*1</sup></a>  Subdirectory files will also be included for some FTP server specifications.</div></div></div>
+
+<p class="p linespace_7pt" id="jwg1501817278036__ID0EIHHR">If you specify wildcards, you can download up to 1,000 files.</p>
+
+<p class="p" id="jwg1501817278036__ID0EPHHR">If <span class="ph phtype_variable"><span class="termtype">GetFileResult[].TxError</span></span> or <span class="ph phtype_variable"><span class="termtype">GetFileResult[].RemoveError</span></span> is TRUE as the result of downloading files, <span class="ph phtype_variable"><span class="termtype">Error</span></span> changes to TRUE, the corresponding error code for the first error is stored in <span class="ph phtype_variable"><span class="termtype">ErrorID</span></span> and the error response from the FTP server is stored in <span class="ph phtype_variable"><span class="termtype">ErrorIDEx</span></span>.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="lct1501817278287">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Specifying Options for FTP Server Processing</h1>
+ 
+<div class="body conbody">
+<p class="p" id="lct1501817278287__ID0EZIHR">The operation specified with <span class="ph phtype_variable"><span class="termtype">ExecOption</span></span> is performed to download files from the FTP server.</p>
+
+<p class="p linespace_7pt" id="lct1501817278287__ID0ECJHR">The data type of <span class="ph phtype_variable"><span class="termtype">ExecOption</span></span> is structure _sFTP_EXEC_OPTION. The specifications are as follows:</p>
+
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="lct1501817278287__table_N10026_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:2%" />
+<col style="width:4%" />
+<col style="width:9%" />
+<col style="width:13%" />
+<col style="width:22%" />
+<col style="width:13%" />
+<col style="width:15%" />
+<col style="width:6%" />
+<col style="width:11%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" colspan="3" style="text-align:center;vertical-align:middle;" id="d581248e61">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d581248e64">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d581248e67">Description</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d581248e70">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d581248e73">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d581248e77">Unit</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d581248e80">Default</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cell-norowborder" colspan="3" style="text-align:left;vertical-align:middle;" headers="d581248e61 ">ExecOption</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d581248e64 ">FTP execution options</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d581248e67 ">Options for FTP execution</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d581248e70 ">_sFTP_EXEC_OPTION</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d581248e73 ">---</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d581248e77 ">---</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d581248e80 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:middle;" headers="d581248e61 ">&#160;</td>
+
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d581248e61 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d581248e64 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d581248e67 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d581248e70 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d581248e73 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d581248e77 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d581248e80 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" rowspan="5" style="text-align:left;vertical-align:middle;" headers="d581248e61 ">&#160;</td>
+
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d581248e61 ">PassiveMode</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d581248e64 ">Passive mode specification</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d581248e67 ">
+<p class="p" id="lct1501817278287__ID0ETQHR">TRUE: Passive mode</p>
+
+<p class="p">FALSE: Active mode</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d581248e70 ">BOOL</td>
+
+<td class="entry cellrowborder" rowspan="4" style="text-align:left;vertical-align:middle;" headers="d581248e73 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" rowspan="5" style="text-align:left;vertical-align:middle;" headers="d581248e77 ">---</td>
+
+<td class="entry cellrowborder" rowspan="4" style="text-align:left;vertical-align:middle;" headers="d581248e80 ">FALSE</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d581248e61 ">ASCIIMode</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d581248e64 ">ASCII mode specification</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d581248e67 ">
+<p class="p" id="lct1501817278287__ID0EMTHR">TRUE: ASCII mode</p>
+
+<p class="p">FALSE: Binary mode</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d581248e70 ">BOOL</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d581248e61 ">FileRemove</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d581248e64 ">File deletion after transfer specification <a class="xref" href="vqy1501815792246.html#lct1501817278287__fn-1903010"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d581248e67 ">
+<p class="p" id="lct1501817278287__ID0EEVHR">TRUE: Delete files after transfer.</p>
+
+<p class="p">FALSE: Do not delete files after transfer.</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d581248e70 ">BOOL</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d581248e61 ">OverWrite</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d581248e64 ">Overwrite specification</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d581248e67 ">
+<p class="p" id="lct1501817278287__ID0EZWHR">TRUE: Overwrite files at transfer destination.</p>
+
+<p class="p">FALSE: Do not overwrite files at transfer destination.</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d581248e70 ">BOOL</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d581248e61 ">Reserved</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d581248e64 ">Reserved</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d581248e67 ">Reserved by the system.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d581248e70 ">ARRAY[0..7] Of Byte</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d581248e73 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d581248e80 ">0</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="lct1501817278287__fn-1903010" id="lct1501817278287__fn-1903010"><sup>*1</sup></a>  The transfer source files are not deleted when the transfer fails.</div></div></div>
+
+</div>
+ 
+<div class="related-links"></div></div><div class="layer05" id="iyq1501817278534">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">PassiveMode (Passive Mode Specification)</h1>
+ 
+<div class="body conbody">
+<p class="p" id="iyq1501817278534__ID0E41HR">The passive mode specification tells whether to use passive mode for the data connection request to the FTP server.</p>
+
+<p class="p">If passive mode is not specified, active mode is used for the data connection request to the FTP server.</p>
+
+      
+<p class="p">Refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Built-in EtherNet/IP Port User&#8217;s Manual (Cat. No. W506)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Industrial Panel PC / Industrial Box PC Built-in EtherNet/IPTM Port User's Manual (Cat. No. W563)</span></span></span> for details on connection request methods.</p>
+
+<p class="p" id="iyq1501817278534__ID0ER2HR">The values and their meanings for <span class="ph phtype_variable"><span class="termtype">PassiveMode</span></span> are given in the following table.</p>
+
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="iyq1501817278534__table_N10043_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d473843e50">Set value</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d473843e53">Meaning</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d473843e50 ">TRUE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d473843e53 ">
+<p class="p" id="iyq1501817278534__ID0EZ4HR">The data connection request with the FTP server is performed in passive mode.</p>
+
+<p class="p">The data connection request is performed from the FTP client.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d473843e50 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d473843e53 ">
+<p class="p" id="iyq1501817278534__ID0EW5HR">The data connection request with the FTP server is performed in active mode.</p>
+
+<p class="p">The data connection request is performed from the FTP server.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer05" id="uyy1501817278767">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">ASCIIMode (ASCII Mode Specification)</h1>
+ 
+<div class="body conbody">
+<p class="p" id="uyy1501817278767__ID0EW6HR">The ASCII mode specification tells whether ASCII mode is used as the transfer mode from the transfer source system to the transfer destination system.</p>
+
+<p class="p">If ASCII mode is not specified, binary mode is used as the transfer mode from the transfer source system to the transfer destination system.</p>
+
+<p class="p" id="uyy1501817278767__ID0EZ6HR">The values and their meanings for <span class="ph phtype_variable"><span class="termtype">ASCIIMode</span></span> are given in the following table.</p>
+
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="uyy1501817278767__table_N10024_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1012582e39">Set value</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1012582e42">Meaning</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d1012582e39 ">TRUE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d1012582e42 ">
+<p class="p" id="uyy1501817278767__ID0EBCIR">ASCII mode is used as the transfer mode from the transfer source system to the transfer destination system.</p>
+
+<p class="p">Text line feed codes are converted from those for the transfer source system to those for the transfer destination system.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d1012582e39 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d1012582e42 ">
+<p class="p" id="uyy1501817278767__ID0E5CIR">Binary mode is used as the transfer mode from the transfer source system to the transfer destination system.</p>
+
+<p class="p">Text line feed codes are transferred as is from the transfer source system.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer05" id="ntw1501817278999">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">FileRemove (File Deletion after Transfer Specification)</h1>
+ 
+<div class="body conbody">
+<p class="p" id="ntw1501817278999__ID0E5DIR">The file deletion after transfer specification tells whether to delete the transfer source files after they are transferred to the transfer destination.</p>
+
+<p class="p" id="ntw1501817278999__ID0EBEIR">The values and their meanings for <span class="ph phtype_variable"><span class="termtype">FileRemove</span></span> are given in the following table.</p>
+
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ntw1501817278999__table_N10020_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d701269e36">Set value</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d701269e39">Meaning</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d701269e36 ">TRUE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d701269e39 ">The transfer source files are deleted.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d701269e36 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d701269e39 ">The transfer source files are not deleted.</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer05" id="weu1501817279223">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">OverWrite (Overwrite Specification)</h1>
+ 
+<div class="body conbody">
+<p class="p" id="weu1501817279223__ID0ECIIR">The overwrite specification tells whether to overwrite files with the same name at the transfer destination when files are downloaded.</p>
+
+<p class="p">If overwriting is not specified, files with the same name as those at the transfer destination are not transferred.</p>
+
+<p class="p" id="weu1501817279223__ID0EFIIR">File names are not case sensitive.</p>
+
+<p class="p" id="weu1501817279223__ID0EMIIR">The values and their meanings for <span class="ph phtype_variable"><span class="termtype">OverWrite</span></span> are given in the following table.</p>
+
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="weu1501817279223__table_N10029_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1056038e42">Set value</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1056038e45">Meaning</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d1056038e42 ">TRUE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d1056038e45 ">The transfer destination files are overwritten.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d1056038e42 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d1056038e45 ">The transfer destination files are not overwritten. The files are not transferred to the transfer destination.</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer04" id="niv1501817279464">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Specifying Retrying Connection Processing with the FTP Server</h1>
+
+<div class="body conbody">
+<p class="p" id="niv1501817279464__ID0E5MIR">You can specify retrying connection processing with the FTP server.</p>
+
+<p class="p" id="niv1501817279464__ID0EBNIR">The operation for the retry settings is the same as that for the FTPGetFileList instruction. Refer to <a class="xref" href="fby1501815791223.html#wdx1501817262083"><i style="display:none;">☆</i>Specifying Retrying Connection Processing with the FTP Server</a> for the FTPGetFileList instruction.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="rkx1501817279705">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Canceling Instruction Execution</h1>
+
+<div class="body conbody">
+<p class="p" id="rkx1501817279705__ID0EUOIR">You can cancel execution of the FTPGetFile instruction after execution has started.</p>
+
+<p class="p" id="rkx1501817279705__ID0EXOIR">The results of downloading files from the FTP server up to the point where it is canceled are stored in <span class="ph phtype_variable"><span class="termtype">GetNum</span></span> and GetFileResult[].</p>
+
+<p class="p" id="rkx1501817279705__ID0E5OIR">The operation for cancellation is the same as that for the FTPGetFileList instruction. Refer to <a class="xref" href="fby1501815791223.html#yvv1501817264681"><i style="display:none;">☆</i>Canceling Instruction Execution</a> for the FTPGetFileList instruction.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="aki1501817279947">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Related System-defined Variables</h1>
+
+<div class="body conbody">
+        
+        
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="aki1501817279947__table_bzp_p3d_l1b" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:30%" />
+<col style="width:20%" />
+<col style="width:10%" />
+<col style="width:40%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d20806e56">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d20806e59">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d20806e62">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d20806e65">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d20806e56 ">_EIP_EtnOnlineSta <a class="xref" href="vqy1501815792246.html#aki1501817279947__fn_yzx_s3d_l1b"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" rowspan="3" style="text-align:left;vertical-align:middle;" headers="d20806e59 ">Online</td>
+
+<td class="entry cellrowborder" rowspan="3" style="text-align:left;vertical-align:middle;" headers="d20806e62 ">BOOL</td>
+
+<td class="entry cellrowborder" rowspan="3" style="text-align:left;vertical-align:middle;" headers="d20806e65 ">
+<p class="p">This variable indicates when built-in EtherNet/IP port communications can be used.</p>
+
+<p class="p">TRUE: Communications are possible.</p>
+
+<p class="p">FALSE: Communications are not possible.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d20806e56 ">
+<p class="p">_EIP1_EtnOnlineSta <a class="xref" href="vqy1501815792246.html#aki1501817279947__fn_fll_t3d_l1b"><i style="display:none;">☆</i><sup>*2</sup></a></p>
+
+<p class="p">_EIP2_EtnOnlineSta <a class="xref" href="vqy1501815792246.html#aki1501817279947__fn_pvt_t3d_l1b"><i style="display:none;">☆</i><sup>*3</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d20806e56 ">_EIPIn1_EtnOnlineSta <a class="xref" href="vqy1501815792246.html#aki1501817279947__fn_ocb_53d_l1b"><i style="display:none;">☆</i><sup>*4</sup></a></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d20806e56 ">_Card1Ready</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d20806e59 ">SD Memory Card Ready Flag</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d20806e62 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d20806e65 ">
+<p class="p">This variable indicates whether the SD Memory Card is recognized and usable.</p>
+
+<p class="p">TRUE: Can be used.</p>
+
+<p class="p">FALSE: Cannot be used.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="aki1501817279947__fn_yzx_s3d_l1b" id="aki1501817279947__fn_yzx_s3d_l1b"><sup>*1</sup></a>  Use this variable name for an NJ-series CPU Unit.</div>
+<div class="fn"><a name="aki1501817279947__fn_fll_t3d_l1b" id="aki1501817279947__fn_fll_t3d_l1b"><sup>*2</sup></a>
+<p class="p">Use this variable name for port 1 on an NX-series CPU Unit, or for an NY-series Controller.</p>
+
+<p class="p">You can specify _EIP_EtnOnlineSta instead of _EIP1_EtnOnlineSta.</p>
+
+</div>
+<div class="fn"><a name="aki1501817279947__fn_pvt_t3d_l1b" id="aki1501817279947__fn_pvt_t3d_l1b"><sup>*3</sup></a>  Use this variable name for port 2 on an NX-series CPU Unit. </div>
+<div class="fn"><a name="aki1501817279947__fn_ocb_53d_l1b" id="aki1501817279947__fn_ocb_53d_l1b"><sup>*4</sup></a>  Use this variable name for the internal port on an NY-series Controller. </div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="kba1501817280226">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Precautions for Correct Use</h1>
+
+<div class="body conbody">
+<ul class="ul" id="kba1501817280226__ul_94F7FC0753844E23A14AF47049B91A4C">
+            
+            
+<li class="li" id="kba1501817280226__li_N10022_N10013_N10010_N10002">You can use this instruction through a built-in EtherNet/IP port on an NY-series Controller or an NJ/NX-series CPU Unit, or through a port on an NX-series EtherNet/IP Unit connected to an NX502 CPU Unit.</li>
+
+<li class="li" id="kba1501817280226__li_N10018_N10013_N10010_N10002">Execution of this instruction is continued until processing is completed even if the value of <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to FALSE or the execution time exceeds the task period. The value of <span class="ph phtype_variable"><span class="termtype">Done</span></span> changes to TRUE when processing is completed. Use this to confirm normal completion of the processing.</li>
+
+<li class="li" id="kba1501817280226__li_N10027_N10013_N10010_N10002">Refer to <a class="xref" href="aag1501815842589.html#aag1501815842589"><i style="display:none;">☆</i>Using this Section</a> for a timing chart for <span class="ph phtype_variable"><span class="termtype">Execute</span></span>, <span class="ph phtype_variable"><span class="termtype">Done</span></span>, <span class="ph phtype_variable"><span class="termtype">Busy</span></span>, and <span class="ph phtype_variable"><span class="termtype">Error</span></span>.</li>
+
+<li class="li" id="kba1501817280226__li_38FF7A3CABF74669818EDAC04375D9C7">If the number of downloaded file results to store exceeds the number of array elements in GetFileResult[], the results that will not fit are not stored. In this case, <span class="ph phtype_variable"><span class="termtype">Error</span></span> does not change to TRUE.</li>
+
+<li class="li" id="kba1501817280226__li_B0AB0DAB1CA84DC398D1C54A10787393">If a file name exceeds 255 characters, the first 255 characters are stored in <span class="ph phtype_variable"><span class="termtype">Name</span></span> in GetFileResult[]. In this case, <span class="ph phtype_variable"><span class="termtype">Error</span></span> does not change to TRUE.</li>
+
+<li class="li" id="kba1501817280226__li_N1004A_N10013_N10010_N10002">You can execute a maximum of 3 of the following instructions at the same time: FTPGetFileList, FTPGetFile, FTPPutFile, FTPRemoveFile, and FTPRemoveDir.</li>
+
+<li class="li" id="kba1501817280226__li_7DE9F53404234B74812505D15F6D3B42">If a wildcard is used in the file name and an error occurs for more than one file, the results of the first file for which the value of <span class="ph phtype_variable"><span class="termtype">GetFileResult[].TxError</span></span> is TRUE of all the files for which results are stored in GetFileResult[] are stored in <span class="ph phtype_variable"><span class="termtype">ErrorID</span></span> and <span class="ph phtype_variable"><span class="termtype">ErrorIDEx</span></span>.</li>
+
+<li class="li" id="kba1501817280226__li_N10067_N10013_N10010_N10002">File names are not case sensitive. Therefore, if the only difference between the names of the files at the transfer destination and the transfer files is in capitalization, the files are detected as having the same names. The following is performed in this case.</li>
+
+</ul>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="kba1501817280226__table_N1008A_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d535974e100">Value of <span class="ph phtype_variable"><span class="termtype">OverWrite</span></span></th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d535974e105">Overwrite specification</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d535974e108">Processing</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row" style="vertical-align:middle;">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d535974e100 ">TRUE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d535974e105 ">Overwrite</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d535974e108 ">The files are overwritten.</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:middle;">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d535974e100 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d535974e105 ">Do not overwrite.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d535974e108 ">The transfer destination files are not overwritten. The files are not transferred to the transfer destination.</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt"></p>
+
+<ul class="ul" id="kba1501817280226__ul_72D6A56AF7C8426C82F98FB1683DC6D2">
+<li class="li" id="kba1501817280226__li_4B9884B888F8415981F1AE61CD70FB01">If the file specified by <span class="ph phtype_variable"><span class="termtype">FileName</span></span> does not exist in the specified directory on the FTP server, a transfer error occurs and the value of <span class="ph phtype_variable"><span class="termtype">GetFileResult[].TxError</span></span> changes to TRUE.</li>
+
+<li class="li" id="kba1501817280226__li_C62CA0CA66BD48569F12CED4844F77AB">If the name specified for <span class="ph phtype_variable"><span class="termtype">FileName</span></span> is actually the name of a directory, a transfer error occurs and the value of <span class="ph phtype_variable"><span class="termtype">GetFileResult[].TxError</span></span> changes to TRUE.</li>
+
+<li class="li" id="kba1501817280226__li_2CA471616B2E4C41B9ECB78BD64C6D09">If <span class="ph phtype_variable"><span class="termtype">ExecOption.FileRemove</span></span> is TRUE and the file specified with <span class="ph phtype_variable"><span class="termtype">FileName</span></span> has a read-only attribute, a deletion error occurs and <span class="ph phtype_variable"><span class="termtype">GetFileResult[].RemoveError</span></span> changes to TRUE.</li>
+
+<li class="li" id="kba1501817280226__li_00E238AE9EE245658A8B2597F8F25D24">An error will occur in the following cases. <span class="ph phtype_variable"><span class="termtype">Error</span></span> will change to TRUE. <ol class="ol liststyle_alphabet1" id="kba1501817280226__ul_C656FBAC8CEB4A16AD23EEA2B69762BA"><li class="li" id="kba1501817280226__li_N10127_N10121_N10116_N100D7_N10010_N10002">The value of any input parameter is outside of the valid range.</li>
+<li class="li" id="kba1501817280226__li_N1012C_N10121_N10116_N100D7_N10010_N10002"><span class="ph phtype_quote"><span class="termtype">".."</span></span> is specified for a directory level in <span class="ph phtype_variable"><span class="termtype">SvrDirName</span></span> or <span class="ph phtype_variable"><span class="termtype">LocalDirName</span></span>.</li>
+<li class="li" id="kba1501817280226__li_N10131_N10121_N10116_N100D7_N10010_N10002">An incorrect path such as <span class="ph phtype_quote"><span class="termtype">"//"</span></span> is specified for <span class="ph phtype_variable"><span class="termtype">SvrDirName</span></span> or <span class="ph phtype_variable"><span class="termtype">LocalDirName</span></span>.</li>
+<li class="li" id="kba1501817280226__li_N10136_N10121_N10116_N100D7_N10010_N10002">The directory specified by <span class="ph phtype_variable"><span class="termtype">SvrDirName</span></span> does not exist on the FTP server.</li>
+<li class="li" id="kba1501817280226__li_92462FB1D02943B9ABF0AA54BAE7062B">More than 1,000 files to download exist in the FTP server directory specified with <span class="ph phtype_variable"><span class="termtype">SvrDirName</span></span>.</li>
+
+<li class="li" id="kba1501817280226__li_32AA69921D73414FB932F76C0F28B809">The file directory specified with <span class="ph phtype_variable"><span class="termtype">FileName</span></span> does not exist in the download source directory on the FTP server.</li>
+<li class="li" id="kba1501817280226__li_N10151_N10121_N10116_N100D7_N10010_N10002"><span class="ph phtype_variable"><span class="termtype">ExecOption.OverWrite</span></span> is FALSE and a file with the same name as the specified file name <span class="ph phtype_variable"><span class="termtype">FileName</span></span> already exists in the specified directory <span class="ph phtype_variable"><span class="termtype">SvrDirName</span></span>.</li>
+<li class="li" id="kba1501817280226__li_N10156_N10121_N10116_N100D7_N10010_N10002"><span class="ph phtype_variable"><span class="termtype">ExecOption.FileRemove</span></span> is TRUE but a file with a name that matches <span class="ph phtype_variable"><span class="termtype">FileName</span></span> has a read-only attribute.</li>
+<li class="li" id="kba1501817280226__li_N1015B_N10121_N10116_N100D7_N10010_N10002">The FTP server specified by <span class="ph phtype_variable"><span class="termtype">ConnectSvr</span></span> does not exist on the network or the specified FTP server is not operating.</li>
+<li class="li" id="kba1501817280226__li_N10160_N10121_N10116_N100D7_N10010_N10002">Accessing the file specified with <span class="ph phtype_variable"><span class="termtype">FileName</span></span> failed because there is no access right to the file or the file is corrupted.</li>
+<li class="li" id="kba1501817280226__li_N10165_N10121_N10116_N100D7_N10010_N10002">More than 3 of the following instructions were executed at the same time: FTPGetFileList, FTPGetFile, FTPPutFile, FTPRemoveFile, and FTPRemoveDir.</li>
+<li class="li" id="kba1501817280226__li_N1016A_N10121_N10116_N100D7_N10010_N10002">The SD Memory Card is not in a usable condition.</li>
+<li class="li" id="kba1501817280226__li_7092ABFCD0D24D74B424D2C065FB34BE">The SD Memory Card is write protected.</li>
+
+<li class="li" id="kba1501817280226__li_CB4D684710CF425A914BDFB553B4A27D">There is insufficient space available on the SD Memory Card.</li>
+
+<li class="li" id="kba1501817280226__li_C12A406572CF4C6D8F7C11D6095ADB34">The maximum number of files or directories was exceeded on the SD Memory Card.</li>
+
+</ol>
+</li>
+<li class="li" id="kba1501817280226__li_N10182_N100D7_N10010_N10002">For this instruction, expansion error code <span class="ph phtype_variable"><span class="termtype">ErrorIDEx</span></span> gives the FTP response code that was returned by the FTP server. The following table lists typical values of <span class="ph phtype_variable"><span class="termtype">ErrorIDEx</span></span> and describes the meanings of the errors and the corrections. For details, refer to FTP server specifications. An expansion error code is output to <span class="ph phtype_variable"><span class="termtype">ErrorIDEx</span></span> when the value of error code <span class="ph phtype_variable"><span class="termtype">ErrorID</span></span> is WORD#16#2407.</li>
+</ul>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="kba1501817280226__table_N101E2_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d535974e300">Value of <span class="ph phtype_variable"><span class="termtype">ErrorIDEx</span></span></th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d535974e305">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d535974e308">Correction</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d535974e300 ">16#000001A9</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d535974e305 ">It was not possible to establish a data connection.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d535974e308 ">If you use FTP communications with an FTP server over the Internet, make sure that the FTP open mode is not set to active.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d535974e300 ">16#000001AA</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d535974e305 ">The connection was closed. Data transfer was aborted.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d535974e308 ">
+<p class="p">Check the connection to the FTP server.</p>
+
+<p class="p">Make sure that the FTP server is operating.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d535974e300 ">16#000001C2</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d535974e305 ">It was not possible to perform the requested file operation. Using the file was not possible, e.g., it is already open.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d535974e308 ">Make sure that the file is not open for any other application.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d535974e300 ">16#00000212</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d535974e305 ">User login was not possible.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d535974e308 ">Check the FTP user name and password.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d535974e300 ">16#00000214</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d535974e305 ">An account to save files is required.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d535974e308 ">Check the FTP user access rights.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d535974e300 ">16#00000226</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d535974e305 ">Execution of the requested file operation was not possible because using the file was not possible, e.g., accessing it was not possible because it was not found.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d535974e308 ">
+<p class="p">Make sure that a file with the specified name exists in the directory on the FTP server.</p>
+
+<p class="p">Check the access rights of the specified file.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d535974e300 ">16#00000229</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d535974e305 ">Execution was not possible because the file name was not correct.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d535974e308 ">Check the access rights of the specified directory.</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="zdg1501817280471">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Sample Programming</h1>
+
+<div class="body conbody">
+<p class="p" id="zdg1501817280471__ID0E6TJR">Refer to <a class="xref" href="fby1501815791223.html#qif1501817269498"><i style="display:none;">☆</i>Sample Programming</a> for the FTPGetFileList instruction.</p>
+
+</div>
+
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

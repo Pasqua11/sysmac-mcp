@@ -1,0 +1,714 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 11">
+<title>CNC_LoadProgramFile</title>
+<link rel="stylesheet" href="../00INTRO.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+th.hcp1 { border-top:solid 1px #000000;
+border-right:solid 1px #000000;
+border-bottom:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+th.hcp2 { border-top:solid 1px #000000;
+border-bottom:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+td.hcp3 { border-right:solid 1px #000000;
+border-bottom:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+div.hcp4 { text-align:center; }
+td.hcp5 { border-bottom:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+span.hcp6 { font-style:italic; }
+table.hcp7 { padding-top:5.00pt;
+padding-right:4.00pt;
+padding-bottom:1.00pt; }
+td.hcp8 { vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+table.hcp9 { padding-top:6.00pt;
+padding-right:4.00pt;
+padding-bottom:1.00pt;
+margin-left:31.18pt; }
+td.hcp10 { border-left:solid 7px #000000;
+border-bottom:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+table.hcp11 { padding-left:4.00pt;
+padding-top:3.00pt;
+padding-right:4.00pt;
+padding-bottom:1.00pt;
+margin-left:42.52pt; }
+table.hcp12 { margin-left:42.52pt;
+margin-bottom:3.50pt;
+margin-top:6.00pt; }
+span.hcp13 { word-spacing:normal;
+font:6.0pt 'Times New Roman'; }
+p.hcp14 { text-align:left; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="../../ehlpdhtm.js"></script>
+
+<p class="Title">CNC_LoadProgramFile</p>
+<p class="FM_body1">The CNC_LoadProgramFile instruction loads an NC program 
+ from an external non-volatile memory into the main memory.</p>
+<p class="FM_tablespec">&#160;</p>
+
+<table style="padding-left: 4.00pt; padding-top: 3.00pt; padding-right: 4.00pt; 
+		 padding-bottom: 1.00pt;" cellspacing="0" width="661">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="125" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Instruction</p></th>
+		<th width="87" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="57" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">FB/FUN</p></th>
+		<th width="197" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Graphic 
+		 expression</p></th>
+		<th width="197" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">ST expression</p></th>
+	</tr>
+	<tr style="height: 148.00pt;">
+		<td width="125" class="hcp3"><p 
+			 class="FM_tablebody19pt">CNC_LoadProgramFile</p></td>
+		<td width="87" class="hcp3"><p 
+			 class="FM_tablebody19pt">NC program load</p></td>
+		<td width="57" class="hcp3"><p 
+			 class="FM_tablebody19pt">FB</p></td>
+		<td width="197" class="hcp3"><p 
+			 class="FM_tablebodyc9pt"><span class="FM_Arial">CNC_LoadProgramFile_instance</span></p>
+		<div class="hcp4">
+			<img alt="CNC_LoadProgramFile_010.jpg" id="image6" src="CNC_LoadProgramFile_010.jpg" width="193" height="147" border="0"> 
+		</div>
+		<p class="FM_body1">&#160;</p></td>
+		<td width="197" class="hcp5"><p class="FM_tablebody19pt">CNC_LoadProgramFile_instance 
+		 (</p>
+		<p class="FM_tablebody19pt">Execute :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody19pt">FileName :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody19pt">DeletePrg :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody19pt">Done =&gt;<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody19pt">Busy =&gt;<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody19pt">CommandAborted =&gt;<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody19pt">Error =&gt;<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody19pt">ErrorID =&gt;<span class="hcp6">parameter</span></p>
+		<p class="FM_tablebody19pt">);</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp7">
+	<tr style="height: 20.00pt;" bgcolor="#B3B3B3">
+		<td width="661" bgcolor="#B3B3B3" class="hcp8"><p class="FM_CRhead3">Variables</p></td>
+	</tr>
+</table>
+
+
+<table cellspacing="0" width="620" class="hcp9">
+	<tr style="height: 21.00pt;">
+		<td width="620" class="hcp10"><p 
+			 class="FM_head4">Input Variables</p></td>
+	</tr>
+</table>
+
+<p class="FM_tablespec">&#160;</p>
+
+<table cellspacing="0" width="605" class="hcp11">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="76" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="76" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Meaning</p></th>
+		<th width="76" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th width="76" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Valid 
+		 range</p></th>
+		<th width="76" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Default</p></th>
+		<th width="227" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Execute</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Execute</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">TRUE or FALSE</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">FALSE</p></td>
+		<td width="227" class="hcp5"><p class="FM_tablebody19pt">The 
+		 instruction is executed when <span class="FM_italic">Exe­cute</span> 
+		 changes to TRUE.</p></td>
+	</tr>
+	<tr style="height: 15.40pt;">
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">FileName</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">File Name</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">STRING</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt"><a name="FTB_8"></a><a href="#FTH_8"><sup>*1</sup></a>&#160;</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">&#160;</p></td>
+		<td width="227" class="hcp5"><p class="FM_tablebody19pt">File 
+		 name to be loaded</p></td>
+	</tr>
+	<tr style="height: 79.00pt;">
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">DeletePrg</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Program Deletion</p>
+		<p class="FM_tablebody19pt">Option</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">_eCNC_DELETE_PRG</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">_cncNot<br>
+		DelPrg (0)</p>
+		<p class="FM_tablebody19pt">_cncDel<br>
+		LoadedPrg (1)</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">_cncNot<br>
+		DelPrg (0)</p></td>
+		<td width="227" class="hcp5"><p class="FM_tablebody19pt">Specify 
+		 whether to delete the NC pro­gram loaded by this instruction.</p>
+		<p class="FM_tablebody19pt">_cncNotDelPrg: Do not delete NC pro­gram</p>
+		<p class="FM_tablebody19pt">_cncDelLoadedPrg: Delete all the loaded 
+		 NC programs</p></td>
+	</tr>
+</table>
+
+
+<table width="605" class="hcp12">
+	<tr>
+		<td><p class="FM_tablebody1c9pt"><a name="FTH_8"></a><sup><a href="#FTB_8">*1</a></sup>Up 
+		 to 66 bytes (65 bytes + NULL)</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="620" class="hcp9">
+	<tr style="height: 21.00pt;">
+		<td width="620" class="hcp10"><p 
+			 class="FM_head4">Output Variables</p></td>
+	</tr>
+</table>
+
+<p class="FM_tablespec">&#160;</p>
+
+<table cellspacing="0" width="605" class="hcp11">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="76" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="76" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Meaning</p></th>
+		<th width="76" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th width="76" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Valid 
+		 range</p></th>
+		<th width="302" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Done</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Done</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">TRUE or FALSE</p></td>
+		<td width="302" class="hcp5"><p class="FM_tablebody19pt">TRUE 
+		 when the instruction is completed.</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Busy</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Executing</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">TRUE or FALSE</p></td>
+		<td width="302" class="hcp5"><p class="FM_tablebody19pt">TRUE 
+		 when the instruction is acknowledged.</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Command­Aborted</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Command Aborted</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">TRUE or FALSE</p></td>
+		<td width="302" class="hcp5"><p class="FM_tablebody19pt">TRUE 
+		 when the instruction is aborted.</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Error</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Error</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">TRUE or FALSE</p></td>
+		<td width="302" class="hcp5"><p class="FM_tablebody19pt">TRUE 
+		 while there is an error.</p></td>
+	</tr>
+	<tr style="height: 28.00pt;">
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">ErrorID</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Error Code</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">WORD</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt"><a name="FTB_9"></a><a href="#FTH_9"><sup>*1</sup></a>&#160;</p></td>
+		<td width="302" class="hcp5"><p class="FM_tablebody19pt">Contains 
+		 the error code when an error occurs.</p>
+		<p class="FM_tablebody19pt">A value of 16#0000 indicates normal 
+		 execution.</p></td>
+	</tr>
+</table>
+
+
+<table width="605" class="hcp12">
+	<tr>
+		<td><p class="FM_tablebody1c9pt"><a name="FTH_9"></a><sup><a href="#FTB_9">*1</a></sup>Refer 
+		 to <span class="FM_italic">Troubleshooting</span>.</p></td>
+	</tr>
+</table>
+
+<p class="FM_head5"><span class="FM_Wingdings">l<span class="hcp13">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span>Output 
+ Variable Update Timing</p>
+<p class="FM_tablespec">&#160;</p>
+
+<table cellspacing="0" width="605" class="hcp11">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="151" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Output 
+		 variable</p></th>
+		<th width="197" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Timing 
+		 for changing to TRUE</p></th>
+		<th width="257" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Timing for 
+		 changing to FALSE</p></th>
+	</tr>
+	<tr style="height: 39.00pt;">
+		<td width="151" class="hcp3"><p 
+			 class="FM_tablebody19pt">Done</p></td>
+		<td width="197" class="hcp3"><p 
+			 class="FM_tablebody19pt">When this instruction is completed.</p></td>
+		<td width="257" class="hcp5"><p class="FM_tablebul9pt">•<span class="hcp13">&#160;&#160;&#160;</span>When 
+		 <span class="FM_italic">Execute</span>&#160;is TRUE and changes 
+		 to FALSE.</p>
+		<p class="FM_tablebul9pt">•<span class="hcp13">&#160;&#160;&#160;</span>After 
+		 one period when <span class="FM_italic">Execute</span> is FALSE.</p></td>
+	</tr>
+	<tr style="height: 41.00pt;">
+		<td width="151" class="hcp3"><p 
+			 class="FM_tablebody19pt">Busy</p></td>
+		<td width="197" class="hcp3"><p 
+			 class="FM_tablebody19pt">When <span class="FM_italic">Execute</span> 
+		 changes to TRUE.</p></td>
+		<td width="257" class="hcp5"><p class="FM_tablebul9pt">•<span class="hcp13">&#160;&#160;&#160;</span>When 
+		 <span class="FM_italic">Done</span> changes to TRUE.</p>
+		<p class="FM_tablebul9pt">•<span class="hcp13">&#160;&#160;&#160;</span>When 
+		 <span class="FM_italic">Error</span> changes to TRUE.</p>
+		<p class="FM_tablebul9pt">•<span class="hcp13">&#160;&#160;&#160;</span>When 
+		 <span class="FM_italic">CommandAborted</span> changes to TRUE.</p></td>
+	</tr>
+	<tr style="height: 39.00pt;">
+		<td width="151" class="hcp3"><p 
+			 class="FM_tablebody19pt">CommandAborted</p></td>
+		<td width="197" class="hcp3"><p 
+			 class="FM_tablebody19pt">When another instruction causes an 
+		 error and aborts this instruction.</p></td>
+		<td width="257" class="hcp5"><p class="FM_tablebul9pt">•<span class="hcp13">&#160;&#160;&#160;</span>When 
+		 <span class="FM_italic">Execute</span>&#160;is TRUE and changes 
+		 to FALSE.</p>
+		<p class="FM_tablebul9pt">•<span class="hcp13">&#160;&#160;&#160;</span>After 
+		 one period when <span class="FM_italic">Execute</span> is FALSE.</p></td>
+	</tr>
+	<tr style="height: 37.00pt;">
+		<td width="151" class="hcp3"><p 
+			 class="FM_tablebody19pt">Error</p></td>
+		<td width="197" class="hcp3"><p 
+			 class="FM_tablebody19pt">When there is an error in the exe­cution 
+		 conditions or input parame­ters for the instruction.</p></td>
+		<td width="257" class="hcp5"><p class="FM_tablebody19pt">When 
+		 the error is cleared.</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp7">
+	<tr style="height: 20.00pt;" bgcolor="#B3B3B3">
+		<td width="661" bgcolor="#B3B3B3" class="hcp8"><p class="FM_CRhead3">Functions</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">In order to execute an NC program, it must be loaded 
+ into the NC program buffer. This instruction loads the NC program stored 
+ in the file (on the SD Memory Card) specified by <span class="FM_italic">FileName</span>, 
+ in the NC program buffer.</p>
+<p class="FM_body1">Two types of NC program buffers are provided: prog 
+ for main programs, and subprog for sub programs. Specify the NC program 
+ buffer used to load the NC program in the program file. Up to 512 programs 
+ can be loaded into each of the buffers.</p>
+<p class="FM_body1">NC programs are identified according to the program 
+ numbers. If you load a program that has the same program number, the program 
+ will be overwritten. The program number must be specified in the pro­gram 
+ file.</p>
+<p class="FM_body1">When loading programs, make sure that the NC programs 
+ in all the CNC coordinate systems are stopped. Otherwise, a CNC Multi-execution 
+ Disabled error (560<span class="FM_interval10">4</span>0000 hex) will 
+ occur when the pro­grams are loaded during execution of NC program.</p>
+<p class="FM_body1">&#160;</p>
+<div class="hcp4">
+	<p class="hcp14"><img alt="CNC_LoadProgramFile_020.jpg" id="image7" src="CNC_LoadProgramFile_020.jpg" width="661" height="240" border="0"> 
+	 </p>
+</div>
+
+<table cellspacing="0" width="605" class="hcp11">
+	<tr style="height: 37.00pt;" bgcolor="#B3B3B3">
+		<th width="122" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Program 
+		 area</p></th>
+		<th width="122" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Maximum 
+		 number of programs that can be registered</p></th>
+		<th colspan="2" width="241" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Range 
+		 of program numbers</p></th>
+		<th width="120" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Program capacity</p></th>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td rowspan="2" width="122" class="hcp3"><p 
+			 class="FM_tablebody19pt">Main program</p></td>
+		<td rowspan="2" width="122" class="hcp3"><p 
+			 class="FM_tablebody19pt">512 programs</p>
+		<p class="FM_tablebody19pt">(Total number including the pro­grams 
+		 downloaded from Sysmac Studio)</p></td>
+		<td width="120" class="hcp3"><p 
+			 class="FM_tablebody19pt">Sysmac Studio</p></td>
+		<td width="120" class="hcp3"><p 
+			 class="FM_tablebody19pt">No.0001 to 0299</p></td>
+		<td rowspan="4" width="120" class="hcp5"><p class="FM_tablebody19pt">In 
+		 the total number of main and sub pro­grams, the NJ5 series has 
+		 a capac­ity of 16 MB, and the NY5 series has a capacity of 64 
+		 MB.</p>
+		<p class="FM_tablebody19pt">The system area also uses this area.</p></td>
+	</tr>
+	<tr style="height: 51.00pt;">
+		<td width="120" class="hcp3"><p 
+			 class="FM_tablebody19pt">CNC_loadProgram­File</p></td>
+		<td width="120" class="hcp3"><p 
+			 class="FM_tablebody19pt">No.0300 to 0999</p></td>
+		
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td rowspan="2" width="122" class="hcp3"><p 
+			 class="FM_tablebody19pt">Sub program</p></td>
+		<td rowspan="2" width="122" class="hcp3"><p 
+			 class="FM_tablebody19pt">512 programs</p>
+		<p class="FM_tablebody19pt">(Total number including the pro­grams 
+		 downloaded from Sysmac Studio)</p></td>
+		<td width="120" class="hcp3"><p 
+			 class="FM_tablebody19pt">Sysmac Studio</p></td>
+		<td width="120" class="hcp3"><p 
+			 class="FM_tablebody19pt">No.1000 to 2999</p></td>
+		
+	</tr>
+	<tr style="height: 51.00pt;">
+		<td width="120" class="hcp3"><p 
+			 class="FM_tablebody19pt">CNC_loadProgram­File</p></td>
+		<td width="120" class="hcp3"><p 
+			 class="FM_tablebody19pt">No.3000 to 9999</p>
+		<p class="FM_tablebody19pt">&#160;</p></td>
+		
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp7">
+	<tr style="height: 20.00pt;" bgcolor="#B3B3B3">
+		<td width="661" bgcolor="#B3B3B3" class="hcp8"><p class="FM_CRhead3">NC Program Buffer 
+		 Configuration and Program Deletion</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">The CNC Function Module provides a program buffer. 
+ Main and sub programs are stored in the same buffer. NC programs are placed 
+ in the following sequence from the head address of the buffer: first the 
+ system area reserved for the system and next the area that contains the 
+ NC programs downloaded from Sysmac Studio.</p>
+<p class="FM_body1">The NC programs loaded by this instruction are placed 
+ in the areas following the NC program area downloaded from Sysmac Studio 
+ in the order in which they are loaded.</p>
+<div class="hcp4">
+	<p class="hcp14"><img alt="CNC_LoadProgramFile_030.jpg" id="image8" src="CNC_LoadProgramFile_030.jpg" width="661" height="360" border="0"> 
+	 </p>
+</div>
+<p class="FM_body1">&#160;</p>
+<p class="FM_asterisk2num">*1.<span class="hcp13">&#160;&#160;</span>The 
+ available size of the system area is approximately 1 MB.</p>
+<p class="FM_asterisk2numnext">*2.<span class="hcp13">&#160;&#160;</span>The 
+ available size of the device manufacturer’s area varies depending on the 
+ size of the NC programs down­loaded from Sysmac Studio.</p>
+<p class="FM_body1">&#160;</p>
+<p class="FM_body1">When a program that has the same program number is 
+ loaded, it will be placed at the bottom of the area. An area in which 
+ an overwritten NC program exists is not reused and it becomes free space.</p>
+<p class="FM_body1">Therefore, if NC programs are repeatedly loaded using 
+ this instruction, the NC program buffer runs out, and a Load NC Program 
+ Size Over error (562<span class="FM_interval10">3</span>0000 hex) is output.</p>
+<div class="hcp4">
+	<p class="hcp14"><img alt="CNC_LoadProgramFile_040.jpg" id="image9" src="CNC_LoadProgramFile_040.jpg" width="661" height="403" border="0"> 
+	 </p>
+</div>
+<p class="FM_body1">&#160;</p>
+<p class="FM_body1">To solve buffer shortage, specify DeletePrg (Program 
+ Deletion Option) to _cncDelLoadedPrg (Delete all the loaded NC programs), 
+ and execute this instruction at the timing of a setup change. After the 
+ loaded NC programs are deleted by this instruction, a new program is loaded.</p>
+<p class="FM_body1">Even if this <span class="FM_italic">DeletePrg</span>&#160;(Program 
+ Deletion Option) instruction is executed, the NC programs placed in the 
+ system area and the NC programs loaded from Sysmac Studio are not deleted.</p>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp7">
+	<tr style="height: 20.00pt;" bgcolor="#B3B3B3">
+		<td width="661" bgcolor="#B3B3B3" class="hcp8"><p class="FM_CRhead3">Timing Chart</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">A timing chart for the execution of the CNC_LoadProgramFile 
+ instruction is shown below.</p>
+<div class="hcp4">
+	<p class="hcp14"><img alt="CNC_LoadProgramFile_050.jpg" id="image10" src="CNC_LoadProgramFile_050.jpg" width="661" height="189" border="0"> 
+	 </p>
+</div>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp7">
+	<tr style="height: 20.00pt;" bgcolor="#B3B3B3">
+		<td width="661" bgcolor="#B3B3B3" class="hcp8"><p class="FM_CRhead3">Re-execution of CNC 
+		 Instructions</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">This instruction does not detect re-execution. When 
+ a CNC instruction is restarted, the system contin­ues the currently executed 
+ NC program without a new input value. Also, output variables is not changed 
+ due to re-execution.</p>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp7">
+	<tr style="height: 20.00pt;" bgcolor="#B3B3B3">
+		<td width="661" bgcolor="#B3B3B3" class="hcp8"><p class="FM_CRhead3">Multi-execution of 
+		 CNC Instructions</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">This instruction does not support the multi-execution 
+ function. Therefore, more than one instance can­not be executed multiply. 
+ If multiple instances are executed, it causes a Too Many Files Open error 
+ (562<span class="FM_interval10">0</span>0000 hex).</p>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp7">
+	<tr style="height: 20.00pt;" bgcolor="#B3B3B3">
+		<td width="661" bgcolor="#B3B3B3" class="hcp8"><p class="FM_CRhead3">Errors</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">If an error occurs during instruction execution, <span 
+	 class="FM_italic">Error</span>&#160;will change to TRUE and the parameter 
+ is not changed. The previous values are retained.</p>
+<p class="FM_body1">You can find out the cause of the error by referring 
+ to the value output by <span class="FM_italic">ErrorID</span> (Error Code).</p>
+<p class="FM_head5"><span class="FM_Wingdings">l<span class="hcp13">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span>Timing 
+ Chart When Error Occurs</p>
+<div class="hcp4">
+	<p class="hcp14"><img alt="CNC_LoadProgramFile_060.jpg" id="image11" src="CNC_LoadProgramFile_060.jpg" width="661" height="189" border="0"> 
+	 </p>
+</div>
+<p class="FM_body1">&#160;</p>
+<p class="FM_head5"><span class="FM_Wingdings">l<span class="hcp13">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span>Error 
+ Code</p>
+<p class="FM_body5">Refer to<span class="FM_italic"> Troubleshooting</span> 
+ for details on error codes.</p>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp7">
+	<tr style="height: 20.00pt;" bgcolor="#B3B3B3">
+		<td width="661" bgcolor="#B3B3B3" class="hcp8"><p class="FM_CRhead3">Related System-defined 
+		 Variables</p></td>
+	</tr>
+</table>
+
+<p class="FM_tablespec">&#160;</p>
+
+<table cellspacing="0" width="605" class="hcp11">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="113" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="140" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Meaning</p></th>
+		<th width="76" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th width="276" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 91.00pt;">
+		<td width="113" class="hcp3"><p 
+			 class="FM_tablebody19pt">_Card1Ready</p></td>
+		<td width="140" class="hcp3"><p 
+			 class="FM_tablebody19pt">SD Memory Card Ready Flag</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="276" class="hcp5"><p class="FM_tablebody19pt">This 
+		 flag indicates whether or not the SD Memory Card is physically 
+		 inserted and whether the mount process is completed successfully, 
+		 and thus it is now accessible by instructions and communica­tion 
+		 commands.</p>
+		<p class="FM_tablebody19pt">TRUE: The card can be used.</p>
+		<p class="FM_tablebody19pt">FALSE: The card cannot be used.</p></td>
+	</tr>
+	<tr style="height: 67.00pt;">
+		<td width="113" class="hcp3"><p 
+			 class="FM_tablebody19pt">_Card1Protect</p></td>
+		<td width="140" class="hcp3"><p 
+			 class="FM_tablebody19pt">SD Memory Card Write Protected Flag</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="276" class="hcp5"><p class="FM_tablebody19pt">This 
+		 flag indicates whether or not the SD Memory Card, which has been 
+		 mounted and is ready, is write-protected.</p>
+		<p class="FM_tablebody19pt">TRUE: Writing is not possible.</p>
+		<p class="FM_tablebody19pt">FALSE: Writing is possible.</p></td>
+	</tr>
+	<tr style="height: 91.00pt;">
+		<td width="113" class="hcp3"><p 
+			 class="FM_tablebody19pt">_Card1Err</p></td>
+		<td width="140" class="hcp3"><p 
+			 class="FM_tablebody19pt">SD Memory Card Error Flag</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="276" class="hcp5"><p class="FM_tablebody19pt">This 
+		 flag indicates whether or not an out-of-speci­fication SD Memory 
+		 Card (e.g. SDHC card) is mounted, or whether or not the card has 
+		 a format error (the format is not FAT16 or the system file is 
+		 damaged).</p>
+		<p class="FM_tablebody19pt">TRUE: Writing is not possible.</p>
+		<p class="FM_tablebody19pt">FALSE: Writing is possible.</p></td>
+	</tr>
+	<tr style="height: 55.00pt;">
+		<td width="113" class="hcp3"><p 
+			 class="FM_tablebody19pt">_Card1Access</p></td>
+		<td width="140" class="hcp3"><p 
+			 class="FM_tablebody19pt">SD Memory Card Access Flag</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="276" class="hcp5"><p class="FM_tablebody19pt">This 
+		 flag indicates whether the SD Memory Card is currently being accessed.</p>
+		<p class="FM_tablebody19pt">TRUE: The card is accessed.</p>
+		<p class="FM_tablebody19pt">FALSE: The card is not accessed.</p></td>
+	</tr>
+	<tr style="height: 82.00pt;">
+		<td width="113" class="hcp3"><p 
+			 class="FM_tablebody19pt">_Card1PowerFail</p></td>
+		<td width="140" class="hcp3"><p 
+			 class="FM_tablebody19pt">SD Memory Card Power Interruption 
+		 Flag</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="276" class="hcp5"><p class="FM_tablebody19pt">This 
+		 flag indicates whether an error occurred during processing when 
+		 power was interrupted while the SD Memory Card was accessed.</p>
+		<p class="FM_tablebody19pt">This flag is not cleared automatically.</p>
+		<p class="FM_tablebody19pt">TRUE: An error occurred.</p>
+		<p class="FM_tablebody19pt">FALSE: No error occurred.</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp7">
+	<tr style="height: 20.00pt;" bgcolor="#B3B3B3">
+		<td width="661" bgcolor="#B3B3B3" class="hcp8"><p class="FM_CRhead3">Additional Information</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">The root directory in a file name indicates the first 
+ layer of the SD Memory Card.</p>
+<p class="FM_body1">&#160;</p>
+<p class="FM_iconbody1" style="font-weight: bold; text-decoration: underline; "><span 
+	 style="font-weight: bold; text-decoration: underline; ">Precautions 
+ for Correct Use</span></p>
+<p class="FM_iconendline">&#160;</p>
+<p class="FM_iconbul1">•<span class="hcp13">&#160;&#160;&#160;&#160;</span>This 
+ instruction continues the processing to the end even when <span class="FM_italic">Execute</span>&#160;changes 
+ to FALSE and execution time exceeds the task period. Whether the process 
+ has terminated success­fully can be checked by confirming that the Done 
+ value has changed to TRUE.</p>
+<p class="FM_iconbul1">•<span class="hcp13">&#160;&#160;&#160;&#160;</span>If 
+ the size of the specified file is larger than that of the CNC program 
+ buffer, an error occurs.</p>
+<p class="FM_iconbul1">•<span class="hcp13">&#160;&#160;&#160;&#160;</span>Do 
+ not access the same file simultaneously with this instruction and SD Memory 
+ Card instruction. In the user program, perform exclusive control between 
+ this instruction and SD Memory Card instruction.</p>
+<p class="FM_iconbul1">•<span class="hcp13">&#160;&#160;&#160;&#160;</span>For 
+ an NC program file to be loaded with this instruction, specify the file 
+ (extension: pmc) that is created after the NC program was parsed by CNC 
+ Operator. If parse processing is not per­formed, an NC program file cannot 
+ be loaded properly or does not run normally.</p>
+<p class="FM_iconbul1">•<span class="hcp13">&#160;&#160;&#160;&#160;</span>In 
+ the following cases, <span class="FM_italic">Error</span> changes to TRUE:</p>
+<p class="FM_iconbul2">•<span class="hcp13">&#160;&#160;&#160;&#160;</span>The 
+ SD Memory Card is not ready for use.</p>
+<p class="FM_iconbul2">•<span class="hcp13">&#160;&#160;&#160;&#160;</span>The 
+ file specified by <span class="FM_italic">FileName</span> does not exist.</p>
+<p class="FM_iconbul2">•<span class="hcp13">&#160;&#160;&#160;&#160;</span>The 
+ <span class="FM_italic">FileName</span> value is not valid as a file name.</p>
+<p class="FM_iconbul2">•<span class="hcp13">&#160;&#160;&#160;&#160;</span>The 
+ <span class="FM_italic">FileName</span> value exceeds the number of bytes 
+ that can use for a file name.</p>
+<p class="FM_iconbul2">•<span class="hcp13">&#160;&#160;&#160;&#160;</span>An 
+ error occurred while the SD Memory Card was being accessed, and the card 
+ is not accessible.</p>
+<p class="FM_iconbul2">•<span class="hcp13">&#160;&#160;&#160;&#160;</span>An 
+ attempt was made to load main and sub programs over the respective maximum 
+ num­bers of programs that can be registered.</p>
+<p class="FM_iconbul2">•<span class="hcp13">&#160;&#160;&#160;&#160;</span>An 
+ attempt was made to load programs over the specified program buffer size.</p>
+<p class="FM_iconbul2">•<span class="hcp13">&#160;&#160;&#160;&#160;</span>This 
+ instruction was started while any CNC coordinate system was <span class="FM_italic">Executing</span>&#160;or 
+ <span class="FM_italic">Hold</span>.</p>
+<p class="FM_iconbul2">•<span class="hcp13">&#160;&#160;&#160;&#160;</span>A 
+ failure such as a syntax error was detected in the loaded NC program.</p>
+<p class="FM_iconbul2">•<span class="hcp13">&#160;&#160;&#160;&#160;</span>One 
+ row in the loaded NC program exceeds 1,020 bytes.</p>
+<p class="FM_iconbul2">•<span class="hcp13">&#160;&#160;&#160;&#160;</span>Multiple 
+ instances of this instruction were executed multiply.</p>
+<p class="FM_iconbul2">&#160;</p>
+</body>
+</html>

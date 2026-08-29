@@ -1,0 +1,2291 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>SerialRcv and SerialRcvNoClear</title>
+</head>
+<body class="cxo1501815810936"><div class="layer02" id="cxo1501815810936">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">SerialRcv and SerialRcvNoClear</h1>
+
+<div class="body conbody">
+<p class="p" id="cxo1501815810936__ID0EHQEM">The SerialRcv and SerialRcvNoClear instructions receive data in No-protocol Mode from a serial port on a Serial Communications Unit.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="cxo1501815810936__table_lpq_gwp_l1b" class="table no-line" border="0">
+                
+                
+                
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;">SerialRcv</td>
+
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;">:</td>
+
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;">Clears the receive buffer after reading the data.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;">SerialRcvNoClear</td>
+
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;">:</td>
+
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;">Does not clear the receive buffer after reading the data.</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="cxo1501815810936__table_N10065_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:13%" />
+<col style="width:14%" />
+<col style="width:6%" />
+<col style="width:35%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d140369e76">Instruction</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d140369e79">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d140369e82">
+<p class="p" id="cxo1501815810936__ID0EISEM">FB/</p>
+
+<p class="p">FUN</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d140369e91">Graphic expression</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d140369e94">ST expression</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d140369e76 "><span class="indexterm">SerialRcv (SCU Receive Serial)</span>SerialRcv</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d140369e79 "><span class="indexterm">SCU Receive Serial</span>SCU Receive Serial</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d140369e82 ">FB</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d140369e91 ">
+<br /><img class="image" id="cxo1501815810936__image_3BC53484779A47A797EE36AC1431F867" src="vks1501815809424.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d140369e94 ">SerialRcv_instance(Execute, Port, Size, DstDat, Done, Busy, Error, ErrorID, ErrorIDEx, RcvSize);</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d140369e76 "><span class="indexterm">SerialRcvNoClear (SCU Receive Serial without Receive Buffer Clear)</span>SerialRcvNoClear</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d140369e79 "><span class="indexterm">SCU Receive Serial without Receive Buffer Clear</span>SCU Receive Serial without Receive Buffer Clear</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d140369e82 ">FB</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d140369e91 ">
+<br /><img class="image" id="cxo1501815810936__image_DE93F1D33C1B4BD0B970BA379CC78DFE" src="vdu1501815810239.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d140369e94 ">SerialRcvNoClear_instance(Execute, Port, Size, DstDat, Done, Busy, Error, ErrorID, ErrorIDEx, RcvSize);</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt"></p>
+
+<div class="note" id="cxo1501815810936__note_N10133_N1000F_N10002"><div class="use"><span class="notetitle use">use:</span>
+            
+<p class="p">You cannot use these instructions with NX-series CPU Units or NY-series Controllers.</p>
+
+</div></div>
+
+<div class="note" id="cxo1501815810936__note_N1013A_N1000F_N10002"><div class="ver"><span class="notetitle ver">ver:</span> A CPU Unit with unit version 1.03 or later, Sysmac Studio version 1.04 or higher, and a Serial Communications Unit with unit version 2.1 or later are required to use the SerialRcvNoClear instruction.</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="gxv1501817422046">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Variables</h1>
+ 
+<div class="body conbody">
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="gxv1501817422046__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:20%" />
+<col style="width:9%" />
+<col style="width:20%" />
+<col style="width:14%" />
+<col style="width:14%" />
+<col style="width:8%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d342486e38">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d342486e40">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d342486e43">I/O</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d342486e46">Description</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d342486e49">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d342486e53">Unit</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d342486e56">Default</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d342486e38 ">Port</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d342486e40 ">Destination port</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d342486e43 ">Input</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d342486e46 ">Destination port</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d342486e49 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d342486e53 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d342486e56 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d342486e38 ">Size</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d342486e40 ">Receive data size</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d342486e46 ">Size of receive data stored in DstDat[]</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d342486e49 ">0 to 256</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d342486e53 ">Bytes</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d342486e56 ">1</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d342486e38 ">DstDat[] (array)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d342486e40 ">Receive data array</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d342486e43 ">In-out</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d342486e46 ">Receive data array</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d342486e49 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d342486e53 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d342486e56 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d342486e38 ">RcvSize</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d342486e40 ">Receive data storage size</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d342486e43 ">Output</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d342486e46 ">Size of receive data that was actually stored in DstDat[]</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d342486e49 ">0 to 256</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d342486e53 ">Bytes</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d342486e56 ">---</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="gxv1501817422046__table_N10134_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:5%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:top;" id="d342486e216">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d342486e218">Boolean</th>
+
+<th class="entry cellrowborder" colspan="4" style="text-align:center;vertical-align:middle;" id="d342486e221">Bit strings</th>
+
+<th class="entry cellrowborder" colspan="8" style="text-align:center;vertical-align:middle;" id="d342486e224">Integers</th>
+
+<th class="entry cellrowborder" colspan="2" style="text-align:center;vertical-align:middle;" id="d342486e227">Real numbers</th>
+
+<th class="entry cellrowborder" colspan="5" style="text-align:center;vertical-align:middle;" id="d342486e231">Times, durations, dates, and text strings</th>
+
+</tr>
+
+<tr class="row">
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d342486e237">BOOL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d342486e240">BYTE</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d342486e243">WORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d342486e246">DWORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d342486e249">LWORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d342486e253">USINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d342486e256">UINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d342486e259">UDINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d342486e262">ULINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d342486e265">SINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d342486e268">INT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d342486e272">DINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d342486e275">LINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d342486e278">REAL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d342486e281">LREAL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d342486e284">TIME</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d342486e287">DATE</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d342486e291">TOD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d342486e294">DT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d342486e297">STRING</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d342486e216 d342486e237 ">Port</td>
+
+<td class="entry cellrowborder" colspan="20" style="text-align:center;vertical-align:middle;" headers="d342486e218 d342486e221 d342486e224 d342486e227 d342486e231 d342486e240 d342486e243 d342486e246 d342486e249 d342486e253 d342486e256 d342486e259 d342486e262 d342486e265 d342486e268 d342486e272 d342486e275 d342486e278 d342486e281 d342486e284 d342486e287 d342486e291 d342486e294 d342486e297 ">Refer to <a class="xref" href="cxo1501815810936.html"><i style="display:none;">☆</i>SerialRcv and SerialRcvNoClear</a> for details on the structure _sPORT.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d342486e216 d342486e237 ">Size</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d342486e218 d342486e240 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d342486e221 d342486e243 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d342486e221 d342486e246 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d342486e221 d342486e249 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d342486e221 d342486e253 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d342486e224 d342486e256 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d342486e224 d342486e259 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d342486e224 d342486e262 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d342486e224 d342486e265 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d342486e224 d342486e268 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d342486e224 d342486e272 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d342486e224 d342486e275 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d342486e224 d342486e278 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d342486e227 d342486e281 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d342486e227 d342486e284 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d342486e231 d342486e287 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d342486e231 d342486e291 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d342486e231 d342486e294 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d342486e231 d342486e297 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d342486e231 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d342486e216 d342486e237 ">DstDat[] (array)</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d342486e218 d342486e240 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d342486e221 d342486e243 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d342486e221 d342486e246 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d342486e221 d342486e249 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d342486e221 d342486e253 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d342486e224 d342486e256 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d342486e224 d342486e259 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d342486e224 d342486e262 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d342486e224 d342486e265 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d342486e224 d342486e268 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d342486e224 d342486e272 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d342486e224 d342486e275 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d342486e224 d342486e278 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d342486e227 d342486e281 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d342486e227 d342486e284 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d342486e231 d342486e287 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d342486e231 d342486e291 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d342486e231 d342486e294 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d342486e231 d342486e297 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d342486e231 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d342486e216 d342486e237 ">RcvSize</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d342486e218 d342486e240 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d342486e221 d342486e243 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d342486e221 d342486e246 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d342486e221 d342486e249 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d342486e221 d342486e253 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d342486e224 d342486e256 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d342486e224 d342486e259 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d342486e224 d342486e262 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d342486e224 d342486e265 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d342486e224 d342486e268 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d342486e224 d342486e272 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d342486e224 d342486e275 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d342486e224 d342486e278 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d342486e227 d342486e281 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d342486e227 d342486e284 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d342486e231 d342486e287 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d342486e231 d342486e291 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d342486e231 d342486e294 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d342486e231 d342486e297 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d342486e231 ">&#160;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="usu1501817424305">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function</h1>
+
+<div class="body conbody">
+<p class="p" id="usu1501817424305__ID0ESLGM">First, data which is received in No-protocol Mode from the serial port specified with <span class="ph phtype_variable"><span class="termtype">Port</span></span> is stored in the receive buffer in the Serial Communications Unit.</p>
+
+<p class="p">The SerialRcv and SerialRcvNoClear instructions transfer data of the size specified with <span class="ph phtype_variable"><span class="termtype">Size</span></span> (receive data size ) from the receive buffer to DstDat[] (receive data array).</p>
+
+<p class="p" id="usu1501817424305__ID0EVLGM">After the data is transferred, the number of array elements that was actually stored in DstDat[] is assigned to <span class="ph phtype_variable"><span class="termtype">RcvSize</span></span> (receive data storage size).</p>
+
+<p class="p" id="usu1501817424305__ID0E3LGM">If the size of data in the receive buffer is smaller than <span class="ph phtype_variable"><span class="termtype">Size</span></span>, all of the data in the receive buffer is transferred to DstDat[]. The size of the data which was actually transfered and stored in DstDat[] is assigned to <span class="ph phtype_variable"><span class="termtype">RcvSize</span></span>.</p>
+
+<br /><img class="image" id="usu1501817424305__image_cj4_bxp_l1b" src="ebk1501817422295.gif" /><br />
+<br /><img class="image" id="usu1501817424305__image_iqx_bxp_l1b" src="lrj1501817423286.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="vkx1501817424548">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Start Code and End Code in Receive Data</h1>
+<div class="body conbody"><p class="p" id="vkx1501817424548__ID0EAOGM">Device variables are used in the user program to recognize the start code and end code in the receive data. The start and end codes are deleted from the receive data before it is stored in DstDat[].</p>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="vkx1501817424548__table_N10017_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all"><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1026632e21">Code to attach</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1026632e23">Device variable for port 1</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1026632e25">Value</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d1026632e21 ">Specified start code</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1026632e23 ">P1_NopStartCodeYNCfg</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1026632e25 ">TRUE</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1026632e23 ">P1_NopStartCodeCfg</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1026632e25 ">Start code (16#00 to 16#FF)</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" rowspan="3" style="text-align:left;vertical-align:middle;" headers="d1026632e21 ">Specified end code</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1026632e23 ">P1_NopEndCodeYNCfg</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1026632e25 ">TRUE</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1026632e23 ">P1_NopCRLFCfg</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1026632e25 ">FALSE</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1026632e23 ">P1_NopEndCodeCfg</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1026632e25 ">End code (16#00 to 16#FF)</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d1026632e21 ">CR+LF as end code</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1026632e23 ">P1_NopEndCodeYNCfg</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1026632e25 ">TRUE</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1026632e23 ">P1_NopCRLFCfg</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1026632e25 ">TRUE</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p linespace_7pt" id="vkx1501817424548__ID0EBXGM">If you add start and end codes, the maximum number of bytes to receive is 259 (1-byte start code, 2-byte end code (for CR+LF specification), and 256 bytes of send data).</p>
+</div>
+<div class="related-links"></div></div><div class="layer04" id="ucx1501817424804">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Data Types of Destination Port Port</h1>
+ 
+<div class="body conbody">
+<p class="p" id="ucx1501817424804__ID0ELYGM">The data type of destination port <span class="ph phtype_variable"><span class="termtype">Port</span></span> is the structure _sPORT. The specifications are as follows:</p>
+
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ucx1501817424804__ID0EZYGM" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:1%" />
+<col style="width:15%" />
+<col style="width:14%" />
+<col style="width:23%" />
+<col style="width:14%" />
+<col style="width:15%" />
+<col style="width:6%" />
+<col style="width:9%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" colspan="2" style="text-align:center;vertical-align:middle;" id="d957854e48">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d957854e51">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d957854e54">Description</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d957854e57">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d957854e60">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d957854e64">Unit</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d957854e67">Default</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cell-norowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d957854e48 ">Port</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d957854e51 ">Destination port</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d957854e54 ">Destination port</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d957854e57 ">_sPORT</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d957854e60 ">---</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d957854e64 ">---</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d957854e67 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d957854e48 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d957854e48 d957854e51 d957854e54 d957854e57 d957854e60 d957854e64 d957854e67 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d957854e51 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d957854e54 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d957854e57 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d957854e60 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d957854e64 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d957854e67 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:top;" headers="d957854e48 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d957854e48 ">UnitNo</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d957854e51 ">Unit number</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d957854e54 ">Unit number of Serial Communications Unit</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d957854e57 ">_eUnitNo</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d957854e60 ">_CBU_No00 to _CBU_No15</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d957854e64 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d957854e67 ">_CBU_No00</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d957854e48 ">PhysicPortNo</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d957854e51 ">Serial port number</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d957854e54 ">Serial port number on Serial Communications Unit</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d957854e57 ">USINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d957854e60 ">1 or 2</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d957854e67 ">1</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer04" id="cuh1501817426364">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Timing Chart</h1>
+<div class="body conbody"><p class="p" id="cuh1501817426364__ID0EEFHM">The following figure shows a timing chart.</p>
+<br /><img class="image" id="cuh1501817426364__image_bs3_sfh_p1b" src="hmt1501817425046.gif" /><br /></div>
+<div class="related-links"></div></div><div class="layer04" id="rvh1501817428646">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Difference between the SerialRcv and SerialRcvNoClear Instructions</h1>
+
+<div class="body conbody">
+<p class="p" id="rvh1501817428646__ID0EDHHM">The SerialRcv and SerialRcvNoClear instructions are different in whether the receive buffer is cleared after data is transferred from the receive buffer to DstDat[].</p>
+
+<p class="p" id="rvh1501817428646__ID0EGHHM">The SerialRcv instruction clears the receive buffer after it transfers the data. Therefore, if the data in the receive buffer is larger than <span class="ph phtype_variable"><span class="termtype">Size</span></span>, the excess data will be left in the buffer and then discarded after the transfer.</p>
+
+<br /><img class="image" id="rvh1501817428646__image_njt_dyp_l1b" src="duo1501817426600.gif" /><br />
+<p class="p linespace_7pt" id="rvh1501817428646__ID0E1HHM">The SerialRcvNoClear instruction clears only the data that was transferred after the data transfer. The data that remains in the receive buffer is moved to the front of the receive buffer. If new data enters the receive buffer after that, it is stored after the data that was moved to the front of the buffer.</p>
+
+<br /><img class="image" id="rvh1501817428646__image_tvt_2yp_l1b" src="dwk1501817427693.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="fkt1501817409745">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Related System-defined Variables</h1>
+<div class="body conbody">
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="fkt1501817409745__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all"><col style="width:27%" /><col style="width:18%" /><col style="width:9%" /><col style="width:45%" /><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d263842e20">Name</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d263842e22">Meaning</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d263842e24">Data type</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d263842e26">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d263842e20 ">_Port_numUsingPort</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d263842e22 ">Number of Used Ports</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d263842e24 ">USINT</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d263842e26 ">This is the number of ports that are currently used.</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d263842e20 ">_Port_isAvailable</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d263842e22 ">Network Communications Instruction Enabled Flag</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d263842e24 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d263842e26 ">
+<p class="p" id="fkt1501817409745__ID0EF5FK">TRUE: A port is available.</p>
+
+<p class="p">FALSE: A port is not available.</p>
+
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="related-links"></div></div><div class="layer03" id="qvt1501817428901">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Related Semi-user-defined Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="qvt1501817428901__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d840572e40">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d840572e43">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d840572e46">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d840572e49">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e40 ">P#_NopRcvOvfSta<a class="xref" href="cxo1501815810936.html#qvt1501817428901__fn_x2k_myp_l1b"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e43 ">Reception Overflow Flag</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e46 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e49 ">
+<p class="p" id="qvt1501817428901__ID0EFTHM">TRUE: The Unit received more than the specified amount of data.</p>
+
+<p class="p" id="qvt1501817428901__ID0EMTHM">(i.e., data was received after the Reception Completed Flag changed to TRUE.)</p>
+
+<p class="p" id="qvt1501817428901__ID0ETTHM">FALSE: The Unit did no receive more than the specified number of bytes.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e40 ">P#_NopRcvCompleteSta<a class="xref" href="cxo1501815810936.html#qvt1501817428901__fn_x2k_myp_l1b"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e43 ">Reception Completed Flag</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e46 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e49 ">
+<p class="p" id="qvt1501817428901__ID0EGVHM">TRUE: Reception was completed.</p>
+
+<p class="p">FALSE: No data received or currently receiving data.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e40 ">P#_NopRcvCntSta<a class="xref" href="cxo1501815810936.html#qvt1501817428901__fn_x2k_myp_l1b"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e43 ">Reception Counter</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e46 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e49 ">16#0000 to 16#0100: Number of bytes of receive data</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e40 ">P#_NopStartCodeYNCfg<a class="xref" href="cxo1501815810936.html#qvt1501817428901__fn_x2k_myp_l1b"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e43 ">No-protocol Start Code Enable</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e46 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e49 ">
+<p class="p" id="qvt1501817428901__ID0EOYHM">TRUE: Start code</p>
+
+<p class="p">FALSE: None</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e40 ">P#_NopEndCodeYNCfg<a class="xref" href="cxo1501815810936.html#qvt1501817428901__fn_x2k_myp_l1b"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e43 ">No-protocol End Code Enable</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e46 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e49 ">
+<p class="p" id="qvt1501817428901__ID0ED1HM">TRUE: End code</p>
+
+<p class="p">FALSE: None</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e40 ">P#_NopCRLFCfg<a class="xref" href="cxo1501815810936.html#qvt1501817428901__fn_x2k_myp_l1b"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e43 ">No-protocol CR LF Specification</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e46 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e49 ">
+<p class="p" id="qvt1501817428901__ID0EY2HM">TRUE: CR+LF</p>
+
+<p class="p">FALSE: No CR+LF</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e40 ">P#_NopRcvDatSzCfg<a class="xref" href="cxo1501815810936.html#qvt1501817428901__fn_x2k_myp_l1b"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e43 ">Number of No-protocol Receive Data Bytes</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e46 ">USINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e49 ">
+<p class="p" id="qvt1501817428901__ID0EN4HM">16#01 to 16#FF: 1 to 255 bytes</p>
+
+<p class="p">16#00: 256 bytes</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e40 ">P#_NopStartCodeCfg<a class="xref" href="cxo1501815810936.html#qvt1501817428901__fn_x2k_myp_l1b"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e43 ">No-protocol Start Code</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e46 ">USINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e49 ">16#00 to 16#FF</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e40 ">P#_NopEndCodeCfg<a class="xref" href="cxo1501815810936.html#qvt1501817428901__fn_x2k_myp_l1b"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e43 ">No-protocol End Code</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e46 ">USINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e49 ">16#00 to 16#FF</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e40 ">P#_TransErr<a class="xref" href="cxo1501815810936.html#qvt1501817428901__fn_x2k_myp_l1b"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e43 ">Transmission Error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e46 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e49 ">
+<p class="p" id="qvt1501817428901__ID0EICIM">TRUE: Error occurred.</p>
+
+<p class="p">FALSE: No error occurred.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e40 ">P#_OverRunErr<a class="xref" href="cxo1501815810936.html#qvt1501817428901__fn_x2k_myp_l1b"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e43 ">Overrun Error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e46 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d840572e49 ">
+<p class="p" id="qvt1501817428901__ID0E4DIM">TRUE: Error occurred.</p>
+
+<p class="p">FALSE: No error occurred.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="qvt1501817428901__fn_x2k_myp_l1b" id="qvt1501817428901__fn_x2k_myp_l1b"><sup>*1</sup></a>  <span class="ph phtype_quote"><span class="termtype">"#"</span></span> denotes the port number on the Serial Communications Unit.</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="clv1501817429136">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Additional Information</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="clv1501817429136__li_N10015_N10012_N1000F_N10002">
+<p class="p" id="clv1501817429136__ID0EEGIM"><span class="ph phtype_variable"><span class="termtype">P#_NopRcvCompleteSta</span></span> (Reception Completed Flag) changes to TRUE when the following occur.</p>
+
+<ol class="ol liststyle_alphabet1">
+<li class="li" id="clv1501817429136__li_N10027_N10023_N10015_N10012_N1000F_N10002">The size of received data has reached the size specified with <span class="ph phtype_variable"><span class="termtype">P#_NopRcvDatSzCfg</span></span> (Number of No-protocol Receive Data Bytes).</li>
+
+<li class="li" id="clv1501817429136__li_N10031_N10023_N10015_N10012_N1000F_N10002">The specified end code is received.</li>
+
+<li class="li" id="clv1501817429136__li_N10036_N10023_N10015_N10012_N1000F_N10002">A total of 256 bytes of data is received.</li>
+
+</ol>
+
+</li>
+
+<li class="li" id="clv1501817429136__li_N1003D_N10012_N1000F_N10002">
+<p class="p" id="clv1501817429136__ID0EWHIM"><span class="ph phtype_variable"><span class="termtype">P#_NopRcvOvfSta</span></span> (Reception Overflow Flag) changes to TRUE when the following occur.</p>
+
+<ol class="ol liststyle_alphabet1">
+<li class="li" id="clv1501817429136__li_N1004F_N1004B_N1003D_N10012_N1000F_N10002">While <span class="ph phtype_variable"><span class="termtype">P#_NopRcvCompleteSta</span></span> (Reception Completed Flag) is TRUE, further data is received before the SerialRcv or SerialRcvNoClear instruction is executed.</li>
+
+<li class="li" id="clv1501817429136__li_N10059_N1004B_N1003D_N10012_N1000F_N10002">The size of received data has exceeded the size specified with <span class="ph phtype_variable"><span class="termtype">P#_NopRcvDatSzCfg</span></span> (Number of No-protocol Receive Data Bytes).</li>
+
+</ol>
+
+</li>
+
+<li class="li" id="clv1501817429136__li_N10065_N10012_N1000F_N10002">Refer to the <span class="ph phtype_docname"><span class="termtype">CJ-series Serial Communications Units Operation Manual for NJ-series CPU Unit (Cat. No. W494)</span></span> for details on no-protocol communications.</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="cra1501817429436">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Precautions for Correct Use</h1>
+
+<div class="body conbody">
+<ul class="ul" id="cra1501817429436__ul_A9291C8ECAD445EBAEFD48E4B8F23C33"><li class="li" id="cra1501817429436__li_N10018_N10013_N10010_N10002">Execution of this instruction is continued until completed even when the value of <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to FALSE or the execution time exceeds the task period. The value of <span class="ph phtype_variable"><span class="termtype">Done</span></span> changes to TRUE when the execution is completed. Use this to confirm normal completion of processing.</li>
+<li class="li" id="cra1501817429436__li_N1001D_N10013_N10010_N10002">Refer to <a class="xref" href="aag1501815842589.html#aag1501815842589"><i style="display:none;">☆</i>Using this Section</a> for a timing chart for <span class="ph phtype_variable"><span class="termtype">Execute</span></span>, <span class="ph phtype_variable"><span class="termtype">Done</span></span>, <span class="ph phtype_variable"><span class="termtype">Busy</span></span>, and <span class="ph phtype_variable"><span class="termtype">Error</span></span>.</li>
+<li class="li" id="cra1501817429436__li_01DFAA4E48D943DF999E29BF94B3F1C1">
+<p class="p" id="cra1501817429436__ID0EAMIM">Execute these instructions while <span class="ph phtype_variable"><span class="termtype">P#_NopRcvCompleteSta</span></span> (Reception Completed Flag) is TRUE.</p>
+
+</li>
+
+<li class="li" id="cra1501817429436__li_014D7587BE9E40BC8607331FEAACB691">
+<p class="p" id="cra1501817429436__ID0ELMIM">When data is received, always execute this instruction to transfer the data in the receive buffer to DstDat[]. No more data is received until the previous data is transferred.</p>
+
+</li>
+
+<li class="li" id="cra1501817429436__li_943EBD6A87964C22960884DBF933CA56">
+<p class="p" id="cra1501817429436__ID0EWMIM">Once the size of received data reaches 259 bytes, no more data is received automatically. If further data is received before the SerialRcv or SerialRcvNoClear instruction is executed, <span class="ph phtype_variable"><span class="termtype">P#_OverRunErr</span></span> (Overrun Error) changes to TRUE.</p>
+
+</li>
+
+<li class="li" id="cra1501817429436__li_09C200BF871F414AB2F5E5992A38C5AD">
+<p class="p" id="cra1501817429436__ID0EBNIM">When a start code or end code is attached, do not include it in the value of <span class="ph phtype_variable"><span class="termtype">Size</span></span>.</p>
+
+</li>
+<li class="li" id="cra1501817429436__li_N10064_N10013_N10010_N10002">You can use this instruction only for a Serial Communications Unit&#8217;s serial port that is set to No-protocol Mode.</li>
+<li class="li" id="cra1501817429436__li_72080B7B710F4B059ED4961B543D3E92">
+<p class="p" id="cra1501817429436__ID0EXNIM">If the value of <span class="ph phtype_variable"><span class="termtype">Size</span></span> is 0, the data in the receive buffer is not transferred to DstDat[]. In this case, <span class="ph phtype_variable"><span class="termtype">P#_NopRcvCompleteSta</span></span> (Reception Completed Flag) and <span class="ph phtype_variable"><span class="termtype">P#_NopRcvOvfSta</span></span> (Reception Overflow Flag) will change to FALSE. And the value of <span class="ph phtype_variable"><span class="termtype">P#_NopRcvCntSta</span></span> (Reception Counter) will be 0.</p>
+
+</li>
+<li class="li" id="cra1501817429436__li_N1008C_N10013_N10010_N10002">The instruction is executed only when there is an available port. Therefore, use the <span class="ph phtype_variable"><span class="termtype">_Port_isAvailable</span></span> (Network Communications Instruction Enabled Flag) system-defined variable in an N.O. execution condition for the instruction.</li>
+<li class="li" id="cra1501817429436__li_N10091_N10013_N10010_N10002">The instruction is not executed while <span class="ph phtype_variable"><span class="termtype">Busy</span></span> is TRUE. Therefore, use <span class="ph phtype_variable"><span class="termtype">Busy</span></span> in an N.C. execution condition for the instruction.</li>
+<li class="li" id="cra1501817429436__li_N10096_N10013_N10010_N10002">If the instruction is used in ST, make sure that the instruction is processed each task period as long as instruction execution continues. Otherwise, normal processing may not be possible.</li>
+<li class="li" id="cra1501817429436__li_F32ECA84AC7747BB84D1F2E2690926D1">
+<p class="p" id="cra1501817429436__ID0EOPIM">The receive buffer in the Serial Communications Unit is cleared when the SerialRcv instruction is executed. Therefore, you cannot separate the data in the receive buffer to transfer it to DstDat[].</p>
+
+</li>
+
+<li class="li" id="cra1501817429436__li_298C197B9F7946B3B05FA26A21BE928A">
+<p class="p" id="cra1501817429436__ID0EZPIM">As for the SerialRcv instruction, if the size of received data exceeds the value of <span class="ph phtype_variable"><span class="termtype">Size</span></span>, the excess data will be discarded when another SerialRcv instruction is executed.</p>
+
+</li>
+
+<li class="li" id="cra1501817429436__li_BF8ED42193FC4D24B06F81619BCB3A45">
+<p class="p" id="cra1501817429436__ID0EEQIM">An error will occur in the following cases. <span class="ph phtype_variable"><span class="termtype">Error</span></span> will change to TRUE.</p>
+
+<ol class="ol liststyle_alphabet1" id="cra1501817429436__ul_B924760BF2A94CF9A8338AF14B662C85"><li class="li" id="cra1501817429436__li_N100D0_N100CA_N100B9_N10013_N10010_N10002">The serial communications mode is not set to No-protocol Mode when the instruction is executed.</li>
+<li class="li" id="cra1501817429436__li_N100D5_N100CA_N100B9_N10013_N10010_N10002">The value of <span class="ph phtype_variable"><span class="termtype">_Port_isAvailable</span></span> is FALSE.</li>
+<li class="li" id="cra1501817429436__li_N100DA_N100CA_N100B9_N10013_N10010_N10002">The value of <span class="ph phtype_variable"><span class="termtype">Port.UnitNo</span></span> or <span class="ph phtype_variable"><span class="termtype">Port.PhysicPortNo</span></span> is outside the valid range.</li>
+<li class="li" id="cra1501817429436__li_N100DF_N100CA_N100B9_N10013_N10010_N10002">There is no CJ-series Serial Communications Unit with the specified unit number.</li>
+<li class="li" id="cra1501817429436__li_CB1B4C25F0CF4AB58A7749CB948AD0BC">
+<p class="p" id="cra1501817429436__ID0E6RIM">The value of <span class="ph phtype_variable"><span class="termtype">Size</span></span> is outside the valid range.</p>
+
+</li>
+
+<li class="li" id="cra1501817429436__li_443F8EBC028D42488159A8A50B2BC5BE">
+<p class="p" id="cra1501817429436__ID0EKSIM">The value of <span class="ph phtype_variable"><span class="termtype">Size</span></span> exceeds the size of DstDat[].</p>
+
+</li>
+<li class="li" id="cra1501817429436__li_N10106_N100CA_N100B9_N10013_N10010_N10002">Communications fail.</li>
+<li class="li" id="cra1501817429436__li_N1010B_N100CA_N100B9_N10013_N10010_N10002">The instruction is executed during a Unit restart.</li>
+</ol>
+
+</li>
+<li class="li" id="cra1501817429436__li_N10112_N10013_N10010_N10002">
+<p class="p">For this instruction, expansion error code <span class="ph phtype_variable"><span class="termtype">ErrorIDEx</span></span> gives the communications response code.</p>
+
+<p class="p">The values and meanings are listed in the following table. An expansion error code is output to <span class="ph phtype_variable"><span class="termtype">ErrorIDEx</span></span> when the value of error code <span class="ph phtype_variable"><span class="termtype">ErrorID</span></span> is WORD#16#0800.</p>
+
+</li>
+</ul>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="cra1501817429436__table_pvj_4q4_hhb" class="rules_all " frame="border" border="1" rules="all">
+                    
+                    
+                    
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d126051e216">Value</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d126051e219">Error</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d126051e222">Correction</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00000001</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The communications service was interrupted.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">
+<ul class="ul" id="cra1501817429436__d31e162">
+<li class="li" id="cra1501817429436__d31e164">Check the data link execution status.</li>
+
+<li class="li" id="cra1501817429436__d31e167">Check the capacity of the transfer destination area on the third node.</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00000101</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The local node is not part of the network.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Make the local node part of the network.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00000102</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">A token timeout occurred.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Set the local node address to be within the maximum node address.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00000103</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The retry count was exceeded.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Perform inter-node tests. If any error is found, check the operating environment.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00000104</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The allowable number of send frames was exceeded.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Check the status of events in the network and reduce the number of events in each task period. Or, increase the number of allowable send frames.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00000105</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The IP address of the local node is out of range.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Set the rotary switches on the Serial Communications Unit correctly.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00000106</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The IP address of the local node is also used by another node in the network.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Change one of the node addresses that are duplicated.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00000201</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The remote node is not part of the network.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Make the remote node part of the network.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00000202</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">A Unit with the specified unit address does not exist at the destination.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Correctly set the unit address for the destination network address.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00000203</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The third node is not part of the network.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">
+<ul class="ul" id="cra1501817429436__d31e280">
+<li class="li" id="cra1501817429436__d31e282">Check the address of the Unit that is the third node.</li>
+
+<li class="li" id="cra1501817429436__d31e285">Specify only one node for the third node.</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00000204</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The remote node is busy.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Increase the number of retries or correct the system so that communications traffic is not concentrated on the remote node.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00000205</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">A response timeout occurred.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Check the settings of the communications parameters.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00000206</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">There is an error in the transmission path.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">
+<ul class="ul" id="cra1501817429436__d31e326">
+<li class="li" id="cra1501817429436__d31e328">Attempt retries.</li>
+
+<li class="li" id="cra1501817429436__d31e331">If this error occurs frequently, check for noise.</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00000301</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">A Communications Controller Error occurred.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Refer to the operation manual for the relevant Unit and make suitable corrections.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00000302</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">There is an error in the CPU Unit at the remote node.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Refer to the manual for the CPU Unit at the remote node and remove the error.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00000303</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">There is an error in the relevant Controller and a response is not returned.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Check the communications status on the network and restart the relevant Controller. If the error still occurs, replace the relevant Controller.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00000304</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The unit number setting is not correct.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Set the rotary switches on the Serial Communications Unit correctly.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00000401</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The command that was sent is not supported.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Set the command array correctly.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00000402</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The Unit model or version is not supported.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Check the Unit model and version.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00000501</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The remote address setting is wrong.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Set the destination address in the routing tables.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00000502</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">Routing tables are not registered.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Set the source node, destination node, and relay nodes in the routing tables.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00000503</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">There is an error in the routing tables.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Correct the settings in the routing tables.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00000504</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">There are too many relay points.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Restructure the network or correct the routing tables so that commands are used within a three-layer range.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00001001</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The command is too long.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Set the command array correctly.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00001002</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The command is too short.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Set the command array correctly.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00001003</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The number of write elements that is specified in the command does not agree with the number of write data.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Specify the same number of write elements and write data.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00001004</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The command format is incorrect.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Set the command array correctly.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00001005</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">There is an error in the header.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Correct the settings in the routing tables.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00001101</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The area type does not exist.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Refer to the command variables and parameter type codes and set the relevant codes.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00001102</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">An access size is wrong.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Correctly set the variable and parameter access sizes.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00001103</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">An out-of-range address was specified.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Specify an address that is within the process range.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00001104</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The address range was exceeded.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">
+<ul class="ul" id="cra1501817429436__d31e566">
+<li class="li" id="cra1501817429436__d31e568">Specify an address that is within the process range.</li>
+
+<li class="li" id="cra1501817429436__d31e571">Correct the settings in the data link table.</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00001106</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">A communications sequence number that is not registered was specified.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Correct the communications sequence number or add the sequence with the CX-Protocol.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00001109</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">An interrelationship error occurred.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">
+<ul class="ul" id="cra1501817429436__d31e599">
+<li class="li" id="cra1501817429436__d31e601">Correct the size relationships in the command data.</li>
+
+<li class="li" id="cra1501817429436__d31e604">Correct the settings in the data link table.</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#0000110A</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">Data is redundant.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">
+<ul class="ul" id="cra1501817429436__d31e620">
+<li class="li" id="cra1501817429436__d31e622">Cancel the current process or wait for it to be completed before you execute the command.</li>
+
+<li class="li" id="cra1501817429436__d31e625">Correct the settings in the data link table.</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#0000110B</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The response is too long.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Set the number of elements in the command array correctly.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#0000110C</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">This is another parameter error.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Set the command array correctly.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002002</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The data is protected.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Execute the command again after clearing the protection.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002003</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">There is no registered table.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Set the table correctly.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002004</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">There is no data that matches the search data.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Set the search data correctly.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002005</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The relevant program number does not exist.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Set a valid program number.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002006</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The relevant file does not exist.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Set the file name correctly, including the subdirectory names.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002007</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">A verification error occurred.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">
+<ul class="ul" id="cra1501817429436__d31e727">
+<li class="li" id="cra1501817429436__d31e729">Check the contents of memory and write the correct data.</li>
+
+<li class="li" id="cra1501817429436__d31e732">Check the contents of the file.</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002101</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">Access is not possible because the area is read-only.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Execute the command again after clearing the write protection.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002102</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The data is protected or the data link table cannot be written.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">
+<ul class="ul" id="cra1501817429436__d31e760">
+<li class="li" id="cra1501817429436__d31e762">Execute the command again after clearing the write protection.</li>
+
+<li class="li" id="cra1501817429436__d31e765">Set the system settings in the data link table.</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002103</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">Registration is not possible.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">
+<ul class="ul" id="cra1501817429436__d31e781">
+<li class="li" id="cra1501817429436__d31e783">Create the file after deleting unnecessary files or prepare new file memory.</li>
+
+<li class="li" id="cra1501817429436__d31e786">Execute the command again after closing open files.</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002105</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The relevant program number does not exist.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Set a valid program number.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002106</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The relevant file does not exist.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Set the file name correctly, including the subdirectory names.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002107</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">A file with the same name already exists.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Execute the command again after changing the name of the file to write.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002108</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The change is not allowed because it causes an error.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Correct the settings.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002201</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The operation was not possible because a protocol macros is already in execution.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Use an N.C. program input for the Protocol Macro Execution Flag.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002202</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The operating mode is wrong.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Check the operating mode.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002203</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The operating mode is wrong for the instruction (PROGRAM mode).</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Check the operating mode of the Controller.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002204</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The operating mode is wrong for the instruction (DEBUG mode).</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Check the operating mode of the Controller.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002205</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The operating mode is wrong for the instruction (MONITOR mode).</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Check the operating mode of the Controller.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002206</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The operating mode is wrong for the instruction (RUN mode).</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Check the operating mode of the Controller.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002207</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The specified node is not the polling node.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Confirm which node is the polling node of the network.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002208</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The operating mode is wrong for the instruction.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Check step activation status.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002211</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The Unit is busy.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Increase the number of retries or review the system so that communications traffic is not concentrated on the relevant Unit.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002301</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The file device does not exist.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Insert the media. Or, format the EM.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002302</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">There is no file memory.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Check the file memory device.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002303</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">There is no built-in clock.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Check the specifications of the model.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002401</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">A checksum error occurred in the protocol macro data, or the data transfer is not yet completed.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Transfer the protocol macro data from the CX-Protocol again.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002502</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">There is an error in the memory.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Transfer the correct data to the memory.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002503</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The registered I/O Unit configuration does not agree with the actual Unit configuration.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Check the I/O Unit configuration.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002504</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">There are too many local or remote I/O points.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Set the number of local and remote I/O points correctly.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002505</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">An error occurred in a data transmission between the CPU Unit and a CPU Bus Unit.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Check the Units and the connecting cables. After removing the error, execute a command to reset the error.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002506</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The same rack number, unit number, or I/O address is set more than once.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Correct the settings so that each number is unique.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002507</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">An error occurred in a data transmission between the CPU Unit and an I/O Unit.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Check the Units and connecting cables. After removing the error, execute a command to reset the error.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002509</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">There is an error in SYSMAC BUS/2 data transmission.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Check the Units and connecting cables. After removing the error, execute a command to reset the error.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#0000250A</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">An error occurred in a CPU Bus Unit data transmission.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Check the Units and connecting cables. After removing the error, execute a command to reset the error.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#0000250D</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The same channel setting is used more than once.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Set the I/O channels correctly.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#0000250F</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">There is an error in memory.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">
+<ul class="ul" id="cra1501817429436__d31e1119">
+<li class="li" id="cra1501817429436__d31e1121">For internal memory, execute the command again after writing the correct data.</li>
+
+<li class="li" id="cra1501817429436__d31e1124">For a Memory Card or EM file memory, execute the expansion memory format command.</li>
+
+<li class="li" id="cra1501817429436__d31e1127">If the error cannot be reset with the above corrections, replace the memory.</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002510</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The end station setting is wrong.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Set the end station correctly.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002601</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">Protection is already cleared.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">You do not need to clear protection.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002602</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The password was wrong.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Specify the correct password.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002604</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The data is protected.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">
+<ul class="ul" id="cra1501817429436__d31e1179">
+<li class="li" id="cra1501817429436__d31e1181">Execute the command again after clearing the write protection.</li>
+
+<li class="li" id="cra1501817429436__d31e1184">Wait for the service that is currently in execution to end, or stop the service and execute the command again.</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002605</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The service is busy.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Wait for the service that is currently in execution to end, or stop the service and execute the command again.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002606</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The service is stopped.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Execute the relevant service as required.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002607</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">You do not have the execution right.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">
+<ul class="ul" id="cra1501817429436__d31e1225">
+<li class="li" id="cra1501817429436__d31e1227">Execute the operation from the node that accessed the data link.</li>
+
+<li class="li" id="cra1501817429436__d31e1230">If the error still occurs after a restart, replace the Controller.</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002608</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The environment is not set.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Make the necessary settings.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00002609</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The required items are not set.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Set the required items.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#0000260A</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The specified number is already defined.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Execute the command again after changing the specified number to an action or transition number that is not already registered.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#0000260B</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The error cannot be reset.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Remove the cause of the error and then execute the error reset command.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00003001</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">You do not have access rights.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Wait for the access to be allowed and then execute the command again.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e216 ">16#00004001</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e219 ">The service was interrupted.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d126051e222 ">Execute the command again after clearing the cause of the service interruption.</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+<ol class="ol liststyle_annotation1" id="cra1501817429436__ol_dqn_qq4_hhb">
+<li class="li" id="cra1501817429436__d31e1314">
+    
+    &#8194;Note<span class="num"></span>&#8194;In addition to the codes in the above table, the values of bits 6, 7, and 15 in the end code can be TRUE. If the value of bit 6 or 7 is TRUE, there is an error in the CPU Unit at the destination. If the value of bit 15 is TRUE, an error occurred during a network relay.</li>
+
+</ol>
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="vuw1501817431584">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Sample Programming</h1>
+
+<div class="body conbody">
+<p class="p" id="vuw1501817431584__ID0EIJMM">In this sample, data that was read by the barcode reader that is connected to serial port 2 of a CJ-series Serial Communications Unit (unit number 0, device name &#8216;Barcode&#8217;) is received.</p>
+
+<p class="p" id="vuw1501817431584__ID0ELJMM">The receive data is stored in array variable RecvDat[]. There is no start code and the end code is 16#OD (CR).</p>
+
+<br /><img class="image" id="vuw1501817431584__image_02FB50B63BA14B7DA6C6E320A29EA985" src="qro1501817429714.gif" /><br />
+<p class="p linespace_7pt" id="vuw1501817431584__ID0EZJMM">The settings of Serial Communications Unit are given in the following table.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="vuw1501817431584__table_N10028_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1038654e38">Item</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1038654e41">Set value</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1038654e38 ">Port 2: User-specified Setting Inclusion</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1038654e41 ">User settings</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1038654e38 ">Port 2: Serial Communications Mode</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1038654e41 ">No-protocol</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1038654e38 ">Port 2: Data Length</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1038654e41 ">8 bits</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1038654e38 ">Port 2: Stop Bits</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1038654e41 ">1 bit</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1038654e38 ">Port 2: Parity</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1038654e41 ">No</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1038654e38 ">Port 2: Baud Rate</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1038654e41 ">38,400 bps</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1038654e38 ">Port 2: No-Protocol End Code</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1038654e41 ">D</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1038654e38 ">Port 2: No-Protocol Start Code Inclusion Setting</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1038654e41 ">No</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1038654e38 ">Port 2: No-Protocol End Code Inclusion Setting</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1038654e41 ">Yes (Specify a desired end code.)</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt" id="vuw1501817431584__ID0EKTMM">The number from the barcode reader is separated into individual characters and bit strings for the character codes are stored in RecvDat[]. One element of the RecvDat[] array corresponds to one character from the barcode. First, the AryToString instruction is used to convert the data to a text string, <span class="ph phtype_variable"><span class="termtype">RecvStringDat</span></span>. Next, the STRING_TO_ULINT instruction is used to convert the data to an ULINT integer, <span class="ph phtype_variable"><span class="termtype">Code</span></span>.</p>
+
+<br /><img class="image" id="vuw1501817431584__image_966F033EEA884359913F4559D77E8834" src="bhb1501817430664.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="rpb1501816500359">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Definitions of Global Variables</h1>
+<div class="body conbody"></div>
+<div class="related-links"></div></div><div class="layer05" id="fml1501817431824">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Global Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="fml1501817431824__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d265594e41">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d265594e44">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d265594e47">AT specification<a class="xref" href="cxo1501815810936.html#fml1501817431824__fn-1988049"><i style="display:none;">☆</i><sup>*1</sup></a></th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d265594e53">Comment</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d265594e41 ">Barcode_P2_NopRcvCompleteSta</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d265594e44 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d265594e47 ">IOBus://rack#0/slot#0/P2_NopSta/P2_NopRcvCompleteSta</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d265594e53 ">Reception Completed Flag</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="fml1501817431824__fn-1988049" id="fml1501817431824__fn-1988049"><sup>*1</sup></a>  AT when the Serial Communications Unit is mounted to slot number 0 in rack number 0.</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="wqh1501817438295">
+<h1 class="title topictitle1"  topicstatus="Localization:done">LD</h1>
+<div class="body conbody">
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="wqh1501817438295__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all"><col style="width:10%" /><col style="width:38%" /><col style="width:16%" /><col style="width:21%" /><col style="width:13%" /><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1083322e24">Internal Variables</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1083322e26">Variable</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1083322e28">Data type</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1083322e30">Initial value</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1083322e32">Comment</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1083322e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e26 ">OperatingEnd</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e28 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e30 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e32 ">Processing completed</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1083322e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e26 ">Trigger</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e28 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e30 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e32 ">Execution condition</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1083322e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e26 ">Operating</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e28 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e30 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e32 ">Processing</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1083322e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e26 ">InPort</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e28 ">_sPORT</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e30 ">(UnitNo:=_CBU_No00, PhysicPortNo:=0)</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e32 ">Port settings</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1083322e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e26 ">RecvDat</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e28 ">ARRAY[0..12] OF BYTE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e30 ">[13(16#0)]</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e32 ">Receive data</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1083322e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e26 ">RecvSize</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e28 ">UINT</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e30 ">0</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e32 ">Receive data size</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1083322e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e26 ">RecvStringDat</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e28 ">STRING[255]</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e30 ">''</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e32 ">Barcode text string</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1083322e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e26 ">Code</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e28 ">ULINT</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e30 ">0</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e32 ">Barcode integer</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1083322e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e26 ">RS_instance</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e28 ">RS</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e30 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e32 ">&#160;</td>
+</tr>
+<tr class="row"><td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d1083322e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e26 ">SerialRcv_instance</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e28 ">SerialRcv</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e30 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e32 ">&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="wqh1501817438295__table_N101B0_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all"><col style="width:10%" /><col style="width:38%" /><col style="width:16%" /><col style="width:34%" /><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1083322e139">External Variables</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1083322e141">Variable</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1083322e143">Data type</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1083322e145">Comment</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1083322e139 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e141 ">_Port_isAvailable</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e143 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e145 ">Network Communications Instruction Enabled Flag</td>
+</tr>
+<tr class="row"><td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d1083322e139 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e141 ">Barcode_P2_NopRcvCompleteSta</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e143 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1083322e145 ">Reception Completed Flag</td>
+</tr>
+</tbody>
+</table>
+</div>
+<br /><img class="image" id="wqh1501817438295__image_D87159925DD4470BBF86459534DA94F5" src="qas1501817432066.gif" /><br /><br /><img class="image" id="wqh1501817438295__image_t54_3lg_r1b" src="fqf1501817433235.gif" /><br /><br /><img class="image" id="wqh1501817438295__image_f1v_3lg_r1b" src="csf1501817434218.gif" /><br /><br /><img class="image" id="wqh1501817438295__image_119DBC468F4247FDA923EF86B391616B" src="wkz1501817435107.gif" /><br /><br /><img class="image" id="wqh1501817438295__image_f3c_wlg_r1b" src="lfu1501817436359.gif" /><br /><br /><img class="image" id="wqh1501817438295__image_ibj_wlg_r1b" src="rpj1501817437306.gif" /><br /></div>
+<div class="related-links"></div></div><div class="layer05" id="lsp1501817438555">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Contents of Inline ST</h1>
+<div class="body conbody"><pre class="pre codeblock">InPort.UnitNo      :=_CBU_No00;   // Serial Communications Unit with unit number 0
+InPort.PhysicPortNo:=USINT#2;     // Serial port 2</pre>
+</div>
+<div class="related-links"></div></div><div class="layer04" id="uwy1501817438785">
+<h1 class="title topictitle1"  topicstatus="Localization:done">ST</h1>
+<div class="body conbody">
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="uwy1501817438785__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all"><col style="width:10%" /><col style="width:38%" /><col style="width:13%" /><col style="width:21%" /><col style="width:16%" /><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1007402e24">Internal Variables</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1007402e26">Variable</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1007402e28">Data type</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1007402e30">Initial value</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1007402e32">Comment</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1007402e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e26 ">Trigger</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e28 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e30 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e32 ">Execution condition</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1007402e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e26 ">LastTrigger</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e28 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e30 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e32 ">Value of Trigger from previous task period</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1007402e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e26 ">OperatingStart</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e28 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e30 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e32 ">Processing started</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1007402e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e26 ">Operating</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e28 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e30 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e32 ">Processing</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1007402e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e26 ">InPort</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e28 ">_sPORT</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e30 ">(UnitNo:=_CBU_No00, PhysicPortNo:=0)</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e32 ">Port settings</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1007402e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e26 ">RecvDat</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e28 ">ARRAY[0..12] OF BYTE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e30 ">[13(16#0)]</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e32 ">Receive data</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1007402e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e26 ">RecvSize</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e28 ">UINT</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e30 ">0</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e32 ">Receive data size</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1007402e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e26 ">RecvStringDat</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e28 ">STRING[255]</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e30 ">''</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e32 ">Barcode text string</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1007402e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e26 ">Code</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e28 ">ULINT</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e30 ">0</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e32 ">Barcode integer</td>
+</tr>
+<tr class="row"><td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d1007402e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e26 ">SerialRcv_instance</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e28 ">SerialRcv</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e30 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e32 ">&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="uwy1501817438785__table_N101B2_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all"><col style="width:10%" /><col style="width:38%" /><col style="width:13%" /><col style="width:38%" /><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1007402e141">External Variables</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1007402e143">Variable</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1007402e145">Data type</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1007402e147">Comment</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1007402e141 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e143 ">_Port_isAvailable</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e145 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e147 ">Network Communications Instruction Enabled Flag</td>
+</tr>
+<tr class="row"><td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d1007402e141 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e143 ">Barcode_P2_NopRcvCompleteSta</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e145 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1007402e147 ">Reception Completed Flag</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p linespace_7pt"></p>
+<pre class="pre codeblock">
+// Detect when Trigger changes to TRUE.
+IF ( (Trigger=TRUE) AND (LastTrigger=FALSE) AND (_Port_isAvailable=TRUE)
+      AND (Barcode_P2_NopRcvCompleteSta=TRUE) AND (SerialRcv_instance.Busy=FALSE) ) THEN
+    OperatingStart:=TRUE;
+    Operating     :=TRUE;
+END_IF;
+LastTrigger:=Trigger;
+
+// Set communications parameters and initialize SerialRcv instruction.
+IF (OperatingStart=TRUE) THEN
+    SerialRcv_instance(
+        Execute:=FALSE,      // Initialize instance.
+        Port   :=InPort,     // Port settings
+        Size   :=UINT#13,    // Receive data size
+        DstDat :=RecvDat[0], // Receive data 
+        RcvSize =&gt;RecvSize); // Data size that was actually received
+    InPort.UnitNo      :=_CBU_No00; // Serial Communications Unit with unit number 0
+    InPort.PhysicPortNo:=USINT#2;   // Serial port 2
+    OperatingStart     :=FALSE; 
+END_IF;
+
+// Execute SerialRcv instruction.
+IF (Operating=TRUE) THEN
+    SerialRcv_instance(
+        Execute:=TRUE,
+        Port   :=InPort,
+        Size   :=UINT#13,
+        DstDat :=RecvDat[0],
+        RcvSize =&gt;RecvSize);
+
+    IF (SerialRcv_instance.Done=TRUE) THEN
+        // Processing after normal end
+        RecvStringDat:=AryToString(In:=RecvDat[0], Size:=RecvSize);  // Convert character codes to a text string.
+        Code         :=STRING_TO_ULINT(RecvStringDat);               // Convert text string to an integer.       
+        Operating    :=FALSE;
+    END_IF;
+    IF (SerialRcv_instance.Error=TRUE) THEN
+        // Processing after error end
+        Operating:=FALSE;
+    END_IF;
+END_IF;</pre>
+</div>
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

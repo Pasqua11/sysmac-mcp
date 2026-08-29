@@ -1,0 +1,4874 @@
+{
+ "progetto": "SKID_BAWA",
+ "guid": "a6fc434b-c8ff-464f-91f3-7ee2c0e420ff",
+ "sections": {
+  "Ciclo": {
+   "rungs": [
+    {
+     "cmt": "# PREPARAZIONE SKID : SEQUENZA 1",
+     "chain": [
+      "IN_EMERGENZA",
+      {
+       "or": [
+        "V_P_Start_Ciclo",
+        "vV_P_Abort_Totale"
+       ]
+      },
+      "(S Mem_Sequenza[1])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "V_P_Annulla[1]",
+        "Fine_Ciclo"
+       ]
+      },
+      "(R Mem_Sequenza[1])"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA 2",
+     "chain": [
+      "IN_EMERGENZA",
+      "V_P_Conferma[1]",
+      "IN_XV_xxx_CLOSE",
+      "(S Mem_Sequenza[2])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "V_P_Annulla[2]",
+        "Fine_Ciclo"
+       ]
+      },
+      "(R Mem_Sequenza[2])"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA 3",
+     "chain": [
+      "IN_EMERGENZA",
+      "V_P_Conferma[2]",
+      "IN_ZSH_152_OPEN",
+      "(S Mem_Sequenza[3])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "V_P_Annulla[3]",
+        "V_P_Annulla[4]",
+        "Fine_Ciclo"
+       ]
+      },
+      "(R Mem_Sequenza[3])"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA 4",
+     "chain": [
+      "IN_EMERGENZA",
+      "Mem_Sequenza[3]",
+      {
+       "fb": "TON",
+       "inst": "Tim_Seq_3",
+       "p": {
+        "PT": "t#5s"
+       }
+      },
+      "IN_XV_003_CLOSE",
+      "IN_XV_007_CLOSE",
+      "IN_XV_013_CLOSE",
+      "IN_XV_015_CLOSE",
+      "IN_XV_017_CLOSE",
+      "IN_XV_018_CLOSE",
+      "(S Mem_Sequenza[4])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "V_P_Annulla[4]",
+        "Fine_Ciclo"
+       ]
+      },
+      "(R Mem_Sequenza[4])"
+     ]
+    },
+    {
+     "cmt": "#FASI PRELIMINARI : SEQUENZA 5 (a) APERTURA CIRCUITO AZOTO",
+     "chain": [
+      "IN_EMERGENZA",
+      "V_P_Conferma[4]",
+      "(S Mem_Sequenza[5])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "P_Off",
+        "Fine_Ciclo"
+       ]
+      },
+      "(R Mem_Sequenza[5])"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA 6  (b) BONIFICA DEL CIRCUITO CON AZOTO",
+     "chain": [
+      "IN_EMERGENZA",
+      "V_P_Conferma[5]",
+      "(S Mem_Sequenza[6])"
+     ]
+    },
+    {
+     "cmt": "ATTIVAZIONE TIMER 1: TEMPO MASSIMO DI ESECUZIONE BONIFICA ",
+     "chain": [
+      "Mem_Sequenza[6]",
+      {
+       "fb": "Cnt_Min_Sec",
+       "inst": "Cnt_1",
+       "p": {
+        "SET_Min": "SET_min_Timer[1]",
+        "SET_Sec": "SET_sec_Timer[1]",
+        "PV_Min": "PV_min_Timer[1]",
+        "PV_Sec": "PV_sec_Timer[1]",
+        "OUT:PV_Min": "PV_min_Timer[1]",
+        "OUT:PV_Sec": "PV_sec_Timer[1]"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "V_P_Annulla[6]",
+        "Mem_Sequenza_8A",
+        "Fine_Ciclo"
+       ]
+      },
+      "(R Mem_Sequenza[6])"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA 6A  :SEQUENZA DI ANNULLAMENTO",
+     "chain": [
+      {
+       "or": [
+        [
+         "IN_EMERGENZA",
+         "V_P_Annulla[5]"
+        ],
+        [
+         "V_P_Conferma_8A",
+         "IN_XV_001_CLOSE",
+         "IN_XV_002_CLOSE",
+         "IN_XV_003_CLOSE",
+         "IN_XV_004_CLOSE",
+         "IN_XV_013_CLOSE"
+        ]
+       ]
+      },
+      "(S Mem_Sequenza_6A)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "V_P_Conferma_6A",
+        "Fine_Ciclo"
+       ]
+      },
+      "(R Mem_Sequenza_6A)"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA 7",
+     "chain": [
+      "IN_EMERGENZA",
+      "Mem_Sequenza[6]",
+      {
+       "fb": "TON",
+       "inst": "Tim_Seq_6",
+       "p": {
+        "PT": "t#5s"
+       }
+      },
+      "IN_XV_001_OPEN",
+      "IN_XV_002_OPEN",
+      "IN_XV_003_OPEN",
+      "IN_XV_004_OPEN",
+      "IN_XV_013_OPEN",
+      "(S Mem_Sequenza[7])"
+     ]
+    },
+    {
+     "cmt": "ATTIVAZIONE TIMER 7",
+     "chain": [
+      "Mem_Sequenza[7]",
+      {
+       "fb": "Cnt_Min_Sec",
+       "inst": "Cnt_2",
+       "p": {
+        "SET_Min": "SET_min_Timer[2]",
+        "SET_Sec": "SET_sec_Timer[2]",
+        "PV_Min": "PV_min_Timer[2]",
+        "PV_Sec": "PV_sec_Timer[2]",
+        "OUT:PV_Min": "PV_min_Timer[2]",
+        "OUT:PV_Sec": "PV_sec_Timer[2]"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "Mem_Sequenza_8A",
+        "Fine_Ciclo"
+       ]
+      },
+      "(R Mem_Sequenza[7])"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA 8",
+     "chain": [
+      "IN_EMERGENZA",
+      "V_P_Conferma[7]",
+      "Cnt_2.End_Conteggio",
+      "IN_XV_xxx_OPEN",
+      "(S Mem_Sequenza[8])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "P_Off",
+        "Fine_Ciclo"
+       ]
+      },
+      "(R Mem_Sequenza[8])"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA8 A",
+     "chain": [
+      {
+       "or": [
+        "V_P_Annulla[7]",
+        [
+         "^Cnt_1.End_Conteggio",
+         "/Mem_Sequenza[8]"
+        ]
+       ]
+      },
+      "(S Mem_Sequenza_8A)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        [
+         "V_P_Conferma_8A",
+         "IN_XV_xxx_CLOSE",
+         "IN_XV_001_CLOSE",
+         "IN_XV_002_CLOSE",
+         "IN_XV_003_CLOSE",
+         "IN_XV_004_CLOSE",
+         "IN_XV_013_CLOSE"
+        ],
+        "Fine_Ciclo"
+       ]
+      },
+      "(R Mem_Sequenza_8A)"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA 9 (c1)PRESSURIZZAZIONE CIRCUITO LA COMPARAZIONE DELLA PRESSIONE LA ESEGUO NELLA SEQUENZA 11.TALE PRESSIONE SI DEVE ALLINEARE A QUELLA DI LINEA",
+     "chain": [
+      "IN_EMERGENZA",
+      "V_P_Conferma[8]",
+      "(S Mem_Sequenza[9])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Fine_Ciclo",
+      "(R Mem_Sequenza[9])"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA 10",
+     "chain": [
+      "IN_EMERGENZA",
+      "/Mem_Sequenza_10A",
+      "V_P_Conferma[9]",
+      "IN_XV_013_CLOSE",
+      "(S Mem_Sequenza[10])"
+     ]
+    },
+    {
+     "cmt": "TIMER SEQUENZA SCADUTO IL QUALE VERIFICO SE LA PRESSIONE è OK",
+     "chain": [
+      "Mem_Sequenza[10]",
+      {
+       "fb": "Cnt_Min_Sec",
+       "inst": "Cnt_3",
+       "p": {
+        "SET_Min": "SET_min_Timer[3]",
+        "SET_Sec": "SET_sec_Timer[3]",
+        "PV_Min": "PV_min_Timer[3]",
+        "PV_Sec": "PV_sec_Timer[3]",
+        "OUT:PV_Min": "PV_min_Timer[3]",
+        "OUT:PV_Sec": "PV_sec_Timer[3]"
+       }
+      },
+      {
+       "fb": "Contatore",
+       "inst": "Tim_3A",
+       "p": {
+        "SET_VALUE": "10",
+        "VALUE": "PV_Timer3A",
+        "OUT:VALUE": "PV_Timer3A"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "Fine_Ciclo",
+        "V_P_Conferma_11A",
+        "V_P_Conferma_10A"
+       ]
+      },
+      "(R Mem_Sequenza[10])"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA 10A sequenza di annullamento",
+     "chain": [
+      "IN_EMERGENZA",
+      "V_P_Annulla[9]",
+      "/Mem_Sequenza[10]",
+      "(S Mem_Sequenza_10A)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "Fine_Ciclo",
+        "V_P_Conferma_10A"
+       ]
+      },
+      "(R Mem_Sequenza_10A)"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA 11 (c2) PROVA DI TENUTA DEL CIRCUITO DI LAVAGGIO",
+     "chain": [
+      "IN_EMERGENZA",
+      "Cnt_3.End_Conteggio",
+      "/Mem_Sequenza_11A",
+      {
+       "f": ">=",
+       "p": {
+        "In1": "PV_PT_202",
+        "In2": "SET_Press1_Min"
+       }
+      },
+      {
+       "f": "<=",
+       "p": {
+        "In1": "PV_PT_202",
+        "In2": "SET_Press1_Max"
+       }
+      },
+      "(S Mem_Sequenza[11])"
+     ]
+    },
+    {
+     "cmt": "TIMER SEQUENZA SCADUTO IL QUALE VERIFICO SE LA PRESSIONE è OK",
+     "chain": [
+      "Mem_Sequenza[11]",
+      {
+       "fb": "Cnt_Min_Sec",
+       "inst": "Cnt_4",
+       "p": {
+        "SET_Min": "SET_min_Timer[4]",
+        "SET_Sec": "SET_sec_Timer[4]",
+        "PV_Min": "PV_min_Timer[4]",
+        "PV_Sec": "PV_sec_Timer[4]",
+        "OUT:PV_Min": "PV_min_Timer[4]",
+        "OUT:PV_Sec": "PV_sec_Timer[4]"
+       }
+      },
+      {
+       "fb": "Contatore",
+       "inst": "Tim_4A",
+       "p": {
+        "SET_VALUE": "10",
+        "VALUE": "PV_Timer4A",
+        "OUT:VALUE": "PV_Timer4A"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "Fine_Ciclo",
+        "V_P_Conferma_11A"
+       ]
+      },
+      "(R Mem_Sequenza[11])"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA 11 A  SE NON SI ATTIVA LA SEQUENZA 11 DOPO 30 SECONDI ATTIVO LA 11A E DISATTIVO LA 11",
+     "chain": [
+      "IN_EMERGENZA",
+      {
+       "or": [
+        [
+         "Tim_3A.End_Conteggio",
+         "/Mem_Sequenza[11]"
+        ],
+        [
+         "Tim_4A.End_Conteggio",
+         "/Mem_Sequenza[12]"
+        ]
+       ]
+      },
+      "(S Mem_Sequenza_11A)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "Fine_Ciclo",
+        "V_P_Conferma_11A"
+       ]
+      },
+      "(R Mem_Sequenza_11A)"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA 12 (c3)DEPRESSURIZZAZIONE VENT",
+     "chain": [
+      "IN_EMERGENZA",
+      "Cnt_4.End_Conteggio",
+      "/Mem_Sequenza_11A",
+      {
+       "f": ">=",
+       "p": {
+        "In1": "PV_PT_202",
+        "In2": "SET_Press2_Min"
+       }
+      },
+      {
+       "f": "<=",
+       "p": {
+        "In1": "PV_PT_202",
+        "In2": "SET_Press2_Max"
+       }
+      },
+      "(S Mem_Sequenza[12])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Fine_Ciclo",
+      "(R Mem_Sequenza[12])"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA 13 (d)FLUSSAGGIO AZOTO A SCRUBBER",
+     "chain": [
+      "IN_EMERGENZA",
+      "Mem_Sequenza[12]",
+      {
+       "fb": "Cnt_Min_Sec",
+       "inst": "Cnt_5",
+       "p": {
+        "SET_Min": "SET_min_Timer[5]",
+        "SET_Sec": "SET_sec_Timer[5]",
+        "PV_Min": "PV_min_Timer[5]",
+        "PV_Sec": "PV_sec_Timer[5]",
+        "OUT:PV_Min": "PV_min_Timer[5]",
+        "OUT:PV_Sec": "PV_sec_Timer[5]"
+       }
+      },
+      "IN_XV_001_OPEN",
+      "IN_XV_004_OPEN",
+      "IN_XV_013_OPEN",
+      "(S Mem_Sequenza[13])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Fine_Ciclo",
+      "(R Mem_Sequenza[13])"
+     ]
+    },
+    {
+     "cmt": "#FASI DI LAVAGGIO : SEQUENZA 14",
+     "chain": [
+      "IN_EMERGENZA",
+      "V_P_Conferma[13]",
+      "IN_XV_002_CLOSE",
+      "IN_XV_013_CLOSE",
+      "(S Mem_Sequenza[14])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Fine_Ciclo",
+      "(R Mem_Sequenza[14])"
+     ]
+    },
+    {
+     "cmt": "TEMPORIZZATORE LIVELLO MINIMO POMPA",
+     "chain": [
+      "IN_LSL_205",
+      {
+       "fb": "TON",
+       "inst": "Tim_Liv_Min_Pompa",
+       "p": {
+        "PT": "t#500ms"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "SEQUENZA 15 (e1)   PREDISPOSIZIONE LAVAGGIO CON SOLUZIONE BAWA",
+     "chain": [
+      "IN_EMERGENZA",
+      "V_P_Conferma[14]",
+      "(S Mem_Sequenza[15])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Fine_Ciclo",
+      "(R Mem_Sequenza[15])"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA 16 (e2) LAVAGGIO CON SOLUZIONE BAWA",
+     "chain": [
+      "IN_EMERGENZA",
+      "Mem_Sequenza[15]",
+      {
+       "fb": "TON",
+       "inst": "Tim_Seq_15",
+       "p": {
+        "PT": "t#5s"
+       }
+      },
+      "IN_XV_006_OPEN",
+      "IN_XV_007_OPEN",
+      "IN_XV_011_CLOSE",
+      "IN_XV_012_OPEN",
+      "Tim_Liv_Min_Pompa.Q",
+      "(S Mem_Sequenza[16])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[16]",
+      "/Mem_Sequenza[17]"
+     ],
+     "out": [
+      {
+       "fb": "Cnt_Min_Sec",
+       "inst": "Cnt_6",
+       "p": {
+        "SET_Min": "SET_min_Timer[6]",
+        "SET_Sec": "SET_sec_Timer[6]",
+        "PV_Min": "PV_min_Timer[6]",
+        "PV_Sec": "PV_sec_Timer[6]",
+        "OUT:PV_Min": "PV_min_Timer[6]",
+        "OUT:PV_Sec": "PV_sec_Timer[6]"
+       }
+      },
+      [
+       "/OUT_P1",
+       {
+        "f": "Get1sClk",
+        "p": {}
+       },
+       {
+        "f": "@Inc",
+        "p": {
+         "InOut": "PV_sec_Timer[6]",
+         "OUT:InOut": "PV_sec_Timer[6]",
+         "OUT:": "inc_1"
+        }
+       }
+      ]
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Fine_Ciclo",
+      "(R Mem_Sequenza[16])"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA 17 (e3)   FINE LAVAGGIO CON SOLUZIONE BAWA",
+     "chain": [
+      "IN_EMERGENZA",
+      "Cnt_6.End_Conteggio",
+      "(S Mem_Sequenza[17])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Fine_Ciclo",
+      "(R Mem_Sequenza[17])"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA 18 (f)   RIEMPIMENTO DEL SERBATOIO S2 CON DEMI",
+     "chain": [
+      "IN_EMERGENZA",
+      "Mem_Sequenza[17]",
+      {
+       "fb": "TON",
+       "inst": "Tim_Seq_17",
+       "p": {
+        "PT": "t#5s"
+       }
+      },
+      "IN_XV_006_CLOSE",
+      "IN_XV_007_CLOSE",
+      "(S Mem_Sequenza[18])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Fine_Ciclo",
+      "(R Mem_Sequenza[18])"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA 19(g1)   PREDISPOSIZIONE DEL RISCIACQUO CON DEMI",
+     "chain": [
+      "IN_EMERGENZA",
+      "Mem_Sequenza[18]",
+      {
+       "or": [
+        "IN_LSH_208",
+        "/IN_LSSH_207"
+       ]
+      },
+      "(S Mem_Sequenza[19])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Fine_Ciclo",
+      "(R Mem_Sequenza[19])"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA 20(g2)   RISCIACQUO CON ACQUA DEMI",
+     "chain": [
+      "IN_EMERGENZA",
+      "Mem_Sequenza[19]",
+      {
+       "fb": "TON",
+       "inst": "Tim_Seq_19",
+       "p": {
+        "PT": "t#5s"
+       }
+      },
+      "Tim_Liv_Min_Pompa.Q",
+      "IN_XV_008_OPEN",
+      "IN_XV_010_OPEN",
+      "(S Mem_Sequenza[20])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[20]"
+     ],
+     "out": [
+      {
+       "fb": "Cnt_Min_Sec",
+       "inst": "Cnt_7",
+       "p": {
+        "SET_Min": "SET_min_Timer[7]",
+        "SET_Sec": "SET_sec_Timer[7]",
+        "PV_Min": "PV_min_Timer[7]",
+        "PV_Sec": "PV_sec_Timer[7]",
+        "OUT:PV_Min": "PV_min_Timer[7]",
+        "OUT:PV_Sec": "PV_sec_Timer[7]"
+       }
+      },
+      [
+       "/OUT_P1",
+       {
+        "f": "Get1sClk",
+        "p": {}
+       },
+       {
+        "f": "@Inc",
+        "p": {
+         "InOut": "PV_sec_Timer[7]",
+         "OUT:InOut": "PV_sec_Timer[7]",
+         "OUT:": "inc_2"
+        }
+       }
+      ]
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Fine_Ciclo",
+      "(R Mem_Sequenza[20])"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA 21 (g3)   FINE LAVAGGIO",
+     "chain": [
+      "IN_EMERGENZA",
+      "Cnt_7.End_Conteggio",
+      "(S Mem_Sequenza[21])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Fine_Ciclo",
+      "(R Mem_Sequenza[21])"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA 22 (h1)   RISCIACQUO FINALE CON ACQUA DEMI",
+     "chain": [
+      "IN_EMERGENZA",
+      "Mem_Sequenza[21]",
+      {
+       "fb": "TON",
+       "inst": "Tim_Seq_21",
+       "p": {
+        "PT": "t#5s"
+       }
+      },
+      "IN_XV_008_CLOSE",
+      "IN_XV_010_CLOSE",
+      "(S Mem_Sequenza[22])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[22]",
+      {
+       "fb": "Cnt_Min_Sec",
+       "inst": "Cnt_8",
+       "p": {
+        "SET_Min": "SET_min_Timer[8]",
+        "SET_Sec": "SET_sec_Timer[8]",
+        "PV_Min": "PV_min_Timer[8]",
+        "PV_Sec": "PV_sec_Timer[8]",
+        "OUT:PV_Min": "PV_min_Timer[8]",
+        "OUT:PV_Sec": "PV_sec_Timer[8]"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Fine_Ciclo",
+      "(R Mem_Sequenza[22])"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA 23 (h2)   FINE RISCIACQUO FINALE",
+     "chain": [
+      "IN_EMERGENZA",
+      "Cnt_8.End_Conteggio",
+      "IN_XV_012_CLOSE",
+      "IN_XV_014_OPEN",
+      "IN_XV_015_OPEN",
+      "(S Mem_Sequenza[23])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Fine_Ciclo",
+      "(R Mem_Sequenza[23])"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA 24 (h3)   DRENAGGIO CIRCUITO",
+     "chain": [
+      "IN_EMERGENZA",
+      "V_P_Conferma[23]",
+      "IN_XV_014_CLOSE",
+      "IN_XV_015_CLOSE",
+      "IN_XV_018_OPEN",
+      "(S Mem_Sequenza[24])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[24]",
+      {
+       "fb": "Cnt_Min_Sec",
+       "inst": "Cnt_9",
+       "p": {
+        "SET_Min": "SET_min_Timer[9]",
+        "SET_Sec": "SET_sec_Timer[9]",
+        "PV_Min": "PV_min_Timer[9]",
+        "PV_Sec": "PV_sec_Timer[9]",
+        "OUT:PV_Min": "PV_min_Timer[9]",
+        "OUT:PV_Sec": "PV_sec_Timer[9]"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Fine_Ciclo",
+      "(R Mem_Sequenza[24])"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA 25  FINE DRENAGGIO CIRCUITO",
+     "chain": [
+      "IN_EMERGENZA",
+      "Cnt_9.End_Conteggio",
+      "IN_XV_002_OPEN",
+      "(S Mem_Sequenza[25])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Fine_Ciclo",
+      "(R Mem_Sequenza[25])"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA 26 (i1)   PREDISPOSIZIONE ASCIUGATURA DEL CIRCUITO CON SISTEMA DA VUOTO",
+     "chain": [
+      "IN_EMERGENZA",
+      "V_P_Conferma[25]",
+      "IN_XV_002_CLOSE",
+      "IN_XV_018_CLOSE",
+      "(S Mem_Sequenza[26])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Fine_Ciclo",
+      "(R Mem_Sequenza[26])"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA 27 (i2)   ASCIUGATURA DEL CIRCUITO CON SISTEMA DA VUOTO",
+     "chain": [
+      "IN_EMERGENZA",
+      "Mem_Sequenza[26]",
+      {
+       "fb": "TON",
+       "inst": "Tim_Seq_26",
+       "p": {
+        "PT": "t#5s"
+       }
+      },
+      "IN_XV_003_CLOSE",
+      "IN_XV_008_OPEN",
+      "IN_XV_011_OPEN",
+      "IN_XV_016_OPEN",
+      "(S Mem_Sequenza[27])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[27]",
+      {
+       "or": [
+        {
+         "f": "<",
+         "p": {
+          "In1": "PV_PT_202",
+          "In2": "SET_Press_Vuoto"
+         }
+        },
+        "Cnt_10.ENABLE"
+       ]
+      }
+     ],
+     "out": [
+      {
+       "fb": "Cnt_Min_Sec",
+       "inst": "Cnt_10",
+       "p": {
+        "SET_Min": "SET_min_Timer[10]",
+        "SET_Sec": "SET_sec_Timer[10]",
+        "PV_Min": "PV_min_Timer[10]",
+        "PV_Sec": "PV_sec_Timer[10]",
+        "OUT:PV_Min": "PV_min_Timer[10]",
+        "OUT:PV_Sec": "PV_sec_Timer[10]"
+       }
+      },
+      [
+       {
+        "f": ">=",
+        "p": {
+         "In1": "PV_PT_202",
+         "In2": "SET_Press_Vuoto"
+        }
+       },
+       {
+        "f": "Get1sClk",
+        "p": {}
+       },
+       {
+        "f": "@Inc",
+        "p": {
+         "InOut": "PV_sec_Timer[10]",
+         "OUT:InOut": "PV_sec_Timer[10]",
+         "OUT:": "inc_1"
+        }
+       }
+      ]
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Fine_Ciclo",
+      "(R Mem_Sequenza[27])"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA 28 (i3)   FINE ASCIUGATURA DEL CIRCUITO CON SISTEMA DA VUOTO",
+     "chain": [
+      "IN_EMERGENZA",
+      "Cnt_10.End_Conteggio",
+      "(S Mem_Sequenza[28])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Fine_Ciclo",
+      "(R Mem_Sequenza[28])"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA 29 (j1)   PREDISPOSIZIONE ASCIUGATURA FINALE CON AZOTO",
+     "chain": [
+      "IN_EMERGENZA",
+      "Mem_Sequenza[28]",
+      {
+       "fb": "TON",
+       "inst": "Tim_Seq_28",
+       "p": {
+        "PT": "t#5s"
+       }
+      },
+      "IN_XV_008_CLOSE",
+      "IN_XV_011_CLOSE",
+      "IN_XV_016_CLOSE",
+      "/OUT_P1",
+      "(S Mem_Sequenza[29])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[29]",
+      {
+       "fb": "Cnt_Min_Sec",
+       "inst": "Cnt_11",
+       "p": {
+        "SET_Min": "SET_min_Timer[11]",
+        "SET_Sec": "SET_sec_Timer[11]",
+        "PV_Min": "PV_min_Timer[11]",
+        "PV_Sec": "PV_sec_Timer[11]",
+        "OUT:PV_Min": "PV_min_Timer[11]",
+        "OUT:PV_Sec": "PV_sec_Timer[11]"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Fine_Ciclo",
+      "(R Mem_Sequenza[29])"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA 30 (j2)   ASCIUGATURA FINALE CON AZOTO",
+     "chain": [
+      "IN_EMERGENZA",
+      "Cnt_11.End_Conteggio",
+      "IN_XV_002_OPEN",
+      "IN_XV_006_OPEN",
+      "IN_XV_010_OPEN",
+      "(S Mem_Sequenza[30])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[30]",
+      {
+       "fb": "Cnt_Min_Sec",
+       "inst": "Cnt_12",
+       "p": {
+        "SET_Min": "SET_min_Timer[12]",
+        "SET_Sec": "SET_sec_Timer[12]",
+        "PV_Min": "PV_min_Timer[12]",
+        "PV_Sec": "PV_sec_Timer[12]",
+        "OUT:PV_Min": "PV_min_Timer[12]",
+        "OUT:PV_Sec": "PV_sec_Timer[12]"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Fine_Ciclo",
+      "(R Mem_Sequenza[30])"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA 31 (j3)   FINE ASCIUGATURA FINALE CON AZOTO",
+     "chain": [
+      "IN_EMERGENZA",
+      "Cnt_12.End_Conteggio",
+      "IN_XV_003_OPEN",
+      "IN_XV_013_OPEN",
+      "IN_XV_016_OPEN",
+      "(S Mem_Sequenza[31])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Fine_Ciclo",
+      "(R Mem_Sequenza[31])"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA 32 (k)   CHIUSURA DEL CIRCUITO DI AZOTO",
+     "chain": [
+      "IN_EMERGENZA",
+      "Mem_Sequenza[31]",
+      {
+       "fb": "TON",
+       "inst": "Tim_Seq_31",
+       "p": {
+        "PT": "t#5s"
+       }
+      },
+      "IN_XV_002_CLOSE",
+      "IN_XV_003_CLOSE",
+      "IN_XV_006_CLOSE",
+      "IN_XV_010_CLOSE",
+      "IN_XV_013_CLOSE",
+      "IN_XV_016_CLOSE",
+      "(S Mem_Sequenza[32])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Fine_Ciclo",
+      "(R Mem_Sequenza[32])"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA 33 (i)   INTERCETTAZIONE SKID BAWA DA LINEA REATTORE",
+     "chain": [
+      "IN_EMERGENZA",
+      "Mem_Sequenza[32]",
+      {
+       "fb": "TON",
+       "inst": "Tim_Seq_32",
+       "p": {
+        "PT": "t#5s"
+       }
+      },
+      "IN_XV_001_CLOSE",
+      "IN_XV_004_CLOSE",
+      "IN_XV_011_OPEN",
+      "(S Mem_Sequenza[33])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Fine_Ciclo",
+      "(R Mem_Sequenza[33])"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA 34 (l)   DRENAGGIO DELLA LINEA ACQUA DEMI",
+     "chain": [
+      "IN_EMERGENZA",
+      "V_P_Conferma[33]",
+      "IN_XV_xxx_CLOSE",
+      "(S Mem_Sequenza[34])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Fine_Ciclo",
+      "(R Mem_Sequenza[34])"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA 35 (m)   ISOLAMENTO DEL CIRCUITO",
+     "chain": [
+      "IN_EMERGENZA",
+      "Mem_Sequenza[34]",
+      {
+       "fb": "TON",
+       "inst": "Tim_Seq_34",
+       "p": {
+        "PT": "t#10s"
+       }
+      },
+      "IN_XV_009_OPEN",
+      "IN_XV_005_OPEN",
+      "(S Mem_Sequenza[35])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Fine_Ciclo",
+      "(R Mem_Sequenza[35])"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA 36  CONCLUSIONI FINALI",
+     "chain": [
+      "IN_EMERGENZA",
+      "Mem_Sequenza[35]",
+      {
+       "fb": "TON",
+       "inst": "Tim_Seq_35",
+       "p": {
+        "PT": "t#5s"
+       }
+      },
+      "IN_XV_005_CLOSE",
+      "IN_XV_009_CLOSE",
+      "(S Mem_Sequenza[36])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Fine_Ciclo",
+      "(R Mem_Sequenza[36])"
+     ]
+    },
+    {
+     "cmt": "RESET AUTOMATICO DI TUTTE LE SEQUENZE",
+     "chain": [
+      "IN_EMERGENZA",
+      {
+       "or": [
+        [
+         "Mem_Sequenza[36]",
+         "V_P_Conferma[36]"
+        ],
+        "V_P_Conferma[38]"
+       ]
+      },
+      "(S Mem_Sequenza[37])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[37]",
+      {
+       "fb": "TON",
+       "inst": "Tim_Seq_37",
+       "p": {
+        "PT": "t#2s"
+       }
+      },
+      "(R Mem_Sequenza[37])"
+     ]
+    },
+    {
+     "cmt": "MESSAGGIO DOPO ABORT TOTALE",
+     "chain": [
+      "vV_P_Abort_Totale",
+      "(S Mem_Sequenza[38])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Fine_Ciclo",
+      "(R Mem_Sequenza[38])"
+     ]
+    },
+    {
+     "cmt": "BIT PER RESETTARE TUTTE LE SEQUENZE E RIPARTIRE DA CAPO",
+     "chain": [
+      {
+       "or": [
+        "Mem_Sequenza[37]",
+        "^V_P_Abort_Totale"
+       ]
+      },
+      "(Fine_Ciclo)"
+     ]
+    },
+    {
+     "cmt": "ABORT TOTALE",
+     "chain": [
+      "V_P_Abort_Totale",
+      "P_Off",
+      {
+       "ist": "FOR N:=0 TO  15 DO;\r\n\tMem_Sequenza[N]:= 0;\r\n\tEND_FOR;"
+      }
+     ]
+    },
+    {
+     "cmt": "#USCITE",
+     "chain": [
+      "IN_EMERGENZA"
+     ],
+     "out": [
+      [
+       "Mem_Sequenza[6]",
+       {
+        "or": [
+         "/Mem_Sequenza[11]",
+         "Mem_Sequenza[12]"
+        ]
+       },
+       "/Mem_Sequenza[32]",
+       "IN_ZSH_152_OPEN",
+       "(OUT_XV_001)"
+      ],
+      [
+       "Mem_Sequenza[6]",
+       {
+        "or": [
+         "/Mem_Sequenza[26]",
+         "Mem_Sequenza[30]"
+        ]
+       },
+       "/Mem_Sequenza[31]",
+       "(OUT_XV_003)"
+      ],
+      [
+       "Mem_Sequenza[18]",
+       {
+        "or": [
+         "/Mem_Sequenza[19]",
+         "Mem_Sequenza[34]"
+        ]
+       },
+       "/Mem_Sequenza[35]",
+       "IN_LSSH_207",
+       "(OUT_XV_009)"
+      ],
+      [
+       "Mem_Sequenza[15]",
+       "/Mem_Sequenza[22]",
+       "(OUT_XV_012)"
+      ],
+      [
+       {
+        "or": [
+         [
+          "Mem_Sequenza[22]",
+          "/Mem_Sequenza[23]"
+         ],
+         "Test_xv14"
+        ]
+       },
+       "(OUT_XV_014)"
+      ],
+      [
+       {
+        "or": [
+         "V_P_Svuota_Bawa",
+         "V_P_Svuota_Rinse"
+        ]
+       },
+       "(OUT_XV_017)"
+      ],
+      [
+       "Mem_Sequenza[6]",
+       {
+        "or": [
+         "/Mem_Sequenza[13]",
+         "Mem_Sequenza[24]"
+        ]
+       },
+       {
+        "or": [
+         "/Mem_Sequenza[25]",
+         "Mem_Sequenza[29]"
+        ]
+       },
+       "/Mem_Sequenza[31]",
+       "(OUT_XV_002)"
+      ],
+      [
+       "Mem_Sequenza[15]",
+       {
+        "or": [
+         "/Mem_Sequenza[17]",
+         "Mem_Sequenza[29]"
+        ]
+       },
+       "/Mem_Sequenza[31]",
+       "(OUT_XV_006)"
+      ],
+      [
+       "Mem_Sequenza[19]",
+       {
+        "or": [
+         "/Mem_Sequenza[21]",
+         "Mem_Sequenza[29]"
+        ]
+       },
+       "/Mem_Sequenza[31]",
+       "(OUT_XV_010)"
+      ],
+      [
+       {
+        "or": [
+         [
+          "Mem_Sequenza[15]",
+          "/Mem_Sequenza[17]"
+         ],
+         "V_P_Svuota_Bawa"
+        ]
+       },
+       "(OUT_XV_007)"
+      ],
+      [
+       "Mem_Sequenza[34]",
+       "/Mem_Sequenza[35]",
+       "IN_LSSH_209",
+       "(OUT_XV_005)"
+      ],
+      [
+       "Mem_Sequenza[6]",
+       {
+        "or": [
+         "/Mem_Sequenza[9]",
+         "Mem_Sequenza[12]"
+        ]
+       },
+       {
+        "or": [
+         "/Mem_Sequenza[13]",
+         "Mem_Sequenza[30]"
+        ]
+       },
+       "/Mem_Sequenza[31]",
+       "(OUT_XV_013)"
+      ],
+      [
+       {
+        "or": [
+         "/Mem_Sequenza[15]",
+         "Mem_Sequenza[26]"
+        ]
+       },
+       {
+        "or": [
+         "/Mem_Sequenza[28]",
+         "Mem_Sequenza[32]"
+        ]
+       },
+       "(OUT_XV_011)"
+      ],
+      [
+       {
+        "or": [
+         [
+          "Mem_Sequenza[22]",
+          "/Mem_Sequenza[23]"
+         ],
+         "Test_xv15"
+        ]
+       },
+       "(OUT_XV_015)"
+      ],
+      [
+       "Mem_Sequenza[23]",
+       "/Mem_Sequenza[25]",
+       "(OUT_XV_018)"
+      ],
+      [
+       {
+        "or": [
+         [
+          "Mem_Sequenza[19]",
+          {
+           "or": [
+            "/Mem_Sequenza[21]",
+            "Mem_Sequenza[26]"
+           ]
+          },
+          "/Mem_Sequenza[28]"
+         ],
+         "V_P_Svuota_Rinse"
+        ]
+       },
+       "(OUT_XV_008)"
+      ],
+      [
+       "Mem_Sequenza[26]",
+       {
+        "or": [
+         "/Mem_Sequenza[28]",
+         "Mem_Sequenza[30]"
+        ]
+       },
+       "/Mem_Sequenza[31]",
+       "(OUT_XV_016)"
+      ],
+      [
+       "Mem_Sequenza[6]",
+       {
+        "or": [
+         "/Mem_Sequenza[11]",
+         "Mem_Sequenza[12]"
+        ]
+       },
+       "/Mem_Sequenza[32]",
+       "IN_ZSH_152_OPEN",
+       "(OUT_XV_004)"
+      ]
+     ]
+    },
+    {
+     "cmt": "USCITA POMPA",
+     "chain": [
+      "IN_EMERGENZA",
+      "V_S_Pompa",
+      "Tim_Liv_Min_Pompa.Q",
+      {
+       "or": [
+        [
+         "Mem_Sequenza[16]",
+         "/Mem_Sequenza[17]"
+        ],
+        [
+         "Mem_Sequenza[20]",
+         "/Mem_Sequenza[21]"
+        ],
+        [
+         "Mem_Sequenza[27]",
+         "/Mem_Sequenza[28]"
+        ]
+       ]
+      },
+      "(OUT_P1)"
+     ]
+    },
+    {
+     "cmt": "RESET SELETTORE POMPA IN CASO DI ALLARMI",
+     "chain": [
+      "Allarme_Bit[53]",
+      "(R V_S_Pompa)"
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Allarme_Bit",
+     "type": "ARRAY[1..60] oF bool",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_1",
+     "type": "Cnt_Min_Sec",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_10",
+     "type": "Cnt_Min_Sec",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_11",
+     "type": "Cnt_Min_Sec",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_12",
+     "type": "Cnt_Min_Sec",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_2",
+     "type": "Cnt_Min_Sec",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_3",
+     "type": "Cnt_Min_Sec",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_4",
+     "type": "Cnt_Min_Sec",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_5",
+     "type": "Cnt_Min_Sec",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_6",
+     "type": "Cnt_Min_Sec",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_7",
+     "type": "Cnt_Min_Sec",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_8",
+     "type": "Cnt_Min_Sec",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_9",
+     "type": "Cnt_Min_Sec",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Fine_Ciclo",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EMERGENZA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LSH_208",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LSL_205",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "livello minimo pompa"
+    },
+    {
+     "name": "IN_LSSH_207",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LSSH_209",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_001_CLOSE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_001_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_002_CLOSE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_002_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_003_CLOSE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_003_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_004_CLOSE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_004_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_005_CLOSE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_005_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_006_CLOSE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_006_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_007_CLOSE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_007_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_008_CLOSE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_008_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_009_CLOSE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_009_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_010_CLOSE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_010_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_011_CLOSE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_011_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_012_CLOSE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_012_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_013_CLOSE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_013_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_014_CLOSE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_014_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_015_CLOSE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_015_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_016_CLOSE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_016_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_017_CLOSE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_018_CLOSE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_018_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_xxx_CLOSE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_xxx_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_ZSH_152_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Sequenza",
+     "type": "ARRAY[1..40] OF bool",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Sequenza_10A",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Sequenza_11A",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Sequenza_6A",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Sequenza_8A",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "N",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_P1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Pompa Ricircolo"
+    },
+    {
+     "name": "OUT_XV_001",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_XV_002",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_XV_003",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_XV_004",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_XV_005",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_XV_006",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_XV_007",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_XV_008",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_XV_009",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_XV_010",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_XV_011",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_XV_012",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_XV_013",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_XV_014",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_XV_015",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_XV_016",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_XV_017",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_XV_018",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_PT_202",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Timer3A",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Timer4A",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_min_Timer",
+     "type": "ARRAY[0..12] OF int",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_sec_Timer",
+     "type": "ARRAY[0..12] OF int",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Press1_Max",
+     "type": "real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Press1_Min",
+     "type": "real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Press2_Max",
+     "type": "real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Press2_Min",
+     "type": "real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Press_Vuoto",
+     "type": "real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_min_Timer",
+     "type": "ARRAY[0..12] OF int",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_sec_Timer",
+     "type": "ARRAY[0..12] OF int",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Test_xv14",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Test_xv15",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_3A",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_4A",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Liv_Min_Pompa",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Seq_15",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Seq_17",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Seq_19",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Seq_21",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Seq_26",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Seq_28",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Seq_3",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Seq_31",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Seq_32",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Seq_34",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Seq_35",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Seq_37",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Seq_6",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Abort_Totale",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Annulla",
+     "type": "ARRAY[1..40] OF bool",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Conferma",
+     "type": "ARRAY[1..40] OF bool",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Conferma_10A",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Conferma_11A",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Conferma_6A",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Conferma_8A",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Start_Ciclo",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Svuota_Bawa",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Svuota_Rinse",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_S_Pompa",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "inc_1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "inc_2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Visu": {
+   "rungs": [
+    {
+     "cmt": "#PAGINE VISUALIZZATORE ",
+     "chain": [
+      "/Mem_Sequenza[1]",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "99",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[1]",
+      "/Mem_Sequenza[2]",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "101",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[2]",
+      "/Mem_Sequenza[3]",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "102",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[3]",
+      "/Mem_Sequenza[4]",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "103",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[4]",
+      "/Mem_Sequenza[5]",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "104",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[5]",
+      "/Mem_Sequenza_6A",
+      "/Mem_Sequenza[6]",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "105",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza_6A",
+      "/Mem_Sequenza[6]",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "206",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[6]",
+      "/Mem_Sequenza[7]",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "106",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[7]",
+      "/Mem_Sequenza[8]",
+      "/Mem_Sequenza_8A",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "107",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[8]",
+      "/Mem_Sequenza[9]",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "108",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza_8A",
+      "/Mem_Sequenza[9]",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "208",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[9]",
+      "/Mem_Sequenza[10]",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "109",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[10]",
+      "/Mem_Sequenza[11]",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "110",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza_10A",
+      "/Mem_Sequenza[11]",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "210",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[11]",
+      "/Mem_Sequenza[12]",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "111",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza_11A",
+      "/Mem_Sequenza[12]",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "211",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[12]",
+      "/Mem_Sequenza[13]",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "112",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[13]",
+      "/Mem_Sequenza[14]",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "113",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[14]",
+      "/Mem_Sequenza[15]",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "114",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[15]",
+      "/Mem_Sequenza[16]",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "115",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[16]",
+      "/Mem_Sequenza[17]",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "116",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[17]",
+      "/Mem_Sequenza[18]",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "117",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[18]",
+      "/Mem_Sequenza[19]",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "118",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[19]",
+      "/Mem_Sequenza[20]",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "119",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[20]",
+      "/Mem_Sequenza[21]",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "120",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[21]",
+      "/Mem_Sequenza[22]",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "121",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[22]",
+      "/Mem_Sequenza[23]",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "122",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[23]",
+      "/Mem_Sequenza[24]",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "123",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[24]",
+      "/Mem_Sequenza[25]",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "124",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[25]",
+      "/Mem_Sequenza[26]",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "125",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[26]",
+      "/Mem_Sequenza[27]",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "126",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[27]",
+      "/Mem_Sequenza[28]",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "127",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[28]",
+      "/Mem_Sequenza[29]",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "128",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[29]",
+      "/Mem_Sequenza[30]",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "129",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[30]",
+      "/Mem_Sequenza[31]",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "130",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[31]",
+      "/Mem_Sequenza[32]",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "131",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[32]",
+      "/Mem_Sequenza[33]",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "132",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[33]",
+      "/Mem_Sequenza[34]",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "133",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[34]",
+      "/Mem_Sequenza[35]",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "134",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[35]",
+      "/Mem_Sequenza[36]",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "135",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[36]",
+      "/Mem_Sequenza[37]",
+      "/Mem_Sequenza[38]",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "136",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Sequenza[38]",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "138",
+        "OUT:Out": "Pagina_Visu"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "RESETTO PULSANTE DI SCARICO BAWA DOPO 5 MINUTI",
+     "chain": [
+      "V_P_Svuota_Bawa",
+      {
+       "fb": "Contatore",
+       "inst": "Cnt_Svuota_Bava",
+       "p": {
+        "SET_VALUE": "300",
+        "VALUE": "PV_Cnt_Svuota_Bawa",
+        "OUT:VALUE": "PV_Cnt_Svuota_Bawa"
+       }
+      },
+      "(R V_P_Svuota_Bawa)"
+     ]
+    },
+    {
+     "cmt": "RESETTO PULSANTE DI SCARICO DEMI DOPO 5 MINUTI",
+     "chain": [
+      "V_P_Svuota_Rinse",
+      {
+       "fb": "Contatore",
+       "inst": "Cnt_Svuota_Rinse",
+       "p": {
+        "SET_VALUE": "300",
+        "VALUE": "PV_Cnt_Svuota_Rinse",
+        "OUT:VALUE": "PV_Cnt_Svuota_Rinse"
+       }
+      },
+      "(R V_P_Svuota_Rinse)"
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Cnt_Svuota_Bava",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_Svuota_Rinse",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Sequenza",
+     "type": "ARRAY[1..40] OF bool",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Sequenza_10A",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Sequenza_11A",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Sequenza_6A",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Sequenza_8A",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Cnt_Svuota_Bawa",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Cnt_Svuota_Rinse",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Pagina_Visu",
+     "type": "int",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Svuota_Bawa",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Svuota_Rinse",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Ausiliari": {
+   "rungs": [
+    {
+     "cmt": "SCALO L'INGRESSO ANALOGICO 1 PRESSOSTATO AZOTO PT201.Scheda analogica        0v=000     10v=4000",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       {
+        "f": ">=",
+        "p": {
+         "In1": "IN_Analog_1",
+         "In2": "0"
+        }
+       },
+       {
+        "f": "INT_TO_REAL",
+        "p": {
+         "In": "IN_Analog_1",
+         "OUT:": "IN_Analog_1_Real"
+        }
+       },
+       {
+        "f": "ScaleTrans",
+        "p": {
+         "SclIn": "IN_Analog_1_Real",
+         "X0": "real#0",
+         "Y0": "real#-1",
+         "X1": "real#4000",
+         "Y1": "real#10",
+         "OUT:": "PV_PT_201"
+        }
+       }
+      ],
+      [
+       {
+        "f": "<",
+        "p": {
+         "In1": "IN_Analog_1",
+         "In2": "0"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "-1",
+         "OUT:Out": "PV_PT_201"
+        }
+       }
+      ]
+     ]
+    },
+    {
+     "cmt": "SCALO L'INGRESSO ANALOGICO 2 PRESSOSTATO LINEA DI PROCESSO PT202",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       {
+        "f": ">=",
+        "p": {
+         "In1": "IN_Analog_2",
+         "In2": "0"
+        }
+       },
+       {
+        "f": "INT_TO_REAL",
+        "p": {
+         "In": "IN_Analog_2",
+         "OUT:": "IN_Analog_2_Real"
+        }
+       },
+       {
+        "f": "ScaleTrans",
+        "p": {
+         "SclIn": "IN_Analog_2_Real",
+         "X0": "real#0",
+         "Y0": "real#-1",
+         "X1": "real#4000",
+         "Y1": "real#10",
+         "OUT:": "PV_PT_202"
+        }
+       }
+      ],
+      [
+       {
+        "f": "<",
+        "p": {
+         "In1": "IN_Analog_2",
+         "In2": "0"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "-1",
+         "OUT:Out": "PV_PT_202"
+        }
+       }
+      ]
+     ]
+    },
+    {
+     "cmt": "SCALO L'INGRESSO ANALOGICO 3 PRESSOSTATO POMP PT203",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       {
+        "f": ">=",
+        "p": {
+         "In1": "IN_Analog_3",
+         "In2": "0"
+        }
+       },
+       {
+        "f": "INT_TO_REAL",
+        "p": {
+         "In": "IN_Analog_3",
+         "OUT:": "IN_Analog_3_Real"
+        }
+       },
+       {
+        "f": "ScaleTrans",
+        "p": {
+         "SclIn": "IN_Analog_3_Real",
+         "X0": "real#0",
+         "Y0": "real#-1",
+         "X1": "real#4000",
+         "Y1": "real#10",
+         "OUT:": "PV_PT_203"
+        }
+       }
+      ],
+      [
+       {
+        "f": "<",
+        "p": {
+         "In1": "IN_Analog_3",
+         "In2": "0"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "-1",
+         "OUT:Out": "PV_PT_203"
+        }
+       }
+      ]
+     ]
+    },
+    {
+     "cmt": "SCALO L'INGRESSO ANALOGICO 4 TEMPERATURA RITORNO SRTBATOI  TT217  VALORE  0V=0000   10V=4000",
+     "chain": [
+      "P_On",
+      {
+       "f": "INT_TO_REAL",
+       "p": {
+        "In": "IN_Analog_4",
+        "OUT:": "IN_Analog_4_Real"
+       }
+      },
+      {
+       "f": "ScaleTrans",
+       "p": {
+        "SclIn": "IN_Analog_4_Real",
+        "X0": "real#0",
+        "Y0": "real#0",
+        "X1": "real#4000",
+        "Y1": "real#100",
+        "OUT:": "PV_TT_217"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "BUZZER",
+     "chain": [
+      "P_On",
+      "Keep_Buzzer",
+      {
+       "f": "Get1sClk",
+       "p": {}
+      },
+      "(OUT_BUZZER)"
+     ]
+    },
+    {
+     "cmt": "KEEP BUZZER",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       {
+        "or": [
+         "^Allarme_Bit[46]",
+         "^Allarme_Bit[47]"
+        ]
+       },
+       "(S Keep_Buzzer)"
+      ],
+      [
+       "V_P_Reset_Buzzer",
+       "(R Keep_Buzzer)"
+      ]
+     ]
+    },
+    {
+     "cmt": "COLONNA ARANCIONE",
+     "chain": [
+      {
+       "or": [
+        "V_L_Allarmi",
+        "/IN_EMERGENZA"
+       ]
+      },
+      "(OUT_LAMP_ARANCIO)"
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Allarme_Bit",
+     "type": "ARRAY[1..60] oF bool",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_Analog_1",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_Analog_1_Real",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_Analog_2",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_Analog_2_Real",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_Analog_3",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_Analog_3_Real",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_Analog_4",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_Analog_4_Real",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EMERGENZA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Keep_Buzzer",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_BUZZER",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_LAMP_ARANCIO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_PT_201",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_PT_202",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_PT_203",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_TT_217",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_L_Allarmi",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Reset_Buzzer",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Allarmi": {
+   "rungs": [
+    {
+     "cmt": "Accendo la spia Allarmi del visualizzatore se ho un bit Allarmi Attivo",
+     "chain": [
+      {
+       "f": "ArySearch",
+       "p": {
+        "In": "Allarme_Bit[1]",
+        "Size": "uint#60",
+        "Key": "bool#1",
+        "InOutPos": "local1",
+        "OUT:": "Spia_Allarme",
+        "OUT:InOutPos": "local1"
+       }
+      },
+      "Spia_Allarme",
+      {
+       "f": "Get1sClk",
+       "p": {}
+      },
+      "(V_L_Allarmi)"
+     ]
+    },
+    {
+     "cmt": "#ALLARMI EV",
+     "chain": [
+      "OUT_XV_001",
+      {
+       "fb": "Controllo_EV",
+       "inst": "Allarm_EV1",
+       "p": {
+        "EV_OPEN": "IN_XV_001_OPEN",
+        "EV_CLOSED": "IN_XV_001_CLOSE",
+        "OUT:ALL_NO_CLOSE": "Allarme_Bit[19]"
+       }
+      },
+      "(Allarme_Bit[1])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "OUT_XV_002",
+      {
+       "fb": "Controllo_EV",
+       "inst": "Allarm_EV2",
+       "p": {
+        "EV_OPEN": "IN_XV_002_OPEN",
+        "EV_CLOSED": "IN_XV_002_CLOSE",
+        "OUT:ALL_NO_CLOSE": "Allarme_Bit[20]"
+       }
+      },
+      "(Allarme_Bit[2])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "OUT_XV_003",
+      {
+       "fb": "Controllo_EV",
+       "inst": "Allarm_EV3",
+       "p": {
+        "EV_OPEN": "IN_XV_003_OPEN",
+        "EV_CLOSED": "IN_XV_003_CLOSE",
+        "OUT:ALL_NO_CLOSE": "Allarme_Bit[21]"
+       }
+      },
+      "(Allarme_Bit[3])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "OUT_XV_004",
+      {
+       "fb": "Controllo_EV",
+       "inst": "Allarm_EV4",
+       "p": {
+        "EV_OPEN": "IN_XV_004_OPEN",
+        "EV_CLOSED": "IN_XV_004_CLOSE",
+        "OUT:ALL_NO_CLOSE": "Allarme_Bit[22]"
+       }
+      },
+      "(Allarme_Bit[4])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "OUT_XV_005",
+      {
+       "fb": "Controllo_EV",
+       "inst": "Allarm_EV5",
+       "p": {
+        "EV_OPEN": "IN_XV_005_OPEN",
+        "EV_CLOSED": "IN_XV_005_CLOSE",
+        "OUT:ALL_NO_CLOSE": "Allarme_Bit[23]"
+       }
+      },
+      "(Allarme_Bit[5])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "OUT_XV_006",
+      {
+       "fb": "Controllo_EV",
+       "inst": "Allarm_EV6",
+       "p": {
+        "EV_OPEN": "IN_XV_006_OPEN",
+        "EV_CLOSED": "IN_XV_006_CLOSE",
+        "OUT:ALL_NO_CLOSE": "Allarme_Bit[24]"
+       }
+      },
+      "(Allarme_Bit[6])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "OUT_XV_007",
+      {
+       "fb": "Controllo_EV",
+       "inst": "Allarm_EV7",
+       "p": {
+        "EV_OPEN": "IN_XV_007_OPEN",
+        "EV_CLOSED": "IN_XV_007_CLOSE",
+        "OUT:ALL_NO_CLOSE": "Allarme_Bit[25]"
+       }
+      },
+      "(Allarme_Bit[7])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "OUT_XV_008",
+      {
+       "fb": "Controllo_EV",
+       "inst": "Allarm_EV8",
+       "p": {
+        "EV_OPEN": "IN_XV_008_OPEN",
+        "EV_CLOSED": "IN_XV_008_CLOSE",
+        "OUT:ALL_NO_CLOSE": "Allarme_Bit[26]"
+       }
+      },
+      "(Allarme_Bit[8])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "OUT_XV_009",
+      {
+       "fb": "Controllo_EV",
+       "inst": "Allarm_EV9",
+       "p": {
+        "EV_OPEN": "IN_XV_009_OPEN",
+        "EV_CLOSED": "IN_XV_009_CLOSE",
+        "OUT:ALL_NO_CLOSE": "Allarme_Bit[27]"
+       }
+      },
+      "(Allarme_Bit[9])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "OUT_XV_010",
+      {
+       "fb": "Controllo_EV",
+       "inst": "Allarm_EV10",
+       "p": {
+        "EV_OPEN": "IN_XV_010_OPEN",
+        "EV_CLOSED": "IN_XV_010_CLOSE",
+        "OUT:ALL_NO_CLOSE": "Allarme_Bit[28]"
+       }
+      },
+      "(Allarme_Bit[10])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "OUT_XV_011",
+      {
+       "fb": "Controllo_EV",
+       "inst": "Allarm_EV11",
+       "p": {
+        "EV_OPEN": "IN_XV_011_OPEN",
+        "EV_CLOSED": "IN_XV_011_CLOSE",
+        "OUT:ALL_NO_CLOSE": "Allarme_Bit[29]"
+       }
+      },
+      "(Allarme_Bit[11])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "OUT_XV_012",
+      {
+       "fb": "Controllo_EV",
+       "inst": "Allarm_EV12",
+       "p": {
+        "EV_OPEN": "IN_XV_012_OPEN",
+        "EV_CLOSED": "IN_XV_012_CLOSE",
+        "OUT:ALL_NO_CLOSE": "Allarme_Bit[30]"
+       }
+      },
+      "(Allarme_Bit[12])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "OUT_XV_013",
+      {
+       "fb": "Controllo_EV",
+       "inst": "Allarm_EV13",
+       "p": {
+        "EV_OPEN": "IN_XV_013_OPEN",
+        "EV_CLOSED": "IN_XV_013_CLOSE",
+        "OUT:ALL_NO_CLOSE": "Allarme_Bit[31]"
+       }
+      },
+      "(Allarme_Bit[13])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "OUT_XV_014",
+      {
+       "fb": "Controllo_EV",
+       "inst": "Allarm_EV14",
+       "p": {
+        "EV_OPEN": "IN_XV_014_OPEN",
+        "EV_CLOSED": "IN_XV_014_CLOSE",
+        "OUT:ALL_NO_CLOSE": "Allarme_Bit[32]"
+       }
+      },
+      "(Allarme_Bit[14])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "OUT_XV_015",
+      {
+       "fb": "Controllo_EV",
+       "inst": "Allarm_EV15",
+       "p": {
+        "EV_OPEN": "IN_XV_015_OPEN",
+        "EV_CLOSED": "IN_XV_015_CLOSE",
+        "OUT:ALL_NO_CLOSE": "Allarme_Bit[33]"
+       }
+      },
+      "(Allarme_Bit[15])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "OUT_XV_016",
+      {
+       "fb": "Controllo_EV",
+       "inst": "Allarm_EV16",
+       "p": {
+        "EV_OPEN": "IN_XV_016_OPEN",
+        "EV_CLOSED": "IN_XV_016_CLOSE",
+        "OUT:ALL_NO_CLOSE": "Allarme_Bit[34]"
+       }
+      },
+      "(Allarme_Bit[16])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "OUT_XV_017",
+      {
+       "fb": "Controllo_EV",
+       "inst": "Allarm_EV17",
+       "p": {
+        "EV_OPEN": "IN_XV_017_OPEN",
+        "EV_CLOSED": "IN_XV_017_CLOSE",
+        "OUT:ALL_NO_CLOSE": "Allarme_Bit[35]"
+       }
+      },
+      "(Allarme_Bit[17])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "OUT_XV_018",
+      {
+       "fb": "Controllo_EV",
+       "inst": "Allarm_EV18",
+       "p": {
+        "EV_OPEN": "IN_XV_018_OPEN",
+        "EV_CLOSED": "IN_XV_018_CLOSE",
+        "OUT:ALL_NO_CLOSE": "Allarme_Bit[36]"
+       }
+      },
+      "(Allarme_Bit[18])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 40 : ",
+     "chain": [
+      "P_Off",
+      "(Allarme_Bit[40])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 41 : ",
+     "chain": [
+      "P_Off",
+      "(Allarme_Bit[41])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 42: EMERGENZA PREMUTA",
+     "chain": [
+      "/IN_EMERGENZA",
+      "(Allarme_Bit[42])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 43: BASSA PRESSIONE ARIA COMPRESSA",
+     "chain": [
+      "/IN_PRESS_ARIA",
+      "(Allarme_Bit[43])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 44: BASSA PRESSIONE AZOTO",
+     "chain": [
+      {
+       "f": "<",
+       "p": {
+        "In1": "PV_PT_201",
+        "In2": "SET_All_LO_Azoto"
+       }
+      },
+      "/Allarme_Bit[45]",
+      "/OUT_XV_013",
+      "(Allarme_Bit[44])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 45: BASSISSIMA PRESSIONE AZOTO",
+     "chain": [
+      {
+       "f": "<",
+       "p": {
+        "In1": "PV_PT_201",
+        "In2": "SET_All_LOLO_Azoto"
+       }
+      },
+      "/OUT_XV_013",
+      "(Allarme_Bit[45])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 46: ALTISSIMO LIVELLO BAWA S1",
+     "chain": [
+      "/IN_LSSH_209",
+      "(Allarme_Bit[46])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 47: ALTISSIMO LIVELLO DEMI S2",
+     "chain": [
+      "/IN_LSSH_207",
+      "(Allarme_Bit[47])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 48: BASSA PORTATA AZOTO",
+     "chain": [
+      "/IN_FSL_215",
+      "OUT_XV_001",
+      "IN_XV_001_OPEN",
+      {
+       "fb": "TON",
+       "inst": "Tim_5",
+       "p": {
+        "PT": "t#2s"
+       }
+      },
+      "(Allarme_Bit[48])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 49: BASSA PORTATA ACQUA DEMI",
+     "chain": [
+      "/IN_FSL_216",
+      "OUT_XV_014",
+      "IN_XV_014_OPEN",
+      {
+       "fb": "TON",
+       "inst": "Tim_6",
+       "p": {
+        "PT": "t#2s"
+       }
+      },
+      "(Allarme_Bit[49])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 50: ALTA TEMPERATURA LAVAGGIO DI RITORNO",
+     "chain": [
+      {
+       "f": ">",
+       "p": {
+        "In1": "PV_TT_217",
+        "In2": "SET_All_HI_Temperat_Lavaggio"
+       }
+      },
+      "OUT_XV_003",
+      "IN_XV_003_OPEN",
+      "/Allarme_Bit[51]",
+      "(Allarme_Bit[50])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 51: ALTISSIMA TEMPERATURA LAVAGGIO DI RITORNO",
+     "chain": [
+      {
+       "f": ">",
+       "p": {
+        "In1": "PV_TT_217",
+        "In2": "SET_All_HIHI_Temperat_Lavaggio"
+       }
+      },
+      "OUT_XV_003",
+      "IN_XV_003_OPEN",
+      "(Allarme_Bit[51])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 52: ALTA PRESSIONE MANDATA LAVAGGIO",
+     "chain": [
+      {
+       "f": ">",
+       "p": {
+        "In1": "PV_PT_202",
+        "In2": "SET_All_HI_Press_Lavaggio"
+       }
+      },
+      "OUT_P1",
+      "/Allarme_Bit[53]",
+      "(Allarme_Bit[52])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 53: ALTISSIMA PRESSIONE MANDATA LAVAGGIO",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       {
+        "f": ">",
+        "p": {
+         "In1": "PV_PT_202",
+         "In2": "SET_All_HIHI_Press_Lavaggio"
+        }
+       },
+       "OUT_P1",
+       "(S Allarme_Bit[53])"
+      ],
+      [
+       "V_P_Reset_Allar_Rit",
+       "(R Allarme_Bit[53])"
+      ]
+     ]
+    },
+    {
+     "cmt": "ALLARME 54: BASSA PRESSIONE MANDATA POMPA",
+     "chain": [
+      {
+       "f": "<",
+       "p": {
+        "In1": "PV_PT_203",
+        "In2": "SET_All_LO_Press_Pompa"
+       }
+      },
+      "OUT_P1",
+      "(Allarme_Bit[54])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 55: ALTA PRESSIONE MANDATA POMPA",
+     "chain": [
+      {
+       "f": ">",
+       "p": {
+        "In1": "PV_PT_203",
+        "In2": "SET_All_HI_Press_Pompa"
+       }
+      },
+      "OUT_P1",
+      "(Allarme_Bit[55])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 56: MANCANZA FLUIDO IN ASPIRAZIONE POMPA",
+     "chain": [
+      "/IN_LSL_205",
+      {
+       "or": [
+        "IN_XV_007_OPEN",
+        "IN_XV_008_OPEN"
+       ]
+      },
+      {
+       "fb": "TON",
+       "inst": "Tim_7",
+       "p": {
+        "PT": "t#5s"
+       }
+      },
+      "(Allarme_Bit[56])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 57: POMPA OFF",
+     "chain": [
+      "/V_S_Pompa",
+      "(Allarme_Bit[57])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 58: ESEGUITO ABORT TOTALE",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "V_P_Abort_Totale",
+       "(S Allarme_Bit[58])"
+      ],
+      [
+       "V_P_Reset_Allar_Rit",
+       "(R Allarme_Bit[58])"
+      ]
+     ]
+    },
+    {
+     "cmt": "ALLARME 59: VALVOLA DI SFIATO NON APERTA COMPLETAMENTE",
+     "chain": [
+      "Mem_Sequenza[3]",
+      "/IN_ZSH_152_OPEN",
+      "(Allarme_Bit[59])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 60: ALTA PRESSIONE POLMONAZIONE SERBATOI",
+     "chain": [
+      "IN_XV_004_OPEN",
+      "IN_PI_104",
+      "(Allarme_Bit[60])"
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Allarm_EV1",
+     "type": "Controllo_EV",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Allarm_EV10",
+     "type": "Controllo_EV",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Allarm_EV11",
+     "type": "Controllo_EV",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Allarm_EV12",
+     "type": "Controllo_EV",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Allarm_EV13",
+     "type": "Controllo_EV",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Allarm_EV14",
+     "type": "Controllo_EV",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Allarm_EV15",
+     "type": "Controllo_EV",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Allarm_EV16",
+     "type": "Controllo_EV",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Allarm_EV17",
+     "type": "Controllo_EV",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Allarm_EV18",
+     "type": "Controllo_EV",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Allarm_EV2",
+     "type": "Controllo_EV",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Allarm_EV3",
+     "type": "Controllo_EV",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Allarm_EV4",
+     "type": "Controllo_EV",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Allarm_EV5",
+     "type": "Controllo_EV",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Allarm_EV6",
+     "type": "Controllo_EV",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Allarm_EV7",
+     "type": "Controllo_EV",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Allarm_EV8",
+     "type": "Controllo_EV",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Allarm_EV9",
+     "type": "Controllo_EV",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Allarme_Bit",
+     "type": "ARRAY[1..60] oF bool",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EMERGENZA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_FSL_215",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_FSL_216",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LSL_205",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "livello minimo pompa"
+    },
+    {
+     "name": "IN_LSSH_207",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LSSH_209",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_PI_104",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_PRESS_ARIA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_001_CLOSE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_001_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_002_CLOSE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_002_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_003_CLOSE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_003_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_004_CLOSE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_004_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_005_CLOSE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_005_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_006_CLOSE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_006_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_007_CLOSE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_007_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_008_CLOSE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_008_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_009_CLOSE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_009_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_010_CLOSE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_010_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_011_CLOSE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_011_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_012_CLOSE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_012_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_013_CLOSE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_013_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_014_CLOSE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_014_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_015_CLOSE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_015_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_016_CLOSE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_016_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_017_CLOSE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_017_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_018_CLOSE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_XV_018_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_ZSH_152_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Sequenza",
+     "type": "ARRAY[1..40] OF bool",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_P1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Pompa Ricircolo"
+    },
+    {
+     "name": "OUT_XV_001",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_XV_002",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_XV_003",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_XV_004",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_XV_005",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_XV_006",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_XV_007",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_XV_008",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_XV_009",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_XV_010",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_XV_011",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_XV_012",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_XV_013",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_XV_014",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_XV_015",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_XV_016",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_XV_017",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_XV_018",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_PT_201",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_PT_202",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_PT_203",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_TT_217",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_All_HIHI_Press_Lavaggio",
+     "type": "real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_All_HIHI_Temperat_Lavaggio",
+     "type": "real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_All_HI_Press_Lavaggio",
+     "type": "real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_All_HI_Press_Pompa",
+     "type": "real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_All_HI_Temperat_Lavaggio",
+     "type": "real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_All_LOLO_Azoto",
+     "type": "real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_All_LO_Azoto",
+     "type": "real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_All_LO_Press_Pompa",
+     "type": "real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Spia_Allarme",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_5",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_6",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_7",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_L_Allarmi",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Abort_Totale",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Reset_Allar_Rit",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_S_Pompa",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "local1",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "LadderBody": {
+   "rungs": [
+    {
+     "cmt": "",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "EV_COMANDO",
+       "/EV_OPEN",
+       {
+        "fb": "TON",
+        "inst": "Ritardo1",
+        "p": {
+         "PT": "t#2s"
+        }
+       },
+       "(ALL_NO_OPEN)"
+      ],
+      [
+       "/EV_COMANDO",
+       "/EV_CLOSED",
+       {
+        "fb": "TON",
+        "inst": "Ritardo2",
+        "p": {
+         "PT": "t#2s"
+        }
+       },
+       "(ALL_NO_CLOSE)"
+      ]
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "ALL_NO_CLOSE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ALL_NO_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "EV_CLOSED",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "EV_COMANDO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "EV_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Ritardo1",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Ritardo2",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "LadderBody#2": {
+   "rungs": [
+    {
+     "cmt": "",
+     "chain": [
+      "ENABLE",
+      {
+       "f": "Get1sClk",
+       "p": {}
+      },
+      {
+       "or": [
+        {
+         "f": ">",
+         "p": {
+          "In1": "PV_Min",
+          "In2": "0"
+         }
+        },
+        {
+         "f": ">",
+         "p": {
+          "In1": "PV_Sec",
+          "In2": "0"
+         }
+        }
+       ]
+      },
+      {
+       "f": "@Dec",
+       "p": {
+        "InOut": "PV_Sec",
+        "OUT:InOut": "PV_Sec",
+        "OUT:": "dec1"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "ENABLE",
+      {
+       "f": "<",
+       "p": {
+        "In1": "PV_Sec",
+        "In2": "0"
+       }
+      }
+     ],
+     "out": [
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "59",
+        "OUT:Out": "PV_Sec"
+       }
+      },
+      [
+       {
+        "f": ">",
+        "p": {
+         "In1": "PV_Min",
+         "In2": "0"
+        }
+       },
+       {
+        "f": "@Dec",
+        "p": {
+         "InOut": "PV_Min",
+         "OUT:InOut": "PV_Min",
+         "OUT:": "dec2"
+        }
+       }
+      ]
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "ENABLE",
+      {
+       "f": "=",
+       "p": {
+        "In1": "PV_Min",
+        "In2": "0"
+       }
+      },
+      {
+       "f": "=",
+       "p": {
+        "In1": "PV_Sec",
+        "In2": "0"
+       }
+      },
+      "(End_Conteggio)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "/ENABLE",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "SET_Min",
+        "OUT:Out": "PV_Min"
+       }
+      },
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "SET_Sec",
+        "OUT:Out": "PV_Sec"
+       }
+      }
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "ENABLE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "End_Conteggio",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Min",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Sec",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Min",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Sec",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "dec1",
+     "type": "bool",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "dec2",
+     "type": "bool",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "LadderBody#3": {
+   "rungs": [
+    {
+     "cmt": "",
+     "chain": [
+      "ENABLE",
+      {
+       "f": "Get1sClk",
+       "p": {}
+      },
+      {
+       "f": "@Dec",
+       "p": {
+        "InOut": "VALUE",
+        "OUT:InOut": "VALUE"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "ENABLE",
+      {
+       "f": "<=",
+       "p": {
+        "In1": "VALUE",
+        "In2": "0"
+       }
+      },
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "0",
+        "OUT:Out": "VALUE"
+       }
+      },
+      "(End_Conteggio)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "/ENABLE",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "SET_VALUE",
+        "OUT:Out": "VALUE"
+       }
+      }
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "ENABLE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "End_Conteggio",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_VALUE",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "VALUE",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  }
+ }
+}

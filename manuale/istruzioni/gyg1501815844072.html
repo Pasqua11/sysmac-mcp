@@ -1,0 +1,454 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>Common Variables</title>
+</head>
+<body class="gyg1501815844072"><div class="layer02" id="gyg1501815844072">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Common Variables</h1>
+<div class="body conbody"><p class="p" id="gyg1501815844072__ID0E1UAE">The specifications of variables that are used for many instructions (EN, ENO, Execute, Done, Busy, Error, ErrorID, and ErrorIDEx) are described below.</p>
+<p class="p" id="gyg1501815844072__ID0E4UAE">These variables are not described in the tables of variables for individual instructions. Check the graphic or ST expression for the instruction to see if the instruction uses these variables.</p>
+</div>
+<div class="related-links"></div></div><div class="layer03" id="axm1501815844308">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">EN</h1>
+
+<div class="body conbody">
+<p class="p" id="axm1501815844308__ID0EHWAE"><span class="ph phtype_variable"><span class="termtype">EN</span></span> is an input variable that gives the execution condition for a FUN instruction.</p>
+
+<p class="p" id="axm1501815844308__ID0EKWAE">When you use a FUN instruction in a ladder diagram, connect the execution condition to <span class="ph phtype_variable"><span class="termtype">EN</span></span>.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="axm1501815844308__ID0E3WAE" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:13%" />
+<col style="width:9%" />
+<col style="width:27%" />
+<col style="width:14%" />
+<col style="width:15%" />
+<col style="width:8%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row" style="vertical-align:middle;">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d51702e59">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d51702e61">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d51702e64">I/O</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d51702e67">Description</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d51702e70">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d51702e74">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d51702e77">Default</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row" style="vertical-align:middle;">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d51702e59 ">EN</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d51702e61 ">
+<p class="p">Enable</p>
+
+<p class="p"> (Execution Condition)</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d51702e64 ">Input</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d51702e67 ">
+<p class="p" id="axm1501815844308__ID0EG2AE">TRUE: Instruction is executed. <a class="xref" href="gyg1501815844072.html#axm1501815844308__fn_lvz_n4n_pz"><i style="display:none;">☆</i><sup>*1</sup></a></p>
+
+<p class="p">FALSE: Instruction is not executed.</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d51702e70 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d51702e74 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d51702e77 ">TRUE</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="axm1501815844308__fn_lvz_n4n_pz" id="axm1501815844308__fn_lvz_n4n_pz"><sup>*1</sup></a>  If upward differentiation (@) is specified as an instruction option, the instruction is executed when the value of <span class="ph phtype_variable"><span class="termtype">EN</span></span> changes from FALSE to TRUE.</div></div></div>
+
+<p class="p linespace_7pt"></p>
+
+<ul class="ul" id="axm1501815844308__ul_3C9306223A1B4AAC866CD4B6F36DFD95">
+<li class="li" id="axm1501815844308__li_3BF05B6E4DCF47908320815790907C2C">
+<p class="p" id="axm1501815844308__ID0EB5AE">FB instructions do not have <span class="ph phtype_variable"><span class="termtype">EN</span></span> input variables.</p>
+
+</li>
+
+<li class="li" id="axm1501815844308__li_E6D1672033574907BF1847937409CB29">
+<p class="p" id="axm1501815844308__ID0EM5AE">When you call a FUN instruction from structured text, omit the <span class="ph phtype_variable"><span class="termtype">EN</span></span> input variable. The <span class="ph phtype_variable"><span class="termtype">EN</span></span> input variable is not required in structured text because the execution condition for the instruction is determined by the operation sequence.</p>
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="xwh1501815844546">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">ENO</h1>
+
+<div class="body conbody">
+<p class="p" id="xwh1501815844546__ID0EU6AE"><span class="ph phtype_variable"><span class="termtype">ENO</span></span> is an output variable which passes the result of instruction execution.</p>
+
+<p class="p">The output variable can be used to pass execution conditions to the next instruction in a ladder diagram.</p>
+
+<p class="p" id="xwh1501815844546__ID0EX6AE">Normally, when the instruction execution is completed, the value of <span class="ph phtype_variable"><span class="termtype">ENO</span></span> changes to TRUE. Execution of the next instruction is then started.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="xwh1501815844546__ID0EKAAG" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:13%" />
+<col style="width:9%" />
+<col style="width:27%" />
+<col style="width:14%" />
+<col style="width:15%" />
+<col style="width:8%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1139146e63">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1139146e65">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1139146e68">I/O</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1139146e71">Description</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1139146e74">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1139146e78">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1139146e81">Default</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1139146e63 ">ENO</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1139146e65 ">Enable Output</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1139146e68 ">Output</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1139146e71 ">
+<p class="p" id="xwh1501815844546__ID0ESEAG">TRUE: Normal end.<a class="xref" href="gyg1501815844072.html#xwh1501815844546__fn_m2f_hpn_pz"><i style="display:none;">☆</i><sup>*1</sup></a></p>
+
+<p class="p" id="xwh1501815844546__ID0EZEAG">FALSE: Error end, execution in progress, or execution condition not met.</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1139146e74 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1139146e78 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1139146e81 ">---</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="xwh1501815844546__fn_m2f_hpn_pz" id="xwh1501815844546__fn_m2f_hpn_pz"><sup>*1</sup></a>  The value is TRUE only while the execution condition is met. The value of <span class="ph phtype_variable"><span class="termtype">ENO</span></span> changes to FALSE when the execution condition is no longer met after a normal end.</div></div></div>
+
+<p class="p linespace_7pt"></p>
+
+<ul class="ul" id="xwh1501815844546__ul_C382903C8E8D454DB37E7A2782DAF25D">
+<li class="li" id="xwh1501815844546__li_12DE3A73BCB64544B2E2865216A15F6D">
+<p class="p" id="xwh1501815844546__ID0EUHAG">Most FUN instructions and FB instructions have <span class="ph phtype_variable"><span class="termtype">ENO</span></span> output variables. There are, however, some instructions that do not have an <span class="ph phtype_variable"><span class="termtype">ENO</span></span> output variable.</p>
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="jrv1501815844790">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Execute, Done, and Busy</h1>
+ 
+<div class="body conbody">
+<p class="p" id="jrv1501815844790__ID0EHJAG"><span class="ph phtype_variable"><span class="termtype">Execute</span></span> is an input variable that gives the execution condition for some FB instructions.</p>
+
+<p class="p" id="jrv1501815844790__ID0EKJAG">Instruction execution starts when <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to TRUE. After <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to TRUE, execution of this instruction is continued until the processing is completed even if the value changes to FALSE or the instruction execution time exceeds the task period.</p>
+
+<p class="p linespace_7pt" id="jrv1501815844790__ID0EXJAG"><span class="ph phtype_variable"><span class="termtype">Done</span></span> is an output variable that shows the completion of execution for some FB instructions.</p>
+
+<p class="p" id="jrv1501815844790__ID0E5JAG"><span class="ph phtype_variable"><span class="termtype">Busy</span></span> is an output variable that shows that instruction execution is in progress for some FB instructions.</p>
+
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="jrv1501815844790__ID0EQKAG" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:13%" />
+<col style="width:9%" />
+<col style="width:27%" />
+<col style="width:14%" />
+<col style="width:15%" />
+<col style="width:8%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d512455e93">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d512455e95">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d512455e98">I/O</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d512455e101">Description</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d512455e104">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d512455e108">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d512455e111">Default</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d512455e93 ">Execute</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d512455e95 ">Execute</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d512455e98 ">Input</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d512455e101 ">
+<p class="p" id="jrv1501815844790__ID0EYOAG">TRUE: Instruction is executed. <a class="xref" href="gyg1501815844072.html#jrv1501815844790__fn_eqg_bqn_pz"><i style="display:none;">☆</i><sup>*1</sup></a></p>
+
+<p class="p" id="jrv1501815844790__ID0E6OAG">FALSE: Instruction is not executed. <a class="xref" href="gyg1501815844072.html#jrv1501815844790__fn_e1l_bqn_pz"><i style="display:none;">☆</i><sup>*2</sup></a></p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d512455e104 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d512455e108 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d512455e111 ">FALSE</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d512455e93 ">Done</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d512455e95 ">Done</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d512455e98 ">Output</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d512455e101 ">
+<p class="p" id="jrv1501815844790__ID0EWRAG">TRUE: Normal end.<a class="xref" href="gyg1501815844072.html#jrv1501815844790__fn_eb2_cqn_pz"><i style="display:none;">☆</i><sup>*3</sup></a> <a class="xref" href="gyg1501815844072.html#jrv1501815844790__fn_jf4_dqn_pz"><i style="display:none;">☆</i><sup>*4</sup></a></p>
+
+<p class="p" id="jrv1501815844790__ID0E4RAG">FALSE: Error end, execution in progress, or execution condition not met.</p>
+
+</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d512455e104 ">BOOL</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d512455e108 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d512455e111 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d512455e93 ">Busy</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d512455e95 ">Busy</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d512455e101 ">
+<p class="p" id="jrv1501815844790__ID0EIUAG">TRUE: Execution processing is in progress.</p>
+
+<p class="p">FALSE: Execution processing is not in progress.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="jrv1501815844790__fn_eqg_bqn_pz" id="jrv1501815844790__fn_eqg_bqn_pz"><sup>*1</sup></a>  If the value of <span class="ph phtype_variable"><span class="termtype">Execute</span></span> is already TRUE when Controller operation starts, the instruction is not executed. To execute the instruction, change the value of <span class="ph phtype_variable"><span class="termtype">Execute</span></span> to FALSE.</div>
+<div class="fn"><a name="jrv1501815844790__fn_e1l_bqn_pz" id="jrv1501815844790__fn_e1l_bqn_pz"><sup>*2</sup></a>  Processing is continued to the end even if the value changes to FALSE during execution.</div>
+<div class="fn"><a name="jrv1501815844790__fn_eb2_cqn_pz" id="jrv1501815844790__fn_eb2_cqn_pz"><sup>*3</sup></a>  The value of <span class="ph phtype_variable"><span class="termtype">Done</span></span> changes to FALSE when the execution condition is no longer met after a normal end.</div>
+<div class="fn"><a name="jrv1501815844790__fn_jf4_dqn_pz" id="jrv1501815844790__fn_jf4_dqn_pz"><sup>*4</sup></a>  If the execution condition is no longer met when a normal end occurs, the value of <span class="ph phtype_variable"><span class="termtype">Done</span></span> is TRUE for one task period, and it then changes to FALSE.</div></div></div>
+
+</div>
+ 
+<div class="related-links"></div></div><div class="layer04" id="ueu1501815846039">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Instructions Completed in One Task Period</h1>
+
+<div class="body conbody">
+<p class="p" id="ueu1501815846039__ID0EUWAG">Below is a timing chart for an instruction that has <span class="ph phtype_variable"><span class="termtype">EN</span></span> and <span class="ph phtype_variable"><span class="termtype">ENO</span></span> variables (i.e., an instruction to be completed in one task period).</p>
+
+<br /><img class="image" src="jzk1501815845028.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="mct1501815847429">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Instructions Processed over More Than One Task Period</h1>
+
+<div class="body conbody">
+<p class="p" id="mct1501815847429__ID0EUWAG">Below is a timing chart for an instruction that has <span class="ph phtype_variable"><span class="termtype">Execute</span></span> and <span class="ph phtype_variable"><span class="termtype">Busy</span></span> variables (i.e., an instruction to be processed over more than one task period).</p>
+
+<br /><img class="image" src="yxi1501815846270.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="rxa1501815847669">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Error, ErrorID, and ErrorIDEx</h1>
+
+<div class="body conbody">
+<p class="p" id="rxa1501815847669__ID0EE1AG"><span class="ph phtype_variable"><span class="termtype">Error</span></span>, <span class="ph phtype_variable"><span class="termtype">ErrorID</span></span>, and <span class="ph phtype_variable"><span class="termtype">ErrorIDEx</span></span> are output variables used by some FB instructions, and indicate error end of the instructions.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="rxa1501815847669__ID0ES1AG" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:13%" />
+<col style="width:9%" />
+<col style="width:27%" />
+<col style="width:14%" />
+<col style="width:15%" />
+<col style="width:8%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d871530e66">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d871530e68">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d871530e71">I/O</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d871530e74">Description</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d871530e77">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d871530e81">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d871530e84">Default</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d871530e66 ">Error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d871530e68 ">Error</td>
+
+<td class="entry cellrowborder" rowspan="3" style="text-align:left;vertical-align:middle;" headers="d871530e71 ">Output</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d871530e74 ">
+<p class="p" id="rxa1501815847669__ID0E15AG">TRUE: Error end.<a class="xref" href="gyg1501815844072.html#rxa1501815847669__fn_ijy_krn_pz"><i style="display:none;">☆</i><sup>*1</sup></a> <a class="xref" href="gyg1501815844072.html#rxa1501815847669__fn_wgp_mrn_pz"><i style="display:none;">☆</i><sup>*2</sup></a></p>
+
+<p class="p" id="rxa1501815847669__ID0EB6AG">FALSE: Normal end, execution in progress, or execution condition not met.</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d871530e77 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d871530e81 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" rowspan="3" style="text-align:left;vertical-align:middle;" headers="d871530e84 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d871530e66 ">ErrorID</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d871530e68 ">Error code</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d871530e74 ">
+<p class="p" id="rxa1501815847669__ID0EMBBG">This is the error ID for an error end.</p>
+
+<p class="p">The value is WORD#16#0 for a normal end.</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d871530e77 ">WORD</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d871530e81 ">Depends on the instruction.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d871530e66 ">ErrorIDEx</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d871530e68 ">Expansion error code</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d871530e74 ">
+<p class="p" id="rxa1501815847669__ID0ENDBG">This is the error ID for an Expansion Unit Hardware Error.</p>
+
+<p class="p">The value is DWORD#16#0 for a normal end.</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d871530e77 ">DWORD</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="rxa1501815847669__fn_ijy_krn_pz" id="rxa1501815847669__fn_ijy_krn_pz"><sup>*1</sup></a>  The value of <span class="ph phtype_variable"><span class="termtype">Error</span></span> changes to FALSE when the execution condition is no longer met after the error end.</div>
+<div class="fn"><a name="rxa1501815847669__fn_wgp_mrn_pz" id="rxa1501815847669__fn_wgp_mrn_pz"><sup>*2</sup></a>  If the execution condition is no longer met when an error end occurs, the value of <span class="ph phtype_variable"><span class="termtype">Error</span></span> is TRUE for one task period and it then changes to FALSE.</div></div></div>
+
+<p class="p linespace_7pt">Refer to <a class="xref" href="hlz1501817661642.html"><i style="display:none;">☆</i>Error Codes That You Can Check with ErrorID</a> for a list of error codes, which can be identified with <span class="ph phtype_variable"><span class="termtype">ErrorID</span></span>.</p>
+
+        
+<p class="p">Refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series Troubleshooting Manual (Cat. No. W503)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Troubleshooting Manual (Cat. No. W564)</span></span></span> for the meanings of the error codes.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="fvl1501815848816">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Normal End</h1>
+
+<div class="body conbody">
+<p class="p" id="fvl1501815848816__ID0EPFBG">Below is a timing chart for <span class="ph phtype_variable"><span class="termtype">Execute</span></span>, <span class="ph phtype_variable"><span class="termtype">Done</span></span>, <span class="ph phtype_variable"><span class="termtype">Busy</span></span>, <span class="ph phtype_variable"><span class="termtype">Error</span></span>, <span class="ph phtype_variable"><span class="termtype">ErrorID</span></span>, and <span class="ph phtype_variable"><span class="termtype">ErrorIDEx</span></span>.</p>
+
+<br /><img class="image" src="csw1501815847900.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="unf1501815850244">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Error End</h1>
+
+<div class="body conbody">
+<p class="p" id="unf1501815850244__ID0EPFBG">Below is a timing chart for <span class="ph phtype_variable"><span class="termtype">Execute</span></span>, <span class="ph phtype_variable"><span class="termtype">Done</span></span>, <span class="ph phtype_variable"><span class="termtype">Busy</span></span>, <span class="ph phtype_variable"><span class="termtype">Error</span></span>, <span class="ph phtype_variable"><span class="termtype">ErrorID</span></span>, and <span class="ph phtype_variable"><span class="termtype">ErrorIDEx</span></span>.</p>
+
+<br /><img class="image" src="war1501815849056.gif" /><br />
+</div>
+
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+
+
+
+
+
+

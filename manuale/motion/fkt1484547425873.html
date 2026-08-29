@@ -1,0 +1,2695 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>MC_MoveFeed</title>
+</head>
+<body class="fkt1484547425873"><div class="layer02" id="fkt1484547425873">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">MC_MoveFeed</h1>
+
+<div class="body conbody">
+<p class="p" id="fkt1484547425873__ID0EQ4KO">The MC_MoveFeed instruction performs <span class="indexterm">Positioning</span>positioning for the specified travel distance from the position where an external device triggers an interrupt input.</p>
+
+<p class="p" id="fkt1484547425873__ID0ET4KO">Interrupt feeding is possible for absolute positioning, relative positioning, and velocity control.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="fkt1484547425873__ID0EC5KO" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:25%" />
+<col style="width:18%" />
+<col style="width:8%" />
+<col style="width:6.2cm" />
+<col style="width:46%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d39362e43">Instruction</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d39362e46">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d39362e49">FB/ FUN</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d39362e52">Graphic expression</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d39362e55">ST expression</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39362e43 "><span class="indexterm">MC_MoveFeed (Interrupt Feeding)</span>MC_MoveFeed</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39362e46 "><span class="indexterm">Interrupt Feeding</span>Interrupt Feeding</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d39362e49 ">FB</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39362e52 ">
+<br /><img class="image" id="fkt1484547425873__image_3DA7BF5EB3F14E9DA54DDE9DC7FB798B" src="bre1484547424890.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39362e55 ">
+<p class="p" id="fkt1484547425873__ID0EHCLO">MC_MoveFeed_instance (</p>
+
+<p class="p">Axis :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">TriggerInput :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">TriggerVariable :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Execute :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">WindowOnly :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">FirstPosition :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">LastPosition :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">ReferenceType :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Position :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Velocity :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Acceleration :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Deceleration :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Jerk :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Direction :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">MoveMode :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">FeedDistance :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">FeedVelocity :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">BufferMode :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">ErrorDetect :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Done =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">InFeed =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Busy =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Active =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">CommandAborted =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Error =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">ErrorID =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span></p>
+
+<p class="p">);</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="tna1484547261564">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Variables</h1>
+
+<div class="body conbody"></div>
+
+<div class="related-links"></div></div><div class="layer04" id="fzz1484547426170">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Input Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="fzz1484547426170__ID0EJGLO" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:13%" />
+<col style="width:11%" />
+<col style="width:15%" />
+<col style="width:24%" />
+<col style="width:7%" />
+<col style="width:28%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d44632e126">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d44632e129">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d44632e132">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d44632e135">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d44632e138">Default</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d44632e142">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e126 ">Execute</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e129 ">Execute</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e132 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d44632e135 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d44632e138 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e142 ">
+<p class="p" id="fzz1484547426170__ID0E5KLO">The instruction is executed when the value of this variable changes to TRUE.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e126 ">WindowOnly</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e129 ">Window Only</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e132 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d44632e135 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d44632e138 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e142 ">
+<p class="p" id="fzz1484547426170__ID0ELNLO">Specify whether to enable or disable the window.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e126 ">FirstPosition</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e129 ">First Position</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e132 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d44632e135 ">Negative number, positive number, or 0</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d44632e138 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e142 ">
+<p class="p" id="fzz1484547426170__ID0EWPLO">Specify the position where latching is enabled.</p>
+
+<p class="p" id="fzz1484547426170__ID0E4PLO">The unit is command units. <a class="xref" href="#fzz1484547426170__ID0EJGLO-footnote-2079549"><sup>*1</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e126 ">LastPosition</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e129 ">Last Position</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e132 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d44632e135 ">Negative number, positive number, or 0</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d44632e138 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e142 ">
+<p class="p" id="fzz1484547426170__ID0ELSLO">Specify the position where latching is disabled.</p>
+
+<p class="p" id="fzz1484547426170__ID0ESSLO">The unit is command units. <a class="xref" href="#fzz1484547426170__ID0EJGLO-footnote-2079549"><sup>*1</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e126 ">ReferenceType</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e129 ">Position Type Selection</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e132 ">_eMC_REFERENCE_TYPE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e135 ">
+<p class="p" id="fzz1484547426170__ID0ENULO">1: _mcFeedback</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d44632e138 ">1<a class="xref" href="#fzz1484547426170__ID0EJGLO-footnote-2080037"><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e142 ">
+<p class="p" id="fzz1484547426170__ID0EIVLO">Specify the position type.</p>
+
+<p class="p" id="fzz1484547426170__ID0EPVLO">1: Actual position (value obtained in the same task period<a class="xref" href="#fzz1484547426170__ID0EJGLO-footnote-2080165"><sup>*3</sup></a>)</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e126 ">Position</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e129 ">Target Position</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e132 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d44632e135 ">Negative number, positive number, or 0</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d44632e138 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e142 ">
+<p class="p" id="fzz1484547426170__ID0E5XLO">If <span class="ph phtype_variable"><span class="termtype">MoveMode</span></span> is set to <span class="ph phtype_choice"><span class="termtype">0: Absolute positioning</span></span>, specify the absolute target positions on the absolute coordinate.</p>
+
+<p class="p">If <span class="ph phtype_variable"><span class="termtype">MoveMode</span></span> is set to <span class="ph phtype_choice"><span class="termtype">1: Relative positioning</span></span>, specify the travel distance.</p>
+
+<p class="p" id="fzz1484547426170__ID0EFYLO">If <span class="ph phtype_variable"><span class="termtype">MoveMode</span></span> is set to <span class="ph phtype_choice"><span class="termtype">2: Velocity control</span></span>, specification is not necessary.</p>
+
+<p class="p" id="fzz1484547426170__ID0EMYLO">The unit is command units. <a class="xref" href="#fzz1484547426170__ID0EJGLO-footnote-2079549"><sup>*1</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e126 ">Velocity</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e129 ">Target Velocity</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e132 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d44632e135 ">Positive number<a class="xref" href="#fzz1484547426170__ID0EJGLO-footnote-2079551"><sup>*4</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d44632e138 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e142 ">
+<p class="p" id="fzz1484547426170__ID0E11LO">Specify the target velocity.</p>
+
+<p class="p" id="fzz1484547426170__ID0EB2LO">The unit is command units/s. <a class="xref" href="#fzz1484547426170__ID0EJGLO-footnote-2079549"><sup>*1</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e126 ">Acceleration</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e129 ">Acceleration Rate</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e132 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d44632e135 ">Non-negative number</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d44632e138 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e142 ">
+<p class="p" id="fzz1484547426170__ID0EM4LO">Specify the acceleration rate.</p>
+
+<p class="p" id="fzz1484547426170__ID0ET4LO">The unit is command units/s<sup class="ph sup">2</sup>. <a class="xref" href="#fzz1484547426170__ID0EJGLO-footnote-2079549"><sup>*1</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e126 ">Deceleration</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e129 ">Deceleration Rate</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e132 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d44632e135 ">Non-negative number</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d44632e138 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e142 ">
+<p class="p" id="fzz1484547426170__ID0E56LO">Specify the deceleration rate.</p>
+
+<p class="p" id="fzz1484547426170__ID0EFAMO">The unit is command units/s<sup class="ph sup">2</sup>. <a class="xref" href="#fzz1484547426170__ID0EJGLO-footnote-2079549"><sup>*1</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e126 ">Jerk</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e129 ">Jerk</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e132 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d44632e135 ">Non-negative number</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d44632e138 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e142 ">
+<p class="p" id="fzz1484547426170__ID0EQCMO">Specify the jerk.</p>
+
+<p class="p" id="fzz1484547426170__ID0EXCMO">The unit is command units/s<sup class="ph sup">3</sup>. <a class="xref" href="#fzz1484547426170__ID0EJGLO-footnote-2079549"><sup>*1</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e126 ">Direction</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e129 ">Direction</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e132 ">_eMC_DIRECTION</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e135 ">
+<p class="p" id="fzz1484547426170__ID0EMEMO">0: _mcPositiveDirection</p>
+
+<p class="p" id="fzz1484547426170__ID0ETEMO">1: _mcShortestWay</p>
+
+<p class="p" id="fzz1484547426170__ID0E1EMO">2: _mcNegativeDirection</p>
+
+<p class="p" id="fzz1484547426170__ID0EBFMO">3: _mcCurrentDirection</p>
+
+<p class="p" id="fzz1484547426170__ID0EIFMO">4: _mcNoDirection</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d44632e138 ">0<a class="xref" href="#fzz1484547426170__ID0EJGLO-footnote-2080037"><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e142 ">
+<p class="p" id="fzz1484547426170__ID0EAGMO">Specify the direction of rotation when <span class="ph phtype_variable"><span class="termtype">MoveMode</span></span> is set to <span class="ph phtype_choice"><span class="termtype">0: Absolute positioning</span></span><a class="xref" href="#fzz1484547426170__ID0EJGLO-footnote-2079931"><sup>*5</sup></a> and when the Count Mode is <span class="ph phtype_choice"><span class="termtype">Rotary Mode</span></span>.</p>
+
+<p class="p" id="fzz1484547426170__ID0ELGMO">0: Positive direction</p>
+
+<p class="p" id="fzz1484547426170__ID0ESGMO">1: Shortest way</p>
+
+<p class="p" id="fzz1484547426170__ID0EZGMO">2: Negative direction</p>
+
+<p class="p" id="fzz1484547426170__ID0EAHMO">3: Current direction</p>
+
+<p class="p" id="fzz1484547426170__ID0EHHMO">4: No direction specified</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e126 ">MoveMode</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e129 ">Travel Mode</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e132 ">_eMC_MOVE_MODE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e135 ">
+<p class="p" id="fzz1484547426170__ID0E5IMO">0: _mcAbsolute</p>
+
+<p class="p" id="fzz1484547426170__ID0EFJMO">1: _mcRelative</p>
+
+<p class="p" id="fzz1484547426170__ID0EMJMO">2: _mcVelocity</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d44632e138 ">0<a class="xref" href="#fzz1484547426170__ID0EJGLO-footnote-2080037"><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e142 ">
+<p class="p" id="fzz1484547426170__ID0EEKMO">Select the travel method.</p>
+
+<p class="p" id="fzz1484547426170__ID0ELKMO">0: Absolute positioning</p>
+
+<p class="p" id="fzz1484547426170__ID0ESKMO">1: Relative positioning</p>
+
+<p class="p" id="fzz1484547426170__ID0EZKMO">2:Velocity control</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e126 ">FeedDistance</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e129 ">Feed Distance</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e132 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d44632e135 ">Negative number, positive number, or 0</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d44632e138 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e142 ">
+<p class="p" id="fzz1484547426170__ID0EENMO">Specify the travel distance after the interrupt feed input.</p>
+
+<p class="p" id="fzz1484547426170__ID0ELNMO">Specify a positive value to feed in the same direction as the axis was moving before the interrupt input and specify a negative value to feed in the opposite direction.</p>
+
+<p class="p" id="fzz1484547426170__ID0ESNMO">The unit is command units. <a class="xref" href="#fzz1484547426170__ID0EJGLO-footnote-2079549"><sup>*1</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e126 ">FeedVelocity</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e129 ">Feed Velocity</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e132 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d44632e135 ">Positive number</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d44632e138 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e142 ">
+<p class="p" id="fzz1484547426170__ID0E4PMO">Specify the target travel velocity after the interrupt feed input.</p>
+
+<p class="p" id="fzz1484547426170__ID0EEQMO">The unit is command units/s. <a class="xref" href="#fzz1484547426170__ID0EJGLO-footnote-2079549"><sup>*1</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e126 ">BufferMode</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e129 ">Buffer Mode Selection</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e132 ">_eMC_BUFFER_MODE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e135 ">
+<p class="p" id="fzz1484547426170__ID0E4RMO">0: _mcAborting</p>
+
+<p class="p" id="fzz1484547426170__ID0EESMO">1: _mcBuffered</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d44632e138 ">0<a class="xref" href="#fzz1484547426170__ID0EJGLO-footnote-2080037"><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e142 ">
+<p class="p" id="fzz1484547426170__ID0E3SMO">Specify the behavior when executing more than one motion instruction.</p>
+
+<p class="p" id="fzz1484547426170__ID0EDTMO">0: Aborting</p>
+
+<p class="p" id="fzz1484547426170__ID0EKTMO">1: Buffered</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e126 ">ErrorDetect</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e129 ">Error Detection Selection</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e132 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d44632e135 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d44632e138 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d44632e142 ">
+<p class="p" id="fzz1484547426170__ID0EXVMO">Specify whether to detect an error when there is no interrupt feed input.</p>
+
+<p class="p" id="fzz1484547426170__ID0E5VMO">TRUE: Detect errors.</p>
+
+<p class="p" id="fzz1484547426170__ID0EFWMO">FALSE: Do not detect errors.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="fzz1484547426170__ID0EJGLO-footnote-2079549" id="fzz1484547426170__ID0EJGLO-footnote-2079549"><sup>*1</sup></a>
+                        
+<p class="p">Refer to <span class="ph phtype_type2"><span class="termtype">Unit Conversion Settings</span></span> in the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Motion Control User&#8217;s Manual (Cat. No. W507)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Industrial Panel PC / Industrial Box PC Motion Control User&#8217;s Manual (Cat. No. W559)</span></span></span> for information on command units.</p>
+
+</div>
+<div class="fn"><a name="fzz1484547426170__ID0EJGLO-footnote-2080037" id="fzz1484547426170__ID0EJGLO-footnote-2080037"><sup>*2</sup></a>  The default value for an enumeration variable is actually not the number, but the enumerator.</div>
+<div class="fn"><a name="fzz1484547426170__ID0EJGLO-footnote-2080165" id="fzz1484547426170__ID0EJGLO-footnote-2080165"><sup>*3</sup></a>  <p class="p">The task period is the primary period if the task is the primary periodic task and the task period of the priority-5 periodic task if the task is the priority-5 periodic task.</p>
+
+</div>
+<div class="fn"><a name="fzz1484547426170__ID0EJGLO-footnote-2079551" id="fzz1484547426170__ID0EJGLO-footnote-2079551"><sup>*4</sup></a>  A value of <span class="ph phtype_settingvalue"><span class="termtype">0</span></span> can be set if <span class="ph phtype_variable"><span class="termtype">MoveMode</span></span> is set to <span class="ph phtype_choice"><span class="termtype">2: Velocity control</span></span>.</div>
+<div class="fn"><a name="fzz1484547426170__ID0EJGLO-footnote-2079931" id="fzz1484547426170__ID0EJGLO-footnote-2079931"><sup>*5</sup></a>
+<p class="p" id="fzz1484547426170__ID0ENFLT">The axis moves to the specified position when <span class="ph phtype_variable"><span class="termtype">MoveMode</span></span> is set to <span class="ph phtype_choice"><span class="termtype">0: Absolute positioning</span></span> and when the Count Mode is <span class="ph phtype_choice"><span class="termtype">Linear Mode</span></span>.</p>
+
+<p class="p">When <span class="ph phtype_variable"><span class="termtype">MoveMode</span></span> is set to <span class="ph phtype_choice"><span class="termtype">1: Relative positioning</span></span>, the travel direction is determined by the sign of the position.</p>
+
+<p class="p"><span class="ph phtype_choice"><span class="termtype">1: Shortest way </span></span> and <span class="ph phtype_choice"><span class="termtype">4: No direction specified </span></span> cannot be selected when <span class="ph phtype_variable"><span class="termtype">MoveMode</span></span> is set to <span class="ph phtype_choice"><span class="termtype">2: Velocity control</span></span>, regardless of the Counter Mode.</p>
+
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="qxc1484547426388">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Output Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="qxc1484547426388__ID0EXXMO" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:17%" />
+<col style="width:14%" />
+<col style="width:9%" />
+<col style="width:10%" />
+<col style="width:47%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d143082e50">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d143082e53">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d143082e56">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d143082e59">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d143082e62">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d143082e50 ">Done</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d143082e53 ">Done</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d143082e56 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d143082e59 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d143082e62 ">
+<p class="p" id="qxc1484547426388__ID0EU2MO">TRUE when the instruction is completed.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d143082e50 ">InFeed</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d143082e53 ">Feeding</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d143082e56 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d143082e59 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d143082e62 ">
+<p class="p" id="qxc1484547426388__ID0ET4MO">TRUE while feeding after receiving a latch input.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d143082e50 ">Busy</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d143082e53 ">Executing</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d143082e56 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d143082e59 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d143082e62 ">
+<p class="p" id="qxc1484547426388__ID0ES6MO">TRUE when the instruction is acknowledged.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d143082e50 ">Active</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d143082e53 ">Controlling</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d143082e56 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d143082e59 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d143082e62 ">
+<p class="p" id="qxc1484547426388__ID0ERBNO">TRUE when the axis is being controlled.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d143082e50 ">CommandAborted</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d143082e53 ">Command Aborted</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d143082e56 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d143082e59 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d143082e62 ">
+<p class="p" id="qxc1484547426388__ID0EQDNO">TRUE when the instruction is aborted.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d143082e50 ">Error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d143082e53 ">Error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d143082e56 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d143082e59 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d143082e62 ">
+<p class="p" id="qxc1484547426388__ID0EPFNO">TRUE while there is an error.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d143082e50 ">ErrorID</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d143082e53 ">Error Code</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d143082e56 ">WORD</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d143082e59 "><a class="xref" href="#qxc1484547426388__ID0EXXMO-footnote-2079559"><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d143082e62 ">
+<p class="p" id="qxc1484547426388__ID0EQHNO">Contains the error code when an error occurs.</p>
+
+<p class="p">A value of 16#0000 indicates normal execution.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="qxc1484547426388__ID0EXXMO-footnote-2079559" id="qxc1484547426388__ID0EXXMO-footnote-2079559"><sup>*1</sup></a>
+<p class="p">The upper four digits of the event code give the error code for ErrorID. Refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series Troubleshooting Manual (Cat. No. W503)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Troubleshooting Manual (Cat. No. W564)</span></span></span> for the event codes.</p>
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="bgz1484547426622">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Output Variable Update Timing</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="bgz1484547426622__ID0EOINO" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:18%" />
+<col style="width:41%" />
+<col style="width:40%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d8942e43">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d8942e46">Timing for changing to TRUE</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d8942e49">Timing for changing to FALSE</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d8942e43 ">Done</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d8942e46 ">
+<p class="p">When the instruction is completed.</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d8942e49 ">
+<ul class="ul" id="bgz1484547426622__ul_413AD950F2714A5CB21C713835219B83">
+<li class="li" id="bgz1484547426622__li_62C519F504C341EBA68B937A0DEA7BAA">
+<p class="p" id="bgz1484547426622__ID0EHLNO">When <span class="ph phtype_variable"><span class="termtype">Execute</span></span> is TRUE and changes to FALSE.<span class="ph phtype_variable"><span class="termtype"></span></span></p>
+ 
+</li>
+
+<li class="li" id="bgz1484547426622__li_472C0EE0F0BB4CFAB24176E810E9F1FA">
+<p class="p" id="bgz1484547426622__ID0ESLNO">After one period when <span class="ph phtype_variable"><span class="termtype">Execute</span></span> is FALSE.</p>
+ 
+</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d8942e43 ">Busy</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d8942e46 ">
+<p class="p" id="bgz1484547426622__ID0ELMNO">When <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to TRUE.</p>
+ 
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d8942e49 ">
+<ul class="ul" id="bgz1484547426622__ul_407298861BD4422E9792ECFF4A512BBC">
+<li class="li" id="bgz1484547426622__li_8D91EFB960654438BED9A49FE6CAE770">
+<p class="p" id="bgz1484547426622__ID0EDNNO">When <span class="ph phtype_variable"><span class="termtype">Done</span></span> changes to TRUE.</p>
+ 
+</li>
+
+<li class="li" id="bgz1484547426622__li_A24C1FE9D88E4FD7A86FD8089DBA11CB">
+<p class="p" id="bgz1484547426622__ID0EONNO">When <span class="ph phtype_variable"><span class="termtype">Error</span></span> changes to TRUE.</p>
+ 
+</li>
+
+<li class="li" id="bgz1484547426622__li_B460C6B6C40E4051B92D97EBCD8A88F7">
+<p class="p" id="bgz1484547426622__ID0EZNNO">When <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> changes to TRUE.</p>
+ 
+</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d8942e43 ">Active</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d8942e46 ">
+<p class="p" id="bgz1484547426622__ID0ESONO">When the instruction is started.</p>
+ 
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d8942e49 ">
+<ul class="ul" id="bgz1484547426622__ul_E491C341A8C64BF78DDD989C261CD70F">
+<li class="li" id="bgz1484547426622__li_4F1B34FF8B40462CBA0741F94ED0BE4B">
+<p class="p" id="bgz1484547426622__ID0EKPNO">When <span class="ph phtype_variable"><span class="termtype">Done</span></span> changes to TRUE.</p>
+ 
+</li>
+
+<li class="li" id="bgz1484547426622__li_F654DC98DC8B40BBAE05DAD60D3E8D5D">
+<p class="p" id="bgz1484547426622__ID0EVPNO">When <span class="ph phtype_variable"><span class="termtype">Error</span></span> changes to TRUE.</p>
+ 
+</li>
+
+<li class="li" id="bgz1484547426622__li_9F60757E98DD45929FCA6D8677645A27">
+<p class="p" id="bgz1484547426622__ID0EAQNO">When <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> changes to TRUE.</p>
+ 
+</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d8942e43 ">InFeed</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d8942e46 ">
+<p class="p" id="bgz1484547426622__ID0EZQNO">When feeding is started by the interrupt input. <a class="xref" href="#bgz1484547426622__ID0EOINO-footnote-2079995"><sup>*1</sup></a></p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d8942e49 ">
+<ul class="ul" id="bgz1484547426622__ul_91DEFB3E196C4AF6988874F010D3E57A">
+<li class="li" id="bgz1484547426622__li_48D2491074E94326AD12C4AD07D50297">
+<p class="p" id="bgz1484547426622__ID0EURNO">When <span class="ph phtype_variable"><span class="termtype">Done</span></span> changes to TRUE.</p>
+ 
+</li>
+
+<li class="li" id="bgz1484547426622__li_8BD6B69D27204EC28D53C2454C858016">
+<p class="p" id="bgz1484547426622__ID0E6RNO">When <span class="ph phtype_variable"><span class="termtype">Error</span></span> changes to TRUE.</p>
+ 
+</li>
+
+<li class="li" id="bgz1484547426622__li_268F179DCB7641A684868922076CDDFC">
+<p class="p" id="bgz1484547426622__ID0EKSNO">When <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> changes to TRUE.</p>
+ 
+</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d8942e43 ">CommandAborted</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d8942e46 ">
+<ul class="ul" id="bgz1484547426622__ul_79DCD8BCB79A4B9D9DFA8043EACD1989">
+<li class="li" id="bgz1484547426622__li_97BDE47156574BC88D113EC1470363EE">
+<p class="p" id="bgz1484547426622__ID0EPTNO">When this instruction is aborted because another motion control instruction was executed with the Buffer Mode set to <span class="ph phtype_choice"><span class="termtype">Aborting</span></span>.</p>
+ 
+</li>
+
+<li class="li" id="bgz1484547426622__li_6C5B911DC901494FABECEB0933E5834A">
+<p class="p" id="bgz1484547426622__ID0E1TNO">When this instruction is canceled due to an error.</p>
+ 
+</li>
+
+<li class="li" id="bgz1484547426622__li_45EEB463D88C49AEB5DFE7FDE21565FA">
+<p class="p" id="bgz1484547426622__ID0EFUNO">When this instruction is executed while there is an error.</p>
+ 
+</li>
+
+<li class="li" id="bgz1484547426622__li_D4D47B497A8042A4A9291AEB624ABDAB">
+<p class="p" id="bgz1484547426622__ID0EQUNO">When you start this instruction during MC_Stop instruction execution.</p>
+ 
+</li>
+
+</ul>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d8942e49 ">
+<ul class="ul" id="bgz1484547426622__ul_5A20C558CED14BD5BC0270724AAA3A39">
+<li class="li" id="bgz1484547426622__li_6292263E561F4B3292EAF5E640BC6720">
+<p class="p" id="bgz1484547426622__ID0EGVNO">When <span class="ph phtype_variable"><span class="termtype">Execute</span></span> is TRUE and changes to FALSE.<span class="ph phtype_variable"><span class="termtype"></span></span></p>
+ 
+</li>
+
+<li class="li" id="bgz1484547426622__li_2DA67077404F420D98239DED955F339B">
+<p class="p" id="bgz1484547426622__ID0ERVNO">After one period when <span class="ph phtype_variable"><span class="termtype">Execute</span></span> is FALSE.</p>
+ 
+</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d8942e43 ">Error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d8942e46 ">
+<p class="p" id="bgz1484547426622__ID0EKWNO">When there is an error in the execution conditions or input parameters for the instruction.</p>
+ 
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d8942e49 ">
+<p class="p" id="bgz1484547426622__ID0EWWNO">When the error is cleared.</p>
+ 
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="bgz1484547426622__ID0EOINO-footnote-2079995" id="bgz1484547426622__ID0EOINO-footnote-2079995"><sup>*1</sup></a>  <p class="p" id="bgz1484547426622__ID0E6GLT">There may be a delay of up to several task periods from when the interrupt input turns ON until <span class="ph phtype_variable"><span class="termtype">InFeed</span></span> changes to TRUE.</p>
+
+<p class="p">The task period is the primary period if the task is the primary periodic task and the task period of the priority-5 periodic task if the task is the priority-5 periodic task.</p>
+
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="bms1484547426841">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">In-Out Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="bms1484547426841__ID0EIYNO" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:18%" />
+<col style="width:16%" />
+<col style="width:13%" />
+<col style="width:9%" />
+<col style="width:41%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d9918e54">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d9918e57">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d9918e60">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d9918e63">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d9918e66">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d9918e54 ">Axis</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d9918e57 ">Axis</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d9918e60 ">_sAXIS_REF</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d9918e63 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d9918e66 ">
+<p class="p" id="bms1484547426841__ID0EF3NO">Specify the axis. <a class="xref" href="#bms1484547426841__ID0EIYNO-footnote-2079954"><sup>*1</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d9918e54 ">TriggerInput</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d9918e57 ">Trigger Input Condition</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d9918e60 ">_sTRIGGER_REF</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d9918e63 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d9918e66 ">
+<p class="p" id="bms1484547426841__ID0EH5NO">Set the trigger condition. <a class="xref" href="#bms1484547426841__ID0EIYNO-footnote-2079955"><sup>*2</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d9918e54 ">TriggerVariable</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d9918e57 ">Trigger Variable</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d9918e60 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d9918e63 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d9918e66 ">
+<p class="p" id="bms1484547426841__ID0EJAOO">Specify a trigger input variable when the Controller Mode is specified for the trigger mode.</p>
+ 
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="bms1484547426841__ID0EIYNO-footnote-2079954" id="bms1484547426841__ID0EIYNO-footnote-2079954"><sup>*1</sup></a>  <p class="p">Specify a user-defined Axis Variable that was created in the Axis Basic Settings of the Sysmac Studio (default: MC_Axis*) or a system-defined axis variable name (_MC_AX[*], _MC1_AX[*], or _MC2_AX[*]).</p>
+
+                        
+<p class="p">If you use Sysmac Studio version 1.29 or higher, you can specify the system-defined axis variable name for AT specification of a user-defined variable. This will allow you to specify the user-defined variable.</p>
+
+<p class="p">If you use Sysmac Studio version 1.28 or lower, do not specify any user-defined variable created in the variable table.</p>
+</div>
+<div class="fn"><a name="bms1484547426841__ID0EIYNO-footnote-2079955" id="bms1484547426841__ID0EIYNO-footnote-2079955"><sup>*2</sup></a>  Define a user-defined variable with a data type of _sTRIGGER_REF.</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="myu1484547427043">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">_sTRIGGER_REF</h1>
+ 
+<div class="body conbody">
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="myu1484547427043__ID0ENBOO" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:12%" />
+<col style="width:12%" />
+<col style="width:12%" />
+<col style="width:19%" />
+<col style="width:42%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d97402e33">Name</th>
+ 
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d97402e36">Meaning</th>
+ 
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d97402e39">Data type</th>
+ 
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d97402e42">Valid range</th>
+ 
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d97402e45">Function</th>
+ 
+</tr>
+ 
+</thead>
+ 
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d97402e33 ">Mode</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d97402e36 ">Mode</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d97402e39 ">_eMC_TRIGGER_MODE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d97402e42 ">
+<p class="p" id="myu1484547427043__ID0ECFOO">0: _mcDrive</p>
+ 
+<p class="p" id="myu1484547427043__ID0EJFOO">1: _mcController</p>
+ 
+</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d97402e45 ">
+<p class="p" id="myu1484547427043__ID0EVFOO">Specify the trigger mode.</p>
+ 
+<p class="p" id="myu1484547427043__ID0E3FOO">0: Drive Mode</p>
+ 
+<p class="p" id="myu1484547427043__ID0EDGOO">1: Controller Mode</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d97402e33 ">LatchID</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d97402e36 ">Latch ID Selection</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d97402e39 ">_eMC_TRIGGER_LATCH_ID</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d97402e42 ">
+<p class="p" id="myu1484547427043__ID0E1HOO">0: _mcLatch1</p>
+ 
+<p class="p" id="myu1484547427043__ID0EBIOO">1: _mcLatch2</p>
+ 
+</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d97402e45 ">
+<p class="p" id="myu1484547427043__ID0ENIOO">Specify which of the two latch functions to use in <span class="ph phtype_choice"><span class="termtype">Drive Mode</span></span>.</p>
+ 
+<p class="p" id="myu1484547427043__ID0EUIOO">0: Latch 1</p>
+ 
+<p class="p" id="myu1484547427043__ID0E2IOO">1: Latch 2</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d97402e33 ">InputDrive</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d97402e36 ">Trigger Input Signal</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d97402e39 ">_eMC_TRIGGER_INPUT_DRIVE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d97402e42 ">
+<p class="p" id="myu1484547427043__ID0EUKOO">0: _mcEncoderMark</p>
+ 
+<p class="p" id="myu1484547427043__ID0E2KOO">1: _mcEXT</p>
+ 
+</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d97402e45 ">
+<p class="p" id="myu1484547427043__ID0EHLOO">Specify the Servo Drive trigger signal to use in <span class="ph phtype_choice"><span class="termtype">Drive Mode</span></span>.</p>
+ 
+<p class="p" id="myu1484547427043__ID0EOLOO">0: Z-phase signal</p>
+ 
+<p class="p" id="myu1484547427043__ID0EVLOO">1: External input</p>
+ 
+</td>
+ 
+</tr>
+ 
+</tbody>
+ 
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="opj1484547432192">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function</h1>
+
+<div class="body conbody">
+<ul class="ul" id="opj1484547432192__ul_D35F06329DE4471AADD525FD6CB008DC">
+<li class="li" id="opj1484547432192__li_719F3535C044475DB3E45DF01521B932">
+<p class="p" id="opj1484547432192__ID0EJNOO">When <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to TRUE, the axis travels with absolute travel, relative travel, or velocity control depending on the <span class="ph phtype_variable"><span class="termtype">MoveMode</span></span> setting.</p>
+
+</li>
+
+<li class="li" id="opj1484547432192__li_0C86BF1CA1D84782B7F6981546AF0AE7">
+<p class="p" id="opj1484547432192__ID0EUNOO">The target position is set in <span class="ph phtype_variable"><span class="termtype">Position</span></span> (Target Position) for absolute travel. The target distance is set in <span class="ph phtype_variable"><span class="termtype">Position</span></span> (Target Distance) for relative travel.</p>
+
+<p class="p">Both travel methods use <span class="ph phtype_variable"><span class="termtype">Velocity</span></span> (Target Velocity) for travel operation.</p>
+
+</li>
+
+<li class="li" id="opj1484547432192__li_EDEDAB4E50874D30A90A284CDDC3F7B5">
+<p class="p" id="opj1484547432192__ID0ECOOO">Relative positioning is performed with <span class="ph phtype_variable"><span class="termtype">FeedVelocity</span></span> from the actual position where the external input turned ON during travel for the feed distance that is specified with <span class="ph phtype_variable"><span class="termtype">FeedDistance</span></span>.</p>
+
+</li>
+
+<li class="li" id="opj1484547432192__li_D9632DFE996C4357B336343AF4AC4DE9">
+<p class="p" id="opj1484547432192__ID0ENOOO">If no interrupt signal is input before the axis reaches the default target position during interrupt feeding in absolute or relative travel mode, the axis stops at the target position.</p>
+
+<p class="p">You can specify whether there is an error output when the axis stops for <span class="ph phtype_variable"><span class="termtype">ErrorDetect</span></span> (i.e., when there is no interrupt input.) If you specify an error output, <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> changes to TRUE, and <span class="ph phtype_variable"><span class="termtype">Busy</span></span> (Executing) and <span class="ph phtype_variable"><span class="termtype">Active</span></span> (Controlling) change to FALSE.</p>
+
+</li>
+
+<li class="li" id="opj1484547432192__li_247CB8EBECEF4433B32B3C4F9F871EC3">
+<p class="p" id="opj1484547432192__ID0E2OOO">To use interrupt masks, change <span class="ph phtype_variable"><span class="termtype">WindowOnly</span></span> to TRUE, then specify <span class="ph phtype_variable"><span class="termtype">FirstPosition</span></span> and <span class="ph phtype_variable"><span class="termtype">LastPosition</span></span>.</p>
+
+<p class="p">Interrupt feeding is performed for the first interrupt signal generated by the actual position between the <span class="ph phtype_variable"><span class="termtype">FirstPosition</span></span> and the <span class="ph phtype_variable"><span class="termtype">LastPosition</span></span>.</p>
+
+</li>
+
+</ul>
+
+<div class="note" id="opj1484547432192__note_N100B1_N1000F_N10001"><div class="use"><span class="notetitle use">use:</span>
+<ul class="ul" id="opj1484547432192__ul_3CFE4E01DD6540C99D0D84F46D85E7F1">
+<li class="li" id="opj1484547432192__li_082DF47EAEC64F76903A5DC7E91E2BDE">
+<p class="p" id="opj1484547432192__ID0EMQOO">Feeding after the interrupt is performed as a relative movement for the distance that is specified with <span class="ph phtype_variable"><span class="termtype">FeedDistance</span></span>. If a positive value is specified for <span class="ph phtype_variable"><span class="termtype">FeedDistance</span></span>, feeding is performed in the same direction as before the interrupt input, and if a negative value is specified, feeding is performed in the opposite direction.</p>
+
+</li>
+
+<li class="li" id="opj1484547432192__li_A5FB91283E77472E98E9C76406EA8B84">
+<p class="p" id="opj1484547432192__ID0EXQOO">The setting of the <span class="ph phtype_parameter"><span class="termtype">Operation Selection at Reversing</span></span> axis parameter is used for the acceleration and deceleration rates when reversing to feed.</p>
+
+</li>
+
+<li class="li" id="opj1484547432192__li_00AC63ABD4694323BA5D6584106189E9">
+<p class="p" id="opj1484547432192__ID0ECROO">If an underflow or overflow would occur for the position after interrupt feeding, an error occurs when the interrupt input is received. If an interrupt input is received after there is an overflow or underflow, an axis error will still occur.</p>
+
+</li>
+
+</ul>
+
+</div></div>
+
+<div class="note" id="opj1484547432192__note_N100F2_N1000F_N10001"><div class="memo"><span class="notetitle memo">memo:</span>
+<p class="p" id="opj1484547432192__ID0EFSOO">Refer to <a class="xref" href="rqe1484547327478.html#rqe1484547327478"><i style="display:none;">☆</i>MC_MoveAbsolute</a> for absolute travel, <a class="xref" href="hmr1484547328523.html#hmr1484547328523"><i style="display:none;">☆</i>MC_MoveRelative</a> for relative travel, <a class="xref" href="hub1484547388727.html#hub1484547388727"><i style="display:none;">☆</i>MC_MoveVelocity</a> for velocity control, and <a class="xref" href="fkt1484547425873.html#mnw1484547432036"><i style="display:none;">☆</i>WindowOnly</a> for <span class="ph phtype_variable"><span class="termtype">WindowOnly</span></span>.</p>
+
+</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="kvq1484547432410">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Mapping Data Objects</h1>
+
+<div class="body conbody">
+<p class="p" id="kvq1484547432410__ID0ELUOO">You must map the following object data when the MC_MoveFeed (Interrupt Feeding) instruction is executed with <span class="ph phtype_variable"><span class="termtype">Mode</span></span> set to <span class="ph phtype_choice"><span class="termtype">Drive Mode</span></span>.</p>
+
+<p class="p" id="kvq1484547432410__ID0EOUOO">Mapping is performed in the <dfn class="term termtype_ui">［Detailed Settings］</dfn> Area of the Axis Basic Settings Display of the Sysmac Studio.</p>
+
+<ul class="ul" id="kvq1484547432410__ul_DA0ADE1012C8405E9BFAB645EDA0F887">
+<li class="li" id="kvq1484547432410__li_30BEAB1547954CB3BAA77C44B4D951B8">
+<p class="p" id="kvq1484547432410__ID0EBVOO">Touch probe function (60B8 hex)</p>
+
+</li>
+
+<li class="li" id="kvq1484547432410__li_B3C679060DB541C9840ED967D33139AB">
+<p class="p" id="kvq1484547432410__ID0EMVOO">Touch probe status (60B9 hex)</p>
+
+</li>
+
+<li class="li" id="kvq1484547432410__li_5142A996DBB54FECB312205E0FCB55FC">
+<p class="p" id="kvq1484547432410__ID0EXVOO">Touch probe pos1 pos value (60BA hex)</p>
+
+</li>
+
+<li class="li" id="kvq1484547432410__li_141EDF63BE6F42659F8FF22DDC384D15">
+<p class="p" id="kvq1484547432410__ID0ECWOO">Touch probe pos2 pos value (60BC hex)</p>
+
+</li>
+
+</ul>
+
+<p class="p linespace_7pt" id="kvq1484547432410__ID0ETWOO">If even one of the required objects is not set, a Process Data Object Setting Missing error (error code: 3461 hex) occurs.</p>
+
+        
+<p class="p linespace_7pt">For details on mapping data objects, refer to <a class="xref" href="slj1484547232876.html#slj1484547232876"><i style="display:none;">☆</i>PDO Mapping</a> and to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Motion Control User&#8217;s Manual (Cat. No. W507)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Industrial Panel PC / Industrial Box PC Motion Control User&#8217;s Manual (Cat. No. W559)</span></span></span>.</p>
+
+<p class="p" id="kvq1484547432410__ID0E1XOO">Refer to <span class="ph phtype_type2"><span class="termtype">I/O Entry Mappings</span></span> in the <dfn class="term termtype_docname">『NX-series Position Interface Units User&#8217;s Manual (Cat. No. W524)』</dfn> for information on using the NX-series Position Interface Units.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="xqt1484547315231">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Instruction Details</h1>
+
+<div class="body conbody">
+<p class="p">This section describes the instruction in detail.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="ojv1484547432582">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Specifying Axis</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="ojv1484547432582__li_N10015_N10012_N1000F_N10001">
+<p class="p" id="ojv1484547432582__ID0EG1OO">Specify the axis for which to latch the position to <span class="ph phtype_variable"><span class="termtype">Axis</span></span>.</p>
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="jyh1484547434781">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Trigger Input Condition</h1>
+
+<div class="body conbody">
+<p class="p" id="jyh1484547434781__ID0EB2OO">Select the trigger conditions with <span class="ph phtype_variable"><span class="termtype">Mode</span></span>, <span class="ph phtype_variable"><span class="termtype">LatchID</span></span>, and <span class="ph phtype_variable"><span class="termtype">InputDrive</span></span> of the <span class="ph phtype_variable"><span class="termtype">TriggerInput</span></span> (Trigger Input Conditions) variable.</p>
+
+<p class="p fontsize_12pt linespace_14pt"><strong class="ph b">Mode</strong></p>
+
+<ul class="ul" id="jyh1484547434781__ul_E40E09CE3E3A4DEABFB549B17146DC72">
+<li class="li" id="jyh1484547434781__li_85F1067F78FC469D86339B78ADD6E9F4">
+<p class="p" id="jyh1484547434781__ID0E42OO">The <span class="ph phtype_variable"><span class="termtype">Mode</span></span> can be set to <span class="ph phtype_choice"><span class="termtype">Drive Mode</span></span> to specify a signal from the Servo Drive or NX-series Pulse Output Unit as the trigger, or to <span class="ph phtype_choice"><span class="termtype">Controller Mode</span></span> to specify a trigger with <span class="ph phtype_variable"><span class="termtype">TriggerVariable</span></span>.</p>
+
+</li>
+
+<li class="li" id="jyh1484547434781__li_B36EEA290FA6421BBA962A5F896DA39F">
+<p class="p" id="jyh1484547434781__ID0EI3OO">The trigger occurs on the rising edge of the trigger signal. The axis position is latched on the first trigger (FALSE to TRUE) after the MC_TouchProbe instruction is executed.</p>
+
+</li>
+
+<li class="li" id="jyh1484547434781__li_37603C1049B146BA9BF1DF24CD1C141B">
+<p class="p" id="jyh1484547434781__ID0ET3OO">While this instruction is <span class="ph phtype_variable"><span class="termtype">Busy</span></span> (Executing), a change in <span class="ph phtype_variable"><span class="termtype">TriggerVariable</span></span> is taken as a trigger even if <span class="ph phtype_variable"><span class="termtype">Execute</span></span> is FALSE.</p>
+
+</li>
+
+</ul>
+
+<p class="p linespace_7pt"><strong class="ph b" id="jyh1484547434781__ID0EY3OO">Drive Mode</strong></p>
+
+<p class="p" id="jyh1484547434781__ID0EG4OO">For trigger detection and latching of the actual position, the latched actual position is more precise in <span class="ph phtype_choice"><span class="termtype">Drive Mode</span></span> (which is a Servo Drive function) than it is in <span class="ph phtype_choice"><span class="termtype">Controller Mode</span></span>.</p>
+
+<br /><img class="image linespace_7pt" id="jyh1484547434781__image_8EB1AA49CB7A4076BAD6FAEAAB2B19AE" src="uwd1484547432831.gif" /><br />
+<div class="note" id="jyh1484547434781__note_N10062_N1000F_N10001"><div class="use"><span class="notetitle use">use:</span>
+<ul class="ul" id="jyh1484547434781__ul_76639244CDC34D599C7907588BDC004F">
+<li class="li" id="jyh1484547434781__li_5A9EA50B580243FBB69BC0F794CA59DA">
+<p class="p" id="jyh1484547434781__ID0E65OO">When using <span class="ph phtype_choice"><span class="termtype">Drive Mode</span></span>, make sure that you connect the latch signal to the <span class="ph phtype_variable"><span class="termtype">LatchID</span></span> that you are going to use.</p>
+
+</li>
+
+<li class="li" id="jyh1484547434781__li_C0ADFA1F4B834C268E14E039D17FD0AD">
+<p class="p" id="jyh1484547434781__ID0EK6OO">The width of the latch signal depends on the performance of the Servo Drive or NX-series Pulse Output Unit and other factors.</p>
+
+</li>
+
+<li class="li" id="jyh1484547434781__li_5684D370931E4A62BBEEB17E2242DE6C">
+<p class="p" id="jyh1484547434781__ID0EV6OO">You must map the following object data when the MC_MoveFeed (Interrupt Feeding) instruction is executed with <span class="ph phtype_variable"><span class="termtype">InputDrive</span></span> set to <span class="ph phtype_choice"><span class="termtype">Drive Mode</span></span>.</p>
+
+<p class="p" id="jyh1484547434781__ID0EY6OO">Touch probe function (60B8 hex), Touch probe status (60B9 hex), Touch probe pos1 pos value (60BA hex), and Touch probe pos2 pos value (60BC hex)</p>
+
+<p class="p" id="jyh1484547434781__ID0EBAPO">If even one of the required objects is not set, a Process Data Object Setting Missing error (error code: 3461 hex) occurs.</p>
+
+                    
+<p class="p">For details on mapping object data, refer to <a class="xref" href="slj1484547232876.html#slj1484547232876"><i style="display:none;">☆</i>PDO Mapping</a> and to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Motion Control User&#8217;s Manual (Cat. No. W507)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Industrial Panel PC / Industrial Box PC Motion Control User&#8217;s Manual (Cat. No. W559)</span></span></span>.</p>
+
+</li>
+
+</ul>
+
+</div></div>
+
+<p class="p linespace_7pt"><strong class="ph b" id="jyh1484547434781__ID0EPBPO">Controller Mode</strong></p>
+
+<ul class="ul" id="jyh1484547434781__ul_0A5E93E054584F919D860931DEA81B86">
+<li class="li" id="jyh1484547434781__li_EB2043BB391D4E7D88344E035062AA13">
+<p class="p" id="jyh1484547434781__ID0EECPO">You can specify a BOOL variable in the <span class="ph phtype_choice"><span class="termtype">Controller Mode</span></span>.</p>
+
+</li>
+
+<li class="li" id="jyh1484547434781__li_1E521354807F44B9AE45A49810BA941B">
+<p class="p" id="jyh1484547434781__ID0EPCPO">Use <span class="ph phtype_variable"><span class="termtype">TriggerVariable</span></span> to specify the BOOL variable that you want to use as a trigger.</p>
+
+</li>
+
+<li class="li" id="jyh1484547434781__li_69ABF6F6DF484C1E90F00DFC3B90BDAE">
+<p class="p" id="jyh1484547434781__ID0E1CPO">The <span class="ph phtype_choice"><span class="termtype">Controller Mode</span></span> causes a longer delay compared to the <span class="ph phtype_choice"><span class="termtype">Drive Mode</span></span>. This is due to the I/O refresh delay that occurs when the trigger input signal is updated in the BOOL variable.</p>
+
+</li>
+
+</ul>
+
+<br /><img class="image linespace_7pt" id="jyh1484547434781__image_EF5D8178B5484F3EBDF90C3232C6EC05" src="ael1484547433674.gif" /><br />
+<div class="note" id="jyh1484547434781__note_N1010B_N1000F_N10001"><div class="use"><span class="notetitle use">use:</span>
+<p class="p" id="jyh1484547434781__ID0EAEPO">If you use <span class="ph phtype_choice"><span class="termtype">Controller Mode</span></span>, the latch is performed each task period. Therefore, the trigger variable must remain TRUE for at least one task period.</p>
+
+<p class="p" id="jyh1484547434781__ID0EHEPO">Also, one task period is required between when the trigger variable changes to TRUE and the MC Function Module processes the latch.</p>
+
+<p class="p" id="jyh1484547434781__ID0EOEPO">Here, the task period is the primary period if the task is the primary periodic task and the task period of the priority-5 periodic task if the task is the priority-5 periodic task.</p>
+
+            
+</div></div>
+
+<p class="p fontsize_12pt linespace_14pt"><strong class="ph b">LatchID</strong></p>
+
+<ul class="ul" id="jyh1484547434781__ul_B82B4B68164649C4A1D4714945B2B6C7">
+<li class="li" id="jyh1484547434781__li_7F6D757770D04A738A1BCBF9B91A1464">
+<p class="p" id="jyh1484547434781__ID0ERFPO">Specify which of the two to use with <span class="ph phtype_variable"><span class="termtype">LatchID</span></span>. You can use only one of the latches with any one axis.</p>
+
+</li>
+
+<li class="li" id="jyh1484547434781__li_4BE7D828EA25467492CC72EDCD0EBC8D">
+<p class="p" id="jyh1484547434781__ID0E3FPO"><span class="ph phtype_variable"><span class="termtype">LatchID</span></span> indicates latch circuit 1 and latch circuit 2 in the Servo Drive or NX-series Pulse Output Unit.</p>
+
+</li>
+
+</ul>
+
+        
+<p class="p linespace_7pt">For information on <span class="ph phtype_variable"><span class="termtype">LatchID</span></span>, refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Motion Control User&#8217;s Manual (Cat. No. W507)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Industrial Panel PC / Industrial Box PC Motion Control User&#8217;s Manual (Cat. No. W559)</span></span></span>.</p>
+
+<p class="p fontsize_12pt linespace_14pt"><strong class="ph b">InputDrive</strong></p>
+
+<ul class="ul" id="jyh1484547434781__ul_5C5284CB82C04D3DB937DFE30DB62084">
+<li class="li" id="jyh1484547434781__li_63AE0BDB878A4659AA533339630E7359">
+<p class="p" id="jyh1484547434781__ID0EQHPO">You can select _mcEncoderMark (Z phase) or _mcEXT (External Input) as triggers.</p>
+
+</li>
+
+<li class="li" id="jyh1484547434781__li_018A1645F557428E941BFD8B0129CF1A">
+<p class="p" id="jyh1484547434781__ID0E2HPO">Select _mcEncoderMark (Z phase) to use the Z phase of the Servo Drive or NX-series Pulse Output Unit as the trigger.</p>
+
+<p class="p">Select _mcEXT (external input) to use the external trigger signal of the Servo Drive or NX-series Pulse Output Unit as the trigger.</p>
+
+</li>
+
+<li class="li" id="jyh1484547434781__li_BC0B5D04F4D44282927F7EC30A2D4F65">
+<p class="p" id="jyh1484547434781__ID0EJIPO">For an OMRON 1S-series Servo Drive, there are two options for _mcEXT: Ext1, and Ext2. For an OMRON G5-series Servo Drive, there are three options for _mcEXT: Ext1, Ext2, and Ext3. Use Sysmac Studio to make the setting.</p>
+
+<p class="p">The two triggers set in the Servo Drive can have the same setting.</p>
+
+</li>
+
+<li class="li" id="jyh1484547434781__li_09A6AEE880414913AB06C3C3CD7EF51C">
+<p class="p" id="jyh1484547434781__ID0EXIPO">Refer to the <span class="ph phtype_docname"><span class="termtype">NX-series Position Interface Units User&#8217;s Manual (Cat. No. W524)</span></span> for information on using the NX-series Pulse Output Unit.</p>
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="mnw1484547432036">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">WindowOnly</h1>
+
+<div class="body conbody">
+<ul class="ul" id="mnw1484547432036__ul_E5ABE608019E4A678B7C2515CF37FACF">
+<li class="li" id="mnw1484547432036__li_F50D5BB055D3432688CD2D86D18537FB">
+<p class="p" id="mnw1484547432036__ID0E4JPO"><span class="ph phtype_variable"><span class="termtype">WindowOnly</span></span> specifies whether the window is enabled or disabled.</p>
+
+</li>
+
+<li class="li" id="mnw1484547432036__li_1E7141B2560B43D29FDA76B9EEACC1D0">
+<p class="p" id="mnw1484547432036__ID0EIKPO">If you specify <span class="ph phtype_variable"><span class="termtype">Disable</span></span>, triggers are detected for all axis positions.</p>
+
+</li>
+
+<li class="li" id="mnw1484547432036__li_3497AAA9579E4AF5BA06547AD229B75D">
+<p class="p" id="mnw1484547432036__ID0ETKPO">If you specify <span class="ph phtype_variable"><span class="termtype">Enable</span></span>, triggers are detected only when the axis position is within the range specified by <span class="ph phtype_variable"><span class="termtype">FirstPosition</span></span> and <span class="ph phtype_variable"><span class="termtype">LastPosition</span></span>.</p>
+
+</li>
+
+</ul>
+
+<p class="p linespace_7pt" id="mnw1484547432036__ID0EDLPO">The following timing chart shows the difference in operation depending on the <span class="ph phtype_variable"><span class="termtype">WindowOnly</span></span> setting.</p>
+
+<p class="p linespace_14pt"><strong class="ph b"><span class="ph">WindowOnly</span></strong> <strong class="ph b">Set to Disable</strong></p>
+
+<p class="p" id="mnw1484547432036__ID0EYLPO">The axis position when the first trigger occurs after <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to TRUE is used as the reference position for the feed distance.</p>
+
+<br /><img class="image linespace_7pt" id="mnw1484547432036__image_D14CF15F54054B18BEC3DC1996C2BB84" src="qtn1484547427262.gif" /><br />
+<p class="p linespace_14pt"><strong class="ph b"><span class="ph">WindowOnly</span></strong> <strong class="ph b">Set to Enable</strong></p>
+
+<p class="p" id="mnw1484547432036__ID0E3MPO">Only trigger inputs within the window are detected to latch the axis position.</p>
+
+<br /><img class="image linespace_7pt" id="mnw1484547432036__image_CC4BBCA43E89488388248785F9E4F78F" src="bbu1484547428120.gif" /><br />
+<div class="note" id="mnw1484547432036__note_N10096_N1000F_N10001"><div class="use"><span class="notetitle use">use:</span> <ul class="ul" id="mnw1484547432036__ul_45A047C4202048A2A9E6AAD47F9FC352">
+<li class="li" id="mnw1484547432036__li_E07AFA20C16F41049D18EEAC1E3CD9A6">
+<p class="p" id="mnw1484547432036__ID0ECPPO">Latching is not possible at the moment that <span class="ph phtype_variable"><span class="termtype">WindowOnly</span></span> changes to TRUE and until the latch function is activated.</p>
+
+</li>
+
+<li class="li" id="mnw1484547432036__li_2221F33240E14214807BAFCB30590187">
+<p class="p" id="mnw1484547432036__ID0ENPPO">Time is needed until the latch function is activated. If the effective range for <span class="ph phtype_variable"><span class="termtype">WindowOnly</span></span> is too small, latching is not possible. The range in which latching is possible depends on the performance of the Servo Drive, Encoder Input Terminal, or Position Interface Unit, and on EtherCAT communications.</p>
+
+</li>
+
+</ul>
+
+</div></div>
+
+<p class="p" id="mnw1484547432036__ID0EEQPO">The range that is defined by <span class="ph phtype_variable"><span class="termtype">FirstPosition</span></span> and <span class="ph phtype_variable"><span class="termtype">LastPosition</span></span> depends on the Count Mode, as given below.</p>
+
+<p class="p linespace_14pt"><strong class="ph b">Linear Mode</strong></p>
+
+<ul class="ul" id="mnw1484547432036__ul_674CE81D0DA44FB3953E926C56A62966">
+<li class="li" id="mnw1484547432036__li_CC7EBF7F75214363A35C52C2433DDEEC">
+<p class="p" id="mnw1484547432036__ID0E5QPO"><span class="ph phtype_variable"><span class="termtype">FirstPosition</span></span> must be less than or equal to the window range and the window range must be less than or equal to <span class="ph phtype_variable"><span class="termtype">LastPosition</span></span>.</p>
+
+</li>
+
+<li class="li" id="mnw1484547432036__li_CD9BA9BC470F4B28A044E46F0E0B8E63">
+<p class="p" id="mnw1484547432036__ID0EJRPO">An error will occur if the <span class="ph phtype_variable"><span class="termtype">FirstPosition</span></span> is greater than the <span class="ph phtype_variable"><span class="termtype">LastPosition</span></span>.</p>
+
+</li>
+
+<li class="li" id="mnw1484547432036__li_6E197810923544B68E4550E9F00D9940">
+<p class="p" id="mnw1484547432036__ID0EURPO">An error will also occur if a position beyond the position range of <span class="ph phtype_choice"><span class="termtype">Linear Mode</span></span> is specified.</p>
+
+</li>
+
+<li class="li" id="mnw1484547432036__li_ECFB9263399248879D9FE0BE1293C480">
+<p class="p" id="mnw1484547432036__ID0E6RPO"><span class="ph phtype_variable"><span class="termtype">FirstPosition</span></span> and <span class="ph phtype_variable"><span class="termtype">LastPosition</span></span> are LREAL variables. Do not set them to the same values.<span class="ph phtype_variable"><span class="termtype"></span></span><span class="ph phtype_variable"><span class="termtype"></span></span></p>
+
+<p class="p">Refer to <a class="xref" href="aqz1484547218414.html#aqz1484547218414"><i style="display:none;">☆</i>Treatment of REAL and LREAL Data</a> for information on LREAL data.</p>
+
+</li>
+
+</ul>
+
+<p class="p linespace_7pt" id="mnw1484547432036__ID0EXSPO">The window only range in <span class="ph phtype_choice"><span class="termtype">Linear Mode</span></span> is shown below.</p>
+
+<br /><img class="image linespace_7pt" id="mnw1484547432036__image_AF57DD8C2752465097B9BB4D9F55F0D1" src="bkd1484547429087.gif" /><br />
+<ul class="ul liststyle_annotation1" id="mnw1484547432036__ul_180BAE02330E443398E5B15105CD11F3">
+<li class="li" id="mnw1484547432036__li_BC0D92E1032D442ABE5E79010957F18E">
+    
+    &#8194;Note<span class="num"></span>&#8194;
+<p class="p" id="mnw1484547432036__ID0EAUPO">The window only range can include the <span class="ph phtype_variable"><span class="termtype">FirstPosition</span></span> and <span class="ph phtype_variable"><span class="termtype">LastPosition</span></span>.</p>
+
+</li>
+
+</ul>
+
+<p class="p linespace_14pt"><strong class="ph b">Rotary Mode</strong></p>
+
+<ul class="ul" id="mnw1484547432036__ul_A2E4ADCD7F4A49C0B52F63AEE21484E4">
+<li class="li" id="mnw1484547432036__li_7570881E14CF4FF5BE4632A4442399F7">
+<p class="p" id="mnw1484547432036__ID0EXUPO">The <span class="ph phtype_variable"><span class="termtype">FirstPosition</span></span> can be less than, equal to, or greater than the <span class="ph phtype_variable"><span class="termtype">LastPosition</span></span>.<span class="ph phtype_variable"><span class="termtype"></span></span><span class="ph phtype_variable"><span class="termtype"></span></span></p>
+
+</li>
+
+<li class="li" id="mnw1484547432036__li_584BDBBA2EE14AD5A4B088937950014F">
+<p class="p" id="mnw1484547432036__ID0EFVPO">If the <span class="ph phtype_variable"><span class="termtype">FirstPosition</span></span> is greater than the <span class="ph phtype_variable"><span class="termtype">LastPosition</span></span>, the setting range includes the modulo maximum position and modulo minimum position setting values.</p>
+
+</li>
+
+<li class="li" id="mnw1484547432036__li_4EE6EA5BEC3D42058965941AB3EBE3C9">
+<p class="p" id="mnw1484547432036__ID0EQVPO">An error will occur if you specify a value beyond the modulo maximum position and modulo minimum position setting values.</p>
+
+</li>
+
+</ul>
+
+<br /><img class="image linespace_7pt" id="mnw1484547432036__image_986217FF63F34B59B2570650FBBA84DB" src="frz1484547429930.gif" /><br />
+<br /><img class="image" id="mnw1484547432036__image_F1A16AD6EA2D40C2A4D435C913F1C110" src="rzr1484547430975.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="lws1484547435015">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">ReferenceType (Position Type Selection)</h1>
+
+<div class="body conbody">
+<p class="p" id="lws1484547435015__ID0EVXPO">The position type is as follows:</p>
+
+<ul class="ul">
+<li class="li" id="lws1484547435015__li_N1001C_N10018_N1000F_N10001">
+<p class="p" id="lws1484547435015__ID0EEYPO">_mcFeedback: Value obtained in the same task period</p>
+
+<p class="p">The actual position of the master axis that was obtained in the same task period is used.</p>
+
+<p class="p">Here, the task period is the primary period if the task is the primary periodic task and the task period of the priority-5 periodic task if the task is the priority-5 periodic task.</p>
+
+            
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="low1484547435249">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">FeedDistance</h1>
+
+<div class="body conbody">
+<p class="p" id="low1484547435249__ID0E4YPO">Specify a positive value for <span class="ph phtype_variable"><span class="termtype">FeedDistance</span></span> to perform feed in the same direction as the motion before the interrupt input. Specify a negative value for <span class="ph phtype_variable"><span class="termtype">FeedDistance</span></span> to perform feed in the opposite direction as the motion before the interrupt input.</p>
+
+<p class="p" id="low1484547435249__ID0EAZPO">For example, if you specify a positive value for <span class="ph phtype_variable"><span class="termtype">FeedDistance</span></span> when the motion was in the negative direction before the interrupt input, feeding is performed in the negative direction. If you specify a negative value for <span class="ph phtype_variable"><span class="termtype">FeedDistance</span></span>, feeding is performed in the positive direction.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="iqm1484547435437">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Timing Charts</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="iqm1484547435437__li_N10015_N10012_N1000F_N10001">
+<p class="p" id="iqm1484547435437__ID0EP1PO"><span class="ph phtype_variable"><span class="termtype">Busy</span></span> (Executing) changes to TRUE at the same time as <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to TRUE. <span class="ph phtype_variable"><span class="termtype">Active</span></span> (Controlling) changes to TRUE in the next period.</p>
+
+</li>
+
+<li class="li" id="iqm1484547435437__li_N1002F_N10012_N1000F_N10001">
+<p class="p" id="iqm1484547435437__ID0E11PO">After an interrupt input, <span class="ph phtype_variable"><span class="termtype">InFeed</span></span> changes to TRUE and when <span class="ph phtype_variable"><span class="termtype">FeedDistance</span></span> is reached and positioning is completed, <span class="ph phtype_variable"><span class="termtype">Done</span></span> changes to TRUE.</p>
+
+</li>
+
+<li class="li" id="iqm1484547435437__li_N1004A_N10012_N1000F_N10001">
+<p class="p" id="iqm1484547435437__ID0EF2PO">If another instruction aborts this instruction, <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> changes to TRUE and <span class="ph phtype_variable"><span class="termtype">Busy</span></span> (Executing) and <span class="ph phtype_variable"><span class="termtype">Active</span></span> (Controlling) change to FALSE.</p>
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="hwp1484547436794">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">When MoveMode (Travel Mode) is _mcAbsolute or_mcRelative</h1>
+
+<div class="body conbody">
+<br /><img class="image" src="ztt1484547435624.gif" /><br />
+<ul class="ul liststyle_asterisk1">
+<li class="li" id="hwp1484547436794__li_N10020_N1001C_N10013_N10001">
+    
+    *<span class="num"></span>.
+  
+<p class="p" id="hwp1484547436794__ID0E13PO">There may be a delay of up to several control periods from when the interrupt input turns ON until <span class="ph phtype_variable"><span class="termtype">InFeed</span></span> changes to TRUE.</p>
+
+</li>
+
+</ul>
+
+<div class="note" id="hwp1484547436794__note_N10031_N10013_N10001"><div class="memo"><span class="notetitle memo">memo:</span> <p class="p" id="hwp1484547436794__ID0EE5PO">Acceleration or deceleration to interrupt feeding is performed according to the <span class="ph phtype_variable"><span class="termtype">Acceleration</span></span> (Acceleration Rate) or <span class="ph phtype_variable"><span class="termtype">Deceleration</span></span> (Deceleration Rate) input variable.</p>
+
+</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="pxs1484547437964">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">When MoveMode (Travel Mode) is _mcVelocity</h1>
+
+<div class="body conbody">
+<br /><img class="image" src="sfa1484547437028.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="hdg1484547440179">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Operation Selection at Reversing Axis Parameter</h1>
+
+<div class="body conbody">
+<p class="p" id="hdg1484547440179__ID0EAAQO">When feeding reverses its direction after the interrupt input, operation follows the <span class="ph phtype_parameter"><span class="termtype">Operation Selection at Reversing</span></span> axis parameter</p>
+
+<p class="p linespace_7pt"><strong class="ph b">When Motion Variable Is 0 (Decelerate to a Stop After Reversing)</strong></p>
+
+<br /><img class="image linespace_7pt" id="hdg1484547440179__image_1F43E96D594E465294AAE327939118EB" src="iro1484547438198.gif" /><br />
+<div class="note" id="hdg1484547440179__note_N1002E_N1000F_N10001"><div class="memo"><span class="notetitle memo">memo:</span> <p class="p" id="hdg1484547440179__ID0EUBQO">The deceleration rate when the axis reverses after an interrupt input follows the <span class="ph phtype_variable"><span class="termtype">Deceleration</span></span> (Deceleration Rate) input variable.</p>
+
+</div></div>
+
+<p class="p linespace_7pt"><strong class="ph b">When Motion Variable Is 1 (Stop Immediately After Reversing)</strong></p>
+
+<br /><img class="image linespace_7pt" id="hdg1484547440179__image_C461810295D440E4BA4BA5BB6AEFFBAB" src="wlc1484547439243.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="qjy1484547442410">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">When MoveMode (Travel Mode) is _mcAbsolute and an Interrupt Input Is Not Received</h1>
+
+<div class="body conbody">
+<p class="p linespace_7pt"><strong class="ph b">When <span class="ph phtype_variable"><span class="termtype">ErrorDetect</span></span> (Error Detection Selection) Is FALSE</strong></p>
+
+<br /><img class="image linespace_7pt" src="vie1484547440445.gif" /><br />
+<p class="p linespace_7pt"><strong class="ph b">When <span class="ph phtype_variable"><span class="termtype">ErrorDetect</span></span> (Error Detection Selection) Is TRUE</strong></p>
+
+<br /><img class="image linespace_7pt" src="wxg1484547441318.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="oyt1484547443643">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">When WindowOnly Is TRUE</h1>
+
+<div class="body conbody">
+<br /><img class="image" src="tuz1484547442644.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="pyz1484547322969">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Re-execution of Motion Control Instructions</h1>
+
+<div class="body conbody">
+<p class="p" id="pyz1484547322969__ID0EIDFK">This instruction cannot be re-executed.</p>
+
+<p class="p" id="pyz1484547322969__ID0ELDFK">A Motion Control Instruction Re-execution Disabled error (error code: 543B hex) occurs if re-execution is attempted.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="sos1484547268366">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Multi-execution of Motion Control Instructions</h1>
+
+<div class="body conbody">
+        
+<p class="p">For details on multi-execution of motion control instructions, refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Motion Control User&#8217;s Manual (Cat. No. W507)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Industrial Panel PC / Industrial Box PC Motion Control User&#8217;s Manual (Cat. No. W559)</span></span></span>.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="uqr1484547394562">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Execution during Execution of Other Instructions</h1>
+
+<div class="body conbody">
+<p class="p" id="uqr1484547394562__ID0EZYEO">You can switch to this instruction or buffer this instruction if you execute it during execution of another instruction.</p>
+
+<p class="p" id="uqr1484547394562__ID0E3YEO">You can buffer one instruction per axis.</p>
+
+<p class="p" id="uqr1484547394562__ID0EDZEO">Specify the operation of this instruction using <span class="ph phtype_variable"><span class="termtype">BufferMode</span></span> (Buffer Mode Selection) for multi-execution of instructions.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="uqr1484547394562__ID0EVZEO" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:20%" />
+<col style="width:79%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d175143e38">Buffer Mode Selection</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d175143e41">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d175143e38 ">Aborting</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d175143e41 ">
+<p class="p" id="uqr1484547394562__ID0EK2EO">Aborts the instruction being executed and switches to this instruction.</p>
+
+<p class="p" id="uqr1484547394562__ID0ER2EO">If the direction of axis motion is reversed by switching instructions, the motion will be reversed according to the <span class="ph phtype_parameter"><span class="termtype">Operation Selection at Reversing</span></span> axis parameter.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d175143e38 ">Buffered</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d175143e41 ">
+<p class="p" id="uqr1484547394562__ID0EM3EO">Buffers this instruction and executes it automatically after the current instruction is completed.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+        
+<p class="p linespace_7pt">For details on <span class="ph phtype_variable"><span class="termtype">BufferMode</span></span> (Buffer Mode Selection), refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Motion Control User&#8217;s Manual (Cat. No. W507)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Industrial Panel PC / Industrial Box PC Motion Control User&#8217;s Manual (Cat. No. W559)</span></span></span>.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="rdp1484547443861">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Execution of Other Instructions during Instruction Execution</h1>
+
+<div class="body conbody">
+<p class="p" id="rdp1484547443861__ID0ENPQO">You can execute another instruction with the Buffer Mode set to <span class="ph phtype_choice"><span class="termtype">Aborting</span></span> during execution of this instruction.</p>
+
+<p class="p linespace_7pt" id="rdp1484547443861__ID0E3PQO">The following will occur if another instruction with the Buffer Mode set to <span class="ph phtype_choice"><span class="termtype">Buffered</span></span> or a <span class="ph phtype_choice"><span class="termtype">Blending</span></span> mode is executed.</p>
+
+<ul class="ul">
+<li class="li" id="rdp1484547443861__li_N10030_N1002D_N1000F_N10001">
+<p class="p" id="rdp1484547443861__ID0EQQQO"><span class="ph phtype_variable"><span class="termtype">Error</span></span> changes to TRUE in the other instruction. A Motion Control Instruction Multi-execution Disabled error (error code: 543C hex) is output to <span class="ph phtype_variable"><span class="termtype">ErrorID</span></span> (Error Code).</p>
+
+</li>
+
+<li class="li" id="rdp1484547443861__li_N10046_N1002D_N1000F_N10001">
+<p class="p" id="rdp1484547443861__ID0E2QQO">The MC_MoveFeed instruction is aborted and <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> changes to TRUE.</p>
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="kla1484547287275">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Errors</h1>
+
+<div class="body conbody">
+<p class="p" id="kla1484547287275__ID0ET2AI">If an error occurs during instruction execution, <span class="ph phtype_variable"><span class="termtype">Error</span></span> will change to TRUE.</p>
+
+<p class="p" id="kla1484547287275__ID0EW2AI">You can find out the cause of the error by referring to the value output by <span class="ph phtype_variable"><span class="termtype">ErrorID</span></span> (Error Code).</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="ruv1484547445125">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Timing Chart When Error Occurs</h1>
+
+<div class="body conbody">
+<p class="p" id="ruv1484547445125__ID0EBTQO">When there is an error, the latch used for the interrupt input for this instruction is disabled.</p>
+
+<br /><img class="image" src="hqx1484547444048.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="rzo1484547270426">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Error Codes</h1>
+
+<div class="body conbody">
+        
+<p class="p">Refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series Troubleshooting Manual (Cat. No. W503)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Troubleshooting Manual (Cat. No. W564)</span></span></span> for instruction errors.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="ovu1484547445359">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Sample Programming</h1>
+
+<div class="body conbody">
+<p class="p" id="ovu1484547445359__ID0EEWQO">This section shows sample programming where control changes from velocity control to interrupt feeding.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="fym1484547344031">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Parameter Settings</h1>
+
+<div class="body conbody">
+<p class="p" id="fym1484547344031__ID0EYJJM">The minimum settings required for this sample programming are given below.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="ntm1484547445577">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">Setting Axis Parameters</h1>
+ 
+<div class="body conbody">
+<p class="p"><strong class="ph b">Axis Types</strong></p>
+ 
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ntm1484547445577__ID0EFYQO" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:15mm" />
+<col style="width:40mm" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d108531e30">Axis</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d108531e33">Axis Type</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108531e30 ">Axis 1</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108531e33 ">Servo axis</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108531e30 ">Axis 2</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108531e33 ">Servo axis</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt"><strong class="ph b">Count Modes</strong></p>
+ 
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ntm1484547445577__ID0ES2QO" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:15mm" />
+<col style="width:40mm" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d108531e77">Axis</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d108531e80">Count Mode</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108531e77 ">Axis 1</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108531e80 ">Rotary Mode</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108531e77 ">Axis 2</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108531e80 ">Linear Mode</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt"><strong class="ph b">Ring Counters</strong></p>
+ 
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ntm1484547445577__ID0E65QO" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:15mm" />
+<col style="width:20mm" />
+<col style="width:20mm" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d108531e127">Axis</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d108531e130">Modulo maximum position</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d108531e133">Modulo minimum position</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108531e127 ">Axis 1</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108531e130 ">360</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108531e133 ">0</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt"><strong class="ph b">Units of Display</strong></p>
+ 
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ntm1484547445577__ID0EJCRO" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:15mm" />
+<col style="width:40mm" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d108531e171">Axis</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d108531e174">Unit of Display</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108531e171 ">Axis 1</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108531e174 ">degree</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108531e171 ">Axis 2</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d108531e174 ">mm</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer04" id="mgv1484547447044">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Operation Example</h1>
+
+<div class="body conbody">
+<br /><img class="image" src="zwu1484547445780.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="maf1484547448245">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Operation Pattern</h1>
+<div class="body taskbody">
+<div class="section context" id="maf1484547448245__context_t21_yqq_2x">
+<br /><img class="image" id="maf1484547448245__image_5E91CDB8B8384F74BED0F04442429F88" src="nay1484547447278.gif" /><br />
+</div>
+
+<ol class="ol steps" id="maf1484547448245__steps_ryb_zqq_2x"><li class="li step stepexpand" id="maf1484547448245__step_N10022_N1001E_N1000E_N10001">
+<span alt="test" class="ph cmd">Conveyor Operation</span>
+<div class="itemgroup stepresult">
+<p class="p">Axis 1, which moves the conveyer belt, performs velocity control before interrupt feeding.</p>
+
+</div>
+</li>
+<li class="li step stepexpand" id="maf1484547448245__step_N10037_N1001E_N1000E_N10001">
+<span alt="test" class="ph cmd">Feeding</span>
+<div class="itemgroup stepresult">
+<p class="p">Sensor 1 is connected to latch 1.</p>
+
+<p class="p">When Sensor1 turns ON, operation changes to feeding and the axis stops at the specified position.</p>
+
+</div>
+</li>
+<li class="li step stepexpand" id="maf1484547448245__step_N10051_N1001E_N1000E_N10001">
+<span alt="test" class="ph cmd">Pressing the Stamp</span>
+<div class="itemgroup stepresult">
+<p class="p">When positioning is finished, axis 2 of the stamp moves perpendicularly down at the position determined by absolute positioning to press the stamp. After stamping is performed, axis 2 returns to home.</p>
+
+</div>
+</li>
+</ol>
+
+<div class="section result" id="maf1484547448245__result_pqy_lrq_2x">
+<p class="p" id="maf1484547448245__ID0E5KRO">When the absolute positioning is completed, the axis is immediately returned to home. To enable this, <span class="ph phtype_variable"><span class="termtype">BufferMode</span></span> (Buffer Mode Selection) of the MC_MoveZeroPosition (High-speed Home) instruction is set to Buffered.</p>
+
+<p class="p" id="maf1484547448245__ID0EFLRO">Multi-execution of instructions is performed if the <span class="ph phtype_variable"><span class="termtype">Active</span></span> output from the previous instruction is TRUE.</p>
+
+</div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="fdq1484547345716">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Ladder Diagram</h1>
+
+<div class="body conbody"></div>
+
+<div class="related-links"></div></div><div class="layer05" id="ibf1484547448479">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">Main Variables</h1>
+ 
+<div class="body conbody">
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ibf1484547448479__ID0E3MRO" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:31%" />
+<col style="width:14%" />
+<col style="width:10%" />
+<col style="width:44%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d59233e30">Name</th>
+ 
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d59233e33">Data type</th>
+ 
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d59233e36">Default</th>
+ 
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d59233e39">Comment</th>
+ 
+</tr>
+ 
+</thead>
+ 
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d59233e30 ">MC_Axis000</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d59233e33 ">_sAXIS_REF</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d59233e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d59233e39 ">
+<p class="p" id="ibf1484547448479__ID0EBQRO">Axis Variable for axis 1.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d59233e30 ">MC_Axis000.MFaultLvl.Active</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d59233e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d59233e36 ">FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d59233e39 ">
+<p class="p" id="ibf1484547448479__ID0EURRO">TRUE while there is a minor fault level error for axis 1.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d59233e30 ">MC_Axis000.Details.Homed</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d59233e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d59233e36 ">FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d59233e39 ">
+<p class="p" id="ibf1484547448479__ID0EHTRO">TRUE when home is defined for axis 1.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d59233e30 ">MC_Axis001</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d59233e33 ">_sAXIS_REF</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d59233e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d59233e39 ">
+<p class="p" id="ibf1484547448479__ID0E1URO">Axis Variable for axis 2.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d59233e30 ">MC_Axis001.MFaultLvl.Active</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d59233e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d59233e36 ">FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d59233e39 ">
+<p class="p" id="ibf1484547448479__ID0ENWRO">TRUE while there is a minor fault level error for axis 2.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d59233e30 ">MC_Axis001.Details.Homed</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d59233e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d59233e36 ">FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d59233e39 ">
+<p class="p" id="ibf1484547448479__ID0EAYRO">TRUE when home is defined for axis 2.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d59233e30 ">TrigRef</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d59233e33 ">_sTRIGGER_REF</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d59233e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d59233e39 ">
+<p class="p" id="ibf1484547448479__ID0ETZRO">This is the specified variable for the interrupt input.</p>
+ 
+<p class="p" id="ibf1484547448479__ID0E1ZRO">Latch 1 of the Servo Drive is used in this sample. When the rising edge of the external input for sensor 1 is detected, interrupt feeding is executed.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d59233e30 ">StartPg</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d59233e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d59233e36 ">FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d59233e39 ">
+<p class="p" id="ibf1484547448479__ID0EN2RO">The Servo is turned ON if this variable is TRUE and EtherCAT process data communications are established.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d59233e30 ">InitFlag</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d59233e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d59233e36 ">FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d59233e39 ">
+<p class="p" id="ibf1484547448479__ID0EA4RO">This variable indicates if it is necessary to set the input parameters.</p>
+ 
+<p class="p" id="ibf1484547448479__ID0EH4RO">Input parameters are set when this variable is FALSE. When setting the input parameters is completed, this variable changes to TRUE.</p>
+ 
+</td>
+ 
+</tr>
+ 
+</tbody>
+ 
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer05" id="wjx1484547449696">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Timing Chart</h1>
+
+<div class="body conbody">
+<br /><img class="image" src="mxa1484547448744.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="bqj1484547463706">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Sample Programming</h1>
+
+<div class="body conbody">
+<br /><img class="image" id="bqj1484547463706__image_crs_qgn_kx" src="gqg1484547449914.gif" /><br />
+<br /><img class="image" id="bqj1484547463706__image_eck_rgn_kx" src="mmg1484547451084.gif" /><br />
+<br /><img class="image" id="bqj1484547463706__image_ndj_lhn_kx" src="jvk1484547452208.gif" /><br />
+<br /><img class="image" id="bqj1484547463706__image_z51_mhn_kx" src="xjo1484547453393.gif" /><br />
+<br /><img class="image" id="bqj1484547463706__image_ult_mhn_kx" src="umn1484547455032.gif" /><br />
+<br /><img class="image" id="bqj1484547463706__image_bqj_nhn_kx" src="ykg1484547456217.gif" /><br />
+<br /><img class="image" id="bqj1484547463706__image_nwb_4hn_kx" src="rbu1484547457621.gif" /><br />
+<br /><img class="image" id="bqj1484547463706__image_ngw_zhn_kx" src="hpl1484547459119.gif" /><br />
+<br /><img class="image" id="bqj1484547463706__image_ngl_13n_kx" src="lkm1484547460539.gif" /><br />
+<br /><img class="image" id="bqj1484547463706__image_v3y_13n_kx" src="ixj1484547461818.gif" /><br />
+<p class="p linespace_7pt"><strong class="ph b">Contents of Inline ST</strong></p>
+
+<pre class="pre codeblock">// MV_FEED parameters
+Mv_Feed_TrigRef.Mode := _eMC_TRIGGER_MODE#_mcDrive;
+Mv_Feed_TrigRef.LatchID := _eMC_TRIGGER_LATCH_ID#_mcLatch1;
+Mv_Feed_TrigRef.InputDrive := _eMC_TRIGGER_INPUT_DRIVE#_mcEXT;
+Mv_Feed_TrigVar := FALSE;
+Mv_Feed_Pos := LREAL#2000.0;
+Mv_Feed_Vel := LREAL#1000.0;
+Mv_Feed_Acc := LREAL#10000.0;
+Mv_Feed_Dec := LREAL#10000.0;
+Mv_Feed_Mm := _eMC_MOVE_MODE#_mcVelocity;
+Mv_Feed_FeedDis := LREAL#500.0;
+Mv_Feed_FeedVel := LREAL#500.0;
+
+// MV_ABS parameters
+Mv_Abs_Pos := LREAL#1000.0;
+Mv_Abs_Vel := LREAL#500.0;
+Mv_Abs_Acc := LREAL#10000.0;
+Mv_Abs_Dec := LREAL#10000.0;
+Mv_Abs_Jrk := LREAL#10000.0;
+
+// MV_ZERO parameters
+Mv_Zero_Vel := LREAL#500.0;
+Mv_Zero_Acc := LREAL#10000.0;
+Mv_Zero_Dec := LREAL#10000.0;
+Mv_Zero_Jrk := LREAL#10000.0;
+Mv_Zero_Bm := _eMC_BUFFER_MODE#_mcBuffered;
+
+// Change InitFlag to TRUE after setting the input parameters.
+InitFlag := TRUE;
+</pre>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="eju1484547358774">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Structured Text (ST)</h1>
+
+<div class="body conbody"></div>
+
+<div class="related-links"></div></div><div class="layer05" id="cte1484547463940">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">Main Variables</h1>
+ 
+<div class="body conbody">
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="cte1484547463940__ID0EYISO" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:31%" />
+<col style="width:14%" />
+<col style="width:10%" />
+<col style="width:44%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d19476e30">Name</th>
+ 
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d19476e33">Data type</th>
+ 
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d19476e36">Default</th>
+ 
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d19476e39">Comment</th>
+ 
+</tr>
+ 
+</thead>
+ 
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d19476e30 ">MC_Axis000</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d19476e33 ">_sAXIS_REF</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d19476e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d19476e39 ">
+<p class="p" id="cte1484547463940__ID0E4LSO">Axis Variable for axis 1.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d19476e30 ">MC_Axis000.MFaultLvl.Active</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d19476e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d19476e36 ">FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d19476e39 ">
+<p class="p" id="cte1484547463940__ID0EQNSO">TRUE while there is a minor fault level error for axis 1.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d19476e30 ">MC_Axis000.Details.Homed</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d19476e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d19476e36 ">FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d19476e39 ">
+<p class="p" id="cte1484547463940__ID0EDPSO">TRUE when home is defined for axis 1.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d19476e30 ">MC_Axis001</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d19476e33 ">_sAXIS_REF</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d19476e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d19476e39 ">
+<p class="p" id="cte1484547463940__ID0EWQSO">Axis Variable for axis 2.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d19476e30 ">MC_Axis001.MFaultLvl.Active</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d19476e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d19476e36 ">FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d19476e39 ">
+<p class="p" id="cte1484547463940__ID0EJSSO">TRUE while there is a minor fault level error for axis 2.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d19476e30 ">MC_Axis001.Details.Homed</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d19476e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d19476e36 ">FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d19476e39 ">
+<p class="p" id="cte1484547463940__ID0E3TSO">TRUE when home is defined for axis 2.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d19476e30 ">TrigRef</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d19476e33 ">_sTRIGGER_REF</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d19476e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d19476e39 ">
+<p class="p" id="cte1484547463940__ID0EPVSO">This is the specified variable for the interrupt input.</p>
+ 
+<p class="p" id="cte1484547463940__ID0EWVSO">Latch 1 of the Servo Drive is used in this sample. When the rising edge of the external input for sensor 1 is detected, interrupt feeding is executed.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d19476e30 ">StartPg</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d19476e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d19476e36 ">FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d19476e39 ">
+<p class="p" id="cte1484547463940__ID0EJXSO">The Servo is turned ON if this variable is TRUE and EtherCAT process data communications are established.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d19476e30 ">InitFlag</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d19476e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d19476e36 ">FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d19476e39 ">
+<p class="p" id="cte1484547463940__ID0E3YSO">This variable indicates if it is necessary to set the input parameters.</p>
+ 
+<p class="p" id="cte1484547463940__ID0EDZSO">Input parameters are set when this variable is FALSE. When setting the input parameters is completed, this variable changes to TRUE.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d19476e30 ">Hm1_Ex</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d19476e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d19476e36 ">FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d19476e39 ">
+<p class="p" id="cte1484547463940__ID0EW1SO">The HM1 instance of MC_Home is executed when this variable changes to TRUE.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d19476e30 ">Hm2_Ex</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d19476e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d19476e36 ">FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d19476e39 ">
+<p class="p" id="cte1484547463940__ID0EJ3SO">The HM2 instance of MC_Home is executed when this variable changes to TRUE.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d19476e30 ">Mv_Feed_Ex</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d19476e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d19476e36 ">FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d19476e39 ">
+<p class="p" id="cte1484547463940__ID0E34SO">The MV_FEED instance of MC_MoveFeed is executed when this variable changes to TRUE.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d19476e30 ">Mv_Abs_Ex</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d19476e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d19476e36 ">FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d19476e39 ">
+<p class="p" id="cte1484547463940__ID0EP6SO">The MV_ABS instance of MC_MoveAbsolute is executed when this variable changes to TRUE.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d19476e30 ">Mv_Zero_Ex</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d19476e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d19476e36 ">FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d19476e39 ">
+<p class="p" id="cte1484547463940__ID0ECBTO">The MV_ZERO instance of MC_MoveZeroPosition is executed when this variable changes to TRUE.</p>
+ 
+</td>
+ 
+</tr>
+ 
+</tbody>
+ 
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer05" id="vud1484547465531">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Timing Chart</h1>
+
+<div class="body conbody">
+<br /><img class="image" src="eta1484547464174.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="fnu1484547465718">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Sample Programming</h1>
+
+<div class="body conbody">
+<pre class="pre codeblock">// Processing when input parameters are not set
+IF InitFlag=FALSE THEN
+
+    // MV_FEED parameters
+    Mv_Feed_TrigRef.Mode :=_eMC_TRIGGER_MODE#_mcDrive;
+    Mv_Feed_TrigRef.LatchID :=_eMC_TRIGGER_LATCH_ID#_mcLatch1;
+    Mv_Feed_TrigRef.InputDrive :=_eMC_TRIGGER_INPUT_DRIVE#_mcEXT;
+    Mv_Feed_TrigVar := FALSE;
+    Mv_Feed_Pos := LREAL#2000.0;
+    Mv_Feed_Vel := LREAL#1000.0;
+    Mv_Feed_Acc := LREAL#10000.0;
+    Mv_Feed_Dec := LREAL#10000.0;
+    Mv_Feed_Mm := _eMC_MOVE_MODE#_mcVelocity;
+    Mv_Feed_FeedDis := LREAL#500.0;
+    Mv_Feed_FeedVel := LREAL#500.0;
+
+    // MV_ABS parameters
+    Mv_Abs_Pos := LREAL#1000.0;
+    Mv_Abs_Vel := LREAL#500.0;
+    Mv_Abs_Acc := LREAL#10000.0;
+    Mv_Abs_Dec := LREAL#10000.0;
+    Mv_Abs_Jrk := LREAL#10000.0;
+
+    // MV_ZERO parameters
+    Mv_Zero_Vel := LREAL#500.0;
+    Mv_Zero_Acc := LREAL#10000.0;
+    Mv_Zero_Dec := LREAL#10000.0;
+    Mv_Zero_Jrk := LREAL#10000.0;
+    Mv_Zero_Bm := _eMC_BUFFER_MODE#_mcBuffered;
+
+    // Change InitFlag to TRUE after setting the input parameters.
+    InitFlag := TRUE;
+
+END_IF;
+
+// If StartPg is TRUE and the Servo Drive is ready, the Servo for axis 1 is turned ON.
+// If the Servo Drive is not ready, the Servo is turned OFF.
+IF (StartPg=TRUE)
+ AND (MC_Axis000.DrvStatus.Ready=TRUE) THEN
+    Pwr1_En:=TRUE; // Turn ON the Servo.
+ELSE
+    Pwr1_En:=FALSE; // Turn OFF the Servo.
+END_IF;
+
+// If StartPg is TRUE and the Servo Drive is ready, the Servo for axis 2 is turned ON.
+// If the Servo Drive is not ready, the Servo is turned OFF.
+IF (StartPg=TRUE)
+ AND (MC_Axis001.DrvStatus.Ready=TRUE) THEN
+    Pwr2_En:=TRUE; // Turn ON the Servo for axis 2.
+ELSE
+    Pwr2_En:=FALSE; // Turn OFF the Servo for axis 2.
+END_IF;
+
+// Processing for a minor fault level error
+// Program the FaultHandler according to the device.
+IF (MC_Axis000.MFaultLvl.Active=TRUE) OR (MC_Axis001.MFaultLvl.Active=TRUE)THEN
+    FaultHandler();
+END_IF;
+
+// If the Servo is ON for axis 1 and home is not defined, the Home instruction is executed for axis 1.
+IF (Pwr1_Status=TRUE) AND (MC_Axis000.Details.Homed=FALSE) THEN
+    Hm1_Ex:=TRUE;
+END_IF;
+
+// If the Servo is ON for axis 2 and home is not defined, the Home instruction is executed for axis 2.
+IF (Pwr2_Status=TRUE) AND (MC_Axis001.Details.Homed=FALSE) THEN
+    Hm2_Ex:=TRUE;
+END_IF;
+
+// After home is defined for axis 1, MC_MoveFeed is executed.
+IF MC_Axis000.Details.Homed=TRUE THEN
+    Mv_Feed_Ex:=TRUE;
+END_IF;
+
+// If home is defined for axis 2 and interrupt feeding is completed for axis 1, absolute positioning is performed for axis 2.
+IF (MC_Axis001.Details.Homed=TRUE) AND (Mv_Feed_D=TRUE) THEN
+    Mv_Abs_Ex := TRUE;
+END_IF;
+
+// After MC_MoveAbsolute is started, MC_MoveZeroPosition is executed with multi-execution of instructions.
+IF Mv_Abs_Act=TRUE THEN
+    Mv_Zero_Ex := TRUE;
+END_IF;
+
+// MC_Power for axis 1
+PWR1(
+    Axis := MC_Axis000,
+    Enable := Pwr1_En,
+    Status =&gt; Pwr1_Status,
+    Busy =&gt; Pwr1_Bsy,
+    Error =&gt; Pwr1_Err,
+    ErrorID =&gt; Pwr1_ErrID
+);
+
+// MC_Power for axis 2
+PWR2(
+    Axis := MC_Axis001,
+    Enable := Pwr2_En,
+    Status =&gt; Pwr2_Status,
+    Busy =&gt; Pwr2_Bsy,
+    Error =&gt; Pwr2_Err,
+    ErrorID =&gt; Pwr2_ErrID
+);
+
+// MC_Home for axis 1
+HM1(
+    Axis := MC_Axis000,
+    Execute := Hm1_Ex,
+    Done =&gt; Hm1_D,
+    Busy =&gt; Hm1_Bsy,
+    CommandAborted =&gt; Hm1_Ca,
+    Error =&gt; Hm1_Err,
+    ErrorID =&gt; Hm1_ErrID
+);
+
+// MC_Home for axis 2
+HM2(
+    Axis := MC_Axis001,
+    Execute := Hm2_Ex,
+    Done =&gt; Hm2_D,
+    Busy =&gt; Hm2_Bsy,
+    CommandAborted =&gt; Hm2_Ca,
+    Error =&gt; Hm2_Err,
+    ErrorID =&gt; Hm2_ErrID
+);
+
+// MC_MoveFeed
+MV_FEED(
+    Axis := MC_Axis000,
+    TriggerInput := Mv_Feed_TrigRef,
+    TriggerVariable := Mv_Feed_TrigVar,
+    Execute := Mv_Feed_Ex,
+    Position := Mv_Feed_Pos,
+    Velocity := Mv_Feed_Vel,
+    Acceleration := Mv_Feed_Acc,
+    Deceleration := Mv_Feed_Dec,
+    MoveMode := Mv_Feed_Mm,
+    FeedDistance := Mv_Feed_FeedDis,
+    FeedVelocity := Mv_Feed_FeedVel,
+    Done =&gt; Mv_Feed_D,
+    InFeed =&gt; Mv_Feed_InFeed,
+    Busy =&gt; Mv_Feed_Bsy,
+    Active =&gt; Mv_Feed_Act,
+    CommandAborted =&gt; Mv_Feed_Ca,
+    Error =&gt; Mv_Feed_Err,
+    ErrorID =&gt; Mv_Feed_ErrID
+);
+
+// MC_MoveAbsolute
+MV_ABS(
+    Axis := MC_Axis001,
+    Execute := Mv_Abs_Ex,
+    Position := Mv_Abs_Pos,
+    Velocity := Mv_Abs_Vel,
+    Acceleration := Mv_Abs_Acc,
+    Deceleration := Mv_Abs_Dec,
+    Jerk := Mv_Abs_Jrk,
+    Done =&gt; Mv_Abs_D,
+    Busy =&gt; Mv_Abs_Bsy,
+    Active =&gt; Mv_Abs_Act,
+    CommandAborted =&gt; Mv_Abs_Ca,
+    Error =&gt; Mv_Abs_Err,
+    ErrorID =&gt; Mv_Abs_ErrID
+);
+
+// MC_MoveZeroPosition
+MV_ZERO(
+    Axis := MC_Axis001,
+    Execute := Mv_Zero_Ex,
+    Velocity := Mv_Zero_Vel,
+    Acceleration := Mv_Zero_Acc,
+    Deceleration := Mv_Zero_Dec,
+    Jerk := Mv_Zero_Jrk,
+    BufferMode := Mv_Zero_Bm,
+    Done =&gt; Mv_Zero_D,
+    Busy =&gt; Mv_Zero_Bsy,
+    Active =&gt; Mv_Zero_Act,
+    CommandAborted =&gt; Mv_Zero_Ca,
+    Error =&gt; Mv_Zero_Err,
+    ErrorID =&gt; Mv_Zero_ErrID
+);
+</pre>
+
+</div>
+
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

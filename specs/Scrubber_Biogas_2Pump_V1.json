@@ -1,0 +1,1652 @@
+{
+ "progetto": "Scrubber Biogas 2Pump_V1",
+ "guid": "864232fc-8b76-4c1a-bc28-d38a4db917c1",
+ "sections": {
+  "Pompe": {
+   "rungs": [
+    {
+     "cmt": "CLOCK 1 MINUTO",
+     "chain": [
+      {
+       "f": "Get1minClk",
+       "p": {}
+      },
+      "(Clock_1Min)"
+     ]
+    },
+    {
+     "cmt": "CLOCK 1 SECONDO",
+     "chain": [
+      {
+       "f": "Get1sClk",
+       "p": {}
+      },
+      "(Clock_1Sec)"
+     ]
+    },
+    {
+     "cmt": "COMANDO POMPA1",
+     "chain": [
+      "IN_EMERGENZA",
+      "Enable_Pompa",
+      "IN_LIV_POMPA",
+      "/IN_TERMICO_P1",
+      "/V_S_PUMP_2",
+      {
+       "fb": "TON",
+       "inst": "Tim_1",
+       "p": {
+        "PT": "T#5s"
+       }
+      }
+     ],
+     "out": [
+      "(PUMP1_Active)",
+      "(OUT_PUMP_1)"
+     ]
+    },
+    {
+     "cmt": "CONRTEGGIO ORE DI FUZIONAMENTO POMPA 1",
+     "chain": [
+      "PUMP1_Active",
+      "^Clock_1Min",
+      {
+       "f": "@Inc",
+       "p": {
+        "InOut": "PV_Minuti_PUMP1",
+        "OUT:InOut": "PV_Minuti_PUMP1"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "COMANDO POMPA2",
+     "chain": [
+      "IN_EMERGENZA",
+      "Enable_Pompa",
+      "IN_LIV_POMPA",
+      "/IN_TERMICO_P2",
+      "V_S_PUMP_2",
+      {
+       "fb": "TON",
+       "inst": "Tim_2",
+       "p": {
+        "PT": "T#5s"
+       }
+      }
+     ],
+     "out": [
+      "(PUMP2_Active)",
+      "(OUT_PUMP_2)"
+     ]
+    },
+    {
+     "cmt": "CONRTEGGIO ORE DI FUZIONAMENTO POMPA 2",
+     "chain": [
+      "PUMP2_Active",
+      "^Clock_1Min",
+      {
+       "f": "@Inc",
+       "p": {
+        "InOut": "PV_Minuti_PUMP2",
+        "OUT:InOut": "PV_Minuti_PUMP2"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "GESTIONE LOCALE REMOTO SELETTORE POMPA",
+     "chain": [
+      "P_On",
+      {
+       "or": [
+        [
+         "V_S_Enable_Pompa",
+         "/V_S_REMOTO"
+        ],
+        [
+         "Remote_S_Enable_Pompa",
+         "V_S_REMOTO"
+        ]
+       ]
+      }
+     ],
+     "out": [
+      "(V_L_Enable_Pompa)",
+      "(Enable_Pompa)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "/IN_EMERGENZA"
+     ],
+     "out": [
+      "(R V_S_Enable_Pompa)",
+      "(R Remote_S_Enable_Pompa)"
+     ]
+    },
+    {
+     "cmt": "GESTIONE LOCALE REMOTO",
+     "chain": [
+      "P_On",
+      {
+       "or": [
+        [
+         "V_S_Enable_Dosaggio",
+         "/V_S_REMOTO"
+        ],
+        [
+         "Remote_S_Enable_Dosaggio",
+         "V_S_REMOTO"
+        ]
+       ]
+      }
+     ],
+     "out": [
+      "(V_L_Enable_Dosaggio)",
+      "(Enable_Dosaggio)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "/IN_EMERGENZA"
+     ],
+     "out": [
+      "(R V_S_Enable_Dosaggio)",
+      "(R Remote_S_Enable_Dosaggio)"
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Clock_1Min",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Clock_1Sec",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Enable_Dosaggio",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Enable_Pompa",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EMERGENZA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIV_POMPA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TERMICO_P1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TERMICO_P2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_PUMP_1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_PUMP_2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PUMP1_Active",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PUMP2_Active",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Minuti_PUMP1",
+     "type": "DINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Minuti_PUMP2",
+     "type": "DINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Remote_S_Enable_Dosaggio",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Remote_S_Enable_Pompa",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_1",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_2",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_L_Enable_Dosaggio",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_L_Enable_Pompa",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_S_Enable_Dosaggio",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_S_Enable_Pompa",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_S_PUMP_2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_S_REMOTO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Elettrovalvole": {
+   "rungs": [
+    {
+     "cmt": "REINTEGRO ACQUA",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "/IN_LIV_MIN",
+       "(S Mem_H2O)"
+      ],
+      [
+       "Mem_H2O",
+       "IN_LIV_MAX",
+       "(R Mem_H2O)"
+      ]
+     ]
+    },
+    {
+     "cmt": "REINTEGRO ACQUA",
+     "chain": [
+      "IN_EMERGENZA",
+      {
+       "or": [
+        [
+         "/V_S_REMOTO",
+         "V_P_H2O"
+        ],
+        [
+         "V_S_Enable_Reintegro_H2O",
+         "Mem_H2O"
+        ],
+        [
+         "V_S_REMOTO",
+         "P_Off"
+        ]
+       ]
+      },
+      "(OUT_EV_ACQUA)"
+     ]
+    },
+    {
+     "cmt": "SOLUZIONE",
+     "chain": [
+      "IN_EMERGENZA",
+      "Enable_Dosaggio",
+      {
+       "or": [
+        "IN_RELE_PH",
+        "V_P_Soluzione"
+       ]
+      }
+     ],
+     "out": [
+      [
+       "/V_S_SOLUZ_PUMP_2",
+       "(OUT_SOLUZ_PUMP_1)"
+      ],
+      [
+       "V_S_SOLUZ_PUMP_2",
+       "(OUT_SOLUZ_PUMP_2)"
+      ]
+     ]
+    },
+    {
+     "cmt": "PURGE AUTOMATICO",
+     "chain": [
+      {
+       "or": [
+        "PUMP1_Active",
+        "PUMP2_Active"
+       ]
+      },
+      "V_S_Enable_Purge"
+     ],
+     "out": [
+      [
+       "^Clock_1Min",
+       {
+        "f": "<",
+        "p": {
+         "In1": "PV_Minuti_Purge_OFF",
+         "In2": "SET_Time_Purge_OFF"
+        }
+       },
+       {
+        "f": "Inc",
+        "p": {
+         "InOut": "PV_Minuti_Purge_OFF",
+         "OUT:InOut": "PV_Minuti_Purge_OFF"
+        }
+       }
+      ],
+      [
+       {
+        "f": ">=",
+        "p": {
+         "In1": "PV_Minuti_Purge_OFF",
+         "In2": "SET_Time_Purge_OFF"
+        }
+       },
+       "^Clock_1Sec",
+       {
+        "f": "Inc",
+        "p": {
+         "InOut": "PV_Sec_Purge_ON",
+         "OUT:InOut": "PV_Sec_Purge_ON"
+        }
+       }
+      ],
+      [
+       {
+        "f": ">=",
+        "p": {
+         "In1": "PV_Minuti_Purge_OFF",
+         "In2": "SET_Time_Purge_OFF"
+        }
+       },
+       "(Purge_Auto)"
+      ],
+      [
+       {
+        "f": ">=",
+        "p": {
+         "In1": "PV_Sec_Purge_ON",
+         "In2": "SET_Time_Purge_ON"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "0",
+         "OUT:Out": "PV_Minuti_Purge_OFF"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "0",
+         "OUT:Out": "PV_Sec_Purge_ON"
+        }
+       }
+      ]
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "/V_S_Enable_Purge",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "0",
+        "OUT:Out": "PV_Minuti_Purge_OFF"
+       }
+      },
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "0",
+        "OUT:Out": "PV_Sec_Purge_ON"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "PURGE",
+     "chain": [
+      "IN_EMERGENZA",
+      {
+       "or": [
+        [
+         "/V_S_REMOTO",
+         "V_P_Purge"
+        ],
+        "Purge_Auto",
+        [
+         "V_S_REMOTO",
+         "Remote_P_Purge"
+        ]
+       ]
+      },
+      "(OUT_EV_PURGE)"
+     ]
+    },
+    {
+     "cmt": "ANIMAZIONE GESTIONE BAR LIVELLO POMPA  VASCA:\r\n-ISTERESI LIVELLI 7 cm TA ON E OFF",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "IN_LIV_POMPA",
+       {
+        "f": "<=",
+        "p": {
+         "In1": "PV_Livello",
+         "In2": "30"
+        }
+       },
+       {
+        "f": "Get100msClk",
+        "p": {}
+       },
+       {
+        "f": "+",
+        "p": {
+         "In1": "PV_Livello",
+         "In2": "INT#1",
+         "OUT:": "PV_Livello"
+        }
+       }
+      ],
+      [
+       "/IN_LIV_POMPA",
+       {
+        "f": ">",
+        "p": {
+         "In1": "PV_Livello",
+         "In2": "0"
+        }
+       },
+       {
+        "f": "Get100msClk",
+        "p": {}
+       },
+       {
+        "f": "-",
+        "p": {
+         "In1": "PV_Livello",
+         "In2": "INT#1",
+         "OUT:": "PV_Livello"
+        }
+       }
+      ]
+     ]
+    },
+    {
+     "cmt": "ANIMAZIONE GESTIONE BAR LIVELLO MINIMO  VASCA",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "IN_LIV_MIN",
+       {
+        "f": "<=",
+        "p": {
+         "In1": "PV_Livello",
+         "In2": "60"
+        }
+       },
+       {
+        "f": "Get100msClk",
+        "p": {}
+       },
+       {
+        "f": "+",
+        "p": {
+         "In1": "PV_Livello",
+         "In2": "INT#1",
+         "OUT:": "PV_Livello"
+        }
+       }
+      ],
+      [
+       "/IN_LIV_MIN",
+       {
+        "f": ">",
+        "p": {
+         "In1": "PV_Livello",
+         "In2": "30"
+        }
+       },
+       {
+        "f": "Get100msClk",
+        "p": {}
+       },
+       {
+        "f": "-",
+        "p": {
+         "In1": "PV_Livello",
+         "In2": "INT#1",
+         "OUT:": "PV_Livello"
+        }
+       }
+      ]
+     ]
+    },
+    {
+     "cmt": "r",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "IN_LIV_MAX",
+       {
+        "f": "<=",
+        "p": {
+         "In1": "PV_Livello",
+         "In2": "80"
+        }
+       },
+       {
+        "f": "Get100msClk",
+        "p": {}
+       },
+       {
+        "f": "+",
+        "p": {
+         "In1": "PV_Livello",
+         "In2": "INT#1",
+         "OUT:": "PV_Livello"
+        }
+       }
+      ],
+      [
+       "/IN_LIV_MAX",
+       {
+        "f": ">",
+        "p": {
+         "In1": "PV_Livello",
+         "In2": "60"
+        }
+       },
+       {
+        "f": "Get100msClk",
+        "p": {}
+       },
+       {
+        "f": "-",
+        "p": {
+         "In1": "PV_Livello",
+         "In2": "INT#1",
+         "OUT:": "PV_Livello"
+        }
+       }
+      ]
+     ]
+    },
+    {
+     "cmt": "GESTIONE GIF POMPA",
+     "chain": [
+      {
+       "or": [
+        "PUMP1_Active",
+        "PUMP2_Active"
+       ]
+      }
+     ],
+     "out": [
+      [
+       "IN_LIV_POMPA",
+       "/IN_LIV_MIN",
+       "/IN_LIV_MAX",
+       {
+        "fb": "TON",
+        "inst": "Tim_5",
+        "p": {
+         "PT": "T#1S"
+        }
+       },
+       "(V_G_Liv_Pompa)"
+      ],
+      [
+       "IN_LIV_MIN",
+       "/IN_LIV_MAX",
+       {
+        "fb": "TON",
+        "inst": "Tim_6",
+        "p": {
+         "PT": "T#1S"
+        }
+       },
+       "(V_G_Liv_Minimo)"
+      ],
+      [
+       "IN_LIV_MAX",
+       {
+        "fb": "TON",
+        "inst": "Tim_7",
+        "p": {
+         "PT": "T#1S"
+        }
+       },
+       "(V_G_Liv_Massimo)"
+      ]
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Clock_1Min",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Clock_1Sec",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Enable_Dosaggio",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EMERGENZA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIV_MAX",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIV_MIN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIV_POMPA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_RELE_PH",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_H2O",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_EV_ACQUA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_EV_PURGE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_SOLUZ_PUMP_1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_SOLUZ_PUMP_2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PUMP1_Active",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PUMP2_Active",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Livello",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Minuti_Purge_OFF",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Sec_Purge_ON",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Purge_Auto",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Remote_P_Purge",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Time_Purge_OFF",
+     "type": "int",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Time_Purge_ON",
+     "type": "int",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_5",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_6",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_7",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_G_Liv_Massimo",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_G_Liv_Minimo",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_G_Liv_Pompa",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_H2O",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Purge",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Soluzione",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_S_Enable_Purge",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_S_Enable_Reintegro_H2O",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_S_REMOTO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_S_SOLUZ_PUMP_2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Allarmi": {
+   "rungs": [
+    {
+     "cmt": "Accendo la spia Allarmi del visualizzatore se ho un bit Allarmi Attivo",
+     "chain": [
+      {
+       "f": "ArySearch",
+       "p": {
+        "In": "Allarme_Bit[0]",
+        "Size": "uint#10",
+        "Key": "bool#1",
+        "InOutPos": "local1",
+        "OUT:": "Spia_Allarme",
+        "OUT:InOutPos": "local1"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        [
+         "Spia_Allarme",
+         {
+          "f": "Get1sClk",
+          "p": {}
+         }
+        ],
+        "Allarme_Bit[0]"
+       ]
+      },
+      "(OUT_LAMP_ARANCIO)"
+     ]
+    },
+    {
+     "cmt": "BIT UTILIZZATO PER RESETTARE L'ALLERME DI CONNESSIONE PLC",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       {
+        "f": "Get1sClk",
+        "p": {}
+       },
+       "(Bit_Connessione_Plc)"
+      ],
+      [
+       "Remote_MODBUS_Enable",
+       "(Bit_ModBus_Connessione_Plc)"
+      ]
+     ]
+    },
+    {
+     "cmt": "ALLARME 0: EMERGENZA PREMUTA",
+     "chain": [
+      "/IN_EMERGENZA",
+      "(Allarme_Bit[0])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 1: TERMICO PROTEZIONE POMPA 1",
+     "chain": [
+      "IN_TERMICO_P1",
+      "(Allarme_Bit[1])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 2: LIVELLO MINIMO POMPA",
+     "chain": [
+      "/IN_LIV_POMPA",
+      "(Allarme_Bit[2])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 3: FAULT CONNESSIONE OPC UA DA REMOTO",
+     "chain": [
+      "P_On",
+      "^/Remote_MODBUS_Enable",
+      "v/Remote_MODBUS_Enable",
+      {
+       "fb": "TON",
+       "inst": "Tim_16",
+       "p": {
+        "PT": "t#15s"
+       }
+      },
+      "(Allarme_Bit[3])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 4: TERMICO PROTEZIONE POMPA 2",
+     "chain": [
+      "IN_TERMICO_P2",
+      "(Allarme_Bit[4])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 5: FAULT ALIMENTATORE DC1",
+     "chain": [
+      "/IN_ALIMENTATORE_DC1_OK",
+      "(Allarme_Bit[5])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 6: FAULT ALIMENTATORE DC2",
+     "chain": [
+      "/IN_ALIMENTATORE_DC2_OK",
+      "(Allarme_Bit[6])"
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Allarme_Bit",
+     "type": "ARRAY[0..9] OF bool",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Bit_Connessione_Plc",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Bit_ModBus_Connessione_Plc",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_ALIMENTATORE_DC1_OK",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_ALIMENTATORE_DC2_OK",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EMERGENZA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIV_POMPA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TERMICO_P1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TERMICO_P2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_LAMP_ARANCIO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Remote_MODBUS_Enable",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Spia_Allarme",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_16",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "local1",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "LadderBody": {
+   "rungs": [
+    {
+     "cmt": "Check that the input value is not out of range for ACC and DEC",
+     "chain": [
+      "EN",
+      {
+       "f": ">",
+       "p": {
+        "In1": "Value",
+        "In2": "REAL#0"
+       }
+      },
+      {
+       "f": "<",
+       "p": {
+        "In1": "Value",
+        "In2": "REAL#9990"
+       }
+      },
+      "(/Error)"
+     ]
+    },
+    {
+     "cmt": "Adding the Exponent ",
+     "chain": [
+      "/Error"
+     ],
+     "out": [
+      [
+       {
+        "f": ">=",
+        "p": {
+         "In1": "Value",
+         "In2": "REAL#0"
+        }
+       },
+       {
+        "f": "<",
+        "p": {
+         "In1": "Value",
+         "In2": "REAL#10"
+        }
+       },
+       {
+        "f": "*",
+        "p": {
+         "In1": "Value",
+         "In2": "REAL#100.0",
+         "OUT:": "iValueREAL"
+        }
+       },
+       {
+        "f": "REAL_TO_WORD",
+        "p": {
+         "In": "iValueREAL",
+         "OUT:": "iVaueToWord"
+        }
+       },
+       {
+        "f": "OR",
+        "p": {
+         "In1": "iVaueToWord",
+         "In2": "WORD#0",
+         "OUT:": "iVaueToWord2"
+        }
+       }
+      ],
+      [
+       {
+        "f": ">=",
+        "p": {
+         "In1": "Value",
+         "In2": "REAL#10"
+        }
+       },
+       {
+        "f": "<",
+        "p": {
+         "In1": "Value",
+         "In2": "REAL#100"
+        }
+       },
+       {
+        "f": "*",
+        "p": {
+         "In1": "Value",
+         "In2": "REAL#10.0",
+         "OUT:": "iValueREAL"
+        }
+       },
+       {
+        "f": "REAL_TO_WORD",
+        "p": {
+         "In": "iValueREAL",
+         "OUT:": "iVaueToWord"
+        }
+       },
+       {
+        "f": "OR",
+        "p": {
+         "In1": "iVaueToWord",
+         "In2": "WORD#1024",
+         "OUT:": "iVaueToWord2"
+        }
+       }
+      ],
+      [
+       {
+        "f": ">=",
+        "p": {
+         "In1": "Value",
+         "In2": "REAL#1000"
+        }
+       },
+       {
+        "f": "<",
+        "p": {
+         "In1": "Value",
+         "In2": "REAL#9990"
+        }
+       },
+       {
+        "f": "*",
+        "p": {
+         "In1": "Value",
+         "In2": "REAL#0.1",
+         "OUT:": "iValueREAL"
+        }
+       },
+       {
+        "f": "REAL_TO_WORD",
+        "p": {
+         "In": "iValueREAL",
+         "OUT:": "iVaueToWord"
+        }
+       },
+       {
+        "f": "OR",
+        "p": {
+         "In1": "iVaueToWord",
+         "In2": "WORD#3072",
+         "OUT:": "iVaueToWord2"
+        }
+       }
+      ],
+      [
+       {
+        "f": ">=",
+        "p": {
+         "In1": "Value",
+         "In2": "REAL#100"
+        }
+       },
+       {
+        "f": "<",
+        "p": {
+         "In1": "Value",
+         "In2": "REAL#1000"
+        }
+       },
+       {
+        "f": "*",
+        "p": {
+         "In1": "Value",
+         "In2": "REAL#1.0",
+         "OUT:": "iValueREAL"
+        }
+       },
+       {
+        "f": "REAL_TO_WORD",
+        "p": {
+         "In": "iValueREAL",
+         "OUT:": "iVaueToWord"
+        }
+       },
+       {
+        "f": "OR",
+        "p": {
+         "In1": "iVaueToWord",
+         "In2": "WORD#2048",
+         "OUT:": "iVaueToWord2"
+        }
+       }
+      ]
+     ]
+    },
+    {
+     "cmt": "Converting the format ",
+     "chain": [
+      {
+       "f": "WORD_TO_UINT",
+       "p": {
+        "In": "iVaueToWord2",
+        "OUT:": "ValueOut"
+       }
+      }
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "EN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Error",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Value out of range (0.01-9990)"
+    },
+    {
+     "name": "Value",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ValueOut",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "iValueREAL",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "iVaueToWord",
+     "type": "WORD",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "iVaueToWord2",
+     "type": "WORD",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "LadderBody#2": {
+   "rungs": [
+    {
+     "cmt": "Converting the format",
+     "chain": [
+      {
+       "f": "UINT_TO_WORD",
+       "p": {
+        "In": "Value",
+        "OUT:": "iVaueToWord"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "Adding the Exponent ",
+     "chain": [
+      "EN"
+     ],
+     "out": [
+      [
+       {
+        "f": "TestABitN",
+        "p": {
+         "In": "iVaueToWord",
+         "Pos": "USINT#10"
+        }
+       },
+       {
+        "f": "TestABitN",
+        "p": {
+         "In": "iVaueToWord",
+         "Pos": "USINT#11"
+        }
+       },
+       {
+        "f": "WORD_TO_REAL",
+        "p": {
+         "In": "iVaueToWord",
+         "OUT:": "iValueREAL"
+        }
+       },
+       {
+        "f": "*",
+        "p": {
+         "In1": "iValueREAL",
+         "In2": "REAL#0.01",
+         "OUT:": "ValueOut"
+        }
+       }
+      ],
+      [
+       {
+        "f": "TestABit",
+        "p": {
+         "In": "iVaueToWord",
+         "Pos": "USINT#10"
+        }
+       },
+       {
+        "f": "TestABitN",
+        "p": {
+         "In": "iVaueToWord",
+         "Pos": "USINT#11"
+        }
+       },
+       {
+        "f": "XOR",
+        "p": {
+         "In1": "iVaueToWord",
+         "In2": "WORD#1024",
+         "OUT:": "iVaueToWord2"
+        }
+       },
+       {
+        "f": "WORD_TO_REAL",
+        "p": {
+         "In": "iVaueToWord2",
+         "OUT:": "iValueREAL"
+        }
+       },
+       {
+        "f": "*",
+        "p": {
+         "In1": "iValueREAL",
+         "In2": "REAL#0.1",
+         "OUT:": "ValueOut"
+        }
+       }
+      ],
+      [
+       {
+        "f": "TestABit",
+        "p": {
+         "In": "iVaueToWord",
+         "Pos": "USINT#10"
+        }
+       },
+       {
+        "f": "TestABit",
+        "p": {
+         "In": "iVaueToWord",
+         "Pos": "USINT#11"
+        }
+       },
+       {
+        "f": "XOR",
+        "p": {
+         "In1": "iVaueToWord",
+         "In2": "WORD#3072",
+         "OUT:": "iVaueToWord2"
+        }
+       },
+       {
+        "f": "WORD_TO_REAL",
+        "p": {
+         "In": "iVaueToWord2",
+         "OUT:": "iValueREAL"
+        }
+       },
+       {
+        "f": "*",
+        "p": {
+         "In1": "iValueREAL",
+         "In2": "REAL#10.0",
+         "OUT:": "ValueOut"
+        }
+       }
+      ],
+      [
+       {
+        "f": "TestABitN",
+        "p": {
+         "In": "iVaueToWord",
+         "Pos": "USINT#10"
+        }
+       },
+       {
+        "f": "TestABit",
+        "p": {
+         "In": "iVaueToWord",
+         "Pos": "USINT#11"
+        }
+       },
+       {
+        "f": "XOR",
+        "p": {
+         "In1": "iVaueToWord",
+         "In2": "WORD#2048",
+         "OUT:": "iVaueToWord2"
+        }
+       },
+       {
+        "f": "WORD_TO_REAL",
+        "p": {
+         "In": "iVaueToWord2",
+         "OUT:": "iValueREAL"
+        }
+       },
+       {
+        "f": "*",
+        "p": {
+         "In1": "iValueREAL",
+         "In2": "REAL#1.0",
+         "OUT:": "ValueOut"
+        }
+       }
+      ]
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "EN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Value",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ValueOut",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "iValueREAL",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "iVaueToWord",
+     "type": "WORD",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "iVaueToWord2",
+     "type": "WORD",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "LadderBody#3": {
+   "rungs": [
+    {
+     "cmt": "",
+     "chain": [
+      "ENABLE",
+      {
+       "f": "Get1sClk",
+       "p": {}
+      },
+      {
+       "f": "@Dec",
+       "p": {
+        "InOut": "VALUE",
+        "OUT:InOut": "VALUE"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "ENABLE",
+      {
+       "f": "<=",
+       "p": {
+        "In1": "VALUE",
+        "In2": "0"
+       }
+      },
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "0",
+        "OUT:Out": "VALUE"
+       }
+      },
+      "(End_Conteggio)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "/ENABLE",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "SET_VALUE",
+        "OUT:Out": "VALUE"
+       }
+      }
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Enable",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Enables the Functionblock"
+    },
+    {
+     "name": "End_Conteggio",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_VALUE",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Value",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  }
+ }
+}

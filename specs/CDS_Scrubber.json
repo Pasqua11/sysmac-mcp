@@ -1,0 +1,1835 @@
+{
+ "progetto": "CDS Scrubber",
+ "guid": "510c53e5-c59e-414a-aa10-c403558a9996",
+ "sections": {
+  "Ausiliari": {
+   "rungs": [
+    {
+     "cmt": "SPIA MARCIA",
+     "chain": [
+      "/IN_MARCIA"
+     ],
+     "out": [
+      "(Marcia_ON)",
+      "(OUT_SPIA_MARCIA)"
+     ]
+    },
+    {
+     "cmt": "COLONNA ARANCIO SODA",
+     "chain": [
+      "P_On",
+      {
+       "or": [
+        [
+         {
+          "or": [
+           "Allarme_Bit[1]",
+           "Allarme_Bit[2]",
+           "Allarme_Bit[3]",
+           "Allarme_Bit[4]",
+           "Allarme_Bit[9]",
+           "Allarme_Bit[11]",
+           "Allarme_Bit[19]"
+          ]
+         },
+         {
+          "f": "Get1sClk",
+          "p": {}
+         }
+        ],
+        "IN_EMERGENZA_SODA"
+       ]
+      },
+      "(OUT_LAMP_ARANCIO_SODA)"
+     ]
+    },
+    {
+     "cmt": "COLONNA ARANCIO ACIDO",
+     "chain": [
+      "P_On",
+      {
+       "or": [
+        [
+         {
+          "or": [
+           "Allarme_Bit[5]",
+           "Allarme_Bit[6]",
+           "Allarme_Bit[7]",
+           "Allarme_Bit[8]",
+           "Allarme_Bit[10]",
+           "Allarme_Bit[12]",
+           "Allarme_Bit[17]"
+          ]
+         },
+         {
+          "f": "Get1sClk",
+          "p": {}
+         }
+        ],
+        "IN_EMERGENZA_ACID"
+       ]
+      },
+      "(OUT_LAMP_ARANCIO_ACIDO)"
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Allarme_Bit",
+     "type": "ARRAY[0..30] OF bool",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EMERGENZA_ACID",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EMERGENZA_SODA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_MARCIA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Marcia_ON",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_LAMP_ARANCIO_ACIDO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_LAMP_ARANCIO_SODA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_SPIA_MARCIA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Soda": {
+   "rungs": [
+    {
+     "cmt": "GESTIONE LOCALE REMOTO POMPA SODA",
+     "chain": [
+      "P_On",
+      {
+       "or": [
+        [
+         "V_S_Pump_Soda",
+         "/IN_REMOTO"
+        ],
+        [
+         "Remote_S_Enable_Pump_Soda",
+         "IN_REMOTO"
+        ]
+       ]
+      }
+     ],
+     "out": [
+      "(V_L_Pump_Soda)",
+      "(Enable_Pump_Soda)"
+     ]
+    },
+    {
+     "cmt": "BIT DI PRONTO PER DISTRIBUZIONE SOLUZIONE INVIATO A SCRUBBER S1-1/2",
+     "chain": [
+      "/IN_EMERGENZA",
+      "/IN_EMERGENZA_SODA",
+      "/Allarme_Bit[19]",
+      "Marcia_ON",
+      "Enable_Pump_Soda",
+      "/Mem_Vuoto_Fusto_Soda",
+      "(OUT_CDS_READY_SODA)"
+     ]
+    },
+    {
+     "cmt": "TEMPORIZZATORE LIVELLO VUOTO TUBO",
+     "chain": [
+      "/IN_LIV_PIENO_TUBO_SODA",
+      {
+       "or": [
+        "OUT_PUMP1_SODA",
+        "OUT_PUMP2_SODA"
+       ]
+      },
+      {
+       "fb": "Contatore",
+       "inst": "CNT_Liv_Vuoto_Fusto_Soda",
+       "p": {
+        "SET_VALUE": "SET_Tim_Sebatoio_Vuoto_Soda",
+        "VALUE": "PV_Liv_Vuoto_Fusto_Soda",
+        "OUT:VALUE": "PV_Liv_Vuoto_Fusto_Soda"
+       }
+      },
+      "(S Mem_Vuoto_Fusto_Soda)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "IN_PULS_CAMBIO_FUSTO_SODA",
+      "(R Mem_Vuoto_Fusto_Soda)"
+     ]
+    },
+    {
+     "cmt": "COMANDO ELETTROVALVOLA POMPA1 SODA",
+     "chain": [
+      "OUT_CDS_READY_SODA",
+      "/V_S_Pump2_Soda",
+      {
+       "or": [
+        "IN_CALL_SCRUBBER_S1_1",
+        "IN_CALL_SCRUBBER_S1_2"
+       ]
+      },
+      "(OUT_EV_PUMP1_SODA)"
+     ]
+    },
+    {
+     "cmt": "COMANDO POMPA 1 SODA",
+     "chain": [
+      "OUT_EV_PUMP1_SODA",
+      "/IN_EV_PUMP1_OPEN_SODA",
+      "(OUT_PUMP1_SODA)"
+     ]
+    },
+    {
+     "cmt": "COMANDO ELETTROVALVOLA POMPA2 SODA",
+     "chain": [
+      "OUT_CDS_READY_SODA",
+      "V_S_Pump2_Soda",
+      {
+       "or": [
+        "IN_CALL_SCRUBBER_S1_1",
+        "IN_CALL_SCRUBBER_S1_2"
+       ]
+      },
+      "(OUT_EV_PUMP2_SODA)"
+     ]
+    },
+    {
+     "cmt": "COMANDO POMPA 2 SODA",
+     "chain": [
+      "OUT_EV_PUMP2_SODA",
+      "/IN_EV_PUMP2_OPEN_SODA",
+      "(OUT_PUMP2_SODA)"
+     ]
+    },
+    {
+     "cmt": "CLOCK 1 MINUTO",
+     "chain": [
+      {
+       "f": "Get1minClk",
+       "p": {}
+      },
+      "(Clock_1Min)"
+     ]
+    },
+    {
+     "cmt": "CONRTEGGIO ORE DI FUZIONAMENTO POMPA 1",
+     "chain": [
+      "Marcia_ON",
+      "OUT_PUMP1_SODA",
+      "^Clock_1Min",
+      {
+       "f": "@Inc",
+       "p": {
+        "InOut": "PV_Minuti_PUMP1_Soda",
+        "OUT:InOut": "PV_Minuti_PUMP1_Soda"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "CONRTEGGIO ORE DI FUZIONAMENTO POMPA 2",
+     "chain": [
+      "Marcia_ON",
+      "OUT_PUMP2_SODA",
+      "^Clock_1Min",
+      {
+       "f": "@Inc",
+       "p": {
+        "InOut": "PV_Minuti_PUMP2_Soda",
+        "OUT:InOut": "PV_Minuti_PUMP2_Soda"
+       }
+      }
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Allarme_Bit",
+     "type": "ARRAY[0..30] OF bool",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "CNT_Liv_Vuoto_Fusto_Soda",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Clock_1Min",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Enable_Pump_Soda",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_CALL_SCRUBBER_S1_1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_CALL_SCRUBBER_S1_2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EMERGENZA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EMERGENZA_SODA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EV_PUMP1_OPEN_SODA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EV_PUMP2_OPEN_SODA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIV_PIENO_TUBO_SODA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_PULS_CAMBIO_FUSTO_SODA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_REMOTO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Marcia_ON",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Vuoto_Fusto_Soda",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_CDS_READY_SODA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_EV_PUMP1_SODA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_EV_PUMP2_SODA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_PUMP1_SODA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_PUMP2_SODA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Liv_Vuoto_Fusto_Soda",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Minuti_PUMP1_Soda",
+     "type": "DINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Minuti_PUMP2_Soda",
+     "type": "DINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Remote_S_Enable_Pump_Soda",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Tim_Sebatoio_Vuoto_Soda",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_L_Pump_Soda",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_S_Pump2_Soda",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_S_Pump_Soda",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Acido": {
+   "rungs": [
+    {
+     "cmt": "GESTIONE LOCALE REMOTO POMPA ACIDO",
+     "chain": [
+      "P_On",
+      {
+       "or": [
+        [
+         "V_S_Pump_Acid",
+         "/IN_REMOTO"
+        ],
+        [
+         "Remote_S_Enable_Pump_Acid",
+         "IN_REMOTO"
+        ]
+       ]
+      }
+     ],
+     "out": [
+      "(V_L_Pump_Acid)",
+      "(Enable_Pump_Acid)"
+     ]
+    },
+    {
+     "cmt": "BIT DI PRONTO PER DISTRIBUZIONE SOLUZIONE INVIATO A SCRUBBER S2-1/2",
+     "chain": [
+      "/IN_EMERGENZA",
+      "/IN_EMERGENZA_ACID",
+      "/Allarme_Bit[17]",
+      "Marcia_ON",
+      "Enable_Pump_Acid",
+      "/Mem_Vuoto_Fusto_Acid",
+      "(OUT_CDS_READY_ACID)"
+     ]
+    },
+    {
+     "cmt": "TEMPORIZZATORE LIVELLO VUOTO TUBO",
+     "chain": [
+      "/IN_LIV_PIENO_TUBO_ACID",
+      {
+       "or": [
+        "OUT_PUMP1_ACIDO",
+        "OUT_PUMP2_ACIDO"
+       ]
+      },
+      {
+       "fb": "Contatore",
+       "inst": "CNT_Liv_Vuoto_Fusto_Acid",
+       "p": {
+        "SET_VALUE": "SET_Tim_Sebatoio_Vuoto_Acido",
+        "VALUE": "PV_Liv_Vuoto_Fusto_Acid",
+        "OUT:VALUE": "PV_Liv_Vuoto_Fusto_Acid"
+       }
+      },
+      "(S Mem_Vuoto_Fusto_Acid)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "IN_PULS_CAMBIO_FUSTO_ACID",
+      "(R Mem_Vuoto_Fusto_Acid)"
+     ]
+    },
+    {
+     "cmt": "COMANDO ELETTROVALVOLA POMPA1 ACIDO",
+     "chain": [
+      "OUT_CDS_READY_ACID",
+      "/V_S_Pump2_Acid",
+      {
+       "or": [
+        "IN_CALL_SCRUBBER_S2_1",
+        "IN_CALL_SCRUBBER_S2_2"
+       ]
+      },
+      "(OUT_EV_PUMP1_ACIDO)"
+     ]
+    },
+    {
+     "cmt": "COMANDO POMPA 1 ACIDO",
+     "chain": [
+      "OUT_EV_PUMP1_ACIDO",
+      "/IN_EV_PUMP1_OPEN_ACIDO",
+      "(OUT_PUMP1_ACIDO)"
+     ]
+    },
+    {
+     "cmt": "COMANDO ELETTROVALVOLA POMPA2 ACIDO",
+     "chain": [
+      "OUT_CDS_READY_ACID",
+      "V_S_Pump2_Acid",
+      {
+       "or": [
+        "IN_CALL_SCRUBBER_S2_1",
+        "IN_CALL_SCRUBBER_S2_2"
+       ]
+      },
+      "(OUT_EV_PUMP2_ACIDO)"
+     ]
+    },
+    {
+     "cmt": "COMANDO POMPA 2 ACIDO",
+     "chain": [
+      "OUT_EV_PUMP2_ACIDO",
+      "/IN_EV_PUMP2_OPEN_ACIDO",
+      "(OUT_PUMP2_ACIDO)"
+     ]
+    },
+    {
+     "cmt": "CONRTEGGIO ORE DI FUZIONAMENTO POMPA 1",
+     "chain": [
+      "Marcia_ON",
+      "OUT_PUMP1_ACIDO",
+      "^Clock_1Min",
+      {
+       "f": "@Inc",
+       "p": {
+        "InOut": "PV_Minuti_PUMP1_Acid",
+        "OUT:InOut": "PV_Minuti_PUMP1_Acid"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "CONRTEGGIO ORE DI FUZIONAMENTO POMPA 2",
+     "chain": [
+      "Marcia_ON",
+      "OUT_PUMP2_ACIDO",
+      "^Clock_1Min",
+      {
+       "f": "@Inc",
+       "p": {
+        "InOut": "PV_Minuti_PUMP2_Acid",
+        "OUT:InOut": "PV_Minuti_PUMP2_Acid"
+       }
+      }
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Allarme_Bit",
+     "type": "ARRAY[0..30] OF bool",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "CNT_Liv_Vuoto_Fusto_Acid",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Clock_1Min",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Enable_Pump_Acid",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_CALL_SCRUBBER_S2_1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_CALL_SCRUBBER_S2_2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EMERGENZA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EMERGENZA_ACID",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EV_PUMP1_OPEN_ACIDO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EV_PUMP2_OPEN_ACIDO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIV_PIENO_TUBO_ACID",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_PULS_CAMBIO_FUSTO_ACID",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_REMOTO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Marcia_ON",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Vuoto_Fusto_Acid",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_CDS_READY_ACID",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_EV_PUMP1_ACIDO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_EV_PUMP2_ACIDO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_PUMP1_ACIDO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_PUMP2_ACIDO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Liv_Vuoto_Fusto_Acid",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Minuti_PUMP1_Acid",
+     "type": "DINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Minuti_PUMP2_Acid",
+     "type": "DINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Remote_S_Enable_Pump_Acid",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Tim_Sebatoio_Vuoto_Acido",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_L_Pump_Acid",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_S_Pump2_Acid",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_S_Pump_Acid",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Allarmi": {
+   "rungs": [
+    {
+     "cmt": "Accendo la spia Allarmi del visualizzatore se ho un bit Allarmi Attivo",
+     "chain": [
+      {
+       "f": "ArySearch",
+       "p": {
+        "In": "Allarme_Bit[0]",
+        "Size": "uint#30",
+        "Key": "bool#1",
+        "InOutPos": "local1",
+        "OUT:": "Spia_Allarme",
+        "OUT:InOutPos": "local1"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Spia_Allarme",
+      {
+       "f": "Get1sClk",
+       "p": {}
+      },
+      "(OUT_LAMP_ARANCIO)"
+     ]
+    },
+    {
+     "cmt": "COLONNA VERDE",
+     "chain": [
+      "OUT_CDS_READY_SODA",
+      "OUT_CDS_READY_ACID",
+      "(OUT_LAMP_VERDE)"
+     ]
+    },
+    {
+     "cmt": "BIT UTILIZZATO PER RESETTARE L'ALLERME DI CONNESSIONE PLC",
+     "chain": [
+      {
+       "f": "Get1sClk",
+       "p": {}
+      },
+      "(Bit_Connessione_Plc)"
+     ]
+    },
+    {
+     "cmt": "ALLARME 0: EMERGENZA PREMUTA",
+     "chain": [
+      "IN_EMERGENZA"
+     ],
+     "out": [
+      "(Allarme_Bit[0])",
+      "(OUT_LAMP_ROSSA)"
+     ]
+    },
+    {
+     "cmt": "ALLARME 1-2: ERRORE APERTURA/CHIUSURA VALVOLA POMPA 1 SODA",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       {
+        "or": [
+         [
+          "OUT_EV_PUMP1_SODA",
+          "IN_EV_PUMP1_OPEN_SODA"
+         ],
+         [
+          "/IN_EV_PUMP1_OPEN_SODA",
+          "/IN_EV_PUMP1_CLOSE_SODA"
+         ]
+        ]
+       },
+       {
+        "fb": "TON",
+        "inst": "Ritardo1",
+        "p": {
+         "PT": "t#10s",
+         "OUT:ET": "Rit1_PV"
+        }
+       },
+       "(Allarme_Bit[1])"
+      ],
+      [
+       {
+        "or": [
+         [
+          "/OUT_EV_PUMP1_SODA",
+          "IN_EV_PUMP1_CLOSE_SODA"
+         ],
+         [
+          "/IN_EV_PUMP1_OPEN_SODA",
+          "/IN_EV_PUMP1_CLOSE_SODA"
+         ]
+        ]
+       },
+       {
+        "fb": "TON",
+        "inst": "Ritardo2",
+        "p": {
+         "PT": "t#10s",
+         "OUT:ET": "Rit2_PV"
+        }
+       },
+       "(Allarme_Bit[2])"
+      ]
+     ]
+    },
+    {
+     "cmt": "ALLARME 3-4: ERRORE APERTURA/CHIUSURA VALVOLA POMPA 2 SODA",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       {
+        "or": [
+         [
+          "OUT_EV_PUMP2_SODA",
+          "IN_EV_PUMP2_OPEN_SODA"
+         ],
+         [
+          "/IN_EV_PUMP2_OPEN_SODA",
+          "/IN_EV_PUMP2_CLOSE_SODA"
+         ]
+        ]
+       },
+       {
+        "fb": "TON",
+        "inst": "Ritardo3",
+        "p": {
+         "PT": "t#10s",
+         "OUT:ET": "Rit3_PV"
+        }
+       },
+       "(Allarme_Bit[3])"
+      ],
+      [
+       {
+        "or": [
+         [
+          "/OUT_EV_PUMP2_SODA",
+          "IN_EV_PUMP2_CLOSE_SODA"
+         ],
+         [
+          "/IN_EV_PUMP2_OPEN_SODA",
+          "/IN_EV_PUMP2_CLOSE_SODA"
+         ]
+        ]
+       },
+       {
+        "fb": "TON",
+        "inst": "Ritardo4",
+        "p": {
+         "PT": "t#10s",
+         "OUT:ET": "Rit4_PV"
+        }
+       },
+       "(Allarme_Bit[4])"
+      ]
+     ]
+    },
+    {
+     "cmt": "ALLARME 5-6: ERRORE APERTURA/CHIUSURA VALVOLA POMPA 1 ACIDO",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       {
+        "or": [
+         [
+          "OUT_EV_PUMP1_ACIDO",
+          "IN_EV_PUMP1_OPEN_ACIDO"
+         ],
+         [
+          "/IN_EV_PUMP1_OPEN_ACIDO",
+          "/IN_EV_PUMP1_CLOSE_ACIDO"
+         ]
+        ]
+       },
+       {
+        "fb": "TON",
+        "inst": "Ritardo5",
+        "p": {
+         "PT": "t#10s",
+         "OUT:ET": "Rit3_PV"
+        }
+       },
+       "(Allarme_Bit[5])"
+      ],
+      [
+       {
+        "or": [
+         [
+          "/OUT_EV_PUMP1_ACIDO",
+          "IN_EV_PUMP1_CLOSE_ACIDO"
+         ],
+         [
+          "/IN_EV_PUMP1_OPEN_ACIDO",
+          "/IN_EV_PUMP1_CLOSE_ACIDO"
+         ]
+        ]
+       },
+       {
+        "fb": "TON",
+        "inst": "Ritardo6",
+        "p": {
+         "PT": "t#10s",
+         "OUT:ET": "Rit4_PV"
+        }
+       },
+       "(Allarme_Bit[6])"
+      ]
+     ]
+    },
+    {
+     "cmt": "ALLARME 7-8: ERRORE APERTURA/CHIUSURA VALVOLA POMPA 2 ACIDO",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       {
+        "or": [
+         [
+          "OUT_EV_PUMP2_ACIDO",
+          "IN_EV_PUMP2_OPEN_ACIDO"
+         ],
+         [
+          "/IN_EV_PUMP2_OPEN_ACIDO",
+          "/IN_EV_PUMP2_CLOSE_ACIDO"
+         ]
+        ]
+       },
+       {
+        "fb": "TON",
+        "inst": "Ritardo7",
+        "p": {
+         "PT": "t#10s",
+         "OUT:ET": "Rit3_PV"
+        }
+       },
+       "(Allarme_Bit[7])"
+      ],
+      [
+       {
+        "or": [
+         [
+          "/OUT_EV_PUMP2_ACIDO",
+          "IN_EV_PUMP2_CLOSE_ACIDO"
+         ],
+         [
+          "/IN_EV_PUMP2_OPEN_ACIDO",
+          "/IN_EV_PUMP2_CLOSE_ACIDO"
+         ]
+        ]
+       },
+       {
+        "fb": "TON",
+        "inst": "Ritardo8",
+        "p": {
+         "PT": "t#10s",
+         "OUT:ET": "Rit4_PV"
+        }
+       },
+       "(Allarme_Bit[8])"
+      ]
+     ]
+    },
+    {
+     "cmt": "ALLARME 9: BASSA ASPIRAZIONE MODULO SODA",
+     "chain": [
+      "P_Off",
+      {
+       "f": "<",
+       "p": {
+        "In1": "PV_Aspirazione_Soda",
+        "In2": "SET_All_Aspirazione_Soda"
+       }
+      },
+      {
+       "fb": "TON",
+       "inst": "Tim_5",
+       "p": {
+        "PT": "T#2S"
+       }
+      },
+      "(Allarme_Bit[9])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 10: BASSA ASPIRAZIONE MODULO ACIDO",
+     "chain": [
+      "P_Off",
+      {
+       "f": "<",
+       "p": {
+        "In1": "PV_Aspirazione_Acido",
+        "In2": "SET_All_Aspirazione_Acid"
+       }
+      },
+      {
+       "fb": "TON",
+       "inst": "Tim_7",
+       "p": {
+        "PT": "T#2S"
+       }
+      },
+      "(Allarme_Bit[10])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 11: FUSTO VUOTO SODA",
+     "chain": [
+      "Mem_Vuoto_Fusto_Soda",
+      "(Allarme_Bit[11])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 12: FUSTO VUOTO ACIDO",
+     "chain": [
+      "Mem_Vuoto_Fusto_Acid",
+      "(Allarme_Bit[12])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 13: EMERGENZA MODULO SODA",
+     "chain": [
+      "IN_EMERGENZA_SODA",
+      "(Allarme_Bit[13])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 14: POMPA SODA OFF",
+     "chain": [
+      "/Enable_Pump_Soda",
+      "(Allarme_Bit[14])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 15: POMPA ACIDO OFF",
+     "chain": [
+      "/Enable_Pump_Acid",
+      "(Allarme_Bit[15])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 16: EMERGENZA MODULO ACIDO",
+     "chain": [
+      "IN_EMERGENZA_ACID",
+      "(Allarme_Bit[16])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 17: LIVELLO SICUREZZA PLENUM ACIDO",
+     "chain": [
+      "/IN_LIV_SIC_PLENUM_ACIDO",
+      {
+       "fb": "TON",
+       "inst": "Tim_6",
+       "p": {
+        "PT": "t#1S"
+       }
+      },
+      "(Allarme_Bit[17])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 18: MARCIA OFF",
+     "chain": [
+      "/Marcia_ON",
+      "(Allarme_Bit[18])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 19: LIVELLO SICUREZZA PLENUM SODA",
+     "chain": [
+      "/IN_LIV_SIC_PLENUM_SODA",
+      {
+       "fb": "TON",
+       "inst": "Tim_2",
+       "p": {
+        "PT": "t#1S"
+       }
+      },
+      "(Allarme_Bit[19])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 20: FAULT CONNESSIONE OPC UA DA REMOTO",
+     "chain": [
+      "IN_REMOTO"
+     ],
+     "out": [
+      [
+       "/Remote_OPCUA_Enable",
+       {
+        "fb": "TON",
+        "inst": "Tim_3",
+        "p": {
+         "PT": "t#5s"
+        }
+       },
+       "(Allarme_Bit[20])"
+      ],
+      [
+       "Remote_OPCUA_Enable",
+       {
+        "fb": "TON",
+        "inst": "Tim_4",
+        "p": {
+         "PT": "t#2s"
+        }
+       },
+       "(R Remote_OPCUA_Enable)"
+      ]
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Allarme_Bit",
+     "type": "ARRAY[0..30] OF bool",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Bit_Connessione_Plc",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Enable_Pump_Acid",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Enable_Pump_Soda",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EMERGENZA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EMERGENZA_ACID",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EMERGENZA_SODA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EV_PUMP1_CLOSE_ACIDO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EV_PUMP1_CLOSE_SODA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EV_PUMP1_OPEN_ACIDO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EV_PUMP1_OPEN_SODA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EV_PUMP2_CLOSE_ACIDO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EV_PUMP2_CLOSE_SODA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EV_PUMP2_OPEN_ACIDO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EV_PUMP2_OPEN_SODA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIV_SIC_PLENUM_ACIDO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIV_SIC_PLENUM_SODA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_REMOTO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Marcia_ON",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Vuoto_Fusto_Acid",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Vuoto_Fusto_Soda",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_CDS_READY_ACID",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_CDS_READY_SODA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_EV_PUMP1_ACIDO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_EV_PUMP1_SODA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_EV_PUMP2_ACIDO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_EV_PUMP2_SODA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_LAMP_ARANCIO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_LAMP_ROSSA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_LAMP_VERDE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Aspirazione_Acido",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Aspirazione_Soda",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Remote_OPCUA_Enable",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Rit1_PV",
+     "type": "TIME",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Rit2_PV",
+     "type": "TIME",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Rit3_PV",
+     "type": "TIME",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Rit4_PV",
+     "type": "TIME",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Ritardo1",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Ritardo2",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Ritardo3",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Ritardo4",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Ritardo5",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Ritardo6",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Ritardo7",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Ritardo8",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_All_Aspirazione_Acid",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_All_Aspirazione_Soda",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Spia_Allarme",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_2",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_3",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_4",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_5",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_6",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_7",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "local1",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Simulazione": {
+   "rungs": [
+    {
+     "cmt": "",
+     "chain": [
+      "OUT_EV_PUMP1_SODA",
+      {
+       "fb": "TON",
+       "inst": "Tim_Simu_1",
+       "p": {
+        "PT": "t#5s"
+       }
+      },
+      "(/IN_EV_PUMP1_OPEN_SODA)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "/OUT_EV_PUMP1_SODA",
+      {
+       "fb": "TON",
+       "inst": "Tim_Simu_2",
+       "p": {
+        "PT": "t#5s"
+       }
+      },
+      "(/IN_EV_PUMP1_CLOSE_SODA)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "OUT_EV_PUMP2_SODA",
+      {
+       "fb": "TON",
+       "inst": "Tim_Simu_3",
+       "p": {
+        "PT": "t#5s"
+       }
+      },
+      "(/IN_EV_PUMP2_OPEN_SODA)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "/OUT_EV_PUMP2_SODA",
+      {
+       "fb": "TON",
+       "inst": "Tim_Simu_4",
+       "p": {
+        "PT": "t#5s"
+       }
+      },
+      "(/IN_EV_PUMP2_CLOSE_SODA)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "OUT_EV_PUMP1_ACIDO",
+      {
+       "fb": "TON",
+       "inst": "Tim_Simu_5",
+       "p": {
+        "PT": "t#5s"
+       }
+      },
+      "(/IN_EV_PUMP1_OPEN_ACIDO)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "/OUT_EV_PUMP1_ACIDO",
+      {
+       "fb": "TON",
+       "inst": "Tim_Simu_6",
+       "p": {
+        "PT": "t#5s"
+       }
+      },
+      "(/IN_EV_PUMP1_CLOSE_ACIDO)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "OUT_EV_PUMP2_ACIDO",
+      {
+       "fb": "TON",
+       "inst": "Tim_Simu_7",
+       "p": {
+        "PT": "t#5s"
+       }
+      },
+      "(/IN_EV_PUMP2_OPEN_ACIDO)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "/OUT_EV_PUMP2_ACIDO",
+      {
+       "fb": "TON",
+       "inst": "Tim_Simu_8",
+       "p": {
+        "PT": "t#5s"
+       }
+      },
+      "(/IN_EV_PUMP2_CLOSE_ACIDO)"
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "IN_EV_PUMP1_CLOSE_ACIDO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EV_PUMP1_CLOSE_SODA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EV_PUMP1_OPEN_ACIDO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EV_PUMP1_OPEN_SODA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EV_PUMP2_CLOSE_ACIDO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EV_PUMP2_CLOSE_SODA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EV_PUMP2_OPEN_ACIDO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EV_PUMP2_OPEN_SODA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_EV_PUMP1_ACIDO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_EV_PUMP1_SODA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_EV_PUMP2_ACIDO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_EV_PUMP2_SODA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Simu_1",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Simu_2",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Simu_3",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Simu_4",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Simu_5",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Simu_6",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Simu_7",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Simu_8",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "LadderBody": {
+   "rungs": [
+    {
+     "cmt": "",
+     "chain": [
+      "ENABLE",
+      {
+       "f": "Get1sClk",
+       "p": {}
+      },
+      {
+       "f": "@Dec",
+       "p": {
+        "InOut": "VALUE",
+        "OUT:InOut": "VALUE"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "ENABLE",
+      {
+       "f": "<=",
+       "p": {
+        "In1": "VALUE",
+        "In2": "0"
+       }
+      },
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "0",
+        "OUT:Out": "VALUE"
+       }
+      },
+      "(End_Conteggio)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "/ENABLE",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "SET_VALUE",
+        "OUT:Out": "VALUE"
+       }
+      }
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "ENABLE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "End_Conteggio",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_VALUE",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "VALUE",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  }
+ }
+}

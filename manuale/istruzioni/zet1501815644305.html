@@ -1,0 +1,853 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>StackPush</title>
+</head>
+<body class="zet1501815644305"><div class="layer02" id="zet1501815644305">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">StackPush</h1>
+
+<div class="body conbody">
+<p class="p">The StackPush instruction stores a value in the top of a stack.</p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="zet1501815644305__table_N10016_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:13%" />
+<col style="width:14%" />
+<col style="width:6%" />
+<col style="width:35%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1198298e37">Instruction</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1198298e40">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1198298e43">
+<p class="p">FB/</p>
+
+<p class="p">FUN</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1198298e52">Graphic expression</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1198298e55">ST expression</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1198298e37 "><span class="indexterm">StackPush (Push onto Stack)</span>StackPush</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1198298e40 "><span class="indexterm">Push onto Stack</span>Push onto Stack</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1198298e43 ">FUN</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1198298e52 ">
+<br /><img class="image" id="zet1501815644305__image_67F97EA8904B447FBAD29D5D65734994" src="bun1501815643562.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1198298e55 ">StackPush(In, InOut, Size, Num);</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="yho1501816457053">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Variables</h1>
+ 
+<div class="body conbody">
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="yho1501816457053__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:20%" />
+<col style="width:9%" />
+<col style="width:20%" />
+<col style="width:14%" />
+<col style="width:14%" />
+<col style="width:8%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d1160284e38">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1160284e40">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1160284e43">I/O</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1160284e46">Description</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1160284e49">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1160284e53">Unit</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1160284e56">Default</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1160284e38 ">In</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1160284e40 ">Input value</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d1160284e43 ">Input</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1160284e46 ">Value, structure, or structure member to place in the stack</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d1160284e49 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d1160284e53 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1160284e56 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1160284e38 ">Size</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1160284e40 ">Number of stack elements</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1160284e46 ">Number of stack array elements</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1160284e56 ">1</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1160284e38 ">InOut[] (array)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1160284e40 ">Stack array</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d1160284e43 ">In-out</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1160284e46 ">Array that functions as stack</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d1160284e49 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d1160284e53 ">---</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d1160284e56 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1160284e38 ">Num</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1160284e40 ">Number of stored elements</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1160284e46 ">Number of elements stored in stack</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1160284e38 ">Out</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1160284e40 ">Return value</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1160284e43 ">Output</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1160284e46 ">Always TRUE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1160284e49 ">TRUE only</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1160284e53 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1160284e56 ">---</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="yho1501816457053__table_N10144_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:5%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:top;" id="d1160284e221">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1160284e223">Boolean</th>
+
+<th class="entry cellrowborder" colspan="4" style="text-align:center;vertical-align:middle;" id="d1160284e226">Bit strings</th>
+
+<th class="entry cellrowborder" colspan="8" style="text-align:center;vertical-align:middle;" id="d1160284e229">Integers</th>
+
+<th class="entry cellrowborder" colspan="2" style="text-align:center;vertical-align:middle;" id="d1160284e232">Real numbers</th>
+
+<th class="entry cellrowborder" colspan="5" style="text-align:center;vertical-align:middle;" id="d1160284e236">Times, durations, dates, and text strings</th>
+
+</tr>
+
+<tr class="row">
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d1160284e242">BOOL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d1160284e245">BYTE</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d1160284e248">WORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d1160284e251">DWORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d1160284e254">LWORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d1160284e258">USINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d1160284e261">UINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d1160284e264">UDINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d1160284e267">ULINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d1160284e270">SINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d1160284e273">INT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d1160284e277">DINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d1160284e280">LINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d1160284e283">REAL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d1160284e286">LREAL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d1160284e289">TIME</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d1160284e292">DATE</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d1160284e296">TOD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d1160284e299">DT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d1160284e302">STRING</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d1160284e221 d1160284e242 ">In</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e223 d1160284e245 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e226 d1160284e248 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e226 d1160284e251 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e226 d1160284e254 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e226 d1160284e258 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e229 d1160284e261 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e229 d1160284e264 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e229 d1160284e267 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e229 d1160284e270 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e229 d1160284e273 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e229 d1160284e277 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e229 d1160284e280 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e229 d1160284e283 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e232 d1160284e286 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e232 d1160284e289 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e236 d1160284e292 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e236 d1160284e296 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e236 d1160284e299 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e236 d1160284e302 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e236 "><span class="ph font_Wingdings"></span>OK</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" colspan="20" style="text-align:center;vertical-align:middle;" headers="d1160284e223 d1160284e226 d1160284e229 d1160284e232 d1160284e236 d1160284e245 d1160284e248 d1160284e251 d1160284e254 d1160284e258 d1160284e261 d1160284e264 d1160284e267 d1160284e270 d1160284e273 d1160284e277 d1160284e280 d1160284e283 d1160284e286 d1160284e289 d1160284e292 d1160284e296 d1160284e299 d1160284e302 ">An enumeration, structure, or structure member can also be specified.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1160284e221 d1160284e242 ">Size</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e223 d1160284e245 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e226 d1160284e248 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e226 d1160284e251 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e226 d1160284e254 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e226 d1160284e258 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e229 d1160284e261 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e229 d1160284e264 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e229 d1160284e267 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e229 d1160284e270 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e229 d1160284e273 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e229 d1160284e277 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e229 d1160284e280 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e229 d1160284e283 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e232 d1160284e286 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e232 d1160284e289 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e236 d1160284e292 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e236 d1160284e296 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e236 d1160284e299 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e236 d1160284e302 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e236 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1160284e221 d1160284e242 ">InOut[] (array)</td>
+
+<td class="entry cellrowborder" colspan="20" style="text-align:center;vertical-align:middle;" headers="d1160284e223 d1160284e226 d1160284e229 d1160284e232 d1160284e236 d1160284e245 d1160284e248 d1160284e251 d1160284e254 d1160284e258 d1160284e261 d1160284e264 d1160284e267 d1160284e270 d1160284e273 d1160284e277 d1160284e280 d1160284e283 d1160284e286 d1160284e289 d1160284e292 d1160284e296 d1160284e299 d1160284e302 ">Must be an array with elements that have the same data type as <span class="ph phtype_variable"><span class="termtype">In</span></span>.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1160284e221 d1160284e242 ">Num</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e223 d1160284e245 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e226 d1160284e248 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e226 d1160284e251 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e226 d1160284e254 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e226 d1160284e258 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e229 d1160284e261 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e229 d1160284e264 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e229 d1160284e267 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e229 d1160284e270 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e229 d1160284e273 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e229 d1160284e277 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e229 d1160284e280 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e229 d1160284e283 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e232 d1160284e286 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e232 d1160284e289 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e236 d1160284e292 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e236 d1160284e296 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e236 d1160284e299 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e236 d1160284e302 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e236 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1160284e221 d1160284e242 ">Out</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e223 d1160284e245 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e226 d1160284e248 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e226 d1160284e251 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e226 d1160284e254 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e226 d1160284e258 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e229 d1160284e261 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e229 d1160284e264 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e229 d1160284e267 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e229 d1160284e270 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e229 d1160284e273 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e229 d1160284e277 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e229 d1160284e280 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e229 d1160284e283 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e232 d1160284e286 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e232 d1160284e289 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e236 d1160284e292 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e236 d1160284e296 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e236 d1160284e299 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e236 d1160284e302 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1160284e236 ">&#160;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="kvy1501816458984">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function</h1>
+
+<div class="body conbody">
+<p class="p">The StackPush instruction assumes that there are <span class="ph phtype_variable"><span class="termtype">Num</span></span> elements stored in stack array InOut[]. <span class="ph phtype_variable"><span class="termtype">In</span></span> (input value) is written to the next element, InOut[<span class="ph phtype_variable"><span class="termtype">Num</span></span>].</p>
+
+<p class="p">And then, <span class="ph phtype_variable"><span class="termtype">Num</span></span> is incremented.</p>
+
+<p class="p">For <span class="ph phtype_variable"><span class="termtype">Size</span></span> (the number of stack elements), specify the number of InOut[] elements to be used for the stack.</p>
+
+<p class="p linespace_7pt">The following shows an example where <span class="ph phtype_variable"><span class="termtype">Size</span></span> is UINT#5 and <span class="ph phtype_variable"><span class="termtype">Num</span></span> is UINT#2.</p>
+
+<br /><img class="image" id="kvy1501816458984__image_wgk_gvc_c1b" src="xwk1501816457337.gif" /><br />
+<br /><img class="image" id="kvy1501816458984__image_ld1_gvc_c1b" src="niv1501816458119.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="bof1501816459271">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Additional Information</h1>
+
+<div class="body conbody">
+<p class="p">Use the instruction, <a class="xref" href="fmb1501815646471.html#fmb1501815646471"><i style="display:none;">☆</i>StackFIFO and StackLIFO</a>, to remove the bottom or top value that was stored in the stack.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="owd1501816459507">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Precautions for Correct Use</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="owd1501816459507__li_N10015_N10012_N1000F_N10002">Use the same data type for <span class="ph phtype_variable"><span class="termtype">In</span></span> and the elements of InOut[]. If they are different, a building error will occur.</li>
+
+<li class="li" id="owd1501816459507__li_N1001E_N10012_N1000F_N10002">When an element in the array is passed to InOut[], all elements below the passed element are processed.</li>
+
+<li class="li" id="owd1501816459507__li_N10023_N10012_N1000F_N10002">The values in InOut[] and <span class="ph phtype_variable"><span class="termtype">Num</span></span> do not change if the value of <span class="ph phtype_variable"><span class="termtype">Size</span></span> is 0.</li>
+
+<li class="li" id="owd1501816459507__li_N10031_N10012_N1000F_N10002">Always use a variable for the input parameter to pass to <span class="ph phtype_variable"><span class="termtype">In</span></span>. A building error will occur if a constant is passed.</li>
+
+<li class="li" id="owd1501816459507__li_N1003A_N10012_N1000F_N10002">If <span class="ph phtype_variable"><span class="termtype">In</span></span> is an enumeration, you cannot directly pass an enumerator. A building error will occur if any enumerator is passed directly.</li>
+
+<li class="li" id="owd1501816459507__li_N10043_N10012_N1000F_N10002">Return value <span class="ph phtype_variable"><span class="termtype">Out</span></span> is not used when the instruction is used in ST.</li>
+
+<li class="li" id="owd1501816459507__li_N1004D_N10012_N1000F_N10002">An error will occur in the following cases. <span class="ph phtype_variable"><span class="termtype">ENO</span></span> will be FALSE, and InOut[] will not change.<ol class="ol liststyle_alphabet1">
+<li class="li" id="owd1501816459507__li_N1005A_N10056_N1004D_N10012_N1000F_N10002">The value of <span class="ph phtype_variable"><span class="termtype">Size</span></span> is not 0, and <span class="ph phtype_variable"><span class="termtype">Num</span></span> is greater than or equal to <span class="ph phtype_variable"><span class="termtype">Size</span></span>.</li>
+
+<li class="li" id="owd1501816459507__li_N1006D_N10056_N1004D_N10012_N1000F_N10002">The value of <span class="ph phtype_variable"><span class="termtype">Size</span></span> exceeds the array area of InOut[].</li>
+
+<li class="li" id="owd1501816459507__li_N10076_N10056_N1004D_N10012_N1000F_N10002"><span class="ph phtype_variable"><span class="termtype">In</span></span> and InOut[] are STRING data and the number of bytes in <span class="ph phtype_variable"><span class="termtype">In</span></span> exceeds the size of InOut[].</li>
+
+</ol>
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="yqx1501816463447">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Sample Programming</h1>
+ 
+<div class="body conbody">
+<p class="p">The array variable StcA[0..9] is used as a stack. As preparations, three values (UINT#1111, UINT#2222, and UINT#3333) are stored in the stack.</p>
+
+<br /><img class="image" id="yqx1501816463447__image_83F0E0996AAB454D8491F6BFD98DB2D0" src="uky1501816459756.gif" /><br />
+<p class="p linespace_7pt">The StackPush instruction is used to store a new value (UINT#4444) at the top of the stack StcA[3]. That means there will be four values in the stack.</p>
+
+<br /><img class="image" id="yqx1501816463447__image_ACA03C4F450F4D2FAE7FAC530FEED35C" src="qbz1501816460470.gif" /><br />
+<p class="p linespace_7pt">Then, the StackLIFO instruction is used to remove one value at the top of the stack StcA[3]. That means there will be three values in the stack.</p>
+
+<br /><img class="image" id="yqx1501816463447__image_7A126AFA630B48E2A7C0F2188965FE51" src="gwa1501816461298.gif" /><br />
+<p class="p linespace_7pt">And last, the StackIns instruction is used to insert a value (UINT#5555) between StcA[1] and StcA[2]. That means there will be four values in the stack.</p>
+
+<br /><img class="image" id="yqx1501816463447__image_7BAC0CE5EA9D46E2970B6AFF5DA3CDA1" src="xsj1501816462307.gif" /><br />
+</div>
+ 
+<div class="related-links"></div></div><div class="layer04" id="bjo1501816477253">
+<h1 class="title topictitle1"  topicstatus="Localization:done">LD</h1>
+<div class="body conbody">
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="bjo1501816477253__table_ovx_fwc_c1b" class="rules_all " frame="border" border="1" rules="all"><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d70137e23">Variable</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d70137e25">Data type</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d70137e27">Initial value</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d70137e29">Comment</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e23 ">InitStc</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e25 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e27 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e29 ">Stack initialization condition</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e23 ">StcANum</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e25 ">UINT</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e27 ">0</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e29 ">Number of stored elements</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e23 ">StcA</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e25 ">ARRAY[0..9] OF UINT</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e27 ">[10(0)]</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e29 ">Stack array</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e23 ">StcASize</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e25 ">UINT</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e27 ">0</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e29 ">Number of stack elements</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e23 ">SetParaPush</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e25 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e27 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e29 ">Execution condition to set StcAInVal.</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e23 ">StcAInVal</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e25 ">UINT</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e27 ">0</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e29 ">Value added by StackPush</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e23 ">StcAPushStat</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e25 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e27 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e29 ">StackPush execution condition</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e23 ">StackPush_err</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e25 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e27 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e29 ">StackPush error flag</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e23 ">StcALIFOStat</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e25 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e27 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e29 ">StackLIFO execution condition</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e23 ">StcAOutVal</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e25 ">UINT</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e27 ">0</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e29 ">Value removed by StackLIFO</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e23 ">StackLIFO_err</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e25 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e27 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e29 ">StackLIFO error flag</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e23 ">SetParaIns</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e25 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e27 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e29 ">Execution condition to set StcAInsVal and StcAOffset</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e23 ">StcAInsVal</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e25 ">UINT</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e27 ">0</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e29 ">Value inserted by StackIns</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e23 ">StcAOffset</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e25 ">UINT</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e27 ">0</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e29 ">Offset for StackIns</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e23 ">StcAInsStat</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e25 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e27 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e29 ">StackIns execution condition</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e23 ">StackIns_err</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e25 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e27 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d70137e29 ">StackIns error flag</td>
+</tr>
+</tbody>
+</table>
+</div>
+<br /><img class="image" id="bjo1501816477253__image_834C92158DF14E42A65A25C25F9EE018" src="yqq1501816463721.gif" /><br /><br /><img class="image" id="bjo1501816477253__image_uk1_mqp_p1b" src="hpl1501816465002.gif" /><br /><br /><img class="image" id="bjo1501816477253__image_fzb_nqp_p1b" src="zug1501816466200.gif" /><br /><br /><img class="image" id="bjo1501816477253__image_614ED04A61A4426385D82610E9D4B1BD" src="yql1501816467099.gif" /><br /><br /><img class="image" id="bjo1501816477253__image_otj_yrp_p1b" src="nxl1501816468109.gif" /><br /><br /><img class="image" id="bjo1501816477253__image_y4x_yrp_p1b" src="elj1501816469020.gif" /><br /><br /><img class="image" id="bjo1501816477253__image_tg3_zrp_p1b" src="fnq1501816470152.gif" /><br /><br /><img class="image" id="bjo1501816477253__image_uft_zrp_p1b" src="czl1501816471107.gif" /><br /><br /><img class="image" id="bjo1501816477253__image_zgc_1sp_p1b" src="rjr1501816472255.gif" /><br /><br /><img class="image" id="bjo1501816477253__image_j2m_1sp_p1b" src="nfp1501816473206.gif" /><br /><br /><img class="image" id="bjo1501816477253__image_20F1886D2BB048CCB9E246255EDA0F63" src="uqq1501816474211.gif" /><br /><br /><img class="image" id="bjo1501816477253__image_zhv_4j5_p1b" src="fws1501816475239.gif" /><br /><br /><img class="image" id="bjo1501816477253__image_a3h_pj5_p1b" src="ajl1501816476322.gif" /><br /></div>
+<div class="related-links"></div></div><div class="layer05" id="efk1501816477541">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Contents of Inline ST</h1>
+<div class="body conbody"><pre class="pre codeblock">StcANum:=0;
+Clear(StcA);
+StcASize:=SizeOfAry(StcA);
+</pre>
+</div>
+<div class="related-links"></div></div><div class="layer04" id="pfz1501816477810">
+<h1 class="title topictitle1"  topicstatus="Localization:done">ST</h1>
+<div class="body conbody">
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="pfz1501816477810__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all"><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d756872e23">Variable</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d756872e25">Data type</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d756872e27">Initial value</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d756872e29">Comment</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e23 ">InitStc</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e25 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e27 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e29 ">Stack initialization condition</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e23 ">preInitStc</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e25 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e27 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e29 ">Value of InitStc from previous task period</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e23 ">StcANum</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e25 ">UINT</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e27 ">0</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e29 ">Number of stored elements</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e23 ">StcA</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e25 ">ARRAY[0..9] OF UINT</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e27 ">[10(0)]</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e29 ">Stack array</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e23 ">StcASize</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e25 ">UINT</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e27 ">0</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e29 ">Number of stack elements</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e23 ">StcAPushStat</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e25 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e27 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e29 ">StackPush execution condition</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e23 ">preStcAPushStat</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e25 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e27 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e29 ">Value of StcAPushStat from previous task period</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e23 ">StcAInVal</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e25 ">UINT</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e27 ">0</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e29 ">Value added by StackPush</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e23 ">StcAPush_OK</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e25 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e27 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e29 ">StackPush normal end flag</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e23 ">StcAPushNormalEnd</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e25 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e27 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e29 ">Processing after normal end of StackPush</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e23 ">StcAPushErrorEnd</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e25 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e27 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e29 ">Processing after error end of StackPush</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e23 ">StcALIFOStat</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e25 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e27 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e29 ">StackLIFO execution condition</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e23 ">preStcALIFOStat</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e25 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e27 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e29 ">Value of StcALIFOStat from previous task period</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e23 ">StcAOutVal</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e25 ">UINT</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e27 ">0</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e29 ">Value removed by StackLIFO</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e23 ">StcALIFO_OK</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e25 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e27 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e29 ">StackLIFO normal end flag</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e23 ">StcALIFONormalEnd</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e25 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e27 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e29 ">Processing after normal end of StackLIFO</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e23 ">StcALIFOErrorEnd</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e25 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e27 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e29 ">Processing after error end of StackLIFO</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e23 ">StcAInsStat</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e25 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e27 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e29 ">StackIns execution condition</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e23 ">preStcAInsStat</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e25 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e27 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e29 ">Value of StcAInsStat from previous task period</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e23 ">StcAInsVal</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e25 ">UINT</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e27 ">0</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e29 ">Value inserted by StackIns</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e23 ">StcAOffset</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e25 ">UINT</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e27 ">0</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e29 ">Offset for StackIns</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e23 ">StcAIns_OK</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e25 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e27 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e29 ">StackIns normal end flag</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e23 ">StcAInsNormalEnd</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e25 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e27 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e29 ">Processing after normal end of StackIns</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e23 ">StcAInsErrorEnd</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e25 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e27 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d756872e29 ">Processing after error end of StackIns</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p linespace_7pt"></p>
+<pre class="pre codeblock">
+// Initialize stack.
+IF ( (InitStc=TRUE) AND (preInitStc=FALSE) ) THEN
+  StcANum:=0;
+  Clear(StcA);
+  StcASize:=SizeOfAry(StcA);
+END_IF;
+
+// Store three values in stack.
+IF ( (InitStc=TRUE) AND (preInitStc=FALSE) ) THEN
+  StackPush(In:=UINT#1111, InOut:=StcA[0], Size:=StcASize, Num:=StcANum);
+  StackPush(In:=UINT#2222, InOut:=StcA[0], Size:=StcASize, Num:=StcANum);
+  StackPush(In:=UINT#3333, InOut:=StcA[0], Size:=StcASize, Num:=StcANum);
+END_IF;
+
+preInitStc:=InitStc;
+
+// Add data with StackPush instruction.
+IF ( (StcAPushStat=TRUE) AND (preStcAPushStat=FALSE) ) THEN
+  StcAInVal:=UINT#4444;
+  StackPush(
+    In :=StcAInVal, // Value to add
+    InOut:=StcA[0], // First element in stack array
+    Size :=StcASize, // Number of stack elements
+    Num :=StcANum, // Number of stored elements
+    ENO =&gt;StcAPush_OK); // Normal end flag
+  IF (StcAPush_OK=TRUE) THEN
+    StcAPushNormalEnd:=TRUE;// Processing after normal end
+  ELSE
+    StcAPushErrorEnd:=TRUE; // Processing after error end
+  END_IF;
+END_IF;
+
+preStcAPushStat:=StcAPushStat;
+// Remove data with StackLIFO instruction.
+IF ( (StcALIFOStat=TRUE) AND (preStcALIFOStat=FALSE) ) THEN
+  StackLIFO(
+    InOut :=StcA[0], // First element in stack array
+    OutVal :=StcAOutVal, // Value removed from stack
+    Size :=StcASize, // Number of stack elements
+    Num :=StcANum, // Number of stored elements
+    ENO =&gt;StcALIFO_OK); // Normal end flag
+  IF (StcALIFO_OK=TRUE) THEN
+    StcALIFONormalEnd:=TRUE; // Processing after normal end
+  ELSE
+    StcALIFOErrorEnd:=TRUE; // Processing after error end
+  END_IF;
+END_IF;
+preStcALIFOStat:=StcALIFOStat;
+
+// Insert data with StackIns instruction.
+IF ( (StcAInsStat=TRUE) AND (preStcAInsStat=FALSE) ) THEN
+  StcAInsVal:=UINT#5555;
+  StcAOffset:=UINT#2;
+  StackIns(
+    In :=StcAInsVal, // Value to insert into stack
+    InOut :=StcA[0], // First element in stack array
+    Size :=StcASize, // Number of stack elements
+    Num :=StcANum, // Number of stored elements
+    Offset:=StcAOffset, // Offset at which to insert value
+    ENO =&gt;StcAIns_OK); // Normal end flag
+  IF (StcAIns_OK=TRUE) THEN
+    StcAInsNormalEnd:=TRUE; // Processing after normal end
+  ELSE
+    StcAInsErrorEnd:=TRUE; // Processing after error end
+  END_IF;
+END_IF;
+preStcAInsStat:=StcAInsStat;
+</pre>
+</div>
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,1737 @@
+{
+ "progetto": "Abbattimento_Fumi_Fuxa",
+ "guid": "8a6bb798-d4f9-40b3-8e29-1a977b624b54",
+ "sections": {
+  "Pompe": {
+   "rungs": [
+    {
+     "cmt": "CLOCK 1 MINUTO",
+     "chain": [
+      {
+       "f": "Get1minClk",
+       "p": {}
+      },
+      "(Clock_1Min)"
+     ]
+    },
+    {
+     "cmt": "CLOCK 1 SECONDO",
+     "chain": [
+      {
+       "f": "Get1sClk",
+       "p": {}
+      },
+      "(Clock_1Sec)"
+     ]
+    },
+    {
+     "cmt": "COMANDO POMPA1",
+     "chain": [
+      "IN_EMERGENZA",
+      "Enable_Pompa",
+      "LIV_POMPA",
+      "/IN_TERMICO_P1",
+      {
+       "fb": "TON",
+       "inst": "Tim_1",
+       "p": {
+        "PT": "T#5s"
+       }
+      }
+     ],
+     "out": [
+      "(PUMP1_Active)",
+      "(OUT_PUMP_1)"
+     ]
+    },
+    {
+     "cmt": "CONRTEGGIO ORE DI FUZIONAMENTO POMPA 1",
+     "chain": [
+      "PUMP1_Active",
+      "^Clock_1Min",
+      {
+       "f": "@Inc",
+       "p": {
+        "InOut": "PV_Minuti_PUMP1",
+        "OUT:InOut": "PV_Minuti_PUMP1"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "GESTIONE LOCALE REMOTO SELETTORE POMPA",
+     "chain": [
+      "P_On",
+      {
+       "or": [
+        [
+         "V_S_Enable_Pompa",
+         "/V_S_REMOTO"
+        ],
+        [
+         "Remote_S_Enable_Pompa",
+         "V_S_REMOTO"
+        ]
+       ]
+      }
+     ],
+     "out": [
+      "(V_L_Enable_Pompa)",
+      "(Enable_Pompa)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "/IN_EMERGENZA"
+     ],
+     "out": [
+      "(R V_S_Enable_Pompa)",
+      "(R Remote_S_Enable_Pompa)"
+     ]
+    },
+    {
+     "cmt": "GESTIONE LOCALE REMOTO",
+     "chain": [
+      "P_On",
+      "V_S_Enable_Dosaggio"
+     ],
+     "out": [
+      "(V_L_Enable_Dosaggio)",
+      "(Enable_Dosaggio)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "/IN_EMERGENZA"
+     ],
+     "out": [
+      "(R V_S_Enable_Dosaggio)",
+      "(R Remote_S_Enable_Dosaggio)"
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Clock_1Min",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Clock_1Sec",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Enable_Dosaggio",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Enable_Pompa",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EMERGENZA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TERMICO_P1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "LIV_POMPA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_PUMP_1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PUMP1_Active",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Minuti_PUMP1",
+     "type": "DINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Remote_S_Enable_Dosaggio",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Remote_S_Enable_Pompa",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_1",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_L_Enable_Dosaggio",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_L_Enable_Pompa",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_S_Enable_Dosaggio",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_S_Enable_Pompa",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_S_REMOTO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Elettrovalvole": {
+   "rungs": [
+    {
+     "cmt": "REINTEGRO ACQUA",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       {
+        "or": [
+         "/LIV_MIN",
+         "vPurge_Auto"
+        ]
+       },
+       "(S Mem_H2O)"
+      ],
+      [
+       "Mem_H2O",
+       "LIV_MAX",
+       "(R Mem_H2O)"
+      ]
+     ]
+    },
+    {
+     "cmt": "REINTEGRO ACQUA",
+     "chain": [
+      "IN_EMERGENZA",
+      {
+       "or": [
+        "V_P_H2O",
+        [
+         "V_S_Enable_Reintegro_H2O",
+         "Mem_H2O"
+        ]
+       ]
+      },
+      "/OUT_EV_SCARICO",
+      "(OUT_EV_ACQUA)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "^V_S_Scarico",
+        "/IN_LIV_MAX_MAX"
+       ]
+      },
+      "(R V_S_Enable_Reintegro_H2O)"
+     ]
+    },
+    {
+     "cmt": "SOLUZIONE",
+     "chain": [
+      "IN_EMERGENZA",
+      "Enable_Dosaggio",
+      {
+       "or": [
+        "IN_RELE_PH",
+        "V_P_Soluzione"
+       ]
+      },
+      "/OUT_EV_SCARICO",
+      "LIV_POMPA",
+      "(OUT_EV_SOLUZIONE)"
+     ]
+    },
+    {
+     "cmt": "PURGE AUTOMATICO",
+     "chain": [
+      "OUT_PUMP_1",
+      "V_S_Enable_Purge"
+     ],
+     "out": [
+      [
+       "^Clock_1Min",
+       {
+        "f": "<",
+        "p": {
+         "In1": "PV_Minuti_Purge_OFF",
+         "In2": "SET_Time_Purge_OFF"
+        }
+       },
+       {
+        "f": "Inc",
+        "p": {
+         "InOut": "PV_Minuti_Purge_OFF",
+         "OUT:InOut": "PV_Minuti_Purge_OFF"
+        }
+       }
+      ],
+      [
+       {
+        "f": ">=",
+        "p": {
+         "In1": "PV_Minuti_Purge_OFF",
+         "In2": "SET_Time_Purge_OFF"
+        }
+       },
+       "^Clock_1Sec",
+       {
+        "f": "Inc",
+        "p": {
+         "InOut": "PV_Sec_Purge_ON",
+         "OUT:InOut": "PV_Sec_Purge_ON"
+        }
+       }
+      ],
+      [
+       {
+        "f": ">=",
+        "p": {
+         "In1": "PV_Minuti_Purge_OFF",
+         "In2": "SET_Time_Purge_OFF"
+        }
+       },
+       "(Purge_Auto)"
+      ],
+      [
+       {
+        "f": ">=",
+        "p": {
+         "In1": "PV_Sec_Purge_ON",
+         "In2": "SET_Time_Purge_ON"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "0",
+         "OUT:Out": "PV_Minuti_Purge_OFF"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "0",
+         "OUT:Out": "PV_Sec_Purge_ON"
+        }
+       }
+      ]
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "/V_S_Enable_Purge",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "0",
+        "OUT:Out": "PV_Minuti_Purge_OFF"
+       }
+      },
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "0",
+        "OUT:Out": "PV_Sec_Purge_ON"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "SCARICO",
+     "chain": [
+      "IN_EMERGENZA",
+      {
+       "or": [
+        "V_S_Scarico",
+        "Purge_Auto"
+       ]
+      },
+      "/OUT_EV_ACQUA",
+      "(OUT_EV_SCARICO)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "OUT_EV_SCARICO",
+      {
+       "f": "<",
+       "p": {
+        "In1": "PV_Livello",
+        "In2": "REAL#2"
+       }
+      },
+      {
+       "fb": "TON",
+       "inst": "Tim_2",
+       "p": {
+        "PT": "T#60s"
+       }
+      },
+      "(R V_S_Scarico)"
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Clock_1Min",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Clock_1Sec",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Enable_Dosaggio",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EMERGENZA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIV_MAX_MAX",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_RELE_PH",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "LIV_MAX",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "LIV_MIN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "LIV_POMPA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_H2O",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_EV_ACQUA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_EV_SCARICO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_EV_SOLUZIONE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_PUMP_1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Livello",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Minuti_Purge_OFF",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Sec_Purge_ON",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Purge_Auto",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Time_Purge_OFF",
+     "type": "int",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Time_Purge_ON",
+     "type": "int",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_2",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_H2O",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Soluzione",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_S_Enable_Purge",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_S_Enable_Reintegro_H2O",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_S_Scarico",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Allarmi": {
+   "rungs": [
+    {
+     "cmt": "Accendo la spia Allarmi del visualizzatore se ho un bit Allarmi Attivo",
+     "chain": [
+      {
+       "f": "ArySearch",
+       "p": {
+        "In": "Allarme_Bit[0]",
+        "Size": "uint#10",
+        "Key": "bool#1",
+        "InOutPos": "local1",
+        "OUT:": "Spia_Allarme",
+        "OUT:InOutPos": "local1"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        [
+         "Spia_Allarme",
+         {
+          "f": "Get1sClk",
+          "p": {}
+         }
+        ],
+        "Allarme_Bit[0]"
+       ]
+      },
+      "(OUT_LAMP_ARANCIO)"
+     ]
+    },
+    {
+     "cmt": "BIT UTILIZZATO PER RESETTARE L'ALLERME DI CONNESSIONE PLC",
+     "chain": [
+      {
+       "f": "Get1sClk",
+       "p": {}
+      },
+      "(Bit_Connessione_Plc)"
+     ]
+    },
+    {
+     "cmt": "ALLARME 0: EMERGENZA PREMUTA",
+     "chain": [
+      "/IN_EMERGENZA",
+      "(Allarme_Bit[0])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 1: TERMICO PROTEZIONE POMPA",
+     "chain": [
+      "IN_TERMICO_P1",
+      "(Allarme_Bit[1])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 2: LIVELLO MINIMO POMPA",
+     "chain": [
+      "/LIV_POMPA",
+      "(Allarme_Bit[2])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 3: LIVELLO MASSIMO DI SICUREZZA",
+     "chain": [
+      "/IN_LIV_MAX_MAX",
+      "(Allarme_Bit[3])"
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Allarme_Bit",
+     "type": "ARRAY[0..9] OF bool",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Bit_Connessione_Plc",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EMERGENZA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIV_MAX_MAX",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TERMICO_P1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "LIV_POMPA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_LAMP_ARANCIO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Spia_Allarme",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "local1",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Analogiche": {
+   "rungs": [
+    {
+     "cmt": "SCALO L'INGRESSO ANALOGICO3 DI LIVELLO   0-100 %.  4ma=0%  livello massimo     20ma=100% livello vuoto\r\n\r\n\r\n",
+     "chain": [
+      "P_On",
+      {
+       "f": "LIMIT",
+       "p": {
+        "MN": "int#0",
+        "In": "ANALOG_IN_1",
+        "MX": "int#2000",
+        "OUT:": "ANALOG_IN_1_Limit"
+       }
+      },
+      {
+       "f": "INT_TO_REAL",
+       "p": {
+        "In": "ANALOG_IN_1_Limit",
+        "OUT:": "PV_Analog1_Real"
+       }
+      },
+      {
+       "f": "ScaleTrans",
+       "p": {
+        "SclIn": "PV_Analog1_Real",
+        "X0": "real#0",
+        "Y0": "real#100",
+        "X1": "real#2000",
+        "Y1": "real#0",
+        "OUT:": "PV_Livello"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "Converto la percentuale in mm",
+     "chain": [
+      "P_On",
+      {
+       "f": "/",
+       "p": {
+        "In1": "SET_mm_Liv_Pieno",
+        "In2": "real#100",
+        "OUT:": "Div_livello"
+       }
+      },
+      {
+       "f": "MUL",
+       "p": {
+        "In1": "Div_livello",
+        "In2": "PV_Livello",
+        "OUT:": "Mul_livello"
+       }
+      },
+      {
+       "f": "+",
+       "p": {
+        "In1": "Mul_livello",
+        "In2": "real#0",
+        "OUT:": "PV_mm_Livello"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "TRASFORMO LA PERCENTUALE DI LIVELLO NEI LIVELLI DA UTILIZZARE NEL PROCESSO",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       {
+        "f": ">=",
+        "p": {
+         "In1": "PV_Livello",
+         "In2": "SET_Liv_Minimo"
+        }
+       },
+       {
+        "fb": "TON",
+        "inst": "Tim_32",
+        "p": {
+         "PT": "T#2s"
+        }
+       },
+       "(LIV_MIN)"
+      ],
+      [
+       {
+        "f": ">=",
+        "p": {
+         "In1": "PV_Livello",
+         "In2": "SET_Liv_Massimo"
+        }
+       },
+       {
+        "fb": "TON",
+        "inst": "Tim_33",
+        "p": {
+         "PT": "T#2s"
+        }
+       },
+       "(LIV_MAX)"
+      ]
+     ]
+    },
+    {
+     "cmt": "ISTERESI PER INTERVENTO LIVELLO POMPA CALCOLO LIVELLO DI RIATTIVAZIONE LIVELLO.IMPOSTATO 5%",
+     "chain": [
+      {
+       "f": "/",
+       "p": {
+        "In1": "SET_Liv_Pompa",
+        "In2": "real#100",
+        "OUT:": "Div_Set_Liv_Pompa"
+       }
+      },
+      {
+       "f": "*",
+       "p": {
+        "In1": "Div_Set_Liv_Pompa",
+        "In2": "real#105",
+        "OUT:": "Liv_Pompa_H"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "LIVELLO POMPA CON ISTERESI",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       {
+        "f": "<",
+        "p": {
+         "In1": "PV_Livello",
+         "In2": "SET_Liv_Pompa"
+        }
+       },
+       "(R LIV_POMPA)"
+      ],
+      [
+       {
+        "f": ">",
+        "p": {
+         "In1": "PV_Livello",
+         "In2": "Liv_Pompa_H"
+        }
+       },
+       "(S LIV_POMPA)"
+      ]
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "ANALOG_IN_1",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ANALOG_IN_1_Limit",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Div_Set_Liv_Pompa",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Div_livello",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "LIV_MAX",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "LIV_MIN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "LIV_POMPA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Liv_Pompa_H",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mul_livello",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Analog1_Real",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Livello",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_mm_Livello",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Liv_Massimo",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Liv_Minimo",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Liv_Pompa",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_mm_Liv_Pieno",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_32",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_33",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Modbus": {
+   "rungs": [
+    {
+     "cmt": "",
+     "chain": [
+      "Attivo_Modbus",
+      {
+       "fb": "MTCP_Server_NJNX",
+       "inst": "Server_MODBUS",
+       "p": {
+        "Registers": "Mbus_Register",
+        "Coils": "Mbus_Coils",
+        "Local_TcpPort": "502",
+        "ConnectionTimeout": "Modbus_timeout",
+        "Reset_SdRcvCounter": "Modbus_Reset",
+        "OUT:Registers": "Mbus_Register",
+        "OUT:Coils": "Mbus_Coils",
+        "OUT:Error": "Modbus_Error",
+        "OUT:ErrorID": "Modbus_Error_ID",
+        "OUT:TCP_Status": "Modbus_TcpStatus",
+        "OUT:IP_Client": "Modbus_IP_Client",
+        "OUT:Port_Client": "Modbus_Port_Client",
+        "OUT:SdRcv_Counter": "Modbus_Counter"
+       }
+      }
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Attivo_Modbus",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mbus_Coils",
+     "type": "ARRAY[1..1023] OF bool",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mbus_Register",
+     "type": "ARRAY[1..1023] OF word",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Modbus_Counter",
+     "type": "UDINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Modbus_Error",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Modbus_Error_ID",
+     "type": "WORD",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Modbus_IP_Client",
+     "type": "STRING[24]",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Modbus_Port_Client",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Modbus_Reset",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Modbus_TcpStatus",
+     "type": "_eCONNECTION_STATE",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Modbus_timeout",
+     "type": "TIME",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Server_MODBUS",
+     "type": "MTCP_Server_NJNX",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "LadderBody": {
+   "rungs": [
+    {
+     "cmt": "Check that the input value is not out of range for ACC and DEC",
+     "chain": [
+      "EN",
+      {
+       "f": ">",
+       "p": {
+        "In1": "Value",
+        "In2": "REAL#0"
+       }
+      },
+      {
+       "f": "<",
+       "p": {
+        "In1": "Value",
+        "In2": "REAL#9990"
+       }
+      },
+      "(/Error)"
+     ]
+    },
+    {
+     "cmt": "Adding the Exponent ",
+     "chain": [
+      "/Error"
+     ],
+     "out": [
+      [
+       {
+        "f": ">=",
+        "p": {
+         "In1": "Value",
+         "In2": "REAL#0"
+        }
+       },
+       {
+        "f": "<",
+        "p": {
+         "In1": "Value",
+         "In2": "REAL#10"
+        }
+       },
+       {
+        "f": "*",
+        "p": {
+         "In1": "Value",
+         "In2": "REAL#100.0",
+         "OUT:": "iValueREAL"
+        }
+       },
+       {
+        "f": "REAL_TO_WORD",
+        "p": {
+         "In": "iValueREAL",
+         "OUT:": "iVaueToWord"
+        }
+       },
+       {
+        "f": "OR",
+        "p": {
+         "In1": "iVaueToWord",
+         "In2": "WORD#0",
+         "OUT:": "iVaueToWord2"
+        }
+       }
+      ],
+      [
+       {
+        "f": ">=",
+        "p": {
+         "In1": "Value",
+         "In2": "REAL#10"
+        }
+       },
+       {
+        "f": "<",
+        "p": {
+         "In1": "Value",
+         "In2": "REAL#100"
+        }
+       },
+       {
+        "f": "*",
+        "p": {
+         "In1": "Value",
+         "In2": "REAL#10.0",
+         "OUT:": "iValueREAL"
+        }
+       },
+       {
+        "f": "REAL_TO_WORD",
+        "p": {
+         "In": "iValueREAL",
+         "OUT:": "iVaueToWord"
+        }
+       },
+       {
+        "f": "OR",
+        "p": {
+         "In1": "iVaueToWord",
+         "In2": "WORD#1024",
+         "OUT:": "iVaueToWord2"
+        }
+       }
+      ],
+      [
+       {
+        "f": ">=",
+        "p": {
+         "In1": "Value",
+         "In2": "REAL#1000"
+        }
+       },
+       {
+        "f": "<",
+        "p": {
+         "In1": "Value",
+         "In2": "REAL#9990"
+        }
+       },
+       {
+        "f": "*",
+        "p": {
+         "In1": "Value",
+         "In2": "REAL#0.1",
+         "OUT:": "iValueREAL"
+        }
+       },
+       {
+        "f": "REAL_TO_WORD",
+        "p": {
+         "In": "iValueREAL",
+         "OUT:": "iVaueToWord"
+        }
+       },
+       {
+        "f": "OR",
+        "p": {
+         "In1": "iVaueToWord",
+         "In2": "WORD#3072",
+         "OUT:": "iVaueToWord2"
+        }
+       }
+      ],
+      [
+       {
+        "f": ">=",
+        "p": {
+         "In1": "Value",
+         "In2": "REAL#100"
+        }
+       },
+       {
+        "f": "<",
+        "p": {
+         "In1": "Value",
+         "In2": "REAL#1000"
+        }
+       },
+       {
+        "f": "*",
+        "p": {
+         "In1": "Value",
+         "In2": "REAL#1.0",
+         "OUT:": "iValueREAL"
+        }
+       },
+       {
+        "f": "REAL_TO_WORD",
+        "p": {
+         "In": "iValueREAL",
+         "OUT:": "iVaueToWord"
+        }
+       },
+       {
+        "f": "OR",
+        "p": {
+         "In1": "iVaueToWord",
+         "In2": "WORD#2048",
+         "OUT:": "iVaueToWord2"
+        }
+       }
+      ]
+     ]
+    },
+    {
+     "cmt": "Converting the format ",
+     "chain": [
+      {
+       "f": "WORD_TO_UINT",
+       "p": {
+        "In": "iVaueToWord2",
+        "OUT:": "ValueOut"
+       }
+      }
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "EN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Error",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Value out of range (0.01-9990)"
+    },
+    {
+     "name": "Value",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ValueOut",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "iValueREAL",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "iVaueToWord",
+     "type": "WORD",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "iVaueToWord2",
+     "type": "WORD",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "LadderBody#2": {
+   "rungs": [
+    {
+     "cmt": "Converting the format",
+     "chain": [
+      {
+       "f": "UINT_TO_WORD",
+       "p": {
+        "In": "Value",
+        "OUT:": "iVaueToWord"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "Adding the Exponent ",
+     "chain": [
+      "EN"
+     ],
+     "out": [
+      [
+       {
+        "f": "TestABitN",
+        "p": {
+         "In": "iVaueToWord",
+         "Pos": "USINT#10"
+        }
+       },
+       {
+        "f": "TestABitN",
+        "p": {
+         "In": "iVaueToWord",
+         "Pos": "USINT#11"
+        }
+       },
+       {
+        "f": "WORD_TO_REAL",
+        "p": {
+         "In": "iVaueToWord",
+         "OUT:": "iValueREAL"
+        }
+       },
+       {
+        "f": "*",
+        "p": {
+         "In1": "iValueREAL",
+         "In2": "REAL#0.01",
+         "OUT:": "ValueOut"
+        }
+       }
+      ],
+      [
+       {
+        "f": "TestABit",
+        "p": {
+         "In": "iVaueToWord",
+         "Pos": "USINT#10"
+        }
+       },
+       {
+        "f": "TestABitN",
+        "p": {
+         "In": "iVaueToWord",
+         "Pos": "USINT#11"
+        }
+       },
+       {
+        "f": "XOR",
+        "p": {
+         "In1": "iVaueToWord",
+         "In2": "WORD#1024",
+         "OUT:": "iVaueToWord2"
+        }
+       },
+       {
+        "f": "WORD_TO_REAL",
+        "p": {
+         "In": "iVaueToWord2",
+         "OUT:": "iValueREAL"
+        }
+       },
+       {
+        "f": "*",
+        "p": {
+         "In1": "iValueREAL",
+         "In2": "REAL#0.1",
+         "OUT:": "ValueOut"
+        }
+       }
+      ],
+      [
+       {
+        "f": "TestABit",
+        "p": {
+         "In": "iVaueToWord",
+         "Pos": "USINT#10"
+        }
+       },
+       {
+        "f": "TestABit",
+        "p": {
+         "In": "iVaueToWord",
+         "Pos": "USINT#11"
+        }
+       },
+       {
+        "f": "XOR",
+        "p": {
+         "In1": "iVaueToWord",
+         "In2": "WORD#3072",
+         "OUT:": "iVaueToWord2"
+        }
+       },
+       {
+        "f": "WORD_TO_REAL",
+        "p": {
+         "In": "iVaueToWord2",
+         "OUT:": "iValueREAL"
+        }
+       },
+       {
+        "f": "*",
+        "p": {
+         "In1": "iValueREAL",
+         "In2": "REAL#10.0",
+         "OUT:": "ValueOut"
+        }
+       }
+      ],
+      [
+       {
+        "f": "TestABitN",
+        "p": {
+         "In": "iVaueToWord",
+         "Pos": "USINT#10"
+        }
+       },
+       {
+        "f": "TestABit",
+        "p": {
+         "In": "iVaueToWord",
+         "Pos": "USINT#11"
+        }
+       },
+       {
+        "f": "XOR",
+        "p": {
+         "In1": "iVaueToWord",
+         "In2": "WORD#2048",
+         "OUT:": "iVaueToWord2"
+        }
+       },
+       {
+        "f": "WORD_TO_REAL",
+        "p": {
+         "In": "iVaueToWord2",
+         "OUT:": "iValueREAL"
+        }
+       },
+       {
+        "f": "*",
+        "p": {
+         "In1": "iValueREAL",
+         "In2": "REAL#1.0",
+         "OUT:": "ValueOut"
+        }
+       }
+      ]
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "EN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Value",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ValueOut",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "iValueREAL",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "iVaueToWord",
+     "type": "WORD",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "iVaueToWord2",
+     "type": "WORD",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "LadderBody#3": {
+   "rungs": [
+    {
+     "cmt": "",
+     "chain": [
+      "ENABLE",
+      {
+       "f": "Get1sClk",
+       "p": {}
+      },
+      {
+       "f": "@Dec",
+       "p": {
+        "InOut": "VALUE",
+        "OUT:InOut": "VALUE"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "ENABLE",
+      {
+       "f": "<=",
+       "p": {
+        "In1": "VALUE",
+        "In2": "0"
+       }
+      },
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "0",
+        "OUT:Out": "VALUE"
+       }
+      },
+      "(End_Conteggio)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "/ENABLE",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "SET_VALUE",
+        "OUT:Out": "VALUE"
+       }
+      }
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Enable",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Enables the Functionblock"
+    },
+    {
+     "name": "End_Conteggio",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_VALUE",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Value",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Server": {
+   "rungs": [
+    {
+     "cmt": "Warning: Keep Alive option allow to check cyclically that client is still alive. Default value is set to 300 second which should be decreased according to your process\r\nFor Port No2 on NX102 serie, use system flag _EIP2_EtnOnlineSta",
+     "chain": [
+      "Start_Server",
+      "_EIP_EtnOnlineSta",
+      {
+       "fb": "MTCP_Server_NJNX",
+       "inst": "ModbusTCP_Server",
+       "p": {
+        "Registers": "Modbus_Registers",
+        "Coils": "Modbus_Coils",
+        "Local_TcpPort": "UINT#502",
+        "ConnectionTimeout": "T#0s",
+        "Reset_SdRcvCounter": "Reset_Counter",
+        "OUT:Registers": "Modbus_Registers",
+        "OUT:Coils": "Modbus_Coils",
+        "OUT:Error": "Error_Server",
+        "OUT:ErrorID": "Err_Code_Server",
+        "OUT:TCP_Status": "Server_Status",
+        "OUT:IP_Client": "IP_Client",
+        "OUT:Port_Client": "Port_Client",
+        "OUT:SdRcv_Counter": "SdRcv_Counter"
+       }
+      },
+      "(Client_Connected)"
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Client_Connected",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Err_Code_Server",
+     "type": "WORD",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Error_Server",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IP_Client",
+     "type": "STRING[24]",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ModbusTCP_Server",
+     "type": "MTCP_Server_NJNX",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Modbus_Coils",
+     "type": "ARRAY[0..1023] OF BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Modbus_Registers",
+     "type": "ARRAY[0..2000] OF WORD",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Port_Client",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Reset_Counter",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SdRcv_Counter",
+     "type": "UDINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Server_Status",
+     "type": "_eCONNECTION_STATE",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Start_Server",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "_EIP_EtnOnlineSta",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  }
+ }
+}

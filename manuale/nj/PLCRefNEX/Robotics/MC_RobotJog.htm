@@ -1,0 +1,1323 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 11">
+<title>MC_RobotJog</title>
+
+<style title="hcp" type="text/css">
+<!--
+table.hcp1 { padding-left:4.00pt;
+padding-top:3.00pt;
+padding-right:4.00pt;
+padding-bottom:1.00pt; }
+th.hcp2 { border-top:solid 1px #000000;
+border-right:solid 1px #000000;
+border-bottom:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+th.hcp3 { border-top:solid 1px #000000;
+border-bottom:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+td.hcp4 { border-right:solid 1px #000000;
+border-bottom:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+td.hcp5 { border-bottom:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+span.hcp6 { font-style:italic; }
+table.hcp7 { padding-top:5.00pt;
+padding-right:4.00pt;
+padding-bottom:1.00pt; }
+table.hcp8 { padding-top:5.00pt;
+padding-right:4.00pt;
+padding-bottom:1.00pt;
+margin-left:31.18pt; }
+td.hcp9 { border-left:solid 1px #000000;
+border-bottom:solid 1px #000000; }
+span.hcp10 { word-spacing:normal;
+font:6.0pt 'Times New Roman'; }
+table.hcp11 { padding-left:4.00pt;
+padding-top:3.00pt;
+padding-right:4.00pt;
+padding-bottom:1.00pt;
+margin-left:56.69pt; }
+th.hcp12 { border-right:solid 1px #000000;
+border-bottom:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+th.hcp13 { border-bottom:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<p class="Title">MC_RobotJog</p>
+<p class="FM_body1">The MC_RobotJog instruction jogs the axes group according 
+ to the specified target velocity.</p>
+
+<table cellspacing="0" width="661" class="hcp1">
+	<tr style="height: 25.00pt;" bgcolor="#B3B3B3">
+		<th width="120" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Instruction</p></th>
+		<th width="71" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="37" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">FB/FUN</p></th>
+		<th width="219" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Graphic 
+		 expression</p></th>
+		<th width="215" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec9pt">ST expression</p></th>
+	</tr>
+	<tr style="height: 324.00pt;">
+		<td width="120" class="hcp4"><p 
+			 class="FM_tablebody18pt">MC_RobotJog</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">Axes Group Jog</p></td>
+		<td width="37" class="hcp4"><p 
+			 class="FM_tablebodyc9pt">FB</p></td>
+		<td style="border-right: solid 1px #000000; border-bottom: solid 1px #000000;" 
+			 width="219"><div style="text-align: center;">
+			<img alt="C09-00_010.jpg" id="image36" src="C09-00_010.jpg" border="0"> 
+		</div>
+		<p class="FM_1pt" style="text-align: justify;">&#160;</p></td>
+		<td width="215" class="hcp5"><p class="FM_tablebody18pt">MC_RobotJog_instance 
+		 (</p>
+		<p class="FM_tablebody18pt">AxesGroup :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">PositiveEnable_X :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">NegativeEnable_X :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">PositiveEnable_Y :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">NegativeEnable_Y :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">PositiveEnable_Z :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">NegativeEnable_Z :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">PositiveEnable_RX :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">NegativeEnable_RX :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">PositiveEnable_RY :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">NegativeEnable_RY :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">PositiveEnable_RZ :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">NegativeEnable_RZ :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">Velocity :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">Acceleration :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">Deceleration :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">JogMode :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">CSID :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">ToolID :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">Busy =&gt;<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">CommandAborted =&gt;<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">Error =&gt;<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">ErrorID =&gt;<span class="hcp6">parameter</span></p>
+		<p class="FM_tablebody18pt">);</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp7">
+	<tr style="height: 20.00pt;" bgcolor="#B3B3B3">
+		<td width="661" bgcolor="#B3B3B3"><p class="FM_CRhead3">Variables</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">This section describes the input variables, output 
+ variables and in-out variables for the MC_RobotJog (Axes Group Jog) instruction.</p>
+
+<table cellspacing="0" width="620" class="hcp8">
+	<tr style="height: 20.00pt;">
+		<td width="620" class="hcp9"><p class="FM_head4">Input Variables</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="662" class="hcp1">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="78" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="89" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Meaning</p></th>
+		<th width="99" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th width="103" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Valid 
+		 range</p></th>
+		<th width="53" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Default</p></th>
+		<th width="240" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 49.00pt;">
+		<td width="78" class="hcp4"><p 
+			 class="FM_tablebody19pt">Positive<br>
+		Enable_X</p></td>
+		<td width="89" class="hcp4"><p 
+			 class="FM_tablebody19pt">X Positive Enable</p></td>
+		<td width="99" class="hcp4"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="103" class="hcp4"><p 
+			 class="FM_tablebody19pt">TRUE or FALSE</p></td>
+		<td width="53" class="hcp4"><p 
+			 class="FM_tablebody19pt">FALSE</p></td>
+		<td width="240" class="hcp5"><p class="FM_tablebody19pt">When 
+		 this variable changes to TRUE, the robot starts moving in the 
+		 X axis positive direction. When it changes to FALSE, the robot 
+		 stops moving.</p></td>
+	</tr>
+	<tr style="height: 49.00pt;">
+		<td width="78" class="hcp4"><p 
+			 class="FM_tablebody19pt">Negative<br>
+		Enable_X</p></td>
+		<td width="89" class="hcp4"><p 
+			 class="FM_tablebody19pt">X Negative Enable</p></td>
+		<td width="99" class="hcp4"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="103" class="hcp4"><p 
+			 class="FM_tablebody19pt">TRUE or FALSE</p></td>
+		<td width="53" class="hcp4"><p 
+			 class="FM_tablebody19pt">FALSE</p></td>
+		<td width="240" class="hcp5"><p class="FM_tablebody19pt">When 
+		 this variable changes to TRUE, the robot starts moving in the 
+		 X axis negative direction. When it changes to FALSE, the robot 
+		 stops moving.</p></td>
+	</tr>
+	<tr style="height: 49.00pt;">
+		<td width="78" class="hcp4"><p 
+			 class="FM_tablebody19pt">Positive<br>
+		Enable_Y</p></td>
+		<td width="89" class="hcp4"><p 
+			 class="FM_tablebody19pt">Y Positive Enable</p></td>
+		<td width="99" class="hcp4"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="103" class="hcp4"><p 
+			 class="FM_tablebody19pt">TRUE or FALSE</p></td>
+		<td width="53" class="hcp4"><p 
+			 class="FM_tablebody19pt">FALSE</p></td>
+		<td width="240" class="hcp5"><p class="FM_tablebody19pt">When 
+		 this variable changes to TRUE, the robot starts moving in the 
+		 Y axis positive direction. When it changes to FALSE, the robot 
+		 stops moving.</p></td>
+	</tr>
+	<tr style="height: 49.00pt;">
+		<td width="78" class="hcp4"><p 
+			 class="FM_tablebody19pt">Negative<br>
+		Enable_Y</p></td>
+		<td width="89" class="hcp4"><p 
+			 class="FM_tablebody19pt">Y Negative Enable</p></td>
+		<td width="99" class="hcp4"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="103" class="hcp4"><p 
+			 class="FM_tablebody19pt">TRUE or FALSE</p></td>
+		<td width="53" class="hcp4"><p 
+			 class="FM_tablebody19pt">FALSE</p></td>
+		<td width="240" class="hcp5"><p class="FM_tablebody19pt">When 
+		 this variable changes to TRUE, the robot starts moving in the 
+		 Y axis negative direction. When it changes to FALSE, the robot 
+		 stops moving.</p></td>
+	</tr>
+	<tr style="height: 49.00pt;">
+		<td width="78" class="hcp4"><p 
+			 class="FM_tablebody19pt">Positive<br>
+		Enable_Z</p></td>
+		<td width="89" class="hcp4"><p 
+			 class="FM_tablebody19pt">Z Positive Enable</p></td>
+		<td width="99" class="hcp4"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="103" class="hcp4"><p 
+			 class="FM_tablebody19pt">TRUE or FALSE</p></td>
+		<td width="53" class="hcp4"><p 
+			 class="FM_tablebody19pt">FALSE</p></td>
+		<td width="240" class="hcp5"><p class="FM_tablebody19pt">When 
+		 this variable changes to TRUE, the robot starts moving in the 
+		 Z axis positive direction. When it changes to FALSE, the robot 
+		 stops moving.</p></td>
+	</tr>
+	<tr style="height: 49.00pt;">
+		<td width="78" class="hcp4"><p 
+			 class="FM_tablebody19pt">Negative<br>
+		Enable_Z</p></td>
+		<td width="89" class="hcp4"><p 
+			 class="FM_tablebody19pt">Z Negative Enable</p></td>
+		<td width="99" class="hcp4"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="103" class="hcp4"><p 
+			 class="FM_tablebody19pt">TRUE or FALSE</p></td>
+		<td width="53" class="hcp4"><p 
+			 class="FM_tablebody19pt">FALSE</p></td>
+		<td width="240" class="hcp5"><p class="FM_tablebody19pt">When 
+		 this variable changes to TRUE, the robot starts moving in the 
+		 Z axis negative direction. When it changes to FALSE, the robot 
+		 stops moving.</p></td>
+	</tr>
+	<tr style="height: 49.00pt;">
+		<td width="78" class="hcp4"><p 
+			 class="FM_tablebody19pt">Positive<br>
+		Enable_RX</p></td>
+		<td width="89" class="hcp4"><p 
+			 class="FM_tablebody19pt">X Rotate Posi­tive Enable</p></td>
+		<td width="99" class="hcp4"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="103" class="hcp4"><p 
+			 class="FM_tablebody19pt">TRUE or FALSE</p></td>
+		<td width="53" class="hcp4"><p 
+			 class="FM_tablebody19pt">FALSE</p></td>
+		<td width="240" class="hcp5"><p class="FM_tablebody19pt">When 
+		 this variable changes to TRUE, the robot starts moving in the 
+		 positive rotation direction around X axis. When it changes to 
+		 FALSE, the robot stops moving.</p></td>
+	</tr>
+	<tr style="height: 49.00pt;">
+		<td width="78" class="hcp4"><p 
+			 class="FM_tablebody19pt">Negative<br>
+		Enable_RX</p></td>
+		<td width="89" class="hcp4"><p 
+			 class="FM_tablebody19pt">X Rotate Neg­ative Enable</p></td>
+		<td width="99" class="hcp4"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="103" class="hcp4"><p 
+			 class="FM_tablebody19pt">TRUE or FALSE</p></td>
+		<td width="53" class="hcp4"><p 
+			 class="FM_tablebody19pt">FALSE</p></td>
+		<td width="240" class="hcp5"><p class="FM_tablebody19pt">When 
+		 this variable changes to TRUE, the robot starts moving in the 
+		 negative rotation direction around X axis. When it changes to 
+		 FALSE, the robot stops moving.</p></td>
+	</tr>
+	<tr style="height: 49.00pt;">
+		<td width="78" class="hcp4"><p 
+			 class="FM_tablebody19pt">Positive<br>
+		Enable_RY</p></td>
+		<td width="89" class="hcp4"><p 
+			 class="FM_tablebody19pt">Y Rotate Posi­tive Enable</p></td>
+		<td width="99" class="hcp4"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="103" class="hcp4"><p 
+			 class="FM_tablebody19pt">TRUE or FALSE</p></td>
+		<td width="53" class="hcp4"><p 
+			 class="FM_tablebody19pt">FALSE</p></td>
+		<td width="240" class="hcp5"><p class="FM_tablebody19pt">When 
+		 this variable changes to TRUE, the robot starts moving in the 
+		 positive rotation direction around Y axis. When it changes to 
+		 FALSE, the robot stops moving.</p></td>
+	</tr>
+	<tr style="height: 49.00pt;">
+		<td width="78" class="hcp4"><p 
+			 class="FM_tablebody19pt">Negative<br>
+		Enable_RY</p></td>
+		<td width="89" class="hcp4"><p 
+			 class="FM_tablebody19pt">Y Rotate Neg­ative Enable</p></td>
+		<td width="99" class="hcp4"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="103" class="hcp4"><p 
+			 class="FM_tablebody19pt">TRUE or FALSE</p></td>
+		<td width="53" class="hcp4"><p 
+			 class="FM_tablebody19pt">FALSE</p></td>
+		<td width="240" class="hcp5"><p class="FM_tablebody19pt">When 
+		 this variable changes to TRUE, the robot starts moving in the 
+		 negative rotation direction around Y axis. When it changes to 
+		 FALSE, the robot stops moving.</p></td>
+	</tr>
+	<tr style="height: 49.00pt;">
+		<td width="78" class="hcp4"><p 
+			 class="FM_tablebody19pt">Positive<br>
+		Enable_RZ</p></td>
+		<td width="89" class="hcp4"><p 
+			 class="FM_tablebody19pt">Z Rotate Posi­tive Enable</p></td>
+		<td width="99" class="hcp4"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="103" class="hcp4"><p 
+			 class="FM_tablebody19pt">TRUE or FALSE</p></td>
+		<td width="53" class="hcp4"><p 
+			 class="FM_tablebody19pt">FALSE</p></td>
+		<td width="240" class="hcp5"><p class="FM_tablebody19pt">When 
+		 this variable changes to TRUE, the robot starts moving in the 
+		 positive rotation direction around Z axis. When it changes to 
+		 FALSE, the robot stops moving.</p></td>
+	</tr>
+	<tr style="height: 49.00pt;">
+		<td width="78" class="hcp4"><p 
+			 class="FM_tablebody19pt">Negative<br>
+		Enable_RZ</p></td>
+		<td width="89" class="hcp4"><p 
+			 class="FM_tablebody19pt">Z Rotate Neg­ative Enable</p></td>
+		<td width="99" class="hcp4"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="103" class="hcp4"><p 
+			 class="FM_tablebody19pt">TRUE or FALSE</p></td>
+		<td width="53" class="hcp4"><p 
+			 class="FM_tablebody19pt">FALSE</p></td>
+		<td width="240" class="hcp5"><p class="FM_tablebody19pt">When 
+		 this variable changes to TRUE, the robot starts moving in the 
+		 negative rotation direction around Z axis. When it changes to 
+		 FALSE, the robot stops moving.</p></td>
+	</tr>
+	<tr style="height: 28.00pt;">
+		<td width="78" class="hcp4"><p 
+			 class="FM_tablebody19pt">Velocity</p></td>
+		<td width="89" class="hcp4"><p 
+			 class="FM_tablebody19pt">Target Velocity</p></td>
+		<td width="99" class="hcp4"><p 
+			 class="FM_tablebody19pt"><span class="FM_TBDRED">ARRAY[0..1] 
+		 OF LREAL</span></p></td>
+		<td width="103" class="hcp4"><p 
+			 class="FM_tablebody19pt">Non-negative number</p></td>
+		<td width="53" class="hcp4"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="240" class="hcp5"><p class="FM_tablebody19pt">Set 
+		 the target velocity.</p>
+		<p class="FM_tablebody19pt">(unit: mm/s or degree/s)</p></td>
+	</tr>
+	<tr style="height: 30.40pt;">
+		<td width="78" class="hcp4"><p 
+			 class="FM_tablebody19pt">Acceleration</p></td>
+		<td width="89" class="hcp4"><p 
+			 class="FM_tablebody19pt">Acceleration Rate</p></td>
+		<td width="99" class="hcp4"><p 
+			 class="FM_tablebody19pt"><span class="FM_TBDRED">ARRAY[0..1] 
+		 OF LREAL</span></p></td>
+		<td width="103" class="hcp4"><p 
+			 class="FM_tablebody19pt">Non-negative number</p></td>
+		<td width="53" class="hcp4"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="240" class="hcp5"><p class="FM_tablebody19pt">Set 
+		 the target acceleration rate.</p>
+		<p class="FM_tablebody19pt">(unit: mm/s<sup><span class="FM_Superscript">2</span></sup> 
+		 or degree/s<sup><span class="FM_Superscript">2</span></sup>)</p></td>
+	</tr>
+	<tr style="height: 30.40pt;">
+		<td width="78" class="hcp4"><p 
+			 class="FM_tablebody19pt">Deceleration</p></td>
+		<td width="89" class="hcp4"><p 
+			 class="FM_tablebody19pt">Deceleration Rate</p></td>
+		<td width="99" class="hcp4"><p 
+			 class="FM_tablebody19pt"><span class="FM_TBDRED">ARRAY[0..1] 
+		 OF LREAL</span></p></td>
+		<td width="103" class="hcp4"><p 
+			 class="FM_tablebody19pt">Non-negative number</p></td>
+		<td width="53" class="hcp4"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="240" class="hcp5"><p class="FM_tablebody19pt">Set 
+		 the target deceleration rate.</p>
+		<p class="FM_tablebody19pt">(unit: mm/s<sup><span class="FM_Superscript">2</span></sup> 
+		 or degree/s<sup><span class="FM_Superscript">2</span></sup>)</p></td>
+	</tr>
+	<tr style="height: 82.00pt;">
+		<td width="78" class="hcp4"><p 
+			 class="FM_tablebody19pt">JogMode</p></td>
+		<td width="89" class="hcp4"><p 
+			 class="FM_tablebody19pt">Jog Mode Selection</p></td>
+		<td width="99" class="hcp4"><p 
+			 class="FM_tablebody19pt">_eMC_JOG_<br>
+		MODE</p></td>
+		<td width="103" class="hcp4"><p 
+			 class="FM_tablebody19pt">1: _mcMachine<br>
+		Mode</p>
+		<p class="FM_tablebody19pt">2: _mcUserMode</p>
+		<p class="FM_tablebody19pt">3: _mcToolMode</p></td>
+		<td width="53" class="hcp4"><p 
+			 class="FM_tablebody19pt">1</p></td>
+		<td width="240" class="hcp5"><p class="FM_tablebody19pt">Specify 
+		 the Jog Mode.</p>
+		<p class="FM_tablebody19pt">1: TCPi of the machine coordinate system 
+		 (MCS)</p>
+		<p class="FM_tablebody19pt">2: TCPi of the user coordinate system 
+		 (UCS)</p>
+		<p class="FM_tablebody19pt">3: TCPi of the tool coordinate system 
+		 (TCS)</p></td>
+	</tr>
+	<tr style="height: 37.00pt;">
+		<td width="78" class="hcp4"><p 
+			 class="FM_tablebody19pt">CSID</p></td>
+		<td width="89" class="hcp4"><p 
+			 class="FM_tablebody19pt">Coordinate System ID</p></td>
+		<td width="99" class="hcp4"><p 
+			 class="FM_tablebody19pt">UINT</p></td>
+		<td width="103" class="hcp4"><p 
+			 class="FM_tablebody19pt">0 to 15</p></td>
+		<td width="53" class="hcp4"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="240" class="hcp5"><p class="FM_tablebody19pt">Select 
+		 the user coordinate system number if you select the user coordinate 
+		 system (UCS).</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="78" class="hcp4"><p 
+			 class="FM_tablebody19pt">ToolID</p></td>
+		<td width="89" class="hcp4"><p 
+			 class="FM_tablebody19pt">Tool ID</p></td>
+		<td width="99" class="hcp4"><p 
+			 class="FM_tablebody19pt">UINT</p></td>
+		<td width="103" class="hcp4"><p 
+			 class="FM_tablebody19pt">0 to 16</p></td>
+		<td width="53" class="hcp4"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="240" class="hcp5"><p class="FM_tablebody19pt">Select 
+		 the ID of the robot tool.</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="620" class="hcp8">
+	<tr style="height: 20.00pt;">
+		<td width="620" class="hcp9"><p class="FM_head4">Output Variables</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp1">
+	<tr style="height: 25.00pt;" bgcolor="#B3B3B3">
+		<th width="117" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="95" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Meaning</p></th>
+		<th width="85" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th width="59" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Valid 
+		 range</p></th>
+		<th width="306" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="117" class="hcp4"><p 
+			 class="FM_tablebody19pt">Busy</p></td>
+		<td width="95" class="hcp4"><p 
+			 class="FM_tablebody19pt">Executing</p></td>
+		<td width="85" class="hcp4"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="59" class="hcp4"><p 
+			 class="FM_tablebody19pt">TRUE or FALSE</p></td>
+		<td width="306" class="hcp5"><p class="FM_tablebody19pt">TRUE 
+		 when the instruction is acknowledged.</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="117" class="hcp4"><p 
+			 class="FM_tablebody19pt">CommandAborted</p></td>
+		<td width="95" class="hcp4"><p 
+			 class="FM_tablebody19pt">Command Aborted</p></td>
+		<td width="85" class="hcp4"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="59" class="hcp4"><p 
+			 class="FM_tablebody19pt">TRUE or FALSE</p></td>
+		<td width="306" class="hcp5"><p class="FM_tablebody19pt">TRUE 
+		 when the instruction is aborted.</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="117" class="hcp4"><p 
+			 class="FM_tablebody19pt">Error</p></td>
+		<td width="95" class="hcp4"><p 
+			 class="FM_tablebody19pt">Error</p></td>
+		<td width="85" class="hcp4"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="59" class="hcp4"><p 
+			 class="FM_tablebody19pt">TRUE or FALSE</p></td>
+		<td width="306" class="hcp5"><p class="FM_tablebody19pt">TRUE 
+		 while there is an error.</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="117" class="hcp4"><p 
+			 class="FM_tablebody19pt">ErrorID</p></td>
+		<td width="95" class="hcp4"><p 
+			 class="FM_tablebody19pt">Error Code</p></td>
+		<td width="85" class="hcp4"><p 
+			 class="FM_tablebody19pt">WORD</p></td>
+		<td width="59" class="hcp4"><p 
+			 class="FM_tablebodycc9pt"><sup>*1</sup>&#160;</p></td>
+		<td width="306" class="hcp5"><p class="FM_tablebody19pt">Contains 
+		 the error code when an error occurs. A value of 16#0000 indicates 
+		 normal execution.</p></td>
+	</tr>
+</table>
+
+
+<table style="margin-bottom: 3.50pt; margin-top: 6.00pt;" width="661">
+	<tr>
+		<td><p class="FM_asterisk1"><sup>*1</sup> Refer to <span class="FM_italic">Troubleshooting</span> 
+		 manual pages for details.</p></td>
+	</tr>
+</table>
+
+<p class="FM_head5"><span class="FM_Wingdings">l<span class="hcp10">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span>Output 
+ Variable Update Timing</p>
+
+<table cellspacing="0" width="661" class="hcp1">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="117" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="282" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Timing 
+		 for changing to TRUE</p></th>
+		<th width="262" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec9pt">Timing for 
+		 changing to FALSE</p></th>
+	</tr>
+	<tr style="height: 27.00pt;">
+		<td width="117" class="hcp4"><p 
+			 class="FM_tablebody19pt">Busy</p></td>
+		<td width="282" class="hcp4"><p 
+			 class="FM_tablebody19pt">When <span class="hcp6">Enable</span> 
+		 changes to TRUE.</p></td>
+		<td width="262" class="hcp5"><p class="FM_tablebul9pt">•<span class="hcp10">&#160;&#160;&#160;</span>When 
+		 <span class="hcp6">Error</span> changes to TRUE.</p>
+		<p class="FM_tablebul9pt">•<span class="hcp10">&#160;&#160;&#160;</span>When 
+		 all <span class="hcp6">Enable</span> variables 
+		 change to FALSE.</p></td>
+	</tr>
+	<tr style="height: 103.00pt;">
+		<td width="117" class="hcp4"><p 
+			 class="FM_tablebody19pt">CommandAborted</p></td>
+		<td width="282" class="hcp4"><p 
+			 class="FM_tablebul9pt">•<span class="hcp10">&#160;&#160;&#160;</span>When 
+		 this instruction is aborted because another motion control instruction 
+		 was executed with the Buffer Mode set to <span class="hcp6">Aborting</span>.</p>
+		<p class="FM_tablebul9pt">•<span class="hcp10">&#160;&#160;&#160;</span>When 
+		 this instruction is canceled due to an error.</p>
+		<p class="FM_tablebul9pt">•<span class="hcp10">&#160;&#160;&#160;</span>When 
+		 this instruction is executed while there is an error.</p>
+		<p class="FM_tablebul9pt">•<span class="hcp10">&#160;&#160;&#160;</span>When 
+		 you start this instruction during MC_GroupStop instruction execution.</p></td>
+		<td width="262" class="hcp5"><p class="FM_tablebul9pt">•<span class="hcp10">&#160;&#160;&#160;</span>When 
+		 <span class="hcp6">Enable</span>&#160;is TRUE and 
+		 changes to FALSE.</p>
+		<p class="FM_tablebul9pt">•<span class="hcp10">&#160;&#160;&#160;</span>After 
+		 one period when <span class="hcp6">Enable</span> 
+		 is FALSE.</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="117" class="hcp4"><p 
+			 class="FM_tablebody19pt">Error</p></td>
+		<td width="282" class="hcp4"><p 
+			 class="FM_tablebody19pt">When there is an error in the execution 
+		 conditions or input parameters for the instruction.</p></td>
+		<td width="262" class="hcp5"><p class="FM_tablebody19pt">When 
+		 the error is cleared.</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="620" class="hcp8">
+	<tr style="height: 20.00pt;">
+		<td width="620" class="hcp9"><p class="FM_head4">In-Out Variables</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp1">
+	<tr style="height: 25.00pt;" bgcolor="#B3B3B3">
+		<th width="117" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="110" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Meaning</p></th>
+		<th width="100" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th width="64" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Valid 
+		 range</p></th>
+		<th width="271" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="117" class="hcp4"><p 
+			 class="FM_tablebody19pt">AxesGroup</p></td>
+		<td width="110" class="hcp4"><p 
+			 class="FM_tablebody19pt">Axes Group</p></td>
+		<td width="100" class="hcp4"><p 
+			 class="FM_tablebody19pt">_sGROUP_REF</p></td>
+		<td width="64" class="hcp4"><p 
+			 class="FM_tablebodycc9pt">---</p></td>
+		<td width="271" class="hcp5"><p class="FM_tablebody19pt">Specify 
+		 the axes group.</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp7">
+	<tr style="height: 20.00pt;" bgcolor="#B3B3B3">
+		<td width="661" bgcolor="#B3B3B3"><p class="FM_CRhead3">Function</p></td>
+	</tr>
+</table>
+
+<p class="FM_bul1">•<span class="hcp10">&#160;&#160;&#160;&#160;</span>This 
+ instruction jogs the specified robot (axes group) at the velocity set 
+ in <span class="hcp6">Velocity</span> (Target Velocity).</p>
+<p class="FM_bul1">•<span class="hcp10">&#160;&#160;&#160;&#160;</span>To 
+ jog the robot in the positive direction, change <span class="hcp6">PositiveEnable</span>&#160;(Positive 
+ Direction Enable) variables to TRUE. To jog the robot in the negative 
+ direction, change <span class="hcp6">NegativeEnable</span>&#160;(Negative 
+ Direction Enable) variables to TRUE.</p>
+<p class="FM_bul1">•<span class="hcp10">&#160;&#160;&#160;&#160;</span>The 
+ robot can move in the directions along the axes (X, Y, Z) in the Cartesian 
+ coordinate system and also in the rotation directions around the axes 
+ (Rx, Ry, Rz).</p>
+<p class="FM_bul1">•<span class="hcp10">&#160;&#160;&#160;&#160;</span>Use 
+ Jog Mode Selection to select a coordinate system and an active TCP. Refer 
+ to <span class="FM_italic">Robot Jog­ging</span> manual pages for details 
+ on robot jogging.</p>
+<p class="FM_bul1">•<span class="hcp10">&#160;&#160;&#160;&#160;</span>Robot 
+ jogging is a trapezoidal control which is performed according to the set 
+ velocity, acceleration rate and deceleration rate.</p>
+<p class="FM_bul1">•<span class="hcp10">&#160;&#160;&#160;&#160;</span>The 
+ <span class="hcp6">Enable</span>&#160;input variables vary 
+ depending on <span class="hcp6">KinType</span> (Kinematics 
+ Type Selection) as shown below.</p>
+
+<table cellspacing="0" width="586" class="hcp11">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th colspan="2" width="343" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">PositiveEnable/NegativeEnable</p></th>
+		<th colspan="3" width="243" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Kinematics 
+		 type</p></th>
+		
+	</tr>
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="136" bgcolor="#B3B3B3" class="hcp12"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="207" bgcolor="#B3B3B3" class="hcp12"><p class="FM_tabletitlec9pt">Meaning</p></th>
+		<th width="81" bgcolor="#B3B3B3" class="hcp12"><p class="FM_tabletitlec9pt">Delta3</p></th>
+		<th width="81" bgcolor="#B3B3B3" class="hcp12"><p class="FM_tabletitlec9pt">Delta3R</p></th>
+		<th width="81" bgcolor="#B3B3B3" class="hcp13"><p class="FM_tabletitlec9pt">Delta2</p></th>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="136" class="hcp4"><p 
+			 class="FM_tablebody19pt">X</p></td>
+		<td width="207" class="hcp4"><p 
+			 class="FM_tablebody19pt">X Enable</p></td>
+		<td width="81" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Used</span></p></td>
+		<td width="81" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Used</span></p></td>
+		<td width="81" class="hcp5"><p class="FM_tablebodycc9pt" 
+													 style="font-size: 9pt; 
+													 font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Used</span></p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="136" class="hcp4"><p 
+			 class="FM_tablebody19pt">Y</p></td>
+		<td width="207" class="hcp4"><p 
+			 class="FM_tablebody19pt">Y Enable</p></td>
+		<td width="81" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Used</span></p></td>
+		<td width="81" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Used</span></p></td>
+		<td width="81" class="hcp5"><p class="FM_tablebodycc9pt" 
+													 style="font-size: 9pt; 
+													 font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Not used</span></p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="136" class="hcp4"><p 
+			 class="FM_tablebody19pt">Z</p></td>
+		<td width="207" class="hcp4"><p 
+			 class="FM_tablebody19pt">Z Enable</p></td>
+		<td width="81" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Used</span></p></td>
+		<td width="81" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Used</span></p></td>
+		<td width="81" class="hcp5"><p class="FM_tablebodycc9pt" 
+													 style="font-size: 9pt; 
+													 font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Used</span></p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="136" class="hcp4"><p 
+			 class="FM_tablebody19pt">RX</p></td>
+		<td width="207" class="hcp4"><p 
+			 class="FM_tablebody19pt">X Rotate Enable</p></td>
+		<td width="81" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Not used</span></p></td>
+		<td width="81" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Not used</span></p></td>
+		<td width="81" class="hcp5"><p class="FM_tablebodycc9pt" 
+													 style="font-size: 9pt; 
+													 font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Not used</span></p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="136" class="hcp4"><p 
+			 class="FM_tablebody19pt">RY</p></td>
+		<td width="207" class="hcp4"><p 
+			 class="FM_tablebody19pt">Y Rotate Enable</p></td>
+		<td width="81" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Not used</span></p></td>
+		<td width="81" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Not used</span></p></td>
+		<td width="81" class="hcp5"><p class="FM_tablebodycc9pt" 
+													 style="font-size: 9pt; 
+													 font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Not used</span></p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="136" class="hcp4"><p 
+			 class="FM_tablebody19pt">RZ</p></td>
+		<td width="207" class="hcp4"><p 
+			 class="FM_tablebody19pt">Z Rotate Enable</p></td>
+		<td width="81" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Not used</span></p></td>
+		<td width="81" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Used</span></p></td>
+		<td width="81" class="hcp5"><p class="FM_tablebodycc9pt" 
+													 style="font-size: 9pt; 
+													 font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Not used</span></p></td>
+	</tr>
+</table>
+
+<p class="FM_body5">Table above is based on Machine Coordinate System. 
+ When a user coordinate system is used, positions of the axis for which 
+ Rotate Enable is set are transformed into positions in the Machine Coordinate 
+ System (MCS). After the transformation, invalid values that are determined 
+ based on this table are ignored.</p>
+<p class="FM_body5">&#160;</p>
+
+<table cellspacing="0" width="586" class="hcp11">
+	<tr style="height: 25.00pt;" bgcolor="#B3B3B3">
+		<th width="105" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt" 
+												 style="font-family: Arial, sans-serif;">PositiveEnable/<br>
+		NegativeEnable</p></th>
+		<th colspan="5" width="481" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt" 
+												 style="font-family: Arial, sans-serif;">Kinematics 
+		 type</p></th>
+		
+	</tr>
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th rowspan="2" width="105" bgcolor="#B3B3B3" class="hcp12"><p class="FM_tabletitlec9pt" style="font-family: Arial, sans-serif;">Name</p></th>
+		<th rowspan="2" width="130" bgcolor="#B3B3B3" class="hcp12"><p class="FM_tabletitlec9pt" style="font-family: Arial, sans-serif;">Cartesian 
+		 3D</p>
+		<p class="FM_tabletitlec9pt" style="font-family: Arial, sans-serif;">Cartesian 
+		 3D-Gantry</p></th>
+		<th colspan="3" width="210" bgcolor="#B3B3B3" class="hcp12"><p class="FM_tabletitlec9pt" style="font-family: Arial, sans-serif;">Cartesian 
+		 2D</p></th>
+		<th rowspan="2" width="140" bgcolor="#B3B3B3" class="hcp13"><p 
+			 class="FM_tabletitlec9pt" style="font-family: Arial, sans-serif;">Cartesian 
+		 2D-Gantry</p>
+		<p class="FM_tabletitlec9pt" style="font-family: Arial, sans-serif;">H-Bot</p></th>
+	</tr>
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="70" bgcolor="#B3B3B3" class="hcp12"><p class="FM_tabletitlec9pt" style="font-family: Arial, sans-serif;">Plane 
+		 XY</p></th>
+		<th width="70" bgcolor="#B3B3B3" class="hcp12"><p class="FM_tabletitlec9pt" style="font-family: Arial, sans-serif;">Plane 
+		 XZ</p></th>
+		<th width="70" bgcolor="#B3B3B3" class="hcp12"><p class="FM_tabletitlec9pt" style="font-family: Arial, sans-serif;">Plane 
+		 YZ</p></th>
+		
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="105" class="hcp4"><p 
+			 class="FM_tablebody19pt" style="font-family: Arial, sans-serif;">X</p></td>
+		<td width="130" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Used</span></p></td>
+		<td width="70" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Used</span></p></td>
+		<td width="70" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Used</span></p></td>
+		<td width="70" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Not used</span></p></td>
+		<td width="140" class="hcp5"><p class="FM_tablebodycc9pt" 
+													 style="font-size: 9pt; 
+													 font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Used</span></p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="105" class="hcp4"><p 
+			 class="FM_tablebody19pt" style="font-family: Arial, sans-serif;">Y</p></td>
+		<td width="130" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Used</span></p></td>
+		<td width="70" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Used</span></p></td>
+		<td width="70" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Not used</span></p></td>
+		<td width="70" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-family: Arial, sans-serif; 
+			 font-size: 9pt;">Used</p></td>
+		<td width="140" class="hcp5"><p class="FM_tablebodycc9pt" 
+													 style="font-size: 9pt; 
+													 font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Used</span></p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="105" class="hcp4"><p 
+			 class="FM_tablebody19pt" style="font-family: Arial, sans-serif;">Z</p></td>
+		<td width="130" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Used</span></p></td>
+		<td width="70" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Not used</span></p></td>
+		<td width="70" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Used</span></p></td>
+		<td width="70" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Used</span></p></td>
+		<td width="140" class="hcp5"><p class="FM_tablebodycc9pt" 
+													 style="font-size: 9pt; 
+													 font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Not used</span></p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="105" class="hcp4"><p 
+			 class="FM_tablebody19pt" style="font-family: Arial, sans-serif;">RX</p></td>
+		<td width="130" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Not used</span></p></td>
+		<td colspan="3" width="210" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Not used</span></p></td>
+		<td width="140" class="hcp5"><p class="FM_tablebodycc9pt" 
+													 style="font-size: 9pt; 
+													 font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Not used</span></p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="105" class="hcp4"><p 
+			 class="FM_tablebody19pt" style="font-family: Arial, sans-serif;">RY</p></td>
+		<td width="130" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Not used</span></p></td>
+		<td colspan="3" width="210" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Not used</span></p></td>
+		<td width="140" class="hcp5"><p class="FM_tablebodycc9pt" 
+													 style="font-size: 9pt; 
+													 font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Not used</span></p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="105" class="hcp4"><p 
+			 class="FM_tablebody19pt" style="font-family: Arial, sans-serif;">RZ</p></td>
+		<td width="130" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Not used</span></p></td>
+		<td colspan="3" width="210" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Not used</span></p></td>
+		<td width="140" class="hcp5"><p class="FM_tablebodycc9pt" 
+													 style="font-size: 9pt; 
+													 font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Not used</span></p></td>
+	</tr>
+</table>
+
+<p class="FM_body5">&#160;</p>
+
+<table cellspacing="0" width="376" class="hcp11">
+	<tr style="height: 25.00pt;" bgcolor="#B3B3B3">
+		<th width="105" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">PositiveEnable/<br>
+		NegativeEnable</p></th>
+		<th colspan="2" width="271" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Kinematics 
+		 type</p></th>
+		
+	</tr>
+	<tr style="height: 25.00pt;" bgcolor="#B3B3B3">
+		<th width="105" bgcolor="#B3B3B3" class="hcp12"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="130" bgcolor="#B3B3B3" class="hcp12"><p class="FM_tabletitlec9pt">SCARA RRP</p>
+		<p class="FM_tabletitlec9pt">SCARA PRR</p></th>
+		<th width="140" bgcolor="#B3B3B3" class="hcp13"><p 
+			 class="FM_tabletitlec9pt">SCARA RRP+R</p>
+		<p class="FM_tabletitlec9pt">SCARA PRR+R</p></th>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="105" class="hcp4"><p 
+			 class="FM_tablebody19pt">X</p></td>
+		<td width="130" class="hcp4"><p 
+			 class="FM_tablebodycc9pt">Used</p></td>
+		<td width="140" class="hcp5"><p class="FM_tablebodycc9pt">Used</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="105" class="hcp4"><p 
+			 class="FM_tablebody19pt">Y</p></td>
+		<td width="130" class="hcp4"><p 
+			 class="FM_tablebodycc9pt">Used</p></td>
+		<td width="140" class="hcp5"><p class="FM_tablebodycc9pt">Used</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="105" class="hcp4"><p 
+			 class="FM_tablebody19pt">Z</p></td>
+		<td width="130" class="hcp4"><p 
+			 class="FM_tablebodycc9pt">Used</p></td>
+		<td width="140" class="hcp5"><p class="FM_tablebodycc9pt">Used</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="105" class="hcp4"><p 
+			 class="FM_tablebody19pt">RX</p></td>
+		<td width="130" class="hcp4"><p 
+			 class="FM_tablebodycc9pt">Not used</p></td>
+		<td width="140" class="hcp5"><p class="FM_tablebodycc9pt">Not 
+		 used</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="105" class="hcp4"><p 
+			 class="FM_tablebody19pt">RY</p></td>
+		<td width="130" class="hcp4"><p 
+			 class="FM_tablebodycc9pt">Not used</p></td>
+		<td width="140" class="hcp5"><p class="FM_tablebodycc9pt">Not 
+		 used</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="105" class="hcp4"><p 
+			 class="FM_tablebody19pt">RZ</p></td>
+		<td width="130" class="hcp4"><p 
+			 class="FM_tablebodycc9pt">Not used</p></td>
+		<td width="140" class="hcp5"><p class="FM_tablebodycc9pt">Used</p></td>
+	</tr>
+</table>
+
+<p class="FM_body5">&#160;</p>
+<p class="FM_body5">Table above is based on machine coordinate system (MCS). 
+ When a user coordinate system is used, positions of the axis for which 
+ Rotate Enable is set are transformed into positions in the machine coordinate 
+ system. After the transformation, invalid values that are determined based 
+ on this table are ignored.</p>
+<p class="FM_body1">&#160;</p>
+<p class="FM_iconbul1">Precautions for Correct Use</p>
+<p class="FM_iconbody1">•<span class="hcp10">&#160;&#160;&#160;&#160;</span>If 
+ a <span class="hcp6">PositiveEnable</span>&#160;(Positive 
+ Direction Enable) variable and a <span class="hcp6">NegativeEnable</span>&#160;(Negative 
+ Direction Enable) variable change from FALSE to TRUE at the same time, 
+ the <span class="hcp6">PositiveEn­able</span> (Positive 
+ Direction Enable) variable takes priority and jogging is performed in 
+ the posi­tive direction.</p>
+<p class="FM_iconbody1">•<span class="hcp10">&#160;&#160;&#160;&#160;</span>If 
+ 180<span class="FM_Symbol">°</span>&#160;or more is added to the axis 
+ command position in a control period, the calculation is not performed 
+ correctly according to the kinematics algorithm. In such a cases, an error 
+ occurs and the MC_RobotJog (Axes Group Jog) instruction is aborted.</p>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="620" class="hcp8">
+	<tr style="height: 20.00pt;">
+		<td width="620" class="hcp9"><p class="FM_head4">Target Velocity</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">It sets the target velocity for the selected robot 
+ components. It is divided in Velocity for X, Y and Z (translation) and 
+ Velocity for RX, RY, and RZ (rotation):</p>
+
+<table cellspacing="0" width="586" class="hcp11">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="117" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="88" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th width="129" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Valid 
+		 range</p></th>
+		<th width="252" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="117" class="hcp4"><p 
+			 class="FM_tablebody19pt">Velocity[0]</p></td>
+		<td width="88" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="129" class="hcp4"><p 
+			 class="FM_tablebody19pt">Non-negative value</p></td>
+		<td width="252" class="hcp5"><p class="FM_tablebody19pt">Target 
+		 velocity for components X, Y and Z. [mm/s]</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="117" class="hcp4"><p 
+			 class="FM_tablebody19pt">Velocity[1]</p></td>
+		<td width="88" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="129" class="hcp4"><p 
+			 class="FM_tablebody19pt">Non-negative value</p></td>
+		<td width="252" class="hcp5"><p class="FM_tablebody19pt">Target 
+		 velocity for components RX, RY and RZ. [º/s]</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+<p class="FM_iconbul1">Additional Information</p>
+<p class="FM_iconbody1">If multiple TCP operations along each axes are 
+ enabled simultaneously, the velocity of TCP will be higher than the target 
+ velocity set in <span class="hcp6">Velocity</span>.</p>
+<p class="FM_iconbody1">For example, if X, Y and Z axes are enabled simultaneously, 
+ the velocity of TCP will be Veloc­ity[0] multiplied by <span style="font-family: '&#65325;&#65331; &#26126;&#26397;';"><img alt="sec400078.jpg" id="image37" src="sec400078.jpg" style="margin-bottom: -2.857pt;" border="0"></span>.</p>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="620" class="hcp8">
+	<tr style="height: 20.00pt;">
+		<td width="620" class="hcp9"><p class="FM_head4">Acceleration Rate and Deceleration 
+		 Rate</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">Acceleration input sets the acceleration rate to reach 
+ target velocity for the selected robot components. It is divided in Acceleration 
+ for X, Y and Z (translation) and Acceleration for RX, RY, and RZ (rotation): 
+ &#160;</p>
+
+<table cellspacing="0" width="586" class="hcp11">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="117" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="88" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th width="129" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Valid 
+		 range</p></th>
+		<th width="252" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="117" class="hcp4"><p 
+			 class="FM_tablebody19pt">Acceleration[0]</p></td>
+		<td width="88" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="129" class="hcp4"><p 
+			 class="FM_tablebody19pt">Non-negative value</p></td>
+		<td width="252" class="hcp5"><p class="FM_tablebody19pt">Linear 
+		 Acceleration rate for components X, Y and Z. [mm/s<sup><span class="FM_Superscript">2</span></sup>]</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="117" class="hcp4"><p 
+			 class="FM_tablebody19pt">Acceleration [1]</p></td>
+		<td width="88" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="129" class="hcp4"><p 
+			 class="FM_tablebody19pt">Non-negative value</p></td>
+		<td width="252" class="hcp5"><p class="FM_tablebody19pt">Rotation 
+		 Acceleration rate for components RX, RY and RZ. [º/s<sup><span 
+		 class="FM_Superscript">2</span></sup>]</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">Deceleration input sets the deceleration rate to stop 
+ from target velocity for the selected robot compo­nents. It is divided 
+ in Deceleration for X, Y and Z (translation) and Deceleration for RX, 
+ RY, and RZ (rotation): </p>
+
+<table cellspacing="0" width="586" class="hcp11">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="117" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="88" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th width="129" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Valid 
+		 range</p></th>
+		<th width="252" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="117" class="hcp4"><p 
+			 class="FM_tablebody19pt">Deceleration[0]</p></td>
+		<td width="88" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="129" class="hcp4"><p 
+			 class="FM_tablebody19pt">Non-negative value</p></td>
+		<td width="252" class="hcp5"><p class="FM_tablebody19pt">Linear 
+		 Deceleration rate for components X, Y and Z. [mm/s<sup><span class="FM_Superscript">2</span></sup>]</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="117" class="hcp4"><p 
+			 class="FM_tablebody19pt">Deceleration [1]</p></td>
+		<td width="88" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="129" class="hcp4"><p 
+			 class="FM_tablebody19pt">Non-negative value</p></td>
+		<td width="252" class="hcp5"><p class="FM_tablebody19pt">Rotation 
+		 Deceleration rate for components RX, RY and RZ. [º/s<sup><span 
+		 class="FM_Superscript">2</span></sup>]</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">When the <span class="FM_italic">Acceleration</span>&#160;(Acceleration 
+ Rate) or <span class="FM_italic">Deceleration</span> (Deceleration Rate) 
+ is 0 and you start jog­ging the selected component of the robot, the robot 
+ will reach the target velocity without accelerating or decelerating.</p>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="620" class="hcp8">
+	<tr style="height: 20.00pt;">
+		<td width="620" class="hcp9"><p class="FM_head4">Jog Mode Selection</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">Three jog modes are defined in the current specification 
+ (MACHINE, USER, and TOOL).</p>
+<p class="FM_head5"><span class="FM_Wingdings">l<span class="hcp10">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span>MACHINE 
+ (_mcMachineMode)</p>
+<p class="FM_body5">The selected TCP is moving along the Cartesian Coordinates 
+ of the Machine Coordinate System (MCS). Rotations are performed around 
+ the Tool Coordinate System (TCS) of the selected tool. It is the default 
+ jog mode.</p>
+<p class="FM_head5"><span class="FM_Wingdings">l<span class="hcp10">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span>USER 
+ (_mcUserMode)</p>
+<p class="FM_body5">The selected TCP is moving along the Cartesian Coordinates 
+ of the selected User Coordinate System (UCS). Rotations are performed 
+ around the Tool Coordinate System (TCS) of the selected robot tool.</p>
+<p class="FM_head5"><span class="FM_Wingdings">l<span class="hcp10">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span>TOOL 
+ (_mcToolMode)</p>
+<p class="FM_body5">The selected TCP is moving along the Cartesian coordinates 
+ of Tool Coordinate System (TCS). Rotations are performed around the Tool 
+ Coordinate System (TCS) of the selected robot tool.</p>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="620" class="hcp8">
+	<tr style="height: 20.00pt;">
+		<td width="620" class="hcp9"><p class="FM_head4">Coordinate System ID</p></td>
+	</tr>
+</table>
+
+<p class="FM_bul1">•<span class="hcp10">&#160;&#160;&#160;&#160;</span>If 
+ you select <span class="hcp6">_mcUserMode</span>&#160;(user 
+ mode) for <span class="hcp6">JogMode</span>&#160;(Jog Mode 
+ Selection), you need to set the user coordinate system you use in <span class="hcp6">CSID</span>&#160;(Coordinate System ID). 
+ If you do not select <span class="hcp6">_mcUserMode</span>&#160;(user 
+ mode) for <span class="hcp6">JogMode</span>&#160;(Jog Mode 
+ Selection), the variable <span class="hcp6">CSID</span> 
+ (Coordinate System ID) is ignored.</p>
+<p class="FM_bul1">•<span class="hcp10">&#160;&#160;&#160;&#160;</span>The 
+ value that was set in <span class="hcp6">CSID</span>&#160;(Coordinate 
+ System ID) when <span class="hcp6">Enable</span>&#160;changed 
+ to TRUE is used while this instruction is enabled. Operation is not affected 
+ even if a different value is set in <span class="hcp6">CSID</span> 
+ (Coordi­nate System ID) while this instruction is enabled.</p>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="620" class="hcp8">
+	<tr style="height: 20.00pt;">
+		<td width="620" class="hcp9"><p class="FM_head4">Tool ID</p></td>
+	</tr>
+</table>
+
+<p class="FM_bul1">•<span class="hcp10">&#160;&#160;&#160;&#160;</span>The 
+ TCP which is operated with this instruction is a selected tool TCP in 
+ each JogMode.</p>
+<p class="FM_bul1">•<span class="hcp10">&#160;&#160;&#160;&#160;</span>If 
+ ToolID is set to 0, default TCP (TCP0) is used.</p>
+<p class="FM_bul1">•<span class="hcp10">&#160;&#160;&#160;&#160;</span>The 
+ value that was set in <span class="hcp6">ToolID</span>&#160;(Tool 
+ ID) when <span class="hcp6">Enable</span> changed to TRUE 
+ is used while this instruc­tion is enabled. Operation is not affected 
+ even if you change the input value of <span class="hcp6">ToolID</span>&#160;(Tool 
+ ID) to select a different tool while this instruction is enabled.</p>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="620" class="hcp8">
+	<tr style="height: 20.00pt;">
+		<td width="620" class="hcp9"><p class="FM_head4">Timing Charts</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+<div>
+	<img alt="C09-02_010.jpg" id="image38" src="C09-02_010.jpg" border="0"> 
+	 
+</div>
+<p class="FM_fig">&#160;</p>
+<p class="FM_asterisk2num">*1.<span class="hcp10">&#160;&#160;</span>Decelerates 
+ to a stop due to an error in another instruction.</p>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="620" class="hcp8">
+	<tr style="height: 20.00pt;">
+		<td width="620" class="hcp9"><p class="FM_head4">Re-execution of Motion Control 
+		 Instructions</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">This section describes re-execution in the same direction 
+ and in a different direction.</p>
+<p class="FM_head5"><span class="FM_Wingdings">l<span class="hcp10">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span>Restarting 
+ with <span class="hcp6">Enable</span> in the Same Direction</p>
+<p class="FM_body5">If you change a <span class="hcp6">PositiveEnable</span>&#160;(Positive 
+ Direction Enable) variable to TRUE when it is FALSE and the axes are decelerating, 
+ the axes will begin to accelerate towards the target velocity.</p>
+<p class="FM_body5">This also applies to a <span class="hcp6">NegativeEnable</span> 
+ (Negative Direction Enable) variable.</p>
+<p class="FM_body5">If you change the value of <span class="hcp6">Velocity</span>&#160;(Target 
+ Velocity), <span class="hcp6">Acceleration</span>&#160;(Acceleration 
+ Rate), or <span class="hcp6">Decelera­tion</span>&#160;(Deceleration 
+ Rate) when you re-execute the instruction, operation is performed with 
+ the new value of the input variable.</p>
+<p class="FM_body5">Note that <span class="hcp6">Busy</span> 
+ (Executing) does not change to FALSE because the axes do not stop.</p>
+<p class="FM_head5"><span class="FM_Wingdings">l<span class="hcp10">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span>Restarting 
+ with <span class="hcp6">Enable</span> in the Opposite Direction</p>
+<p class="FM_bul2">•<span class="hcp10">&#160;&#160;&#160;&#160;</span>If 
+ you change a <span class="hcp6">NegativeEnable</span>&#160;(Negative 
+ Direction Enable) variable to TRUE when the robot is jogging in the positive 
+ direction, the robot reverse its direction and starts jogging in the negative 
+ direction. In this case, jogging is performed with the current input variables 
+ when a <span class="hcp6">NegativeEn­able</span>&#160;(Negative 
+ Direction Enable) variable changed to TRUE. The input variables are <span class="hcp6">Velocity</span> (Tar­get Velocity), <span class="hcp6">Acceleration</span>&#160;(Acceleration 
+ Rate), and <span class="hcp6">Deceleration</span> (Deceleration 
+ Rate).</p>
+<p class="FM_bul2">&#160;&#160;The deceleration rate for reversing and 
+ the acceleration rate after reversing are determined by the variables 
+ that are input when NegativeEnable (Negative Direction Enable) changed 
+ to TRUE, regardless of the value of the Operation Selection at Reversing 
+ axis parameter.</p>
+<p class="FM_bul2">&#160;&#160;If a <span class="hcp6">PositiveEnable</span>&#160;(Positive 
+ Direction Enable) variable changes to TRUE during jogging in the negative 
+ direction, the same operation is performed.</p>
+<p class="FM_bul2">•<span class="hcp10">&#160;&#160;&#160;&#160;</span>If 
+ you change a <span class="hcp6">NegativeEnable</span>&#160;(Negative 
+ Direction Enable) variable to TRUE while a <span class="hcp6">PositiveEn­able</span>&#160;(Positive 
+ Direction Enable) variable is TRUE, the robot start jogging in the negative 
+ direction. If you change the <span class="hcp6">NegativeEnable</span> 
+ (Negative Direction Enable) variable to FALSE after the previ­ous operation, 
+ the axes will not jog in the positive direction even if the <span class="hcp6">PositiveEnable</span>&#160;(Positive 
+ Direction Enable) variable is TRUE.</p>
+<p class="FM_bul2">&#160;&#160;To jog the axes in the positive direction, 
+ you need to change the <span class="hcp6">PositiveEnable</span> 
+ (Positive Direc­tion Enable) variable to FALSE and then change it to TRUE 
+ again.</p>
+<p class="FM_bul2">&#160;&#160;The same operation applies to the opposite 
+ case.</p>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="620" class="hcp8">
+	<tr style="height: 20.00pt;">
+		<td width="620" class="hcp9"><p class="FM_head4">Multi-execution of Motion 
+		 Control Instructions</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">There are restrictions on the instructions that you 
+ can execute while this instruction is in execution.</p>
+<p class="FM_body1">Refer to <span class="FM_italic">Multi-execution of 
+ Motion Control Instructions </span>manual pages&#160;for details on multi-execution 
+ of motion control instructions.</p>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="620" class="hcp8">
+	<tr style="height: 20.00pt;">
+		<td width="620" class="hcp9"><p class="FM_head4">Errors</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">If an error occurs during instruction execution, <span class="hcp6">Error</span> will change to TRUE.</p>
+<p class="FM_body1">You can find out the cause of the error by referring 
+ to the value output by <span class="hcp6">ErrorID</span> 
+ (Error Code).</p>
+<p class="FM_body1">&#160;</p>
+<div>
+	<img alt="C09-02_030.jpg" id="image39" src="C09-02_030.jpg" border="0"> 
+	 
+</div>
+<p class="FM_fig">&#160;</p>
+<p class="FM_fig">&#160;</p>
+</body>
+</html>

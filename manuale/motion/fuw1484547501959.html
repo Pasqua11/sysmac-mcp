@@ -1,0 +1,1197 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>MC_SyncMoveVelocity</title>
+</head>
+<body class="fuw1484547501959"><div class="layer02" id="fuw1484547501959">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">MC_SyncMoveVelocity</h1>
+
+<div class="body conbody">
+<p class="p" id="fuw1484547501959__ID0EQRLS">The MC_SyncMoveVelocity instruction outputs the value set for the target velocity every task period to the Servo Drive in Cyclic Synchronous Velocity Mode.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="fuw1484547501959__ID0EVTLS" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:16%" />
+<col style="width:12%" />
+<col style="width:5%" />
+<col style="width:35%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d43300e36">Instruction</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d43300e39">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d43300e42">FB/ FUN</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d43300e45">Graphic expression</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d43300e48">ST expression</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d43300e36 "><span class="indexterm">MC_SyncMoveVelocity (Cyclic Synchronous Velocity Control)</span>MC_SyncMoveVelocity</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d43300e39 "><span class="indexterm">Cyclic Synchronous Velocity Control</span>Cyclic Synchronous Velocity Control</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d43300e42 ">FB</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d43300e45 ">
+<br /><img class="image" id="fuw1484547501959__image_166B941B43D14209BA4ADD5876BFE354" src="fqa1484547501148.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d43300e48 ">
+<p class="p" id="fuw1484547501959__ID0EYXLS">MC_SyncMoveVelocity_instance (</p>
+
+<p class="p">Axis :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Execute :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Velocity :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">CmdPosMode :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">BufferMode :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">InVelocity =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Busy =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Active =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p" id="fuw1484547501959__ID0EPYLS">CommandAborted =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p" id="fuw1484547501959__ID0EWYLS">Error =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">ErrorID =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span></p>
+
+<p class="p">);</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<div class="note" id="fuw1484547501959__note_N100E5_N1000F_N10001"><div class="use"><span class="notetitle use">use:</span>
+<ul class="ul" id="fuw1484547501959__ul_030FCD25ED244A8895327D87EEB73421">
+<li class="li" id="fuw1484547501959__li_96495D6E44884AE3918B2482DCF0CB30">
+<p class="p" id="fuw1484547501959__ID0EZSLS">You cannot use this instruction for an NX-series Pulse Output Unit.</p>
+
+</li>
+
+<li class="li" id="fuw1484547501959__li_75FFE66AB4CB43FD967430A51F2045A0">
+<p class="p" id="fuw1484547501959__ID0EETLS">Here, the task period is the primary period if the task is the primary periodic task and the task period of the priority-5 periodic task if the task is the priority-5 periodic task.</p>
+
+                    
+</li>
+
+</ul>
+
+</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="tna1484547261564">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Variables</h1>
+
+<div class="body conbody"></div>
+
+<div class="related-links"></div></div><div class="layer04" id="puy1484547813246">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Input Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="puy1484547813246__ID0EG2LS" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:14%" />
+<col style="width:11%" />
+<col style="width:17%" />
+<col style="width:19%" />
+<col style="width:7%" />
+<col style="width:30%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d135499e63">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d135499e66">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d135499e69">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d135499e72">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d135499e75">Default</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d135499e79">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d135499e63 ">Execute</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d135499e66 ">Execute</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d135499e69 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d135499e72 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d135499e75 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d135499e79 ">
+<p class="p" id="puy1484547813246__ID0E26LS">The instruction is executed when the value of this variable changes to TRUE.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d135499e63 ">Velocity</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d135499e66 ">Target Velocity</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d135499e69 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d135499e72 ">Negative number, positive number, or 0</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d135499e75 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d135499e79 ">
+<p class="p" id="puy1484547813246__ID0EGCMS">Set the target velocity.</p>
+
+<p class="p" id="puy1484547813246__ID0ENCMS">0: Set the velocity command value to 0.</p>
+
+<p class="p" id="puy1484547813246__ID0EUCMS">Positive value: Move in the positive direction.</p>
+
+<p class="p" id="puy1484547813246__ID0E2CMS">Negative value: Move in the negative direction.</p>
+
+<p class="p" id="puy1484547813246__ID0ECDMS">The unit is command units/s. <a class="xref" href="#puy1484547813246__ID0EG2LS-footnote-2080059"><sup>*1</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d135499e63 ">CmdPosMode</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d135499e66 ">Command Current Position Count Selection</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d135499e69 ">_eMC_CMDPOS_MODE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d135499e72 ">
+<p class="p" id="puy1484547813246__ID0E1EMS">0: _mcCount</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d135499e75 ">0<a class="xref" href="#puy1484547813246__ID0EG2LS-footnote-2079418"><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d135499e79 ">
+<p class="p" id="puy1484547813246__ID0EVFMS">0: Use the actual current position and update the command current position.</p>
+
+<p class="p">Home remains defined.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d135499e63 ">BufferMode</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d135499e66 ">Buffer Mode Selection</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d135499e69 ">_eMC_BUFFER_MODE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d135499e72 ">
+<p class="p" id="puy1484547813246__ID0EMHMS">0: _mcAborting</p>
+
+<p class="p" id="puy1484547813246__ID0ETHMS">1: _mcBuffered</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d135499e75 ">0<a class="xref" href="#puy1484547813246__ID0EG2LS-footnote-2079418"><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d135499e79 ">
+<p class="p" id="puy1484547813246__ID0ELIMS">Specify the behavior when executing more than one motion instruction.</p>
+
+<p class="p" id="puy1484547813246__ID0ESIMS">0: Aborting</p>
+
+<p class="p" id="puy1484547813246__ID0EZIMS">1: Buffered</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="puy1484547813246__ID0EG2LS-footnote-2080059" id="puy1484547813246__ID0EG2LS-footnote-2080059"><sup>*1</sup></a>
+<p class="p">Refer to <span class="ph phtype_type2"><span class="termtype">Unit Conversion Settings</span></span> in the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Motion Control User&#8217;s Manual (Cat. No. W507)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Industrial Panel PC / Industrial Box PC Motion Control User&#8217;s Manual (Cat. No. W559)</span></span></span> for information on command units.</p>
+</div>
+<div class="fn"><a name="puy1484547813246__ID0EG2LS-footnote-2079418" id="puy1484547813246__ID0EG2LS-footnote-2079418"><sup>*2</sup></a>  <p class="p" id="puy1484547813246__ID0E5LNT">The default value for an enumeration variable is actually not the number, but the enumerator.</p>
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="vbz1484547389242">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Output Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="vbz1484547389242__ID0ESEDO" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:17%" />
+<col style="width:14%" />
+<col style="width:9%" />
+<col style="width:10%" />
+<col style="width:47%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d179060e50">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d179060e53">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d179060e56">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d179060e59">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d179060e62">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d179060e50 ">InVelocity</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d179060e53 ">Target Velocity Reached</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d179060e56 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d179060e59 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d179060e62 ">
+<p class="p" id="vbz1484547389242__ID0EPIDO">TRUE when the target velocity is reached.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d179060e50 ">Busy</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d179060e53 ">Executing</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d179060e56 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d179060e59 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d179060e62 ">
+<p class="p" id="vbz1484547389242__ID0EOKDO">TRUE when the instruction is acknowledged.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d179060e50 ">Active</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d179060e53 ">Controlling</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d179060e56 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d179060e59 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d179060e62 ">
+<p class="p" id="vbz1484547389242__ID0ENMDO">TRUE when the axis is being controlled.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d179060e50 ">CommandAborted</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d179060e53 ">Command Aborted</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d179060e56 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d179060e59 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d179060e62 ">
+<p class="p" id="vbz1484547389242__ID0EMODO">TRUE when the instruction is aborted.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d179060e50 ">Error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d179060e53 ">Error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d179060e56 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d179060e59 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d179060e62 ">
+<p class="p" id="vbz1484547389242__ID0ELQDO">TRUE while there is an error.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d179060e50 ">ErrorID</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d179060e53 ">Error Code</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d179060e56 ">WORD</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d179060e59 "><a class="xref" href="#vbz1484547389242__fn_kjw_jcp_2x"><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d179060e62 ">
+<p class="p" id="vbz1484547389242__ID0EKSDO">Contains the error code when an error occurs. A value of 16#0000 indicates normal execution.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="vbz1484547389242__fn_kjw_jcp_2x" id="vbz1484547389242__fn_kjw_jcp_2x"><sup>*1</sup></a>
+<p class="p">The upper four digits of the event code give the error code for ErrorID. Refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series Troubleshooting Manual (Cat. No. W503)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Troubleshooting Manual (Cat. No. W564)</span></span></span> for the event codes.</p>
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="rza1484547813480">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">Output Variable Update Timing</h1>
+ 
+<div class="body conbody">
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="rza1484547813480__ID0EC1MS" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:17%" />
+<col style="width:41%" />
+<col style="width:40%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d150242e28">Name</th>
+ 
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d150242e31">Timing for changing to TRUE</th>
+ 
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d150242e34">Timing for changing to FALSE</th>
+ 
+</tr>
+ 
+</thead>
+ 
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d150242e28 ">InVelocity</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d150242e31 ">
+<p class="p" id="rza1484547813480__ID0ED3MS">When the target velocity is reached.</p>
+ 
+</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d150242e34 ">
+<ul class="ul" id="rza1484547813480__ul_9AF5DA5B1A4347D9BB6B3B068D2F2AB9">
+<li class="li" id="rza1484547813480__li_A6C8E6CF417C41CDAE18EE36AB52954A">
+<p class="p" id="rza1484547813480__ID0E23MS">When <span class="ph phtype_variable"><span class="termtype">Error</span></span> changes to TRUE.</p>
+ 
+</li>
+ 
+<li class="li" id="rza1484547813480__li_05FDE759F13847108C57CCE7729123DF">
+<p class="p" id="rza1484547813480__ID0EG4MS">When <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> changes to TRUE.</p>
+ 
+</li>
+ 
+</ul>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d150242e28 ">Busy</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d150242e31 ">
+<p class="p" id="rza1484547813480__ID0E64MS">When <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to TRUE.</p>
+ 
+</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d150242e34 ">
+<ul class="ul" id="rza1484547813480__ul_E2003A69E50F41DD994B4280EC898ED0">
+<li class="li" id="rza1484547813480__li_02EBDAF7E569416180AA04C0A65E3B1B">
+<p class="p" id="rza1484547813480__ID0EX5MS">When <span class="ph phtype_variable"><span class="termtype">Error</span></span> changes to TRUE.</p>
+ 
+</li>
+ 
+<li class="li" id="rza1484547813480__li_6FBEAF3ABBA9476290538BE76B8C989C">
+<p class="p" id="rza1484547813480__ID0EC6MS">When <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> changes to TRUE.</p>
+ 
+</li>
+ 
+</ul>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d150242e28 ">Active</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d150242e31 ">
+<p class="p" id="rza1484547813480__ID0E26MS">When the instruction is started.</p>
+ 
+</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d150242e34 ">
+<ul class="ul" id="rza1484547813480__ul_2AECCFAD1BF44B878A0E410987B20C15">
+<li class="li" id="rza1484547813480__li_7873FDB5A73642C5B20B42D8390DD185">
+<p class="p" id="rza1484547813480__ID0ETANS">When <span class="ph phtype_variable"><span class="termtype">Error</span></span> changes to TRUE.</p>
+ 
+</li>
+ 
+<li class="li" id="rza1484547813480__li_91D1B374D59E45BA99FEE3988119FA37">
+<p class="p" id="rza1484547813480__ID0E5ANS">When <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> changes to TRUE.</p>
+ 
+</li>
+ 
+</ul>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d150242e28 ">CommandAborted</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d150242e31 ">
+<ul class="ul" id="rza1484547813480__ul_BAB6AF31FA9147BE81A35962060F626A">
+<li class="li" id="rza1484547813480__li_BE32283F8C2849829AA5E1B10E80DFB1">
+<p class="p" id="rza1484547813480__ID0EDCNS">When this instruction is canceled due to another instruction.</p>
+ 
+</li>
+ 
+<li class="li" id="rza1484547813480__li_AA430BB9B8BE4DB6BEFE3B593E6061B9">
+<p class="p" id="rza1484547813480__ID0EOCNS">When this instruction is canceled due to an error in another instruction.</p>
+ 
+</li>
+ 
+<li class="li" id="rza1484547813480__li_B8B02DD670D94BE5851D522C0E4E887A">
+<p class="p" id="rza1484547813480__ID0EZCNS">When this instruction is executed while there is an axis error.</p>
+ 
+</li>
+ 
+<li class="li" id="rza1484547813480__li_EE762570C6F24D06A2115A3EBA3F402A">
+<p class="p" id="rza1484547813480__ID0EEDNS">When you start this instruction during MC_Stop instruction execution.</p>
+ 
+</li>
+ 
+</ul>
+ 
+</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d150242e34 ">
+<ul class="ul" id="rza1484547813480__ul_90CA74B2B9A84F5A97DD6DFC6D8A01AD">
+<li class="li" id="rza1484547813480__li_A104A4527B5E460B87CEFACE5C4BE058">
+<p class="p" id="rza1484547813480__ID0E1DNS">When <span class="ph phtype_variable"><span class="termtype">Execute</span></span> is TRUE and changes to FALSE.<span class="ph phtype_variable"><span class="termtype"></span></span></p>
+ 
+</li>
+ 
+<li class="li" id="rza1484547813480__li_035DFD51E7E24B78B4B4A82F320B6656">
+<p class="p" id="rza1484547813480__ID0EFENS">After one period when <span class="ph phtype_variable"><span class="termtype">Execute</span></span> is FALSE.</p>
+ 
+</li>
+ 
+</ul>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d150242e28 ">Error</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d150242e31 ">
+<p class="p" id="rza1484547813480__ID0E5ENS">When there is an error in the execution conditions or input parameters for the instruction.</p>
+ 
+</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d150242e34 ">
+<p class="p" id="rza1484547813480__ID0EKFNS">When the error is cleared.</p>
+ 
+</td>
+ 
+</tr>
+ 
+</tbody>
+ 
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer04" id="htx1484547262438">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">In-Out Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="htx1484547262438__ID0E23AE" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:17%" />
+<col style="width:16%" />
+<col style="width:13%" />
+<col style="width:10%" />
+<col style="width:42%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d58021e50">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d58021e53">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d58021e56">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d58021e59">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d58021e62">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d58021e50 ">Axis</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d58021e53 ">Axis</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d58021e56 ">
+<p class="p" id="htx1484547262438__ID0EBAAG">_sAXIS_REF</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d58021e59 ">
+<p class="p" id="htx1484547262438__ID0ENAAG">---</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d58021e62 ">
+<p class="p" id="htx1484547262438__ID0EZAAG">Specifies the axis. <a class="xref" href="#htx1484547262438__ID0E23AE-footnote-2079946"><sup>*1</sup></a></p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="htx1484547262438__ID0E23AE-footnote-2079946" id="htx1484547262438__ID0E23AE-footnote-2079946"><sup>*1</sup></a>  <p class="p" id="htx1484547262438__ID0EKKKT">Specify a user-defined Axis Variable that was created in the Axis Basic Settings of the Sysmac Studio (default: MC_Axis*) or a system-defined axis variable name (_MC_AX[*], _MC1_AX[*], or _MC2_AX[*]).</p>
+
+                        
+<p class="p">If you use Sysmac Studio version 1.29 or higher, you can specify the system-defined axis variable name for AT specification of a user-defined variable. This will allow you to specify the user-defined variable.</p>
+
+<p class="p">If you use Sysmac Studio version 1.28 or lower, do not specify any user-defined variable created in the variable table.</p>
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="csf1484547817287">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function</h1>
+
+<div class="body conbody">
+<ul class="ul" id="csf1484547817287__ul_31DE4E92B2554A6FBE27A9F7D212700F">
+<li class="li" id="csf1484547817287__li_8D3B5B7EF7764035ACA626B4A9F79BE3">
+<p class="p" id="csf1484547817287__ID0EQMNS">The MC_SyncMoveVelocity instruction outputs the target velocity from the user program every task period to the Servo Drive in Cyclic Synchronous Velocity (CSV) Control Mode.</p>
+
+</li>
+
+<li class="li" id="csf1484547817287__li_37D9E3D445C44D27B19F51544AACAD47">
+<p class="p" id="csf1484547817287__ID0E2MNS">When <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to TRUE, the Control Mode of the Servo Drive is changed and a command velocity is output.</p>
+
+</li>
+
+<li class="li" id="csf1484547817287__li_6257630F293C414AA179BD2B2A0D4282">
+<p class="p" id="csf1484547817287__ID0EGNNS">If this instruction is executed in the primary periodic task or a priority-5 periodic task, the target velocity is reached in the next task period.</p>
+
+                
+<p class="p">The following timing charts show an example of the operation for when this instruction is executed in the primary periodic task. The same information applies when it is used in a priority-5 periodic task.</p>
+
+<br /><img class="image linespace_7pt" id="csf1484547817287__image_226B20C87BFF4A21928EFF93ED0D73C7" src="hdw1484547813636.gif" /><br />
+</li>
+
+</ul>
+
+<p class="p linespace_7pt"></p>
+
+<ul class="ul" id="csf1484547817287__ul_x3w_yvs_kx">
+<li class="li" id="csf1484547817287__li_C35F1F276EDA4D97AD65F265C60745F0">
+<p class="p" id="csf1484547817287__ID0E6ONS">If this instruction is executed in the priority-16 periodic task, the target velocity is reached in the next task period.</p>
+
+<br /><img class="image linespace_7pt" id="csf1484547817287__image_DAAAFCF7342D49B192340161D06DFF42" src="ssv1484547815430.gif" /><br />
+</li>
+
+</ul>
+
+<div class="note" id="csf1484547817287__note_N10066_N1000F_N10001"><div class="use"><span class="notetitle use">use:</span> Refer to <a class="xref" href="sfc1484547208570.html#sfc1484547208570"><i style="display:none;">☆</i>Precautions for Master and Auxiliary Axes in Synchronized Control</a> for precautions on using this instruction for the master axis of synchronized control.</div></div>
+
+<div class="note" id="csf1484547817287__note_N1007D_N1000F_N10001"><div class="memo"><span class="notetitle memo">memo:</span> The MC_SetOverride (Set Override Factors) instruction is not effective for the MC_SyncMoveVelocity (Cyclic Synchronous Velocity Control) instruction.</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="mbb1484547817552">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Mapping Data Objects</h1>
+
+<div class="body conbody">
+<p class="p" id="mbb1484547817552__ID0EETNS">To use the MC_SyncMoveVelocity (Cyclic Synchronous Velocity Control) instruction, map the following object data in the <span class="ph phtype_ui"><span class="termtype">Detailed Settings</span></span> Area of the Axis Basic Settings Display of the Sysmac Studio.</p>
+
+<ul class="ul" id="mbb1484547817552__ul_1D01E2F4B8D04FD8A1AB81831AC260A0">
+<li class="li" id="mbb1484547817552__li_050B8ABFF3F84A3793D76728B5B79E9D">
+<p class="p" id="mbb1484547817552__ID0ETTNS">Target velocity (60FF hex)</p>
+
+</li>
+
+<li class="li" id="mbb1484547817552__li_84F34403FF5E47DEA5D59E889506057F">
+<p class="p" id="mbb1484547817552__ID0E5TNS">Modes of operation (6060 hex)</p>
+
+</li>
+
+<li class="li" id="mbb1484547817552__li_7AB431663F4143DBAF8E468A95E1A4A3">
+<p class="p" id="mbb1484547817552__ID0EJUNS">Modes of operation display (6061 hex)</p>
+
+</li>
+
+</ul>
+
+<p class="p linespace_7pt" id="mbb1484547817552__ID0E1UNS">If even one of the required objects is not set, a Process Data Object Setting Missing error (error code: 3461 hex) occurs.</p>
+
+        
+<p class="p linespace_7pt">For details on mapping data objects, refer to <a class="xref" href="slj1484547232876.html#slj1484547232876"><i style="display:none;">☆</i>PDO Mapping</a> and to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Motion Control User&#8217;s Manual (Cat. No. W507)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Industrial Panel PC / Industrial Box PC Motion Control User&#8217;s Manual (Cat. No. W559)</span></span></span>.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="xqt1484547315231">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Instruction Details</h1>
+
+<div class="body conbody">
+<p class="p">This section describes the instruction in detail.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="fwy1484547817786">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Velocity (Target Velocity)</h1>
+
+<div class="body conbody">
+<p class="p" id="fwy1484547817786__ID0E3XNS">The <span class="ph phtype_variable"><span class="termtype">Velocity</span></span> (Target Velocity) input variable can be set to LREAL data in reference to 0.</p>
+
+<p class="p" id="fwy1484547817786__ID0E6XNS">The axis moves in the positive direction for a positive value and in the negative direction for a negative value.</p>
+
+<p class="p" id="fwy1484547817786__ID0EGYNS">If <span class="ph phtype_settingvalue"><span class="termtype">0</span></span> is set, the command velocity is 0 and <span class="ph phtype_variable"><span class="termtype">Status.Continuous</span></span> (Continuous Motion) remains TRUE.</p>
+
+<p class="p" id="fwy1484547817786__ID0ENYNS">You can set <span class="ph phtype_variable"><span class="termtype">Velocity</span></span> (Target Velocity) from the user program every period.</p>
+
+<p class="p" id="fwy1484547817786__ID0EUYNS">If the specified target velocity is different from the last period, the new target velocity is used. If the specified target velocity is the same as the last period, the previous target velocity is used.</p>
+
+<div class="note" id="fwy1484547817786__note_N10043_N1000F_N10001"><div class="use"><span class="notetitle use">use:</span> <ul class="ul">
+<li class="li" id="fwy1484547817786__li_N1004D_N1004A_N10043_N1000F_N10001">
+<p class="p" id="fwy1484547817786__ID0EF1NS">When you set the target velocity, make sure that an excessive load is not placed on the mechanical composition of the system for the change in velocity.</p>
+
+</li>
+
+<li class="li" id="fwy1484547817786__li_N10059_N1004A_N10043_N1000F_N10001">
+<p class="p" id="fwy1484547817786__ID0EQ1NS">If the axis that you use in this instruction is the master axis for synchronized control, setting the target velocity of the master axis may cause the slave axis to move suddenly.</p>
+
+</li>
+
+<li class="li" id="fwy1484547817786__li_N10065_N1004A_N10043_N1000F_N10001">
+<p class="p" id="fwy1484547817786__ID0E21NS">When the Control Mode is changed, the command current position may change suddenly.</p>
+
+</li>
+
+</ul>
+
+</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="jmi1484547818940">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Command Current Position</h1>
+
+<div class="body conbody">
+<p class="p" id="jmi1484547818940__ID0EV2NS">If you select _mcCount for the <span class="ph phtype_variable"><span class="termtype">CmdPosMode</span></span> (Command Current Position Count Selection) input variable, the command current position will be the actual current position from the previous period when this instruction is executed. The actual current position is used until the instruction is ended.</p>
+
+<p class="p" id="jmi1484547818940__ID0EY2NS">While the OMRON 1S-series Servo Drive or G5-series Servo Drive is processing the switch to CSP Mode, the CSP reference position that was mapped in advance is sent in the PDO. Until processing to switch from CSV to CSP Mode is completed, this reference position is used as the command current position. When switching to CSP Mode is completed, the command current position is set to the command position.</p>
+
+<br /><img class="image linespace_7pt" src="lbp1484547817958.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="nyv1484547819190">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">When Using an OMRON 1S-series Servo Drive</h1>
+ 
+<div class="body conbody">
+<p class="p" id="nyv1484547819190__ID0EN4NS">To use the CSP reference position of the Servo Drive when changing the Control Mode, map the CSP Reference Position (3010-87 hex) to process data.</p>
+ 
+<p class="p" id="nyv1484547819190__ID0EQ4NS">Map the CSP Reference Position (3010-87 hex) to process data in the PDO Edit Tab Page of the Sysmac Studio. Then map the CSP Change Reference Position in the MC Function Module and the CSP Reference Position (3010-87 hex) in the <dfn class="term termtype_ui">［Detailed Settings］</dfn> Area of the Axis Basic Settings Display.</p>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer05" id="hog1484547819377">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">When Using an OMRON G5-series Servo Drive</h1>
+
+<div class="body conbody">
+<p class="p" id="hog1484547819377__ID0EM5NS">To use the CSP reference position of the Servo Drive when changing the Control Mode, map the CSP Reference Position (4020 hex) to process data.</p>
+
+<p class="p" id="hog1484547819377__ID0EP5NS">Map the CSP Reference Position (4020 hex) to process data in the PDO Edit Tab Page of the Sysmac Studio. Then map the CSP Change Reference Position in the MC Function Model and the CSP Reference Position (4020 hex) in the <span class="ph phtype_ui"><span class="termtype">Detailed Settings</span></span> Area of the Axis Basic Settings Display.</p>
+
+<div class="note" id="hog1484547819377__note_N10023_N1000F_N10001"><div class="use"><span class="notetitle use">use:</span>
+<p class="p" id="hog1484547819377__ID0EU6NS">If the CSP Reference Position (4020 hex) is mapped to a PDO, set the primary period or the task period of the priority-5 periodic task to 1 ms or longer.</p>
+
+            
+<p class="p" id="hog1484547819377__ID0E26NS">If the primary period or task period is less than 1 ms, an error will occur in the G5-series Servo Drive.</p>
+
+            
+<p class="p" id="hog1484547819377__ID0ECAOS">Refer to the <span class="ph phtype_docname"><span class="termtype">AC Servomotors/Servo Drives G5-series with Built-in EtherCAT Communications User&#8217;s Manual (Cat. No. I576)</span></span> for details.</p>
+
+</div></div>
+
+<div class="note" id="hog1484547819377__note_N1004E_N1000F_N10001"><div class="memo"><span class="notetitle memo">memo:</span> Of the OMRON G5-series Servo Drives, those for Linear Motors do not support the CSP Reference Position (4020 hex).</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="mbh1484547819564">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">When Using a Servo Drive Other Than an OMRON 1S-series Servo Drive or G5-series Servo Drive</h1>
+
+<div class="body conbody">
+<p class="p" id="mbh1484547819564__ID0EOCOS">An error may occur in processing to switch the Control Mode for some Servo Drives when this instruction is executed or when an instruction that uses CSP Mode is executed during execution of this instruction.</p>
+
+<p class="p" id="mbh1484547819564__ID0ERCOS">If that occurs, stop the axis (velocity of 0) and then execute this instruction or use multi-execution of instructions that use the CSP Mode.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="wlj1484547819752">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">When Using NX-series Position Interface Units</h1>
+
+<div class="body conbody">
+<p class="p" id="wlj1484547819752__ID0ENDOS">You cannot use this instruction for NX-series Position Interface Units.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="awn1484547819955">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Stop Processing</h1>
+
+<div class="body conbody">
+<p class="p" id="awn1484547819955__ID0EFEOS">The Control Mode and command velocities that are used to stop axis motion are described below.</p>
+
+<p class="p" id="awn1484547819955__ID0EIEOS">For a deceleration stop, the target velocity of this instruction is used as the initial velocity and the axis is decelerated to a stop with the deceleration rate for the specified Stop Mode.</p>
+
+<p class="p linespace_7pt"><strong class="ph b">Stopping with the MC_ImmediateStop Instruction</strong></p>
+
+<p class="p" id="awn1484547819955__ID0EDFOS">The command velocity is changed to 0. The Control Mode is changed to CSP Mode when the change criterion that is given below is satisfied.</p>
+
+<p class="p linespace_7pt"><strong class="ph b">Stopping with the MC_Stop Instruction</strong></p>
+
+<p class="p" id="awn1484547819955__ID0E1FOS">The command velocity is changed to 0 at the deceleration rate of the instruction. The Control Mode is changed to CSP Mode when the change criterion that is given below is satisfied.</p>
+
+<p class="p linespace_7pt"><strong class="ph b">Stopping for a Minor Fault Level Error</strong></p>
+
+<p class="p" id="awn1484547819955__ID0ERGOS">The command velocity is changed to 0 at the deceleration rate of each error. The Control Mode is changed to CSP Mode when the change criterion that is given below is satisfied.</p>
+
+<p class="p linespace_7pt"><strong class="ph b">Stopping for a Major Fault Level Error or a Partial Fault Level Error</strong></p>
+
+<p class="p" id="awn1484547819955__ID0EIHOS">The command velocity is changed to 0. The Control Mode is changed to CSP Mode when the change criterion that is given below is satisfied.</p>
+
+<p class="p" id="awn1484547819955__ID0ELHOS">However, depending on the error level, it may not be possible to switch the Control Mode normally, and the axis may stop in CSV Mode.</p>
+
+<p class="p linespace_7pt"><strong class="ph b">Stopping by Turning OFF the Servo</strong></p>
+
+<p class="p" id="awn1484547819955__ID0EGIOS">The command velocity is changed to 0 with the specified method. The Control Mode is not changed.</p>
+
+<p class="p linespace_7pt"><strong class="ph b">Stopping When the Operating Mode of the CPU Unit Changes to PROGRAM
+Mode</strong></p>
+
+<p class="p" id="awn1484547819955__ID0E4IOS">The command velocity is changed to 0 with the specified method. The Control Mode is changed to CSP Mode when the change criterion that is given below is satisfied.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="mkz1484547820173">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Change Criterion</h1>
+
+<div class="body conbody">
+<p class="p" id="mkz1484547820173__ID0EVJOS">Whether it is possible to change the Control Mode depends on Servo Drive specifications.</p>
+
+<p class="p" id="mkz1484547820173__ID0EYJOS">To ensure that the Control Mode is switched to CSP Mode during stop processing for stop instructions or errors, it is necessary to sufficiently decelerate the Servomotor first.</p>
+
+<p class="p" id="mkz1484547820173__ID0E6JOS">The Control Mode is changed to CSP Mode when the following criterion is met for three consecutive periodic tasks after the command velocity changes to 0.</p>
+
+<p class="p linespace_7pt" id="mkz1484547820173__ID0ESKOS">Actual current velocity &#8804; Maximum velocity &#215; 0.1</p>
+
+<div class="note" id="mkz1484547820173__note_N1002B_N1000F_N10001"><div class="use"><span class="notetitle use">use:</span>
+<p class="p" id="mkz1484547820173__ID0EXLOS">Here, the periodic task is the primary periodic task or the priority-5 periodic task.</p>
+
+         
+</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="beb1484547820407">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">Recovery to Cyclic Synchronous Position (CSP) Control Mode</h1>
+ 
+<div class="body conbody">
+<p class="p" id="beb1484547820407__ID0EZMOS">It is not always possible to normally change to CSP Mode for a stop.</p>
+ 
+<p class="p" id="beb1484547820407__ID0E3MOS">For example, it may not be possible when a partial fault level error occurs in the MC Function Module.</p>
+ 
+<p class="p" id="beb1484547820407__ID0EDNOS">Therefore, processing to change to CSP Mode is performed when the <span class="ph phtype_variable"><span class="termtype">Status</span></span> output variable from the MC_Power (Power Servo) instruction changes to FALSE.</p>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer05" id="zlj1484547820594">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Operation for Failure to Switch Control Mode</h1>
+
+<div class="body conbody">
+<p class="p" id="zlj1484547820594__ID0E6NOS">If the Servo Drive does not complete switching the Control Mode within 1 second after a Control Mode switch command is sent to the Servo Drive, a Error in Changing Servo Drive Control Mode (error code: 7439 hex) occurs.</p>
+
+<p class="p" id="zlj1484547820594__ID0ECOOS">Also, if the switching criterion is not met within 10 seconds after the command velocity is changed to 0 for a Control Mode switching command to the Servo Drive, an Error in Changing Servo Drive Control Mode (error code: 7439 hex) occurs.</p>
+
+<p class="p" id="zlj1484547820594__ID0EJOOS">When an Error in Changing Servo Drive Control Mode (error code: 7439 hex) occurs, the command velocity is changed to 0 and the Servo is turned OFF (free-run stop).</p>
+
+        
+<p class="p linespace_7pt">For details on the Error in Changing Servo Drive Control Mode (error code: 7439 hex), refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Motion Control User&#8217;s Manual (Cat. No. W507)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Industrial Panel PC / Industrial Box PC Motion Control User&#8217;s Manual (Cat. No. W559)</span></span></span>.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="tgw1484547820813">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Applicable Axes and Execution Condition</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="tgw1484547820813__li_N10015_N10012_N1000F_N10001">
+<p class="p" id="tgw1484547820813__ID0E2POS">You can use this instruction for a servo axis.</p>
+
+<p class="p">To use this instruction, change <span class="ph phtype_variable"><span class="termtype">Enable</span></span> for the MC_Power instruction to TRUE (Servo ON).</p>
+
+</li>
+
+<li class="li" id="tgw1484547820813__li_N1002B_N10012_N1000F_N10001">
+<p class="p" id="tgw1484547820813__ID0EJQOS">A virtual servo axis will acknowledge this instruction at any time.</p>
+
+<p class="p">However, processing to switch the Control Mode of the Servo Drive is not performed.</p>
+
+</li>
+
+<li class="li" id="tgw1484547820813__li_N1003C_N10012_N1000F_N10001">
+<p class="p" id="tgw1484547820813__ID0EXQOS">An error occurs if the instruction is executed for an encoder or virtual encoder axis.</p>
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="mql1484547821000">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">Axis Variable Status</h1>
+ 
+<div class="body conbody">
+<p class="p" id="mql1484547821000__ID0EQROS"><span class="ph phtype_variable"><span class="termtype">Status.Continuous</span></span> (Continuous Motion) in the Axis Variable status changes to TRUE.</p>
+ 
+<p class="p" id="mql1484547821000__ID0ETROS">Use <span class="ph phtype_variable"><span class="termtype">DrvStatus</span></span> (Servo Drive Status) in the Axis Variable to check the Control Mode that is set in the Servo Drive. The Servo Drive status is given in the following table.</p>
+ 
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="mql1484547821000__ID0EFSOS" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:8%" />
+<col style="width:9%" />
+<col style="width:40%" />
+<col style="width:41%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d95317e41">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d95317e44">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d95317e47">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d95317e50">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d95317e41 ">CSP</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d95317e44 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d95317e47 ">Cyclic Synchronous Position (CSP) Control Mode</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d95317e50 ">
+<p class="p" id="mql1484547821000__ID0EKVOS">TRUE when the Servo is ON and the Servo Drive is in CSP Mode.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d95317e41 ">CSV</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d95317e44 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d95317e47 ">Cyclic Synchronous Velocity (CSV) Control Mode</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d95317e50 ">
+<p class="p" id="mql1484547821000__ID0E4WOS">TRUE when the Servo is ON and the Servo Drive is in CSV Mode.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d95317e41 ">CST</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d95317e44 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d95317e47 ">Cyclic Synchronous Torque (CST) Control Mode</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d95317e50 ">
+<p class="p" id="mql1484547821000__ID0EQYOS">TRUE when the Servo is ON and the Servo Drive is in CST Mode.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer05" id="eon1484547821218">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Home Status</h1>
+
+<div class="body conbody">
+<p class="p" id="eon1484547821218__ID0ERZOS">If <span class="ph phtype_variable"><span class="termtype">CmdPosMode</span></span> (Command Current Position Count Selection) is set to _mcCount, the home will remain defined.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="cac1484547317540">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Overrides</h1>
+
+<div class="body conbody">
+<p class="p" id="cac1484547317540__ID0EN2DK">Overrides are disabled for this instruction.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="uby1484547742246">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Software Limits</h1>
+
+<div class="body conbody">
+<p class="p" id="uby1484547742246__ID0EB2OS">Software Limits are enabled for this instruction.</p>
+
+<p class="p" id="uby1484547742246__ID0EE2OS">They are enabled even for the following axis parameter settings.</p>
+
+<ul class="ul" id="uby1484547742246__ul_dhl_rct_fx">
+<li class="li" id="uby1484547742246__li_N10023_N1001E_N1000F_N10001">
+<p class="p">Deceleration stop for command position</p>
+
+                
+</li>
+
+<li class="li" id="uby1484547742246__li_N10035_N1001E_N1000F_N10001">
+<p class="p">Immediate stop for command position</p>
+
+                
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="uly1484547822794">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Timing Charts</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="uly1484547822794__li_N10015_N10012_N1000F_N10001">
+<p class="p" id="uly1484547822794__ID0EP4OS"><span class="ph phtype_variable"><span class="termtype">Busy</span></span> (Executing) changes to TRUE at the same time as <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to TRUE. <span class="ph phtype_variable"><span class="termtype">Active</span></span> (Controlling) changes to TRUE in the next period.</p>
+
+</li>
+
+<li class="li" id="uly1484547822794__li_N1002F_N10012_N1000F_N10001">
+<p class="p" id="uly1484547822794__ID0E14OS"><span class="ph phtype_variable"><span class="termtype">InVelocity</span></span> (Target Velocity Reached) changes to TRUE when the command velocity reaches <span class="ph phtype_variable"><span class="termtype">Velocity</span></span> (Target Velocity).</p>
+
+</li>
+
+<li class="li" id="uly1484547822794__li_N10045_N10012_N1000F_N10001">
+<p class="p" id="uly1484547822794__ID0EF5OS">If another instruction aborts this instruction, <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> changes to TRUE and <span class="ph phtype_variable"><span class="termtype">Busy</span></span> (Executing), <span class="ph phtype_variable"><span class="termtype">Active</span></span> (Controlling), and <span class="ph phtype_variable"><span class="termtype">InVelocity</span></span> (Target Velocity Reached) change to FALSE.</p>
+
+</li>
+
+<li class="li" id="uly1484547822794__li_N10065_N10012_N1000F_N10001">
+<p class="p" id="uly1484547822794__ID0EQ5OS">The MC_Stop instruction is used to stop this instruction.</p>
+
+</li>
+
+</ul>
+
+<p class="p linespace_7pt" id="uly1484547822794__ID0EA6OS">The following timing charts show operation for when this instruction is used in the primary periodic task.</p>
+
+<br /><img class="image linespace_7pt" src="yzs1484547821437.gif" /><br />
+<div class="note" id="uly1484547822794__note_N1007C_N1000F_N10001"><div class="memo"><span class="notetitle memo">memo:</span> <p class="p" id="uly1484547822794__ID0EMAPS">The MC Function Module sends a command to the Servo Drive to change the Control Mode as shown in the above timing chart. The timing of implementing the change in the Servo Drive depends on Servo Drive specifications.</p>
+
+</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="pyz1484547322969">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Re-execution of Motion Control Instructions</h1>
+
+<div class="body conbody">
+<p class="p" id="pyz1484547322969__ID0EIDFK">This instruction cannot be re-executed.</p>
+
+<p class="p" id="pyz1484547322969__ID0ELDFK">A Motion Control Instruction Re-execution Disabled error (error code: 543B hex) occurs if re-execution is attempted.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="sos1484547268366">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Multi-execution of Motion Control Instructions</h1>
+
+<div class="body conbody">
+        
+<p class="p">For details on multi-execution of motion control instructions, refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Motion Control User&#8217;s Manual (Cat. No. W507)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Industrial Panel PC / Industrial Box PC Motion Control User&#8217;s Manual (Cat. No. W559)</span></span></span>.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="zey1484547823028">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Execution during Execution of Other Instructions</h1>
+
+<div class="body conbody">
+<p class="p" id="zey1484547823028__ID0EMEPS">You can execute this instruction with <span class="ph phtype_variable"><span class="termtype">BufferMode</span></span> (Buffer Mode Selection) set to <span class="ph phtype_choice"><span class="termtype">Aborting</span></span> or <span class="ph phtype_choice"><span class="termtype">Buffered</span></span> during execution of other instructions in the same as for the MC_MoveVelocity (Velocity Control) instruction.</p>
+
+<p class="p" id="zey1484547823028__ID0EPEPS">The Control Mode is switched when processing the instruction is started.</p>
+
+        
+<p class="p linespace_7pt">For details on <span class="ph phtype_variable"><span class="termtype">BufferMode</span></span> (Buffer Mode Selection), refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Motion Control User&#8217;s Manual (Cat. No. W507)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Industrial Panel PC / Industrial Box PC Motion Control User&#8217;s Manual (Cat. No. W559)</span></span></span>.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="kft1484547823246">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Execution of Other Instructions during Instruction Execution</h1>
+
+<div class="body conbody">
+<p class="p" id="kft1484547823246__ID0EIGPS">You can execute other instructions with <span class="ph phtype_variable"><span class="termtype">BufferMode</span></span> (Buffer Mode Selection) set to <span class="ph phtype_choice"><span class="termtype">Aborting</span></span> or <span class="ph phtype_choice"><span class="termtype">Buffered</span></span> during execution of this instruction in the same as for the MC_MoveVelocity (Velocity Control) instruction.</p>
+
+<p class="p" id="kft1484547823246__ID0ELGPS">If the other instruction is <span class="ph phtype_choice"><span class="termtype">Buffered</span></span>, then it is executed when <span class="ph phtype_variable"><span class="termtype">InVelocity</span></span> (Target Velocity Reached) changes to TRUE.</p>
+
+<p class="p" id="kft1484547823246__ID0ESGPS">The Control Mode is switched when processing the instruction is started.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="kla1484547287275">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Errors</h1>
+
+<div class="body conbody">
+<p class="p" id="kla1484547287275__ID0ET2AI">If an error occurs during instruction execution, <span class="ph phtype_variable"><span class="termtype">Error</span></span> will change to TRUE.</p>
+
+<p class="p" id="kla1484547287275__ID0EW2AI">You can find out the cause of the error by referring to the value output by <span class="ph phtype_variable"><span class="termtype">ErrorID</span></span> (Error Code).</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="jag1484547824401">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Timing Chart When Error Occurs</h1>
+
+<div class="body conbody">
+<br /><img class="image" src="zri1484547823434.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="rzo1484547270426">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Error Codes</h1>
+
+<div class="body conbody">
+        
+<p class="p">Refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series Troubleshooting Manual (Cat. No. W503)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Troubleshooting Manual (Cat. No. W564)</span></span></span> for instruction errors.</p>
+
+</div>
+
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

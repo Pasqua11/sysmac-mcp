@@ -1,0 +1,980 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>MC_Write</title>
+</head>
+<body class="ctx1484548100741"><div class="layer02" id="ctx1484548100741">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">MC_Write</h1>
+
+<div class="body conbody">
+<p class="p" id="ctx1484548100741__ID0ECSAI">The MC_Write instruction writes parts of the motion control parameters in the MC Function Module.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ctx1484548100741__ID0ENSAI" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:16%" />
+<col style="width:12%" />
+<col style="width:5%" />
+<col style="width:35%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d20188e37">Instruction</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d20188e40">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d20188e43">FB/FUN</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d20188e46">Graphic expression</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d20188e49">ST expression</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d20188e37 "><span class="indexterm">MC_Write (Write MC Setting)</span>MC_Write</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d20188e40 "><span class="indexterm">Write MC Setting</span>Write MC Setting<span class="indexterm"></span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d20188e43 ">FB</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d20188e46 ">
+<br /><img class="image" id="ctx1484548100741__image_EF11F5848C44485DB340D885006678D1" src="dfe1484548099712.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d20188e49 ">
+<p class="p" id="ctx1484548100741__ID0EQWAI">MC_Write_instance (</p>
+
+<p class="p">Target :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">SettingValue :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Execute :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">ParameterNumber :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Done =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Busy =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">CommandAborted =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Error =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">ErrorID =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span></p>
+
+<p class="p">);</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<div class="note" id="ctx1484548100741__note_N1010F_N10010_N10002"><div class="use"><span class="notetitle use">use:</span>
+<p class="p" id="ctx1484548100741__ID0ENYAI">The values that are written by this instruction are not saved in non-volatile memory in the <span class="keyword">CPU Unit</span>. Any values that are written are lost when the power supply to the Controller is turned OFF, when settings are downloaded, or when the MC Function Module is restarted. They return to the values that were set from the Sysmac Studio.</p>
+
+<p class="p" id="ctx1484548100741__ID0EUYAI">Use the Sysmac Studio and transfer the parameters to save them to non-volatile memory.</p>
+
+</div></div>
+
+<div class="note" id="ctx1484548100741__note_N10123_N10010_N10002"><div class="memo"><span class="notetitle memo">memo:</span>
+<p class="p" id="ctx1484548100741__ID0EZZAI">Use the Synchronize Menu of the Sysmac Studio to download the project.</p>
+
+</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="tna1484547261564">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Variables</h1>
+
+<div class="body conbody"></div>
+
+<div class="related-links"></div></div><div class="layer04" id="xdi1484548101007">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Input Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="xdi1484548101007__ID0EH3AI" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:10%" />
+<col style="width:10%" />
+<col style="width:12%" />
+<col style="width:23%" />
+<col style="width:8%" />
+<col style="width:34%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d197135e74">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d197135e77">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d197135e80">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d197135e83">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d197135e86">Default</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d197135e90">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d197135e74 ">Execute</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d197135e77 ">Execute</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d197135e80 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d197135e83 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d197135e86 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d197135e90 ">
+<p class="p" id="xdi1484548101007__ID0E3ABI">The instruction is executed when the value of this variable changes to TRUE.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d197135e74 ">ParameterNumber</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d197135e77 ">Parameter Number</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d197135e80 ">_eMC_PARAMETER_NUMBER</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d197135e83 ">
+<p class="p" id="xdi1484548101007__ID0EPCBI">0: _mcChkVel</p>
+
+<p class="p" id="xdi1484548101007__ID0EWCBI">1: _mcChkAcc</p>
+
+<p class="p" id="xdi1484548101007__ID0E4CBI">2: _mcChkDec</p>
+
+<p class="p" id="xdi1484548101007__ID0EEDBI">3: _mcPosiChkTrq<a class="xref" href="#xdi1484548101007__fn_uvr_psb_cy"><sup>*1</sup></a></p>
+
+<p class="p" id="xdi1484548101007__ID0ELDBI">4: _mcNegaChkTrq<a class="xref" href="#xdi1484548101007__fn_uvr_psb_cy"><sup>*1</sup></a></p>
+
+<p class="p" id="xdi1484548101007__ID0ESDBI">5: _mcFELmt</p>
+
+<p class="p" id="xdi1484548101007__ID0EZDBI">6: _mcChkFELmt</p>
+
+<p class="p" id="xdi1484548101007__ID0EAEBI">7: _mcSwLmtMode</p>
+
+<p class="p" id="xdi1484548101007__ID0EHEBI">8: _mcPosiSwLmt</p>
+
+<p class="p" id="xdi1484548101007__ID0EOEBI">9: _mcNegaSwLmt</p>
+
+<p class="p" id="xdi1484548101007__ID0EVEBI">10: _mcInPosTime</p>
+
+<p class="p" id="xdi1484548101007__ID0E3EBI">11: _mcInPosRange<a class="xref" href="#xdi1484548101007__ID0EH3AI-footnote-1365925"><sup>*2</sup></a></p>
+
+<p class="p" id="xdi1484548101007__ID0EGFBI">12: _mcStartVel<a class="xref" href="#xdi1484548101007__ID0EH3AI-footnote-1365997"><sup>*3</sup></a></p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d197135e86 ">0<a class="xref" href="#xdi1484548101007__ID0EH3AI-footnote-1365924"><sup>*4</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d197135e90 ">
+<p class="p" id="xdi1484548101007__ID0EEGBI">Specify the parameter to write.</p>
+
+<p class="p" id="xdi1484548101007__ID0ELGBI">0: Velocity Warning Value/Interpolation Velocity Warning Value</p>
+
+<p class="p" id="xdi1484548101007__ID0ESGBI">1: Acceleration Warning Value/Interpolation Acceleration Warning Value</p>
+
+<p class="p" id="xdi1484548101007__ID0EZGBI">2: Deceleration Warning Value/Interpolation Deceleration Warning Value</p>
+
+<p class="p" id="xdi1484548101007__ID0EAHBI">3: Positive Torque Warning Value</p>
+
+<p class="p" id="xdi1484548101007__ID0EHHBI">4: Negative Torque Warning Value</p>
+
+<p class="p" id="xdi1484548101007__ID0EOHBI">5: Following Error Over Value</p>
+
+<p class="p" id="xdi1484548101007__ID0EVHBI">6: Following Error Warning Value</p>
+
+<p class="p" id="xdi1484548101007__ID0E3HBI">7: Software Limits</p>
+
+<p class="p" id="xdi1484548101007__ID0EDIBI">8: Positive Software Limit</p>
+
+<p class="p" id="xdi1484548101007__ID0EKIBI">9: Negative Software Limit</p>
+
+<p class="p" id="xdi1484548101007__ID0ERIBI">10: In-position Check Time</p>
+
+<p class="p" id="xdi1484548101007__ID0EYIBI">11: In-position Range</p>
+
+<p class="p" id="xdi1484548101007__ID0E6IBI">12: Start Velocity</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="xdi1484548101007__fn_uvr_psb_cy" id="xdi1484548101007__fn_uvr_psb_cy"><sup>*1</sup></a>  This parameter is enabled only for torque control.</div>
+<div class="fn"><a name="xdi1484548101007__ID0EH3AI-footnote-1365925" id="xdi1484548101007__ID0EH3AI-footnote-1365925"><sup>*2</sup></a>
+<p class="p" id="xdi1484548101007__ID0ERFBO">A CPU Unit with unit version 1.01 or later and Sysmac Studio version 1.02 or higher are required to set this value.</p>
+
+</div>
+<div class="fn"><a name="xdi1484548101007__ID0EH3AI-footnote-1365997" id="xdi1484548101007__ID0EH3AI-footnote-1365997"><sup>*3</sup></a>
+<p class="p" id="xdi1484548101007__ID0EEGBO">A CPU Unit with unit version 1.10 or later and Sysmac Studio version 1.12 or higher are required to set this value.</p>
+
+</div>
+<div class="fn"><a name="xdi1484548101007__ID0EH3AI-footnote-1365924" id="xdi1484548101007__ID0EH3AI-footnote-1365924"><sup>*4</sup></a>
+<p class="p" id="xdi1484548101007__ID0EXGBO">The default value for an enumeration variable is actually not the number, but the enumerator.</p>
+
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="pma1484547257032">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Parameter Number Data Types and Valid Ranges</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="pma1484547257032__ID0EFKBI" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:7mm" />
+<col style="width:28%" />
+<col style="width:13%" />
+<col style="width:25%" />
+<col style="width:33%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:top;" id="d122684e57">Parameter</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d122684e60">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d122684e63">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d122684e66">Comments</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d122684e57 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d122684e57 ">Velocity Warning Value/Interpolation Velocity Warning Value</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d122684e60 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d122684e63 ">0 to 100</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d122684e66 ">
+<p class="p" id="pma1484547257032__ID0EWNBI">The unit is %.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d122684e57 ">1</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d122684e57 ">Acceleration Warning Value/Interpolation Acceleration Warning Value</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d122684e60 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d122684e63 ">0 to 100</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d122684e66 ">
+<p class="p" id="pma1484547257032__ID0EVPBI">The unit is %.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d122684e57 ">2</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d122684e57 ">Deceleration Warning Value/Interpolation Deceleration Warning Value</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d122684e60 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d122684e63 ">0 to 100</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d122684e66 ">
+<p class="p" id="pma1484547257032__ID0EURBI">The unit is %.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d122684e57 ">3</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d122684e57 ">Positive Torque Warning Value <a class="xref" href="#pma1484547257032__fn_pg5_rpb_cy"><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d122684e60 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d122684e63 ">0 to 1000</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d122684e66 ">
+<p class="p" id="pma1484547257032__ID0ETTBI">The unit is %.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d122684e57 ">4</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d122684e57 ">Negative Torque Warning Value <a class="xref" href="#pma1484547257032__fn_pg5_rpb_cy"><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d122684e60 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d122684e63 ">0 to 1000</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d122684e66 ">
+<p class="p" id="pma1484547257032__ID0ESVBI">The unit is %.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d122684e57 ">5</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d122684e57 ">Following Error Over Value</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d122684e60 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d122684e63 ">Positive number</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d122684e66 ">
+<p class="p" id="pma1484547257032__ID0ERXBI">The unit is command units. <a class="xref" href="#pma1484547257032__ID0EFKBI-footnote-1365937"><sup>*2</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d122684e57 ">6</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d122684e57 ">Following Error Warning Value</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d122684e60 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d122684e63 ">Positive number</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d122684e66 ">
+<p class="p" id="pma1484547257032__ID0ETZBI">Set a value that is less than the value of the Following Error Over Value.</p>
+
+<p class="p" id="pma1484547257032__ID0E1ZBI">The unit is command units. <a class="xref" href="#pma1484547257032__ID0EFKBI-footnote-1365937"><sup>*2</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d122684e57 ">7</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d122684e57 ">Software Limits</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d122684e60 ">_eMC_SWLMT_MODE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d122684e63 ">
+<p class="p" id="pma1484547257032__ID0ER2BI">0: _mcNonSwLmt</p>
+
+<p class="p" id="pma1484547257032__ID0EY2BI">1: _mcCmdDecelerationStop</p>
+
+<p class="p" id="pma1484547257032__ID0EB3BI">2: _mcCmdImmediateStop</p>
+
+<p class="p" id="pma1484547257032__ID0EI3BI">3: _mcActDecelerationStop</p>
+
+<p class="p" id="pma1484547257032__ID0ER3BI">4: _mcActImmediateStop</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d122684e66 ">
+<p class="p" id="pma1484547257032__ID0E43BI">0: Disabled</p>
+
+<p class="p" id="pma1484547257032__ID0EE4BI">1: Deceleration stopping enabled for command position</p>
+
+<p class="p" id="pma1484547257032__ID0EL4BI">2: Immediate stopping enabled for command position (stop using remaining pulses)</p>
+
+<p class="p" id="pma1484547257032__ID0ES4BI">3: Deceleration stopping enabled for actual position</p>
+
+<p class="p" id="pma1484547257032__ID0EZ4BI">4: Immediate stopping enabled for actual position (stop using remaining pulses)</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d122684e57 ">8</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d122684e57 ">Positive Software Limit</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d122684e60 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d122684e63 ">Negative number, positive number, or 0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d122684e66 ">
+<p class="p" id="pma1484547257032__ID0EY6BI">The unit is command units. <a class="xref" href="#pma1484547257032__ID0EFKBI-footnote-1365937"><sup>*2</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d122684e57 ">9</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d122684e57 ">Negative Software Limit</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d122684e60 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d122684e63 ">Negative number, positive number, or 0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d122684e66 ">
+<p class="p" id="pma1484547257032__ID0EXBCI">The unit is command units. <a class="xref" href="#pma1484547257032__ID0EFKBI-footnote-1365937"><sup>*2</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d122684e57 ">10</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d122684e57 ">In-position Check Time</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d122684e60 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d122684e63 ">0 to 10000</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d122684e66 ">
+<p class="p" id="pma1484547257032__ID0EWDCI">The unit is milliseconds.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d122684e57 ">11</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d122684e57 ">In-position Range</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d122684e60 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d122684e63 ">Non-negative number</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d122684e66 ">
+<p class="p" id="pma1484547257032__ID0EVFCI">The unit is command units. <a class="xref" href="#pma1484547257032__ID0EFKBI-footnote-1365937"><sup>*2</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d122684e57 ">12</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d122684e57 ">Start Velocity</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d122684e60 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d122684e63 ">Non-negative number</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d122684e66 ">
+<p class="p" id="pma1484547257032__ID0EUHCI">The unit is command units/s. <a class="xref" href="#pma1484547257032__ID0EFKBI-footnote-1365937"><sup>*2</sup></a></p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="pma1484547257032__fn_pg5_rpb_cy" id="pma1484547257032__fn_pg5_rpb_cy"><sup>*1</sup></a>  This parameter is enabled only for torque control.</div>
+<div class="fn"><a name="pma1484547257032__ID0EFKBI-footnote-1365937" id="pma1484547257032__ID0EFKBI-footnote-1365937"><sup>*2</sup></a>
+<p class="p">Refer to <span class="ph phtype_type2"><span class="termtype">Unit Conversion Settings</span></span>in the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Motion Control User&#8217;s Manual (Cat. No. W507)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Industrial Panel PC / Industrial Box PC Motion Control User&#8217;s Manual (Cat. No. W559)</span></span></span>for information on command units.</p>
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="pol1484547289771">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Output Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="pol1484547289771__ID0ELMBI" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:17%" />
+<col style="width:14%" />
+<col style="width:9%" />
+<col style="width:10%" />
+<col style="width:47%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d129361e50">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d129361e53">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d129361e56">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d129361e59">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d129361e62">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d129361e50 ">Done</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d129361e53 ">Done</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d129361e56 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d129361e59 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d129361e62 ">
+<p class="p" id="pol1484547289771__ID0EIQBI">TRUE when the instruction is completed.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d129361e50 ">Busy</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d129361e53 ">Executing</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d129361e56 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d129361e59 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d129361e62 ">
+<p class="p" id="pol1484547289771__ID0EHSBI">TRUE when the instruction is acknowledged.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d129361e50 ">CommandAborted</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d129361e53 ">Command Aborted</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d129361e56 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d129361e59 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d129361e62 ">
+<p class="p" id="pol1484547289771__ID0EGUBI">TRUE when the instruction is aborted.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d129361e50 ">Error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d129361e53 ">Error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d129361e56 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d129361e59 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d129361e62 ">
+<p class="p" id="pol1484547289771__ID0EFWBI">TRUE while there is an error.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d129361e50 ">ErrorID</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d129361e53 ">Error Code</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d129361e56 ">WORD</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d129361e59 "><a class="xref" href="#pol1484547289771__ID0ELMBI-footnote-2079456"><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d129361e62 ">
+<p class="p" id="pol1484547289771__ID0EGYBI">Contains the error code when an error occurs.</p>
+
+<p class="p">A value of 16#0000 indicates normal execution.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="pol1484547289771__ID0ELMBI-footnote-2079456" id="pol1484547289771__ID0ELMBI-footnote-2079456"><sup>*1</sup></a>
+<p class="p">The upper four digits of the event code give the error code for ErrorID. Refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series Troubleshooting Manual (Cat. No. W503)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Troubleshooting Manual (Cat. No. W564)</span></span></span> for the event codes.</p>
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="ewr1484547839565">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">Output Variable Update Timing</h1>
+ 
+<div class="body conbody">
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ewr1484547839565__ID0EQAVS" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:17%" />
+<col style="width:41%" />
+<col style="width:40%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d35983e28">Name</th>
+ 
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d35983e31">Timing for changing to TRUE</th>
+ 
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d35983e34">Timing for changing to FALSE</th>
+ 
+</tr>
+ 
+</thead>
+ 
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d35983e28 ">Done</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d35983e31 ">
+<p class="p" id="ewr1484547839565__ID0ERCVS">When the instruction is completed.</p>
+
+</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d35983e34 ">
+<ul class="ul" id="ewr1484547839565__ul_252E3C5ED86842378EC4349A33A05062">
+<li class="li" id="ewr1484547839565__li_62C222A837C84035B6CD01FAA6219D95">
+<p class="p" id="ewr1484547839565__ID0EJDVS">When <span class="ph phtype_variable"><span class="termtype">Execute</span></span> is TRUE and changes to FALSE.<span class="ph phtype_variable"><span class="termtype"></span></span></p>
+
+</li>
+ 
+<li class="li" id="ewr1484547839565__li_241D3E17E0334746936DE3C4784F9AA8">
+<p class="p" id="ewr1484547839565__ID0EUDVS">After one period when <span class="ph phtype_variable"><span class="termtype">Execute</span></span> is FALSE.</p>
+
+</li>
+ 
+</ul>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d35983e28 ">Busy</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d35983e31 ">
+<p class="p" id="ewr1484547839565__ID0ENEVS">When <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to TRUE.</p>
+
+</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d35983e34 ">
+<ul class="ul" id="ewr1484547839565__ul_8F7A7ECF59B441E5B74AD588736E678F">
+<li class="li" id="ewr1484547839565__li_B9D420BBD2264A6A96339CCE89A2B5D5">
+<p class="p" id="ewr1484547839565__ID0EFFVS">When <span class="ph phtype_variable"><span class="termtype">Done</span></span> changes to TRUE.</p>
+
+</li>
+ 
+<li class="li" id="ewr1484547839565__li_38BF22A3621B4806807337EFC0C48522">
+<p class="p" id="ewr1484547839565__ID0EQFVS">When <span class="ph phtype_variable"><span class="termtype">Error</span></span> changes to TRUE.</p>
+
+</li>
+ 
+<li class="li" id="ewr1484547839565__li_FC8474A44A584C58A2079EFCE062898B">
+<p class="p" id="ewr1484547839565__ID0E2FVS">When <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> changes to TRUE.</p>
+
+</li>
+ 
+</ul>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d35983e28 ">CommandAborted</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d35983e31 ">
+<p class="p" id="ewr1484547839565__ID0EUGVS">When this instruction is canceled due to an error in another instruction.</p>
+
+</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d35983e34 ">
+<ul class="ul" id="ewr1484547839565__ul_FE5A4AF8FA0E4D9CAEDCDD6721F4239D">
+<li class="li" id="ewr1484547839565__li_2DC2FE6E3A0447378A0B2CC299F8D491">
+<p class="p" id="ewr1484547839565__ID0EMHVS">When <span class="ph phtype_variable"><span class="termtype">Execute</span></span> is TRUE and changes to FALSE.<span class="ph phtype_variable"><span class="termtype"></span></span></p>
+
+</li>
+ 
+<li class="li" id="ewr1484547839565__li_31114F9FA0D54B2DA5658F05100E7BF5">
+<p class="p" id="ewr1484547839565__ID0EXHVS">After one period when <span class="ph phtype_variable"><span class="termtype">Execute</span></span> is FALSE.</p>
+
+</li>
+ 
+</ul>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d35983e28 ">Error</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d35983e31 ">
+<p class="p" id="ewr1484547839565__ID0EQIVS">When there is an error in the execution conditions or input parameters for the instruction.</p>
+
+</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d35983e34 ">
+<p class="p" id="ewr1484547839565__ID0E3IVS">When the error is cleared.</p>
+
+</td>
+ 
+</tr>
+ 
+</tbody>
+ 
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer04" id="xlc1484548101194">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">In-Out Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="xlc1484548101194__ID0E3ADI" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:18%" />
+<col style="width:16%" />
+<col style="width:13%" />
+<col style="width:9%" />
+<col style="width:41%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d198793e60">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d198793e63">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d198793e66">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d198793e69">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d198793e72">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d198793e60 ">Target</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d198793e63 ">Write Target</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d198793e66 ">_sAXIS_REF or _sGROUP_REF</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d198793e69 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d198793e72 ">
+<p class="p" id="xlc1484548101194__ID0E4EDI">Specify the axis or axes group for which to write a parameter. <a class="xref" href="#xlc1484548101194__ID0E3ADI-footnote-1365914"><sup>*1</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d198793e60 ">SettingValue</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d198793e63 ">Setting Value</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d198793e66 ">Depends on the data type of the specified variable. <a class="xref" href="#xlc1484548101194__ID0E3ADI-footnote-1365949"><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d198793e69 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d198793e72 ">
+<p class="p" id="xlc1484548101194__ID0ECHDI">Specify the value to write.</p>
+
+<p class="p" id="xlc1484548101194__ID0EJHDI">The valid range follows the motion control parameter that is specified by <span class="ph phtype_variable"><span class="termtype">ParameterNumber</span></span>. Default: 0</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="xlc1484548101194__ID0E3ADI-footnote-1365914" id="xlc1484548101194__ID0E3ADI-footnote-1365914"><sup>*1</sup></a>  <p class="p" id="xlc1484548101194__ID0EHIBO">Specify a user-defined Axis Variable that was created in the Axis Basic Settings of the Sysmac Studio or a user-defined Axes Group Variable that was created in the Axes Group Basic Settings of the Sysmac Studio. (The default axis variable names are MC_Axis*. The default axes group variable names are MC_Group*.) You can also specify the system-defined variables for any of these: _MC_AX[*], _MC1_AX[*], _MC2_AX[*], _MC_GRP[*], _MC1_GRP[*], or _MC2_GRP[*].</p>
+
+                        
+<p class="p">If you use Sysmac Studio version 1.29 or higher, you can specify the system-defined axis variable name, or system-defined axes group variable name for AT specification of a user-defined variable. This will allow you to specify the user-defined variable.</p>
+
+<p class="p">If you use Sysmac Studio version 1.28 or lower, do not specify any user-defined variable created in the variable table.</p>
+</div>
+<div class="fn"><a name="xlc1484548101194__ID0E3ADI-footnote-1365949" id="xlc1484548101194__ID0E3ADI-footnote-1365949"><sup>*2</sup></a>  <p class="p" id="xlc1484548101194__ID0E1IBO">For details on the data types of variables, refer to <a class="xref" href="ctx1484548100741.html#pma1484547257032"><i style="display:none;">☆</i>Parameter Number Data Types and Valid Ranges</a>.</p>
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="pxe1484548101365">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">In-Out Variable Update Timing</h1>
+ 
+<div class="body conbody">
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="pxe1484548101365__ID0ENIDI" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d136604e26">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d136604e29">Write Timing</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d136604e26 ">SettingValue</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d136604e29 ">
+<p class="p" id="pxe1484548101365__ID0ECKDI">When <span class="ph phtype_variable"><span class="termtype">Done</span></span> changes to TRUE.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="luj1484548101584">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="luj1484548101584__li_N10015_N10012_N1000F_N10001">
+<p class="p" id="luj1484548101584__ID0EWLDI">The MC_Write instruction writes the <span class="ph phtype_variable"><span class="termtype">SettingValue</span></span> to the system-defined variable for motion control specified by <span class="ph phtype_variable"><span class="termtype">Target</span></span> (Write Target) and <span class="ph phtype_variable"><span class="termtype">ParameterNumber</span></span> when <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to TRUE.</p>
+
+</li>
+
+<li class="li" id="luj1484548101584__li_N10034_N10012_N1000F_N10001">
+<p class="p" id="luj1484548101584__ID0EBMDI">The parameters that are specified with the input variables are used if motion starts when <span class="ph phtype_variable"><span class="termtype">Status.Standby</span></span> in the Axes Group Variable or <span class="ph phtype_variable"><span class="termtype">Status.Standstill</span></span> in the Axis Variable is TRUE, and for multi-execution of instructions when the Buffer Mode is set to <span class="ph phtype_choice"><span class="termtype">Aborting</span></span>.</p>
+
+<p class="p">Therefore these parameters are not applied when operation is continued after restarting or for multi-execution of instructions with Buffer Mode set to any value other than <span class="ph phtype_choice"><span class="termtype">Aborting</span></span>.</p>
+
+</li>
+
+</ul>
+
+<div class="note" id="luj1484548101584__note_N10058_N1000F_N10001"><div class="use"><span class="notetitle use">use:</span>
+<p class="p" id="luj1484548101584__ID0EGNDI">The values that are written by this instruction are not saved in non-volatile memory in the <span class="keyword">CPU Unit</span>. Any values that are written are lost when the power supply to the Controller is turned OFF, when settings are downloaded, or when the MC Function Module is restarted. They return to the values that were set from the Sysmac Studio.</p>
+
+<p class="p" id="luj1484548101584__ID0ENNDI">Use the Sysmac Studio and transfer the parameters to save them to non-volatile memory.</p>
+
+</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="ekk1484548103066">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Timing Charts</h1>
+
+<div class="body conbody">
+<p class="p" id="ekk1484548103066__ID0E4ODI">The following timing chart shows the operation for when <span class="ph phtype_settingvalue"><span class="termtype">20</span></span> is written to _mcChkDec (Deceleration Warning Value) in the axis parameter settings.</p>
+
+<br /><img class="image linespace_7pt" src="fov1484548101818.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="uwd1484548103253">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Re-execution of Motion Control Instructions</h1>
+
+<div class="body conbody">
+<p class="p" id="uwd1484548103253__ID0E3QDI">If <span class="ph phtype_variable"><span class="termtype">Execute</span></span> for the same instance of this instruction changes to TRUE while <span class="ph phtype_variable"><span class="termtype">Busy</span></span> is TRUE, the instruction is re-executed. When that happens, the instruction overwrites the previous values of the <span class="ph phtype_variable"><span class="termtype">Target</span></span> (Write Target), <span class="ph phtype_variable"><span class="termtype">ParameterNumber</span></span>, and <span class="ph phtype_variable"><span class="termtype">SettingValue</span></span> with the values that are specified when <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to TRUE.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="sos1484547268366">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Multi-execution of Motion Control Instructions</h1>
+
+<div class="body conbody">
+        
+<p class="p">For details on multi-execution of motion control instructions, refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Motion Control User&#8217;s Manual (Cat. No. W507)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Industrial Panel PC / Industrial Box PC Motion Control User&#8217;s Manual (Cat. No. W559)</span></span></span>.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="axi1484548067355">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Errors</h1>
+
+<div class="body conbody">
+<p class="p" id="axi1484548067355__ID0ENDHO">If an error occurs during instruction execution, <span class="ph phtype_variable"><span class="termtype">Error</span></span> will change to TRUE and parameters are not written. The values before the instruction was executed will be held.</p>
+
+<p class="p" id="axi1484548067355__ID0EXDHO">You can find out the cause of the error by referring to the value output by <span class="ph phtype_variable"><span class="termtype">ErrorID</span></span> (Error Code).</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="tpp1484548104376">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Timing Chart When Error Occurs</h1>
+
+<div class="body conbody">
+<br /><img class="image" src="ufj1484548103425.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="rzo1484547270426">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Error Codes</h1>
+
+<div class="body conbody">
+        
+<p class="p">Refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series Troubleshooting Manual (Cat. No. W503)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Troubleshooting Manual (Cat. No. W564)</span></span></span> for instruction errors.</p>
+
+</div>
+
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,568 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>StackDel</title>
+</head>
+<body class="utg1501815648734"><div class="layer02" id="utg1501815648734">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">StackDel</h1>
+
+<div class="body conbody">
+<p class="p">The StackDel instruction deletes a value from a specified position in a stack.</p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="utg1501815648734__table_N10016_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:13%" />
+<col style="width:14%" />
+<col style="width:6%" />
+<col style="width:35%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1002778e37">Instruction</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1002778e40">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1002778e43">
+<p class="p">FB/</p>
+
+<p class="p">FUN</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1002778e52">Graphic expression</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1002778e55">ST expression</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1002778e37 "><span class="indexterm">StackDel (Delete from Stack)</span>StackDel</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1002778e40 "><span class="indexterm">Delete from Stack</span>Delete from Stack</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1002778e43 ">FUN</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1002778e52 ">
+<br /><img class="image" id="utg1501815648734__image_C8946AD5E68B4DC593F1A1108BC208BB" src="rzk1501815648052.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d1002778e55 ">StackDel(InOut, Size, Num, Offset);</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="qgt1501816485713">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Variables</h1>
+ 
+<div class="body conbody">
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="qgt1501816485713__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:20%" />
+<col style="width:9%" />
+<col style="width:20%" />
+<col style="width:14%" />
+<col style="width:14%" />
+<col style="width:8%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d807465e38">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d807465e40">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d807465e43">I/O</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d807465e46">Description</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d807465e49">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d807465e53">Unit</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d807465e56">Default</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d807465e38 ">Size</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d807465e40 ">Number of stack elements</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d807465e43 ">Input</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d807465e46 ">Number of stack array elements</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d807465e49 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d807465e53 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d807465e56 ">1</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d807465e38 ">Offset</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d807465e40 ">Offset</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d807465e46 ">Offset of value to delete from stack</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d807465e56 ">0</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d807465e38 ">InOut[] (array)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d807465e40 ">Stack array</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d807465e43 ">In-out</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d807465e46 ">Array that functions as stack</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d807465e49 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d807465e53 ">---</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d807465e56 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d807465e38 ">Num</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d807465e40 ">Number of stored elements</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d807465e46 ">Number of elements stored in stack</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d807465e38 ">Out</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d807465e40 ">Return value</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d807465e43 ">Output</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d807465e46 ">Always TRUE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d807465e49 ">TRUE only</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d807465e53 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d807465e56 ">---</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="qgt1501816485713__table_N10144_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:5%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:top;" id="d807465e221">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d807465e223">Boolean</th>
+
+<th class="entry cellrowborder" colspan="4" style="text-align:center;vertical-align:middle;" id="d807465e226">Bit strings</th>
+
+<th class="entry cellrowborder" colspan="8" style="text-align:center;vertical-align:middle;" id="d807465e229">Integers</th>
+
+<th class="entry cellrowborder" colspan="2" style="text-align:center;vertical-align:middle;" id="d807465e232">Real numbers</th>
+
+<th class="entry cellrowborder" colspan="5" style="text-align:center;vertical-align:middle;" id="d807465e236">Times, durations, dates, and text strings</th>
+
+</tr>
+
+<tr class="row">
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d807465e242">BOOL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d807465e245">BYTE</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d807465e248">WORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d807465e251">DWORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d807465e254">LWORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d807465e258">USINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d807465e261">UINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d807465e264">UDINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d807465e267">ULINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d807465e270">SINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d807465e273">INT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d807465e277">DINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d807465e280">LINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d807465e283">REAL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d807465e286">LREAL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d807465e289">TIME</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d807465e292">DATE</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d807465e296">TOD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d807465e299">DT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d807465e302">STRING</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d807465e221 d807465e242 ">Size</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e223 d807465e245 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e226 d807465e248 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e226 d807465e251 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e226 d807465e254 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e226 d807465e258 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e229 d807465e261 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e229 d807465e264 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e229 d807465e267 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e229 d807465e270 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e229 d807465e273 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e229 d807465e277 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e229 d807465e280 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e229 d807465e283 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e232 d807465e286 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e232 d807465e289 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e236 d807465e292 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e236 d807465e296 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e236 d807465e299 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e236 d807465e302 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e236 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d807465e221 d807465e242 ">Offset</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e223 d807465e245 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e226 d807465e248 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e226 d807465e251 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e226 d807465e254 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e226 d807465e258 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e229 d807465e261 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e229 d807465e264 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e229 d807465e267 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e229 d807465e270 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e229 d807465e273 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e229 d807465e277 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e229 d807465e280 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e229 d807465e283 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e232 d807465e286 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e232 d807465e289 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e236 d807465e292 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e236 d807465e296 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e236 d807465e299 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e236 d807465e302 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e236 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d807465e221 d807465e242 ">InOut[] (array)</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e223 d807465e245 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e226 d807465e248 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e226 d807465e251 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e226 d807465e254 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e226 d807465e258 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e229 d807465e261 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e229 d807465e264 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e229 d807465e267 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e229 d807465e270 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e229 d807465e273 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e229 d807465e277 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e229 d807465e280 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e229 d807465e283 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e232 d807465e286 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e232 d807465e289 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e236 d807465e292 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e236 d807465e296 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e236 d807465e299 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e236 d807465e302 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e236 "><span class="ph font_Wingdings"></span>OK</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" colspan="20" style="text-align:center;vertical-align:middle;" headers="d807465e223 d807465e226 d807465e229 d807465e232 d807465e236 d807465e245 d807465e248 d807465e251 d807465e254 d807465e258 d807465e261 d807465e264 d807465e267 d807465e270 d807465e273 d807465e277 d807465e280 d807465e283 d807465e286 d807465e289 d807465e292 d807465e296 d807465e299 d807465e302 ">Arrays of enumerations or structures can also be specified.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d807465e221 d807465e242 ">Num</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e223 d807465e245 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e226 d807465e248 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e226 d807465e251 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e226 d807465e254 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e226 d807465e258 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e229 d807465e261 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e229 d807465e264 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e229 d807465e267 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e229 d807465e270 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e229 d807465e273 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e229 d807465e277 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e229 d807465e280 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e229 d807465e283 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e232 d807465e286 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e232 d807465e289 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e236 d807465e292 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e236 d807465e296 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e236 d807465e299 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e236 d807465e302 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e236 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d807465e221 d807465e242 ">Out</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e223 d807465e245 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e226 d807465e248 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e226 d807465e251 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e226 d807465e254 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e226 d807465e258 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e229 d807465e261 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e229 d807465e264 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e229 d807465e267 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e229 d807465e270 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e229 d807465e273 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e229 d807465e277 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e229 d807465e280 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e229 d807465e283 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e232 d807465e286 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e232 d807465e289 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e236 d807465e292 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e236 d807465e296 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e236 d807465e299 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e236 d807465e302 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d807465e236 ">&#160;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="oog1501816487528">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function</h1>
+
+<div class="body conbody">
+<p class="p">The StackDel instruction assumes that there are <span class="ph phtype_variable"><span class="termtype">Num</span></span> elements stored in stack array InOut[]. It deletes the value at the position of InOut[<span class="ph phtype_variable"><span class="termtype">Offset</span></span>], which is specified by <span class="ph phtype_variable"><span class="termtype">Offset</span></span>.</p>
+
+<p class="p">Each of all the higher elements, i.e., InOut[<span class="ph phtype_variable"><span class="termtype">Offset</span></span>+1] to InOut[<span class="ph phtype_variable"><span class="termtype">Num</span></span>-1], is moved to the next lower element in the stack array.</p>
+
+<p class="p">And then, <span class="ph phtype_variable"><span class="termtype">Num</span></span> is decremented.</p>
+
+<p class="p">For <span class="ph phtype_variable"><span class="termtype">Size</span></span> (the number of stack elements), specify the number of InOut[] elements to be used for the stack.</p>
+
+<p class="p linespace_7pt">The following shows an example where <span class="ph phtype_variable"><span class="termtype">Size</span></span> is UINT#6, <span class="ph phtype_variable"><span class="termtype">Num</span></span> is UINT#3 and <span class="ph phtype_variable"><span class="termtype">Offset</span></span> is UINT#1.</p>
+
+<br /><img class="image" id="oog1501816487528__image_ggq_tq2_c1b" src="jin1501816485964.gif" /><br />
+<br /><img class="image" id="oog1501816487528__image_zqf_sq2_c1b" src="wup1501816486689.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="dbb1501816487766">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Precautions for Correct Use</h1>
+
+<div class="body conbody">
+<ul class="ul" id="dbb1501816487766__ul_cz4_lqj_j1b">
+<li class="li" id="dbb1501816487766__li_N10016_N10012_N1000F_N10002">
+<p class="p">When an element in the array is passed to InOut[], all elements below the passed element are processed.</p>
+
+</li>
+
+<li class="li" id="dbb1501816487766__li_N1001F_N10012_N1000F_N10002">
+<p class="p">The values in InOut[] and <span class="ph phtype_variable"><span class="termtype">Num</span></span> do not change if the value of <span class="ph phtype_variable"><span class="termtype">Size</span></span> or <span class="ph phtype_variable"><span class="termtype">Num</span></span> is 0.</p>
+
+</li>
+
+<li class="li" id="dbb1501816487766__li_N10036_N10012_N1000F_N10002">
+<p class="p">Return value <span class="ph phtype_variable"><span class="termtype">Out</span></span> is not used when the instruction is used in ST.</p>
+
+</li>
+
+<li class="li" id="dbb1501816487766__li_N10044_N10012_N1000F_N10002">
+<p class="p">An error will occur in the following cases. <span class="ph phtype_variable"><span class="termtype">ENO</span></span> will be FALSE, and InOut[] will not change.</p>
+
+<ol class="ol liststyle_alphabet1" id="dbb1501816487766__ul_dz4_lqj_j1b">
+<li class="li" id="dbb1501816487766__li_N10056_N10051_N10044_N10012_N1000F_N10002">
+<p class="p">The values of <span class="ph phtype_variable"><span class="termtype">Num</span></span> and <span class="ph phtype_variable"><span class="termtype">Size</span></span> are not 0, and <span class="ph phtype_variable"><span class="termtype">Size</span></span> is not greater than or equal to <span class="ph phtype_variable"><span class="termtype">Num</span></span>, which is not greater than <span class="ph phtype_variable"><span class="termtype">Offset</span></span>.</p>
+
+</li>
+
+<li class="li" id="dbb1501816487766__li_N10077_N10051_N10044_N10012_N1000F_N10002">
+<p class="p">The value of <span class="ph phtype_variable"><span class="termtype">Size</span></span> exceeds the array area of InOut[].</p>
+
+</li>
+
+</ol>
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+

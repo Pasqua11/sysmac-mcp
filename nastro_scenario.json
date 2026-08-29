@@ -1,0 +1,201 @@
+{
+ "nome": "Nastro con conteggio e scarto - collaudo",
+ "tempi": {
+  "SET_T_Deviatore": "T#1s",
+  "SET_T_Inceppo": "T#2s",
+  "SET_Pezzi_Lotto": 5
+ },
+ "passi": [
+  {
+   "descrizione": "senza consensi il nastro non parte",
+   "set": {
+    "IN_Emergenza": true,
+    "IN_Protezioni": false,
+    "IN_Press_Aria": false,
+    "IN_Foto_Ingresso": false,
+    "IN_Pres_Uscita": false,
+    "IN_Qualita_KO": false,
+    "V_S_Pezzi_Contati": 0,
+    "V_S_Pezzi_Scartati": 0
+   },
+   "attendi": 0.5,
+   "impulso": [
+    "V_P_Start"
+   ],
+   "verifica": {
+    "OUT_Nastro_Marcia": false,
+    "V_L_Allarme": true
+   }
+  },
+  {
+   "descrizione": "consensi ripristinati: la spia allarme si spegne",
+   "set": {
+    "IN_Emergenza": false,
+    "IN_Protezioni": true,
+    "IN_Press_Aria": true
+   },
+   "attendi": 0.5,
+   "verifica": {
+    "V_L_Allarme": false,
+    "OUT_Nastro_Marcia": false
+   }
+  },
+  {
+   "descrizione": "START: il nastro parte",
+   "impulso": [
+    "V_P_Start"
+   ],
+   "attendi": 0.5,
+   "verifica": {
+    "OUT_Nastro_Marcia": true,
+    "V_L_Ciclo": true
+   }
+  },
+  {
+   "descrizione": "primo pezzo buono: conteggio a 1, nessuno scarto",
+   "impulso": [
+    "IN_Foto_Ingresso"
+   ],
+   "attendi": 0.4,
+   "verifica": {
+    "V_S_Pezzi_Contati": 1,
+    "OUT_Deviatore": false
+   }
+  },
+  {
+   "descrizione": "secondo pezzo SCARTO: deviatore attivo e contatore scarti a 1",
+   "set": {
+    "IN_Qualita_KO": true
+   },
+   "impulso": [
+    "IN_Foto_Ingresso"
+   ],
+   "attendi": 0.3,
+   "verifica": {
+    "V_S_Pezzi_Contati": 2,
+    "V_S_Pezzi_Scartati": 1,
+    "OUT_Deviatore": true
+   }
+  },
+  {
+   "descrizione": "il deviatore resta attivo per il tempo impostato (1 s da adesso)",
+   "durata": {
+    "variabile": "OUT_Deviatore",
+    "valore": true,
+    "min": 0.6,
+    "max": 1.5,
+    "da_ora": true
+   }
+  },
+  {
+   "descrizione": "terzo e quarto pezzo buoni",
+   "set": {
+    "IN_Qualita_KO": false
+   },
+   "impulso": [
+    "IN_Foto_Ingresso"
+   ],
+   "attendi": 0.3,
+   "verifica": {
+    "V_S_Pezzi_Contati": 3
+   }
+  },
+  {
+   "descrizione": "quarto pezzo",
+   "impulso": [
+    "IN_Foto_Ingresso"
+   ],
+   "attendi": 0.3,
+   "verifica": {
+    "V_S_Pezzi_Contati": 4,
+    "OUT_Nastro_Marcia": true
+   }
+  },
+  {
+   "descrizione": "quinto pezzo: lotto completo, nastro fermo e spia accesa",
+   "impulso": [
+    "IN_Foto_Ingresso"
+   ],
+   "attendi": 0.6,
+   "verifica": {
+    "V_S_Pezzi_Contati": 5,
+    "V_L_Lotto_Completo": true,
+    "OUT_Nastro_Marcia": false,
+    "V_L_Ciclo": false
+   }
+  },
+  {
+   "descrizione": "con il lotto pieno lo START non riparte",
+   "impulso": [
+    "V_P_Start"
+   ],
+   "attendi": 0.5,
+   "verifica": {
+    "OUT_Nastro_Marcia": false
+   }
+  },
+  {
+   "descrizione": "RESET: contatori a zero e lotto sbloccato",
+   "impulso": [
+    "V_P_Reset_Conteggi"
+   ],
+   "attendi": 0.5,
+   "verifica": {
+    "V_S_Pezzi_Contati": 0,
+    "V_S_Pezzi_Scartati": 0,
+    "V_L_Lotto_Completo": false
+   }
+  },
+  {
+   "descrizione": "ripartenza dopo il reset",
+   "impulso": [
+    "V_P_Start"
+   ],
+   "attendi": 0.5,
+   "verifica": {
+    "OUT_Nastro_Marcia": true
+   }
+  },
+  {
+   "descrizione": "pezzo fermo in uscita: dopo 2 s scatta l'allarme inceppamento",
+   "set": {
+    "IN_Pres_Uscita": true
+   },
+   "attendi": 2.6,
+   "verifica": {
+    "V_S_Allarme_Inceppo": true,
+    "OUT_Nastro_Marcia": false,
+    "V_L_Allarme": true
+   }
+  },
+  {
+   "descrizione": "reset allarme e ripartenza",
+   "set": {
+    "IN_Pres_Uscita": false
+   },
+   "impulso": [
+    "V_P_Reset_Conteggi"
+   ],
+   "attendi": 0.4,
+   "verifica": {
+    "V_S_Allarme_Inceppo": false,
+    "V_L_Allarme": false
+   }
+  },
+  {
+   "descrizione": "EMERGENZA durante il ciclo: arresto immediato",
+   "impulso": [
+    "V_P_Start"
+   ],
+   "attendi": 0.4,
+   "set": {
+    "IN_Emergenza": true
+   },
+   "verifica": {
+    "OUT_Nastro_Marcia": false,
+    "V_L_Ciclo": false,
+    "V_L_Allarme": true
+   }
+  }
+ ]
+}

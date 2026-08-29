@@ -1,0 +1,853 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>AryAnd, AryOr, AryXor, and AryXorN</title>
+</head>
+<body class="aey1501815572126"><div class="layer02" id="aey1501815572126">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">AryAnd, AryOr, AryXor, and AryXorN</h1>
+ 
+<div class="body conbody">
+<p class="p">These instructions perform the following operations on individual bits of each corresponding Boolean or bit-string element in two arrays. </p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="aey1501815572126__table_xdt_ryh_b1b" class="table no-line" border="0">
+                
+                
+                
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;">AryAnd</td>
+
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;">:</td>
+
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;">Logical AND</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;">AryOr</td>
+
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;">:</td>
+
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;">Logical OR</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;">AryXor</td>
+
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;">:</td>
+
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;">Logical Exclusive OR</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;">AryXorN</td>
+
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;">:</td>
+
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;">Logical Exclusive NOR</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="aey1501815572126__table_N10088_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:13%" />
+<col style="width:14%" />
+<col style="width:6%" />
+<col style="width:35%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d8364e100">Instruction</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d8364e103">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d8364e106">
+<p class="p">FB/</p>
+
+<p class="p">FUN</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d8364e115">Graphic expression</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d8364e118">ST expression</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d8364e100 "><span class="indexterm">AryAnd (Array Logical AND)</span>AryAnd</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d8364e103 "><span class="indexterm">Array Logical AND</span>Array Logical AND</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d8364e106 ">FUN</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d8364e115 ">
+<br /><img class="image" id="aey1501815572126__image_148EC030252E46FCBA512D40FCFB5496" src="sjl1501815569397.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d8364e118 ">AryAnd(In1, In2, Size, AryOut);</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d8364e100 "><span class="indexterm">AryOr (Array Logical OR)</span>AryOr</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d8364e103 "><span class="indexterm">Array Logical OR</span>Array Logical OR</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d8364e106 ">FUN</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d8364e115 ">
+<br /><img class="image" id="aey1501815572126__image_8DF0D92EB53E4F1C9576D392E40F0596" src="sxr1501815570234.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d8364e118 ">AryOr(In1, In2, Size, AryOut);</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d8364e100 "><span class="indexterm">AryXor (Array Logical Exclusive OR)</span>AryXor</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d8364e103 "><span class="indexterm">Array Logical Exclusive OR</span>Array Logical Exclusive OR</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d8364e106 ">FUN</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d8364e115 ">
+<br /><img class="image" id="aey1501815572126__image_EAA4FF7F239541C88B7DBD7890215572" src="fkk1501815570925.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d8364e118 ">AryXor(In1, In2, Size, AryOut);</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d8364e100 "><span class="indexterm">AryXorN (Array Logical Exclusive NOR)</span>AryXorN</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d8364e103 "><span class="indexterm">Array Logical Exclusive NOR</span>Array Logical Exclusive NOR</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d8364e106 ">FUN</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d8364e115 ">
+<br /><img class="image" id="aey1501815572126__image_0BB34A34E84045BAB05C2203A2699D44" src="txj1501815571511.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d8364e118 ">AryXorN(In1, In2, Size, AryOut);</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="bgd1501816235472">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Variables</h1>
+ 
+<div class="body conbody">
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="bgd1501816235472__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:20%" />
+<col style="width:9%" />
+<col style="width:20%" />
+<col style="width:14%" />
+<col style="width:14%" />
+<col style="width:8%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d61471e45">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d61471e47">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d61471e50">I/O</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d61471e53">Description</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d61471e56">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d61471e60">Unit</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d61471e63">Default</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d61471e45 ">In1[] and In2[] (arrays)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d61471e47 ">Array to process</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d61471e50 ">Input</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d61471e53 ">Array to process</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d61471e56 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d61471e60 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d61471e63 "><a class="xref" href="aey1501815572126.html#bgd1501816235472__fn_mly_5ny_xz"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d61471e45 ">Size</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d61471e47 ">Number of elements</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d61471e53 ">Number of elements to process</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d61471e63 ">1</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d61471e45 ">AryOut[] (array)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d61471e47 ">Processing results array</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d61471e50 ">In-out</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d61471e53 ">Processing results array</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d61471e56 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d61471e60 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d61471e63 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d61471e45 ">Out</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d61471e47 ">Return value</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d61471e50 ">Output</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d61471e53 ">Always TRUE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d61471e56 ">TRUE only</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d61471e60 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d61471e63 ">---</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="bgd1501816235472__fn_mly_5ny_xz" id="bgd1501816235472__fn_mly_5ny_xz"><sup>*1</sup></a>  If you omit the input parameter, the default value is not applied. A building error will occur. </div></div></div>
+ 
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="bgd1501816235472__table_N1013D_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:5%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cell-norowborder" style="text-align:left;vertical-align:top;" id="d61471e218">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d61471e220">Boolean</th>
+
+<th class="entry cellrowborder" colspan="4" style="text-align:center;vertical-align:middle;" id="d61471e223">Bit strings</th>
+
+<th class="entry cellrowborder" colspan="8" style="text-align:center;vertical-align:middle;" id="d61471e226">Integers</th>
+
+<th class="entry cellrowborder" colspan="2" style="text-align:center;vertical-align:middle;" id="d61471e229">Real numbers</th>
+
+<th class="entry cellrowborder" colspan="5" style="text-align:center;vertical-align:middle;" id="d61471e233">Times, durations, dates, and text strings</th>
+
+</tr>
+
+<tr class="row rotate_right">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d61471e239">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d61471e241">BOOL</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d61471e244">BYTE</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d61471e247">WORD</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d61471e250">DWORD</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d61471e254">LWORD</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d61471e257">USINT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d61471e260">UINT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d61471e263">UDINT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d61471e266">ULINT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d61471e269">SINT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d61471e273">INT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d61471e276">DINT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d61471e279">LINT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d61471e282">REAL</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d61471e285">LREAL</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d61471e288">TIME</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d61471e292">DATE</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d61471e295">TOD</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d61471e298">DT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d61471e301">STRING</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d61471e218 d61471e239 ">In1[] (array)</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e220 d61471e241 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e223 d61471e244 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e223 d61471e247 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e223 d61471e250 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e223 d61471e254 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e226 d61471e257 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e226 d61471e260 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e226 d61471e263 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e226 d61471e266 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e226 d61471e269 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e226 d61471e273 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e226 d61471e276 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e226 d61471e279 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e229 d61471e282 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e229 d61471e285 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e233 d61471e288 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e233 d61471e292 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e233 d61471e295 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e233 d61471e298 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e233 d61471e301 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d61471e218 d61471e239 ">In2[] (array)</td>
+
+<td class="entry cellrowborder" colspan="20" style="text-align:center;vertical-align:middle;" headers="d61471e220 d61471e223 d61471e226 d61471e229 d61471e233 d61471e241 d61471e244 d61471e247 d61471e250 d61471e254 d61471e257 d61471e260 d61471e263 d61471e266 d61471e269 d61471e273 d61471e276 d61471e279 d61471e282 d61471e285 d61471e288 d61471e292 d61471e295 d61471e298 d61471e301 ">
+<p class="p">Must be same data type as In1[]</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d61471e218 d61471e239 ">Size</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e220 d61471e241 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e223 d61471e244 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e223 d61471e247 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e223 d61471e250 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e223 d61471e254 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e226 d61471e257 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e226 d61471e260 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e226 d61471e263 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e226 d61471e266 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e226 d61471e269 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e226 d61471e273 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e226 d61471e276 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e226 d61471e279 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e229 d61471e282 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e229 d61471e285 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e233 d61471e288 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e233 d61471e292 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e233 d61471e295 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e233 d61471e298 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e233 d61471e301 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d61471e218 d61471e239 ">AryOut[] (array)</td>
+
+<td class="entry cellrowborder" colspan="20" style="text-align:center;vertical-align:middle;" headers="d61471e220 d61471e223 d61471e226 d61471e229 d61471e233 d61471e241 d61471e244 d61471e247 d61471e250 d61471e254 d61471e257 d61471e260 d61471e263 d61471e266 d61471e269 d61471e273 d61471e276 d61471e279 d61471e282 d61471e285 d61471e288 d61471e292 d61471e295 d61471e298 d61471e301 ">
+<p class="p">Must be same data type as In1[]</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d61471e218 d61471e239 ">Out</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e220 d61471e241 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e223 d61471e244 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e223 d61471e247 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e223 d61471e250 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e223 d61471e254 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e226 d61471e257 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e226 d61471e260 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e226 d61471e263 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e226 d61471e266 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e226 d61471e269 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e226 d61471e273 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e226 d61471e276 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e226 d61471e279 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e229 d61471e282 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e229 d61471e285 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e233 d61471e288 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e233 d61471e292 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e233 d61471e295 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e233 d61471e298 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d61471e233 d61471e301 ">&#160;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="vzu1501816235732">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function</h1>
+
+<div class="body conbody">
+<p class="p" id="vzu1501816235732__ID0EBPDI">These instructions perform bitwise operations on the specified number of elements, <span class="ph phtype_variable"><span class="termtype">Size</span></span>, from the beginning of respective arrays to process, In1[] and In2[]. The operation results are stored in the corresponding elements of AryOut[].</p>
+
+<p class="p" id="vzu1501816235732__ID0EEPDI">In1[], In2[] and AryOut[] must be of the same data type.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="cpd1501816237332">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">AryAnd</h1>
+
+<div class="body conbody">
+<p class="p">If both bits are TRUE, then the processing result is TRUE. Otherwise, the processing result is FALSE.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="cpd1501816237332__table_N10016_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d124638e32">Bit of element in In1[]</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d124638e35">Bit of element in In2[]</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d124638e38">Bit of AryOut[]</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d124638e32 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d124638e35 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d124638e38 ">FALSE</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d124638e32 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d124638e35 ">TRUE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d124638e38 ">FALSE</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d124638e32 ">TRUE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d124638e35 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d124638e38 ">FALSE</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d124638e32 ">TRUE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d124638e35 ">TRUE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d124638e38 ">TRUE</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt">The following example shows the AryAnd instruction when <span class="ph phtype_variable"><span class="termtype">Size</span></span> is UINT#3.</p>
+
+<br /><img class="image" id="cpd1501816237332__image_C70B3ED7228445E19DA298186670829A" src="xed1501816235972.gif" /><br />
+<br /><img class="image" id="cpd1501816237332__image_B63942F1589A4B819D602C47886BA587" src="jjg1501816236671.gif" /><br />
+</div>
+ 
+<div class="related-links"></div></div><div class="layer04" id="shh1501816237580">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">AryOr</h1>
+ 
+<div class="body conbody">
+<p class="p">If both bits are FALSE, then the processing result is FALSE. Otherwise, the processing result is TRUE.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="shh1501816237580__table_N10016_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d878100e32">Bit of element in In1[]</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d878100e35">Bit of element in In2[]</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d878100e38">Bit of AryOut[]</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d878100e32 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d878100e35 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d878100e38 ">FALSE</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d878100e32 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d878100e35 ">TRUE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d878100e38 ">TRUE</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d878100e32 ">TRUE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d878100e35 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d878100e38 ">TRUE</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d878100e32 ">TRUE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d878100e35 ">TRUE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d878100e38 ">TRUE</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer04" id="enk1501816237808">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">AryXor</h1>
+ 
+<div class="body conbody">
+<p class="p">If both bits are the same, then the processing result is FALSE. If one bit is TRUE and the other is FALSE, then the processing result is TRUE.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="enk1501816237808__table_N10016_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d223175e32">Bit of element in In1[]</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d223175e35">Bit of element in In2[]</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d223175e38">Bit of AryOut[]</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d223175e32 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d223175e35 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d223175e38 ">FALSE</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d223175e32 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d223175e35 ">TRUE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d223175e38 ">TRUE</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d223175e32 ">TRUE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d223175e35 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d223175e38 ">TRUE</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d223175e32 ">TRUE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d223175e35 ">TRUE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d223175e38 ">FALSE</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer04" id="zcy1501816238051">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">AryXorN</h1>
+ 
+<div class="body conbody">
+<p class="p">If both bits are the same, then the processing result is TRUE. If one bit is TRUE and the other is FALSE, then the processing result is FALSE.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="zcy1501816238051__table_N10016_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1191901e32">Bit of element in In1[]</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1191901e35">Bit of element in In2[]</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1191901e38">Bit of AryOut[]</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1191901e32 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1191901e35 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1191901e38 ">TRUE</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1191901e32 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1191901e35 ">TRUE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1191901e38 ">FALSE</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1191901e32 ">TRUE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1191901e35 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1191901e38 ">FALSE</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1191901e32 ">TRUE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1191901e35 ">TRUE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1191901e38 ">TRUE</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="gek1501816238288">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Precautions for Correct Use</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="gek1501816238288__li_N10015_N10012_N1000F_N10002">
+<p class="p">The data types of In1[], In2[], and AryOut[] must be the same.</p>
+
+<p class="p">If they are different, a building error will occur.</p>
+
+</li>
+
+<li class="li" id="gek1501816238288__li_N10022_N10012_N1000F_N10002">
+<p class="p" id="gek1501816238288__ID0EHOAK">The number of elements in AryOut[] should be equal to or more than the value of <span class="ph phtype_variable"><span class="termtype">Size</span></span>.</p>
+
+</li>
+
+<li class="li" id="gek1501816238288__li_N10031_N10012_N1000F_N10002">
+<p class="p" id="gek1501816238288__ID0ESOAK">The value of AryOut[] will not change if the value of <span class="ph phtype_variable"><span class="termtype">Size</span></span> is 0.</p>
+
+</li>
+
+<li class="li" id="gek1501816238288__li_N1003F_N10012_N1000F_N10002">
+<p class="p" id="gek1501816238288__ID0E4OAK">Return value <span class="ph phtype_variable"><span class="termtype">Out</span></span> is not used when this instruction is used in ST.</p>
+
+</li>
+
+<li class="li" id="gek1501816238288__li_N1004E_N10012_N1000F_N10002">
+<p class="p" id="gek1501816238288__ID0EIPAK">An error will occur in the following case. <span class="ph phtype_variable"><span class="termtype">ENO</span></span> will be FALSE, and AryOut[] will not change.</p>
+
+<ol class="ol liststyle_alphabet1">
+<li class="li" id="gek1501816238288__li_N10060_N1005C_N1004E_N10012_N1000F_N10002">
+<p class="p" id="gek1501816238288__ID0EXPAK">The value of <span class="ph phtype_variable"><span class="termtype">Size</span></span> exceeds the number of elements in In1[], In2[], or AryOut[].</p>
+
+</li>
+
+</ol>
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+
+
+
+
+

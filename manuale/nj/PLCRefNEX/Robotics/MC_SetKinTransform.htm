@@ -1,0 +1,2133 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 11">
+<title>MC_SetKinTransform</title>
+<link rel="StyleSheet" href="Robo.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+table.hcp1 { padding-left:4.00pt;
+padding-top:3.00pt;
+padding-right:4.00pt;
+padding-bottom:1.00pt; }
+th.hcp2 { border-top:solid 1px #000000;
+border-right:solid 1px #000000;
+border-bottom:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+th.hcp3 { border-top:solid 1px #000000;
+border-bottom:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+td.hcp4 { border-right:solid 1px #000000;
+border-bottom:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+td.hcp5 { border-bottom:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+span.hcp6 { font-style:italic; }
+table.hcp7 { padding-top:5.00pt;
+padding-right:4.00pt;
+padding-bottom:1.00pt; }
+table.hcp8 { padding-top:5.00pt;
+padding-right:4.00pt;
+padding-bottom:1.00pt;
+margin-left:31.18pt; }
+td.hcp9 { border-left:solid 1px #000000;
+border-bottom:solid 1px #000000; }
+table.hcp10 { margin-left:0.00pt;
+margin-bottom:3.50pt;
+margin-top:6.00pt; }
+span.hcp11 { word-spacing:normal;
+font:6.0pt 'Times New Roman'; }
+table.hcp12 { padding-left:4.00pt;
+padding-top:3.00pt;
+padding-right:4.00pt;
+padding-bottom:1.00pt;
+margin-left:42.52pt; }
+table.hcp13 { margin-left:42.52pt;
+margin-bottom:3.50pt;
+margin-top:6.00pt; }
+th.hcp14 { border-right:solid 1px #000000;
+border-bottom:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+th.hcp15 { border-bottom:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+div.hcp16 { text-align:left; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<p class="Title">MC_SetKinTransform</p>
+<p class="FM_body1">The MC_SetKinTransform instruction makes the axes group 
+ settings required for robot control. The set­tings include the kinematics 
+ setting, workspace check setting, and maximum interpolation velocity set­ting.</p>
+
+<table cellspacing="0" width="661" class="hcp1">
+	<tr style="height: 25.00pt;" bgcolor="#B3B3B3">
+		<th width="144" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Instruction</p></th>
+		<th width="77" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="37" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">FB/FUN</p></th>
+		<th width="197" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Graphic 
+		 expression</p></th>
+		<th width="208" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec9pt">ST expression</p></th>
+	</tr>
+	<tr style="height: 194.00pt;">
+		<td width="144" class="hcp4"><p 
+			 class="FM_tablebody18pt">MC_SetKinTransform</p></td>
+		<td width="77" class="hcp4"><p 
+			 class="FM_tablebody18pt">Set Kinemat­ics Transfor­mation</p></td>
+		<td width="37" class="hcp4"><p 
+			 class="FM_tablebodyc9pt">FB</p></td>
+		<td style="border-right: solid 1px #000000; border-bottom: solid 1px #000000;" 
+			 width="197"><div style="text-align: center;">
+			<img alt="C01-00_010.jpg" id="image0" src="C01-00_010.jpg" border="0"> 
+		</div>
+		<p class="FM_1pt" style="text-align: justify;">&#160;</p></td>
+		<td width="208" class="hcp5"><p class="FM_tablebody18pt">MC_SetKinTransform_instance 
+		 (</p>
+		<p class="FM_tablebody18pt">AxesGroup :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">Execute :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">KinTransform :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">Workspace :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">EnableWorkspace :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">MaxVelocityTCP :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">MaxAccelerationTCP :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">MaxDecelerationTCP :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">Done =&gt;<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">Busy =&gt;<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">CommandAborted =&gt;<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">Error =&gt;<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">ErrorID =&gt;<span class="hcp6">parameter</span></p>
+		<p class="FM_tablebody18pt">);</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp7">
+	<tr style="height: 20.00pt;" bgcolor="#B3B3B3">
+		<td width="661" bgcolor="#B3B3B3"><p class="FM_CRhead3">Variables</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">This section describes the input variables, output 
+ variables and in-out variables for the MC_SetKinTransform (Set Kinematics 
+ Transformation) instruction.</p>
+
+<table cellspacing="0" width="620" class="hcp8">
+	<tr style="height: 20.00pt;">
+		<td width="620" class="hcp9"><p class="FM_head4">Input Variables</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="668" class="hcp1">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="112" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="95" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Meaning</p></th>
+		<th width="95" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th width="76" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Valid 
+		 range</p></th>
+		<th width="53" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Default</p></th>
+		<th width="239" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="112" class="hcp4"><p 
+			 class="FM_tablebody19pt">Execute</p></td>
+		<td width="95" class="hcp4"><p 
+			 class="FM_tablebody19pt">Execute</p></td>
+		<td width="95" class="hcp4"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="76" class="hcp4"><p 
+			 class="FM_tablebody19pt">TRUE or FALSE</p></td>
+		<td width="53" class="hcp4"><p 
+			 class="FM_tablebody19pt">FALSE</p></td>
+		<td width="239" class="hcp5"><p class="FM_tablebody19pt">The 
+		 instruction is executed when <span class="hcp6">Execute</span>&#160;changes 
+		 to TRUE.</p></td>
+	</tr>
+	<tr style="height: 27.40pt;">
+		<td width="112" class="hcp4"><p 
+			 class="FM_tablebody19pt">KinTransform</p></td>
+		<td width="95" class="hcp4"><p 
+			 class="FM_tablebody19pt">Kinematics Transformation</p></td>
+		<td width="95" class="hcp4"><p 
+			 class="FM_tablebody19pt">_sMC_KIN_<br>
+		REF</p></td>
+		<td width="76" class="hcp4"><p 
+			 class="FM_tablebodycc9pt">---</p></td>
+		<td width="53" class="hcp4"><p 
+			 class="FM_tablebodycc9pt">---</p></td>
+		<td width="239" class="hcp5"><p class="FM_tablebody19pt">Set 
+		 the parameters including the kinemat­ics type and robot link length.<sup>*1</sup></p></td>
+	</tr>
+	<tr style="height: 37.00pt;">
+		<td width="112" class="hcp4"><p 
+			 class="FM_tablebody19pt">Workspace</p></td>
+		<td width="95" class="hcp4"><p 
+			 class="FM_tablebody19pt">Workspace Parameters</p></td>
+		<td width="95" class="hcp4"><p 
+			 class="FM_tablebody19pt">_sMC_<br>
+		WORKSPACE_<br>
+		REF</p></td>
+		<td width="76" class="hcp4"><p 
+			 class="FM_tablebodycc9pt">---</p></td>
+		<td width="53" class="hcp4"><p 
+			 class="FM_tablebodycc9pt">---</p></td>
+		<td width="239" class="hcp5"><p class="FM_tablebody19pt">Set 
+		 the range of the workspace.<sup>*2</sup></p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="112" class="hcp4"><p 
+			 class="FM_tablebody19pt">EnableWorkspace</p></td>
+		<td width="95" class="hcp4"><p 
+			 class="FM_tablebody19pt">Enable Work­space</p></td>
+		<td width="95" class="hcp4"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="76" class="hcp4"><p 
+			 class="FM_tablebody19pt">TRUE or FALSE</p></td>
+		<td width="53" class="hcp4"><p 
+			 class="FM_tablebody19pt">TRUE</p></td>
+		<td width="239" class="hcp5"><p class="FM_tablebody19pt">Select 
+		 whether to enable (TRUE) or to dis­able(FALSE) the workspace check.</p></td>
+	</tr>
+	<tr style="height: 39.40pt;">
+		<td width="112" class="hcp4"><p 
+			 class="FM_tablebody19pt">MaxVelocityTCP</p></td>
+		<td width="95" class="hcp4"><p 
+			 class="FM_tablebody19pt">Maximum <br>
+		Interpolation Velocity</p></td>
+		<td width="95" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="76" class="hcp4"><p 
+			 class="FM_tablebody19pt">Non-nega­tive number</p></td>
+		<td width="53" class="hcp4"><p 
+			 class="FM_tablebody19pt">0 <sup>*3</sup></p></td>
+		<td width="239" class="hcp5"><p class="FM_tablebody19pt">Set 
+		 a velocity for which maximum interpo­lation velocity errors of 
+		 TCP<sup>*4</sup>&#160;are detected. (unit: mm/s)</p></td>
+	</tr>
+	<tr style="height: 39.40pt;">
+		<td width="112" class="hcp4"><p 
+			 class="FM_tablebody19pt">MaxAccelera­tionTCP</p></td>
+		<td width="95" class="hcp4"><p 
+			 class="FM_tablebody19pt">Maximum <br>
+		Interpolation Acceleration</p></td>
+		<td width="95" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="76" class="hcp4"><p 
+			 class="FM_tablebody19pt">Non-nega­tive number</p></td>
+		<td width="53" class="hcp4"><p 
+			 class="FM_tablebody19pt">0 <sup>*5</sup></p></td>
+		<td width="239" class="hcp5"><p class="FM_tablebody19pt">Set 
+		 an acceleration rate for which maxi­mum interpolation acceleration 
+		 errors of TCP<sup>*6</sup> are detected. (unit: mm/s<sup>2</sup>)</p></td>
+	</tr>
+	<tr style="height: 41.80pt;">
+		<td width="112" class="hcp4"><p 
+			 class="FM_tablebody19pt">MaxDecelera­tionTCP</p></td>
+		<td width="95" class="hcp4"><p 
+			 class="FM_tablebody19pt">Maximum <br>
+		Interpolation Deceleration</p></td>
+		<td width="95" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="76" class="hcp4"><p 
+			 class="FM_tablebody19pt">Non-nega­tive number</p></td>
+		<td width="53" class="hcp4"><p 
+			 class="FM_tablebody19pt">0 <sup>*7</sup></p></td>
+		<td width="239" class="hcp5"><p class="FM_tablebody19pt">Set 
+		 a deceleration rate for which maximum interpolation deceleration 
+		 errors of TCP<sup>*8</sup>&#160;are detected. (unit: mm/s<sup><span 
+		 class="FM_Superscript">2</span></sup>)</p></td>
+	</tr>
+</table>
+
+
+<table class="hcp10">
+	<col>
+	<tr>
+		<td><p class="FM_asterisk1"><sup>*1 </sup>Refer to <span class="FM_italic"><a 
+		 href="#_sMC_KIN_REF">_sMC_KIN_REF</a></span> for details.</p>
+		<p class="FM_asterisk1"><sup>*2 </sup>Refer to <span class="FM_italic"><a 
+		 href="#_sMC_WORKSPACE_REF">_sMC_WORKSPACE_REF</a></span> for details.</p>
+		<p class="FM_asterisk1"><sup>*3 </sup>If <span class="hcp6">MaxVelocityTCP</span> 
+		 (Maximum Interpolation Velocity) is set to 0, interpolation velocity 
+		 errors of TCP are not detected.</p>
+		<p class="FM_asterisk1"><sup>*4 </sup>A maximum interpolation velocity 
+		 error indicates that the maximum interpolation velocity is exceeded.</p>
+		<p class="FM_asterisk1"><sup>*5 </sup>If <span class="hcp6">MaxAccelerationTCP</span>&#160;(Maximum 
+		 Interpolation Acceleration) is set to 0, interpolation acceleration 
+		 errors of TCP are not detected.</p>
+		<p class="FM_asterisk1"><sup>*6 </sup>A maximum interpolation acceleration 
+		 error indicates that the maximum interpolation acceleration is 
+		 exceeded.</p>
+		<p class="FM_asterisk1"><sup>*7 </sup>If <span class="hcp6">MaxDecelerationTCP</span>&#160;(Maximum 
+		 Interpolation Deceleration) is set to 0, interpolation deceleration 
+		 errors of TCP are not detected.</p>
+		<p class="FM_asterisk1"><sup>*8 </sup>A maximum interpolation deceleration 
+		 error indicates that the maximum interpolation deceleration is 
+		 exceeded.</p></td>
+	</tr>
+</table>
+
+<p class="FM_head5"><span class="FM_Wingdings">l<span class="hcp11">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span><a 
+	 name="_sMC_KIN_REF">_sMC_KIN_REF</a></p>
+
+<table cellspacing="0" width="661" class="hcp1">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="85" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="83" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Meaning</p></th>
+		<th width="121" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th width="138" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Valid 
+		 range</p></th>
+		<th width="234" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 58.00pt;">
+		<td width="85" class="hcp4"><p 
+			 class="FM_tablebody19pt">KinType</p></td>
+		<td width="83" class="hcp4"><p 
+			 class="FM_tablebody19pt">Kinematics Type Selec­tion</p></td>
+		<td width="121" class="hcp4"><p 
+			 class="FM_tablebody19pt">_eMC_KIN_TYPE</p></td>
+		<td width="138" class="hcp4"><p 
+			 class="FM_tablebody19pt">100: _mcDelta3Type1</p>
+		<p class="FM_tablebody19pt">101: _mcDelta3Type2</p>
+		<p class="FM_tablebody19pt">102: _mcDelta2Type1</p>
+		<p class="FM_tablebody19pt">104: _mcCartesian3DType1&#160;<sup><span 
+		 class="FM_Superscript">*2</span></sup></p>
+		<p class="FM_tablebody19pt">105: _mcCartesian3DType2&#160;<sup><span 
+		 class="FM_Superscript">*2</span></sup></p>
+		<p class="FM_tablebody19pt">106: _mcCartesian2DType1&#160;<sup><span 
+		 class="FM_Superscript">*2</span></sup></p>
+		<p class="FM_tablebody19pt">107: _mcCartesian2DType2&#160;<sup><span 
+		 class="FM_Superscript">*2</span></sup></p>
+		<p class="FM_tablebody19pt">108: _mcHBotType1&#160;<sup><span class="FM_Superscript">*2</span></sup></p>
+		<p class="FM_tablebody19pt"><span class="FM_Superscript">1</span>09: 
+		 _mcScaraRRPType1&#160;<sup><span class="FM_Superscript">*3</span></sup></p>
+		<p class="FM_tablebody19pt">110: _mcScaraRRPType2&#160;<sup><span 
+		 class="FM_Superscript">*3</span></sup></p>
+		<p class="FM_tablebody19pt">111: _mcScaraPRRType1&#160;<sup><span 
+		 class="FM_Superscript">*3</span></sup></p>
+		<p class="FM_tablebody19pt">112: _mcScaraPRRType2&#160;<sup><span 
+		 class="FM_Superscript">*3</span></sup></p>
+		<p class="FM_tablebody19pt">500: _mcExpansion1&#160;<sup><span 
+		 class="FM_Superscript">*3</span></sup></p></td>
+		<td width="234" class="hcp5"><p class="FM_tablebody19pt">Select 
+		 the kinematics type.</p>
+		<p class="FM_tablebody19pt">100: Delta3</p>
+		<p class="FM_tablebody19pt">101: Delta3R</p>
+		<p class="FM_tablebody19pt">102: Delta2</p>
+		<p class="FM_tablebody19pt">104: Cartesian 3D Robot</p>
+		<p class="FM_tablebody19pt">105: Cartesian 3D Gantry Robot</p>
+		<p class="FM_tablebody19pt">106: Cartesian 2D Robot</p>
+		<p class="FM_tablebody19pt">107: Cartesian 2D Gantry Robot</p>
+		<p class="FM_tablebody19pt">108: H-Bot Robot</p>
+		<p class="FM_tablebody19pt">109: SCARA RRP Robot</p>
+		<p class="FM_tablebody19pt">110: SCARA RRP+R Robot</p>
+		<p class="FM_tablebody19pt">111: SCARA PRR Robot</p>
+		<p class="FM_tablebody19pt">112: SCARA PRR+R Robot</p>
+		<p class="FM_tablebody19pt">500: Expansion1 Robot</p></td>
+	</tr>
+	<tr style="height: 27.40pt;">
+		<td width="85" class="hcp4"><p 
+			 class="FM_tablebody19pt">KinParam</p></td>
+		<td width="83" class="hcp4"><p 
+			 class="FM_tablebody19pt">Kinematics Parameter</p></td>
+		<td width="121" class="hcp4"><p 
+			 class="FM_tablebody19pt">ARRAY[0..7] OF LREAL</p></td>
+		<td width="138" class="hcp4"><p 
+			 class="FM_tablebodycc9pt">---</p></td>
+		<td width="234" class="hcp5"><p class="FM_tablebody19pt">Set 
+		 the robot arm length and other param­eters.<sup>*1</sup></p></td>
+	</tr>
+	<tr style="height: 27.40pt;">
+		<td width="85" class="hcp4"><p 
+			 class="FM_tablebody19pt">Expansion<br>
+		Param</p></td>
+		<td width="83" class="hcp4"><p 
+			 class="FM_tablebody19pt">Expansion Parameter</p></td>
+		<td width="121" class="hcp4"><p 
+			 class="FM_tablebody19pt">ARRAY[0..7] OF LREAL</p></td>
+		<td width="138" class="hcp4"><p 
+			 class="FM_tablebodycc9pt">---</p></td>
+		<td width="234" class="hcp5"><p class="FM_tablebody19pt">Set 
+		 a value for adjusting home position of the machine coordinate 
+		 system (MCS).<sup><span class="FM_Superscript">*1</span></sup></p></td>
+	</tr>
+</table>
+
+
+<table width="661" class="hcp10">
+	<tr>
+		<td><p class="FM_asterisk1"><sup>*1 </sup>Refer to <span class="FM_italic"><a 
+		 href="#Details on _sMC_KIN_REF">Details on _sMC_KIN_REF</a></span> 
+		 for details.</p>
+		<p class="FM_asterisk1">*2 <span class="hcp11">&#160;</span>Those 
+		 kinematics types are applicable only in Robot Version 1.03 or 
+		 later.</p>
+		<p class="FM_asterisk1">*3 <span class="hcp11">&#160;</span>Those 
+		 kinematics types are applicable only in Robot Version 1.04 or 
+		 later.</p></td>
+	</tr>
+</table>
+
+<p class="FM_head5"><span class="FM_Wingdings">l<span class="hcp11">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span><a 
+	 name="_sMC_WORKSPACE_REF">_sMC_WORKSPACE_REF</a></p>
+
+<table cellspacing="0" width="662" class="hcp1">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="107" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="90" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Meaning</p></th>
+		<th width="121" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th width="138" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Valid 
+		 range</p></th>
+		<th width="206" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 52.00pt;">
+		<td width="107" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceType</p></td>
+		<td width="90" class="hcp4"><p 
+			 class="FM_tablebody19pt">Workspace</p>
+		<p class="FM_tablebody19pt">Type Selection</p></td>
+		<td width="121" class="hcp4"><p 
+			 class="FM_tablebody19pt">_eMC_</p>
+		<p class="FM_tablebody19pt">WORKSPACE_</p>
+		<p class="FM_tablebody19pt">TYPE</p></td>
+		<td width="138" class="hcp4"><p 
+			 class="FM_tablebody19pt">100: _mcDelta3&#160;Workspace</p>
+		<p class="FM_tablebody19pt">101: _mcDelta2&#160;Workspace</p>
+		<p class="FM_tablebody19pt">102: _mcCartesian3Dworkspace <sup><span 
+		 class="FM_Superscript">*2</span></sup></p>
+		<p class="FM_tablebody19pt">103: _mcCartesian2Dworkspace <sup><span 
+		 class="FM_Superscript">*2</span></sup></p>
+		<p class="FM_tablebody19pt">104: _mcHBotWorkspace <sup><span class="FM_Superscript">*2</span></sup></p>
+		<p class="FM_tablebody19pt">105: _mcScaraWorkspace <sup><span class="FM_Superscript">*3</span></sup></p>
+		<p class="FM_tablebody19pt">500: _mcExpansion1Workspace <sup><span 
+		 class="FM_Superscript">*3</span></sup></p></td>
+		<td width="206" class="hcp5"><p class="FM_tablebody19pt">Select 
+		 the workspace type.</p>
+		<p class="FM_tablebody19pt">100: Delta3 or Delta3R</p>
+		<p class="FM_tablebody19pt">101: Delta2</p>
+		<p class="FM_tablebody19pt">102: Cartesian 3D</p>
+		<p class="FM_tablebody19pt">103: Cartesian 2D</p>
+		<p class="FM_tablebody19pt">104: H-Bot</p>
+		<p class="FM_tablebody19pt">105: SCARA robot volume</p>
+		<p class="FM_tablebody19pt">500: Expansion1 robot vol­ume </p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="107" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam</p></td>
+		<td width="90" class="hcp4"><p 
+			 class="FM_tablebody19pt">Workspace Parameters</p></td>
+		<td width="121" class="hcp4"><p 
+			 class="FM_tablebody19pt">ARRAY[0..7] OF LREAL</p></td>
+		<td width="138" class="hcp4"><p 
+			 class="FM_tablebodycc9pt">---</p></td>
+		<td width="206" class="hcp5"><p class="FM_tablebody19pt">Set 
+		 the range of the workspace.<sup>*1</sup></p></td>
+	</tr>
+</table>
+
+
+<table width="662" class="hcp10">
+	<tr>
+		<td><p class="FM_asterisk1"><sup>*1</sup> Refer to <span class="FM_italic"><a 
+		 href="#Details on _sMC_WORKSPACE_REF">Details on _sMC_WORKSPACE_REF</a></span> 
+		 for details.</p>
+		<p class="FM_asterisk1">*2&#160;Those workspace types are applicable 
+		 only in Robot Version 1.03 or later.</p>
+		<p class="FM_asterisk1">*3&#160;Those workspace types are applicable 
+		 only in Robot Version 1.04 or later.</p></td>
+	</tr>
+</table>
+
+
+<table cellspacing="0" width="620" class="hcp8">
+	<tr style="height: 20.00pt;">
+		<td width="620" class="hcp9"><p class="FM_head4">Output Variables</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp1">
+	<tr style="height: 25.00pt;" bgcolor="#B3B3B3">
+		<th width="118" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="95" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Meaning</p></th>
+		<th width="98" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th width="59" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Valid 
+		 range</p></th>
+		<th width="292" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="118" class="hcp4"><p 
+			 class="FM_tablebody19pt">Done</p></td>
+		<td width="95" class="hcp4"><p 
+			 class="FM_tablebody19pt">Done</p></td>
+		<td width="98" class="hcp4"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="59" class="hcp4"><p 
+			 class="FM_tablebody19pt">TRUE or FALSE</p></td>
+		<td width="292" class="hcp5"><p class="FM_tablebody19pt">TRUE 
+		 when the settings are completed.</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="118" class="hcp4"><p 
+			 class="FM_tablebody19pt">Busy</p></td>
+		<td width="95" class="hcp4"><p 
+			 class="FM_tablebody19pt">Executing</p></td>
+		<td width="98" class="hcp4"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="59" class="hcp4"><p 
+			 class="FM_tablebody19pt">TRUE or FALSE</p></td>
+		<td width="292" class="hcp5"><p class="FM_tablebody19pt">TRUE 
+		 when the instruction is acknowledged.</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="118" class="hcp4"><p 
+			 class="FM_tablebody19pt">CommandAborted</p></td>
+		<td width="95" class="hcp4"><p 
+			 class="FM_tablebody19pt">Command Aborted</p></td>
+		<td width="98" class="hcp4"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="59" class="hcp4"><p 
+			 class="FM_tablebody19pt">TRUE or FALSE</p></td>
+		<td width="292" class="hcp5"><p class="FM_tablebody19pt">TRUE 
+		 when the instruction is aborted.</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="118" class="hcp4"><p 
+			 class="FM_tablebody19pt">Error</p></td>
+		<td width="95" class="hcp4"><p 
+			 class="FM_tablebody19pt">Error</p></td>
+		<td width="98" class="hcp4"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="59" class="hcp4"><p 
+			 class="FM_tablebody19pt">TRUE or FALSE</p></td>
+		<td width="292" class="hcp5"><p class="FM_tablebody19pt">TRUE 
+		 while there is an error.</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="118" class="hcp4"><p 
+			 class="FM_tablebody19pt">ErrorID</p></td>
+		<td width="95" class="hcp4"><p 
+			 class="FM_tablebody19pt">Error Code</p></td>
+		<td width="98" class="hcp4"><p 
+			 class="FM_tablebody19pt">WORD</p></td>
+		<td width="59" class="hcp4"><p 
+			 class="FM_tablebodycc9pt"><sup>*1</sup>&#160;</p></td>
+		<td width="292" class="hcp5"><p class="FM_tablebody19pt">Contains 
+		 the error code when an error occurs. A value of 16#0000 indicates 
+		 normal execution.</p></td>
+	</tr>
+</table>
+
+
+<table width="661" class="hcp10">
+	<tr>
+		<td><p class="FM_asterisk1"><sup>*1</sup> Refer to <span class="FM_italic">Troubleshooting 
+		 </span>manual pages for details.</p></td>
+	</tr>
+</table>
+
+<p class="FM_head5"><span class="FM_Wingdings">l<span class="hcp11">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span>Output 
+ Variable Update Timing</p>
+
+<table cellspacing="0" width="661" class="hcp1">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="117" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="282" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Timing 
+		 for changing to TRUE</p></th>
+		<th width="262" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec9pt">Timing for 
+		 changing to FALSE</p></th>
+	</tr>
+	<tr style="height: 39.00pt;">
+		<td width="117" class="hcp4"><p 
+			 class="FM_tablebody19pt">Done</p></td>
+		<td width="282" class="hcp4"><p 
+			 class="FM_tablebody19pt">When the settings are completed successfully.</p></td>
+		<td width="262" class="hcp5"><p class="FM_tablebul9pt">•<span class="hcp11">&#160;&#160;&#160;</span>When 
+		 <span class="hcp6">Execute</span>&#160;is TRUE 
+		 and changes to FALSE.</p>
+		<p class="FM_tablebul9pt">•<span class="hcp11">&#160;&#160;&#160;</span>After 
+		 one period when <span class="hcp6">Execute</span> 
+		 is FALSE.</p></td>
+	</tr>
+	<tr style="height: 27.00pt;">
+		<td width="117" class="hcp4"><p 
+			 class="FM_tablebody19pt">Busy</p></td>
+		<td width="282" class="hcp4"><p 
+			 class="FM_tablebody19pt">When <span class="hcp6">Execute</span> 
+		 changes to TRUE.</p></td>
+		<td width="262" class="hcp5"><p class="FM_tablebul9pt">•<span class="hcp11">&#160;&#160;&#160;</span>When 
+		 <span class="hcp6">Done</span> changes to TRUE.</p>
+		<p class="FM_tablebul9pt">•<span class="hcp11">&#160;&#160;&#160;</span>When 
+		 <span class="hcp6">Error</span> changes to TRUE.</p></td>
+	</tr>
+	<tr style="height: 39.00pt;">
+		<td width="117" class="hcp4"><p 
+			 class="FM_tablebody19pt">CommandAborted</p></td>
+		<td width="282" class="hcp4"><p 
+			 class="FM_tablebul9pt">•<span class="hcp11">&#160;&#160;&#160;</span>When 
+		 this instruction is canceled due to an error.</p>
+		<p class="FM_tablebul9pt">•<span class="hcp11">&#160;&#160;&#160;</span>When 
+		 this instruction is executed while there is an error.</p></td>
+		<td width="262" class="hcp5"><p class="FM_tablebul9pt">•<span class="hcp11">&#160;&#160;&#160;</span>When 
+		 <span class="hcp6">Execute</span>&#160;is TRUE 
+		 and changes to FALSE.</p>
+		<p class="FM_tablebul9pt">•<span class="hcp11">&#160;&#160;&#160;</span>After 
+		 one period when <span class="hcp6">Execute</span> 
+		 is FALSE.</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="117" class="hcp4"><p 
+			 class="FM_tablebody19pt">Error</p></td>
+		<td width="282" class="hcp4"><p 
+			 class="FM_tablebody19pt">When there is an error in the execution 
+		 conditions or input parameters for the instruction.</p></td>
+		<td width="262" class="hcp5"><p class="FM_tablebody19pt">When 
+		 the error is cleared.</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="620" class="hcp8">
+	<tr style="height: 20.00pt;">
+		<td width="620" class="hcp9"><p class="FM_head4">In-Out Variables</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp1">
+	<tr style="height: 25.00pt;" bgcolor="#B3B3B3">
+		<th width="117" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="110" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Meaning</p></th>
+		<th width="100" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th width="64" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Valid 
+		 range</p></th>
+		<th width="271" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="117" class="hcp4"><p 
+			 class="FM_tablebody19pt">AxesGroup</p></td>
+		<td width="110" class="hcp4"><p 
+			 class="FM_tablebody19pt">Axes Group</p></td>
+		<td width="100" class="hcp4"><p 
+			 class="FM_tablebody19pt">_sGROUP_REF</p></td>
+		<td width="64" class="hcp4"><p 
+			 class="FM_tablebodycc9pt">---</p></td>
+		<td width="271" class="hcp5"><p class="FM_tablebody19pt">Specify 
+		 the axes group.</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp7">
+	<tr style="height: 20.00pt;" bgcolor="#B3B3B3">
+		<td style="vertical-align: top; padding-left: 6.00pt; padding-top: 3.00pt; 
+			 padding-right: 6.00pt; padding-bottom: 3.00pt;" width="661" 
+			 bgcolor="#B3B3B3"><p class="FM_CRhead3">Function</p></td>
+	</tr>
+</table>
+
+<p class="FM_bul1">•<span class="hcp11">&#160;&#160;&#160;&#160;</span>Set 
+ parameters for the kinematics, workspace check, maximum interpolation 
+ velocity check and other functions for the specified axis group.</p>
+<p class="FM_bul1">•<span class="hcp11">&#160;&#160;&#160;&#160;</span>If 
+ you turn off the power supply to the CPU Unit, the values of kinematics, 
+ workspace check, <span class="hcp6">MaxVe­locityTCP</span>&#160;(Maximum 
+ Interpolation Velocity), <span class="hcp6">MaxAccelerationTCP</span> 
+ (Maximum Interpolation Accelera­tion) and <span class="hcp6">MaxDecelerationTCP</span>&#160;(Maximum 
+ Interpolation Deceleration) that you set with this instruction are initialized. 
+ When you use the robot function, or you turn on the power supply, be sure 
+ to execute this instruction to set the kinematics, workspace check, maximum 
+ interpolation velocity and others functions.</p>
+<p class="FM_bul1">•<span class="hcp11">&#160;&#160;&#160;&#160;</span>The 
+ values that you set are retained when the operating mode of the CPU Unit 
+ changes to PRO­GRAM mode.</p>
+<p class="FM_bul1">•<span class="hcp11">&#160;&#160;&#160;&#160;</span>You 
+ can use the following robot instructions from one period after <span class="hcp6">Done</span>&#160;of 
+ this instruction changes to TRUE.</p>
+
+<table style="padding-left: 4.00pt; padding-top: 3.00pt; padding-right: 4.00pt; 
+		 padding-bottom: 1.00pt; margin-left: 70.87pt;" cellspacing="0" 
+		 width="404">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="202" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Instruction</p></th>
+		<th width="202" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec9pt">Name</p></th>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="202" class="hcp4"><p 
+			 class="FM_tablebody19pt">MC_DefineCoordSystem</p></td>
+		<td width="202" class="hcp5"><p class="FM_tablebody19pt">Define 
+		 Coordinate</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="202" class="hcp4"><p 
+			 class="FM_tablebody19pt">MC_DefineToolTransform</p></td>
+		<td width="202" class="hcp5"><p class="FM_tablebody19pt">Define 
+		 Tool Coordinate</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="202" class="hcp4"><p 
+			 class="FM_tablebody19pt">MC_GroupMon</p></td>
+		<td width="202" class="hcp5"><p class="FM_tablebody19pt">Group 
+		 Monitor</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="202" class="hcp4"><p 
+			 class="FM_tablebody19pt">MC_MoveTimeAbsolute</p></td>
+		<td width="202" class="hcp5"><p class="FM_tablebody19pt">Time-specified 
+		 Absolute Positioning</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="202" class="hcp4"><p 
+			 class="FM_tablebody19pt">MC_SyncLinearConveyor</p></td>
+		<td width="202" class="hcp5"><p class="FM_tablebody19pt">Start 
+		 Conveyor Synchronization</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="202" class="hcp4"><p 
+			 class="FM_tablebody19pt">MC_SyncOut</p></td>
+		<td width="202" class="hcp5"><p class="FM_tablebody19pt">End 
+		 Synchronization</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="202" class="hcp4"><p 
+			 class="FM_tablebody19pt">MC_InverseKin</p></td>
+		<td width="202" class="hcp5"><p class="FM_tablebody19pt">Inverse 
+		 Kinematics</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="202" class="hcp4"><p 
+			 class="FM_tablebody19pt">MC_RobotJog</p></td>
+		<td width="202" class="hcp5"><p class="FM_tablebody19pt">Axes 
+		 Group Jog</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="202" class="hcp4"><p 
+			 class="FM_tablebody19pt">MC_MoveDirectAbsolute</p></td>
+		<td width="202" class="hcp5"><p class="FM_tablebody19pt">Joint 
+		 Interpolated Point-to Point Movement</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+<p class="FM_bul1">•<span class="hcp11">&#160;&#160;&#160;&#160;</span>When 
+ the axes group is disabled, the axes group instructions are also disabled 
+ even if you set the kinematics with this instruction. However, it is possible 
+ to operate each axis with single axis instruc­tions.</p>
+<p class="FM_bul1">•<span class="hcp11">&#160;&#160;&#160;&#160;</span>The 
+ parameters are set in the <span class="hcp6">Workspace</span>&#160;(Workspace 
+ Parameters) input variable even when the <span class="hcp6">EnableWorkspace</span> 
+ (Enable Workspace) input variable is disabled.</p>
+<p class="FM_bul1">•<span class="hcp11">&#160;&#160;&#160;&#160;</span>If 
+ a Kinematics Initialization Error (571F hex) occurs, the kinematics parameters 
+ previously registered are deleted. When this error occurs, you must set 
+ the kinematics parameters again.</p>
+<p class="FM_bul1">•<span class="hcp11">&#160;&#160;&#160;&#160;</span>You 
+ can use this instruction only when all the following conditions are met.</p>
+<p class="FM_iconbody1">a)<span class="hcp11">&#160;&#160;&#160;</span>The 
+ number of axes registered in the axes group matches the number of axes 
+ of the kinematics (robot).</p>
+<p class="FM_iconbody1">b)<span class="hcp11">&#160;&#160;&#160;</span>The 
+ display unit of each axis which is registered in the axes group is set 
+ according to the kine­matics type. Refer to Unit Conversion Settings Axis 
+ Settings.</p>
+<p class="FM_iconbody1">c)<span class="hcp11">&#160;&#160;&#160;</span>The 
+ count mode for all axes registered in the axes group is Linear Mode.</p>
+<p class="FM_iconbody1">d)<span class="hcp11">&#160;&#160;&#160;</span>Home 
+ for all axes registered in the axes group are already defined.</p>
+<p class="FM_iconbody1">e)<span class="hcp11">&#160;&#160;&#160;</span>The 
+ axes group is disabled.</p>
+<p class="FM_body1">&#160;</p>
+<p class="FM_iconbul1">Precautions for Correct Use</p>
+<p class="FM_iconbody1">If you perform positioning with the MC_GroupSyncMoveAbsolute 
+ (Axes Group Cyclic Synchro­nous Absolute Positioning) instruction, the 
+ workspace check is not performed. Also, checks for the following variables 
+ that are set with the MC_SetKinTransform (Set Kinematics Transforma­tion) 
+ instruction are not performed: <span class="hcp6">MaxVelocityTCP</span>&#160;(Maximum 
+ Interpolation Velocity), <span class="hcp6">MaxAc­celerationTCP</span>&#160;(Maximum 
+ Interpolation Acceleration) and <span class="hcp6">MaxDecelerationTCP</span>&#160;(Maximum 
+ Interpolation Deceleration).</p>
+<p class="FM_iconbody1">Consider that velocity and acceleration checks 
+ and workspace check are not performed when using MC_GroupSyncMoveAbsolute 
+ (Axes Group Cyclic Synchronous Absolute Positioning) instruction. Therefore, 
+ make sure you take sufficient safety measures.</p>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="620" class="hcp8">
+	<tr style="height: 20.00pt;">
+		<td width="620" class="hcp9"><p class="FM_head4"><a name="Details on _sMC_KIN_REF">Details 
+		 on _sMC_KIN_REF</a></p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">The following are the member variables of a _sMC_KIN_REF 
+ data type variable.</p>
+<p class="FM_body1">Refer to <span class="FM_italic">Kinematics Setting 
+ </span>manual pages&#160;as well.</p>
+<p class="FM_head5"><span class="FM_Wingdings">l<span class="hcp11">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span>KinType</p>
+<p class="FM_body5">Select the kinematics type.</p>
+
+<table cellspacing="0" width="605" class="hcp12">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="132" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="110" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th width="167" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Valid 
+		 range</p></th>
+		<th width="196" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 43.00pt;">
+		<td width="132" class="hcp4"><p 
+			 class="FM_tablebody19pt">Kinematics Type Selection</p></td>
+		<td width="110" class="hcp4"><p 
+			 class="FM_tablebody19pt">_eMC_KIN_TYPE</p></td>
+		<td width="167" class="hcp4"><p 
+			 class="FM_tablebody19pt">100: _mcDelta3Type1</p>
+		<p class="FM_tablebody19pt">101: _mcDelta3Type2</p>
+		<p class="FM_tablebody19pt">102: _mcDelta2Type1</p>
+		<p class="FM_tablebody19pt">104: _mcCartesian3DType1&#160;<sup><span 
+		 class="FM_Superscript"><sup>*1</sup></span></sup></p>
+		<p class="FM_tablebody19pt">105: _mcCartesian3DType2&#160;<sup><span 
+		 class="FM_Superscript">*1</span></sup></p>
+		<p class="FM_tablebody19pt">106: _mcCartesian2DType1&#160;<sup><span 
+		 class="FM_Superscript">*1</span></sup></p>
+		<p class="FM_tablebody19pt">107: _mcCartesian2DType2&#160;<sup><span 
+		 class="FM_Superscript">*1</span></sup></p>
+		<p class="FM_tablebody19pt">108: _mcHBotType1&#160;<sup><span class="FM_Superscript">*1</span></sup></p>
+		<p class="FM_tablebody19pt">109: _mcScaraRRPType1 *2</p>
+		<p class="FM_tablebody19pt">110: _mcScaraRRPType2 <sup><span class="FM_Superscript">*2</span></sup></p>
+		<p class="FM_tablebody19pt">111: _mcScaraPRRType1 <sup><span class="FM_Superscript">*2</span></sup></p>
+		<p class="FM_tablebody19pt">112: _mcScaraPRRType2 <sup><span class="FM_Superscript">*2</span></sup></p>
+		<p class="FM_tablebody19pt">500: _mcExpansion1 <sup><span class="FM_Superscript">*2</span></sup></p></td>
+		<td width="196" class="hcp5"><p class="FM_tablebody19pt">Select 
+		 the kinematics type.</p>
+		<p class="FM_tablebody19pt">100: Delta3</p>
+		<p class="FM_tablebody19pt">101: Delta3R</p>
+		<p class="FM_tablebody19pt">102: Delta2</p>
+		<p class="FM_tablebody19pt">104: Cartesian 3D Robot</p>
+		<p class="FM_tablebody19pt">105: Cartesian 3D Gantry Robot</p>
+		<p class="FM_tablebody19pt">106: Cartesian 2D Robot</p>
+		<p class="FM_tablebody19pt">107: Cartesian 2D Gantry Robot</p>
+		<p class="FM_tablebody19pt">108: H-Bot Robot</p>
+		<p class="FM_tablebody19pt">109: SCARA RRP Robot</p>
+		<p class="FM_tablebody19pt">110: SCARA RRP+R Robot</p>
+		<p class="FM_tablebody19pt">111: SCARA PRR Robot</p>
+		<p class="FM_tablebody19pt">112: SCARA PRR+R Robot</p>
+		<p class="FM_tablebody19pt">500: Expansion1 Robot</p></td>
+	</tr>
+</table>
+
+<table width="605" class="hcp13">
+	<tr>
+		<td><p class="FM_asterisk1"><sup>*1 </sup>Those kinematics types 
+		 are applicable only in Robot Version 1.03 or later.</p>
+		<p class="FM_asterisk1"><sup>*2 </sup>Those kinematics types are 
+		 applicable only in Robot Version 1.04 or later.</p></td>
+	</tr>
+</table>
+<p class="FM_head5"><span class="FM_Wingdings">l<span class="hcp11">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span>KinParam</p>
+<p class="FM_body5">Set the robot parameters depending on robot type.</p>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="606" class="hcp12">
+	<tr style="height: 16.30pt;" bgcolor="#B3B3B3">
+		<th rowspan="2" width="142" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th rowspan="2" width="71" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th colspan="2" width="393" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Delta3, 
+		 Delta3R and Delta2</p></th>
+		
+	</tr>
+	<tr style="height: 19.70pt;" bgcolor="#B3B3B3">
+		<th width="102" bgcolor="#B3B3B3" class="hcp14"><p class="FM_tabletitlec9pt">Valid range</p></th>
+		<th width="291" bgcolor="#B3B3B3" class="hcp15"><p 
+			 class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">KinParam[0]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Positive number</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">The 
+		 radius of the fixed frame: Rf [mm]</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">KinParam[1]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Positive number</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">Link 
+		 1: Lf [mm]</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">KinParam[2]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Positive number</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">The 
+		 radius of the moving frame: Rm [mm]</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">KinParam[3]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Positive number</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">Link 
+		 2: Lm [mm]</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">KinParam[4] to [7]<br>
+		(Reserved)</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">(Reserved)</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="606" class="hcp12">
+	<tr style="height: 16.30pt;" bgcolor="#B3B3B3">
+		<th rowspan="2" width="142" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th rowspan="2" width="71" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th colspan="2" width="393" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Cartesian3D 
+		 and Cartesian3D Gantry</p></th>
+		
+	</tr>
+	<tr style="height: 19.70pt;" bgcolor="#B3B3B3">
+		<th width="102" bgcolor="#B3B3B3" class="hcp14"><p class="FM_tabletitlec9pt">Valid range</p></th>
+		<th width="291" bgcolor="#B3B3B3" class="hcp15"><p 
+			 class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">KinParam[0]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Full range</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">The 
+		 distance on X between MCS origin and TCP when all axes are 0: 
+		 OffX [mm]</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">KinParam[1]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Full range</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">The 
+		 distance on Y between MCS origin and TCP when all axes are 0: 
+		 OffY [mm]</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">KinParam[2]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Full range</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">The 
+		 distance on Z between MCS origin and TCP when all axes are 0: 
+		 OffZ [mm]</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">KinParam[3] to [7]<br>
+		(Reserved)</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">(Reserved)</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="606" class="hcp12">
+	<tr style="height: 16.30pt;" bgcolor="#B3B3B3">
+		<th rowspan="2" width="142" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th rowspan="2" width="71" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th colspan="2" width="393" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Cartesian2D</p></th>
+		
+	</tr>
+	<tr style="height: 19.70pt;" bgcolor="#B3B3B3">
+		<th width="102" bgcolor="#B3B3B3" class="hcp14"><p class="FM_tabletitlec9pt">Valid range</p></th>
+		<th width="291" bgcolor="#B3B3B3" class="hcp15"><p 
+			 class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">KinParam[0]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Full range</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">The 
+		 distance of the first coordinate between MCS origin and TCP when 
+		 all axes are 0: Off1 [mm]</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">KinParam[1]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Full range</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">The 
+		 distance of the second coordinate between MCS origin and TCP when 
+		 all axes are 0: Off2 [mm]</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">KinParam[2] to [7]<br>
+		(Reserved)</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">(Reserved)</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="606" class="hcp12">
+	<tr style="height: 16.30pt;" bgcolor="#B3B3B3">
+		<th rowspan="2" width="142" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th rowspan="2" width="71" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th colspan="2" width="393" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Cartesian2D 
+		 Gantry and H-Bot</p></th>
+		
+	</tr>
+	<tr style="height: 19.70pt;" bgcolor="#B3B3B3">
+		<th width="102" bgcolor="#B3B3B3" class="hcp14"><p class="FM_tabletitlec9pt">Valid range</p></th>
+		<th width="291" bgcolor="#B3B3B3" class="hcp15"><p 
+			 class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">KinParam[0]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Full range</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">The 
+		 distance on X between MCS origin and TCP when all axes are 0: 
+		 OffX [mm]</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">KinParam[1]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Full range</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">The 
+		 distance on Y between MCS origin and TCP when all axes are 0: 
+		 OffY [mm]</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">KinParam[2] to [7]<br>
+		(Reserved)</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">(Reserved)</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="606" class="hcp12">
+	<tr style="height: 16.30pt;" bgcolor="#B3B3B3">
+		<th rowspan="2" width="142" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th rowspan="2" width="71" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th colspan="2" width="393" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">SCARA</p></th>
+		
+	</tr>
+	<tr style="height: 19.70pt;" bgcolor="#B3B3B3">
+		<th width="102" bgcolor="#B3B3B3" class="hcp14"><p class="FM_tabletitlec9pt">Valid range</p></th>
+		<th width="291" bgcolor="#B3B3B3" class="hcp15"><p 
+			 class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">KinParam[0]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Positive Number</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">L1: 
+		 the first link length</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">KinParam[1]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Positive Number</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">L2: 
+		 the second link length</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">KinParam[2]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Full Range</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">d1: 
+		 distance of end effector from base in Z when axis A2=0</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">KinParam[3]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">(Reserved)</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">KinParam[4]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">(Reserved)</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">KinParam[5]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">(Reserved)</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">KinParam[6]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">(Reserved)</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">KinParam[7]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">(Reserved)</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="606" class="hcp12">
+	<tr style="height: 16.30pt;" bgcolor="#B3B3B3">
+		<th rowspan="2" width="142" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th rowspan="2" width="71" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th colspan="2" width="393" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Expansion1 
+		 </p></th>
+		
+	</tr>
+	<tr style="height: 19.70pt;" bgcolor="#B3B3B3">
+		<th width="102" bgcolor="#B3B3B3" class="hcp14"><p class="FM_tabletitlec9pt">Valid range</p></th>
+		<th width="291" bgcolor="#B3B3B3" class="hcp15"><p 
+			 class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">KinParam[0]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Positive Number</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">L1: 
+		 the first link length</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">KinParam[1]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Positive Number</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">L2: 
+		 the second link length</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">KinParam[2]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Positive Number</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">L3: 
+		 the third link length</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">KinParam[3]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">(Reserved)</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">KinParam[4]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">(Reserved)</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">KinParam[5]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">(Reserved)</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">KinParam[6]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">(Reserved)</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">KinParam[7]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">(Reserved)</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+<p class="FM_head5"><span class="FM_Wingdings">l<span class="hcp11">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span>ExpansionParam</p>
+<p class="FM_body5">Set the expansion parameters depending on robot type.</p>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="606" class="hcp12">
+	<tr style="height: 16.30pt;" bgcolor="#B3B3B3">
+		<th rowspan="2" width="142" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th rowspan="2" width="71" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th colspan="2" width="393" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Delta3 
+		 and Delta3R</p></th>
+		
+	</tr>
+	<tr style="height: 19.70pt;" bgcolor="#B3B3B3">
+		<th width="102" bgcolor="#B3B3B3" class="hcp14"><p class="FM_tabletitlec9pt">Valid range</p></th>
+		<th width="291" bgcolor="#B3B3B3" class="hcp15"><p 
+			 class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">ExpansionParam[0]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">0.0 to 360.0</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">Z 
+		 axis home position: &#952; [degree]</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">ExpansionParam[1]<br>
+		to [7] (Reserved)</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">(Reserved)</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="606" class="hcp12">
+	<tr style="height: 16.30pt;" bgcolor="#B3B3B3">
+		<th rowspan="2" width="142" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th rowspan="2" width="71" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th colspan="2" width="393" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Cartesian2D</p></th>
+		
+	</tr>
+	<tr style="height: 19.70pt;" bgcolor="#B3B3B3">
+		<th width="102" bgcolor="#B3B3B3" class="hcp14"><p class="FM_tabletitlec9pt">Valid range</p></th>
+		<th width="291" bgcolor="#B3B3B3" class="hcp15"><p 
+			 class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 85.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">ExpansionParam[0]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">[0, 1, 2]</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">Index 
+		 to defined planes:<br>
+		0: plane XY – the first coordinate is X and the second is Y<br>
+		1: plane XZ – the first coordinate is X and the second is Z<br>
+		2: plane YZ – the first coordinate is Y and the second is Z</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">ExpansionParam[1]<br>
+		to [7] (Reserved)</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">(Reserved)</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="606" class="hcp12">
+	<tr style="height: 16.30pt;" bgcolor="#B3B3B3">
+		<th rowspan="2" width="142" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th rowspan="2" width="71" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th colspan="2" width="393" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Cartesian3D 
+		 Gantry and Cartesian2D Gantry</p></th>
+		
+	</tr>
+	<tr style="height: 19.70pt;" bgcolor="#B3B3B3">
+		<th width="102" bgcolor="#B3B3B3" class="hcp14"><p class="FM_tabletitlec9pt">Valid range</p></th>
+		<th width="291" bgcolor="#B3B3B3" class="hcp15"><p 
+			 class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 27.40pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">ExpansionParam[0]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">-1.0 or Positive Number <sup>*1</sup></p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">The 
+		 maximum acceptable error of commanded posi­tions between axes 
+		 A0 and A1 (absolute value)</p></td>
+	</tr>
+	<tr style="height: 27.40pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">ExpansionParam[1]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">-1.0 or Positive Number <sup><span 
+		 class="FM_Superscript">*1</span></sup></p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">The 
+		 maximum acceptable error of actual positions between axes A0 and 
+		 A1 (absolute value)</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">ExpansionParam[2] <br>
+		to [7] (Reserved)</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">(Reserved)</p></td>
+	</tr>
+</table>
+
+
+<table width="606" class="hcp13">
+	<tr>
+		<td><p class="FM_asterisk1"><sup>*1</sup> When input is -1.0, the 
+		 axes position error check is disabled.</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="606" class="hcp12">
+	<tr style="height: 16.30pt;" bgcolor="#B3B3B3">
+		<th rowspan="2" width="142" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th rowspan="2" width="71" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th colspan="2" width="393" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">H-Bot</p></th>
+		
+	</tr>
+	<tr style="height: 19.70pt;" bgcolor="#B3B3B3">
+		<th width="102" bgcolor="#B3B3B3" class="hcp14"><p class="FM_tabletitlec9pt">Valid range</p></th>
+		<th width="291" bgcolor="#B3B3B3" class="hcp15"><p 
+			 class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 61.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">ExpansionParam[0]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">[0, 1, 2, 3]</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">Type 
+		 of H-Bot:<br>
+		0: H-Bot type 1<br>
+		1: H-Bot type 2<br>
+		2: T-Bot type 1<br>
+		3: T-Bot type 2</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">ExpansionParam[1]<br>
+		to [7] (Reserved)</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">(Reserved)</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+<p class="FM_iconbul1">Precautions for Correct Use</p>
+<p class="FM_iconbody1">Robot types which are not in above tables do not 
+ use <span class="hcp6">ExpansionParam</span>. The values 
+ you</p>
+<p class="FM_iconbody1">set will be ignored.</p>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="620" class="hcp8">
+	<tr style="height: 20.00pt;">
+		<td width="620" class="hcp9"><p class="FM_head4"><a name="Details on _sMC_WORKSPACE_REF">Details 
+		 on _sMC_WORKSPACE_REF</a></p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">The following are the member variables of a _sMC_WORKSPACE_REF 
+ data type variable.</p>
+<p class="FM_body1">Refer to <span class="FM_italic">Kinematics Setting</span> 
+ on manual as well.</p>
+<p class="FM_head5"><span class="FM_Wingdings">l<span class="hcp11">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span>WorkspaceType</p>
+<p class="FM_body5">Select the workspace type.</p>
+
+<table cellspacing="0" width="605" class="hcp12">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="132" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="110" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th width="167" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Valid 
+		 range</p></th>
+		<th width="196" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 37.00pt;">
+		<td width="132" class="hcp4"><p 
+			 class="FM_tablebody19pt">Workspace Type Selection</p></td>
+		<td width="110" class="hcp4"><p 
+			 class="FM_tablebody19pt">_eMC_</p>
+		<p class="FM_tablebody19pt">WORKSPACE_</p>
+		<p class="FM_tablebody19pt">TYPE</p></td>
+		<td width="167" class="hcp4"><p 
+			 class="FM_tablebody19pt">100: _mcDelta3 Workspace</p>
+		<p class="FM_tablebody19pt">101: _mcDelta2 Workspace</p>
+		<p class="FM_tablebody19pt">102: _mcCartesian3Dworkspace <sup>*1</sup></p>
+		<p class="FM_tablebody19pt">103: _mcCartesian2Dworkspace <sup><span 
+		 class="FM_Superscript">*1</span></sup></p>
+		<p class="FM_tablebody19pt">104: _mcHBotWorkspace <sup><span class="FM_Superscript">*1</span></sup></p>
+		<p class="FM_tablebody19pt">105: _mcScaraWorkspace *2</p>
+		<p class="FM_tablebody19pt">500: _mcExpansion1Workspace <sup><span 
+		 class="FM_Superscript">*2</span></sup></p></td>
+		<td width="196" class="hcp5"><p class="FM_tablebody19pt">Select 
+		 the workspace type.</p>
+		<p class="FM_tablebody19pt">100: Delta3 or Delta3R</p>
+		<p class="FM_tablebody19pt">101: Delta2</p>
+		<p class="FM_tablebody19pt">102: Cartesian 3D</p>
+		<p class="FM_tablebody19pt">103: Cartesian 2D</p>
+		<p class="FM_tablebody19pt">104: H-Bot</p>
+		<p class="FM_tablebody19pt">105: SCARA robot volume</p>
+		<p class="FM_tablebody19pt">500: Expansion1 robot vol­ume</p></td>
+	</tr>
+</table>
+
+<table width="605" class="hcp13">
+	<tr>
+		<td><p class="FM_asterisk1"><sup>*1</sup>Those workspace types 
+		 are applicable only in Robot Version 1.03 or later.</p>
+		<p class="FM_asterisk1"><sup>*2</sup>Those workspace types are 
+		 applicable only in Robot Version 1.04 or later.</p></td>
+	</tr>
+</table>
+<p class="FM_head5"><span class="FM_Wingdings">l<span class="hcp11">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span>WorkspaceParam</p>
+<p class="FM_body5">Set the range of the workspace.</p>
+<p class="FM_body5">The setting varies depending on <span class="hcp6">KinType</span> 
+ (Kinematics Type Selection) as shown below.</p>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="606" class="hcp12">
+	<tr style="height: 19.70pt;" bgcolor="#B3B3B3">
+		<th rowspan="2" width="142" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th rowspan="2" width="71" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th colspan="2" width="393" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Delta3 
+		 or Delta3R</p></th>
+		
+	</tr>
+	<tr style="height: 19.70pt;" bgcolor="#B3B3B3">
+		<th width="102" bgcolor="#B3B3B3" class="hcp14"><p class="FM_tabletitlec9pt">Valid range</p></th>
+		<th width="291" bgcolor="#B3B3B3" class="hcp15"><p 
+			 class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[0]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Negative number</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">The 
+		 cylinder top face position: Zu [mm]</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[1]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Positive number</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">The 
+		 radius of cylinder: Rcy [mm]</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[2]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Positive number</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">The 
+		 height of cylinder: Hcy [mm]</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[3]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Non-negative number</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">The 
+		 radius of truncated cone: Rco [mm]</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[4]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Non-negative number</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">The 
+		 height of truncated cone: Hco [mm]</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[5] to [7] (Reserved)</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">(Reserved)</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="606" class="hcp12">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th rowspan="2" width="142" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th rowspan="2" width="71" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th colspan="2" width="393" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Delta2</p></th>
+		
+	</tr>
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="102" bgcolor="#B3B3B3" class="hcp14"><p class="FM_tabletitlec9pt">Valid range</p></th>
+		<th width="291" bgcolor="#B3B3B3" class="hcp15"><p 
+			 class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[0]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Negative number</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">Type 
+		 trapezoid top face position: Zu [mm]</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[1]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Positive number</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">Half 
+		 the length of the trapezoid top face: Rtop [mm]</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[2]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Non-negative number</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">Half 
+		 the length of the trapezoid bottom face: Rbottom [mm]</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[3]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Positive number</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">The 
+		 hight of trapezoid: H [mm]</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[4] to [7] (Reserved)</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">(Reserved)</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="606" class="hcp12">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th rowspan="2" width="142" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th rowspan="2" width="71" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th colspan="2" width="393" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Cartesian3D</p></th>
+		
+	</tr>
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="102" bgcolor="#B3B3B3" class="hcp14"><p class="FM_tabletitlec9pt">Valid range</p></th>
+		<th width="291" bgcolor="#B3B3B3" class="hcp15"><p 
+			 class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[0]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Full Range</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">Origin 
+		 of the workspace: X coordinate: X0 [mm]</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[1]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Full Range</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">Origin 
+		 of the workspace: Y coordinate: Y0 [mm]</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[2]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Full Range</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">Origin 
+		 of the workspace: Z coordinate: Z0 [mm]</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[3]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Positive number</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">Workspace 
+		 dimension on the X direction: DX [mm]</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[4]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Positive number</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">Workspace 
+		 dimension on the Y direction: DY [mm]</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[5]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Positive number</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">Workspace 
+		 dimension on the Z direction: DZ [mm]</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[6] to [7] (Reserved)</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">(Reserved)</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="606" class="hcp12">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th rowspan="2" width="142" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th rowspan="2" width="71" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th colspan="2" width="393" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Cartesian2D</p></th>
+		
+	</tr>
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="102" bgcolor="#B3B3B3" class="hcp14"><p class="FM_tabletitlec9pt">Valid range</p></th>
+		<th width="291" bgcolor="#B3B3B3" class="hcp15"><p 
+			 class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 28.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[0]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Full Range</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">Origin 
+		 of the workspace: the first coordinate:</p>
+		<p class="FM_tablebody19pt">Org1 [mm]</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[1]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Full Range</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">Origin 
+		 of the workspace: the second coordinate: Org2 [mm]</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[2]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Positive number</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">Workspace 
+		 dimension on the first coordinate direc­tion: d1 [mm]</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[3]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Positive number</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">Workspace 
+		 dimension on the second coordinate direction: d2 [mm]</p></td>
+	</tr>
+	<tr style="height: 94.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[4]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">[0, 1, 2]</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">Index 
+		 to defined planes:</p>
+		<p class="FM_tablebody19pt">0: plane XY – the first coordinate 
+		 is X and the second is Y</p>
+		<p class="FM_tablebody19pt">1: plane XZ – the first coordinate&#160;is 
+		 X and the second is Z</p>
+		<p class="FM_tablebody19pt">2: plane YZ – the first coordinate 
+		 is Y and the second is Z</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[5] to [7] (Reserved)</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">(Reserved)</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="606" class="hcp12">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th rowspan="2" width="142" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th rowspan="2" width="71" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th colspan="2" width="393" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">H-Bot</p></th>
+		
+	</tr>
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="102" bgcolor="#B3B3B3" class="hcp14"><p class="FM_tabletitlec9pt">Valid range</p></th>
+		<th width="291" bgcolor="#B3B3B3" class="hcp15"><p 
+			 class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[0]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Full Range</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">Origin 
+		 of the workspace: X coordinate: X0 [mm]</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[1]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Full Range</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">Origin 
+		 of the workspace: Y coordinate: Y0 [mm]</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[2]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Positive number</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">Workspace 
+		 dimension on the X direction: DX [mm]</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[3]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Positive number</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">Workspace 
+		 dimension on the Y direction: DY [mm]</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[4] to [7] (Reserved)</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">(Reserved)</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="606" class="hcp12">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th rowspan="2" width="142" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th rowspan="2" width="71" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th colspan="2" width="393" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">SCARA</p></th>
+		
+	</tr>
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="102" bgcolor="#B3B3B3" class="hcp14"><p class="FM_tabletitlec9pt">Valid range</p></th>
+		<th width="291" bgcolor="#B3B3B3" class="hcp15"><p 
+			 class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[0]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Zero or Positive number</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">Rmin: 
+		 Internal radius of the cylinder [mm]</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[1]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Positive number</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">Rmax: 
+		 External radius of the cylinder [mm]</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[2]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Full Range</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">Zu: 
+		 Z coordinate of the bottom part of the cylinder [mm]</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[3]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Positive number</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">Hcyl: 
+		 Height of the cylinder [mm]</p></td>
+	</tr>
+	<tr style="height: 37.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[4]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Zero or Positive number</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">Darc: 
+		 arc origin distance (Distance from the centre of the cylinder 
+		 to the origin of the arc along X negative axis) [mm]</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[5]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">[0, 180)</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">Aarc: 
+		 arc angle [deg]</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[6]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">(Reserved)</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[7]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">(Reserved)</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="606" class="hcp12">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th rowspan="2" width="142" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th rowspan="2" width="71" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th colspan="2" width="393" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Expansion1</p></th>
+		
+	</tr>
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="102" bgcolor="#B3B3B3" class="hcp14"><p class="FM_tabletitlec9pt">Valid range</p></th>
+		<th width="291" bgcolor="#B3B3B3" class="hcp15"><p 
+			 class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[0]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Zero or Positive number</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">Rmin: 
+		 Internal radius of the circle [mm]</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[1]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">Positive number</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">Rmax: 
+		 External radius of circle [mm]</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[2]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">(Reserved)</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[3]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">(Reserved)</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[4]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">(Reserved)</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[5]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">(Reserved)</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[6]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">(Reserved)</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="142" class="hcp4"><p 
+			 class="FM_tablebody19pt">WorkspaceParam[7]</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="102" class="hcp4"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="291" class="hcp5"><p class="FM_tablebody19pt">(Reserved)</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="620" class="hcp8">
+	<tr style="height: 20.00pt;">
+		<td width="620" class="hcp9"><p class="FM_head4">Timing Charts</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+<div class="hcp16">
+	<img alt="C01-02_010.jpg" id="image1" src="C01-02_010.jpg" border="0"> 
+	 
+</div>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="620" class="hcp8">
+	<tr style="height: 20.00pt;">
+		<td width="620" class="hcp9"><p class="FM_head4">Errors</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">If an error occurs during instruction execution, <span class="hcp6">Error</span> will change to TRUE.</p>
+<p class="FM_body1">You can find out the cause of the error by referring 
+ to the value output by <span class="hcp6">ErrorID</span> 
+ (Error Code).</p>
+<p class="FM_body1">&#160;</p>
+<div class="hcp16">
+	<img alt="C01-02_020R.jpg" id="image2" src="C01-02_020R.jpg" border="0"> 
+	 
+</div>
+<p class="FM_body1">&#160;</p>
+<p class="FM_body1">&#160;</p>
+</body>
+</html>

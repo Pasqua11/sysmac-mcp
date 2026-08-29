@@ -1,0 +1,1289 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>MC_SyncTorqueControl</title>
+</head>
+<body class="kmp1757489773181"><div class="layer02" id="kmp1757489773181">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">MC_SyncTorqueControl</h1>
+
+<div class="body conbody">
+<p class="p">The MC_SyncTorqueControl instruction outputs the value set for the target torque every task period to the Servo Drive in Cyclic Synchronous Torque Control Mode (CST).</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="kmp1757489773181__table_N10017_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:16%" />
+<col style="width:12%" />
+<col style="width:5%" />
+<col style="width:35%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d83137e37">Instruction</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d83137e40">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d83137e43">FB/FUN</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d83137e46">Graphic expression</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d83137e49">ST expression</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d83137e37 "><span class="indexterm">MC_SyncTorqueControl (Cyclic Synchronous Torque Control)</span>MC_SyncTorqueControl</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d83137e40 "><span class="indexterm">Cyclic Synchronous Torque Control</span>Cyclic Synchronous Torque Control</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d83137e43 ">FB</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d83137e46 ">
+<br /><img class="image" id="kmp1757489773181__image_dlj_hrk_pgc" src="bbc1757497410857.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d83137e49 ">
+<p class="p">MC_SyncTorqueControl_instance (</p>
+
+<p class="p">Axis :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Execute :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Torque :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Velocity :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">BufferMode :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">InTorque =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Busy =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Active =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter,</span></span>,</p>
+
+<p class="p" id="kmp1757489773181__ID0EPYLS">CommandAborted =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p" id="kmp1757489773181__ID0EWYLS">Error =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">ErrorID =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span></p>
+
+<p class="p">);</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<div class="note" id="kmp1757489773181__note_N10120_N1000F_N10002"><div class="use"><span class="notetitle use">use:</span>
+<ul class="ul">
+<li class="li" id="kmp1757489773181__li_N1012B_N10127_N10120_N1000F_N10002">
+<p class="p">You cannot use this instruction for an NX-series Pulse Output Unit.</p>
+
+</li>
+
+<li class="li" id="kmp1757489773181__li_N10136_N10127_N10120_N1000F_N10002">
+<p class="p">Here, the task period is the primary period if the task is the primary periodic task and the task period of the priority-5 periodic task if the task is the priority-5 periodic task.</p>
+
+</li>
+
+</ul>
+
+</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="guw1757490062962">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Variables</h1>
+
+<div class="body conbody">
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="jqy1757490020887">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Input Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="jqy1757490020887__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:14%" />
+<col style="width:11%" />
+<col style="width:17%" />
+<col style="width:19%" />
+<col style="width:7%" />
+<col style="width:30%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d74233e65">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d74233e68">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d74233e71">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d74233e74">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d74233e77">Default</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d74233e81">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d74233e65 ">Execute</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d74233e68 ">Execute</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d74233e71 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d74233e74 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d74233e77 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d74233e81 ">
+<p class="p">Executes the instruction when this variable changes to TRUE.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d74233e65 ">Torque</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d74233e68 ">Target Torque</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d74233e71 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d74233e74 ">-1,000.0 to 1,000.0</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d74233e77 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d74233e81 ">
+<p class="p">Specifies the target torque to output to the Servo Drive in increments of 0.1%.</p>
+
+<p class="p">Specifies a percentage of the rated torque, i.e., the rated torque is 100.0%. <a class="xref" href="#jqy1757490020887__fn_dln_2sk_pgc"><sup>*1</sup></a></p>
+
+<p class="p">When the target torque is specified as a positive value, the direction of the target torque is positive. Conversely, when the target torque is specified as a negative value, the direction of the target torque is negative.</p>
+
+<p class="p">The unit is [%].</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d74233e65 ">Velocity</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d74233e68 ">Velocity Limit</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d74233e71 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d74233e74 ">Positive number or 0</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d74233e77 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d74233e81 ">
+<p class="p">Specifies the velocity limit for the axis during torque control.</p>
+
+<p class="p">The unit is command units<a class="xref" href="#jqy1757490020887__fn_nwn_btk_pgc"><sup>*2</sup></a>/s.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d74233e65 ">BufferMode</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d74233e68 ">Buffer Mode Selection</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d74233e71 ">_eMC_BUFFER_MODE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d74233e74 ">
+<p class="p">0: _mcAborting</p>
+
+<p class="p">1: _mcBuffered</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d74233e77 ">0 <a class="xref" href="#jqy1757490020887__fn_w4c_fsk_pgc"><sup>*3</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d74233e81 ">
+<p class="p">Specifies the operation when executing more than one motion control instruction.</p>
+
+<p class="p">0: Aborting</p>
+
+<p class="p">1: Buffered</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="jqy1757490020887__fn_dln_2sk_pgc" id="jqy1757490020887__fn_dln_2sk_pgc"><sup>*1</sup></a>  If a value that is higher than 1,000.0% is specified, the target torque is saturated at 1,000.0%. Similarly, if a value that is lower than -1,000.0% is specified, the target torque is saturated at -1,000.0%.</div>
+<div class="fn"><a name="jqy1757490020887__fn_nwn_btk_pgc" id="jqy1757490020887__fn_nwn_btk_pgc"><sup>*2</sup></a>  Refer to <span class="ph phtype_type2"><span class="termtype">Unit Conversion Settings</span></span> in the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Motion Control User&#8217;s Manual (Cat. No. W507)</span></span></span>.</div>
+<div class="fn"><a name="jqy1757490020887__fn_w4c_fsk_pgc" id="jqy1757490020887__fn_w4c_fsk_pgc"><sup>*3</sup></a>  <p class="p">The default value for an enumeration variable is actually not the number, but the enumerator.</p>
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="bag1757490250431">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Output Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="bag1757490250431__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:17%" />
+<col style="width:14%" />
+<col style="width:9%" />
+<col style="width:10%" />
+<col style="width:47%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d6810e47">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d6810e50">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d6810e53">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d6810e56">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d6810e59">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d6810e47 ">InTorque</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d6810e50 ">Target Torque Reached</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d6810e53 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d6810e56 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d6810e59 ">
+<p class="p">TRUE when the target torque is reached.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d6810e47 ">Busy</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d6810e50 ">Executing</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d6810e53 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d6810e56 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d6810e59 ">
+<p class="p">TRUE when the instruction is acknowledged.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d6810e47 ">Active</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d6810e50 ">Controlling</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d6810e53 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d6810e56 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d6810e59 ">
+<p class="p">TRUE when the axis is being controlled.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d6810e47 ">CommandAborted</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d6810e50 ">Command Aborted</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d6810e53 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d6810e56 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d6810e59 ">
+<p class="p">TRUE when the instruction is aborted.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d6810e47 ">Error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d6810e50 ">Error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d6810e53 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d6810e56 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d6810e59 ">
+<p class="p">TRUE while there is an error.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d6810e47 ">ErrorID</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d6810e50 ">Error Code</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d6810e53 ">WORD</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d6810e56 "><a class="xref" href="#bag1757490250431__fn_w5y_l5k_pgc"><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d6810e59 ">
+<p class="p">Contains the error code when an error occurs. A value of 16#0000 indicates normal execution.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="bag1757490250431__fn_w5y_l5k_pgc" id="bag1757490250431__fn_w5y_l5k_pgc"><sup>*1</sup></a>  <p class="p">The upper four digits of the event code give the error code for ErrorID. For details, refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series Troubleshooting Manual (Cat. No. W503)</span></span></span>.</p>
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="ode1757490399157">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Output Variable Update Timing</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ode1757490399157__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:17%" />
+<col style="width:41%" />
+<col style="width:40%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d111607e29">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d111607e32">Timing for changing to TRUE</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d111607e35">Timing for changing to FALSE</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d111607e29 ">InTorque</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d111607e32 ">
+<p class="p">When target torque command is being sent.</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d111607e35 ">
+<ul class="ul">
+<li class="li" id="ode1757490399157__li_N10064_N10060_N1005C_N1004A_N10047_N10017_N10012_N1000F_N10002">
+<p class="p">When <span class="ph phtype_variable"><span class="termtype">Error</span></span> changes to TRUE.</p>
+
+</li>
+
+<li class="li" id="ode1757490399157__li_N10074_N10060_N1005C_N1004A_N10047_N10017_N10012_N1000F_N10002">
+<p class="p">When <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> changes to TRUE.</p>
+
+</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d111607e29 ">Busy</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d111607e32 ">
+<p class="p">When <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to TRUE.</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d111607e35 ">
+<ul class="ul">
+<li class="li" id="ode1757490399157__li_N100A6_N100A2_N1009E_N10087_N10047_N10017_N10012_N1000F_N10002">
+<p class="p">When <span class="ph phtype_variable"><span class="termtype">Error</span></span> changes to TRUE.</p>
+
+</li>
+
+<li class="li" id="ode1757490399157__li_N100B6_N100A2_N1009E_N10087_N10047_N10017_N10012_N1000F_N10002">
+<p class="p">When <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> changes to TRUE.</p>
+
+</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d111607e29 ">Active</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d111607e32 ">
+<p class="p" id="ode1757490399157__ID0E26MS">When output of the torque command value starts.</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d111607e35 ">
+<ul class="ul">
+<li class="li" id="ode1757490399157__li_N100E4_N100E0_N100DC_N100C9_N10047_N10017_N10012_N1000F_N10002">
+<p class="p">When <span class="ph phtype_variable"><span class="termtype">Error</span></span> changes to TRUE.</p>
+
+</li>
+
+<li class="li" id="ode1757490399157__li_N100F4_N100E0_N100DC_N100C9_N10047_N10017_N10012_N1000F_N10002">
+<p class="p">When <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> changes to TRUE.</p>
+
+</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d111607e29 ">CommandAborted</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d111607e32 ">
+<ul class="ul">
+<li class="li" id="ode1757490399157__li_N10117_N10113_N1010F_N10107_N10047_N10017_N10012_N1000F_N10002">
+<p class="p">When this instruction is aborted because another motion control instruction was executed with the Buffer Mode set to <span class="ph phtype_choice"><span class="termtype">Aborting</span></span>.</p>
+
+</li>
+
+<li class="li" id="ode1757490399157__li_N10122_N10113_N1010F_N10107_N10047_N10017_N10012_N1000F_N10002">
+<p class="p">When this instruction is canceled due to an error.</p>
+
+</li>
+
+<li class="li" id="ode1757490399157__li_N1012D_N10113_N1010F_N10107_N10047_N10017_N10012_N1000F_N10002">
+<p class="p">When this instruction is executed while there is an error.</p>
+
+</li>
+
+<li class="li" id="ode1757490399157__li_N10138_N10113_N1010F_N10107_N10047_N10017_N10012_N1000F_N10002">
+<p class="p">When you start this instruction during MC_Stop instruction execution.</p>
+
+</li>
+
+</ul>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d111607e35 ">
+<ul class="ul">
+<li class="li" id="ode1757490399157__li_N1014D_N10149_N10145_N10107_N10047_N10017_N10012_N1000F_N10002">
+<p class="p">When <span class="ph phtype_variable"><span class="termtype">Execute</span></span> is TRUE and changes to FALSE<span class="ph phtype_variable"><span class="termtype"></span></span>.</p>
+
+</li>
+
+<li class="li" id="ode1757490399157__li_N10163_N10149_N10145_N10107_N10047_N10017_N10012_N1000F_N10002">
+<p class="p" id="ode1757490399157__ID0EFENS">After one period when <span class="ph phtype_variable"><span class="termtype">Execute</span></span> is FALSE.</p>
+
+</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d111607e29 ">Error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d111607e32 ">
+<p class="p">When there is an error in the execution conditions or input parameters for the instruction.</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d111607e35 ">
+<p class="p">When the error is cleared.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="vfx1757490676407">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">In-Out Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="vfx1757490676407__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:17%" />
+<col style="width:16%" />
+<col style="width:13%" />
+<col style="width:10%" />
+<col style="width:42%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d181074e46">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d181074e49">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d181074e52">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d181074e55">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d181074e58">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d181074e46 ">Axis</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d181074e49 ">Axis</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d181074e52 ">
+<p class="p">_sAXIS_REF</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d181074e55 ">
+<p class="p">---</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d181074e58 ">
+<p class="p">Specifies the axis. <a class="xref" href="#vfx1757490676407__fn_txj_gyk_pgc"><sup>*1</sup></a></p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="vfx1757490676407__fn_txj_gyk_pgc" id="vfx1757490676407__fn_txj_gyk_pgc"><sup>*1</sup></a>  <p class="p">Use the axis variable name of a user-defined variable created in the Axis Basic Settings of the Sysmac Studio (default: MC_Axis*) or the axis variable name of a system-defined variable (_MC_AX[*], _MC1_AX[*], _MC2_AX[*]).</p>
+
+<p class="p">You can set the axis variable name of a system-defined variable for the AT specification of a user-defined variable. This will allow you to specify the user-defined variable.</p>
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="zss1757490965631">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="zss1757490965631__li_N10017_N10013_N10010_N10002">
+<p class="p">The MC_SyncTorqueControl instruction outputs the target torque given by the user program every task period to the Servo Drive in Cyclic Synchronous Torque (CST) Control Mode.</p>
+
+</li>
+
+<li class="li" id="zss1757490965631__li_N10022_N10013_N10010_N10002">
+<p class="p">When <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to TRUE, the Control Mode of the Servo Drive is changed and a command torque is output.</p>
+
+</li>
+
+<li class="li" id="zss1757490965631__li_N10032_N10013_N10010_N10002">
+<p class="p">Set the target torque in increments of 0.1%. If the second decimal place is specified, it will be rounded off.</p>
+
+</li>
+
+<li class="li" id="zss1757490965631__li_N1003B_N10013_N10010_N10002">
+<p class="p">Use the MC_Stop or MC_ImmediateStop instruction to stop the execution of this instruction.</p>
+
+</li>
+
+<li class="li" id="zss1757490965631__li_N10044_N10013_N10010_N10002">
+<p class="p">The Torque Control Mode of the Servo Drive is used to perform torque control.</p>
+
+</li>
+
+<li class="li" id="zss1757490965631__li_N1004D_N10013_N10010_N10002">
+<p class="p">The previous Control Mode is maintained until it is changed.</p>
+
+<p class="p">Example:</p>
+
+<p class="p">Changing from position control to torque control: Position control is performed until the Servo Drive changes to torque control.</p>
+
+<p class="p">Changing from torque control to position control: Torque control is performed until the Servo Drive changes to position control.</p>
+
+</li>
+
+<li class="li" id="zss1757490965631__li_N10062_N10013_N10010_N10002">
+<p class="p">If this instruction is executed in the primary periodic task or a priority-5 periodic task, the target torque command is sent in the next task period.</p>
+
+<p class="p">The following timing charts show an example of the operation for when this instruction is executed in the primary periodic task. The same information applies when it is used in a priority-5 periodic task.</p>
+
+<br /><img class="image linespace_7pt" id="zss1757490965631__image_nwv_zd3_tgc" src="flc1758703240379.gif" /><br />
+</li>
+
+<li class="li" id="zss1757490965631__li_N10075_N10013_N10010_N10002">
+<p class="p">If this instruction is executed in the priority-16 periodic task, the target torque command is sent in the next periodic task.</p>
+
+<br /><img class="image linespace_7pt" id="zss1757490965631__image_gdf_223_tgc" src="qdi1758703315073.gif" /><br />
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="gbe1757491051557">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Mapping Data Objects</h1>
+
+<div class="body conbody">
+<p class="p">To use this instruction, map the following object data in the <span class="ph phtype_ui"><span class="termtype">Detailed Settings</span></span> Area of the Axis Basic Settings Display of the Sysmac Studio.</p>
+
+<p class="p">However, the maximum profile velocity should be checked only when an OMRON 1S-series Servo Drive with built-in EtherCAT communications or G5-series Servo Drive with built-in EtherCAT communications is used.</p>
+
+<ul class="ul">
+<li class="li" id="gbe1757491051557__li_N10022_N1001E_N10010_N10002">
+<p class="p">Target torque (6071 hex)</p>
+
+</li>
+
+<li class="li" id="gbe1757491051557__li_N1002D_N1001E_N10010_N10002">
+<p class="p">Modes of operation (6060 hex)</p>
+
+</li>
+
+<li class="li" id="gbe1757491051557__li_N10038_N1001E_N10010_N10002">
+<p class="p">Torque actual value (6077 hex)</p>
+
+</li>
+
+<li class="li" id="gbe1757491051557__li_N10041_N1001E_N10010_N10002">
+<p class="p">Modes of operation display (6061 hex)</p>
+
+</li>
+
+<li class="li" id="gbe1757491051557__li_N1004C_N1001E_N10010_N10002">
+<p class="p">Max. profile velocity (607F hex)</p>
+
+</li>
+
+</ul>
+
+<p class="p linespace_7pt">If even one of the required objects is not set, a Process Data Object Setting Missing error (error code: 3461 hex) occurs.</p>
+
+<p class="p linespace_7pt">For details on mapping data objects, refer to <a class="xref" href="slj1484547232876.html#slj1484547232876"><i style="display:none;">☆</i>PDO Mapping</a> and to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Motion Control User&#8217;s Manual (Cat. No. W507)</span></span></span>.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="vzq1757491111929">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Instruction Details</h1>
+
+<div class="body conbody">
+<p class="p">This section describes the instruction in detail.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="dgv1757491235040">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Specifying Axis</h1>
+
+<div class="body conbody">
+<p class="p"><span class="ph phtype_variable"><span class="termtype">Axis</span></span> specifies the axis for torque control.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="vmy1757491360468">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Torque (Target Torque)</h1>
+
+<div class="body conbody">
+<p class="p">The <span class="ph phtype_variable"><span class="termtype">Torque</span></span> (Target Torque) input variable can be set to LREAL data in reference to 0.</p>
+
+<p class="p">If you want to output the target torque in the positive direction of the axis, set a positive number. If you want to output the target torque in the negative direction of the axis, set a negative number.</p>
+
+<p class="p">If <span class="ph phtype_settingvalue"><span class="termtype">0</span></span> is set, the command torque is 0 and <span class="ph phtype_variable"><span class="termtype">Status.Continuous</span></span> (Continuous Motion) remains TRUE.</p>
+
+<p class="p">You can set <span class="ph phtype_variable"><span class="termtype">Torque</span></span> (Target Torque) from the user program every period.</p>
+
+<p class="p">If the specified target torque is different from the last period, the new target torque is used. If the specified target torque is the same as the last period, the previous target torque is used.</p>
+
+<div class="note" id="vmy1757491360468__note_N1003F_N10010_N10002"><div class="use"><span class="notetitle use">use:</span>
+<p class="p">Set the target torque so that the maximum torque of the motor is not exceeded.</p>
+
+<p class="p">The operation that is performed when the maximum torque of the motor is exceeded depends on the Servo Drive.</p>
+
+</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="pjy1757491180781">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Velocity (Velocity Limit)</h1>
+
+<div class="body conbody">
+<p class="p">This variable limits the maximum velocity of the axis during torque control.</p>
+
+<p class="p">When the axis velocity reaches this velocity limit, the Servo Drive reduces the torque to reduce the axis velocity.</p>
+
+<p class="p">You can set <span class="ph phtype_variable"><span class="termtype">Velocity</span></span> (Velocity Limit) from the user program every period.</p>
+
+<p class="p" id="pjy1757491180781__ID0EUYNS">If the specified velocity limit is different from the last period, the new velocity limit is used. If the specified velocity limit is the same as the last period, the previous velocity limit is used.</p>
+
+<p class="p">The velocity limit function uses the Servo Drive function. For details, refer to information on the torque control function in the user manual for the Servo Drive.</p>
+
+<div class="note" id="pjy1757491180781__note_N10030_N10010_N10002"><div class="use"><span class="notetitle use">use:</span>
+<ul class="ul">
+<li class="li" id="pjy1757491180781__li_N1003B_N10037_N10030_N10010_N10002">
+<p class="p">The axis velocity increases faster during torque control. Make sure that you set <span class="ph phtype_variable"><span class="termtype">Velocity</span></span> (velocity limit) for safety.</p>
+
+</li>
+
+<li class="li" id="pjy1757491180781__li_N1004B_N10037_N10030_N10010_N10002">
+<p class="p">When you use an OMRON G5-series Servo Drive, set the <span class="ph phtype_variable"><span class="termtype">Velocity Limit Selection</span></span> (3317 hex) of the Servo Drive to <span class="ph phtype_variable"><span class="termtype">1 (velocity limit value via EtherCAT communications)</span></span>.</p>
+
+<p class="p">Otherwise, the velocity limit is not affected. Also, the axis does not stop even if the limit input signal turns ON.</p>
+
+</li>
+
+<li class="li" id="pjy1757491180781__li_N10063_N10037_N10030_N10010_N10002">
+<p class="p"><span class="ph phtype_variable"><span class="termtype">Process data</span></span> (607F hex) is used for the velocity limit value.</p>
+
+<p class="p">When you use an OMRON 1S-series Servo Drive or G5-series Servo Drive, set the <span class="ph phtype_ui"><span class="termtype">Detailed Settings</span></span> in the Axis Parameter Settings of the Sysmac Studio to use the <span class="ph phtype_variable"><span class="termtype">Velocity Limit Value</span></span> (607F hex).</p>
+
+<p class="p">To use a velocity limit with a servo drive from another manufacturer, refer to the manual for the servo drive.</p>
+
+</li>
+
+</ul>
+
+</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="vkx1757491473720">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">BufferMode (Buffer Mode Selection)</h1>
+
+<div class="body conbody">
+<p class="p">This variable specifies how to join the axis motions for this instruction and the previous instruction.</p>
+
+<p class="p">There is currently only the following two settings.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="vkx1757491473720__table_N1001B_N10010_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:20%" />
+<col style="width:79%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d183351e33">Buffer Mode Selection</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d183351e36">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d183351e33 ">Aborting</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d183351e36 ">
+<p class="p">Aborts the instruction being executed and switches to this instruction.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d183351e33 ">Buffered</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d183351e36 ">
+<p class="p">Automatically executes the buffered instruction after the current instruction is completed.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p">For details on <span class="ph phtype_variable"><span class="termtype">BufferMode</span></span> (Buffer Mode Selection), refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Motion Control User&#8217;s Manual (Cat. No. W507)</span></span></span>.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="ety1757491499537">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Stopping Axes during Torque Control</h1>
+
+<div class="body conbody">
+<p class="p">If MC_Stop is executed during MC_SyncTorqueControl execution for an OMRON 1S-series Servo Drive or G5-series Servo Drive, the deceleration rate that is specified for the MC_Stop instruction is not used and an immediate stop is performed.</p>
+
+<p class="p">Similarly, if the MC_ImmediateStop instruction is executed, an immediate stop is performed according to the setting of the <span class="ph phtype_parameter"><span class="termtype">Immediate Stop Input Stop Method</span></span> axis parameter.</p>
+
+<p class="p">Except during torque control, an immediate stop is performed even for errors that normally result in deceleration stops.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="mbl1757491524444">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Command Position and Actual Position during Torque Control</h1>
+
+<div class="body conbody">
+<p class="p">The following current positions are given in the system-defined variables for motion control during torque control for this instruction.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="mbl1757491524444__table_N10018_N10010_N10002" class="table no-line" border="0">
+                
+                
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;">Actual current position</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;">
+<p class="p" id="mbl1757491524444__ID0EOBYR">: Contains the value returned by the Servo Drive multiplied by the gear ratio.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;">Command current position</td>
+
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;">
+<p class="p" id="mbl1757491524444__ID0EJCYR">: Contains the actual current position from the previous period.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="plg1757491545446">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Applicable Axes and Execution Condition</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="plg1757491545446__li_N10017_N10013_N10010_N10002">
+<p class="p">For a servo axis, this instruction is ready for execution as soon as <span class="ph phtype_variable"><span class="termtype">Enable</span></span> for the MC_Power (Power Servo) instruction changes to TRUE (Servo ON).</p>
+
+</li>
+
+<li class="li" id="plg1757491545446__li_N10028_N10013_N10010_N10002">
+<p class="p">A virtual servo axis will acknowledge this instruction at any time. However, processing to switch the Control Mode of the Servo Drive is not performed.</p>
+
+</li>
+
+<li class="li" id="plg1757491545446__li_N10033_N10013_N10010_N10002">
+<p class="p">An error occurs if the instruction is executed for an encoder or virtual encoder axis.</p>
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="tkx1757491564758">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Operation When Servo Turns OFF</h1>
+
+<div class="body conbody">
+<p class="p">Processing to change to CSP Mode is performed by the MC Function Module when the <span class="ph phtype_variable"><span class="termtype">Status</span></span> output variable from the MC_Power (Power Servo) instruction changes to FALSE. Therefore, the Control Mode of the Servo Drive when the Servo is OFF is CSP.</p>
+
+<p class="p">However, for an OMRON G5-series Servo Drive, commands to change the Control Mode are not acknowledged from the MC Function Module when the Servo is OFF.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="kwe1757491585126">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Axis Variable Status</h1>
+
+<div class="body conbody">
+<p class="p"><span class="ph phtype_variable"><span class="termtype">Status.Continuous</span></span> (Continuous Motion) in the Axis Variable status changes to TRUE.</p>
+
+<p class="p">Also, CST (Cyclic Synchronous Torque (CST) Control Mode) in <span class="ph phtype_variable"><span class="termtype">DrvStatus</span></span> (Servo Drive Status) in the Axis Variable changes to TRUE.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="yvl1757491845835">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Home Status</h1>
+
+<div class="body conbody">
+<p class="p">Home remains defined.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="smh1757491869257">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Software Limits</h1>
+
+<div class="body conbody">
+<p class="p">Software Limits are enabled for this instruction.</p>
+
+<p class="p">They are enabled even for the following axis parameter settings.</p>
+
+<ul class="ul">
+<li class="li" id="smh1757491869257__li_N10021_N1001D_N10010_N10002">
+<p class="p">Deceleration stop for command position</p>
+
+</li>
+
+<li class="li" id="smh1757491869257__li_N1002C_N1001D_N10010_N10002">
+<p class="p">Immediate stop for command position</p>
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="mny1757491896255">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">When Count Mode Is Set to Linear Mode</h1>
+
+<div class="body conbody">
+<p class="p">The operation for underflows and overflows is the same as for operations that do not have target positions.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="rwo1757491915195">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Operation Selection at Reversing</h1>
+
+<div class="body conbody">
+<p class="p">If you perform multi-execution of instructions and the torque command value is reversed, this instruction immediately reverses the torque command regardless of the setting for the <span class="ph phtype_parameter"><span class="termtype">Operation Selection at Reversing</span></span> axis parameter.</p>
+
+<p class="p linespace_7pt">When the torque command value is reversed by multi-execution of instructions, this instruction operates as follows:</p>
+
+<ul class="ul">
+<li class="li" id="rwo1757491915195__li_N10028_N10024_N10010_N10002">
+<p class="p">If the command position is reversed due to multi-execution of instructions that use CSP during execution of this instruction, the instruction performs reversing operation according to the <span class="ph phtype_parameter"><span class="termtype">Operation Selection at Reversing</span></span> axis parameter.</p>
+
+</li>
+
+<li class="li" id="rwo1757491915195__li_N10039_N10024_N10010_N10002">
+<p class="p">If the torque command value is reversed due to multi-execution of this instruction during execution of instructions that use CSP or CSV, this instruction immediately reverses the torque command value.</p>
+
+</li>
+
+<li class="li" id="rwo1757491915195__li_N10044_N10024_N10010_N10002">
+<p class="p">If the torque command value is reversed due to multi-execution of this instruction during instruction execution, this instruction immediately reverses the torque command value.</p>
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="faz1757492125414">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Timing Charts</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="faz1757492125414__li_N10017_N10013_N10010_N10002">
+<p class="p"><span class="ph phtype_variable"><span class="termtype">Busy</span></span> (Executing) changes to TRUE at the same time as <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to TRUE. <span class="ph phtype_variable"><span class="termtype">Active</span></span> (Controlling) changes to TRUE in the next period.</p>
+
+</li>
+
+<li class="li" id="faz1757492125414__li_N10033_N10013_N10010_N10002">
+<p class="p"><span class="ph phtype_variable"><span class="termtype">InTorque</span></span> (Target Torque Reached) changes to TRUE when the command torque reaches <span class="ph phtype_variable"><span class="termtype">Torque</span></span> (Target Torque).</p>
+
+</li>
+
+<li class="li" id="faz1757492125414__li_N1004A_N10013_N10010_N10002">
+<p class="p">If another instruction aborts this instruction, <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> changes to TRUE and <span class="ph phtype_variable"><span class="termtype">Busy</span></span> (Executing), <span class="ph phtype_variable"><span class="termtype">Active</span></span> (Controlling), and <span class="ph phtype_variable"><span class="termtype">InTorque</span></span> (Target Torque Reached) change to FALSE.</p>
+
+</li>
+
+<li class="li" id="faz1757492125414__li_N1006D_N10013_N10010_N10002">
+<p class="p">Execute the MC_Stop or MC_ImmediateStop instruction to stop this instruction.</p>
+
+</li>
+
+</ul>
+
+<p class="p linespace_14pt"></p>
+
+<p class="p">The following timing charts show operation for when this instruction is used in the primary periodic task.</p>
+
+<p class="p linespace_14pt"></p>
+
+<p class="p"><strong class="ph b">Starting and Stopping the Instruction</strong></p>
+
+<br /><img class="image" id="faz1757492125414__image_omp_qsz_sgc" src="bfi1758602988212.gif" /><br />
+<p class="p"><strong class="ph b">Instruction Execution for <span class="ph phtype_choice"><span class="termtype">Aborting</span></span> during Immediately Preceding Operation</strong></p>
+
+<p class="p">The following timing chart shows an application in which the axis stops while this instruction is in execution.</p>
+
+<br /><img class="image" id="faz1757492125414__image_mdg_5sz_sgc" src="afe1758603069827.gif" /><br />
+<p class="p"><strong class="ph b">Instruction Execution for <span class="ph phtype_choice"><span class="termtype">Buffered</span></span> during Immediately Preceding Operation</strong></p>
+
+<p class="p">The following timing chart shows an application in which the axis stops while this instruction is in execution.</p>
+
+<br /><img class="image" id="faz1757492125414__image_ifv_wsz_sgc" src="sfy1758603111338.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="eva1757492188861">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Changing the Control Mode</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="eva1757492188861__li_N10017_N10013_N10010_N10002">
+<p class="p">If you execute this instruction while a position control instruction, such as the MC_MoveAbsolute (Absolute Positioning) or MC_MoveRelative (Relative Positioning) instruction, is in execution, the operation depends on the setting of the <span class="ph phtype_variable"><span class="termtype">BufferMode</span></span> (Buffer Mode Selection) of the MC_SyncTorqueControl instruction.</p>
+
+<p class="p">If <span class="ph phtype_variable"><span class="termtype">BufferMode</span></span> is set to <span class="ph phtype_choice"><span class="termtype">Aborting</span></span>, the Control Mode changes to Torque Control as soon as the instruction is executed. If the Buffer Mode is set to <span class="ph phtype_choice"><span class="termtype">Buffered</span></span>, the Control Mode changes to Torque Control after the previous operation is completed.</p>
+
+</li>
+
+<li class="li" id="eva1757492188861__li_N1003E_N10013_N10010_N10002">
+<p class="p">If this instruction is aborted by other instructions such as MC_MoveAbsolute (Absolute Positioning), or if an axis error occurs, the Control Mode changes to Position Control at that point.</p>
+
+</li>
+
+<li class="li" id="eva1757492188861__li_N10049_N10013_N10010_N10002">
+<p class="p"><span class="ph phtype_variable"><span class="termtype">Active</span></span> (Controlling) changes when the instruction is executed, but it takes several periods for the Control Mode in the Servo Drive to change. The time that is required for the Control Mode to change depends on the Servo Drive.</p>
+
+</li>
+
+</ul>
+
+<p class="p linespace_14pt"></p>
+
+<p class="p"><strong class="ph b">Criteria for Changing the Control Mode</strong></p>
+
+<p class="p">When you stop an axis for an OMRON 1S-series Servo Drive or G5-series Servo Drive, the MC Function Module sets the <span class="ph phtype_variable"><span class="termtype">Velocity Limit Value</span></span> (607F hex) to <span class="ph phtype_settingvalue"><span class="termtype">0</span></span>. The Control Mode is changed to CSP Mode when the following criterion is met for three consecutive periodic tasks after that.</p>
+
+<p class="p linespace_7pt">Actual current velocity &#8804; Maximum velocity &#215; 0.1</p>
+
+<p class="p linespace_7pt">With a servo drive from another manufacturer, the Control Mode of the Servo Drive changes from CST to CSP Mode and the Servo is turned ON at the actual current position when the mode changes.</p>
+
+<div class="note" id="eva1757492188861__note_snp_jmr_pgc"><div class="use"><span class="notetitle use">use:</span>
+<p class="p">Here, the periodic task is the primary periodic task or the priority-5 periodic task.</p>
+
+</div></div>
+
+<p class="p linespace_14pt"></p>
+
+<p class="p"><strong class="ph b">Failure to Change the Control Mode</strong></p>
+
+<p class="p">If the Servo Drive does not complete switching the Control Mode within 1 second after a Control Mode switch command is sent from the MC Function Module, an <span class="ph phtype_type2"><span class="termtype">Error in Changing Servo Drive Control Mode (error code: 7439 hex)</span></span> occurs and the Servo is turned OFF, i.e., a free-run stop occurs.</p>
+
+<p class="p">For details on the <span class="ph phtype_type2"><span class="termtype">Error in Changing Servo Drive Control Mode (error code: 7439 hex)</span></span>, refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Motion Control User&#8217;s Manual (Cat. No. W507)</span></span></span>.</p>
+
+<p class="p">Even if the criteria for changing is not met within 10 seconds after the Velocity Limit Value is set to <span class="ph phtype_settingvalue"><span class="termtype">0</span></span>, the Servo is turned OFF in the same was as given above.</p>
+
+<p class="p linespace_14pt"></p>
+
+<p class="p"><strong class="ph b">Operation Examples for Changing the Control Mode</strong></p>
+
+<p class="p">The relationship between the command torque and command velocity until the Control Mode changes is described in the following examples where the Control Mode is changed during axis operation.</p>
+
+<div class="note" id="eva1757492188861__note_kbs_jnr_pgc"><div class="use"><span class="notetitle use">use:</span>
+<p class="p">An error will occur in some Servo Drives if the Control Mode in the Servo Drive changes during axis motion.</p>
+
+</div></div>
+
+<p class="p linespace_14pt"></p>
+
+<p class="p"><strong class="ph b">Changing from Position Control to Torque Control</strong></p>
+
+<br /><img class="image" id="eva1757492188861__image_rfg_ctz_sgc" src="sgk1758603216042.gif" /><br />
+<p class="p"><strong class="ph b">Changing from Torque Control to Position Control</strong></p>
+
+<br /><img class="image" id="eva1757492188861__image_l3c_2tz_sgc" src="xxf1758603243788.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="dkl1757492567892">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Re-execution of Motion Control Instructions</h1>
+
+<div class="body conbody">
+<p class="p">You cannot re-execute motion control instructions.</p>
+
+<p class="p">A <span class="ph phtype_type2"><span class="termtype">Motion Control Instruction Re-execution Disabled error (error code: 543B hex)</span></span> occurs if re-execution is attempted.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="eay1757492605917">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Multi-execution of Motion Control Instructions</h1>
+
+<div class="body conbody">
+<p class="p">For details on multi-execution of motion control instructions, refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Motion Control User&#8217;s Manual (Cat. No. W507)</span></span></span>.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="dlc1757492701792">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Execution during Execution of Other Instructions</h1>
+
+<div class="body conbody">
+<p class="p">You can switch to this instruction or buffer this instruction if you execute it during execution of another instruction.</p>
+
+<p class="p">You can buffer one instruction per axis.</p>
+
+<p class="p">Specify the operation of this instruction with <span class="ph phtype_variable"><span class="termtype">BufferMode</span></span> (Buffer Mode Selection) for multi-execution of instructions.</p>
+
+<p class="p">The Control Mode is switched when processing the instruction is started.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="dlc1757492701792__table_N1002C_N10010_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:21%" />
+<col style="width:78%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d26991e42">Buffer Mode Selection</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d26991e45">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d26991e42 ">Aborting</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d26991e45 ">
+<p class="p">Aborts the instruction being executed and switches to this instruction.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d26991e42 ">Buffered</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d26991e45 ">
+<p class="p">Automatically executes the buffered instruction after the current instruction is completed.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="ktp1757492733242">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Execution of Other Instructions during Instruction Execution</h1>
+
+<div class="body conbody">
+<p class="p">During execution of this instruction, you can perform multi-execution of other instructions only when <span class="ph phtype_choice"><span class="termtype">Aborting</span></span> or <span class="ph phtype_choice"><span class="termtype">Buffered</span></span> is specified for <span class="ph phtype_variable"><span class="termtype">BufferMode</span></span> (Buffer Mode Selection) in the other instructions.</p>
+
+<p class="p"><span class="ph phtype_choice"><span class="termtype">Buffered</span></span> executes other instructions when <span class="ph phtype_variable"><span class="termtype">InTorque</span></span> (Target Torque Reached) changes to TRUE. The Control Mode is switched when processing of the multi-execution of the instructions is started.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="vdk1757492829526">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Errors</h1>
+
+<div class="body conbody">
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="fju1757492862123">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Operation for Error</h1>
+
+<div class="body conbody">
+<p class="p">If an error occurs during execution of this instruction, <span class="ph phtype_variable"><span class="termtype">Error</span></span> will change to TRUE.</p>
+
+<p class="p" id="fju1757492862123__ID0EZDZR">You can find out the cause of the error by referring to the value output by <span class="ph phtype_variable"><span class="termtype">ErrorID</span></span> (Error Code).</p>
+
+<br /><img class="image linespace_7pt" id="fju1757492862123__image_j1j_cpr_pgc" src="gxn1484547749422.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="pco1757492898916">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Error Codes</h1>
+
+<div class="body conbody">
+<p class="p">Refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series Troubleshooting Manual (Cat. No. W503)</span></span></span> for errors that may occur with this instruction.</p>
+
+</div>
+
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

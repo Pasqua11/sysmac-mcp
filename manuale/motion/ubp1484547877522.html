@@ -1,0 +1,1485 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>MC_TimeStampToPos</title>
+</head>
+<body class="ubp1484547877522"><div class="layer02" id="ubp1484547877522">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">MC_TimeStampToPos</h1>
+
+<div class="body conbody">
+<p class="p" id="ubp1484547877522__ID0EZF6S">The MC_TimeStampToPos instruction calculates the position of the axis for the specified time stamp.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ubp1484547877522__ID0EEG6S" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:16%" />
+<col style="width:12%" />
+<col style="width:5%" />
+<col style="width:35%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d168664e36">Instruction</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d168664e39">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d168664e42">FB/FUN</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d168664e45">Graphic expression</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d168664e48">ST expression</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d168664e36 "><span class="indexterm">MC_TimeStampToPos (Time Stamp to Axis Position Calculation)</span>MC_TimeStampToPos</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d168664e39 "><span class="indexterm">Time Stamp to Axis Position Calculation</span>Time Stamp to Axis Position Calculation</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d168664e42 ">FB</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d168664e45 ">
+<br /><img class="image" id="ubp1484547877522__image_8E7B8F60843244A59DD79D8BF99F1286" src="pib1484547876586.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d168664e48 ">
+<p class="p" id="ubp1484547877522__ID0EHK6S">MC_TimeStampToPos_instance (</p>
+
+<p class="p">Axis :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Enable :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">TimeStamp :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">ValueSource :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Enabled =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Busy =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">CalcPosition =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Error =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">ErrorID =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span></p>
+
+<p class="p">);</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<div class="note" id="ubp1484547877522__note_N100D7_N1000F_N10001"><div class="use"><span class="notetitle use">use:</span>
+<ul class="ul" id="ubp1484547877522__ul_nfp_dcl_qfb">
+<li class="li" id="ubp1484547877522__li_N10119_N10115_N1010E_N1000F_N10001">You can use this instruction for the following Units.<ol class="ol liststyle_alphabet1" id="ubp1484547877522__ol_xsl_2cl_qfb">
+<li class="li" id="ubp1484547877522__li_N10122_N1011D_N10119_N10115_N1010E_N1000F_N10001">
+<p class="p">An axis that is assigned to an NX-series Position Interface Unit.</p>
+
+<p class="p" id="ubp1484547877522__ID0ELM6S">The applicable NX Units are as follows: NX-EC0<span class="ph font_Wingdings2">&#9633;&#9633;&#9633;</span> and NX-ECS<span class="ph font_Wingdings2">&#9633;&#9633;&#9633;</span>.</p>
+
+</li>
+
+<li class="li" id="ubp1484547877522__li_N1013D_N1011D_N10119_N10115_N1010E_N1000F_N10001">An OMRON 1S-series Servo Drive with built-in EtherCAT communications.</li>
+
+</ol>
+</li>
+
+<li class="li" id="ubp1484547877522__li_N10143_N10115_N1010E_N1000F_N10001">When you use this instruction for an OMRON 1S-series Servo Drive with built-in EtherCAT communications, you must assign the Object 3211-83 hex (Present Position Time Stamp) to a PDO.</li>
+
+</ul>
+
+</div></div>
+
+<div class="note" id="ubp1484547877522__note_N100F8_N1000F_N10001"><div class="ver"><span class="notetitle ver">ver:</span> A CPU Unit with unit version 1.06 or later and Sysmac Studio version 1.07 or higher are required to use this instruction.</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="tna1484547261564">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Variables</h1>
+
+<div class="body conbody"></div>
+
+<div class="related-links"></div></div><div class="layer04" id="ogc1484547877741">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Input Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ogc1484547877741__ID0EYP6S" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:13%" />
+<col style="width:11%" />
+<col style="width:10%" />
+<col style="width:23%" />
+<col style="width:7%" />
+<col style="width:32%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d113019e35">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d113019e38">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d113019e41">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d113019e44">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d113019e47">Default</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d113019e51">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d113019e35 ">Enable</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d113019e38 ">Enable</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d113019e41 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d113019e44 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d113019e47 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d113019e51 ">
+<p class="p" id="ogc1484547877741__ID0ENU6S">The instruction is executed while the value of this variable is TRUE.</p>
+ 
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d113019e35 ">TimeStamp</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d113019e38 ">Time Stamp</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d113019e41 ">ULINT</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d113019e44 ">Non-negative number</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d113019e47 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d113019e51 ">
+<p class="p" id="ogc1484547877741__ID0EYW6S">Specifies the time stamp for which to calculate the position.</p>
+
+<p class="p" id="ogc1484547877741__ID0E6W6S">A time stamp that is based on the time in a Digital Input Unit, Encoder Input Unit, or OMRON 1S-series Servo Drive with built-in EtherCAT communications that supports time stamp refreshing is specified. The unit is nanoseconds.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d113019e35 ">
+<p class="p" id="ogc1484547877741__ID0EOX6S">ValueSource</p>
+ 
+<p class="p" id="ogc1484547877741__ID0EVX6S">(Reserved)</p>
+ 
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d113019e38 ">Input Information</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d113019e41 ">_sMC_SOURCE</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d113019e44 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d113019e47 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d113019e51 ">
+<p class="p" id="ogc1484547877741__ID0ERZ6S">(Reserved)</p>
+ 
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="ccj1484547877928">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Output Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ccj1484547877928__ID0ED26S" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:16%" />
+<col style="width:12%" />
+<col style="width:10%" />
+<col style="width:17%" />
+<col style="width:42%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d12965e71">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d12965e74">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d12965e77">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d12965e80">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d12965e83">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d12965e71 ">Enabled</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d12965e74 ">Enable</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d12965e77 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d12965e80 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d12965e83 ">
+<p class="p" id="ccj1484547877928__ID0EA66S">TRUE when the axis is being controlled.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d12965e71 ">Busy</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d12965e74 ">Executing</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d12965e77 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d12965e80 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d12965e83 ">
+<p class="p" id="ccj1484547877928__ID0E6AAT">TRUE when the instruction is acknowledged.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d12965e71 ">CalcPosition</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d12965e74 ">Calculated Position</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d12965e77 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d12965e80 ">Negative number, positive number, or 0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d12965e83 ">
+<p class="p" id="ccj1484547877928__ID0E5CAT">Contains the position for the specified time stamp.</p>
+
+<p class="p" id="ccj1484547877928__ID0EFDAT">The unit is command units. <a class="xref" href="#ccj1484547877928__ID0ED26S-footnote-2080151"><sup>*1</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d12965e71 ">Error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d12965e74 ">Error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d12965e77 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d12965e80 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d12965e83 ">
+<p class="p" id="ccj1484547877928__ID0EHFAT">TRUE while there is an error.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d12965e71 ">ErrorID</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d12965e74 ">Error Code</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d12965e77 ">WORD</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d12965e80 "><a class="xref" href="#ccj1484547877928__ID0ED26S-footnote-2080153"><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d12965e83 ">
+<p class="p" id="ccj1484547877928__ID0EIHAT">Contains the error code when an error occurs.</p>
+
+<p class="p">A value of 16#0000 indicates normal execution.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="ccj1484547877928__ID0ED26S-footnote-2080151" id="ccj1484547877928__ID0ED26S-footnote-2080151"><sup>*1</sup></a>
+<p class="p">Refer to <span class="ph phtype_type2"><span class="termtype">Unit Conversion Settings</span></span> in the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Motion Control User&#8217;s Manual (Cat. No. W507)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Industrial Panel PC / Industrial Box PC Motion Control User&#8217;s Manual (Cat. No. W559)</span></span></span> for information on command units.</p>
+</div>
+<div class="fn"><a name="ccj1484547877928__ID0ED26S-footnote-2080153" id="ccj1484547877928__ID0ED26S-footnote-2080153"><sup>*2</sup></a>
+<p class="p">The upper four digits of the event code give the error code for ErrorID. Refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series Troubleshooting Manual (Cat. No. W503)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Troubleshooting Manual (Cat. No. W564)</span></span></span> for the event codes.</p>
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="zix1484547492053">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">Output Variable Update Timing</h1>
+ 
+<div class="body conbody">
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="zix1484547492053__ID0E2P4O" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:18%" />
+<col style="width:40%" />
+<col style="width:40%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d218548e28">Name</th>
+ 
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d218548e31">Timing for changing to TRUE</th>
+ 
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d218548e34">Timing for changing to FALSE</th>
+ 
+</tr>
+ 
+</thead>
+ 
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d218548e28 ">Enabled</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d218548e31 ">
+<p class="p" id="zix1484547492053__ID0E3R4O">When <span class="ph phtype_variable"><span class="termtype">Enable</span></span> changes to TRUE.</p>
+ 
+</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d218548e34 ">
+<ul class="ul" id="zix1484547492053__ul_DE8AD266E2034FBB805E070774FFFEFF">
+<li class="li" id="zix1484547492053__li_88792B59E04B4D218EFEEC5358EAAA69">
+<p class="p" id="zix1484547492053__ID0EUS4O">After one period when <span class="ph phtype_variable"><span class="termtype">Enable</span></span> is FALSE.</p>
+ 
+</li>
+ 
+<li class="li" id="zix1484547492053__li_3619A7DD8EAB4A32950F08A3DB167DC2">
+<p class="p" id="zix1484547492053__ID0E6S4O">When <span class="ph phtype_variable"><span class="termtype">Error</span></span> changes to TRUE.</p>
+ 
+</li>
+ 
+</ul>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d218548e28 ">Busy</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d218548e31 ">
+<p class="p" id="zix1484547492053__ID0EYT4O">When <span class="ph phtype_variable"><span class="termtype">Enable</span></span> changes to TRUE.</p>
+ 
+</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d218548e34 ">
+<ul class="ul" id="zix1484547492053__ul_0046289BC2844058841FF1258A02B847">
+<li class="li" id="zix1484547492053__li_D6228050FBF84B09BA5DE1ED28B9377E">
+<p class="p" id="zix1484547492053__ID0EQU4O">When <span class="ph phtype_variable"><span class="termtype">Enable</span></span> changes to FALSE.</p>
+ 
+</li>
+ 
+<li class="li" id="zix1484547492053__li_E774B8B37EC64F73832996587F99851F">
+<p class="p" id="zix1484547492053__ID0E2U4O">When <span class="ph phtype_variable"><span class="termtype">Error</span></span> changes to TRUE.</p>
+ 
+</li>
+ 
+</ul>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d218548e28 ">Error</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d218548e31 ">
+<p class="p" id="zix1484547492053__ID0EUV4O">When there is an error in the execution conditions or input parameters for the instruction.</p>
+ 
+</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d218548e34 ">
+<p class="p" id="zix1484547492053__ID0EAW4O">When the error is cleared.</p>
+ 
+</td>
+ 
+</tr>
+ 
+</tbody>
+ 
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer04" id="vhv1484547878146">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">In-Out Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="vhv1484547878146__ID0EDQAT" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:18%" />
+<col style="width:16%" />
+<col style="width:13%" />
+<col style="width:9%" />
+<col style="width:41%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d182526e52">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d182526e55">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d182526e58">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d182526e61">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d182526e64">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d182526e52 ">Axis</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d182526e55 ">Axis</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d182526e58 ">_sAXIS_REF</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d182526e61 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d182526e64 ">
+<p class="p" id="vhv1484547878146__ID0EAUAT">Specify the axis. <a class="xref" href="#vhv1484547878146__ID0EDQAT-footnote-2080155"><sup>*1</sup></a><a class="xref" href="#vhv1484547878146__ID0EDQAT-footnote-2080144"><sup>*2</sup></a></p>
+ 
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="vhv1484547878146__ID0EDQAT-footnote-2080155" id="vhv1484547878146__ID0EDQAT-footnote-2080155"><sup>*1</sup></a>  <p class="p" id="vhv1484547878146__ID0E6DOT">Specify a user-defined Axis Variable that was created in the Axis Basic Settings of the Sysmac Studio (default: MC_Axis*) or a system-defined axis variable name (_MC_AX[*], _MC1_AX[*], or _MC2_AX[*]).</p>
+
+                        
+<p class="p">If you use Sysmac Studio version 1.29 or higher, you can specify the system-defined axis variable name for AT specification of a user-defined variable. This will allow you to specify the user-defined variable.</p>
+
+<p class="p">If you use Sysmac Studio version 1.28 or lower, do not specify any user-defined variable created in the variable table.</p>
+</div>
+<div class="fn"><a name="vhv1484547878146__ID0EDQAT-footnote-2080144" id="vhv1484547878146__ID0EDQAT-footnote-2080144"><sup>*2</sup></a>  <p class="p" id="vhv1484547878146__ID0ESEOT">Specify the encoder axis that is assigned to the NX-series Encoder Input Unit or the axis for the OMRON 1S-series Servo Drive with built-in EtherCAT communications.</p>
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="qiu1484547879270">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function</h1>
+
+<div class="body conbody">
+<ul class="ul" id="qiu1484547879270__ul_2168085537734C919DF23A75D462580F">
+<li class="li" id="qiu1484547879270__li_BFF94B8252CB468F92F0AD9164B266AF">
+<p class="p" id="qiu1484547879270__ID0E2VAT">The MC_TimestampToPos instruction calculates the actual current position at the time stamp that is specified by the input variable based on the actual current position and time stamp of the axis.</p>
+
+</li>
+
+<li class="li" id="qiu1484547879270__li_7113D5693C794257A400BC006ED100D3">
+<p class="p" id="qiu1484547879270__ID0EGWAT">For the axis, specify an NX-series Encoder Input Unit.</p>
+
+</li>
+
+<li class="li" id="qiu1484547879270__li_9A058911329E4202ABF8B58436F6A912">
+<p class="p" id="qiu1484547879270__ID0ERWAT">If the Count Mode is set to <span class="ph phtype_choice"><span class="termtype">Linear Mode</span></span> in the axis parameters and an overflow or underflow occurs in the calculated position, the calculated value will be the underflow value or the overflow value. In this case, no error will occur.</p>
+
+<br /><img class="image linespace_7pt" id="qiu1484547879270__image_7C0FA4FC79234DBEB4CE3ED18161E5F3" src="jqk1484547878333.gif" /><br />
+</li>
+
+</ul>
+
+<div class="note" id="qiu1484547879270__note_N10045_N1000F_N10001"><div class="use"><span class="notetitle use">use:</span>
+<ul class="ul" id="qiu1484547879270__ul_28826713029D48989D77859D5DEB9E0B">
+<li class="li" id="qiu1484547879270__li_07F15790EDDD47F8B0092D9A3642E9D9">
+<p class="p" id="qiu1484547879270__ID0EYYAT">If you use an NX-series Encoder Input Unit, this instruction requires that time stamping is operating.</p>
+
+<p class="p">Time stamping is not possible in the following cases.</p>
+
+<ol class="ol liststyle_alphabet1" id="qiu1484547879270__ul_5C10872349444B008C44D7524E38744A">
+<li class="li" id="qiu1484547879270__li_64111874A5D84BBA84E5116CDAC263E9">An Encoder Input Unit or Servo Drive that does not support time stamping is used.</li>
+
+<li class="li" id="qiu1484547879270__li_5B4851EB5880423D8D7B13D5A4E5C92E">Object 6010 hex (Time Stamp) in the NX-series Encoder Input Unit is not assigned to a PDO.</li>
+
+<li class="li" id="qiu1484547879270__li_A69D77B60F1B43B39C1AD6E87FBCEA96">The <span class="ph phtype_parameter"><span class="termtype">Enable Distributed Clock</span></span> in the EtherCAT Coupler Unit is <span class="ph phtype_choice"><span class="termtype">Disabled (FreeRun)</span></span>.</li>
+
+</ol>
+
+</li>
+
+<li class="li" id="qiu1484547879270__li_N1008C_N10051_N1004A_N1000F_N10001">If you use an OMRON 1S-series Servo Drive with built-in EtherCAT communications, this instruction is not possible in the following cases.<ol class="ol liststyle_alphabet1" id="qiu1484547879270__ol_sty_h2l_qfb">
+<li class="li" id="qiu1484547879270__li_N10095_N10090_N1008C_N10051_N1004A_N1000F_N10001">Object 3211-83 hex (Present Position Time Stamp) in the OMRON 1S-series Servo Drive with built-in EtherCAT communications is not assigned to a PDO.</li>
+
+<li class="li" id="qiu1484547879270__li_N1009A_N10090_N1008C_N10051_N1004A_N1000F_N10001">The <span class="ph phtype_parameter"><span class="termtype">Enable Distributed Clock</span></span> in the OMRON 1S-series Servo Drive with built-in EtherCAT communications is <span class="ph phtype_choice"><span class="termtype">Disabled (FreeRun)</span></span>.</li>
+
+</ol>
+</li>
+
+<li class="li" id="qiu1484547879270__li_EBAECD0E19C54BC9819E8B94B2162975">
+<p class="p" id="qiu1484547879270__ID0EN1AT">An error does not occur for this instruction even if the time stamp is not updated. The position will be calculated, but the result will not be the position for the specified time stamp.</p>
+
+<p class="p">Use this instruction only after you confirm in the MC Monitor Table or Watch Tab Page of the Sysmac Studio that the <span class="ph phtype_variable"><span class="termtype">TimeStamp</span></span> member of the Axis Variable is being updated.</p>
+
+</li>
+
+<li class="li" id="qiu1484547879270__li_A486B0EF3DD94074990BAE4C1038E5E5">
+<p class="p" id="qiu1484547879270__ID0E21AT">This instruction calculates the position for the specified time stamp based on both the current position and current velocity of the axis. If the axis accelerates or decelerates quickly, the calculation error may increase. Use this instruction when the axis is at a constant velocity.</p>
+
+<p class="p">Verify operation sufficiently to confirm safety.</p>
+
+</li>
+
+<li class="li" id="qiu1484547879270__li_734504EF52EA4A798AF86C8FEFDE7B8A">
+<p class="p" id="qiu1484547879270__ID0EJ2AT">If you specify an unused axis or if the MC Test Run is in progress, <span class="ph phtype_variable"><span class="termtype">Busy</span></span> will change to TRUE and <span class="ph phtype_variable"><span class="termtype">Enabled</span></span> and <span class="ph phtype_variable"><span class="termtype">Error</span></span> will change to FALSE when <span class="ph phtype_variable"><span class="termtype">Enable</span></span> changes to TRUE.</p>
+
+</li>
+
+<li class="li" id="qiu1484547879270__li_AA1988212D394A6D953234EB91B9963B">
+<p class="p" id="qiu1484547879270__ID0EU2AT">Do not create two instances with the same instance name. If you do, unintentional outputs may occur.</p>
+
+</li>
+
+</ul>
+
+</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="axl1484547881407">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Timing Charts</h1>
+
+<div class="body conbody">
+<p class="p" id="axl1484547881407__ID0EG4AT">A timing chart for execution of the MC_TimestampToPos instruction is shown below.</p>
+
+<br /><img class="image linespace_7pt" src="ezu1484547879488.gif" /><br />
+<p class="p linespace_7pt" id="axl1484547881407__ID0EG5AT">The following timing chart is for when an unused axis is specified or when an MC Test Run in progress.</p>
+
+<br /><img class="image linespace_7pt" src="ezu1484547880393.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="nca1484547268164">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Re-execution of Motion Control Instructions</h1>
+
+<div class="body conbody">
+<p class="p" id="nca1484547268164__ID0EVOAG">You cannot re-execute motion instructions with enable-type inputs.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="uek1484547764883">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Multi-execution of Motion Control Instructions</h1>
+
+<div class="body conbody">
+<p class="p" id="uek1484547764883__ID0E535R">This instruction is executed independently from other instructions. The restrictions for multi-execution of motion instructions do not apply.</p>
+
+        
+<p class="p linespace_7pt">For details on multi-execution of motion control instructions, refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Motion Control User&#8217;s Manual (Cat. No. W507)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Industrial Panel PC / Industrial Box PC Motion Control User&#8217;s Manual (Cat. No. W559)</span></span></span>.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="kla1484547287275">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Errors</h1>
+
+<div class="body conbody">
+<p class="p" id="kla1484547287275__ID0ET2AI">If an error occurs during instruction execution, <span class="ph phtype_variable"><span class="termtype">Error</span></span> will change to TRUE.</p>
+
+<p class="p" id="kla1484547287275__ID0EW2AI">You can find out the cause of the error by referring to the value output by <span class="ph phtype_variable"><span class="termtype">ErrorID</span></span> (Error Code).</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="csy1484547882624">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Timing Chart When Error Occurs</h1>
+
+<div class="body conbody">
+<br /><img class="image" src="ppi1484547881625.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="rzo1484547270426">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Error Codes</h1>
+
+<div class="body conbody">
+        
+<p class="p">Refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series Troubleshooting Manual (Cat. No. W503)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Troubleshooting Manual (Cat. No. W564)</span></span></span> for instruction errors.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="zap1484547882873">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Sample Programming</h1>
+
+<div class="body conbody">
+<p class="p" id="zap1484547882873__ID0EPGBT">This section shows sample programming that measures the distances between workpieces that move on a conveyor belt.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="tfx1484547883092">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">Configuration Devices</h1>
+ 
+<div class="body conbody">
+<p class="p" id="tfx1484547883092__ID0EVHBT">The following devices are used in this sample programming.</p>
+ 
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="tfx1484547883092__ID0EDIBT" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d163334e76">Device</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d163334e79">Model number</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d163334e76 ">EtherCAT Coupler Unit</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d163334e79 ">NX-ECC201 (Ver.1.1)<a class="xref" href="#tfx1484547883092__ID0EDIBT-footnote-2080148"><sup>*1</sup></a></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d163334e76 ">Pulse Output Unit</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d163334e79 ">NX-PG0122<a class="xref" href="#tfx1484547883092__ID0EDIBT-footnote-2080158"><sup>*2</sup></a></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d163334e76 ">Incremental Encoder Input Unit</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d163334e79 ">NX-EC0122<a class="xref" href="#tfx1484547883092__ID0EDIBT-footnote-2080166"><sup>*3</sup></a></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d163334e76 ">Digital Input Unit</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d163334e79 ">NX-ID3344<a class="xref" href="#tfx1484547883092__ID0EDIBT-footnote-2080143"><sup>*4</sup></a></td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="tfx1484547883092__ID0EDIBT-footnote-2080148" id="tfx1484547883092__ID0EDIBT-footnote-2080148"><sup>*1</sup></a>  <p class="p" id="tfx1484547883092__ID0EFFOT">The node address is <dfn class="term termtype_settingvalue">「1」</dfn> and the device name is <dfn class="term termtype_inputchar">「E001」</dfn>.</p>
+</div>
+<div class="fn"><a name="tfx1484547883092__ID0EDIBT-footnote-2080158" id="tfx1484547883092__ID0EDIBT-footnote-2080158"><sup>*2</sup></a>  <p class="p" id="tfx1484547883092__ID0EYFOT">The NX Unit number is <dfn class="term termtype_settingvalue">「1」</dfn> and the device name is <dfn class="term termtype_inputchar">「N1」</dfn>. It is assigned to axis 1.</p>
+</div>
+<div class="fn"><a name="tfx1484547883092__ID0EDIBT-footnote-2080166" id="tfx1484547883092__ID0EDIBT-footnote-2080166"><sup>*3</sup></a>  <p class="p" id="tfx1484547883092__ID0ELGOT">The NX Unit number is <dfn class="term termtype_settingvalue">「2」</dfn> and the device name is <dfn class="term termtype_inputchar">「N2」</dfn>. It is assigned to axis 2.</p>
+</div>
+<div class="fn"><a name="tfx1484547883092__ID0EDIBT-footnote-2080143" id="tfx1484547883092__ID0EDIBT-footnote-2080143"><sup>*4</sup></a>  <p class="p" id="tfx1484547883092__ID0E5GOT">The NX Unit number is <dfn class="term termtype_settingvalue">「3」</dfn> and the device name is <dfn class="term termtype_inputchar">「N3」</dfn>.</p>
+</div></div></div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer04" id="fym1484547344031">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Parameter Settings</h1>
+
+<div class="body conbody">
+<p class="p" id="fym1484547344031__ID0EYJJM">The minimum settings required for this sample programming are given below.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="duc1484547883341">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">Axis Parameters</h1>
+ 
+<div class="body conbody">
+<p class="p"><strong class="ph b">Axis Types</strong></p>
+ 
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="duc1484547883341__ID0E6OBT" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:1.5cm" />
+<col style="width:4.0cm" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d29513e30">Axis</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d29513e33">Axis type</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d29513e30 ">Axis 1</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d29513e33 ">Servo axis</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d29513e30 ">Axis 2</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d29513e33 ">Encoder axis</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt"><strong class="ph b">Count Modes</strong></p>
+ 
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="duc1484547883341__ID0EMSBT" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:1.5cm" />
+<col style="width:4.0cm" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d29513e77">Axis</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d29513e80">Count Mode</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d29513e77 ">Axis 1</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d29513e80 ">Rotary Mode</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d29513e77 ">Axis 2</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d29513e80 ">Rotary Mode</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt"><strong class="ph b">Ring Counters</strong></p>
+ 
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="duc1484547883341__ID0EZVBT" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:1.5cm" />
+<col style="width:2.0cm" />
+<col style="width:2.0cm" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d29513e127">Axis</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d29513e130">Modulo maximum position</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d29513e133">Modulo minimum position</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d29513e127 ">Axis 1</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d29513e130 ">360</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d29513e133 ">0</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d29513e127 ">Axis 2</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d29513e130 ">360</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d29513e133 ">0</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt"><strong class="ph b">Unit of Display</strong></p>
+ 
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="duc1484547883341__ID0EK1BT" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:1.5cm" />
+<col style="width:4.0cm" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d29513e183">Axis</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d29513e186">Unit of Display</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d29513e183 ">Axis 1</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d29513e186 ">degree</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d29513e183 ">Axis 2</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d29513e186 ">degree</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer04" id="its1484547884964">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Operation Example</h1>
+
+<div class="body conbody">
+<p class="p" id="its1484547884964__ID0EJ5BT">The sensor output turns ON when the sensor detects a workpiece. When the workpiece passes, the sensor output turns OFF. When the sensor detects the next workpiece, the sensor output turns ON again.</p>
+
+<p class="p" id="its1484547884964__ID0EM5BT">The position of the encoder input is calculated based on the time stamp when the sensor output turns ON. The difference between two positions is the distance between the workpieces.</p>
+
+<br /><img class="image linespace_7pt" src="tdj1484547883544.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="fdq1484547345716">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Ladder Diagram</h1>
+
+<div class="body conbody"></div>
+
+<div class="related-links"></div></div><div class="layer05" id="yez1484547885198">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">Main Variables</h1>
+ 
+<div class="body conbody">
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="yez1484547885198__ID0EZACT" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:39%" />
+<col style="width:19%" />
+<col style="width:10%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d205275e30">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d205275e33">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d205275e36">Default</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d205275e39">Comment</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d205275e30 ">MC_Axis000</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d205275e33 ">_sAXIS_REF</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d205275e36 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d205275e39 ">
+<p class="p" id="yez1484547885198__ID0E5DCT">Axis Variable for axis 1.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d205275e30 ">MC_Axis001</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d205275e33 ">_sAXIS_REF</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d205275e36 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d205275e39 ">
+<p class="p" id="yez1484547885198__ID0ERFCT">Axis Variable for axis 2.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d205275e30 ">N3_Input_Bit_00</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d205275e33 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d205275e36 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d205275e39 ">
+<p class="p" id="yez1484547885198__ID0EEHCT">Device variable</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d205275e30 ">N3_Input_Bit_00_Time_Stamp</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d205275e33 ">ULINT</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d205275e36 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d205275e39 ">
+<p class="p" id="yez1484547885198__ID0EXICT">Device variable</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d205275e30 ">Position</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d205275e33 ">ARRAY[0..1] OF LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d205275e36 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d205275e39 ">
+<p class="p" id="yez1484547885198__ID0EKKCT">Stores the calculated positions.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d205275e30 ">Count</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d205275e33 ">ARRAY[0..1] OF ULINT</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d205275e36 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d205275e39 ">
+<p class="p" id="yez1484547885198__ID0E4LCT">Stores the number of rotations.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d205275e30 ">FirstPoint</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d205275e33 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d205275e36 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d205275e39 ">
+<p class="p" id="yez1484547885198__ID0EQNCT">A variable that is used for processing.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d205275e30 ">LastPoint</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d205275e33 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d205275e36 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d205275e39 ">
+<p class="p" id="yez1484547885198__ID0EDPCT">A variable that is used for processing.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d205275e30 ">Distance</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d205275e33 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d205275e36 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d205275e39 ">
+<p class="p" id="yez1484547885198__ID0EWQCT">The distance between workpieces.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer05" id="sfv1484547900721">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Sample Programming</h1>
+
+<div class="body conbody">
+<br /><img class="image" id="sfv1484547900721__image_ixj_lt1_lx" src="una1484547885401.gif" /><br />
+<br /><img class="image" id="sfv1484547900721__image_kky_lt1_lx" src="esw1484547886836.gif" /><br />
+<br /><img class="image" id="sfv1484547900721__image_h1m_mt1_lx" src="ajv1484547888006.gif" /><br />
+<br /><img class="image" id="sfv1484547900721__image_x1y_mt1_lx" src="omy1484547889878.gif" /><br />
+<br /><img class="image" id="sfv1484547900721__image_twj_nt1_lx" src="pyl1484547891282.gif" /><br />
+<br /><img class="image" id="sfv1484547900721__image_q5w_nt1_lx" src="unp1484547892593.gif" /><br />
+<br /><img class="image" id="sfv1484547900721__image_gfr_351_lx" src="bng1484547894512.gif" /><br />
+<br /><img class="image" id="sfv1484547900721__image_nkj_j51_lx" src="edz1484547895947.gif" /><br />
+<br /><img class="image" id="sfv1484547900721__image_l55_j51_lx" src="gdg1484547897679.gif" /><br />
+<br /><img class="image" id="sfv1484547900721__image_fgg_k51_lx" src="sdt1484547899145.gif" /><br />
+<p class="p linespace_7pt"><strong class="ph b">Contents of Inline ST 1</strong></p>
+
+<pre class="pre codeblock">//MC_MoveVelocity parameters
+Vel_Vel := LREAL#1000.0;
+Vel_Acc := LREAL#0.0;
+Vel_Dec := LREAL#0.0;
+Vel_Jrk := LREAL#1000.0;
+InitFlag := BOOL#TRUE;
+</pre>
+
+<p class="p linespace_7pt"><strong class="ph b">Contents of Inline ST 2</strong></p>
+
+<pre class="pre codeblock">IF MC_Axis001.Act.Pos &lt; PreAxis001ActPos THEN
+    Inc(RotaryCount);
+END_IF;
+PreAxis001ActPos := MC_Axis001.Act.Pos;
+</pre>
+
+<p class="p linespace_7pt"><strong class="ph b">Contents of Inline ST 3</strong></p>
+
+<pre class="pre codeblock">IF Index &lt; UINT#2 THEN
+    Position[Index] := CalcPosition;
+    Count[Index] := RotaryCount;
+    Index := Index + UINT#1;
+END_IF;
+IF Index &gt;= UINT#2 THEN
+    Finish := BOOL#TRUE;
+    Index := UINT#0;
+END_IF;
+</pre>
+
+<p class="p linespace_7pt"><strong class="ph b">Contents of Inline ST 4</strong></p>
+
+<pre class="pre codeblock">//First comparison: Workpiece 1=Position[0] and workpiece 2=Position[1]
+//Second comparison: Workpiece 2=Position[1] and workpiece 3=Position[0]
+//Third comparison: Workpiece 3=Position[0] and workpiece 4=Position[1]
+
+FirstPoint := (Index+UINT#1) MOD UINT#2;
+LastPoint :=Index;
+DiffCount := Count[1] - Count[0];
+Distance := (ABS(DiffCount) -LINT#1)* 360.0 +
+            (360.0 + Position[FirstPoint] - Position[LastPoint]);
+</pre>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="eju1484547358774">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Structured Text (ST)</h1>
+
+<div class="body conbody"></div>
+
+<div class="related-links"></div></div><div class="layer05" id="joz1484547900986">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">Main Variables</h1>
+ 
+<div class="body conbody">
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="joz1484547900986__ID0EA3CT" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:39%" />
+<col style="width:20%" />
+<col style="width:10%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d72732e30">Name</th>
+ 
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d72732e33">Data type</th>
+ 
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d72732e36">Default</th>
+ 
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d72732e39">Comment</th>
+ 
+</tr>
+ 
+</thead>
+ 
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d72732e30 ">MC_Axis000</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d72732e33 ">_sAXIS_REF</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d72732e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d72732e39 ">
+<p class="p" id="joz1484547900986__ID0EF6CT">Axis Variable for axis 1.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d72732e30 ">MC_Axis001</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d72732e33 ">_sAXIS_REF</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d72732e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d72732e39 ">
+<p class="p" id="joz1484547900986__ID0EYADT">Axis Variable for axis 2.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d72732e30 ">N3_Input_Bit_00</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d72732e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d72732e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d72732e39 ">
+<p class="p" id="joz1484547900986__ID0ELCDT">Device variable</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d72732e30 ">N3_Input_Bit_00_Time_Stamp</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d72732e33 ">ULINT</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d72732e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d72732e39 ">
+<p class="p" id="joz1484547900986__ID0E5DDT">Device variable</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d72732e30 ">Hm_Ex</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d72732e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d72732e36 ">FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d72732e39 ">
+<p class="p" id="joz1484547900986__ID0ERFDT">The HM instance of MC_Home is executed when this variable changes to TRUE.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d72732e30 ">Vel_Ex</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d72732e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d72732e36 ">FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d72732e39 ">
+<p class="p" id="joz1484547900986__ID0EEHDT">The VEL instance of MC_MoveVelocity is executed when this variable changes to TRUE.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d72732e30 ">PreN3InputBit00</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d72732e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d72732e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d72732e39 ">
+<p class="p" id="joz1484547900986__ID0EXIDT">The previous value of the N3_Input_Bit_00 device variable.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d72732e30 ">Position</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d72732e33 ">ARRAY[0..1] OF LREAL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d72732e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d72732e39 ">
+<p class="p" id="joz1484547900986__ID0EKKDT">Stores the calculated positions.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d72732e30 ">Count</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d72732e33 ">ARRAY[0..1] OF ULINT</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d72732e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d72732e39 ">
+<p class="p" id="joz1484547900986__ID0E4LDT">Stores the number of rotations.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d72732e30 ">FirstPoint</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d72732e33 ">UINT</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d72732e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d72732e39 ">
+<p class="p" id="joz1484547900986__ID0EQNDT">A variable that is used for processing.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d72732e30 ">LastPoint</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d72732e33 ">UINT</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d72732e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d72732e39 ">
+<p class="p" id="joz1484547900986__ID0EDPDT">A variable that is used for processing.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d72732e30 ">Distance</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d72732e33 ">LREAL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d72732e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d72732e39 ">
+<p class="p" id="joz1484547900986__ID0EWQDT">The distance between workpieces.</p>
+ 
+</td>
+ 
+</tr>
+ 
+</tbody>
+ 
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer05" id="kqu1484547901220">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Sample Programming</h1>
+
+<div class="body conbody">
+<pre class="pre codeblock">//Processing when input parameters are not set
+IF InitFlag=FALSE THEN
+
+    //MC_MoveVelocity parameters
+    Vel_Vel := LREAL#1000.0;
+    Vel_Acc := LREAL#0.0;
+    Vel_Dec := LREAL#0.0;
+    Vel_Jrk := LREAL#1000.0;
+
+    //InitFlag is changed to TRUE after input parameters are set.
+    InitFlag:=TRUE;
+
+END_IF;
+
+//If StartPg is TRUE and the Servo Drive is ready, the Servo for axis 1 is turned ON.
+//If the Servo Drive is not ready, the Servo is turned OFF.
+IF (StartPg=TRUE)
+ AND (MC_Axis000.DrvStatus.Ready=TRUE) THEN
+    Pwr_En:=TRUE;
+ELSE
+    Pwr_En:=FALSE;
+END_IF;
+
+//If a minor fault level error occurs for axis 1, the error handler for the device (FaultHandler) is executed.
+//Program the FaultHandler according to the device.
+IF MC_Axis000.MFaultLvl.Active=TRUE THEN
+    FaultHandler();
+END_IF;
+
+//If the Servo is ON and home is not defined, the Home instruction is executed.
+IF (Pwr_Status=TRUE) THEN
+    Hm_Ex:=TRUE;
+END_IF;
+
+//After home is defined, MC_MoveVelocity is executed.
+IF MC_Axis000.Details.Homed=TRUE AND Hm_D=TRUE THEN
+    Vel_Ex:=TRUE;
+END_IF;
+
+//The number of rotations of the encoder axis is counted.
+//(If the current value is less than the previous value, it is assumed that the modulo maximum position has been exceeded.)
+IF MC_Axis001.Act.Pos&lt;PreAxis001ActPos THEN
+    Inc(RotaryCount);
+END_IF;
+PreAxis001ActPos := MC_Axis001.Act.Pos;
+
+//MC_TimeStampToPos
+instMC_TimeStampToPos( 
+    Axis := MC_Axis001,
+    Enable := Vel_Ex,
+    TimeStamp := TimeStamp,
+    Enabled =&gt; inst_Enabled,
+    Busy =&gt; TSTP_Busy,
+    CalcPosition =&gt; CalcPosition,
+    Error =&gt; TSTP_Error,
+    ErrorID =&gt; TSTP_ErrorID );
+
+//CalcPosition (calculated position) is obtained when the sensor output turns ON.
+//(The position is saved alternately in Position[0] and Position[1].
+IF inst_Enabled THEN
+    IF PreN3InputBit00=FALSE AND N3_Input_Bit_00=TRUE THEN
+    IF Index &lt; UINT#2 THEN
+        Position[Index] := CalcPosition;
+        Count[Index] := RotaryCount;
+        Index := Index + UINT#1;
+    END_IF;
+    IF Index &gt;= UINT#2 THEN
+        Finish := BOOL#TRUE;
+        Index := UINT#0;
+    END_IF;
+    END_IF;
+END_IF;
+PreN3InputBit00 := N3_Input_Bit_00;
+
+//After two workpieces are detected, the distance between the workpieces is calculated.
+//First comparison: Workpiece 1=Position[0] and workpiece 2=Position[1]
+//Second comparison: Workpiece 2=Position[1] and workpiece 3=Position[0]
+//Third comparison: Workpiece 3=Position[0] and workpiece 4=Position[1]
+//...
+IF Finish THEN
+    FirstPoint := (Index+UINT#1) MOD UINT#2;
+    LastPoint :=Index;
+    DiffCount := Count[1] - Count[0];
+    Distance := (ABS( DiffCount) -LINT#1)* 360.0 +
+        (360.0 + Position[FirstPoint] -Position[LastPoint]);
+END_IF;
+
+//MC_Power
+PWR(
+    Axis := MC_Axis000,
+    Enable := Pwr_En,
+    Status =&gt; Pwr_Status,
+    Busy =&gt; Pwr_Bsy,
+    Error =&gt; Pwr_Err,
+    ErrorID =&gt; Pwr_ErrID
+);
+
+//MC_Home
+HM(
+    Axis := MC_Axis000,
+    Execute := Hm_Ex,
+    Done =&gt; Hm_D,
+    Busy =&gt; Hm_Bsy,
+    CommandAborted =&gt; Hm_Ca,
+    Error =&gt; Hm_Err,
+    ErrorID =&gt; Hm_ErrID
+);
+
+//MC_MoveVelocity
+VEL(
+    Axis := MC_Axis000,
+    Execute := Vel_Ex,
+    Velocity := Vel_Vel,
+    Acceleration := Vel_Acc,
+    Deceleration := Vel_Dec,
+    Jerk := Vel_Jrk,
+    InVelocity =&gt; Vel_InVel,
+    Busy =&gt; Vel_Bsy,
+    Active =&gt; Vel_Act,
+    CommandAborted =&gt; Vel_Ca,
+    Error =&gt; Vel_Err,
+    ErrorID =&gt; Vel_ErrID
+);
+</pre>
+
+</div>
+
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

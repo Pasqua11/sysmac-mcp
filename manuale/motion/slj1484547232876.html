@@ -1,0 +1,962 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>PDO Mapping</title>
+</head>
+<body class="slj1484547232876"><div class="layer02" id="slj1484547232876">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">PDO Mapping</h1>
+
+<div class="body conbody">
+<p class="p" id="slj1484547232876__ID0ERELM">You must map the objects that are required for the motion control functions that you will use to process data communications.</p>
+
+<p class="p" id="slj1484547232876__ID0EUELM">The PDO map lists all of the objects that are registered in advance.</p>
+
+<p class="p linespace_7pt" id="slj1484547232876__ID0EJFLM">If you use an OMRON 1S-series R88D-1SN<span class="ph font_Wingdings2">&#9633;&#9633;&#9633;</span>-ECT, R88D-1SAN<span class="ph font_Wingdings2">&#9633;&#9633;&#9633;</span>-ECT, G5-series R88D-KN<span class="ph font_Wingdings2">&#9633;&#9633;&#9633;</span>-ECT (version 2.1 or later), or R88D-KN<span class="ph font_Wingdings2">&#9633;&#9633;&#9633;</span>-ECT-L (version 1.1 or later) Servo Drive, it is not necessary to change the default PDO map on the Sysmac Studio.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="slj1484547232876__ID0E5FLM" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:18%" />
+<col style="width:81%" />
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder fonttype_head bgcolor_standardgray" style="text-align:left;vertical-align:top;">RxPDO: 261th Receive PDO Mapping (1704 hex)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;">
+<p class="p" id="slj1484547232876__ID0EVGLM">Controlword (6040 hex), Target Position (607A hex), Target Velocity (60FF hex), Target Torque (6071 hex), Modes of Operation (6060 hex), Touch Probe Function (60B8 hex), Max Profile Velocity (607F hex), Positive Torque Limit Value (60E0 hex), and Negative Torque Limit Value (60E1 hex)</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder fonttype_head bgcolor_standardgray" style="text-align:left;vertical-align:top;">TxPDO: 259th Transmit PDO Mapping (1B02 hex)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;">
+<p class="p" id="slj1484547232876__ID0EQHLM">Error Code(603F hex), Status Word (6041 hex), Position Actual Value (6064 hex), Torque Actual Value (6077 hex), Modes of Operation Display (6061 hex), Touch Probe Status (60B9 hex), Touch Probe Pos1 Pos Value (60BA hex), Touch Probe Pos2 Pos Value (60BC hex), and Digital Inputs (60FD hex)</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<div class="note" id="slj1484547232876__note_N1007D_N10010_N10002"><div class="memo"><span class="notetitle memo">memo:</span> To perform fully-closed control with an OMRON G5-series R88D-KN<span class="ph font_Wingdings2">&#9633;&#9633;&#9633;</span>-ECT Servo Drive, select 1701 hex or 1600 hex for RxPDO. For 1600 hex, the total size of objects should be 12 bytes or less (for version 2.1 or later).</div></div>
+
+        
+<p class="p" id="slj1484547232876__p_mqn_qty_gcb">For details on setting the PDO map, refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Motion Control User&#8217;s Manual (Cat. No. W507)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Industrial Panel PC / Industrial Box PC Motion Control User&#8217;s Manual (Cat. No. W559)</span></span></span>.</p>
+
+<p class="p linespace_7pt" id="slj1484547232876__ID0EZJLM">Refer to <span class="ph phtype_type2"><span class="termtype">I/O Entry Mappings</span></span> in the <span class="ph phtype_docname"><span class="termtype">NX-series Position Interface Units User&#8217;s Manual (Cat. No. W524)</span></span> for information on using the NX-series Position Interface Units.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="ecy1484547258269">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Required Objects</h1>
+
+<div class="body conbody">
+<p class="p" id="ecy1484547258269__ID0ECLLM">There are objects that are required for Servo axes and an object that is required for encoder axes.</p>
+
+<p class="p" id="ecy1484547258269__ID0EJLLM">If even one of the required objects is not set, a Required Process Data Object Not Set error (error code: 3460 hex) occurs.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="ele1484547258487">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Servo Axes</h1>
+
+<div class="body conbody">
+<p class="p" id="ele1484547258487__ID0ELMLM">The following objects must be set to use motion control instructions for a Servo axis.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ele1484547258487__ID0EXMLM" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d33103e32">Input/output</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d33103e35">Function</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d33103e38">Process data</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d33103e32 ">Output</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d33103e35 ">Control word</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d33103e38 ">6040 hex</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d33103e35 ">Target position</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d33103e38 ">607A hex</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d33103e32 ">Input</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d33103e35 ">Status word</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d33103e38 ">6041 hex</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d33103e35 ">Position actual value</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d33103e38 ">6064 hex</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<div class="note" id="ele1484547258487__note_N10097_N10010_N10002"><div class="ver"><span class="notetitle ver">ver:</span>
+<ul class="ul" id="ele1484547258487__ul_941AA309D5F3424EBBF557628F103349">
+<li class="li" id="ele1484547258487__li_8BC5AB614E5C4416A68FB2F1D2B10836">
+<p class="p" id="ele1484547258487__ID0EVTLM">If you are using a CPU Unit with unit version 1.10 or later, operation is as described in the following table depending on whether Modes of Operation (6060 hex) and Modes of Operation Display (6061 hex) are mapped.</p>
+
+                    
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ele1484547258487__ID0E4TLM" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:25%" />
+<col style="width:37%" />
+<col style="width:37%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d33103e128">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d33103e130">
+<p class="p" id="ele1484547258487__ID0ETULM">Modes of Operation Display</p>
+
+<p class="p">(6061 hex) mapped</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d33103e139">
+<p class="p" id="ele1484547258487__ID0E6ULM">Modes of Operation Display</p>
+
+<p class="p">(6061 hex) not mapped</p>
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder fonttype_head bgcolor_standardgray" style="text-align:left;vertical-align:top;" headers="d33103e128 ">Modes of Operation (6060 hex) mapped</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d33103e130 ">
+<ul class="ul" id="ele1484547258487__ul_9828C535D0B3436A9F0414F8B091CA89">
+<li class="li" id="ele1484547258487__li_N10142_N1013E_N1013A_N10131_N1012E_N100EC_N100B5_N100A3_N1009F_N10097_N10010_N10002">You can execute instructions that use CSP<a class="xref" href="#ele1484547258487__fn-1324829"><sup>*1</sup></a>, CSV<a class="xref" href="#ele1484547258487__fn-1324830"><sup>*2</sup></a>, or CST<a class="xref" href="#ele1484547258487__fn-1324831"><sup>*3</sup></a>.</li>
+
+<li class="li" id="ele1484547258487__li_FE153CF848014035A8F3DA6B8BB061A4">The servo is OFF in any control mode other than CSP, CSV, or CST.</li>
+
+</ul>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d33103e139 ">
+<ul class="ul" id="ele1484547258487__ul_20BC10B33DBB44AE94552089FB2D75E1">
+<li class="li" id="ele1484547258487__li_2ADA94164EB74160979B8FAFBF0DC7E0">You can execute instructions that use CSP. If you execute any instruction that uses any other control mode, a Process Data Object Setting Missing error (error code: 3461 hex) occurs.</li>
+
+<li class="li" id="ele1484547258487__li_BA6ADD0E2EE54A6BA409E514B4755CDD">The MC Function Module assumes that the CSP Servo Drive control mode is used. Command the Servo Drive to use CSP.</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder fonttype_head bgcolor_standardgray" style="text-align:left;vertical-align:top;" headers="d33103e128 ">Modes of Operation (6060 hex) not mapped</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d33103e130 ">
+<ul class="ul" id="ele1484547258487__ul_8716B85952084D05A2C046387037FFC1">
+<li class="li" id="ele1484547258487__li_D08145ACA97E4518BE864B115591F5AD">You can execute instructions that use CSP. If you execute any instruction that uses any other control mode, a Process Data Object Setting Missing error (error code: 3461 hex) occurs.</li>
+
+<li class="li" id="ele1484547258487__li_3D9BEDDB3D92428DB2B93B6B4C2B4750">The servo is OFF in any control mode other than CSP.</li>
+
+</ul>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d33103e139 ">
+<ul class="ul" id="ele1484547258487__ul_4170EA74678A4EFCAD42E722E6A91A77">
+<li class="li" id="ele1484547258487__li_36938E6184934A8AB49E44BE2A0B7F7A">You can execute instructions that use CSP. If you execute any instruction that uses any other control mode, a Process Data Object Setting Missing error (error code: 3461 hex) occurs.</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="ele1484547258487__fn-1324829" id="ele1484547258487__fn-1324829"><sup>*1</sup></a>  CSP is the Cyclic Synchronous Position Control Mode of the Servo Drive.</div>
+<div class="fn"><a name="ele1484547258487__fn-1324830" id="ele1484547258487__fn-1324830"><sup>*2</sup></a>  CSV is the Cyclic Synchronous Velocity Control Mode of the Servo Drive.</div>
+<div class="fn"><a name="ele1484547258487__fn-1324831" id="ele1484547258487__fn-1324831"><sup>*3</sup></a>  CST is the Cyclic Synchronous Torque Control Mode of the Servo Drive.</div></div></div>
+
+</li>
+
+</ul>
+
+<p class="p linespace_7pt"></p>
+
+<ul class="ul" id="ele1484547258487__ul_of1_hry_jx">
+<li class="li" id="ele1484547258487__li_5CD25F3BB6D74D91A744A0A43EFFE818">
+<p class="p" id="ele1484547258487__ID0EKTLM">If you are using a CPU Unit with unit version 1.09 or earlier and you are not using an OMRON 1S-series Servo Drive with built-in EtherCAT communications or G5-series Servo Drive with built-in EtherCAT communications for the servo axis, Modes of Operation (6060 hex) and Modes of Operation Display (6061 hex) are required.</p>
+
+</li>
+
+</ul>
+
+</div></div>
+
+        
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="ogn1484547258690">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">Encoder Axes</h1>
+ 
+<div class="body conbody">
+<p class="p" id="ogn1484547258690__ID0EE3LM">The following object must be set to use motion control instructions for an encoder axis.</p>
+ 
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ogn1484547258690__ID0ES3LM" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d113351e32">Input/output</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d113351e35">Function</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d113351e38">Process data</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d113351e32 ">Input</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d113351e35 ">Position actual value</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d113351e38 ">4010 hex</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="jhb1484547258908">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Objects Required for Specific Instructions</h1>
+
+<div class="body conbody">
+<p class="p" id="jhb1484547258908__ID0EWAMM">There are objects that you must set to use specific instructions.</p>
+
+<p class="p" id="jhb1484547258908__ID0EZAMM">There are settings required for both Servo axes and encoder axes.</p>
+
+<p class="p" id="jhb1484547258908__ID0EABMM">If an object that is required for an instruction is not set, a Process Data Object Setting Missing error (error code: 3461 hex) occurs.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="xdi1484547259115">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Servo Axes</h1>
+<div class="body conbody">
+<p class="p" id="xdi1484547259115__ID0EICMM">There are objects that you must set to use specific instructions for Servo axes.</p>
+
+<p class="p" id="xdi1484547259115__ID0EPCMM">Refer to the following tables and set the required objects.</p>
+
+<p class="p" id="xdi1484547259115__ID0EWCMM">There are no additional object settings required for Servo axis operation for any instructions that are not listed in the following table.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="ryj1484547259365">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Output Settings of Serve Axes</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ryj1484547259365__ID0ETDMM" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+                
+                
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:top;" id="d148920e90">Instruction</th>
+
+<th class="entry cellrowborder" colspan="7" style="text-align:left;vertical-align:top;" id="d148920e93">Function</th>
+
+</tr>
+
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d148920e99">
+<p class="p" id="ryj1484547259365__ID0EZEMM">Target velocity</p>
+
+<p class="p" id="ryj1484547259365__ID0EAFMM">(60FF hex)</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d148920e108">
+<p class="p" id="ryj1484547259365__ID0EMFMM">Target torque</p>
+
+<p class="p" id="ryj1484547259365__ID0ETFMM">(6071 hex)</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d148920e117">
+<p class="p" id="ryj1484547259365__ID0E6FMM">Modes of operation</p>
+
+<p class="p" id="ryj1484547259365__ID0EGGMM">(6060 hex)<a class="xref" href="#ryj1484547259365__ID0ETDMM-footnote-1324774"><sup>*1</sup></a></p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d148920e129">
+<p class="p" id="ryj1484547259365__ID0EVGMM">Touch probe function</p>
+
+<p class="p" id="ryj1484547259365__ID0E3GMM">(60B8 hex)</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d148920e138">
+<p class="p" id="ryj1484547259365__ID0EIHMM">Max. profile velocity</p>
+
+<p class="p" id="ryj1484547259365__ID0ERHMM">(607F hex)</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d148920e148">
+<p class="p" id="ryj1484547259365__ID0E4HMM">Positive torque limit value</p>
+
+<p class="p" id="ryj1484547259365__ID0EEIMM">(60E0 hex)</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d148920e157">
+<p class="p" id="ryj1484547259365__ID0EQIMM">Negative torque limit value</p>
+
+<p class="p" id="ryj1484547259365__ID0EXIMM">(60E1 hex)</p>
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d148920e90 d148920e99 ">
+<p class="p" id="ryj1484547259365__ID0EJJMM">MC_Home</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e108 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e117 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e129 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e138 ">Conditionally required<a class="xref" href="#ryj1484547259365__ID0ETDMM-footnote-1324795"><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e148 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e157 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d148920e90 d148920e99 ">
+<p class="p" id="ryj1484547259365__ID0EQJMM">MC_HomeWithParameter</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e108 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e117 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e129 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e138 ">Conditionally required<a class="xref" href="#ryj1484547259365__ID0ETDMM-footnote-1324795"><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e148 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e157 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d148920e90 d148920e99 ">
+<p class="p" id="ryj1484547259365__ID0ESMMM">MC_MoveFeed</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e108 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e117 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e129 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e138 ">Conditionally required<a class="xref" href="#ryj1484547259365__ID0ETDMM-footnote-1324796"><sup>*3</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e148 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e157 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d148920e90 d148920e99 ">
+<p class="p" id="ryj1484547259365__ID0ESPMM">MC_MoveLink</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e108 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e117 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e129 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e138 ">Conditionally required<a class="xref" href="#ryj1484547259365__ID0ETDMM-footnote-1324797"><sup>*4</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e148 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e157 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d148920e90 d148920e99 ">
+<p class="p" id="ryj1484547259365__ID0ESSMM">MC_TorqueControl</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e108 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e117 ">Required</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e129 ">Required</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e138 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e148 ">Conditionally required<a class="xref" href="#ryj1484547259365__ID0ETDMM-footnote-1324794"><sup>*5</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e157 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 ">&#160;</td>
+
+</tr>
+
+                    
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d148920e90 d148920e99 ">
+<p class="p" id="ryj1484547259365__ID0EUVMM">MC_SetTorqueLimit</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e108 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e117 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e129 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e138 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e148 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e157 ">Required</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 ">Required</td>
+
+</tr>
+
+                    
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d148920e90 d148920e99 ">
+<p class="p" id="ryj1484547259365__ID0ESYMM">MC_TouchProbe</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e108 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e117 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e129 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e138 ">Conditionally required<a class="xref" href="#ryj1484547259365__ID0ETDMM-footnote-1324795"><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e148 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e157 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d148920e90 d148920e99 ">
+<p class="p" id="ryj1484547259365__ID0EP2MM">MC_SyncMoveVelocity</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e108 ">Required</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e117 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e129 ">Required</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e138 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e148 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 d148920e157 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d148920e93 ">&#160;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="ryj1484547259365__ID0ETDMM-footnote-1324774" id="ryj1484547259365__ID0ETDMM-footnote-1324774"><sup>*1</sup></a>  <p class="p" id="ryj1484547259365__ID0E4UPM">If you set Modes of Operation (6060 hex), also set Modes of Operation Display (6061 hex). Normal operation is not possible if only one of these objects is set.</p>
+</div>
+<div class="fn"><a name="ryj1484547259365__ID0ETDMM-footnote-1324795" id="ryj1484547259365__ID0ETDMM-footnote-1324795"><sup>*2</sup></a>  <p class="p" id="ryj1484547259365__ID0EQVPM">Setting is not required for Homing Operation Modes 11, 12, and 14.</p>
+</div>
+<div class="fn"><a name="ryj1484547259365__ID0ETDMM-footnote-1324796" id="ryj1484547259365__ID0ETDMM-footnote-1324796"><sup>*3</sup></a>  <p class="p" id="ryj1484547259365__ID0EDWPM">Setting is required when <span class="ph phtype_variable"><span class="termtype">Mode</span></span> is set to <span class="ph phtype_choice"><span class="termtype">Drive Mode</span></span>.</p>
+</div>
+<div class="fn"><a name="ryj1484547259365__ID0ETDMM-footnote-1324797" id="ryj1484547259365__ID0ETDMM-footnote-1324797"><sup>*4</sup></a>  <p class="p" id="ryj1484547259365__ID0EWWPM">Setting is required when <span class="ph phtype_variable"><span class="termtype">LinkOption</span></span> (Synchronization Start Condition) is set to <span class="ph phtype_choice"><span class="termtype">_mcTriggerDetection</span></span> and <span class="ph phtype_variable"><span class="termtype">Mode</span></span> is set to <span class="ph phtype_choice"><span class="termtype">Drive Mode</span></span>.</p>
+</div>
+<div class="fn"><a name="ryj1484547259365__ID0ETDMM-footnote-1324794" id="ryj1484547259365__ID0ETDMM-footnote-1324794"><sup>*5</sup></a>  <p class="p" id="ryj1484547259365__ID0EJXPM">This setting is checked only when an OMRON 1S-series Servo Drive with built-in EtherCAT communications or G5-series Servo Drive with built-in EtherCAT communications is used.</p>
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="dke1484547259599">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Input Settings of Servo Axes</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="dke1484547259599__ID0EA6MM" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:top;" id="d25932e167">Instruction</th>
+
+<th class="entry cellrowborder" colspan="5" style="text-align:left;vertical-align:top;" id="d25932e170">Function</th>
+
+</tr>
+
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d25932e176">
+<p class="p" id="dke1484547259599__ID0EGANM">Torque actual value</p>
+
+<p class="p" id="dke1484547259599__ID0ENANM">(6077 hex)</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d25932e185">
+<p class="p" id="dke1484547259599__ID0EZANM">Modes of operation display</p>
+
+<p class="p" id="dke1484547259599__ID0EABNM">(6061 hex)<a class="xref" href="#dke1484547259599__ID0EA6MM-footnote-1324775"><sup>*1</sup></a></p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d25932e197">
+<p class="p" id="dke1484547259599__ID0EPBNM">Touch probe status</p>
+
+<p class="p" id="dke1484547259599__ID0EYBNM">(60B9 hex)</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d25932e206">
+<p class="p" id="dke1484547259599__ID0EECNM">Touch probe pos1 pos value</p>
+
+<p class="p" id="dke1484547259599__ID0ELCNM">(60BA hex)</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d25932e215">
+<p class="p" id="dke1484547259599__ID0EXCNM">Touch probe pos2 pos value</p>
+
+<p class="p" id="dke1484547259599__ID0E5CNM">(60BC hex)</p>
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d25932e167 d25932e176 ">
+<p class="p" id="dke1484547259599__ID0EQDNM">MC_Home</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d25932e170 d25932e185 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d25932e170 d25932e197 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d25932e170 d25932e206 ">Conditionally required<a class="xref" href="#dke1484547259599__ID0EA6MM-footnote-1324777"><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d25932e170 d25932e215 ">Conditionally required<a class="xref" href="#dke1484547259599__ID0EA6MM-footnote-1324777"><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d25932e170 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d25932e167 d25932e176 ">
+<p class="p" id="dke1484547259599__ID0EXDNM">MC_HomeWithParameter</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d25932e170 d25932e185 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d25932e170 d25932e197 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d25932e170 d25932e206 ">Conditionally required<a class="xref" href="#dke1484547259599__ID0EA6MM-footnote-1324777"><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d25932e170 d25932e215 ">Conditionally required<a class="xref" href="#dke1484547259599__ID0EA6MM-footnote-1324777"><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d25932e170 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d25932e167 d25932e176 ">
+<p class="p" id="dke1484547259599__ID0EEGNM">MC_MoveFeed</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d25932e170 d25932e185 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d25932e170 d25932e197 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d25932e170 d25932e206 ">Conditionally required<a class="xref" href="#dke1484547259599__ID0EA6MM-footnote-1324778"><sup>*3</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d25932e170 d25932e215 ">Conditionally required<a class="xref" href="#dke1484547259599__ID0EA6MM-footnote-1324779"><sup>*4</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d25932e170 ">Conditionally required<a class="xref" href="#dke1484547259599__ID0EA6MM-footnote-1324780"><sup>*5</sup></a></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d25932e167 d25932e176 ">
+<p class="p" id="dke1484547259599__ID0EWINM">MC_MoveLink</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d25932e170 d25932e185 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d25932e170 d25932e197 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d25932e170 d25932e206 ">Conditionally required<a class="xref" href="#dke1484547259599__ID0EA6MM-footnote-1324781"><sup>*6</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d25932e170 d25932e215 ">Conditionally required<a class="xref" href="#dke1484547259599__ID0EA6MM-footnote-1324782"><sup>*7</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d25932e170 ">Conditionally required<a class="xref" href="#dke1484547259599__ID0EA6MM-footnote-1324783"><sup>*8</sup></a></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d25932e167 d25932e176 ">
+<p class="p" id="dke1484547259599__ID0EILNM">MC_TorqueControl</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d25932e170 d25932e185 ">Required</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d25932e170 d25932e197 ">Required</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d25932e170 d25932e206 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d25932e170 d25932e215 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d25932e170 ">&#160;</td>
+
+</tr>
+
+                    
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d25932e167 d25932e176 ">
+<p class="p" id="dke1484547259599__ID0EQNNM">MC_TouchProbe</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d25932e170 d25932e185 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d25932e170 d25932e197 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d25932e170 d25932e206 ">Conditionally required<a class="xref" href="#dke1484547259599__ID0EA6MM-footnote-1324778"><sup>*3</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d25932e170 d25932e215 ">Conditionally required<a class="xref" href="#dke1484547259599__ID0EA6MM-footnote-1324779"><sup>*4</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d25932e170 ">Conditionally required<a class="xref" href="#dke1484547259599__ID0EA6MM-footnote-1324780"><sup>*5</sup></a></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d25932e167 d25932e176 ">
+<p class="p" id="dke1484547259599__ID0EZPNM">MC_SyncMoveVelocity</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d25932e170 d25932e185 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d25932e170 d25932e197 ">Required</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d25932e170 d25932e206 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d25932e170 d25932e215 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d25932e170 ">&#160;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="dke1484547259599__ID0EA6MM-footnote-1324775" id="dke1484547259599__ID0EA6MM-footnote-1324775"><sup>*1</sup></a>  <p class="p" id="dke1484547259599__ID0E3XPM">If you set Modes of Operation Display (6061 hex), also set Modes of Operation (6060 hex). Normal operation is not possible if only one of these objects is set.</p>
+</div>
+<div class="fn"><a name="dke1484547259599__ID0EA6MM-footnote-1324777" id="dke1484547259599__ID0EA6MM-footnote-1324777"><sup>*2</sup></a>  <p class="p" id="dke1484547259599__ID0EPYPM">Setting is not required for Homing Operation Modes 11, 12, and 14.</p>
+</div>
+<div class="fn"><a name="dke1484547259599__ID0EA6MM-footnote-1324778" id="dke1484547259599__ID0EA6MM-footnote-1324778"><sup>*3</sup></a>  <p class="p" id="dke1484547259599__ID0ECZPM">Setting is required when <span class="ph phtype_variable"><span class="termtype">Mode</span></span> is set to <span class="ph phtype_choice"><span class="termtype">Drive Mode</span></span>.</p>
+</div>
+<div class="fn"><a name="dke1484547259599__ID0EA6MM-footnote-1324779" id="dke1484547259599__ID0EA6MM-footnote-1324779"><sup>*4</sup></a>  <p class="p" id="dke1484547259599__ID0EVZPM">Setting is required when <span class="ph phtype_variable"><span class="termtype">Mode</span></span> is set to <span class="ph phtype_choice"><span class="termtype">Drive Mode</span></span> and <span class="ph phtype_variable"><span class="termtype">LatchID</span></span> is set to <span class="ph phtype_choice"><span class="termtype">_mcLatch1</span></span> (Latch 1).</p>
+</div>
+<div class="fn"><a name="dke1484547259599__ID0EA6MM-footnote-1324780" id="dke1484547259599__ID0EA6MM-footnote-1324780"><sup>*5</sup></a>  <p class="p" id="dke1484547259599__ID0EI1PM">Setting is required when <span class="ph phtype_variable"><span class="termtype">Mode</span></span> is set to <span class="ph phtype_choice"><span class="termtype">Drive Mode</span></span> and <span class="ph phtype_variable"><span class="termtype">LatchID</span></span> is set to <span class="ph phtype_choice"><span class="termtype">_mcLatch2</span></span> (Latch 2).</p>
+</div>
+<div class="fn"><a name="dke1484547259599__ID0EA6MM-footnote-1324781" id="dke1484547259599__ID0EA6MM-footnote-1324781"><sup>*6</sup></a>  <p class="p" id="dke1484547259599__ID0E21PM">Setting is required when <span class="ph phtype_variable"><span class="termtype">LinkOption</span></span> (Synchronization Start Condition) is set to <span class="ph phtype_choice"><span class="termtype">_mcTriggerDetection</span></span> and <span class="ph phtype_variable"><span class="termtype">Mode</span></span> is set to <span class="ph phtype_choice"><span class="termtype">Drive Mode</span></span>.</p>
+</div>
+<div class="fn"><a name="dke1484547259599__ID0EA6MM-footnote-1324782" id="dke1484547259599__ID0EA6MM-footnote-1324782"><sup>*7</sup></a>  <p class="p" id="dke1484547259599__ID0EO2PM">Setting is required when <span class="ph phtype_variable"><span class="termtype">LinkOption</span></span> (Synchronization Start Condition) is set to <span class="ph phtype_choice"><span class="termtype">_mcTriggerDetection</span></span>, <span class="ph phtype_variable"><span class="termtype">Mode</span></span> is set to <span class="ph phtype_choice"><span class="termtype">Drive Mode</span></span>, and <span class="ph phtype_variable"><span class="termtype">LatchID</span></span> is set to <span class="ph phtype_choice"><span class="termtype">_mcLatch1</span></span> (Latch 1).</p>
+</div>
+<div class="fn"><a name="dke1484547259599__ID0EA6MM-footnote-1324783" id="dke1484547259599__ID0EA6MM-footnote-1324783"><sup>*8</sup></a>  <p class="p" id="dke1484547259599__ID0EB3PM">Setting is required when <span class="ph phtype_variable"><span class="termtype">LinkOption</span></span> (Synchronization Start Condition) is set to <span class="ph phtype_choice"><span class="termtype">_mcTriggerDetection</span></span>, <span class="ph phtype_variable"><span class="termtype">Mode</span></span> is set to <span class="ph phtype_choice"><span class="termtype">Drive Mode</span></span>, and <span class="ph phtype_variable"><span class="termtype">LatchID</span></span> is set to <span class="ph phtype_choice"><span class="termtype">_mcLatch2</span></span> (Latch 2).</p>
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="jrb1484547259786">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Encoder Axes</h1>
+<div class="body conbody">
+<p class="p" id="jrb1484547259786__ID0E5SNM">There are objects that you must set to use specific instructions for encoder axes.</p>
+
+<p class="p" id="jrb1484547259786__ID0EFTNM">Refer to the following tables and set the required objects.</p>
+
+<p class="p" id="jrb1484547259786__ID0EMTNM">There are no additional object settings required for encoder axis operation for any instructions that are not listed in the following table.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="noi1484547259989">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">Output Settings of Encoder Axes</h1>
+ 
+<div class="body conbody">
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="noi1484547259989__ID0EJUNM" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:27%" />
+<col style="width:26%" />
+<col style="width:45%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:top;" id="d103899e53">Instruction</th>
+ 
+<th class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:top;" id="d103899e56">Function</th>
+ 
+</tr>
+ 
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d103899e62">
+<p class="p" id="noi1484547259989__ID0EPVNM">Touch probe function</p>
+ 
+<p class="p" id="noi1484547259989__ID0EWVNM">(4020 hex)</p>
+ 
+</th>
+ 
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d103899e71">
+<p class="p" id="noi1484547259989__ID0ECWNM">Software Switch of Encoder's Input Slave</p>
+ 
+<p class="p" id="noi1484547259989__ID0EJWNM">(4020 hex)</p>
+ 
+</th>
+ 
+</tr>
+ 
+</thead>
+ 
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d103899e53 d103899e62 ">
+<p class="p" id="noi1484547259989__ID0E2WNM">MC_TouchProbe</p>
+ 
+</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d103899e56 d103899e71 ">Conditionally required<a class="xref" href="#noi1484547259989__ID0EJUNM-footnote-1324788"><sup>*1</sup></a></td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d103899e56 ">Conditionally required<a class="xref" href="#noi1484547259989__ID0EJUNM-footnote-1324789"><sup>*2</sup></a></td>
+ 
+</tr>
+ 
+</tbody>
+ 
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="noi1484547259989__ID0EJUNM-footnote-1324788" id="noi1484547259989__ID0EJUNM-footnote-1324788"><sup>*1</sup></a>  <p class="p" id="noi1484547259989__ID0EU3PM">Setting is required when <span class="ph phtype_variable"><span class="termtype">Mode</span></span> is set to <span class="ph phtype_choice"><span class="termtype">Drive Mode</span></span>.</p>
+</div>
+<div class="fn"><a name="noi1484547259989__ID0EJUNM-footnote-1324789" id="noi1484547259989__ID0EJUNM-footnote-1324789"><sup>*2</sup></a>  <p class="p" id="noi1484547259989__ID0EH4PM">Setting is required when an OMRON GX-series encoder slave is used and <span class="ph phtype_variable"><span class="termtype">Mode</span></span> is set to <span class="ph phtype_choice"><span class="termtype">Drive Mode</span></span>.</p>
+</div></div></div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer05" id="xqz1484547260191">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">Input Settings of Encoder Axes</h1>
+ 
+<div class="body conbody">
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="xqz1484547260191__ID0E2YNM" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:25%" />
+<col style="width:18%" />
+<col style="width:18%" />
+<col style="width:18%" />
+<col style="width:18%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:top;" id="d200900e92">Instruction</th>
+ 
+<th class="entry cellrowborder" colspan="4" style="text-align:left;vertical-align:top;" id="d200900e95">Function</th>
+ 
+</tr>
+ 
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d200900e101">
+<p class="p" id="xqz1484547260191__ID0EB1NM">Touch probe status</p>
+ 
+<p class="p" id="xqz1484547260191__ID0EI1NM">(4030 hex)</p>
+ 
+</th>
+ 
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d200900e110">
+<p class="p" id="xqz1484547260191__ID0EU1NM">Touch probe pos1 pos value</p>
+ 
+<p class="p" id="xqz1484547260191__ID0E21NM">(4012 hex)</p>
+ 
+</th>
+ 
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d200900e119">
+<p class="p" id="xqz1484547260191__ID0EH2NM">Touch probe pos2 pos value</p>
+ 
+<p class="p" id="xqz1484547260191__ID0EO2NM">(4013 hex)</p>
+ 
+</th>
+ 
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d200900e128">
+<p class="p" id="xqz1484547260191__ID0E12NM">Status of Encoder's Input Slave</p>
+ 
+<p class="p" id="xqz1484547260191__ID0EF3NM">(4030 hex)</p>
+ 
+</th>
+ 
+</tr>
+ 
+</thead>
+ 
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d200900e92 d200900e101 ">
+<p class="p" id="xqz1484547260191__ID0EX3NM">MC_TouchProbe</p>
+ 
+</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d200900e95 d200900e110 ">Conditionally required<a class="xref" href="#xqz1484547260191__ID0E2YNM-footnote-1324790"><sup>*1</sup></a></td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d200900e95 d200900e119 ">Conditionally required<a class="xref" href="#xqz1484547260191__ID0E2YNM-footnote-1324791"><sup>*2</sup></a></td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d200900e95 d200900e128 ">Conditionally required<a class="xref" href="#xqz1484547260191__ID0E2YNM-footnote-1324792"><sup>*3</sup></a></td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d200900e95 ">Conditionally required<a class="xref" href="#xqz1484547260191__ID0E2YNM-footnote-1324793"><sup>*4</sup></a></td>
+ 
+</tr>
+ 
+</tbody>
+ 
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="xqz1484547260191__ID0E2YNM-footnote-1324790" id="xqz1484547260191__ID0E2YNM-footnote-1324790"><sup>*1</sup></a>  <p class="p" id="xqz1484547260191__ID0E14PM">Setting is required when <span class="ph phtype_variable"><span class="termtype">Mode</span></span> is set to <span class="ph phtype_choice"><span class="termtype">Drive Mode</span></span>.</p>
+</div>
+<div class="fn"><a name="xqz1484547260191__ID0E2YNM-footnote-1324791" id="xqz1484547260191__ID0E2YNM-footnote-1324791"><sup>*2</sup></a>  <p class="p" id="xqz1484547260191__ID0EN5PM">Setting is required when <span class="ph phtype_variable"><span class="termtype">Mode</span></span> is set to <span class="ph phtype_choice"><span class="termtype">Drive Mode</span></span> and <span class="ph phtype_variable"><span class="termtype">LatchID</span></span> is set to <span class="ph phtype_choice"><span class="termtype">_mcLatch1</span></span> (Latch 1).</p>
+</div>
+<div class="fn"><a name="xqz1484547260191__ID0E2YNM-footnote-1324792" id="xqz1484547260191__ID0E2YNM-footnote-1324792"><sup>*3</sup></a>  <p class="p" id="xqz1484547260191__ID0EA6PM">Setting is required when <span class="ph phtype_variable"><span class="termtype">Mode</span></span> is set to <span class="ph phtype_choice"><span class="termtype">Drive Mode</span></span> and <span class="ph phtype_variable"><span class="termtype">LatchID</span></span> is set to <span class="ph phtype_choice"><span class="termtype">_mcLatch2</span></span> (Latch 2).</p>
+</div>
+<div class="fn"><a name="xqz1484547260191__ID0E2YNM-footnote-1324793" id="xqz1484547260191__ID0E2YNM-footnote-1324793"><sup>*4</sup></a>  <p class="p" id="xqz1484547260191__ID0ET6PM">Setting is required when an OMRON GX-series encoder slave is used and <span class="ph phtype_variable"><span class="termtype">Mode</span></span> is set to <span class="ph phtype_choice"><span class="termtype">Drive Mode</span></span>.</p>
+</div></div></div>
+ 
+</div>
+ 
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

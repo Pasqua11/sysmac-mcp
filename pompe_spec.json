@@ -1,0 +1,408 @@
+{
+ "out_dir": "C:\\Users\\tecni\\Claude\\sysmac-mcp\\out",
+ "variables": [
+  {
+   "name": "Mem_Richiesta",
+   "type": "BOOL",
+   "comment": "richiesta di pompaggio dal livello"
+  },
+  {
+   "name": "Mem_P1_Sel",
+   "type": "BOOL",
+   "comment": "tocca alla pompa 1"
+  },
+  {
+   "name": "Mem_P2_Sel",
+   "type": "BOOL",
+   "comment": "tocca alla pompa 2"
+  },
+  {
+   "name": "Tim_Press_P1",
+   "type": "TON",
+   "comment": "attesa pressione con pompa 1 in marcia"
+  },
+  {
+   "name": "Tim_Press_P2",
+   "type": "TON",
+   "comment": "attesa pressione con pompa 2 in marcia"
+  },
+  {
+   "name": "Tim_Secco",
+   "type": "TON",
+   "comment": "marcia a secco"
+  },
+  {
+   "name": "Tim_Minuto",
+   "type": "TON",
+   "comment": "base tempi per le ore di marcia"
+  }
+ ],
+ "sections": {
+  "Pompe": [
+   {
+    "cmt": "CONSENSI DI SICUREZZA",
+    "chain": [
+     "/IN_Emergenza",
+     "IN_Protezioni",
+     "(Consensi)"
+    ]
+   },
+   {
+    "cmt": "RICHIESTA DI POMPAGGIO: parte al livello minimo",
+    "chain": [
+     "/IN_Livello_Min",
+     "Consensi",
+     "V_S_Auto",
+     "(S Mem_Richiesta)"
+    ]
+   },
+   {
+    "cmt": "FINE POMPAGGIO: livello massimo raggiunto o consensi caduti",
+    "chain": [
+     {
+      "or": [
+       "IN_Livello_Max",
+       "/Consensi",
+       "/V_S_Auto"
+      ]
+     },
+     "(R Mem_Richiesta)"
+    ]
+   },
+   {
+    "cmt": "ALTERNANZA: alla richiesta tocca alla pompa con meno minuti",
+    "chain": [
+     "^Mem_Richiesta",
+     {
+      "f": "<=",
+      "p": {
+       "In1": "V_S_Ore_P1",
+       "In2": "V_S_Ore_P2"
+      }
+     },
+     "/V_S_Guasto_P1",
+     "IN_Termico_P1"
+    ],
+    "out": [
+     [
+      "(S Mem_P1_Sel)"
+     ],
+     [
+      "(R Mem_P2_Sel)"
+     ]
+    ]
+   },
+   {
+    "cmt": "ALTERNANZA: altrimenti tocca alla pompa 2",
+    "chain": [
+     "^Mem_Richiesta",
+     {
+      "f": ">",
+      "p": {
+       "In1": "V_S_Ore_P1",
+       "In2": "V_S_Ore_P2"
+      }
+     },
+     "/V_S_Guasto_P2",
+     "IN_Termico_P2"
+    ],
+    "out": [
+     [
+      "(S Mem_P2_Sel)"
+     ],
+     [
+      "(R Mem_P1_Sel)"
+     ]
+    ]
+   },
+   {
+    "cmt": "SELEZIONE MANUALE POMPA 1 DA SCADA",
+    "chain": [
+     {
+      "f": "=",
+      "p": {
+       "In1": "V_S_Pompa_Manuale",
+       "In2": "1"
+      }
+     }
+    ],
+    "out": [
+     [
+      "(S Mem_P1_Sel)"
+     ],
+     [
+      "(R Mem_P2_Sel)"
+     ]
+    ]
+   },
+   {
+    "cmt": "SELEZIONE MANUALE POMPA 2 DA SCADA",
+    "chain": [
+     {
+      "f": "=",
+      "p": {
+       "In1": "V_S_Pompa_Manuale",
+       "In2": "2"
+      }
+     }
+    ],
+    "out": [
+     [
+      "(S Mem_P2_Sel)"
+     ],
+     [
+      "(R Mem_P1_Sel)"
+     ]
+    ]
+   },
+   {
+    "cmt": "COMANDO POMPA 1",
+    "chain": [
+     "Mem_Richiesta",
+     "Mem_P1_Sel",
+     "Consensi",
+     "IN_Termico_P1",
+     "/V_S_Guasto_P1",
+     "/V_S_Marcia_Secco",
+     "(OUT_Pompa_1)"
+    ]
+   },
+   {
+    "cmt": "COMANDO POMPA 2",
+    "chain": [
+     "Mem_Richiesta",
+     "Mem_P2_Sel",
+     "Consensi",
+     "IN_Termico_P2",
+     "/V_S_Guasto_P2",
+     "/V_S_Marcia_Secco",
+     "(OUT_Pompa_2)"
+    ]
+   },
+   {
+    "cmt": "SORVEGLIANZA PRESSIONE, POMPA 1 (un timer per pompa: quello unico lasciava alla riserva il tempo gia' scaduto)",
+    "chain": [
+     "OUT_Pompa_1",
+     "/IN_Press_Mandata",
+     {
+      "fb": "TON",
+      "inst": "Tim_Press_P1",
+      "p": {
+       "PT": "SET_T_Pressione"
+      }
+     }
+    ]
+   },
+   {
+    "cmt": "SORVEGLIANZA PRESSIONE, POMPA 2",
+    "chain": [
+     "OUT_Pompa_2",
+     "/IN_Press_Mandata",
+     {
+      "fb": "TON",
+      "inst": "Tim_Press_P2",
+      "p": {
+       "PT": "SET_T_Pressione"
+      }
+     }
+    ]
+   },
+   {
+    "cmt": "GUASTO POMPA 1: niente pressione o termico intervenuto",
+    "chain": [
+     {
+      "or": [
+       "Tim_Press_P1.Q",
+       "/IN_Termico_P1"
+      ]
+     },
+     "(S V_S_Guasto_P1)"
+    ]
+   },
+   {
+    "cmt": "GUASTO POMPA 2: niente pressione o termico intervenuto",
+    "chain": [
+     {
+      "or": [
+       "Tim_Press_P2.Q",
+       "/IN_Termico_P2"
+      ]
+     },
+     "(S V_S_Guasto_P2)"
+    ]
+   },
+   {
+    "cmt": "PASSAGGIO ALLA RISERVA: se P1 e' guasta tocca a P2",
+    "chain": [
+     "V_S_Guasto_P1",
+     "Mem_Richiesta",
+     "/V_S_Guasto_P2",
+     "IN_Termico_P2"
+    ],
+    "out": [
+     [
+      "(S Mem_P2_Sel)"
+     ],
+     [
+      "(R Mem_P1_Sel)"
+     ]
+    ]
+   },
+   {
+    "cmt": "PASSAGGIO ALLA RISERVA: se P2 e' guasta tocca a P1",
+    "chain": [
+     "V_S_Guasto_P2",
+     "Mem_Richiesta",
+     "/V_S_Guasto_P1",
+     "IN_Termico_P1"
+    ],
+    "out": [
+     [
+      "(S Mem_P1_Sel)"
+     ],
+     [
+      "(R Mem_P2_Sel)"
+     ]
+    ]
+   },
+   {
+    "cmt": "MARCIA A SECCO: livello sotto il minimo con pompa in marcia",
+    "chain": [
+     {
+      "or": [
+       "OUT_Pompa_1",
+       "OUT_Pompa_2"
+      ]
+     },
+     "/IN_Livello_Min",
+     {
+      "fb": "TON",
+      "inst": "Tim_Secco",
+      "p": {
+       "PT": "SET_T_Secco"
+      }
+     }
+    ]
+   },
+   {
+    "cmt": "ALLARME MARCIA A SECCO",
+    "chain": [
+     "Tim_Secco.Q",
+     "(S V_S_Marcia_Secco)"
+    ]
+   },
+   {
+    "cmt": "BASE TEMPI PER LE ORE DI MARCIA (impulso al minuto)",
+    "chain": [
+     {
+      "or": [
+       "OUT_Pompa_1",
+       "OUT_Pompa_2"
+      ]
+     },
+     "/Tim_Minuto.Q",
+     {
+      "fb": "TON",
+      "inst": "Tim_Minuto",
+      "p": {
+       "PT": "T#60s"
+      }
+     }
+    ]
+   },
+   {
+    "cmt": "CONTA MINUTI POMPA 1",
+    "chain": [
+     "^Tim_Minuto.Q",
+     "OUT_Pompa_1",
+     {
+      "f": "@Inc",
+      "p": {
+       "InOut": "V_S_Ore_P1",
+       "OUT:InOut": "V_S_Ore_P1"
+      }
+     }
+    ]
+   },
+   {
+    "cmt": "CONTA MINUTI POMPA 2",
+    "chain": [
+     "^Tim_Minuto.Q",
+     "OUT_Pompa_2",
+     {
+      "f": "@Inc",
+      "p": {
+       "InOut": "V_S_Ore_P2",
+       "OUT:InOut": "V_S_Ore_P2"
+      }
+     }
+    ]
+   },
+   {
+    "cmt": "RESET ALLARMI DA SCADA O DA BORDO MACCHINA",
+    "chain": [
+     {
+      "or": [
+       "^V_P_Reset",
+       "^IN_Reset"
+      ]
+     }
+    ],
+    "out": [
+     [
+      "(R V_S_Guasto_P1)"
+     ],
+     [
+      "(R V_S_Guasto_P2)"
+     ],
+     [
+      "(R V_S_Marcia_Secco)"
+     ]
+    ]
+   },
+   {
+    "cmt": "SPIE DI MARCIA",
+    "chain": [
+     "OUT_Pompa_1",
+     "(V_L_P1_Marcia)"
+    ]
+   },
+   {
+    "cmt": "SPIA MARCIA POMPA 2",
+    "chain": [
+     "OUT_Pompa_2",
+     "(V_L_P2_Marcia)"
+    ]
+   },
+   {
+    "cmt": "SPIA CICLO",
+    "chain": [
+     "Mem_Richiesta",
+     "(V_L_Ciclo)"
+    ]
+   },
+   {
+    "cmt": "SPIA ALLARME CUMULATIVO",
+    "chain": [
+     {
+      "or": [
+       "V_S_Guasto_P1",
+       "V_S_Guasto_P2",
+       "V_S_Marcia_Secco",
+       "/Consensi"
+      ]
+     },
+     "(V_L_Allarme)"
+    ]
+   },
+   {
+    "cmt": "MACCHINA PRONTA",
+    "chain": [
+     "Consensi",
+     "/V_S_Marcia_Secco",
+     "(V_L_Pronto)"
+    ]
+   }
+  ]
+ }
+}

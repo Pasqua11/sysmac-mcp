@@ -1,0 +1,1676 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>IOL_WriteObj</title>
+</head>
+<body class="qzb1501815766176"><div class="layer02" id="qzb1501815766176">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">IOL_WriteObj</h1>
+
+<div class="body conbody">
+<p class="p" id="qzb1501815766176__ID0EC1CI">The IOL_WriteObj instruction writes data to IO-Link device objects.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="qzb1501815766176__table_N10017_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:13%" />
+<col style="width:14%" />
+<col style="width:6%" />
+<col style="width:35%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d842345e37">Instruction</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d842345e40">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d842345e43">
+<p class="p" id="qzb1501815766176__ID0EV2CI">FB</p>
+
+<p class="p">/FUN</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d842345e52">Graphic expression</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d842345e55">ST expression</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d842345e37 "><span class="indexterm">IOL_WriteObj (Write IO-Link Device Object)</span>IOL_WriteObj</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d842345e40 "><span class="indexterm">Write IO-Link Device Object</span>Write IO-Link Device Object</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d842345e43 ">FB</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d842345e52 ">
+<br /><img class="image" id="qzb1501815766176__image_86B200E8A78F4B81A635B9A53688B359" src="xeb1501815765304.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d842345e55 ">IOL_WriteObj_instance(Execute, DevicePort, DeviceObj, RetryCfg, WriteDat, WriteSize, Done, Busy, Error, ErrorID, ErrorType);</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<div class="note" id="qzb1501815766176__note_eb5_w1l_vyb"><div class="use"><span class="notetitle use">use:</span> You cannot use this instruction with EtherNet/IP type IO-Link Master Units.</div></div>
+
+<div class="note" id="qzb1501815766176__note_N100AC_N1000F_N10002"><div class="ver"><span class="notetitle ver">ver:</span> A CPU Unit with unit version 1.12 or later and Sysmac Studio version 1.16 or higher are required to use this instruction.</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="lhf1501817173262">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="lhf1501817173262__ID0E2CDI" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:20%" />
+<col style="width:9%" />
+<col style="width:20%" />
+<col style="width:14%" />
+<col style="width:14%" />
+<col style="width:8%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d588123e48">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d588123e50">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d588123e53">I/O</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d588123e56">Description</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d588123e59">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d588123e63">Unit</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d588123e66">Default</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e48 ">DevicePort</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e50 ">Device port</td>
+
+<td class="entry cellrowborder" rowspan="5" style="text-align:left;vertical-align:middle;" headers="d588123e53 ">Input</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e56 ">Object that represents a device port</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e59 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e63 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e66 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e48 ">DeviceObj</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e50 ">IO-Link device object parameter</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e56 ">Specification for the IO-Link device object</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e59 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e63 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e66 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e48 ">RetryCfg</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e50 ">Execution retry setting</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e56 ">Setting for the instruction execution retry</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e59 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e63 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e66 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e48 ">WriteDat</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e50 ">Write data</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e56 ">Data written to IO-Link device</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e59 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e63 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e66 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e48 ">WriteSize</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e50 ">Write data size</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e56 ">Write data size<a class="xref" href="qzb1501815766176.html#lhf1501817173262__fn-1911048"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e59 ">10#1 to 10#232</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e63 ">Bytes</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e66 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e48 ">ErrorType</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e50 ">Error type</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e53 ">Output</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e56 ">Error code that is returned by IO-Link device is stored when <span class="ph phtype_variable"><span class="termtype">ErrorID</span></span> is <span class="ph phtype_type2"><span class="termtype">4800 hex</span></span>.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e59 ">16#0000 to 16#FFFF</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e63 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e66 ">---</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="lhf1501817173262__fn-1911048" id="lhf1501817173262__fn-1911048"><sup>*1</sup></a>  Input <span class="ph phtype_settingvalue"><span class="termtype">1</span></span> if the written data is a BOOL data. Input the number of elements if the written data is a BOOL array. </div></div></div>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="lhf1501817173262__table_N1019F_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:5%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:top;" id="d588123e277">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d588123e279">Boolean</th>
+
+<th class="entry cellrowborder" colspan="4" style="text-align:center;vertical-align:middle;" id="d588123e282">Bit strings</th>
+
+<th class="entry cellrowborder" colspan="8" style="text-align:center;vertical-align:middle;" id="d588123e285">Integers</th>
+
+<th class="entry cellrowborder" colspan="2" style="text-align:center;vertical-align:middle;" id="d588123e288">Real numbers</th>
+
+<th class="entry cellrowborder" colspan="5" style="text-align:center;vertical-align:middle;" id="d588123e292">Times, durations, dates, and text strings</th>
+
+</tr>
+
+<tr class="row">
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d588123e298">BOOL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d588123e301">BYTE</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d588123e304">WORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d588123e307">DWORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d588123e310">LWORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d588123e314">USINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d588123e317">UINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d588123e320">UDINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d588123e323">ULINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d588123e326">SINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d588123e329">INT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d588123e333">DINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d588123e336">LINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d588123e339">REAL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d588123e342">LREAL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d588123e345">TIME</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d588123e348">DATE</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d588123e352">TOD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d588123e355">DT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d588123e358">STRING</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e277 d588123e298 ">DevicePort</td>
+
+<td class="entry cellrowborder" colspan="20" style="text-align:center;vertical-align:middle;" headers="d588123e279 d588123e282 d588123e285 d588123e288 d588123e292 d588123e301 d588123e304 d588123e307 d588123e310 d588123e314 d588123e317 d588123e320 d588123e323 d588123e326 d588123e329 d588123e333 d588123e336 d588123e339 d588123e342 d588123e345 d588123e348 d588123e352 d588123e355 d588123e358 ">Refer to <a class="xref" href="qzb1501815766176.html"><i style="display:none;">☆</i>IOL_WriteObj</a> for details on the structure _sDEVICE_PORT.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e277 d588123e298 ">DeviceObj</td>
+
+<td class="entry cellrowborder" colspan="20" style="text-align:center;vertical-align:middle;" headers="d588123e279 d588123e282 d588123e285 d588123e288 d588123e292 d588123e301 d588123e304 d588123e307 d588123e310 d588123e314 d588123e317 d588123e320 d588123e323 d588123e326 d588123e329 d588123e333 d588123e336 d588123e339 d588123e342 d588123e345 d588123e348 d588123e352 d588123e355 d588123e358 ">Refer to <a class="xref" href="qzb1501815766176.html"><i style="display:none;">☆</i>IOL_WriteObj</a> for details on the structure _sIOLOBJ_ACCESS.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e277 d588123e298 ">RetryCfg</td>
+
+<td class="entry cellrowborder" colspan="20" style="text-align:center;vertical-align:middle;" headers="d588123e279 d588123e282 d588123e285 d588123e288 d588123e292 d588123e301 d588123e304 d588123e307 d588123e310 d588123e314 d588123e317 d588123e320 d588123e323 d588123e326 d588123e329 d588123e333 d588123e336 d588123e339 d588123e342 d588123e345 d588123e348 d588123e352 d588123e355 d588123e358 ">Refer to <a class="xref" href="qzb1501815766176.html"><i style="display:none;">☆</i>IOL_WriteObj</a> for details on the structure _sIOL_RETRY_CFG.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d588123e277 d588123e298 ">WriteDat</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e279 d588123e301 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e282 d588123e304 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e282 d588123e307 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e282 d588123e310 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e282 d588123e314 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e285 d588123e317 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e285 d588123e320 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e285 d588123e323 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e285 d588123e326 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e285 d588123e329 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e285 d588123e333 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e285 d588123e336 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e285 d588123e339 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e288 d588123e342 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e288 d588123e345 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e292 d588123e348 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e292 d588123e352 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e292 d588123e355 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e292 d588123e358 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e292 "><span class="ph font_Wingdings"></span>OK</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" colspan="20" style="text-align:center;vertical-align:middle;" headers="d588123e279 d588123e282 d588123e285 d588123e288 d588123e292 d588123e301 d588123e304 d588123e307 d588123e310 d588123e314 d588123e317 d588123e320 d588123e323 d588123e326 d588123e329 d588123e333 d588123e336 d588123e339 d588123e342 d588123e345 d588123e348 d588123e352 d588123e355 d588123e358 ">An array can also be specified.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e277 d588123e298 ">WriteSize</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e279 d588123e301 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e282 d588123e304 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e282 d588123e307 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e282 d588123e310 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e282 d588123e314 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e285 d588123e317 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e285 d588123e320 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e285 d588123e323 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e285 d588123e326 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e285 d588123e329 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e285 d588123e333 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e285 d588123e336 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e285 d588123e339 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e288 d588123e342 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e288 d588123e345 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e292 d588123e348 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e292 d588123e352 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e292 d588123e355 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e292 d588123e358 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e292 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d588123e277 d588123e298 ">ErrorType</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e279 d588123e301 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e282 d588123e304 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e282 d588123e307 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e282 d588123e310 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e282 d588123e314 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e285 d588123e317 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e285 d588123e320 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e285 d588123e323 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e285 d588123e326 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e285 d588123e329 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e285 d588123e333 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e285 d588123e336 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e285 d588123e339 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e288 d588123e342 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e288 d588123e345 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e292 d588123e348 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e292 d588123e352 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e292 d588123e355 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e292 d588123e358 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d588123e292 ">&#160;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="vfw1501817173534">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function</h1>
+
+<div class="body conbody">
+<p class="p" id="vfw1501817173534__ID0EI1AK">The IOL_WriteObj instruction writes object data to IO-Link devices.</p>
+
+<p class="p linespace_7pt" id="vfw1501817173534__ID0ER1AK">For the <span class="ph phtype_variable"><span class="termtype">DevicePort</span></span> input variable, set the IO-Link Master Unit and the port number to which the target IO-Link device for writing is connected.</p>
+
+<p class="p" id="vfw1501817173534__ID0EY1AK">The data type of the <span class="ph phtype_variable"><span class="termtype">DevicePort</span></span> input variable is structure _sDEVICE_PORT. The specifications are as follows:</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="vfw1501817173534__table_N1002C_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:1%" />
+<col style="width:13%" />
+<col style="width:15%" />
+<col style="width:18%" />
+<col style="width:18%" />
+<col style="width:19%" />
+<col style="width:5%" />
+<col style="width:7%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" colspan="2" style="text-align:center;vertical-align:middle;" id="d1021247e55">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1021247e58">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1021247e61">Description</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1021247e64">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1021247e67">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1021247e71">Unit</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1021247e74">Default</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cell-norowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d1021247e55 ">DevicePort</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e58 ">Device port</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e61 ">Object that represents a device port</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e64 ">_sDEVICE_PORT</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e67 ">---</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e71 ">---</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e74 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e55 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e55 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e58 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e61 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e64 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e67 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e71 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e74 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e55 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e55 ">DeviceType</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e58 ">Device type</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e61 ">Type of the device to specify</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e64 ">_eDEVICE_TYPE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e67 ">
+<p class="p" id="vfw1501817173534__ID0EBDBK">_DeviceNXUnit</p>
+
+<p class="p" id="vfw1501817173534__ID0EIDBK">_DeviceEcatSlave</p>
+
+<p class="p" id="vfw1501817173534__ID0EPDBK">_DeviceOptionBoard</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e71 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e74 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e55 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e55 ">NxUnit</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e58 ">Specified Unit</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e61 ">NX Unit to control</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e64 ">_sNXUNIT_ID</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e67 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e71 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e74 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" rowspan="4" style="text-align:left;vertical-align:middle;" headers="d1021247e55 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e55 ">EcatSlave</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e58 ">Specified slave</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e61 ">EtherCAT slave to control</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e64 ">_sECAT_ID</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e67 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e71 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e74 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e55 ">OptBoard</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e58 ">Specified Option Board</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e61 ">Option Board to control</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e64 ">_sOPTBOARD_ID</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e67 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e71 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e74 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e55 ">Reserved</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e58 ">Reserved</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e61 ">Reserved</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e64 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e67 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e71 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e74 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e55 ">PortNo</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e58 ">Port number</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e61 ">
+<p class="p" id="vfw1501817173534__ID0EARBK">Port number</p>
+
+<p class="p" id="vfw1501817173534__ID0EHRBK">1: Port 1</p>
+
+<p class="p" id="vfw1501817173534__ID0EORBK">2: Port 2</p>
+
+<p class="p" id="vfw1501817173534__ID0EVRBK">3: Port 3</p>
+
+<p class="p" id="vfw1501817173534__ID0E3RBK">4: Port 4</p>
+
+<p class="p" id="vfw1501817173534__ID0EDSBK">5: Port 5</p>
+
+<p class="p" id="vfw1501817173534__ID0EKSBK">6: Port 6</p>
+
+<p class="p" id="vfw1501817173534__ID0ERSBK">7: Port 7</p>
+
+<p class="p" id="vfw1501817173534__ID0EYSBK">8: Port 8</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e64 ">USINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e67 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e71 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e74 ">---</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt" id="vfw1501817173534__ID0E1UBK">Use <span class="ph phtype_variable"><span class="termtype">DeviceType</span></span> to specify the device type.</p>
+
+<p class="p">Specify _DeviceNXUnit for an NX type of IO-Link Master Unit. Specify _DeviceEcatSlave for an EtherCAT type of IO-Link Master Unit.</p>
+
+<p class="p linespace_7pt">The variable used to specify the device is determined by the specified device type.</p>
+
+<p class="p linespace_7pt" id="vfw1501817173534__ID0EBVBK">For this instruction, it is determined as follows:</p>
+
+<p class="p" id="vfw1501817173534__ID0EIVBK">To specify the NX type, use <span class="ph phtype_variable"><span class="termtype">NxUnit</span></span> to specify the device. In this case, <span class="ph phtype_variable"><span class="termtype">EcatSlave</span></span> is not used.</p>
+
+<p class="p">To <span class="ph phtype_variable"><span class="termtype">NxUnit</span></span>, pass the device variable that is assigned to the device to specify.</p>
+
+<p class="p" id="vfw1501817173534__ID0EPVBK">To specify the EtherCAT type, use <span class="ph phtype_variable"><span class="termtype">EcatSlave</span></span> to specify the device. In this case, <span class="ph phtype_variable"><span class="termtype">NxUnit</span></span> is not used.</p>
+
+<p class="p">To <span class="ph phtype_variable"><span class="termtype">EcatSlave</span></span>, pass the device variable that is assigned to the device to specify.</p>
+
+<p class="p linespace_7pt" id="vfw1501817173534__ID0E3VBK">Use <span class="ph phtype_variable"><span class="termtype">PortNo</span></span> to set the port number to which the IO-Link device is connected.</p>
+
+<p class="p" id="vfw1501817173534__ID0EDWBK">The number of ports differs depending on the type of IO-Link Master Unit.</p>
+
+<p class="p" id="vfw1501817173534__ID0EKWBK">NX type: 1 to 4</p>
+
+<p class="p" id="vfw1501817173534__ID0ERWBK">EtherCAT type: 1 to 8</p>
+
+<p class="p linespace_7pt" id="vfw1501817173534__ID0E5WBK">The data type of <span class="ph phtype_variable"><span class="termtype">DeviceType</span></span> is enumerated type _eDEVICE_TYPE.</p>
+
+<p class="p" id="vfw1501817173534__ID0EFXBK">The meanings of the enumerators of enumerated type _eDEVICE_TYPE are as follows:</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="vfw1501817173534__table_N102E9_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1021247e407">Enumerator</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1021247e410">Meaning</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e407 ">_DeviceNXUnit</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e410 ">NX Unit is specified.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e407 ">_DeviceEcatSlave</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e410 ">EtherCAT slave is specified.</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt" id="vfw1501817173534__ID0ET1BK">Use the <span class="ph phtype_variable"><span class="termtype">DeviceObj</span></span> input variable to specify the object parameter for the IO-Link device to which data is written.</p>
+
+<p class="p linespace_7pt">The data type of the <span class="ph phtype_variable"><span class="termtype">DeviceObj</span></span> input variable is structure _sIOLOBJ_ACCESS. The specifications are as follows:</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="vfw1501817173534__table_N1034E_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:1%" />
+<col style="width:12%" />
+<col style="width:18%" />
+<col style="width:25%" />
+<col style="width:16%" />
+<col style="width:11%" />
+<col style="width:5%" />
+<col style="width:9%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" colspan="2" style="text-align:center;vertical-align:middle;" id="d1021247e475">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1021247e478">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1021247e481">Description</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1021247e484">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1021247e487">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1021247e491">Unit</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1021247e494">Default</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cell-norowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d1021247e475 ">DeviceObj</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e478 ">IO-Link device object parameter</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e481 ">Specification for the IO-Link device object</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e484 ">_sIOLOBJ_ACCESS</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e487 ">---</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e491 ">---</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e494 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e475 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e475 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e478 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e481 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e484 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e487 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e491 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e494 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d1021247e475 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e475 ">Index</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e478 ">Index</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e481 ">Index</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e484 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e487 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e491 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e494 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e475 ">Subindex</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e478 ">Subindex</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e481 ">Set <span class="ph phtype_settingvalue"><span class="termtype">0</span></span> to read from the entire index.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e484 ">USINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e487 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e491 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e494 ">---</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt" id="vfw1501817173534__ID0EXGCK">Use the <span class="ph phtype_variable"><span class="termtype">RetryCfg</span></span> input variable to set retry processing for instruction execution.</p>
+
+<p class="p" id="vfw1501817173534__ID0E5GCK">The data type of <span class="ph phtype_variable"><span class="termtype">RetryCfg</span></span> is structure _sIOL_RETRY_CFG. The specifications are as follows:</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="vfw1501817173534__table_N104B9_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:1%" />
+<col style="width:12%" />
+<col style="width:18%" />
+<col style="width:25%" />
+<col style="width:16%" />
+<col style="width:11%" />
+<col style="width:5%" />
+<col style="width:9%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" colspan="2" style="text-align:center;vertical-align:middle;" id="d1021247e642">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1021247e645">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1021247e648">Description</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1021247e651">
+<p class="p" id="vfw1501817173534__ID0EZICK">Data type</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1021247e657">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1021247e661">Unit</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1021247e664">Default</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cell-norowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d1021247e642 ">RetryCfg</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e645 ">Execution retry setting</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e648 ">Setting for the instruction execution retry</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e651 ">_sIOL_RETRY_CFG</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e657 ">---</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e661 ">---</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e664 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e642 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e642 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e645 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e648 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e651 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e657 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e661 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e664 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d1021247e642 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e642 ">TimeOut</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e645 ">Timeout time</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e648 ">
+<p class="p">Timeout time</p>
+
+<p class="p">If <span class="ph phtype_settingvalue"><span class="termtype">0</span></span> is set, the timeout time is 2.0 s.</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e651 ">TIME</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e657 ">0 to 300 s</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e661 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e664 ">T#2.0s</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e642 ">RetryNum</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e645 ">Number of retries</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e648 ">
+<p class="p">Number of retries at timeout</p>
+
+<p class="p">If <span class="ph phtype_settingvalue"><span class="termtype">0</span></span> is set, the number of retries is 3 times.</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e651 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e657 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e661 ">Times</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1021247e664 ">3</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt" id="vfw1501817173534__ID0EGTCK">Use the <span class="ph phtype_variable"><span class="termtype">WriteDat</span></span> input variable to specify the data to write to the IO-Link device.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="eng1501817162682">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Timing Charts</h1>
+<div class="body conbody"><p class="p" id="eng1501817162682__ID0EDKAI">The following figures show the timing charts.</p>
+</div>
+<div class="related-links"></div></div><div class="layer05" id="ouh1501817174535">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Normal end</h1>
+
+<div class="body conbody">
+<br /><img class="image" src="egq1501817173803.gif" /><br />
+<p class="p linespace_7pt"></p>
+
+<ol class="ol liststyle_asterisk1"><li class="li" id="ouh1501817174535__li_N1001E_N1001B_N1000F_N10002">
+    
+    *<span class="num"></span>.
+  Writing completed.</li>
+
+<li class="li" id="ouh1501817174535__li_N10023_N1001B_N1000F_N10002">
+    
+    *<span class="num"></span>.
+  Task period</li>
+
+</ol>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="vaj1501817175627">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Error end</h1>
+
+<div class="body conbody">
+<br /><img class="image" src="cgk1501817174774.gif" /><br />
+<p class="p linespace_7pt"></p>
+
+<ol class="ol liststyle_asterisk1"><li class="li" id="vaj1501817175627__li_N1001E_N1001B_N1000F_N10002">
+    
+    *<span class="num"></span>.
+  Task period</li>
+
+</ol>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="mjw1501817165194">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Related System-defined Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="mjw1501817165194__ID0EBPAI" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:18%" />
+<col style="width:18%" />
+<col style="width:18%" />
+<col style="width:45%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d653598e52">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d653598e55">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d653598e58">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d653598e61">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d653598e52 ">_EC_MBXSlavTbl</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d653598e55 ">Message Communications Enabled Slave Table</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d653598e58 ">ARRAY[1..512] OF BOOL<a class="xref" href="#mjw1501817165194__fn-1911051"><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d653598e61 ">
+<p class="p" id="mjw1501817165194__ID0EJSAI">This table indicates the slaves that can perform message communications.</p>
+
+<p class="p" id="mjw1501817165194__ID0EQSAI">Slaves are given in the table in the order of slave node addresses.</p>
+
+<p class="p" id="mjw1501817165194__ID0EXSAI">TRUE: Communications are possible.</p>
+
+<p class="p" id="mjw1501817165194__ID0E5SAI">FALSE: Communications are not possible.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="mjw1501817165194__fn-1911051" id="mjw1501817165194__fn-1911051"><sup>*1</sup></a>
+<p class="p">For the NX502 CPU Unit, the data type is <span class="ph phtype_settingvalue"><span class="termtype">ARRAY [1..256] OF BOOL</span></span>.</p>
+
+<p class="p">For the NX102 CPU Unit, NX1P2 CPU Unit, and NJ-series CPU Unit, the data type is <span class="ph phtype_settingvalue"><span class="termtype">ARRAY [1..192] OF BOOL</span></span>.</p>
+
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="wlu1501817175879">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Precautions for Correct Use</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="wlu1501817175879__li_N10015_N10012_N1000F_N10002">
+<p class="p" id="wlu1501817175879__ID0E65CK">Execution of this instruction is continued until processing is completed even if the value of <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to FALSE or the execution time exceeds the task period. The value of <span class="ph phtype_variable"><span class="termtype">Done</span></span> changes to TRUE when processing is completed. Use this to confirm normal completion of processing.</p>
+
+</li>
+
+<li class="li" id="wlu1501817175879__li_N10029_N10012_N1000F_N10002">
+<p class="p" id="wlu1501817175879__ID0EK6CK">For <span class="ph phtype_variable"><span class="termtype">DevicePort.NxUnit</span></span> and <span class="ph phtype_variable"><span class="termtype">DevicePort.EcatSlave</span></span>, specify the device variable that is assigned to the IO-Link Master Unit in the I/O Map of the Sysmac Studio. Refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">Sysmac Studio Version 1 Operation Manual (Cat. No. W504)</span></span></span> for details on assigning device variables.</p>
+
+</li>
+
+<li class="li" id="wlu1501817175879__li_N10043_N10012_N1000F_N10002">
+<p class="p" id="wlu1501817175879__ID0E26CK">Always use a variable for the parameter to pass to <span class="ph phtype_variable"><span class="termtype">WriteDat</span></span>. A building error will occur if a constant is passed.</p>
+
+</li>
+
+<li class="li" id="wlu1501817175879__li_N10051_N10012_N1000F_N10002">
+<p class="p" id="wlu1501817175879__ID0EGADK">You can execute only one instruction at a time for the IO-Link Master Unit regardless of its type (NX or EtherCAT).</p>
+
+</li>
+
+<li class="li" id="wlu1501817175879__li_N1005B_N10012_N1000F_N10002">
+<p class="p" id="wlu1501817175879__ID0ERADK">You cannot use this instruction in an event task. A compiling error will occur.</p>
+
+</li>
+
+<li class="li" id="wlu1501817175879__li_N10065_N10012_N1000F_N10002">
+<p class="p" id="wlu1501817175879__ID0E3ADK">This instruction is executed when <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to TRUE. The instruction is not executed when <span class="ph phtype_variable"><span class="termtype">Execute</span></span> is always TRUE.</p>
+
+</li>
+
+<li class="li" id="wlu1501817175879__li_N10079_N10012_N1000F_N10002">
+<p class="p" id="wlu1501817175879__ID0EHBDK">You can define a maximum of 64 instances for the IOL_ReadObj and IOL_WriteObj instructions.</p>
+
+</li>
+
+<li class="li" id="wlu1501817175879__li_N10083_N10012_N1000F_N10002">
+<p class="p" id="wlu1501817175879__ID0ESBDK">An error will occur in the following cases.</p>
+
+<ol class="ol liststyle_alphabet1">
+<li class="li" id="wlu1501817175879__li_N10090_N1008C_N10083_N10012_N1000F_N10002">
+<p class="p" id="wlu1501817175879__ID0EBCDK">A value that is out of range was set for <span class="ph phtype_variable"><span class="termtype">DevicePort.NxUnit</span></span> or <span class="ph phtype_variable"><span class="termtype">DevicePort.EcatSlave</span></span>.</p>
+
+</li>
+
+<li class="li" id="wlu1501817175879__li_N100A3_N1008C_N10083_N10012_N1000F_N10002">
+<p class="p" id="wlu1501817175879__ID0EMCDK">The value of <span class="ph phtype_variable"><span class="termtype">TimeOut</span></span> is outside of the valid range.</p>
+
+</li>
+
+<li class="li" id="wlu1501817175879__li_N100B1_N1008C_N10083_N10012_N1000F_N10002">
+<p class="p" id="wlu1501817175879__ID0EXCDK">The data type of <span class="ph phtype_variable"><span class="termtype">DevicePort</span></span> is invalid.</p>
+
+</li>
+
+<li class="li" id="wlu1501817175879__li_N100BF_N1008C_N10083_N10012_N1000F_N10002">
+<p class="p" id="wlu1501817175879__ID0ECDDK">More than 232 bytes of data was specified for <span class="ph phtype_variable"><span class="termtype">WriteDat</span></span>.</p>
+
+</li>
+
+<li class="li" id="wlu1501817175879__li_N100CD_N1008C_N10083_N10012_N1000F_N10002">
+<p class="p" id="wlu1501817175879__ID0ENDDK">An error response was received from the IO-Link device.</p>
+
+<p class="p">The upper eight bits represent <span class="ph phtype_variable"><span class="termtype">ErrorCode</span></span>, and lower eight bits represent <span class="ph phtype_variable"><span class="termtype">AdditionalCode</span></span>.</p>
+
+<p class="p">For <span class="ph phtype_variable"><span class="termtype">ErrorCode</span></span> and <span class="ph phtype_variable"><span class="termtype">AdditionalCode</span></span>, refer to the Error type specifications of the IO-Link Communication Specification. You can obtain the Error type specifications from the IO-Link Consortium.</p>
+
+<p class="p">http://www.io-link.com/</p>
+
+</li>
+
+<li class="li" id="wlu1501817175879__li_N100F6_N1008C_N10083_N10012_N1000F_N10002">
+<p class="p" id="wlu1501817175879__ID0E6DDK">The specified IO-Link Master Unit does not exist.</p>
+
+</li>
+
+<li class="li" id="wlu1501817175879__li_N10100_N1008C_N10083_N10012_N1000F_N10002">
+<p class="p" id="wlu1501817175879__ID0EKEDK">The maximum number of messages that the IO-Link master can process is exceeded. Instruction execution is not possible because the IO-Link master is processing the messages from other applications.</p>
+
+</li>
+
+<li class="li" id="wlu1501817175879__li_N1010A_N1008C_N10083_N10012_N1000F_N10002">
+<p class="p" id="wlu1501817175879__ID0EVEDK">The specified IO-Link Master Unit is not in a condition to receive messages.</p>
+
+</li>
+
+<li class="li" id="wlu1501817175879__li_N10114_N1008C_N10083_N10012_N1000F_N10002">
+<p class="p" id="wlu1501817175879__ID0EAFDK">More than 32 of the following instructions were executed at the same time: EC_CoESDOWrite, EC_CoESDORead, EC_StartMon, EC_StopMon, EC_SaveMon, EC_CopyMon, EC_DisconnectSlave, EC_ConnectSlave, EC_ChangeEnableSetting, IOL_ReadObj, and IOL_WriteObj.</p>
+
+</li>
+
+<li class="li" id="wlu1501817175879__li_N1011E_N1008C_N10083_N10012_N1000F_N10002">
+<p class="p" id="wlu1501817175879__ID0ELFDK">A timeout occurred during communications.</p>
+
+</li>
+
+<li class="li" id="wlu1501817175879__li_N10128_N1008C_N10083_N10012_N1000F_N10002">
+<p class="p" id="wlu1501817175879__ID0EWFDK">The specified port of the IO-Link Master Unit is not in IO-Link Mode. The port is disabled or in SIO Mode.</p>
+
+</li>
+
+<li class="li" id="wlu1501817175879__li_N10132_N1008C_N10083_N10012_N1000F_N10002">
+<p class="p" id="wlu1501817175879__ID0EBGDK">The IO-Link device is not connected to the specified port on the IO-Link Master Unit.</p>
+
+</li>
+
+<li class="li" id="wlu1501817175879__li_N1013C_N1008C_N10083_N10012_N1000F_N10002">
+<p class="p" id="wlu1501817175879__ID0EMGDK">The IO power is not supplied to the specified port of the IO-Link Master Unit.</p>
+
+</li>
+
+<li class="li" id="wlu1501817175879__li_N10146_N1008C_N10083_N10012_N1000F_N10002">
+<p class="p" id="wlu1501817175879__ID0EXGDK">The specified port of the IO-Link Master Unit had a verification error or communications error.</p>
+
+</li>
+
+</ol>
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="fev1501817176111">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Sample Programming</h1>
+
+<div class="body conbody">
+<p class="p" id="fev1501817176111__ID0EFJDK">In this sample, an IO-Link Master Unit (NX-ILM400) is connected to an EtherCAT Coupler Unit (NX-ECC203).</p>
+
+<br /><img class="image" id="fev1501817176111__image_3A7C1A875AFA4AC1AFE82D944B570491" src="evf1501817165684.gif" /><br />
+<p class="p linespace_7pt" id="fev1501817176111__ID0EHKDK">The value <span class="ph phtype_settingvalue"><span class="termtype">01</span></span> is written to the one-byte SwitchPoint Logic Output 1 (Index: 61/Subindex: 1) of the photoelectric sensor (E3Z) connected to port 1 on the NX-ILM400. The written data is stored in <span class="ph phtype_variable"><span class="termtype">SwitchPoint</span></span>.</p>
+
+<p class="p" id="fev1501817176111__ID0EOKDK">The node address of the NX-ECC203 is 10.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="nar1501817181616">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">LD</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="nar1501817181616__table_gky_jyk_j1b" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:10%" />
+<col style="width:25%" />
+<col style="width:22%" />
+<col style="width:15%" />
+<col style="width:27%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d671849e37">Internal Variables</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d671849e40">Variable</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d671849e43">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d671849e46">Initial value</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d671849e49">Comment</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d671849e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d671849e40 ">Trigger</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d671849e43 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d671849e46 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d671849e49 ">Execution condition</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d671849e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d671849e40 ">WriteCondition</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d671849e43 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d671849e46 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d671849e49 ">Data writing execution condition</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d671849e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d671849e40 ">DevicePort</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d671849e43 ">_sDEVICE_PORT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d671849e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d671849e49 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d671849e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d671849e40 ">DeviceObject</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d671849e43 ">_sIOLOBJ_ACCESS</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d671849e46 ">(Index:=0, Subindex:=0)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d671849e49 ">Specification for the IO-Link device object</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d671849e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d671849e40 ">SwitchPoint</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d671849e43 ">USINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d671849e46 ">USINT#01</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d671849e49 ">Write data</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d671849e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d671849e40 ">IOL_WriteObj_instance</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d671849e43 ">IOL_WriteObj</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d671849e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d671849e49 ">&#160;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="nar1501817181616__table_hky_jyk_j1b" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:10%" />
+<col style="width:22%" />
+<col style="width:17%" />
+<col style="width:27%" />
+<col style="width:22%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d671849e198">External Variables</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d671849e201">Variable</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d671849e204">Constant</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d671849e207">Initial value</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d671849e210">Comment</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d671849e198 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d671849e201 ">_EC_MBXSlavTbl</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d671849e204 ">
+<br /><img class="image" id="nar1501817181616__image_F5411890DE8B4D53BBB4E283BA093AE7" src="ull1501817166669.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d671849e207 ">ARRAY[1..512] OF BOOL<a class="xref" href="qzb1501815766176.html#nar1501817181616__fn-1911066"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d671849e210 ">Message Communications Enabled Slave Table</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d671849e198 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d671849e201 ">IO_LINK_Unit</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d671849e204 ">
+<br /><img class="image" id="nar1501817181616__image_D68B2ED68E284EA8BC3B1A7829C4B38C" src="ull1501817166669.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d671849e207 ">Set the device variable which specifies NX-ILM400 as the initial value of the structure member <span class="ph phtype_variable"><span class="termtype">NxUnit</span></span>.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d671849e210 ">&#160;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="nar1501817181616__fn-1911066" id="nar1501817181616__fn-1911066"><sup>*1</sup></a>
+<p class="p">For the NX502 CPU Unit, the data type is <span class="ph phtype_settingvalue"><span class="termtype">ARRAY [1..256] OF BOOL</span></span>.</p>
+
+<p class="p">For the NX102 CPU Unit, NX1P2 CPU Unit, and NJ-series CPU Unit, the data type is <span class="ph phtype_settingvalue"><span class="termtype">ARRAY [1..192] OF BOOL</span></span>.</p>
+
+</div></div></div>
+
+<br /><img class="image" id="nar1501817181616__image_8386648551754214A45F8AC2B7754486" src="eqa1501817176343.gif" /><br />
+<br /><img class="image" id="nar1501817181616__image_zzq_bsx_q1b" src="lsb1501817177395.gif" /><br />
+<br /><img class="image" id="nar1501817181616__image_wvy_bsx_q1b" src="viy1501817178431.gif" /><br />
+<br /><img class="image" id="nar1501817181616__image_bxf_csx_q1b" src="nxn1501817179358.gif" /><br />
+<br /><img class="image" id="nar1501817181616__image_gbm_csx_q1b" src="mvt1501817180654.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="ccr1501817181889">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">ST</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ccr1501817181889__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:10%" />
+<col style="width:25%" />
+<col style="width:22%" />
+<col style="width:15%" />
+<col style="width:27%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d98959e37">Internal Variables</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d98959e40">Variable</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d98959e43">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d98959e46">Initial value</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d98959e49">Comment</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d98959e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e40 ">Trigger</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e43 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e46 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e49 ">Execution condition</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d98959e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e40 ">WriteGo</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e43 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e46 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e49 ">Data writing execution</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d98959e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e40 ">DevicePort</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e43 ">_sDEVICE_PORT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e49 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d98959e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e40 ">DeviceObject</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e43 ">_sIOLOBJ_ACCESS</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e46 ">(Index:=0, Subindex:=0)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e49 ">Specification for the IO-Link device object</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d98959e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e40 ">SwitchPoint</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e43 ">USINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e46 ">USINT#01</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e49 ">Write data</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d98959e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e40 ">NormalEnd</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e43 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e46 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e49 ">Normal end</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d98959e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e40 ">ErrorEnd</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e43 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e46 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e49 ">Error end</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d98959e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e40 ">R_Trig_Instance</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e43 ">R_Trig</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e49 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d98959e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e40 ">IOL_WriteObj_instance</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e43 ">IOL_WriteObj</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e49 ">&#160;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ccr1501817181889__table_N1018C_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:10%" />
+<col style="width:22%" />
+<col style="width:17%" />
+<col style="width:27%" />
+<col style="width:22%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d98959e247">External Variables</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d98959e250">Variable</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d98959e253">Constant</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d98959e256">Initial value</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d98959e259">Comment</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d98959e247 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e250 ">_EC_MBXSlavTbl</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d98959e253 ">
+<br /><img class="image" id="ccr1501817181889__image_8ED1CC914B534578A98A370914997562" src="ull1501817166669.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e256 ">ARRAY[1..512] OF BOOL<a class="xref" href="qzb1501815766176.html#ccr1501817181889__fn-1911067"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e259 ">Message Communications Enabled Slave Table</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d98959e247 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e250 ">IO_LINK_Unit</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d98959e253 ">
+<br /><img class="image" id="ccr1501817181889__image_AB86DC13C8E742FB8F3ECB3DC6C71E83" src="ull1501817166669.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e256 ">Set the device variable which specifies NX-ILM400 as the initial value of the structure member <span class="ph phtype_variable"><span class="termtype">NxUnit</span></span>.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d98959e259 ">&#160;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="ccr1501817181889__fn-1911067" id="ccr1501817181889__fn-1911067"><sup>*1</sup></a>
+<p class="p">For the NX502 CPU Unit, the data type is <span class="ph phtype_settingvalue"><span class="termtype">ARRAY [1..256] OF BOOL</span></span>.</p>
+
+<p class="p">For the NX102 CPU Unit, NX1P2 CPU Unit, and NJ-series CPU Unit, the data type is <span class="ph phtype_settingvalue"><span class="termtype">ARRAY [1..192] OF BOOL</span></span>.</p>
+
+</div></div></div>
+
+<p class="p linespace_7pt"></p>
+
+<pre class="pre codeblock">
+// Prepare object parameter.
+R_Trig_instance(Clk := Trigger);
+IF (R_Trig_instance.Q=TRUE)THEN
+    DeviceObject.Index := UINT#10#61;
+    DeviceObject.Subindex := USINT#1;
+    DevicePort.DeviceType:= _eDEVICE_TYPE#_DeviceNXUnit;
+    DevicePort.NxUnit:= IO_LINK_Unit;
+    DevicePort.PortNo:= USINT#10#1;
+    IF ( _EC_MBXSlavTbl[10] =TRUE)THEN
+        WriteGo := TRUE;
+    END_IF;
+END_IF;
+
+IF ( (IOL_WriteObj_instance.Done=TRUE) OR (IOL_WriteObj_instance.Error=TRUE) ) THEN
+    WriteGo := FALSE;
+END_IF;
+
+// Execute IOL_WriteObj instruction.
+IOL_WriteObj_instance(
+    Execute := WriteGo,
+    DevicePort:= DevicePort,
+    DeviceObj := DeviceObject,
+    WriteDat := SwitchPoint,
+    WriteSize := UINT#10#1);
+
+// Processing after instruction execution
+IF (IOL_WriteObj_instance.Done=TRUE) THEN
+    // Processing after normal end
+    NormalEnd := NormalEnd + UINT#1;
+ELSIF (IOL_WriteObj_instance.Error=TRUE) THEN
+    // Processing after error end
+    ErrorEnd := ErrorEnd + UINT#1;
+END_IF;</pre>
+
+</div>
+
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,559 @@
+{
+ "out_dir": "out",
+ "variables": [
+  {
+   "name": "Consensi",
+   "type": "BOOL",
+   "comment": "consensi di sicurezza presenti"
+  },
+  {
+   "name": "Mem_S1_Ciclo",
+   "type": "BOOL",
+   "comment": "sequenza 1 attiva"
+  },
+  {
+   "name": "Mem_S1_Fine",
+   "type": "BOOL",
+   "comment": "sequenza 1 completata"
+  },
+  {
+   "name": "Mem_S1_1",
+   "type": "BOOL",
+   "comment": "passo 1 in corso"
+  },
+  {
+   "name": "End_S1_1",
+   "type": "BOOL",
+   "comment": "passo 1 completato"
+  },
+  {
+   "name": "Tim_S1_1",
+   "type": "TON",
+   "comment": "temporizzatore passo 1"
+  },
+  {
+   "name": "Mem_S1_2",
+   "type": "BOOL",
+   "comment": "passo 2 in corso"
+  },
+  {
+   "name": "End_S1_2",
+   "type": "BOOL",
+   "comment": "passo 2 completato"
+  },
+  {
+   "name": "Tim_S1_2",
+   "type": "TON",
+   "comment": "temporizzatore passo 2"
+  },
+  {
+   "name": "Mem_S1_3",
+   "type": "BOOL",
+   "comment": "passo 3 in corso"
+  },
+  {
+   "name": "End_S1_3",
+   "type": "BOOL",
+   "comment": "passo 3 completato"
+  },
+  {
+   "name": "Tim_S1_3",
+   "type": "TON",
+   "comment": "temporizzatore passo 3"
+  },
+  {
+   "name": "Req_L2",
+   "type": "BOOL",
+   "comment": "richiesta di carico vasca 2"
+  },
+  {
+   "name": "Tim_L2",
+   "type": "TON",
+   "comment": "sorveglianza carico vasca 2"
+  },
+  {
+   "name": "Req_L5",
+   "type": "BOOL",
+   "comment": "richiesta di carico vasca 5"
+  },
+  {
+   "name": "Tim_L5",
+   "type": "TON",
+   "comment": "sorveglianza carico vasca 5"
+  }
+ ],
+ "sections": {
+  "Sicurezze": [
+   {
+    "cmt": "CONSENSI DI SICUREZZA",
+    "chain": [
+     "/IN_Emergenza",
+     "IN_Protezioni",
+     "(Consensi)"
+    ]
+   }
+  ],
+  "sequenza_1_3_passi": [
+   {
+    "cmt": "SEQUENZA 1 - AZZERAMENTO ALL'AVVIO",
+    "chain": [
+     "^V_P_S1_Start"
+    ],
+    "out": [
+     [
+      "(R End_S1_1)"
+     ],
+     [
+      "(R End_S1_2)"
+     ],
+     [
+      "(R End_S1_3)"
+     ],
+     [
+      "(R Mem_S1_Fine)"
+     ],
+     [
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "0",
+        "OUT:Out": "V_S_S1_Passo"
+       }
+      }
+     ]
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 1 - AVVIO",
+    "chain": [
+     "^V_P_S1_Start",
+     "Consensi",
+     "(S Mem_S1_Ciclo)"
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 1 - ARRESTO",
+    "chain": [
+     {
+      "or": [
+       "^V_P_S1_Stop",
+       "/Consensi",
+       "Mem_S1_Fine"
+      ]
+     },
+     "(R Mem_S1_Ciclo)"
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 1 - INGRESSO PASSO 1",
+    "chain": [
+     "Mem_S1_Ciclo",
+     "Mem_S1_Ciclo",
+     "/End_S1_1",
+     "(S Mem_S1_1)"
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 1 - PASSO 1 IN CORSO",
+    "chain": [
+     "Mem_S1_1",
+     {
+      "fb": "TON",
+      "inst": "Tim_S1_1",
+      "p": {
+       "PT": "SET_T_S1_1"
+      }
+     }
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 1 - USCITA DEL PASSO 1",
+    "chain": [
+     "Mem_S1_1",
+     "Consensi",
+     "(OUT_S1_1)"
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 1 - FINE PASSO 1",
+    "chain": [
+     "Tim_S1_1.Q"
+    ],
+    "out": [
+     [
+      "(S End_S1_1)"
+     ],
+     [
+      "(R Mem_S1_1)"
+     ],
+     [
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "1",
+        "OUT:Out": "V_S_S1_Passo"
+       }
+      }
+     ]
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 1 - INGRESSO PASSO 2",
+    "chain": [
+     "Mem_S1_Ciclo",
+     "End_S1_1",
+     "/End_S1_2",
+     "(S Mem_S1_2)"
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 1 - PASSO 2 IN CORSO",
+    "chain": [
+     "Mem_S1_2",
+     {
+      "fb": "TON",
+      "inst": "Tim_S1_2",
+      "p": {
+       "PT": "SET_T_S1_2"
+      }
+     }
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 1 - USCITA DEL PASSO 2",
+    "chain": [
+     "Mem_S1_2",
+     "Consensi",
+     "(OUT_S1_2)"
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 1 - FINE PASSO 2",
+    "chain": [
+     "Tim_S1_2.Q"
+    ],
+    "out": [
+     [
+      "(S End_S1_2)"
+     ],
+     [
+      "(R Mem_S1_2)"
+     ],
+     [
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "2",
+        "OUT:Out": "V_S_S1_Passo"
+       }
+      }
+     ]
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 1 - INGRESSO PASSO 3",
+    "chain": [
+     "Mem_S1_Ciclo",
+     "End_S1_2",
+     "/End_S1_3",
+     "(S Mem_S1_3)"
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 1 - PASSO 3 IN CORSO",
+    "chain": [
+     "Mem_S1_3",
+     {
+      "fb": "TON",
+      "inst": "Tim_S1_3",
+      "p": {
+       "PT": "SET_T_S1_3"
+      }
+     }
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 1 - USCITA DEL PASSO 3",
+    "chain": [
+     "Mem_S1_3",
+     "Consensi",
+     "(OUT_S1_3)"
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 1 - FINE PASSO 3",
+    "chain": [
+     "Tim_S1_3.Q"
+    ],
+    "out": [
+     [
+      "(S End_S1_3)"
+     ],
+     [
+      "(R Mem_S1_3)"
+     ],
+     [
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "3",
+        "OUT:Out": "V_S_S1_Passo"
+       }
+      }
+     ]
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 1 - COMPLETATA",
+    "chain": [
+     "Mem_S1_Ciclo",
+     "End_S1_3",
+     "(S Mem_S1_Fine)"
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 1 - SPIE",
+    "chain": [
+     "Mem_S1_Ciclo",
+     "(V_L_S1_Ciclo)"
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 1 - SPIA FINE",
+    "chain": [
+     "Mem_S1_Fine",
+     "(V_L_S1_Fine)"
+    ]
+   }
+  ],
+  "livello_2": [
+   {
+    "cmt": "VASCA 2 - RICHIESTA DI CARICO AL MINIMO",
+    "chain": [
+     "/IN_L2_Min",
+     "Consensi",
+     "/V_S_L2_All",
+     "(S Req_L2)"
+    ]
+   },
+   {
+    "cmt": "VASCA 2 - FINE CARICO AL MASSIMO",
+    "chain": [
+     {
+      "or": [
+       "IN_L2_Max",
+       "IN_L2_Sfioro",
+       "/Consensi"
+      ]
+     },
+     "(R Req_L2)"
+    ]
+   },
+   {
+    "cmt": "VASCA 2 - ELETTROVALVOLA",
+    "chain": [
+     "Req_L2",
+     "/IN_L2_Sfioro",
+     "/V_S_L2_All",
+     "(OUT_L2_Carico)"
+    ]
+   },
+   {
+    "cmt": "VASCA 2 - SORVEGLIANZA TEMPO DI CARICO",
+    "chain": [
+     "OUT_L2_Carico",
+     {
+      "fb": "TON",
+      "inst": "Tim_L2",
+      "p": {
+       "PT": "SET_T_L2"
+      }
+     }
+    ]
+   },
+   {
+    "cmt": "VASCA 2 - ALLARME CARICO TROPPO LUNGO",
+    "chain": [
+     "Tim_L2.Q"
+    ],
+    "out": [
+     [
+      "(S V_S_L2_All)"
+     ],
+     [
+      "(R Req_L2)"
+     ]
+    ]
+   },
+   {
+    "cmt": "VASCA 2 - RESET",
+    "chain": [
+     "^V_P_Reset",
+     "(R V_S_L2_All)"
+    ]
+   }
+  ],
+  "conteggio_3": [
+   {
+    "cmt": "CONTEGGIO 3 - INCREMENTO AL PASSAGGIO DEL PEZZO",
+    "chain": [
+     "^IN_C3_Foto",
+     "/V_L_C3_Lotto",
+     {
+      "f": "@Inc",
+      "p": {
+       "InOut": "V_S_C3_Pezzi",
+       "OUT:InOut": "V_S_C3_Pezzi"
+      }
+     }
+    ]
+   },
+   {
+    "cmt": "CONTEGGIO 3 - LOTTO COMPLETO",
+    "chain": [
+     {
+      "f": ">=",
+      "p": {
+       "In1": "V_S_C3_Pezzi",
+       "In2": "SET_C3_Lotto"
+      }
+     },
+     "(V_L_C3_Lotto)"
+    ]
+   },
+   {
+    "cmt": "CONTEGGIO 3 - AZZERAMENTO",
+    "chain": [
+     "^V_P_C3_Azzera",
+     {
+      "f": "MOVE",
+      "p": {
+       "In": "0",
+       "OUT:Out": "V_S_C3_Pezzi"
+      }
+     }
+    ]
+   }
+  ],
+  "riscaldamento_4": [
+   {
+    "cmt": "RISCALDAMENTO 4 - COMANDO",
+    "chain": [
+     "V_S_R4_Abilita",
+     "IN_R4_Livello",
+     "/IN_R4_Temp_Ok",
+     "/IN_R4_Temp_Alta",
+     "/V_S_R4_All",
+     "Consensi",
+     "(OUT_R4)"
+    ]
+   },
+   {
+    "cmt": "RISCALDAMENTO 4 - SOVRATEMPERATURA",
+    "chain": [
+     "IN_R4_Temp_Alta",
+     "(S V_S_R4_All)"
+    ]
+   },
+   {
+    "cmt": "RISCALDAMENTO 4 - RESET (solo a temperatura rientrata)",
+    "chain": [
+     "^V_P_Reset",
+     "/IN_R4_Temp_Alta",
+     "(R V_S_R4_All)"
+    ]
+   }
+  ],
+  "livello_5": [
+   {
+    "cmt": "VASCA 5 - RICHIESTA DI CARICO AL MINIMO",
+    "chain": [
+     "/IN_L5_Min",
+     "Consensi",
+     "/V_S_L5_All",
+     "(S Req_L5)"
+    ]
+   },
+   {
+    "cmt": "VASCA 5 - FINE CARICO AL MASSIMO",
+    "chain": [
+     {
+      "or": [
+       "IN_L5_Max",
+       "IN_L5_Sfioro",
+       "/Consensi"
+      ]
+     },
+     "(R Req_L5)"
+    ]
+   },
+   {
+    "cmt": "VASCA 5 - ELETTROVALVOLA",
+    "chain": [
+     "Req_L5",
+     "/IN_L5_Sfioro",
+     "/V_S_L5_All",
+     "(OUT_L5_Carico)"
+    ]
+   },
+   {
+    "cmt": "VASCA 5 - SORVEGLIANZA TEMPO DI CARICO",
+    "chain": [
+     "OUT_L5_Carico",
+     {
+      "fb": "TON",
+      "inst": "Tim_L5",
+      "p": {
+       "PT": "SET_T_L5"
+      }
+     }
+    ]
+   },
+   {
+    "cmt": "VASCA 5 - ALLARME CARICO TROPPO LUNGO",
+    "chain": [
+     "Tim_L5.Q"
+    ],
+    "out": [
+     [
+      "(S V_S_L5_All)"
+     ],
+     [
+      "(R Req_L5)"
+     ]
+    ]
+   },
+   {
+    "cmt": "VASCA 5 - RESET",
+    "chain": [
+     "^V_P_Reset",
+     "(R V_S_L5_All)"
+    ]
+   }
+  ],
+  "Allarmi": [
+   {
+    "cmt": "SPIA ALLARME CUMULATIVO",
+    "chain": [
+     {
+      "or": [
+       "V_S_L2_All",
+       "V_S_R4_All",
+       "V_S_L5_All",
+       "/Consensi"
+      ]
+     },
+     "(V_L_Allarme)"
+    ]
+   },
+   {
+    "cmt": "MACCHINA PRONTA",
+    "chain": [
+     "Consensi",
+     "/V_L_Allarme",
+     "(V_L_Pronto)"
+    ]
+   }
+  ]
+ }
+}

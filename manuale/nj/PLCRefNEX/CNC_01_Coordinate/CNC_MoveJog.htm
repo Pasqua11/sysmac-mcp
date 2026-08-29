@@ -1,0 +1,586 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 11">
+<title>CNC_MoveJog</title>
+<link rel="stylesheet" href="../00INTRO.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+th.hcp1 { border-top:solid 1px #000000;
+border-right:solid 1px #000000;
+border-bottom:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+th.hcp2 { border-top:solid 1px #000000;
+border-bottom:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+td.hcp3 { border-right:solid 1px #000000;
+border-bottom:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+div.hcp4 { text-align:center; }
+td.hcp5 { border-bottom:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+span.hcp6 { font-style:italic; }
+table.hcp7 { padding-top:5.00pt;
+padding-right:4.00pt;
+padding-bottom:1.00pt; }
+td.hcp8 { vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+table.hcp9 { padding-top:6.00pt;
+padding-right:4.00pt;
+padding-bottom:1.00pt;
+margin-left:31.18pt; }
+td.hcp10 { border-left:solid 7px #000000;
+border-bottom:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+table.hcp11 { padding-left:4.00pt;
+padding-top:3.00pt;
+padding-right:4.00pt;
+padding-bottom:1.00pt;
+margin-left:42.52pt; }
+span.hcp12 { word-spacing:normal;
+font:6.0pt 'Times New Roman'; }
+p.hcp13 { text-align:left; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="../../ehlpdhtm.js"></script>
+
+<p class="Title">CNC_MoveJog</p>
+<p class="FM_body1">The CNC_MoveJog instruction jogs a CNC coordinate system 
+ according to the specified target velocity.</p>
+<p class="FM_tablespec">&#160;</p>
+
+<table style="padding-left: 4.00pt; padding-top: 3.00pt; padding-right: 4.00pt; 
+		 padding-bottom: 1.00pt;" cellspacing="0" width="661">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="144" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Instruction</p></th>
+		<th width="57" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="57" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">FB/FUN</p></th>
+		<th width="197" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Graphic 
+		 expression</p></th>
+		<th width="208" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">ST expression</p></th>
+	</tr>
+	<tr style="height: 178.00pt;">
+		<td width="144" class="hcp3"><p 
+			 class="FM_tablebody19pt">CNC_MoveJog</p></td>
+		<td width="57" class="hcp3"><p 
+			 class="FM_tablebody19pt">Jog</p></td>
+		<td width="57" class="hcp3"><p 
+			 class="FM_tablebody19pt">FB</p></td>
+		<td width="197" class="hcp3"><p 
+			 class="FM_tablebodyc9pt"><span class="FM_Arial">CNC_MoveJog_instance</span></p>
+		<div class="hcp4">
+			<img alt="CNC_MoveJog_010.jpg" id="image92" src="CNC_MoveJog_010.jpg" width="193" height="147" border="0"> 
+		</div>
+		<p class="FM_fig">&#160;</p></td>
+		<td width="208" class="hcp5"><p class="FM_tablebody19pt">CNC_MoveJog_instance 
+		 (</p>
+		<p class="FM_tablebody19pt">Coord :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody19pt">PositiveEnable :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody19pt">NegativeEnable :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody19pt">LogicalMotorNo :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody19pt">Velocity :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody19pt">Acceleration :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody19pt">Busy =&gt;<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody19pt">CommandAborted =&gt;<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody19pt">Error =&gt;<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody19pt">ErrorID =&gt;<span class="hcp6">parameter</span></p>
+		<p class="FM_tablebody19pt">);</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp7">
+	<tr style="height: 20.00pt;" bgcolor="#B3B3B3">
+		<td width="661" bgcolor="#B3B3B3" class="hcp8"><p class="FM_CRhead3">Variables</p></td>
+	</tr>
+</table>
+
+
+<table cellspacing="0" width="620" class="hcp9">
+	<tr style="height: 21.00pt;">
+		<td width="620" class="hcp10"><p 
+			 class="FM_head4">Input Variables</p></td>
+	</tr>
+</table>
+
+<p class="FM_tablespec">&#160;</p>
+
+<table cellspacing="0" width="605" class="hcp11">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="76" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="76" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Meaning</p></th>
+		<th width="76" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th width="98" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Valid 
+		 range</p></th>
+		<th width="76" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Default</p></th>
+		<th width="204" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 61.00pt;">
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Positive<br>
+		Enable</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Positive Direction Enable</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="98" class="hcp3"><p 
+			 class="FM_tablebody19pt">TRUE or <br>
+		FALSE</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">FALSE</p></td>
+		<td width="204" class="hcp5"><p class="FM_tablebody19pt">When 
+		 this variable changes to TRUE, the CNC motor starts moving in 
+		 the positive direction. When it changes to FALSE, the CNC motor 
+		 stops moving.</p></td>
+	</tr>
+	<tr style="height: 61.00pt;">
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Negative<br>
+		Enable</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Negative Direction Enable</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="98" class="hcp3"><p 
+			 class="FM_tablebody19pt">TRUE or <br>
+		FALSE</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">FALSE</p></td>
+		<td width="204" class="hcp5"><p class="FM_tablebody19pt">When 
+		 this variable changes to TRUE, the CNC motor starts moving in 
+		 the positive direction. When it changes to FALSE, the CNC motor 
+		 stops moving.</p></td>
+	</tr>
+	<tr style="height: 61.00pt;">
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Logical<br>
+		MotorNo</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Logical CNC Motor Number</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">UINT</p></td>
+		<td width="98" class="hcp3"><p 
+			 class="FM_tablebody19pt">0 to (Maximum Positioning Log­ical 
+		 CNC Motor Number - 1)</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="204" class="hcp5"><p class="FM_tablebody19pt">Specify 
+		 the logical CNC motor num­ber. When the CNC motor is assigned 
+		 to the positioning axis, specify the Positioning Logical CNC Motor 
+		 Number.</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Velocity</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Target Velocity</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="98" class="hcp3"><p 
+			 class="FM_tablebody19pt">Positive num­ber, 0</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="204" class="hcp5"><p class="FM_tablebody19pt">Specify 
+		 the target velocity. The unit is command units/min.</p></td>
+	</tr>
+	<tr style="height: 49.00pt;">
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Acceleration</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Accelera­tion/Decel­eration Rate</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="98" class="hcp3"><p 
+			 class="FM_tablebody19pt">Positive num­ber, 0</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="204" class="hcp5"><p class="FM_tablebody19pt">Specify 
+		 the acceleration/decelera­tion rate. The unit is command units/s<sup>2</sup>.</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="620" class="hcp9">
+	<tr style="height: 21.00pt;">
+		<td width="620" class="hcp10"><p 
+			 class="FM_head4">Output Variables</p></td>
+	</tr>
+</table>
+
+<p class="FM_tablespec">&#160;</p>
+
+<table cellspacing="0" width="605" class="hcp11">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="76" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="76" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Meaning</p></th>
+		<th width="76" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th width="76" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Valid 
+		 range</p></th>
+		<th width="302" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Busy</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Executing</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">TRUE or FALSE</p></td>
+		<td width="302" class="hcp5"><p class="FM_tablebody19pt">TRUE 
+		 when the instruction is acknowledged.</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Command­Aborted</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Command Aborted</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">TRUE or FALSE</p></td>
+		<td width="302" class="hcp5"><p class="FM_tablebody19pt">TRUE 
+		 when the instruction is aborted.</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Error</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Error</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">TRUE or FALSE</p></td>
+		<td width="302" class="hcp5"><p class="FM_tablebody19pt">TRUE 
+		 while there is an error.</p></td>
+	</tr>
+	<tr style="height: 28.00pt;">
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">ErrorID</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Error Code</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">WORD</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt"><a name="FTB_14"></a><a href="#FTH_14"><sup>*1</sup></a>&#160;</p></td>
+		<td width="302" class="hcp5"><p class="FM_tablebody19pt">Contains 
+		 the error code when an error occurs.</p>
+		<p class="FM_tablebody19pt">A value of 16#0000 indicates normal 
+		 execution.</p></td>
+	</tr>
+</table>
+
+
+<table style="margin-left: 42.52pt; margin-bottom: 3.50pt; margin-top: 6.00pt;" 
+		 width="605">
+	<tr>
+		<td><p class="FM_tablebody1c9pt"><a name="FTH_14"></a><sup><a href="#FTB_14">*1</a></sup>Refer 
+		 to <span class="FM_italic">Troubleshooting</span>.</p></td>
+	</tr>
+</table>
+
+<p class="FM_head5"><span class="FM_Wingdings">l<span class="hcp12">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span>Output 
+ Variable Update Timing</p>
+<p class="FM_tablespec">&#160;</p>
+
+<table cellspacing="0" width="605" class="hcp11">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="76" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="265" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Timing 
+		 for changing to TRUE</p></th>
+		<th width="265" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Timing for 
+		 changing to FALSE</p></th>
+	</tr>
+	<tr style="height: 41.00pt;">
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Busy</p></td>
+		<td width="265" class="hcp3"><p 
+			 class="FM_tablebody19pt">When <span class="FM_italic">PositiveEnable</span>&#160;or 
+		 <span class="FM_italic">NegativeEnable</span>&#160;changes to 
+		 TRUE.</p></td>
+		<td width="265" class="hcp5"><p class="FM_tablebul9pt">•<span class="hcp12">&#160;&#160;&#160;</span>When 
+		 the CNC motor stops.</p>
+		<p class="FM_tablebul9pt">•<span class="hcp12">&#160;&#160;&#160;</span>When 
+		 <span class="FM_italic">Error</span> changes to TRUE.</p>
+		<p class="FM_tablebul9pt">•<span class="hcp12">&#160;&#160;&#160;</span>When 
+		 <span class="FM_italic">CommandAborted</span> changes to TRUE.</p></td>
+	</tr>
+	<tr style="height: 115.00pt;">
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Command­Aborted</p></td>
+		<td width="265" class="hcp3"><p 
+			 class="FM_tablebul9pt">•<span class="hcp12">&#160;&#160;&#160;</span>When 
+		 this instruction is aborted because another motion control instruction 
+		 was multi-executed (<span class="FM_italic">Aborting</span>).</p>
+		<p class="FM_tablebul9pt">•<span class="hcp12">&#160;&#160;&#160;</span>When 
+		 this instruction is aborted due to an error.</p>
+		<p class="FM_tablebul9pt">•<span class="hcp12">&#160;&#160;&#160;</span>When 
+		 this instruction is executed while there is an error.</p>
+		<p class="FM_tablebul9pt">•<span class="hcp12">&#160;&#160;&#160;</span>When 
+		 you start this instruction during CNC_CoordStop instruction execution.</p></td>
+		<td width="265" class="hcp5"><p class="FM_tablebul9pt">•<span class="hcp12">&#160;&#160;&#160;</span>When 
+		 <span class="FM_italic">PositiveEnable</span>&#160;changes to 
+		 FALSE if <span class="FM_italic">PositiveEnable</span> is TRUE.</p>
+		<p class="FM_tablebul9pt">•<span class="hcp12">&#160;&#160;&#160;</span>When 
+		 <span class="FM_italic">NegativeEnable</span>&#160;changes to 
+		 FALSE if <span class="FM_italic">NegativeEnable</span> is TRUE.</p>
+		<p class="FM_tablebul9pt">•<span class="hcp12">&#160;&#160;&#160;</span>After 
+		 one period when <span class="FM_italic">PositiveEnable</span>&#160;and 
+		 <span class="FM_italic">NegativeEnable</span> are both FALSE.</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Error</p></td>
+		<td width="265" class="hcp3"><p 
+			 class="FM_tablebody19pt">When there is an error in the execution 
+		 condi­tions or input parameters for the instruction.</p></td>
+		<td width="265" class="hcp5"><p class="FM_tablebody19pt">When 
+		 the error is cleared.</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="620" class="hcp9">
+	<tr style="height: 21.00pt;">
+		<td width="620" class="hcp10"><p 
+			 class="FM_head4">In-Out Variables</p></td>
+	</tr>
+</table>
+
+<p class="FM_tablespec">&#160;</p>
+
+<table cellspacing="0" width="605" class="hcp11">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="91" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="91" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Meaning</p></th>
+		<th width="125" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th width="76" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Valid 
+		 range</p></th>
+		<th width="223" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="91" class="hcp3"><p 
+			 class="FM_tablebody19pt">Coord</p></td>
+		<td width="91" class="hcp3"><p 
+			 class="FM_tablebody19pt">CNC Coordi­nate System</p></td>
+		<td width="125" class="hcp3"><p 
+			 class="FM_tablebody19pt">_sCNC_COORD<br>
+		_REF</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">---</p></td>
+		<td width="223" class="hcp5"><p class="FM_tablebody19pt">Specifies 
+		 the CNC coordinate system.</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp7">
+	<tr style="height: 20.00pt;" bgcolor="#B3B3B3">
+		<td width="661" bgcolor="#B3B3B3" class="hcp8"><p class="FM_CRhead3">Functions</p></td>
+	</tr>
+</table>
+
+<p class="FM_bul1">•<span class="hcp12">&#160;&#160;&#160;&#160;</span>The 
+ CNC_MoveJog instruction performs jogging according to the specified <span 
+	 class="FM_italic">Velocity</span> (Target Velocity).</p>
+<p class="FM_bul1">•<span class="hcp12">&#160;&#160;&#160;&#160;</span>To 
+ jog in the positive direction, change <span class="FM_italic">PositiveEnable</span>&#160;(Positive 
+ Direction Enable) to TRUE. To jog in the negative direction, change <span 
+	 class="FM_italic">NegativeEnable</span> (Negative Direction Enable) 
+ to TRUE.</p>
+<p class="FM_bul1">•<span class="hcp12">&#160;&#160;&#160;&#160;</span>If 
+ <span class="FM_italic">PositiveEnable</span>&#160;(Positive Direction 
+ Enable) and <span class="FM_italic">NegativeEnable</span>&#160;(Negative 
+ Direction Enable) are changed to TRUE at the same time, <span class="FM_italic">PositiveEnable</span>&#160;(Positive 
+ Direction Enable) takes priority. As a result, the CNC motor will jog 
+ in the positive direction.</p>
+<p class="FM_bul1">•<span class="hcp12">&#160;&#160;&#160;&#160;</span>If 
+ the command velocity of the CNC_MoveJog (Jog) instruction exceeds the 
+ maximum jog velocity that is set in the CNC motor parameters, the maximum 
+ jog velocity is used.</p>
+<p class="FM_bul1">•<span class="hcp12">&#160;&#160;&#160;&#160;</span>This 
+ instruction can be executed even if home is not defined.</p>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="620" class="hcp9">
+	<tr style="height: 21.00pt;">
+		<td width="620" class="hcp10"><p 
+			 class="FM_head4">Timing Chart</p></td>
+	</tr>
+</table>
+
+<p class="FM_bul1">•<span class="hcp12">&#160;&#160;&#160;&#160;</span><span 
+	 class="FM_italic">Busy</span>&#160;(Executing) changes to TRUE as 
+ soon as <span class="FM_italic">PositiveEnable</span>&#160;(Positive Direction 
+ Enable) or <span class="FM_italic">Nega­tiveEnable</span> (Negative Direction 
+ Enable) changes to TRUE.</p>
+<p class="FM_bul1">•<span class="hcp12">&#160;&#160;&#160;&#160;</span>The 
+ axis starts deceleration as soon as <span class="FM_italic">PositiveEnable</span>&#160;(Positive 
+ Direction Enable) or <span class="FM_italic">NegativeEn­able</span>&#160;(Negative 
+ Direction Enable) changes to FALSE and <span class="FM_italic">Busy</span>&#160;(Executing) 
+ changes to FALSE when the axis stops completely.</p>
+<p class="FM_bul1">•<span class="hcp12">&#160;&#160;&#160;&#160;</span>If 
+ another instruction aborts this instruction, <span class="FM_italic">CommandAborted</span>&#160;(Command 
+ Aborted) changes to TRUE and <span class="FM_italic">Busy</span> (Executing) 
+ changes to FALSE.</p>
+<div class="hcp4">
+	<p class="hcp13"><img alt="CNC_MoveJog_020.jpg" id="image93" src="CNC_MoveJog_020.jpg" width="661" height="446" border="0"> </p>
+</div>
+<p class="FM_body1">&#160;</p>
+<p class="FM_body1">You can specify <span class="FM_italic">Velocity</span>&#160;(Target 
+ Velocity) and <span class="FM_italic">Acceleration</span>&#160;(Acceleration/Deceleration 
+ Rate) as the input variables. The <span class="FM_italic">Velocity</span>&#160;(Target 
+ Velocity) and <span class="FM_italic">Acceleration</span>&#160;(Acceleration/Deceleration 
+ Rate) input variables are updated operations only when <span class="FM_italic">PositiveEnable</span>&#160;(Positive 
+ Direction Enable) or <span class="FM_italic">NegativeEn­able</span>&#160;(Negative 
+ Direction Enable) rises. Therefore, the velocity will not change even 
+ if <span class="FM_italic">Velocity</span>&#160;(Target Velocity) changes 
+ while <span class="FM_italic">PositiveEnable</span>&#160;(Positive Direction 
+ Enable) or <span class="FM_italic">NegativeEnable</span> (Negative Direc­tion 
+ Enable) remains TRUE.</p>
+<p class="FM_head5"><span class="FM_Wingdings">l<span class="hcp12">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span>Timing 
+ Chart When Target Velocity Is 0</p>
+<p class="FM_body5">When the <span class="FM_italic">Velocity</span>&#160;(Target 
+ Velocity) is 0 and you start jogging the motor, the CNC motor does not 
+ move, however, the CNC coordinate system changes to <span class="FM_italic">Moving</span> 
+ status.</p>
+<p class="FM_body5">The following timing chart shows an example when the 
+ <span class="FM_italic">Velocity</span>&#160;(Target Velocity) is 0 and 
+ you start jogging the CNC motor.</p>
+<div class="hcp4">
+	<p class="hcp13"><img alt="CNC_MoveJog_030.jpg" id="image94" src="CNC_MoveJog_030.jpg" width="661" height="370" border="0"> </p>
+</div>
+<p class="FM_body1">&#160;</p>
+<p class="FM_head5"><span class="FM_Wingdings">l<span class="hcp12">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span>Timing 
+ Chart When Acceleration/Deceleration Rate Is 0</p>
+<p class="FM_body5">When the <span class="FM_italic">Acceleration</span>&#160;(Acceleration/Deceleration 
+ Rate) is 0 and you start jogging the motor, the motor will reach the target 
+ velocity without accelerating or decelerating.</p>
+<p class="FM_body5">The timing chart below shows an example when the <span 
+	 class="FM_italic">Acceleration</span>&#160;(Acceleration/Deceleration 
+ Rate) are 0.</p>
+<div class="hcp4">
+	<p class="hcp13"><img alt="CNC_MoveJog_040.jpg" id="image95" src="CNC_MoveJog_040.jpg" width="661" height="355" border="0"> </p>
+</div>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="620" class="hcp9">
+	<tr style="height: 21.00pt;">
+		<td width="620" class="hcp10"><p 
+			 class="FM_head4">Re-execution of CNC Instructions</p></td>
+	</tr>
+</table>
+
+<p class="FM_head5"><span class="FM_Wingdings">l<span class="hcp12">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span>Restarting 
+ with <span class="FM_italic">Enable</span> in the Same Direction</p>
+<p class="FM_body5">If you change <span class="FM_italic">PositiveEnable</span>&#160;(Positive 
+ Direction Enable) or <span class="FM_italic">NegativeEnable</span>&#160;(Negative 
+ Direction Enable) to TRUE when it is FALSE and the axis is decelerating, 
+ the axis will begin to acceler­ate/decelerate towards the target velocity. 
+ If you change the <span class="FM_italic">Velocity</span>&#160;(Target 
+ Velocity) or <span class="FM_italic">Accelera­tion</span>&#160;(Acceleration/Deceleration 
+ Rate) at this time, the new value of the input parameter is used in operation. 
+ The axis is not stopped, and <span class="FM_italic">Busy</span>&#160;(Executing) 
+ does not change to FALSE. The following example shows operation when <span 
+	 class="FM_italic">PositiveEnable</span>&#160;(Positive Direction Enable) 
+ changes to TRUE during deceleration.</p>
+<div class="hcp4">
+	<p class="hcp13"><img alt="CNC_MoveJog_050.jpg" id="image96" src="CNC_MoveJog_050.jpg" width="661" height="370" border="0"> </p>
+</div>
+<p class="FM_body1">&#160;</p>
+<p class="FM_head5"><span class="FM_Wingdings">l<span class="hcp12">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span>Restarting 
+ with <span class="FM_italic">Enable</span> in the Opposite Direction</p>
+<p class="FM_body5">If you change <span class="FM_italic">NegativeEnable</span>&#160;(Negative 
+ Direction Enable) to TRUE when <span class="FM_italic">PositiveEnable</span>&#160;(Positive 
+ Direction Enable) is TRUE and the axis is jogging in the positive direction, 
+ the axis will reverse its direction and start jogging in the negative 
+ direction. When this happens, you can jog the axis with the input variables 
+ for when <span class="FM_italic">NegativeEnable</span>&#160;(Negative 
+ Direction Enable) changes to TRUE. The input variables are <span class="FM_italic">Velocity</span>&#160;(Target 
+ Velocity) and <span class="FM_italic">Acceleration</span> (Acceleration/Deceleration 
+ Rate).</p>
+<p class="FM_body5">The deceleration rate before the axis direction is 
+ reversed and the acceleration rate after it is reversed follow the input 
+ variables for when <span class="FM_italic">NegativeEnable</span>&#160;(Negative 
+ Direction Enable) changes to TRUE. When <span class="FM_italic">NegativeEnable</span>&#160;(Negative 
+ Direction Enable) is TRUE and the axis is jogging in the negative direction, 
+ the same operation occurs when <span class="FM_italic">PositiveEnable</span>&#160;(Positive 
+ Direction Enable) changes to TRUE. If <span class="FM_italic">NegativeEnable</span>&#160;(Negative 
+ Direction Enable) changes to TRUE while <span class="FM_italic">Posi­tiveEnable</span>&#160;(Positive 
+ Direction Enable) is TRUE, the axis starts jogging in the negative direction. 
+ In this case, the axis will not jog in the positive direction even if 
+ <span class="FM_italic">NegativeEnable</span>&#160;(Negative Direction 
+ Enable) changes to FALSE. To jog the axis in the positive direction, change 
+ <span class="FM_italic">PositiveEnable</span>&#160;(Positive Direction 
+ Enable) to FALSE, and then back to TRUE again.</p>
+<p class="FM_body5">The same operation applies to the opposite case.</p>
+<div class="hcp4">
+	<p class="hcp13"><img alt="CNC_MoveJog_060.jpg" id="image97" src="CNC_MoveJog_060.jpg" width="661" height="395" border="0"> </p>
+</div>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="620" class="hcp9">
+	<tr style="height: 21.00pt;">
+		<td width="620" class="hcp10"><p 
+			 class="FM_head4">Multi-execution of CNC Instructions</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">Refer to <a><span class="FM_italic">Instructions for 
+ Which Multi-execution Is Supported</span></a> for details on multi-exe­cution 
+ of CNC instructions.</p>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="620" class="hcp9">
+	<tr style="height: 21.00pt;">
+		<td width="620" class="hcp10"><p 
+			 class="FM_head4">Errors</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">If this instruction cannot be executed, an error occurs, 
+ and <span class="FM_italic">Error</span> will change to TRUE.</p>
+<p class="FM_body1">You can find out the cause of the error by referring 
+ to the value output by <span class="FM_italic">ErrorID</span> (Error Code).</p>
+<div class="hcp4">
+	<p class="hcp13"><img alt="CNC_MoveJog_070.jpg" id="image98" src="CNC_MoveJog_070.jpg" width="661" height="190" border="0"> </p>
+</div>
+<p class="FM_body1">&#160;</p>
+</body>
+</html>

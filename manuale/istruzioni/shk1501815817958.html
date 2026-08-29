@@ -1,0 +1,994 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>FileRead</title>
+</head>
+<body class="shk1501815817958"><div class="layer02" id="shk1501815817958">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">FileRead</h1>
+
+<div class="body conbody">
+<p class="p" id="shk1501815817958__ID0EOVGK">The FileRead instruction reads the data from the specified file in the SD Memory Card.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="shk1501815817958__table_N10017_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:13%" />
+<col style="width:14%" />
+<col style="width:6%" />
+<col style="width:35%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d878284e37">Instruction</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d878284e40">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d878284e43">
+<p class="p" id="shk1501815817958__ID0EBXGK">FB/</p>
+
+<p class="p">FUN</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d878284e52">Graphic expression</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d878284e55">ST expression</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d878284e37 "><span class="indexterm">FileRead (Read File)</span>FileRead</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d878284e40 "><span class="indexterm">Read File</span>Read File</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d878284e43 ">FB</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d878284e52 ">
+<br /><img class="image" id="shk1501815817958__image_682C4D5530394B04B7C05071A63E1DA1" src="mro1501815817099.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d878284e55 ">FileRead_instance(Execute, FileID, ReadBuf, Size, Done, Busy, Error, ErrorID, ReadSize, EOF);</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="tmt1501817478166">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Variables</h1>
+ 
+<div class="body conbody">
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="tmt1501817478166__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:20%" />
+<col style="width:9%" />
+<col style="width:20%" />
+<col style="width:14%" />
+<col style="width:14%" />
+<col style="width:8%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d926355e38">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d926355e40">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d926355e43">I/O</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d926355e46">Description</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d926355e49">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d926355e53">Unit</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d926355e56">Default</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d926355e38 ">FileID</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d926355e40 ">File ID</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d926355e43 ">Input</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d926355e46 ">ID of file to read</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d926355e49 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d926355e53 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d926355e56 ">0</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d926355e38 ">Size</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d926355e40 ">Number of elements to read</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d926355e46 ">Number of elements to read</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d926355e56 ">1</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d926355e38 ">ReadBuf[] (array)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d926355e40 ">Read buffer</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d926355e43 ">In-out</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d926355e46 ">Buffer in which to write data that was read</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d926355e49 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d926355e53 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d926355e56 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d926355e38 ">ReadSize</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d926355e40 ">Number of read elements</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d926355e43 ">Output</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d926355e46 ">Number of elements that were actually read</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d926355e49 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d926355e53 ">---</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d926355e56 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d926355e38 ">EOF</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d926355e40 ">End of file</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d926355e46 ">
+<p class="p" id="tmt1501817478166__ID0E2JHK">Whether end of file was reached</p>
+
+<p class="p">TRUE: Reached.</p>
+
+<p class="p">FALSE: Not reached.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="tmt1501817478166__table_N10151_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:5%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:top;" id="d926355e230">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d926355e232">Boolean</th>
+
+<th class="entry cellrowborder" colspan="4" style="text-align:center;vertical-align:middle;" id="d926355e235">Bit strings</th>
+
+<th class="entry cellrowborder" colspan="8" style="text-align:center;vertical-align:middle;" id="d926355e238">Integers</th>
+
+<th class="entry cellrowborder" colspan="2" style="text-align:center;vertical-align:middle;" id="d926355e241">Real numbers</th>
+
+<th class="entry cellrowborder" colspan="5" style="text-align:center;vertical-align:middle;" id="d926355e245">Times, durations, dates, and text strings</th>
+
+</tr>
+
+<tr class="row">
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d926355e251">BOOL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d926355e254">BYTE</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d926355e257">WORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d926355e260">DWORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d926355e263">LWORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d926355e267">USINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d926355e270">UINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d926355e273">UDINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d926355e276">ULINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d926355e279">SINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d926355e282">INT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d926355e286">DINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d926355e289">LINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d926355e292">REAL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d926355e295">LREAL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d926355e298">TIME</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d926355e301">DATE</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d926355e305">TOD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d926355e308">DT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d926355e311">STRING</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d926355e230 d926355e251 ">FileID</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e232 d926355e254 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e235 d926355e257 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e235 d926355e260 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d926355e235 d926355e263 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e235 d926355e267 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e238 d926355e270 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e238 d926355e273 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e238 d926355e276 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e238 d926355e279 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e238 d926355e282 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e238 d926355e286 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e238 d926355e289 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e238 d926355e292 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e241 d926355e295 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e241 d926355e298 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e245 d926355e301 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e245 d926355e305 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e245 d926355e308 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e245 d926355e311 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e245 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d926355e230 d926355e251 ">Size</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e232 d926355e254 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e235 d926355e257 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e235 d926355e260 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e235 d926355e263 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e235 d926355e267 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e238 d926355e270 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d926355e238 d926355e273 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e238 d926355e276 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e238 d926355e279 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e238 d926355e282 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e238 d926355e286 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e238 d926355e289 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e238 d926355e292 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e241 d926355e295 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e241 d926355e298 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e245 d926355e301 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e245 d926355e305 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e245 d926355e308 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e245 d926355e311 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e245 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d926355e230 d926355e251 ">ReadBuf[] (array)</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d926355e232 d926355e254 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d926355e235 d926355e257 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d926355e235 d926355e260 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d926355e235 d926355e263 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d926355e235 d926355e267 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d926355e238 d926355e270 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d926355e238 d926355e273 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d926355e238 d926355e276 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d926355e238 d926355e279 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d926355e238 d926355e282 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d926355e238 d926355e286 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d926355e238 d926355e289 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d926355e238 d926355e292 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d926355e241 d926355e295 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d926355e241 d926355e298 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d926355e245 d926355e301 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d926355e245 d926355e305 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d926355e245 d926355e308 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d926355e245 d926355e311 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d926355e245 "><span class="ph font_Wingdings"></span>OK</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" colspan="20" style="text-align:center;vertical-align:middle;" headers="d926355e232 d926355e235 d926355e238 d926355e241 d926355e245 d926355e254 d926355e257 d926355e260 d926355e263 d926355e267 d926355e270 d926355e273 d926355e276 d926355e279 d926355e282 d926355e286 d926355e289 d926355e292 d926355e295 d926355e298 d926355e301 d926355e305 d926355e308 d926355e311 ">Arrays enumerations or structures can also be specified.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d926355e230 d926355e251 ">ReadSize</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d926355e232 d926355e254 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d926355e235 d926355e257 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d926355e235 d926355e260 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d926355e235 d926355e263 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d926355e235 d926355e267 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d926355e238 d926355e270 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d926355e238 d926355e273 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e238 d926355e276 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e238 d926355e279 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e238 d926355e282 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e238 d926355e286 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e238 d926355e289 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e238 d926355e292 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e241 d926355e295 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e241 d926355e298 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e245 d926355e301 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e245 d926355e305 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e245 d926355e308 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e245 d926355e311 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e245 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d926355e230 d926355e251 ">EOF</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d926355e232 d926355e254 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d926355e235 d926355e257 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d926355e235 d926355e260 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d926355e235 d926355e263 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d926355e235 d926355e267 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d926355e238 d926355e270 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d926355e238 d926355e273 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e238 d926355e276 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e238 d926355e279 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e238 d926355e282 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e238 d926355e286 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e238 d926355e289 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e238 d926355e292 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e241 d926355e295 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e241 d926355e298 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e245 d926355e301 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e245 d926355e305 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e245 d926355e308 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e245 d926355e311 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d926355e245 ">&#160;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="zjw1501817480648">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function</h1>
+
+<div class="body conbody">
+<p class="p" id="zjw1501817480648__ID0E32AM">The FileRead instruction reads the data from position of the file position indicator in the file specified by file ID <span class="ph phtype_variable"><span class="termtype">FileID</span></span> in the SD Memory Card. It then stores the data in read buffer ReadBuf[].</p>
+
+<p class="p" id="zjw1501817480648__ID0E62AM">The file position indicator is set at the desired location in advance with the FileSeek instruction.</p>
+
+<p class="p" id="zjw1501817480648__ID0EG3AM">The amount of data to read is <span class="ph phtype_variable"><span class="termtype">Size</span></span> times the size of the ReadBuf[] data type. In other words, it is <span class="ph phtype_variable"><span class="termtype">Size</span></span> elements of ReadBuf[].</p>
+
+<p class="p" id="zjw1501817480648__ID0EN3AM">You can specify an array of enumerations or structures for ReadBuf[].</p>
+
+<p class="p" id="zjw1501817480648__ID0EU3AM">The actual number of elements that were read is stored in <span class="ph phtype_variable"><span class="termtype">ReadSize</span></span>. Normally, <span class="ph phtype_variable"><span class="termtype">Size</span></span> and <span class="ph phtype_variable"><span class="termtype">ReadSize</span></span> will have the same values. If the amount of data from the file position indicator to the end of the file is smaller than <span class="ph phtype_variable"><span class="termtype">Size</span></span>, an error will not occur, and the data to the end of the file is stored in ReadBuf[]. In this case, the value of <span class="ph phtype_variable"><span class="termtype">ReadSize</span></span> will be smaller than the value of <span class="ph phtype_variable"><span class="termtype">Size</span></span>.</p>
+
+<p class="p" id="zjw1501817480648__ID0E23AM">If data is read to the end of the file, end of file <span class="ph phtype_variable"><span class="termtype">EOF</span></span> changes to TRUE. Otherwise, the value of <span class="ph phtype_variable"><span class="termtype">EOF</span></span> will be FALSE.</p>
+
+<p class="p linespace_7pt" id="zjw1501817480648__ID0EI4AM">The following figure shows a programming example. If the read buffer def[] is a BYTE array, 100 bytes of data is read from the file.</p>
+
+<br /><img class="image" id="zjw1501817480648__image_fpz_drz_m1b" src="szr1501817478473.gif" /><br />
+<br /><img class="image" id="zjw1501817480648__image_vym_2rz_m1b" src="mxx1501817479366.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="sps1501817452252">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Related System-defined Variables</h1>
+
+<div class="body conbody">
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="sps1501817452252__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all"><col style="width:20%" /><col style="width:20%" /><col style="width:9%" /><col style="width:50%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d889751e42">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d889751e45">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d889751e48">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d889751e51">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d889751e42 ">_Card1Ready</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d889751e45 ">SD Memory Card Ready Flag</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d889751e48 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d889751e51 ">
+<p class="p" id="sps1501817452252__ID0EJ3AG">This flag indicates if the SD Memory Card can be accessed by instructions and communications commands. <a class="xref" href="dpm1501815813062.html#sps1501817452252__fn_gkg_1hz_l1b"><i style="display:none;">☆</i><sup>*1</sup></a></p>
+
+<p class="p">TRUE: Can be used.</p>
+
+<p class="p" id="sps1501817452252__ID0EV3AG">FALSE: Cannot be used.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d889751e42 ">_Card1Protect<a class="xref" href="dpm1501815813062.html#sps1501817452252__fn-1352739"><i style="display:none;">☆</i><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d889751e45 ">SD Memory Card Write Protected Flag</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d889751e48 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d889751e51 ">
+<p class="p" id="sps1501817452252__ID0EL5AG">This flag indicates if the SD Memory Card is write protected when it is inserted and ready to use.</p>
+
+<p class="p">TRUE: Write protected.</p>
+
+<p class="p">FALSE: Not write protected.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d889751e42 ">_Card1Err<a class="xref" href="dpm1501815813062.html#sps1501817452252__fn-1352739"><i style="display:none;">☆</i><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d889751e45 ">SD Memory Card Error Flag</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d889751e48 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d889751e51 ">
+<p class="p" id="sps1501817452252__ID0ECABG">This flag indicates if an SD Memory Card that cannot be used is mounted or if a format error occurs.</p>
+
+<p class="p">TRUE: Error.</p>
+
+<p class="p">FALSE: No error.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d889751e42 ">_Card1Access<a class="xref" href="dpm1501815813062.html#sps1501817452252__fn-1352739"><i style="display:none;">☆</i><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d889751e45 ">SD Memory Card Access Flag</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d889751e48 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d889751e51 ">
+<p class="p" id="sps1501817452252__ID0EZBBG">This flag indicates if the SD Memory Card is currently being accessed.</p>
+
+<p class="p">TRUE: Being accessed.</p>
+
+<p class="p">FALSE: Not being accessed.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d889751e42 ">_Card1PowerFail</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d889751e45 ">SD Memory Card Power Interruption Flag</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d889751e48 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d889751e51 ">
+<p class="p" id="sps1501817452252__ID0EQDBG">This flag indicates if an error occurred in completing processing when power was interrupted during access.<a class="xref" href="dpm1501815813062.html#sps1501817452252__fn-1352740"><i style="display:none;">☆</i><sup>*3</sup></a> This flag is not cleared automatically.</p>
+
+<p class="p">TRUE: Error.</p>
+
+<p class="p">FALSE: No error.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="sps1501817452252__fn_gkg_1hz_l1b" id="sps1501817452252__fn_gkg_1hz_l1b"><sup>*1</sup></a>  For the NJ/NX-series, it is a precondition that the SD Memory Card is physically inserted and mounted normally. For an NY-series Controller, it is a precondition that the shared folder (Virtual SD Memory Card) is detected by the Controller.</div>
+<div class="fn"><a name="sps1501817452252__fn-1352739" id="sps1501817452252__fn-1352739"><sup>*2</sup></a>  These variables are not used for the NY-series Controller. They are fixed to FALSE.</div>
+<div class="fn"><a name="sps1501817452252__fn-1352740" id="sps1501817452252__fn-1352740"><sup>*3</sup></a>  For the NJ/NX-series, this indicates an access to the SD Memory Card. For an NY-series Controller, this indicates an access to the shared folder (Virtual SD Memory Card).</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="nex1501817480925">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Precautions for Correct Use</h1>
+
+<div class="body conbody">
+<ul class="ul"><li class="li" id="nex1501817480925__li_N10017_N10013_N10010_N10002">Execution of this instruction is continued until completed even when the value of <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to FALSE or the execution time exceeds the task period. The value of <span class="ph phtype_variable"><span class="termtype">Done</span></span> changes to TRUE when the execution is completed. Use this to confirm normal completion of processing.</li>
+<li class="li" id="nex1501817480925__li_N1001C_N10013_N10010_N10002">Refer to <a class="xref" href="aag1501815842589.html"><i style="display:none;">☆</i>Using this Section</a> for a timing chart of <span class="ph phtype_variable"><span class="termtype">Execute</span></span>, <span class="ph phtype_variable"><span class="termtype">Done</span></span>, <span class="ph phtype_variable"><span class="termtype">Busy</span></span>, and <span class="ph phtype_variable"><span class="termtype">Error</span></span>.</li>
+<li class="li" id="nex1501817480925__li_N10023_N10013_N10010_N10002">
+<p class="p">The entire data to read in the instruction is not retained.</p>
+
+<p class="p">The concurrency of the value may not be maintained because the value is not synchronized with the execution timing of the instruction and the variable to pass to ReadBuf[] is refreshed each time.</p>
+
+<p class="p">Do not access to the target variable during instruction execution.</p>
+
+<p class="p">If the variable is accessed during instruction execution, a value that is different from the value read from a file may be stored in the variable.</p>
+
+</li>
+
+<li class="li" id="nex1501817480925__li_N10042_N10012_N1000F_N10002">If the data is read to the end of the file and the size of the data is not evenly divisible by the size of the data type of ReadBuf[], the data that is insufficient for the data size of ReadBuf[] is discarded. The file position indicator advances to the end of the file, and the value of <span class="ph phtype_variable"><span class="termtype">EOF</span></span> changes to TRUE.</li>
+
+<li class="li" id="nex1501817480925__li_N1004C_N10012_N1000F_N10002">Elements beyond <span class="ph phtype_variable"><span class="termtype">Size</span></span> times ReadBuf[] (i.e., the elements not overwritten when data is read) will retain the values from before execution of this instruction.</li>
+<li class="li" id="nex1501817480925__li_N10039_N10013_N10010_N10002">You need to use the FileOpen instruction to obtain the value of <span class="ph phtype_variable"><span class="termtype">FileID</span></span> before you execute this instruction.</li>
+<li class="li" id="nex1501817480925__li_N1003E_N10013_N10010_N10002">Data is read in byte increments. The lower bytes are read before the upper bytes (little endian).</li>
+<li class="li" id="nex1501817480925__li_N10065_N10012_N1000F_N10002">A value is stored in <span class="ph phtype_variable"><span class="termtype">EOF</span></span> when the instruction is completed. Specifically, it is stored when the value of <span class="ph phtype_variable"><span class="termtype">Done</span></span> changes from FALSE to TRUE.</li>
+
+<li class="li" id="nex1501817480925__li_N10073_N10012_N1000F_N10002">If ReadBuf[] is an array of structures, adjustment areas between members may be inserted depending on the composition.</li>
+<li class="li" id="nex1501817480925__li_N1005A_N10013_N10010_N10002">If the operating mode of the CPU Unit is changed to PROGRAM mode or if a major fault level Controller error occurs during instruction execution, the file is closed by the system. Any read or write operations in progress are continued up to the end.</li>
+<li class="li" id="nex1501817480925__li_N1005F_N10013_N10010_N10002">Do not simultaneously access the same file. Perform exclusive control of SD Memory Card instructions in the user program.</li>
+<li class="li" id="nex1501817480925__li_N10082_N10012_N1000F_N10002">You cannot specify a device variable for ReadBuf[]. If you specify a device variable, the data that was read is not assigned to ReadBuf[].</li>
+
+<li class="li" id="nex1501817480925__li_N10087_N10012_N1000F_N10002">An error will occur in the following cases. <span class="ph phtype_variable"><span class="termtype">Error</span></span> will change to TRUE. <ol class="ol liststyle_alphabet1"><li class="li" id="nex1501817480925__li_N1007A_N10075_N1006A_N10013_N10010_N10002">The SD Memory Card is not in a usable condition.</li>
+<li class="li" id="nex1501817480925__li_N10094_N10090_N10087_N10012_N1000F_N10002">The number of array elements in ReadBuf[] is smaller than the value of <span class="ph phtype_variable"><span class="termtype">Size</span></span>.</li>
+<li class="li" id="nex1501817480925__li_N1008B_N10075_N1006A_N10013_N10010_N10002">The file specified by <span class="ph phtype_variable"><span class="termtype">FileID</span></span> does not exist.</li>
+<li class="li" id="nex1501817480925__li_N10090_N10075_N1006A_N10013_N10010_N10002">The file specified by <span class="ph phtype_variable"><span class="termtype">FileID</span></span> is being accessed.</li>
+<li class="li" id="nex1501817480925__li_N10095_N10075_N1006A_N10013_N10010_N10002">The file specified by <span class="ph phtype_variable"><span class="termtype">FileID</span></span> was not opened in a reading mode.</li>
+<li class="li" id="nex1501817480925__li_N1009A_N10075_N1006A_N10013_N10010_N10002">While the SD Memory Card is being accessed, an error occurs and causes an access failure. </li>
+</ol>
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="fbb1501817469497">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Sample Programming</h1>
+ 
+<div class="body taskbody">
+<div class="section context" id="fbb1501817469497__context_6744EA91699748488E84E3ED2E7BD7E3">
+<p class="p" id="fbb1501817469497__ID0ETSBM">In this sample, four bytes of data are read from the second byte from beginning of the file named 'ABC.bin.' The data is written to BYTE array variable InDat[].</p>
+
+<p class="p" id="fbb1501817469497__ID0EWSBM">The processing procedure is as follows:</p>
+
+</div>
+ 
+<ol class="ol steps" id="fbb1501817469497__steps_8A315DDF4FF545D6A540A2A58B1D49F0"><li class="li step" id="fbb1501817469497__step_52B8DF48EC1C4CECB6F68E31C49CFDA2"><span alt="test" class="ph cmd" id="fbb1501817469497__ID0EJTBM">The FileOpen instruction is used to open the file &#8216;ABC.bin.&#8217;</span></li>
+<li class="li step" id="fbb1501817469497__step_F3F3A47C5E334ADC86C98F4F82972D4C"><span alt="test" class="ph cmd" id="fbb1501817469497__ID0EUTBM">The FileSeek instruction is used to set a file position indicator at the second byte from the beginning of the file.</span></li>
+<li class="li step" id="fbb1501817469497__step_4D2A163EA0854CF383606A557ACCC0C7"><span alt="test" class="ph cmd" id="fbb1501817469497__ID0E6TBM">The FileRead instruction is used to read four bytes of data from the position of the file position indicator and store it in array variable InDat[].</span></li>
+<li class="li step" id="fbb1501817469497__step_8289922452CD463B8F0BA2ED882155A3"><span alt="test" class="ph cmd" id="fbb1501817469497__ID0EKUBM">The FileClose instruction is used to close the file &#8216;ABC.bin.&#8217;</span></li>
+</ol>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer04" id="qmq1501817489936">
+<h1 class="title topictitle1"  topicstatus="Localization:done">LD</h1>
+<div class="body conbody">
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="qmq1501817489936__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all"><col style="width:12%" /><col style="width:22%" /><col style="width:27%" /><col style="width:17%" /><col style="width:18%" /><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d825936e24">Internal Variables</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d825936e26">Variable</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d825936e28">Data type</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d825936e30">Initial value</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d825936e32">Comment</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d825936e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e26 ">OperatingEnd</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e28 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e30 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e32 ">Processing completed.</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d825936e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e26 ">Trigger</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e28 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e30 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e32 ">Execution condition</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d825936e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e26 ">Operating</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e28 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e30 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e32 ">Processing</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d825936e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e26 ">Fid</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e28 ">DWORD</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e30 ">16#0</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e32 ">File ID</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d825936e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e26 ">InDat</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e28 ">ARRAY[0..999] OF BYTE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e30 ">[1000(16#0)]</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e32 ">Read data</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d825936e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e26 ">RS_instance</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e28 ">RS</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e30 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e32 ">&#160;</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d825936e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e26 ">FileOpen_instance</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e28 ">FileOpen</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e30 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e32 ">&#160;</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d825936e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e26 ">FileSeek_instance</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e28 ">FileSeek</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e30 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e32 ">&#160;</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d825936e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e26 ">FileRead_instance</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e28 ">FileRead</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e30 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e32 ">&#160;</td>
+</tr>
+<tr class="row"><td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d825936e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e26 ">FileClose_instance</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e28 ">FileClose</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e30 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e32 ">&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="qmq1501817489936__table_N101A9_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all"><col style="width:12%" /><col style="width:22%" /><col style="width:27%" /><col style="width:36%" /><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d825936e133">External Variables</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d825936e135">Variable</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d825936e137">Data type</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d825936e139">Comment</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d825936e133 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e135 ">_Card1Ready</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e137 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d825936e139 ">SD Memory Card Ready Flag</td>
+</tr>
+</tbody>
+</table>
+</div>
+<br /><img class="image" id="qmq1501817489936__image_571AE34F6D9F47A2BD4401741F425808" src="cct1501817481191.gif" /><br /><br /><img class="image" id="qmq1501817489936__image_r3n_j5g_r1b" src="ecj1501817482847.gif" /><br /><br /><img class="image" id="qmq1501817489936__image_k25_j5g_r1b" src="fqb1501817484147.gif" /><br /><br /><img class="image" id="qmq1501817489936__image_8D6D8C752D234592921B75C666736DB9" src="tiu1501817485331.gif" /><br /><br /><img class="image" id="qmq1501817489936__image_o5f_1vg_r1b" src="dka1501817486635.gif" /><br /><br /><img class="image" id="qmq1501817489936__image_k24_1vg_r1b" src="ldg1501817487976.gif" /><br /><br /><img class="image" id="qmq1501817489936__image_m3w_1vg_r1b" src="ncz1501817488974.gif" /><br /></div>
+<div class="related-links"></div></div><div class="layer04" id="jqh1501817490190">
+<h1 class="title topictitle1"  topicstatus="Localization:done">ST</h1>
+<div class="body conbody">
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="jqh1501817490190__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all"><col style="width:12%" /><col style="width:25%" /><col style="width:27%" /><col style="width:15%" /><col style="width:18%" /><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d507971e24">Internal Variables</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d507971e26">Variable</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d507971e28">Data type</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d507971e30">Initial value</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d507971e32">Comment</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d507971e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e26 ">Trigger</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e28 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e30 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e32 ">Execution condition</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d507971e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e26 ">LastTrigger</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e28 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e30 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e32 ">Value of Trigger from previous task period</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d507971e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e26 ">OperatingStart</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e28 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e30 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e32 ">Processing started.</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d507971e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e26 ">Operating</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e28 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e30 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e32 ">Processing</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d507971e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e26 ">InDat</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e28 ">ARRAY[0..999] OF BYTE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e30 ">[1000(16#0)]</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e32 ">Read data</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d507971e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e26 ">Stage</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e28 ">INT</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e30 ">0</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e32 ">Stage change</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d507971e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e26 ">Fid</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e28 ">DWORD</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e30 ">16#0</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e32 ">File ID</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d507971e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e26 ">FileOpen_instance</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e28 ">FileOpen</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e30 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e32 ">&#160;</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d507971e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e26 ">FileSeek_instance</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e28 ">FileSeek</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e30 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e32 ">&#160;</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d507971e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e26 ">FileRead_instance</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e28 ">FileRead</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e30 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e32 ">&#160;</td>
+</tr>
+<tr class="row"><td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d507971e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e26 ">FileClose_instance</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e28 ">FileClose</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e30 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e32 ">&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="jqh1501817490190__table_N101CC_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all"><col style="width:12%" /><col style="width:25%" /><col style="width:27%" /><col style="width:34%" /><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d507971e145">External Variables</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d507971e147">Variable</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d507971e149">Data type</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d507971e151">Comment</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d507971e145 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e147 ">_Card1Ready</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e149 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d507971e151 ">SD Memory Card Ready Flag</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p linespace_7pt"></p>
+<pre class="pre codeblock">
+// Start sequence when Trigger changes to TRUE.       
+IF ( (Trigger=TRUE) AND (LastTrigger=FALSE) AND (_Card1Ready=TRUE) ) THEN
+    OperatingStart:=TRUE;
+    Operating     :=TRUE;
+END_IF;
+LastTrigger:=Trigger;
+     
+// Initialize instance.
+IF (OperatingStart=TRUE) THEN
+    FileOpen_instance(Execute:=FALSE);    // Initialize instance.
+    FileSeek_instance(Execute:=FALSE);    // Initialize instance.
+    FileRead_instance(
+        Execute:=FALSE,                   // Initialize instance.
+        ReadBuf:=InDat[0]);               // Dummy
+    FileClose_instance(Execute:=FALSE);   // Initialize instance.
+    Stage         :=INT#1;
+    OperatingStart:=FALSE;
+END_IF;
+     
+// Execute instructions.
+IF (Operating=TRUE) THEN
+    CASE Stage OF
+    1 :                         // Open file.
+        FileOpen_instance(
+            Execute :=TRUE,
+            FileName:='ABC.bin',        // File name
+            Mode    :=_READ_EXIST,        // Read file.
+            FileID  =&gt;Fid);               // File ID
+     
+        IF (FileOpen_instance.Done=TRUE) THEN
+            Stage:=INT#2;                   // Normal end
+        END_IF;
+     
+        IF (FileOpen_instance.Error=TRUE) THEN
+            Stage:=INT#99;                  // Error end
+        END_IF;
+    2 :                         // Seek file.
+        FileSeek_instance(
+            Execute:=TRUE,
+            FileID :=Fid,                   // File ID
+            Offset :=DINT#2,                // File position indicator goes to second byte from the beginning.
+            Origin :=_SEEK_SET);            // 
+     
+        IF (FileSeek_instance.Done=TRUE) THEN
+            Stage:=INT#3;                   // Normal end
+        END_IF;
+     
+        IF (FileSeek_instance.Error=TRUE) THEN
+            Stage:=INT#99;                  // Error end
+        END_IF;
+     
+    3 :                         // Read file.
+        FileRead_instance(
+            Execute:=TRUE,
+            FileID :=Fid,                   // File ID
+            ReadBuf:=InDat[0],              // Read buffer
+            Size   :=UINT#4);               // Number of elements to read: 4 bytes 
+     
+        IF (FileRead_instance.Done=TRUE) THEN
+            Stage:=INT#4;             // Normal end
+        END_IF;
+     
+        IF (FileRead_instance.Error=TRUE) THEN
+            Stage:=INT#99;            // Error end
+        END_IF;
+     
+    4 :                         // Close file.
+        FileClose_instance(
+            Execute:=TRUE,
+            FileID :=Fid);                  // File ID
+     
+        IF (FileClose_instance.Done=TRUE) THEN
+            Operating:=FALSE;         // Normal end
+        END_IF;
+     
+        IF (FileClose_instance.Error=TRUE) THEN
+            Stage:=INT#99;            // Error end
+        END_IF;
+     
+    99 :
+        Operating:=FALSE;             // Processing after error end.
+    END_CASE;
+END_IF;</pre>
+</div>
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+
+
+
+
+

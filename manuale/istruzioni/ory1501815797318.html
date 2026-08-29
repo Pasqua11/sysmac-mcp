@@ -1,0 +1,2849 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>NX_SerialRcv</title>
+</head>
+<body class="ory1501815797318"><div class="layer02" id="ory1501815797318">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">NX_SerialRcv</h1>
+
+<div class="body conbody">
+<p class="p" id="ory1501815797318__ID0EQDSO">The NX_SerialRcv instruction reads data in No-protocol Mode from a serial port on an NX-series Communications Interface Unit or Option Board.</p>
+
+        
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ory1501815797318__table_N1001D_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:13%" />
+<col style="width:14%" />
+<col style="width:6%" />
+<col style="width:35%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d740085e37">Instruction</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d740085e40">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d740085e43">
+<p class="p" id="ory1501815797318__ID0EDFSO">FB/</p>
+
+<p class="p">FUN</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d740085e52">Graphic expression</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d740085e55">ST expression</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d740085e37 "><span class="indexterm">NX_SerialRcv (Receive No-protocol Data)</span>NX_SerialRcv</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d740085e40 "><span class="indexterm">Receive No-protocol Data</span>Receive No-protocol Data</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d740085e43 ">FB</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d740085e52 ">
+<br /><img class="image" id="ory1501815797318__image_CD30B9E94E5C4CED92D33C3A671B5DE4" src="fyz1501815796554.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d740085e55 ">NX_SerialRcv_instance(Execute, DevicePort, RcvDat, Size, RcvCfg, Option, Abort, Done, Busy, CommandAborted, Error, ErrorID, RcvSize);</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<div class="note" id="ory1501815797318__note_N100B2_N1000F_N10002"><div class="ver"><span class="notetitle ver">ver:</span> A CPU Unit with unit version 1.11 or later and Sysmac Studio version 1.15 or higher are required to use this instruction.</div></div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="crj1501817320819">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Variables</h1>
+ 
+<div class="body conbody">
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="crj1501817320819__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:20%" />
+<col style="width:9%" />
+<col style="width:20%" />
+<col style="width:14%" />
+<col style="width:14%" />
+<col style="width:8%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d129566e38">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d129566e40">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d129566e43">I/O</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d129566e46">Description</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d129566e49">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d129566e53">Unit</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d129566e56">Default</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e38 ">DevicePort</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e40 ">Device port</td>
+
+<td class="entry cellrowborder" rowspan="5" style="text-align:left;vertical-align:middle;" headers="d129566e43 ">Input</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e46 ">Object that represents a device port</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e49 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e53 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e56 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e38 ">Size</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e40 ">Storage size</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e46 ">Size of <span class="ph phtype_variable"><span class="termtype">RcvDat</span></span> in bytes</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e49 ">1 to 4096</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e53 ">Bytes</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e56 ">1</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e38 ">RcvCfg</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e40 ">Reception completion setting</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e46 ">Reception completion setting</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e49 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e53 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e56 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e38 ">Option</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e40 ">Option</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e46 ">Option</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e49 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e53 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e56 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e38 ">Abort</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e40 ">Interruption</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e46 ">Interruption of instruction execution</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e49 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e53 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e56 ">FALSE</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e38 ">RcvDat[] (array)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e40 ">Receive data</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e43 ">In-out</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e46 ">Variable to store data received from the receive buffer</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e49 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e53 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e56 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e38 ">CommandAborted</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e40 ">Interruption completion</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d129566e43 ">Output</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e46 ">Interruption completion</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e49 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e53 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e56 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e38 ">RcvSize</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e40 ">Receive size</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e46 ">Size of data actually received from the receive buffer</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e49 ">0 to 4096</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e53 ">Bytes</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e56 ">---</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="crj1501817320819__table_N101D9_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:5%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:top;" id="d129566e308">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d129566e310">Boolean</th>
+
+<th class="entry cellrowborder" colspan="4" style="text-align:center;vertical-align:middle;" id="d129566e313">Bit strings</th>
+
+<th class="entry cellrowborder" colspan="8" style="text-align:center;vertical-align:middle;" id="d129566e316">Integers</th>
+
+<th class="entry cellrowborder" colspan="2" style="text-align:center;vertical-align:middle;" id="d129566e319">Real numbers</th>
+
+<th class="entry cellrowborder" colspan="5" style="text-align:center;vertical-align:middle;" id="d129566e323">Times, durations, dates, and text strings</th>
+
+</tr>
+
+<tr class="row">
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d129566e329">BOOL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d129566e332">BYTE</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d129566e335">WORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d129566e338">DWORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d129566e341">LWORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d129566e345">USINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d129566e348">UINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d129566e351">UDINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d129566e354">ULINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d129566e357">SINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d129566e360">INT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d129566e364">DINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d129566e367">LINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d129566e370">REAL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d129566e373">LREAL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d129566e376">TIME</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d129566e379">DATE</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d129566e383">TOD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d129566e386">DT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d129566e389">STRING</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e308 d129566e329 ">DevicePort</td>
+
+<td class="entry cellrowborder" colspan="20" style="text-align:center;vertical-align:middle;" headers="d129566e310 d129566e313 d129566e316 d129566e319 d129566e323 d129566e332 d129566e335 d129566e338 d129566e341 d129566e345 d129566e348 d129566e351 d129566e354 d129566e357 d129566e360 d129566e364 d129566e367 d129566e370 d129566e373 d129566e376 d129566e379 d129566e383 d129566e386 d129566e389 ">Refer to <a class="xref" href="ory1501815797318.html"><i style="display:none;">☆</i>NX_SerialRcv</a> for details on the structure _sDEVICE_PORT.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e308 d129566e329 ">Size</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e310 d129566e332 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e313 d129566e335 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e313 d129566e338 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e313 d129566e341 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e313 d129566e345 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e316 d129566e348 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e316 d129566e351 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e316 d129566e354 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e316 d129566e357 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e316 d129566e360 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e316 d129566e364 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e316 d129566e367 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e316 d129566e370 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e319 d129566e373 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e319 d129566e376 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e323 d129566e379 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e323 d129566e383 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e323 d129566e386 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e323 d129566e389 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e323 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e308 d129566e329 ">RcvCfg</td>
+
+<td class="entry cellrowborder" colspan="20" style="text-align:center;vertical-align:middle;" headers="d129566e310 d129566e313 d129566e316 d129566e319 d129566e323 d129566e332 d129566e335 d129566e338 d129566e341 d129566e345 d129566e348 d129566e351 d129566e354 d129566e357 d129566e360 d129566e364 d129566e367 d129566e370 d129566e373 d129566e376 d129566e379 d129566e383 d129566e386 d129566e389 ">Refer to <a class="xref" href="ory1501815797318.html"><i style="display:none;">☆</i>NX_SerialRcv</a> for details on the structure _sSERIAL_CFG.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e308 d129566e329 ">Option</td>
+
+<td class="entry cellrowborder" colspan="20" style="text-align:center;vertical-align:middle;" headers="d129566e310 d129566e313 d129566e316 d129566e319 d129566e323 d129566e332 d129566e335 d129566e338 d129566e341 d129566e345 d129566e348 d129566e351 d129566e354 d129566e357 d129566e360 d129566e364 d129566e367 d129566e370 d129566e373 d129566e376 d129566e379 d129566e383 d129566e386 d129566e389 ">Refer to <a class="xref" href="ory1501815797318.html"><i style="display:none;">☆</i>NX_SerialRcv</a> for details on the structure _sSERIAL_RCV_OPTION.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e308 d129566e329 ">Abort</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e310 d129566e332 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e313 d129566e335 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e313 d129566e338 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e313 d129566e341 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e313 d129566e345 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e316 d129566e348 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e316 d129566e351 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e316 d129566e354 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e316 d129566e357 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e316 d129566e360 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e316 d129566e364 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e316 d129566e367 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e316 d129566e370 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e319 d129566e373 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e319 d129566e376 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e323 d129566e379 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e323 d129566e383 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e323 d129566e386 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e323 d129566e389 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e323 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e308 d129566e329 ">RcvDat[] (array)</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e310 d129566e332 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e313 d129566e335 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e313 d129566e338 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e313 d129566e341 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e313 d129566e345 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e316 d129566e348 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e316 d129566e351 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e316 d129566e354 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e316 d129566e357 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e316 d129566e360 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e316 d129566e364 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e316 d129566e367 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e316 d129566e370 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e319 d129566e373 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e319 d129566e376 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e323 d129566e379 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e323 d129566e383 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e323 d129566e386 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e323 d129566e389 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e323 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e308 d129566e329 ">CommandAborted</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e310 d129566e332 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e313 d129566e335 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e313 d129566e338 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e313 d129566e341 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e313 d129566e345 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e316 d129566e348 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e316 d129566e351 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e316 d129566e354 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e316 d129566e357 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e316 d129566e360 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e316 d129566e364 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e316 d129566e367 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e316 d129566e370 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e319 d129566e373 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e319 d129566e376 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e323 d129566e379 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e323 d129566e383 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e323 d129566e386 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e323 d129566e389 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e323 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d129566e308 d129566e329 ">RcvSize</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e310 d129566e332 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e313 d129566e335 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e313 d129566e338 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e313 d129566e341 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e313 d129566e345 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e316 d129566e348 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e316 d129566e351 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e316 d129566e354 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e316 d129566e357 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e316 d129566e360 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e316 d129566e364 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e316 d129566e367 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e316 d129566e370 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e319 d129566e373 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e319 d129566e376 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e323 d129566e379 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e323 d129566e383 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e323 d129566e386 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e323 d129566e389 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d129566e323 ">&#160;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="kbm1501817321118">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function</h1>
+
+<div class="body conbody">
+<p class="p" id="kbm1501817321118__ID0ESUUO">The NX_SerialRcv instruction reads data in No-protocol Mode from the specified port on an NX-series Communications Interface Unit or Option Board.</p>
+
+        
+<p class="p linespace_7pt" id="kbm1501817321118__ID0E2UUO">The data type of the <span class="ph phtype_variable"><span class="termtype">DevicePort</span></span> input variable is structure _sDEVICE_PORT. The specifications are as follows:</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="kbm1501817321118__table_N10028_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:1%" />
+<col style="width:13%" />
+<col style="width:15%" />
+<col style="width:20%" />
+<col style="width:19%" />
+<col style="width:16%" />
+<col style="width:5%" />
+<col style="width:7%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" colspan="2" style="text-align:center;vertical-align:middle;" id="d537208e49">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d537208e52">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d537208e55">Description</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d537208e58">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d537208e61">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d537208e65">Unit</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d537208e68">Default</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cell-norowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d537208e49 ">DevicePort</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d537208e52 ">Device port</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d537208e55 ">Object that represents a device port</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d537208e58 ">_sDEVICE_PORT</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d537208e61 ">---</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d537208e65 ">---</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d537208e68 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d537208e49 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d537208e49 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e52 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e55 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e58 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e61 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e65 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e68 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;" headers="d537208e49 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e49 ">DeviceType</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e52 ">Device type</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e55 ">Type of the device to specify</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e58 ">_eDEVICE_TYPE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e61 ">
+<p class="p" id="kbm1501817321118__ID0EE4UO">_DeviceNXUnit</p>
+
+<p class="p" id="kbm1501817321118__ID0EL4UO">_DeviceEcatSlave</p>
+
+<p class="p" id="kbm1501817321118__ID0ES4UO">_DeviceOptionBoard</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e65 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e68 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;" headers="d537208e49 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e49 ">NxUnit</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e52 ">Specified Unit</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e55 ">NX Unit to control</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e58 ">_sNXUNIT_ID</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e61 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e65 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e68 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" rowspan="4" style="text-align:left;vertical-align:top;" headers="d537208e49 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e49 ">EcatSlave</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e52 ">Specified slave</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e55 ">EtherCAT slave to control</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e58 ">_sECAT_ID</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e61 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e65 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e68 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e49 ">OptBoard</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e52 ">Specified Option Board</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e55 ">Option Board to control</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e58 ">_sOPTBOARD_ID</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e61 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e65 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e68 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e49 ">Reserved</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e52 ">Reserved</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e55 ">Reserved</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e58 ">Reserved</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e61 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e65 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e68 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e49 ">PortNo</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e52 ">Port number</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e55 ">
+<p class="p" id="kbm1501817321118__ID0EDLVO">Port number</p>
+
+<p class="p" id="kbm1501817321118__ID0EKLVO">1: Port 1</p>
+
+<p class="p" id="kbm1501817321118__ID0ERLVO">2: Port 2</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e58 ">USINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e61 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e65 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e68 ">---</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt" id="kbm1501817321118__ID0ETNVO">Use <span class="ph phtype_variable"><span class="termtype">DeviceType</span></span> to specify the device type.</p>
+
+<p class="p">Set this to _DeviceNXUnit for an NX Unit and _DeviceOptionBoard for an Option Board.</p>
+
+        
+<p class="p">The variable used to specify the device is determined by the specified device type.</p>
+
+<p class="p linespace_7pt" id="kbm1501817321118__ID0EAOVO">To specify an NX Unit, use <span class="ph phtype_variable"><span class="termtype">NxUnit</span></span> to specify the device.</p>
+
+<p class="p" id="kbm1501817321118__ID0EHOVO">In this case, <span class="ph phtype_variable"><span class="termtype">EcatSlave</span></span> and <span class="ph phtype_variable"><span class="termtype">OptBoard</span></span> are not used.</p>
+
+<p class="p" id="kbm1501817321118__ID0EOOVO">To <span class="ph phtype_variable"><span class="termtype">NxUnit</span></span>, pass the device variable that is assigned to the node location information on the I/O Map for the device to specify.</p>
+
+<p class="p" id="kbm1501817321118__ID0EVOVO">To specify an Option Board, use <span class="ph phtype_variable"><span class="termtype">OptBoard</span></span> to specify the device.</p>
+
+<p class="p" id="kbm1501817321118__ID0E3OVO">In this case, <span class="ph phtype_variable"><span class="termtype">NxUnit</span></span> and <span class="ph phtype_variable"><span class="termtype">EcatSlave</span></span> are not used.</p>
+
+<p class="p" id="kbm1501817321118__ID0EDPVO">To <span class="ph phtype_variable"><span class="termtype">OptBoard</span></span>, pass the device variable that is assigned to the node location information on the I/O Map for the device to specify.</p>
+
+<p class="p linespace_7pt">If you use this instruction, be sure to assign a device variable to the node location information. Do not assign device variables to any I/O ports following the node location information that are indicated by <span class="ph phtype_type2"><span class="termtype">W</span></span> under the R/W column.</p>
+
+<p class="p">The figure below is an example of using this instruction for port 1 on an NX-CIF210.</p>
+
+<br /><img class="image" id="kbm1501817321118__image_mhd_b2r_l1b" src="qwb1501817302780.gif" /><br />
+<p class="p linespace_7pt">Refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">Sysmac Studio Version 1 Operation Manual (Cat. No. W504)</span></span></span> for details on assigning a device variable to the node location information.</p>
+
+<p class="p linespace_7pt" id="kbm1501817321118__ID0EQPVO">Use <span class="ph phtype_variable"><span class="termtype">PortNo</span></span> to specify the port number.</p>
+
+<p class="p" id="kbm1501817321118__ID0EXPVO">1: Port 1</p>
+
+<p class="p" id="kbm1501817321118__ID0E5PVO">2: Port 2</p>
+
+<p class="p" id="kbm1501817321118__ID0EFQVO">For an NX Unit, set this to Port 1 or Port 2.</p>
+
+<p class="p" id="kbm1501817321118__ID0EMQVO">For an Option Board, set this to Port 1.</p>
+
+<p class="p linespace_7pt" id="kbm1501817321118__ID0EZQVO">The data type of <span class="ph phtype_variable"><span class="termtype">DeviceType</span></span> is enumerated type _eDEVICE_TYPE.</p>
+
+<p class="p" id="kbm1501817321118__ID0EARVO">The meanings of the enumerators of enumerated type _eDEVICE_TYPE are as follows:</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="kbm1501817321118__table_N10301_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d537208e413">Enumerator</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d537208e416">Meaning</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e413 ">_DeviceNXUnit</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e416 ">NX Unit is specified.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e413 ">_DeviceEcatSlave</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d537208e416 ">EtherCAT slave is specified.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e413 ">_DeviceOptionBoard</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d537208e416 ">Option Board is specified.</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt" id="kbm1501817321118__ID0EDVVO">In this instruction, you can specify _DeviceNXUnit or _DeviceOptionBoard.</p>
+
+        
+<p class="p linespace_7pt" id="kbm1501817321118__ID0EQVVO">First, data received by the Unit is stored in the receive buffer.</p>
+
+<p class="p" id="kbm1501817321118__ID0EXVVO">Use the <span class="ph phtype_variable"><span class="termtype">RcvDat</span></span> in-out variable to specify the variable to store data received from the receive buffer.</p>
+
+<p class="p" id="kbm1501817321118__ID0E5VVO">Use the <span class="ph phtype_variable"><span class="termtype">Size</span></span> input variable to set the size of <span class="ph phtype_variable"><span class="termtype">RcvDat</span></span> in bytes.</p>
+
+<p class="p" id="kbm1501817321118__ID0EFWVO">The <span class="ph phtype_variable"><span class="termtype">RcvSize</span></span> output variable represents the size of data actually received from the receive buffer.</p>
+
+<p class="p linespace_7pt" id="kbm1501817321118__ID0ESWVO">When the receive data includes start or end code, you must set the <span class="ph phtype_variable"><span class="termtype">RcvCfg</span></span> input variable.</p>
+
+<p class="p" id="kbm1501817321118__ID0EZWVO">The data type of <span class="ph phtype_variable"><span class="termtype">RcvCfg</span></span> input variable is structure _sSERIAL_CFG. The specifications are as follows:</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="kbm1501817321118__table_N103A9_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:1%" />
+<col style="width:13%" />
+<col style="width:11%" />
+<col style="width:11%" />
+<col style="width:11%" />
+<col style="width:28%" />
+<col style="width:8%" />
+<col style="width:14%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" colspan="2" style="text-align:center;vertical-align:middle;" id="d537208e518">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d537208e521">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d537208e524">Description</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d537208e527">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d537208e530">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d537208e534">Unit</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d537208e537">Default</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cell-norowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d537208e518 ">RcvCfg</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d537208e521 ">Reception completion setting</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d537208e524 ">Reception completion setting</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d537208e527 ">_sSERIAL_CFG</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d537208e530 ">---</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d537208e534 ">---</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d537208e537 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d537208e518 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e518 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e521 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e524 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e527 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e530 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e534 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e537 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" rowspan="5" style="text-align:left;vertical-align:top;" headers="d537208e518 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e518 ">StartTrig</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e521 ">Start code existence</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e524 ">Start code existence</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e527 ">_eSERIAL_START</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e530 ">
+<p class="p" id="kbm1501817321118__ID0E35VO">_SERIAL_START_NONE</p>
+
+<p class="p" id="kbm1501817321118__ID0ED6VO">_SERIAL_START_STARTCODE1</p>
+
+<p class="p" id="kbm1501817321118__ID0EK6VO">_SERIAL_START_STARTCODE2</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e534 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e537 ">_SERIAL_START_NONE</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e518 ">StartCode</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e521 ">Start code</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e524 ">Start code</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e527 ">BYTE[2]</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e530 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e534 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e537 ">[2(16#0)]</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e518 ">EndTrig</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e521 ">End code existence</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e524 ">End code existence</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e527 ">_eSERIAL_END</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e530 ">
+<p class="p" id="kbm1501817321118__ID0EYEWO">_SERIAL_END_NONE</p>
+
+<p class="p" id="kbm1501817321118__ID0E6EWO">_SERIAL_END_ENDCODE1</p>
+
+<p class="p" id="kbm1501817321118__ID0EGFWO">_SERIAL_END_ENDCODE2</p>
+
+<p class="p" id="kbm1501817321118__ID0ENFWO">_SERIAL_END_TERMINATION_CHAR</p>
+
+<p class="p" id="kbm1501817321118__ID0EUFWO">_SERIAL_END_RCV_SIZE</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e534 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e537 ">_SERIAL_END_NONE</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e518 ">EndCode</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e521 ">End code</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e524 ">End code</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e527 ">BYTE[2]</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e530 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e534 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e537 ">[2(16#0)]</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e518 ">RcvSizeCfg</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e521 ">Receive size</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e524 ">Receive size specified when end code is _SERIAL_END_RCV_SIZE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e527 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e530 ">0 to 4,096</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e534 ">Bytes</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e537 ">0</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt" id="kbm1501817321118__ID0EMMWO">The data type of <span class="ph phtype_variable"><span class="termtype">StartTrig</span></span> is enumerated type _eSERIAL_START.</p>
+
+<p class="p" id="kbm1501817321118__ID0ETMWO">The meanings of the enumerators of enumerated type _eSERIAL_START are as follows:</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="kbm1501817321118__table_N105B8_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d537208e765">Enumerator</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d537208e768">Meaning</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e765 ">_SERIAL_START_NONE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e768 ">None</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e765 ">_SERIAL_START_STARTCODE1</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e768 ">1-byte code</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e765 ">_SERIAL_START_STARTCODE2</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e768 ">2-byte code</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt" id="kbm1501817321118__ID0E3QWO">The data type of <span class="ph phtype_variable"><span class="termtype">EndTrig</span></span> is enumerated type _eSERIAL_END.</p>
+
+<p class="p" id="kbm1501817321118__ID0EDRWO">The meanings of the enumerators of enumerated type _eSERIAL_END are as follows:</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="kbm1501817321118__table_N10628_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d537208e827">Enumerator</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d537208e830">Meaning</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e827 ">_SERIAL_END_NONE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e830 ">None</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e827 ">_SERIAL_END_ENDCODE1</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e830 ">1-byte code</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e827 ">_SERIAL_END_ENDCODE2</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e830 ">2-byte code</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e827 ">_SERIAL_END_TERMINATION_CHAR</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e830 ">Termination condition</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e827 ">_SERIAL_END_RCV_SIZE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e830 ">Receive size</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt" id="kbm1501817321118__ID0E3WWO">Refer to <a class="xref" href="ory1501815797318.html#fvr1501817304954"><i style="display:none;">☆</i>Operation of Start Code and End Code</a> for details on the operation of start code and end code.</p>
+
+<p class="p linespace_7pt" id="kbm1501817321118__ID0ESXWO">To set options, use the <span class="ph phtype_variable"><span class="termtype">Option</span></span> input variable.</p>
+
+<p class="p" id="kbm1501817321118__ID0EZXWO">The data type of the <span class="ph phtype_variable"><span class="termtype">Option</span></span> input variable is structure _eSERIAL_RCV_OPTION. The specifications are as follows:</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="kbm1501817321118__table_N106CA_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:1%" />
+<col style="width:16%" />
+<col style="width:18%" />
+<col style="width:19%" />
+<col style="width:14%" />
+<col style="width:15%" />
+<col style="width:6%" />
+<col style="width:8%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" colspan="2" style="text-align:center;vertical-align:middle;" id="d537208e955">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d537208e958">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d537208e961">Description</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d537208e964">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d537208e967">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d537208e971">Unit</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d537208e974">Default</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cell-norowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d537208e955 ">Option</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d537208e958 ">Option</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d537208e961 ">Option</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d537208e964 ">_sSERIAL_RCV_OPTION</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d537208e967 ">---</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d537208e971 ">---</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d537208e974 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d537208e955 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d537208e955 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e958 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e961 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e964 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e967 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e971 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e974 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" rowspan="3" style="text-align:left;vertical-align:top;" headers="d537208e955 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e955 ">TimeOut<a class="xref" href="ory1501815797318.html#kbm1501817321118__fn-1988045"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e958 ">Timeout time</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e961 ">Timeout time</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e964 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e967 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e971 ">0.1 s</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e974 ">20</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e955 ">
+<p class="p" id="kbm1501817321118__ID0EGBXO">LastDatRcv</p>
+
+<p class="p">(Reserved)</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e958 ">Last data reception</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e961 ">Last data reception</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e964 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e967 ">FALSE<a class="xref" href="ory1501815797318.html#kbm1501817321118__fn-1988046"><i style="display:none;">☆</i><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e971 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e974 ">FALSE</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e955 ">
+<p class="p">ClearBuf</p>
+
+<p class="p">(Reserved)</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e958 ">Receive buffer clear condition</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e961 ">Receive buffer clear condition</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e964 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e967 ">Depends on data type.<a class="xref" href="ory1501815797318.html#kbm1501817321118__fn_izz_44w_k2b"><i style="display:none;">☆</i><sup>*3</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e971 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d537208e974 ">FALSE</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="kbm1501817321118__fn-1988045" id="kbm1501817321118__fn-1988045"><sup>*1</sup></a>  <p class="p linespace_7pt" id="kbm1501817321118__ID0EOEIR">An error occurs if the processing does not ends normally within the specified time.</p>
+
+<p class="p">If <span class="ph phtype_variable"><span class="termtype">TimeOut</span></span> is set to <span class="ph phtype_settingvalue"><span class="termtype">0</span></span>, the completion of processing will be waited indefinitely.</p>
+</div>
+<div class="fn"><a name="kbm1501817321118__fn-1988046" id="kbm1501817321118__fn-1988046"><sup>*2</sup></a>  Always set the value to FALSE.</div>
+<div class="fn"><a name="kbm1501817321118__fn_izz_44w_k2b" id="kbm1501817321118__fn_izz_44w_k2b"><sup>*3</sup></a>  Receive buffer clear is not executed even if either TRUE or FALSE is specified.</div></div></div>
+
+<div class="note" id="kbm1501817321118__note_N1087D_N1000F_N10002"><div class="use"><span class="notetitle use">use:</span>
+<p class="p">An error occurs if this instruction is executed for Units other than NX-series Communications Interface Units and Option Boards.</p>
+
+            
+</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="fvr1501817304954">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Operation of Start Code and End Code</h1>
+ 
+<div class="body conbody">
+<p class="p" id="fvr1501817304954__ID0EGIXO">Use the <span class="ph phtype_variable"><span class="termtype">RcvCfg.StartTrig</span></span> input variable to set the start code condition for the receive data, and use the <span class="ph phtype_variable"><span class="termtype">RcvCfg.EndTrig</span></span> input variable to set the end code condition for the receive data.</p>
+
+<p class="p" id="fvr1501817304954__ID0EJIXO">The following table shows operation based on combination of <span class="ph phtype_variable"><span class="termtype">StartTrig</span></span> and <span class="ph phtype_variable"><span class="termtype">EndTrig</span></span>.</p>
+
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="fvr1501817304954__table_N1002F_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:35%" />
+<col style="width:29%" />
+<col style="width:35%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d282351e60">StartTrig</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d282351e63">EndTrig</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d282351e66">Operation</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" rowspan="5" style="text-align:left;vertical-align:top;" headers="d282351e60 ">_SERIAL_START_NONE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d282351e63 ">_SERIAL_END_NONE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d282351e66 ">
+<p class="p" id="fvr1501817304954__ID0EILXO">Data in the receive buffer is received. If there is no receive data in the receive buffer, 0 byte is output to the <span class="ph phtype_variable"><span class="termtype">RcvSize</span></span> output variable and the receive instruction ends normally.</p>
+
+<p class="p" id="fvr1501817304954__ID0EPLXO">If this condition is set, the data of the storage size that is remaining in the receive buffer is read.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d282351e63 ">_SERIAL_END_ENDCODE1</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:top;" headers="d282351e66 ">
+<p class="p" id="fvr1501817304954__ID0EKMXO">The following range of data is received from the receive buffer: from the beginning to the end code.</p>
+
+<p class="p" id="fvr1501817304954__ID0ERMXO">Example: ETX</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d282351e63 ">_SERIAL_END_ENDCODE2</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d282351e63 ">_SERIAL_END_TERMINATION_CHAR</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d282351e66 ">The following range of data is received from the receive buffer: from the beginning to the data detected as the end. <a class="xref" href="ory1501815797318.html#fvr1501817304954__fn-1988047"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d282351e63 ">_SERIAL_END_RCV_SIZE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d282351e66 ">
+<p class="p" id="fvr1501817304954__ID0EZOXO">The following range of data is received from the receive buffer: from the beginning to the receive size specified in <span class="ph phtype_variable"><span class="termtype">RcvSizeCfg</span></span>.</p>
+
+<p class="p" id="fvr1501817304954__ID0EAPXO">Processing is performed only after the specified amount of data is accumulated in the buffer.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" rowspan="5" style="text-align:left;vertical-align:top;" headers="d282351e60 ">
+<p class="p" id="fvr1501817304954__ID0EPPXO">_SERIAL_START_STARTCODE1</p>
+
+<p class="p" id="fvr1501817304954__ID0EWPXO">_SERIAL_START_STARTCODE2</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d282351e63 ">_SERIAL_END_NONE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d282351e66 ">The following range of data is received from the receive buffer: from the start code to the end of data.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d282351e63 ">_SERIAL_END_ENDCODE1</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:top;" headers="d282351e66 ">
+<p class="p" id="fvr1501817304954__ID0EJRXO">The following range of data is received from the receive buffer: from the start code to the end code.</p>
+
+<p class="p" id="fvr1501817304954__ID0EQRXO">Example: ETX</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d282351e63 ">_SERIAL_END_ENDCODE2</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d282351e63 ">_SERIAL_END_TERMINATION_CHAR</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d282351e66 ">The following range of data is received from the receive buffer: from the start code to the data detected as the end. <a class="xref" href="ory1501815797318.html#fvr1501817304954__fn-1988047"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d282351e63 ">_SERIAL_END_RCV_SIZE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d282351e66 ">
+<p class="p" id="fvr1501817304954__ID0EVTXO">The following range of data is received from the receive buffer: from the start code to the receive size specified in <span class="ph phtype_variable"><span class="termtype">RcvSize</span></span>.</p>
+
+<p class="p" id="fvr1501817304954__ID0E3TXO">Processing is performed only after the specified amount of data is accumulated in the buffer.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="fvr1501817304954__fn-1988047" id="fvr1501817304954__fn-1988047"><sup>*1</sup></a>  If the number of characters detected as the end of data in the Communications Interface Unit is set to <span class="ph phtype_settingvalue"><span class="termtype">0 (Do not detect the end)</span></span>, reception will continue until the data of the storage size specified in the <span class="ph phtype_variable"><span class="termtype">Size</span></span> input variable is received. </div></div></div>
+
+<div class="note" id="fvr1501817304954__note_N1017B_N1000F_N10002"><div class="use"><span class="notetitle use">use:</span> If <span class="ph phtype_choice"><span class="termtype">_SERIAL_END_TERMINATION_CHAR</span></span> is selected when an Option Board is specified, an error will occur.</div></div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer04" id="ndx1501817321413">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Operation When Receive Data Storage Is Insufficient</h1>
+ 
+<div class="body conbody">
+<p class="p" id="ndx1501817321413__ID0ELVXO">If the receive data storage specified in the <span class="ph phtype_variable"><span class="termtype">Size</span></span> input variable is smaller than the received data, operation is performed according to the combination of start and end codes, as shown below.</p>
+
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ndx1501817321413__table_N1001C_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:35%" />
+<col style="width:29%" />
+<col style="width:35%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d676288e42">StartTrig</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d676288e45">EndTrig</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d676288e48">Operation</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" rowspan="5" style="text-align:left;vertical-align:top;" headers="d676288e42 ">_SERIAL_START_NONE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d676288e45 ">_SERIAL_END_NONE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d676288e48 ">Normal end</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d676288e45 ">_SERIAL_END_ENDCODE1</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:top;" headers="d676288e48 ">
+<p class="p" id="ndx1501817321413__ID0EBZXO">Error end, but data is received.</p>
+
+<p class="p" id="ndx1501817321413__ID0EIZXO">Example: ETX</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d676288e45 ">_SERIAL_END_ENDCODE2</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d676288e45 ">_SERIAL_END_TERMINATION_CHAR</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d676288e48 ">Error end, but data is received.<a class="xref" href="ory1501815797318.html#ndx1501817321413__fn_e3q_b3r_l1b"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d676288e45 ">_SERIAL_END_RCV_SIZE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d676288e48 ">
+<ul class="ul" id="ndx1501817321413__ul_F8438BD93B2D4135AF506DB50B1B1876">
+<li class="li" id="ndx1501817321413__li_F52D774ACE0F4F22BB2E9F3AE1C5E8F6">Error end for an input value check error</li>
+
+<li class="li" id="ndx1501817321413__li_2775FC22893F4F958C120B19BFD37EB1">Data cannot be received.</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" rowspan="5" style="text-align:left;vertical-align:top;" headers="d676288e42 ">
+<p class="p" id="ndx1501817321413__ID0ER3XO">_SERIAL_START_STARTCODE1</p>
+
+<p class="p" id="ndx1501817321413__ID0EY3XO">_SERIAL_START_STARTCODE2</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d676288e45 ">_SERIAL_END_NONE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d676288e48 ">Error end, but data is received.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d676288e45 ">_SERIAL_END_ENDCODE1</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:top;" headers="d676288e48 ">
+<p class="p" id="ndx1501817321413__ID0EL5XO">Error end, but data is received.</p>
+
+<p class="p" id="ndx1501817321413__ID0ES5XO">Example: ETX</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d676288e45 ">_SERIAL_END_ENDCODE2</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d676288e45 ">_SERIAL_END_TERMINATION_CHAR</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d676288e48 ">Error end, but data is received.<a class="xref" href="ory1501815797318.html#ndx1501817321413__fn_e3q_b3r_l1b"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d676288e45 ">_SERIAL_END_RCV_SIZE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d676288e48 ">
+<ul class="ul" id="ndx1501817321413__ul_464E48C690234CC896CC3FB0BB04E7B9">
+<li class="li" id="ndx1501817321413__li_F2585AA7FACC43DC901689A62ED5B593">Error end for an input value check error</li>
+
+<li class="li" id="ndx1501817321413__li_201DA7774AE9420D8D25E28B71605B7D">Data cannot be received.</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="ndx1501817321413__fn_e3q_b3r_l1b" id="ndx1501817321413__fn_e3q_b3r_l1b"><sup>*1</sup></a>  An error occurs if an Option Board is specified.</div></div></div>
+ 
+<p class="p linespace_7pt" id="ndx1501817321413__ID0E5BYO">Data of the size of the storage <span class="ph phtype_variable"><span class="termtype">RcvDat</span></span> is received and the rest of data is retained in the receive buffer.</p>
+
+<p class="p">The retained data can be received when the next SerialRcv instruction is executed.</p>
+
+<p class="p linespace_7pt" id="ndx1501817321413__ID0EFCYO">For example, when 10-byte data exists in the receive buffer and the capacity of the receive data storage <span class="ph phtype_variable"><span class="termtype">RcvDat</span></span> is 5 bytes, 5-byte data is received and other 5-byte data is retained in the receive buffer. The value of the <span class="ph phtype_variable"><span class="termtype">RcvSize</span></span> output variable will be 5 bytes, which represents the size of data that is stored.</p>
+
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ndx1501817321413__table_N10172_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" colspan="2" style="text-align:center;vertical-align:middle;" id="d676288e224">Receive buffer</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d676288e227">Receive data storage RcvDat[ ]</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d676288e224 ">1st byte</td>
+
+<td class="entry cellrowborder" rowspan="5" style="text-align:left;vertical-align:top;" headers="d676288e224 ">Receive processing is performed.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d676288e227 ">1</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d676288e224 ">2nd byte</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d676288e227 ">2</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d676288e224 ">3rd byte</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d676288e227 ">3</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d676288e224 ">4th byte</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d676288e227 ">4</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d676288e224 ">5th byte</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d676288e227 ">5</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d676288e224 ">6th byte</td>
+
+<td class="entry cellrowborder" rowspan="5" style="text-align:left;vertical-align:top;" headers="d676288e224 ">
+<p class="p" id="ndx1501817321413__ID0EZIYO">Cannot be stored in <span class="ph phtype_variable"><span class="termtype">RcvDat</span></span>. Data is retained in the receive buffer.</p>
+
+<p class="p" id="ndx1501817321413__ID0EAJYO">Receive processing for the data is performed when the next NX_SerialRcv instruction is executed.</p>
+
+</td>
+
+<td class="entry cellrowborder" rowspan="5" style="text-align:left;vertical-align:top;" headers="d676288e227 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d676288e224 ">7th byte</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d676288e224 ">8th byte</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d676288e224 ">9th byte</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d676288e224 ">10th byte</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer04" id="mie1501817305670">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Interruption of Instruction Execution</h1>
+
+<div class="body conbody">
+<p class="p" id="mie1501817305670__ID0EOKOO">If <span class="ph phtype_variable"><span class="termtype">Abort</span></span> is changed to TRUE during instruction execution, the execution is interrupted.</p>
+
+<p class="p" id="mie1501817305670__ID0ERKOO">When the instruction execution is interrupted, <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> changes to TRUE. The instruction is interrupted even when the data transmission is in progress.</p>
+
+<p class="p" id="mie1501817305670__ID0EYKOO">If the instruction execution is completed before an attempt of interruption, <span class="ph phtype_variable"><span class="termtype">Done</span></span> changes to TRUE and the instruction ends normally.</p>
+
+<p class="p" id="mie1501817305670__ID0E6KOO">If both <span class="ph phtype_variable"><span class="termtype">Abort</span></span> and <span class="ph phtype_variable"><span class="termtype">Execute</span></span> are changed to TRUE, <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> changes to TRUE.</p>
+
+<p class="p linespace_7pt" id="mie1501817305670__ID0EMLOO">The interruption operation only finishes the <span class="ph phtype_variable"><span class="termtype">Busy</span></span> processing, and it does not clear the send buffer. To clear the buffer, use the instruction, <a class="xref" href="okl1501815804207.html#okl1501815804207"><i style="display:none;">☆</i>NX_SerialBufClear</a>.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="htd1501817305903">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Timing Charts</h1>
+<div class="body conbody"><p class="p" id="htd1501817305903__ID0EWMOO">The following figures show the timing charts.</p>
+</div>
+<div class="related-links"></div></div><div class="layer05" id="nux1501817322387">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Normal end</h1>
+
+<div class="body conbody">
+<br /><img class="image" src="owk1501817321654.gif" /><br />
+<p class="p linespace_7pt"></p>
+
+<ol class="ol liststyle_asterisk1"><li class="li" id="nux1501817322387__li_N1001E_N1001B_N1000F_N10002">
+    
+    *<span class="num"></span>.
+  Receive processing</li>
+
+<li class="li" id="nux1501817322387__li_N10023_N1001B_N1000F_N10002">
+    
+    *<span class="num"></span>.
+  Data is received in No-protocol mode.</li>
+
+</ol>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="nom1501817323409">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Interruption executed (when Busy is TRUE)</h1>
+
+<div class="body conbody">
+<p class="p" id="nom1501817323409__ID0EURYO">The operation is as follows if <span class="ph phtype_variable"><span class="termtype">Abort</span></span> is changed to TRUE while <span class="ph phtype_variable"><span class="termtype">Busy</span></span> is TRUE.</p>
+
+<br /><img class="image" src="otu1501817322632.gif" /><br />
+<p class="p linespace_7pt"></p>
+
+<ol class="ol liststyle_asterisk1"><li class="li" id="nom1501817323409__li_N10031_N1002E_N10014_N10002">
+    
+    *<span class="num"></span>.
+  Interruption processing</li>
+
+<li class="li" id="nom1501817323409__li_N10036_N1002E_N10014_N10002">
+    
+    *<span class="num"></span>.
+  Changes to FALSE after one task period.</li>
+
+</ol>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="oyq1501817324941">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Interruption executed (when Execute is TRUE)</h1>
+
+<div class="body conbody">
+<p class="p" id="oyq1501817324941__ID0E6TYO">The operation is as follows if both <span class="ph phtype_variable"><span class="termtype">Abort</span></span> and <span class="ph phtype_variable"><span class="termtype">Execute</span></span> are changed to TRUE.</p>
+
+<br /><img class="image" src="iyp1501817323653.gif" /><br />
+<p class="p linespace_7pt"></p>
+
+<ol class="ol liststyle_asterisk1"><li class="li" id="oyq1501817324941__li_N10031_N1002E_N10014_N10002">
+    
+    *<span class="num"></span>.
+  Changes to FALSE after one task period.</li>
+
+</ol>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="dmr1501817325205">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Related System-defined Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="dmr1501817325205__table_qpw_lxq_l1b" class="rules_all " frame="below" border="1" rules="all">
+                
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d176480e57">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d176480e60">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d176480e63">Data type</th>
+
+<th class="entry row-nocellborder" style="text-align:left;vertical-align:top;" id="d176480e66">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row" style="vertical-align:middle;">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d176480e57 ">_PLC_OptBoardSta<a class="xref" href="#dmr1501817325205__fn_ikg_zm3_flb"><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d176480e60 ">Option Board Status</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d176480e63 ">ARRAY[1..2] of _sOPTBOARD_STA</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d176480e66 ">This stores the status of the Option Board.</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:middle;">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d176480e57 ">_NXB_UnitIOActiveTbl<a class="xref" href="#dmr1501817325205__fn_szj_1n3_flb"><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d176480e60 ">NX Unit I/O Data Active Status</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d176480e63 ">ARRAY[0..32] OF BOOL<a class="xref" href="#dmr1501817325205__fn_z24_jnn_jlb"><sup>*3</sup></a></td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d176480e66 ">
+<ul class="ul" id="dmr1501817325205__ul_vrx_txq_l1b">
+<li class="li" id="dmr1501817325205__li_N10084_N10080_N1007C_N1006C_N10052_N1001A_N10012_N1000F_N10002">This status tells the NX Units whether I/O data communications can be processed.</li>
+
+<li class="li" id="dmr1501817325205__li_N10089_N10080_N1007C_N1006C_N10052_N1001A_N10012_N1000F_N10002">The subscript of the array corresponds to the NX Unit numbers. A subscript of 0 means the NX bus master.</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="dmr1501817325205__fn_ikg_zm3_flb" id="dmr1501817325205__fn_ikg_zm3_flb"><sup>*1</sup></a>  You can use this variable only with NX1P2 CPU Units.</div>
+<div class="fn"><a name="dmr1501817325205__fn_szj_1n3_flb" id="dmr1501817325205__fn_szj_1n3_flb"><sup>*2</sup></a>
+<p class="p">You can use this variable with NX502 CPU Units, NX102 CPU Units, and NX1P2 CPU Units.</p>
+
+</div>
+<div class="fn"><a name="dmr1501817325205__fn_z24_jnn_jlb" id="dmr1501817325205__fn_z24_jnn_jlb"><sup>*3</sup></a>  <p class="p">For the NX1P2 CPU Units, the data type is <span class="ph phtype_type2"><span class="termtype">ARRAY [0..8] OF BOOL</span></span>.</p>
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="yye1501817325452">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Precautions for Correct Use</h1>
+
+<div class="body conbody">
+<ul class="ul"><li class="li" id="yye1501817325452__li_N10017_N10013_N10010_N10002">
+<p class="p">While <span class="ph phtype_variable"><span class="termtype">Abort</span></span> remains FALSE, execution of this instruction is continued until completed even when <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to FALSE or the execution time exceeds the task period.</p>
+
+<p class="p">The value of <span class="ph phtype_variable"><span class="termtype">Done</span></span> changes to TRUE when the execution is completed. Use this to confirm normal completion of processing. If <span class="ph phtype_variable"><span class="termtype">Abort</span></span> is changed to TRUE during instruction execution, <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> or <span class="ph phtype_variable"><span class="termtype">Done</span></span> changes to TRUE.</p>
+
+</li>
+<li class="li" id="yye1501817325452__li_N10040_N10012_N1000F_N10002">Data is not received when <span class="ph phtype_variable"><span class="termtype">RcvCfg.EndTrig</span></span> is _SERIAL_END_RCV_SIZE and the value of the <span class="ph phtype_variable"><span class="termtype">RcvCfg.RcvSizeCfg</span></span> input variable is <span class="ph phtype_settingvalue"><span class="termtype">0</span></span>. In this case, the value of <span class="ph phtype_variable"><span class="termtype">Done</span></span> changes to TRUE at instruction execution.</li>
+<li class="li" id="yye1501817325452__li_N10039_N10013_N10010_N10002">A compiling error will occur if you use this instruction in an event task. Do not use this instruction in event tasks.</li>
+<li class="li" id="yye1501817325452__li_N1003E_N10013_N10010_N10002">A <span class="ph phtype_type2"><span class="termtype">CIF Unit Initialized</span></span> error may occur when the NX-series Communications Interface Unit is restarted. Send or receive the data again, if necessary.</li>
+<li class="li" id="yye1501817325452__li_N10043_N10013_N10010_N10002">If you use this instruction, do not assign device variables to any I/O ports that are indicated with <span class="ph phtype_type2"><span class="termtype">W</span></span> in the R/W column on the I/O Map Tab Page in the Sysmac Studio for the applicable NX-series Communications Interface Unit.</li>
+<li class="li" id="yye1501817325452__li_N10071_N10012_N1000F_N10002">An error will occur in the following cases. <span class="ph phtype_variable"><span class="termtype">Error</span></span> will change to TRUE.<ol class="ol liststyle_alphabet1">
+<li class="li" id="yye1501817325452__li_N1007E_N1007A_N10071_N10012_N1000F_N10002">A value that is out of range is set for <span class="ph phtype_variable"><span class="termtype">RcvCfg.RcvSizeCfg</span></span> while <span class="ph phtype_variable"><span class="termtype">RcvCfg.EndTrig</span></span> is set to _SERIAL_END_RCV_SIZE.</li>
+
+<li class="li" id="yye1501817325452__li_N1008C_N1007A_N10071_N10012_N1000F_N10002">A value that is out of range is set for <span class="ph phtype_variable"><span class="termtype">Size</span></span>, <span class="ph phtype_variable"><span class="termtype">DevicePort.DevicePortType</span></span> or <span class="ph phtype_variable"><span class="termtype">DevicePort.PortNo</span></span>.</li>
+
+<li class="li" id="yye1501817325452__li_N1009F_N1007A_N10071_N10012_N1000F_N10002"><span class="ph phtype_variable"><span class="termtype">Option.LastDatRcv</span></span> is TRUE.</li>
+
+<li class="li" id="yye1501817325452__li_N100A8_N1007A_N10071_N10012_N1000F_N10002">The array variable specified for the <span class="ph phtype_variable"><span class="termtype">RcvDat</span></span> in-out variable is smaller than the size specified with the <span class="ph phtype_variable"><span class="termtype">Size</span></span> input variable.</li>
+
+<li class="li" id="yye1501817325452__li_N100B7_N1007A_N10071_N10012_N1000F_N10002">The storage size that is specified by <span class="ph phtype_variable"><span class="termtype">Size</span></span> for saving the data in <span class="ph phtype_variable"><span class="termtype">RcvDat</span></span> is smaller than the actually received data.</li>
+<li class="li" id="yye1501817325452__li_N100AE_N10053_N10048_N10013_N10010_N10002">The Unit, Option Board, or port specified with <span class="ph phtype_variable"><span class="termtype">DevicePort</span></span> does not exist.</li>
+<li class="li" id="yye1501817325452__li_N100B3_N10053_N10048_N10013_N10010_N10002">The data type of <span class="ph phtype_variable"><span class="termtype">DevicePort</span></span> is invalid.</li>
+<li class="li" id="yye1501817325452__li_N100D7_N1007A_N10071_N10012_N1000F_N10002">_SERIAL_END_TERMINATION_CHAR is selected with RcvCfg.EndTrig when an Option Board is specified with <span class="ph phtype_variable"><span class="termtype">DevicePort</span></span>.</li>
+<li class="li" id="yye1501817325452__li_N100C4_N10053_N10048_N10013_N10010_N10002">
+<p class="p">More than 32 of the following instructions were executed at the same time: NX_SerialSend, NX_SerialRcv, NX_ModbusRtuCmd, NX_ModbusRtuRead, NX_ModbusRtuWrite, NX_SerialSigCtl, NX_SerialSigRead, NX_SerialStatusRead, NX_SerialBufClear, NX_SerialStartMon, and NX_SerialStopMon.</p>
+
+                            
+</li>
+<li class="li" id="yye1501817325452__li_N100E6_N1007A_N10071_N10012_N1000F_N10002">The receive buffer is full.</li>
+
+<li class="li" id="yye1501817325452__li_N100EB_N1007A_N10071_N10012_N1000F_N10002">
+<p class="p">This instruction is executed with a device port variable that is the same as the one specified for another instruction that is still being executed.</p>
+
+<p class="p">In this case, the instruction which is still being executed is one of the followings: the NX_SerialRcv instruction, NX_ModbusRtuCmd instruction, NX_ModbusRtuRead instruction, and NX_ModbusRtuWrite instruction.</p>
+
+</li>
+<li class="li" id="yye1501817325452__li_N100D5_N10053_N10048_N10013_N10010_N10002">A parity error occurred in the data received.</li>
+<li class="li" id="yye1501817325452__li_N100DA_N10053_N10048_N10013_N10010_N10002">A framing error occurred in the data received.</li>
+<li class="li" id="yye1501817325452__li_N100DF_N10053_N10048_N10013_N10010_N10002">An overrun error occurred in the data received.</li>
+<li class="li" id="yye1501817325452__li_N100E4_N10053_N10048_N10013_N10010_N10002">Timeout time elapsed.</li>
+<li class="li" id="yye1501817325452__li_N100E9_N10053_N10048_N10013_N10010_N10002">
+<p class="p">This instruction is executed for Units other than NX-series Communications Interface Units and Option Boards.</p>
+
+                            
+</li>
+<li class="li" id="yye1501817325452__li_N100EE_N10053_N10048_N10013_N10010_N10002">The serial communications mode of the specified Option Board is not <span class="ph phtype_type2"><span class="termtype">No-protocol</span></span>.</li>
+</ol>
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="cjy1501817326390">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Sample Programming</h1>
+ 
+<div class="body conbody">
+<p class="p" id="cjy1501817326390__ID0EQ6YO">In this sample, an NX-series Communications Interface Unit (NX-CIF210) is connected to an EtherCAT Coupler Unit (NX-ECC203).</p>
+
+<p class="p" id="cjy1501817326390__ID0ET6YO">The unit number of the NX-CIF210 is set to <span class="ph phtype_settingvalue"><span class="termtype">1</span></span>.</p>
+
+<br /><img class="image" id="cjy1501817326390__image_72312CA63FC84648877879B09996D1D3" src="gdd1501817325685.gif" /><br />
+<p class="p linespace_7pt" id="cjy1501817326390__ID0EZAZO">Data that was read by the barcode reader which is connected to serial port 2 of the NX-CIF210 is obtained.</p>
+
+<p class="p" id="cjy1501817326390__ID0EABZO">The receive data is stored in the <span class="ph phtype_variable"><span class="termtype">RecvDat</span></span> in-out variable. There is no start code. End code is 16#OD (CR).</p>
+
+<p class="p linespace_7pt" id="cjy1501817326390__ID0ENBZO">The settings of NX-CIF210 are given in the following table.</p>
+
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="cjy1501817326390__table_N1003D_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d110339e51">Item</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d110339e54">Set value</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110339e51 ">Port 2: Baud Rate</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110339e54 ">38,400 bps</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110339e51 ">Port 2: Data Length</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110339e54 ">8 bits</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110339e51 ">Port 2: Parity</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110339e54 ">None</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110339e51 ">Port 2: Stop Bits</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110339e54 ">1 bit</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110339e51 ">Port 2: Flow Control</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110339e54 ">None</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer04" id="rpb1501816500359">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Definitions of Global Variables</h1>
+<div class="body conbody"></div>
+<div class="related-links"></div></div><div class="layer05" id="shs1501817326629">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Global Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="shs1501817326629__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:33%" />
+<col style="width:16%" />
+<col style="width:20%" />
+<col style="width:30%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d878698e48">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d878698e51">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d878698e54">AT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d878698e57">Comment</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d878698e48 ">E001_NX_Unit_I_O_Data_Active_Status_63</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d878698e51 ">ARRAY[0..63] OF BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d878698e54 ">ECAT://node#1/NX Unit I/O Data Active Status 125</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d878698e57 ">Usage of I/O data for 63 NX Units.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d878698e48 ">N1_Node_location_information</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d878698e51 ">_sNXUNIT_ID</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d878698e54 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d878698e57 ">Device variable to specify NX-CIF210<a class="xref" href="ory1501815797318.html#shs1501817326629__fn-1988088"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="shs1501817326629__fn-1988088" id="shs1501817326629__fn-1988088"><sup>*1</sup></a>  On the Sysmac Studio, right-click an NX-series slave terminal unit, select <span class="ph phtype_choice"><span class="termtype">Display Node Location Port</span></span>, and set the device variable. Refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">Sysmac Studio Version 1 Operation Manual (Cat. No. W504)</span></span></span> for details. </div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="qjx1501817332679">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">LD</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="qjx1501817332679__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:14%" />
+<col style="width:1%" />
+<col style="width:17%" />
+<col style="width:23%" />
+<col style="width:23%" />
+<col style="width:19%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d815670e39">Internal Variables</th>
+
+<th class="entry cellrowborder" colspan="2" style="text-align:center;vertical-align:middle;" id="d815670e42">Variable</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d815670e45">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d815670e48">Initial value</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d815670e51">Comment</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d815670e39 ">&#160;</td>
+
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d815670e42 ">OperationEnd</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e45 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e48 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e51 ">Processing completed</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d815670e39 ">&#160;</td>
+
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d815670e42 ">Trigger</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e45 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e48 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e51 ">Execution condition</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d815670e39 ">&#160;</td>
+
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d815670e42 ">Operating</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e45 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e48 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e51 ">Processing</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d815670e39 ">&#160;</td>
+
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d815670e42 ">DevicePort</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e45 ">_sDEVICE_PORT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e48 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e51 ">Port settings</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d815670e39 ">&#160;</td>
+
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d815670e42 ">RecvDat</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e45 ">ARRAY[0..255] OF BYTE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e48 ">[256(16#0)]</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e51 ">Receive data</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d815670e39 ">&#160;</td>
+
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d815670e42 ">RecvSize</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e45 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e48 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e51 ">Receive data size</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d815670e39 ">&#160;</td>
+
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d815670e42 ">RecvStringDat</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e45 ">STRING[257]</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e48 ">&#8216;&#8217;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e51 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d815670e39 ">&#160;</td>
+
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d815670e42 ">Code</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e45 ">ULINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e48 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e51 ">Barcode (integer)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d815670e39 ">&#160;</td>
+
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d815670e42 ">RS_instance</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e45 ">RS</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e48 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e51 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d815670e39 ">&#160;</td>
+
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d815670e42 ">NX_SerialRcv_instance</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e45 ">NX_SerialRcv</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e48 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e51 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d815670e39 ">&#160;</td>
+
+<td class="entry cell-norowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d815670e42 ">RcvCfg</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d815670e45 ">_sSERIAL_CFG</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d815670e48 ">&#160;</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d815670e51 ">Reception completion setting</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d815670e39 ">&#160;</td>
+
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:middle;" headers="d815670e42 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e42 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e45 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e48 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e51 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d815670e39 ">&#160;</td>
+
+<td class="entry cellrowborder" rowspan="5" style="text-align:left;vertical-align:middle;" headers="d815670e42 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e42 ">StartTrig</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e45 ">_eSERIAL_START</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e48 ">_SERIAL_START_NONE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e51 ">Without start code</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d815670e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e42 ">StartCode</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e45 ">BYTE[2]</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e48 ">[2(16#0)]</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e51 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d815670e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e42 ">EndTrig</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e45 ">_eSERIAL_END</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e48 ">_SERIAL_END_ENDCODE1</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e51 ">With end code</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d815670e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e42 ">EndCode</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e45 ">BYTE[2]</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e48 ">[16#0D, 16#00]</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e51 ">16#0D(CR)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d815670e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e42 ">RcvSizeCfg</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e45 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e48 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e51 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d815670e39 ">&#160;</td>
+
+<td class="entry cell-norowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d815670e42 ">Option</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d815670e45 ">_sSERIAL_RCV_OPTION</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d815670e48 ">&#160;</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d815670e51 ">Option</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d815670e39 ">&#160;</td>
+
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:middle;" headers="d815670e42 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e42 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e45 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e48 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e51 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d815670e39 ">&#160;</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d815670e42 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e42 ">TimeOut</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e45 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e48 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e51 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d815670e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e42 ">LastDatRcv</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e45 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e48 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e51 ">&#160;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="qjx1501817332679__table_N10365_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:14%" />
+<col style="width:28%" />
+<col style="width:14%" />
+<col style="width:42%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d815670e429">External Variables</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d815670e432">Variable</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d815670e435">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d815670e438">Comment</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d815670e429 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e432 ">E001_NX_Unit_I_O_Data_Active_Status_63</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e435 ">ARRAY[0..63] OF BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e438 ">
+<ul class="ul" id="qjx1501817332679__ul_92EF92D80ECC42DEA37F9834F91C5E46">
+<li class="li" id="qjx1501817332679__li_77A88011E83140018425BF1B1D6674A8">Usage of I/O data for 63 NX Units.</li>
+
+<li class="li" id="qjx1501817332679__li_9E3313D97F52499FA1874F5AF2100802">If the relevant Unit number is <span class="ph phtype_settingvalue"><span class="termtype">1</span></span>, E001_NX_Unit_I_O_Data_Active_Status_63[1] is used.</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d815670e429 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e432 ">N1_Node_location_information</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e435 ">_sNXUNIT_ID</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d815670e438 ">Device variable to specify NX-CIF210</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<br /><img class="image" id="qjx1501817332679__image_41AA767D56E74EA59F471EEF132557FA" src="nup1501817326864.gif" /><br />
+<br /><img class="image" id="qjx1501817332679__image_kft_1cg_r1b" src="iom1501817328014.gif" /><br />
+<br /><img class="image" id="qjx1501817332679__image_h31_bcg_r1b" src="fhp1501817328932.gif" /><br />
+<br /><img class="image" id="qjx1501817332679__image_drh_bcg_r1b" src="kag1501817330156.gif" /><br />
+<br /><img class="image" id="qjx1501817332679__image_pst_bcg_r1b" src="gvp1501817331246.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="gat1501817332955">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Contents of Inline ST</h1>
+<div class="body conbody"><pre class="pre codeblock">DevicePort.DeviceType:=_eDEVICE_TYPE#_DeviceNXUnit;
+DevicePort.NxUnit:=N1_Node_location_information;
+DevicePort.PortNo:=2;</pre>
+</div>
+<div class="related-links"></div></div><div class="layer04" id="apk1501817333190">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">ST</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="apk1501817333190__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:14%" />
+<col style="width:1%" />
+<col style="width:17%" />
+<col style="width:23%" />
+<col style="width:23%" />
+<col style="width:19%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d30573e39">Internal Variables</th>
+
+<th class="entry cellrowborder" colspan="2" style="text-align:center;vertical-align:middle;" id="d30573e42">Variable</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d30573e45">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d30573e48">Initial value</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d30573e51">Comment</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d30573e39 ">&#160;</td>
+
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d30573e42 ">Trigger</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e45 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e48 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e51 ">Execution condition</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d30573e39 ">&#160;</td>
+
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d30573e42 ">LastTrigger</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e45 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e48 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e51 ">Value of Trigger from previous task period</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d30573e39 ">&#160;</td>
+
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d30573e42 ">OperatingStart</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e45 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e48 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e51 ">Processing started</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d30573e39 ">&#160;</td>
+
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d30573e42 ">Operating</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e45 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e48 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e51 ">Processing</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d30573e39 ">&#160;</td>
+
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d30573e42 ">DevicePort</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e45 ">_sDEVICE_PORT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e48 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e51 ">Port settings</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d30573e39 ">&#160;</td>
+
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d30573e42 ">RecvDat</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e45 ">ARRAY[0..255] OF BYTE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e48 ">[256(16#0)]</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e51 ">Receive data</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d30573e39 ">&#160;</td>
+
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d30573e42 ">RecvSize</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e45 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e48 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e51 ">Receive data size</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d30573e39 ">&#160;</td>
+
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d30573e42 ">RecvStringDat</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e45 ">STRING[257]</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e48 ">&#8216;&#8217;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e51 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d30573e39 ">&#160;</td>
+
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d30573e42 ">Code</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e45 ">ULINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e48 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e51 ">Barcode (integer)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d30573e39 ">&#160;</td>
+
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d30573e42 ">NX_SerialRcv_instance</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e45 ">NX_SerialRcv</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e48 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e51 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d30573e39 ">&#160;</td>
+
+<td class="entry cell-norowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d30573e42 ">RcvCfg</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d30573e45 ">_sSERIAL_CFG</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d30573e48 ">&#160;</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d30573e51 ">Reception completion setting</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d30573e39 ">&#160;</td>
+
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:middle;" headers="d30573e42 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e42 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e45 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e48 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e51 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d30573e39 ">&#160;</td>
+
+<td class="entry cellrowborder" rowspan="5" style="text-align:left;vertical-align:middle;" headers="d30573e42 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e42 ">StartTrig</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e45 ">_eSERIAL_START</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e48 ">_SERIAL_START_NONE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e51 ">Without start code</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d30573e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e42 ">StartCode</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e45 ">BYTE[2]</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e48 ">[2(16#0)]</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e51 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d30573e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e42 ">EndTrig</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e45 ">_eSERIAL_END</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e48 ">_SERIAL_END_ENDCODE1</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e51 ">With end code</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d30573e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e42 ">EndCode</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e45 ">BYTE[2]</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e48 ">[16#0D, 16#00]</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e51 ">16#0D(CR)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d30573e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e42 ">RcvSizeCfg</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e45 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e48 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e51 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d30573e39 ">&#160;</td>
+
+<td class="entry cell-norowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d30573e42 ">Option</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d30573e45 ">_sSERIAL_RCV_OPTION</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d30573e48 ">&#160;</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d30573e51 ">Option</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d30573e39 ">&#160;</td>
+
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:middle;" headers="d30573e42 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e42 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e45 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e48 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e51 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d30573e39 ">&#160;</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d30573e42 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e42 ">TimeOut</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e45 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e48 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e51 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d30573e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e42 ">LastDatRcv</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e45 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e48 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e51 ">&#160;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="apk1501817333190__table_N10367_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:14%" />
+<col style="width:28%" />
+<col style="width:14%" />
+<col style="width:42%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d30573e431">External Variables</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d30573e434">Variable</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d30573e437">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d30573e440">Comment</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d30573e431 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e434 ">E001_NX_Unit_I_O_Data_Active_Status_63</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e437 ">ARRAY[0..63] OF BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e440 ">
+<ul class="ul" id="apk1501817333190__ul_5C95EE3A335746028E6DDF17259784A2">
+<li class="li" id="apk1501817333190__li_C8DF2A19B4074B5D987B87FD2901EB4F">Usage of I/O data for 63 NX Units.</li>
+
+<li class="li" id="apk1501817333190__li_E62070D7504C417088408D54478B32B9">If the relevant Unit number is <span class="ph phtype_settingvalue"><span class="termtype">1</span></span>, E001_NX_Unit_I_O_Data_Active_Status_63[1] is used.</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d30573e431 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e434 ">N1_Node_location_information</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e437 ">_sNXUNIT_ID</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30573e440 ">Device variable to specify NX-CIF210</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt"></p>
+
+<pre class="pre codeblock">
+// Detect when Trigger changes to TRUE.
+IF ( (Trigger=TRUE) AND (LastTrigger=FALSE)
+     AND(E001_NX_Unit_I_O_Data_Active_Status_63[1]) AND (SerialRcv_instance.Busy=FALSE) ) THEN
+         OperatingStart:=TRUE;
+         Operating:=TRUE;
+         DevicePort.DeviceType:=_eDEVICE_TYPE#_DeviceNXUnit;
+         DevicePort.NxUnit:=N1_Node_location_information;
+         DevicePort.Port.PortNo:=2;
+END_IF;
+LastTrigger:=Trigger;
+
+// Set communications parameters and initialize SerialRcv instruction.
+IF (OperatingStart=TRUE) THEN
+         NX_SerialRcv_instance(
+                            Execute:=FALSE,         // Initialize instance.
+                            DevicePort:=DevicePort, // Port settings
+                            Size:=UINT#256,,        // Receive data size
+                            RcvDat:=RecvDat,        // Receive data
+                            RcvSize=&gt;RecvSize);     // Data size that was actually received
+         OperatingStart:=FALSE;
+END_IF;
+// Execute NX_SerialRcv instruction.
+IF (Operating=TRUE) THEN
+         NX_SerialRcv_instance(
+                            Execute:=TRUE,
+                            DevicePort:=DevicePort,
+                            Size:=UINT#256,
+                            RcvDat:=RecvDat,
+                            RcvSize=&gt;RecvSize);
+         IF (NX_SerialRcv_instance.Done=TRUE) THEN
+             // Processing after normal end
+             RecvStringDat:=AryToString(In:=RecvDat[0],Size:=RecvSize); // Convert character codes to a text string.
+             Code:=STRING_TO_ULINT(RecvDat); // Convert text string to an integer.
+
+             Operating:=FALSE;
+         END_IF;
+         IF (NX_SerialRcv_instance.Error=TRUE) THEN
+                  // Processing after error end
+                  Operating:=FALSE;
+         END_IF;
+END_IF;</pre>
+
+</div>
+
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

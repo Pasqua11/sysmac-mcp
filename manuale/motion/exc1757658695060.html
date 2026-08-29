@@ -1,0 +1,1564 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>MC_GearInPos2</title>
+</head>
+<body class="exc1757658695060"><div class="layer02" id="exc1757658695060">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">MC_GearInPos2</h1>
+
+<div class="body conbody">
+<p class="p">The MC_GearInPos2 instruction performs <span class="indexterm">electronic gear</span>electronic gear operation for the specified gear ratio between the master axis and the slave axis.</p>
+
+<p class="p">The positions at which to start synchronizing the master axis and slave axis are specified.</p>
+
+<p class="p">This instruction is a partially modified version of the MC_GearInPos (Positioning Gear Operation) instruction. For differences from the MC_GearInPos (Positioning Gear Operation) instruction, refer to <a class="xref" href="exc1757658695060.html"><i style="display:none;">☆</i>MC_GearInPos2</a> in <a class="xref" href="exc1757658695060.html"><i style="display:none;">☆</i>MC_GearInPos2</a>.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="exc1757658695060__table_N1002D_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:16%" />
+<col style="width:12%" />
+<col style="width:5%" />
+<col style="width:35%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d36301e55">Instruction</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d36301e58">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d36301e61">FB/FUN</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d36301e64">Graphic expression</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d36301e67">ST expression</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d36301e55 "><span class="indexterm">MC_GearInPos2 (Positioning Gear Operation2)</span>MC_GearInPos2</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d36301e58 "><span class="indexterm">Positioning Gear Operation2</span><span class="indexterm">gear operation</span>Positioning Gear Operation2</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d36301e61 ">FB</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d36301e64 ">
+<br /><img class="image" id="exc1757658695060__image_rr4_5sy_pgc" src="wkn1757664423088.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d36301e67 ">
+<p class="p" id="exc1757658695060__ID0EDK3Q">MC_GearInPos2_instance (</p>
+
+<p class="p">Master :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Slave :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Execute :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">RatioNumerator :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">RatioDenominator :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">ReferenceType :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">MasterSyncPosition :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">SlaveSyncPosition :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">SyncMode =<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">MasterStartDistance :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Velocity :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Acceleration :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Deceleration :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Jerk :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">BufferMode :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">StartSync =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">InSync =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Busy =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Active =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter,</span></span>,</p>
+
+<p class="p">CommandAborted =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Error =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">ErrorID =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span></p>
+
+<p class="p">);</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="wsu1757658931637">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Variables</h1>
+
+<div class="body conbody">
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="tko1757658959037">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Input Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="tko1757658959037__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:13%" />
+<col style="width:11%" />
+<col style="width:14%" />
+<col style="width:22%" />
+<col style="width:7%" />
+<col style="width:30%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d164558e75">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d164558e78">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d164558e81">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d164558e84">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d164558e87">Default</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d164558e91">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e75 ">Execute</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e78 ">Execute</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e81 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d164558e84 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d164558e87 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e91 ">
+<p class="p" id="tko1757658959037__ID0EOS3Q">Executes the instruction when this variable changes to TRUE.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e75 ">RatioNumerator</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e78 ">Gear Ratio Numerator</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e81 ">DINT</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d164558e84 ">Positive or negative number</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d164558e87 ">10,000</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e91 ">
+<p class="p" id="tko1757658959037__ID0E5U3Q">Specifies the electronic gear ratio numerator between the master and slave axes.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e75 ">RatioDenominator</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e78 ">Gear Ratio Denominator</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e81 ">UDINT</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d164558e84 ">Positive number</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d164558e87 ">10,000</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e91 ">
+<p class="p" id="tko1757658959037__ID0EOX3Q">Specifies the denominator of the electronic gear ratio between the master and slave axes.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e75 ">ReferenceType<a class="xref" href="#tko1757658959037__fn_mxv_b5y_pgc"><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e78 ">Position Type Selection</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e81 ">_eMC_REFERENCE_TYPE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e84 ">
+<p class="p" id="tko1757658959037__ID0EKZ3Q">0: _mcCommand</p>
+
+<p class="p" id="tko1757658959037__ID0ERZ3Q">1: _mcFeedback</p>
+
+<p class="p" id="tko1757658959037__ID0EYZ3Q">2: _mcLatestCommand</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d164558e87 ">0<a class="xref" href="#tko1757658959037__fn_k5t_35y_pgc"><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e91 ">
+<p class="p" id="tko1757658959037__ID0ET13Q">Specifies the position type.</p>
+
+<p class="p" id="tko1757658959037__ID0E113Q">0: Command position (value calculated in the previous task period <a class="xref" href="#tko1757658959037__fn_sgm_t5y_pgc"><sup>*3</sup></a>)</p>
+
+<p class="p" id="tko1757658959037__ID0EF23Q">1: Actual position (value obtained in the same task period <a class="xref" href="#tko1757658959037__fn_sgm_t5y_pgc"><sup>*3</sup></a>)</p>
+
+<p class="p" id="tko1757658959037__ID0EM23Q">2: Command position (value calculated in the same task period <a class="xref" href="#tko1757658959037__fn_sgm_t5y_pgc"><sup>*3</sup></a>)</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e75 ">MasterSyncPosition</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e78 ">Master Sync Position</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e81 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d164558e84 ">Negative number, positive number, or 0</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d164558e87 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e91 ">
+<p class="p" id="tko1757658959037__ID0EX43Q">Specifies the absolute master sync position.</p>
+
+<p class="p" id="tko1757658959037__ID0E543Q">The unit is in command units. <a class="xref" href="#tko1757658959037__fn_wv3_35y_pgc"><sup>*4</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e75 ">SlaveSyncPosition</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e78 ">Slave Sync Position</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e81 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d164558e84 ">Negative number, positive number, or 0</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d164558e87 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e91 ">
+<p class="p" id="tko1757658959037__ID0EOA4Q">Specifies the absolute slave sync position.</p>
+
+<p class="p" id="tko1757658959037__ID0EVA4Q">The unit is in command units. <a class="xref" href="#tko1757658959037__fn_wv3_35y_pgc"><sup>*4</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e75 ">SyncMode</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e78 ">Sync Mode</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e81 ">_eMC_SYNC_MODE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e84 ">
+<p class="p">0: _mcReverseDisable</p>
+
+<p class="p">1: _mcReverseEnable</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d164558e87 ">0<a class="xref" href="#tko1757658959037__fn_k5t_35y_pgc"><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e91 ">
+<p class="p">Specifies the sync mode.</p>
+
+<p class="p">0: Slave axis reversing not possible</p>
+
+<p class="p">1: Slave axis reversing possible</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e75 ">MasterStartDistance</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e78 ">Master Following Distance</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e81 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d164558e84 ">Positive number or 0</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d164558e87 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e91 ">
+<p class="p">Specifies the master axis position where the slave axis starts following the master axis, as a distance from the master sync position.</p>
+
+<p class="p">Set the value to within the range of 40-bit data for pulses.</p>
+
+<p class="p">The unit is in command units. <a class="xref" href="#tko1757658959037__fn_wv3_35y_pgc"><sup>*4</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e75 ">Velocity</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e78 ">Target Velocity</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e81 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d164558e84 ">Positive number</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d164558e87 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e91 ">
+<p class="p" id="tko1757658959037__ID0EAD4Q">Specifies the target velocity. Always set the target velocity. If the axes are moved without setting a target velocity, an error will occur.</p>
+
+<p class="p" id="tko1757658959037__ID0EHD4Q">The unit is command units/s. <a class="xref" href="#tko1757658959037__fn_wv3_35y_pgc"><sup>*4</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e75 ">Acceleration</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e78 ">Acceleration Rate</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e81 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d164558e84 ">Positive number or 0</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d164558e87 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e91 ">
+<p class="p" id="tko1757658959037__ID0ESF4Q">Specifies the acceleration rate.</p>
+
+<p class="p" id="tko1757658959037__ID0EZF4Q">The unit is command units/s<sup class="ph sup">2</sup>. <a class="xref" href="#tko1757658959037__fn_wv3_35y_pgc"><sup>*4</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e75 ">Deceleration</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e78 ">Deceleration Rate</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e81 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d164558e84 ">Positive number or 0</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d164558e87 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e91 ">
+<p class="p" id="tko1757658959037__ID0EEI4Q">Specifies the deceleration rate.</p>
+
+<p class="p" id="tko1757658959037__ID0ELI4Q">The unit is command units/s<sup class="ph sup">2</sup>. <a class="xref" href="#tko1757658959037__fn_wv3_35y_pgc"><sup>*4</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e75 ">
+<p class="p" id="tko1757658959037__ID0E1I4Q">Jerk</p>
+
+<p class="p" id="tko1757658959037__ID0EBJ4Q">(Reserved)</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e78 ">Jerk</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e81 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d164558e84 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d164558e87 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e91 ">
+<p class="p" id="tko1757658959037__ID0E4K4Q">(Reserved)</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e75 ">
+<p class="p" id="tko1757658959037__ID0EML4Q">BufferMode</p>
+
+<p class="p" id="tko1757658959037__ID0ETL4Q">(Reserved)</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e78 ">Buffer Mode Selection</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e81 ">_eMC_BUFFER_MODE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e84 ">
+<p class="p" id="tko1757658959037__ID0E4M4Q">0: _mcAborting</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d164558e87 ">0<a class="xref" href="#tko1757658959037__fn_k5t_35y_pgc"><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d164558e91 ">
+<p class="p" id="tko1757658959037__ID0EVN4Q">(Reserved)</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="tko1757658959037__fn_mxv_b5y_pgc" id="tko1757658959037__fn_mxv_b5y_pgc"><sup>*1</sup></a>  <p class="p">To use _mcLatestCommand, the following condition must be met for the master and slave axes.</p>
+
+<p class="p">The axis number set for the <span class="ph phtype_variable"><span class="termtype">Master</span></span> (Master Axis) in the system-defined variable for motion control must be lower than the axis number set for <span class="ph phtype_variable"><span class="termtype">Slave</span></span> (Slave Axis) in the system-defined variable for motion control.</p>
+</div>
+<div class="fn"><a name="tko1757658959037__fn_k5t_35y_pgc" id="tko1757658959037__fn_k5t_35y_pgc"><sup>*2</sup></a>  <p class="p">The default value for an enumeration variable is actually not the number, but the enumerator.</p>
+</div>
+<div class="fn"><a name="tko1757658959037__fn_sgm_t5y_pgc" id="tko1757658959037__fn_sgm_t5y_pgc"><sup>*3</sup></a>  <p class="p">The task period is the primary period if the task is the primary periodic task and the task period of the priority-5 periodic task if the task is the priority-5 periodic task.</p>
+</div>
+<div class="fn"><a name="tko1757658959037__fn_wv3_35y_pgc" id="tko1757658959037__fn_wv3_35y_pgc"><sup>*4</sup></a>  <p class="p">Refer to <span class="ph phtype_type2"><span class="termtype">Unit Conversion Settings</span></span> in the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Motion Control User&#8217;s Manual (Cat. No. W507)</span></span></span>.</p>
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="iyb1757658987076">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Output Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="iyb1757658987076__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:17%" />
+<col style="width:14%" />
+<col style="width:9%" />
+<col style="width:10%" />
+<col style="width:47%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d64387e46">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d64387e49">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d64387e52">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d64387e55">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d64387e58">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d64387e46 ">StartSync</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d64387e49 ">Following</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d64387e52 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d64387e55 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d64387e58 ">
+<p class="p" id="iyb1757658987076__ID0EET4Q">TRUE when acceleration/deceleration is started for synchronization.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d64387e46 ">InSync</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d64387e49 ">In Sync</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d64387e52 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d64387e55 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d64387e58 ">
+<p class="p" id="iyb1757658987076__ID0EDV4Q">TRUE when the slave axis reaches the slave sync position.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d64387e46 ">Busy</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d64387e49 ">Executing</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d64387e52 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d64387e55 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d64387e58 ">
+<p class="p" id="iyb1757658987076__ID0ECX4Q">TRUE when the instruction is acknowledged.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d64387e46 ">Active</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d64387e49 ">Controlling</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d64387e52 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d64387e55 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d64387e58 ">
+<p class="p" id="iyb1757658987076__ID0EBZ4Q">TRUE when the axis is being controlled.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d64387e46 ">CommandAborted</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d64387e49 ">Command Aborted</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d64387e52 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d64387e55 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d64387e58 ">
+<p class="p" id="iyb1757658987076__ID0EA24Q">TRUE when the instruction is aborted.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d64387e46 ">Error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d64387e49 ">Error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d64387e52 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d64387e55 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d64387e58 ">
+<p class="p" id="iyb1757658987076__ID0E634Q">TRUE while there is an error.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d64387e46 ">ErrorID</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d64387e49 ">Error Code</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d64387e52 ">WORD</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d64387e55 "><a class="xref" href="#iyb1757658987076__fn_dkg_4vy_pgc"><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d64387e58 ">
+<p class="p" id="iyb1757658987076__ID0E554Q">Contains the error code when an error occurs.</p>
+
+<p class="p">A value of 16#0000 indicates normal execution.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="iyb1757658987076__fn_dkg_4vy_pgc" id="iyb1757658987076__fn_dkg_4vy_pgc"><sup>*1</sup></a>  <p class="p">The upper four digits of the event code give the error code for ErrorID. For details, refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series Troubleshooting Manual (Cat. No. W503)</span></span></span>.</p>
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="zqt1757659014934">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Output Variable Update Timing</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="zqt1757659014934__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:17%" />
+<col style="width:41%" />
+<col style="width:40%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d220184e29">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d220184e32">Timing for changing to TRUE</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d220184e35">Timing for changing to FALSE</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d220184e29 ">StartSync</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d220184e32 ">
+<p class="p">When the axes move.</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d220184e35 ">
+<ul class="ul">
+<li class="li" id="zqt1757659014934__li_N10064_N10060_N1005C_N1004A_N10047_N10017_N10012_N1000F_N10002">
+<p class="p">When <span class="ph phtype_variable"><span class="termtype">Error</span></span> changes to TRUE.</p>
+
+</li>
+
+<li class="li" id="zqt1757659014934__li_N10074_N10060_N1005C_N1004A_N10047_N10017_N10012_N1000F_N10002">
+<p class="p">When <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> changes to TRUE.</p>
+
+</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d220184e29 ">InSync</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d220184e32 ">
+<p class="p">When the slave axis reaches <span class="ph phtype_variable"><span class="termtype">SlaveSyncPosition</span></span>.</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d220184e35 ">
+<ul class="ul">
+<li class="li" id="zqt1757659014934__li_N100A7_N100A3_N1009F_N10087_N10047_N10017_N10012_N1000F_N10002">
+<p class="p">When <span class="ph phtype_variable"><span class="termtype">Error</span></span> changes to TRUE.</p>
+
+</li>
+
+<li class="li" id="zqt1757659014934__li_N100B7_N100A3_N1009F_N10087_N10047_N10017_N10012_N1000F_N10002">
+<p class="p">When <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> changes to TRUE.</p>
+
+</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d220184e29 ">Busy</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d220184e32 ">
+<p class="p">When <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to TRUE.</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d220184e35 ">
+<ul class="ul">
+<li class="li" id="zqt1757659014934__li_N100E9_N100E5_N100E1_N100CA_N10047_N10017_N10012_N1000F_N10002">
+<p class="p">When <span class="ph phtype_variable"><span class="termtype">Error</span></span> changes to TRUE.</p>
+
+</li>
+
+<li class="li" id="zqt1757659014934__li_N100F9_N100E5_N100E1_N100CA_N10047_N10017_N10012_N1000F_N10002">
+<p class="p">When <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> changes to TRUE.</p>
+
+</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d220184e29 ">Active</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d220184e32 ">
+<p class="p">When an instruction is received.</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d220184e35 ">
+<ul class="ul">
+<li class="li" id="zqt1757659014934__li_N10126_N10122_N1011E_N1010C_N10047_N10017_N10012_N1000F_N10002">
+<p class="p">When <span class="ph phtype_variable"><span class="termtype">Error</span></span> changes to TRUE.</p>
+
+</li>
+
+<li class="li" id="zqt1757659014934__li_N10136_N10122_N1011E_N1010C_N10047_N10017_N10012_N1000F_N10002">
+<p class="p">When <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> changes to TRUE.</p>
+
+</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d220184e29 ">CommandAborted</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d220184e32 ">
+<ul class="ul">
+<li class="li" id="zqt1757659014934__li_N10159_N10155_N10151_N10149_N10047_N10017_N10012_N1000F_N10002">
+<p class="p">When this instruction is aborted because another motion control instruction was executed with the Buffer Mode set to <span class="ph phtype_choice"><span class="termtype">Aborting</span></span>.</p>
+
+</li>
+
+<li class="li" id="zqt1757659014934__li_N1016A_N10155_N10151_N10149_N10047_N10017_N10012_N1000F_N10002">
+<p class="p">When this instruction is canceled due to an error.</p>
+
+</li>
+
+<li class="li" id="zqt1757659014934__li_N10175_N10155_N10151_N10149_N10047_N10017_N10012_N1000F_N10002">
+<p class="p">When this instruction is executed while there is an error.</p>
+
+</li>
+
+<li class="li" id="zqt1757659014934__li_N10180_N10155_N10151_N10149_N10047_N10017_N10012_N1000F_N10002">
+<p class="p">When you start this instruction during MC_Stop instruction execution.</p>
+
+</li>
+
+<li class="li" id="zqt1757659014934__li_N1018B_N10155_N10151_N10149_N10047_N10017_N10012_N1000F_N10002">
+<p class="p">When the MC_GearOut instruction is executed.</p>
+
+</li>
+
+</ul>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d220184e35 ">
+<ul class="ul">
+<li class="li" id="zqt1757659014934__li_N101A0_N1019C_N10198_N10149_N10047_N10017_N10012_N1000F_N10002">
+<p class="p">When <span class="ph phtype_variable"><span class="termtype">Execute</span></span> is TRUE and changes to FALSE<span class="ph phtype_variable"><span class="termtype"></span></span>.</p>
+
+</li>
+
+<li class="li" id="zqt1757659014934__li_N101B6_N1019C_N10198_N10149_N10047_N10017_N10012_N1000F_N10002">
+<p class="p">After one period when <span class="ph phtype_variable"><span class="termtype">Execute</span></span> is FALSE.</p>
+
+</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d220184e29 ">Error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d220184e32 ">
+<p class="p">When there is an error in the execution conditions or input parameters for the instruction.</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d220184e35 ">
+<p class="p">When the error is cleared.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="vxs1757659051947">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">In-Out Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="vxs1757659051947__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:18%" />
+<col style="width:16%" />
+<col style="width:13%" />
+<col style="width:9%" />
+<col style="width:41%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d187375e49">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d187375e52">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d187375e55">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d187375e58">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d187375e61">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d187375e49 ">Master</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d187375e52 ">Master Axis</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d187375e55 ">_sAXIS_REF</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d187375e58 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d187375e61 ">
+<p class="p">Specifies the master axis. <a class="xref" href="#vxs1757659051947__fn_x51_hwy_pgc"><sup>*1</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d187375e49 ">Slave</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d187375e52 ">Slave Axis</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d187375e55 ">_sAXIS_REF</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d187375e58 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d187375e61 ">
+<p class="p">Specifies the slave axis. <a class="xref" href="#vxs1757659051947__fn_x51_hwy_pgc"><sup>*1</sup></a></p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="vxs1757659051947__fn_x51_hwy_pgc" id="vxs1757659051947__fn_x51_hwy_pgc"><sup>*1</sup></a>  <p class="p">Use the axis variable name of a user-defined variable created in the Axis Basic Settings of the Sysmac Studio (default: MC_Axis*) or the axis variable name of a system-defined variable (_MC_AX[*], _MC1_AX[*], _MC2_AX[*]).</p>
+
+<p class="p">You can set the axis variable name of a system-defined variable for the AT specification of a user-defined variable. This will allow you to specify the user-defined variable.</p>
+</div></div></div>
+
+<div class="note" id="vxs1757659051947__note_N100D1_N1000F_N10002"><div class="use"><span class="notetitle use">use:</span> If you specify the same axis for the master axis and slave axis, a Master and Slave Defined as Same Axis minor fault (error code 5436 hex) will occur.</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="ppy1757659086408">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function</h1>
+
+<div class="body conbody">
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="faz1757667063753">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Differences from the MC_GearInPos (Positioning Gear Operation) Instruction</h1>
+
+<div class="body conbody">
+<p class="p">The operating specifications of this instruction differ from those of the MC_GearInPos (Positioning Gear Operation) instruction. Depending on the application, select which instruction to use.</p>
+
+<div class="note" id="faz1757667063753__note_r1v_xyy_pgc"><div class="use"><span class="notetitle use">use:</span>
+<p class="p">The catching operation until the slave axis enters the InGear phase differs from the MC_GearInPos (Positioning Gear Operation) instruction. When you replace the MC_GearInPos (Positioning Gear Operation) instruction with this instruction, adjust the input variables and check the operation sufficiently before use.</p>
+
+</div></div>
+
+<p class="p">The following describes the differences between the MC_GearInPos (Positioning Gear Operation) instruction and this instruction.</p>
+
+<p class="p linespace_14pt"></p>
+
+<p class="p"><strong class="ph b">Whether the Instruction Can Be Executed at Master Axis Zero Velocity</strong></p>
+
+<p class="p">The MC_GearInPos (Positioning Gear Operation) instruction cannot be executed when the master axis velocity is 0 at instruction execution. If it is executed, a Positioning Gear Master Axis Zero Velocity error (error code: 5476 hex) occurs.</p>
+
+<p class="p">This instruction can be executed only when the master axis velocity is 0 and the master axis position is outside the MasterStartDistance range. If it is executed when the master axis velocity is 0 and the master axis position is within the MasterStartDistance range, a &#8220;Position Gear Master Axis Zero Velocity error (error code: 5476 hex)&#8221; occurs.</p>
+
+<div class="note" id="faz1757667063753__note_gl5_11z_pgc"><div class="memo"><span class="notetitle memo">memo:</span>
+<p class="p">Master axis velocity represents the velocity calculated from the amount of change in the master axis position selected in <span class="ph phtype_variable"><span class="termtype">ReferenceType</span></span> (Position Type Selection).</p>
+
+</div></div>
+
+<p class="p">The figure below shows an example where the master axis velocity is 0 at instruction execution and the master axis position is outside the MasterStartDistance range.</p>
+
+<br /><img class="image" id="faz1757667063753__image_yxt_pc1_tgc" src="dur1758607547243.gif" /><br />
+<p class="p"><strong class="ph b">Whether the Instruction Can Be Executed at Slave Axis Zero Velocity</strong></p>
+
+<p class="p">The MC_GearInPos (Positioning Gear Operation) instruction generates an error if the slave axis velocity is not 0 at the time of execution. In a state where the slave axis is moving due to another instruction, you must stop the slave axis once before executing the MC_GearInPos (Positioning Gear Operation) instruction.</p>
+
+<p class="p">This instruction can be executed even when the slave axis velocity is not 0. Multi-execution of this instruction enables smooth transition of movements and reduces the wait time between operations.</p>
+
+<p class="p linespace_14pt"></p>
+
+<p class="p">The figure below shows an example where the slave axis is successively synchronized with two master axes.</p>
+
+<br /><img class="image" id="faz1757667063753__image_bdt_vc1_tgc" src="slw1758607660738.gif" /><br />
+<p class="p">Synchronous velocity represents the velocity obtained by multiplying the <span class="ph phtype_variable"><span class="termtype">Master</span></span> (Master Axis) velocity by the gear ratio.</p>
+
+<p class="p linespace_14pt"></p>
+
+<p class="p"><strong class="ph b">Velocity Change Behavior</strong></p>
+
+<p class="p">The MC_GearInPos (Positioning Gear Operation) instruction causes acceleration and deceleration immediately before reaching the sync position. This may result in velocity overshooting or undershooting at the sync position.</p>
+
+<p class="p">If it is possible to provide a sufficient constant velocity section before the sync position, this instruction can improve the occurrence of overshooting and undershooting at the sync position.</p>
+
+<p class="p">An example of undershooting reduction is shown below.</p>
+
+<br /><img class="image" id="faz1757667063753__image_u1c_zc1_tgc" src="ofw1758607723043.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="ooy1757667158405">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function of This Instruction</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="ooy1757667158405__li_N10016_N10012_N1000F_N10002">
+<p class="p">The MC_GearInPos2 instruction performs gear operation for the slave axis specified with <span class="ph phtype_variable"><span class="termtype">Slave</span></span> (Slave Axis). The following parameters are also specified: <span class="ph phtype_variable"><span class="termtype">RatioNumerator</span></span> (Gear Ratio Numerator), <span class="ph phtype_variable"><span class="termtype">RatioDenominator</span></span> (Gear Ratio Denominator), <span class="ph phtype_variable"><span class="termtype">ReferenceType</span></span> (Position Type), <span class="ph phtype_variable"><span class="termtype">Acceleration</span></span> (Acceleration Rate), and <span class="ph phtype_variable"><span class="termtype">Deceleration</span></span> (Deceleration Rate).</p>
+
+</li>
+
+<li class="li" id="ooy1757667158405__li_N10045_N10012_N1000F_N10002">
+<p class="p">For <span class="ph phtype_variable"><span class="termtype">Master</span></span> (Master Axis), you can specify the command position, actual position, or most recent command position.</p>
+
+<br /><img class="image" id="ooy1757667158405__image_krz_gd1_tgc" src="gdj1758607867492.gif" /><br />
+</li>
+
+</ul>
+
+<p class="p linespace_7pt"></p>
+
+<ul class="ul">
+<li class="li" id="ooy1757667158405__li_N10067_N10063_N1000F_N10002">
+<p class="p linespace_7pt">After operation starts, the <span class="ph phtype_variable"><span class="termtype">Slave</span></span> (Slave Axis) accelerates and decelerates in sync with the <span class="ph phtype_variable"><span class="termtype">Master</span></span> (Master Axis) in the catching operation.</p>
+
+</li>
+
+<li class="li" id="ooy1757667158405__li_N1007F_N10063_N1000F_N10002">
+<p class="p">The slave axis is in the waiting phase until it starts catching operation, in the catching phase until it reaches the slave axis sync position, and in the InSync phase after it reaches the slave axis sync position. The position of the slave axis is synchronized with the master axis during the catching phase and InSync phase.</p>
+
+<p class="p">The position where the slave axis starts catching is determined by the value of the <span class="ph phtype_variable"><span class="termtype">MasterStartDistance</span></span> (Master Following Distance) input variable, the master axis position at instruction execution, and the travel direction of the master axis.</p>
+
+<p class="p">The following describes how this instruction works in two cases, when the value of the <span class="ph phtype_variable"><span class="termtype">MasterStartDistance</span></span> (Master Following Distance) input variable is not 0 and when it is 0.</p>
+
+<p class="p linespace_14pt"></p>
+
+<ol class="ol liststyle_alphabet1" id="ooy1757667158405__ol_vfl_zct_3hc">
+<li class="li" id="ooy1757667158405__li_N100A0_N1009B_N1007F_N10063_N10010_N10002">
+<p class="p">When MasterStartDistance is not 0</p>
+
+                        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ooy1757667158405__table_cxd_ddt_3hc" class="rules_all " frame="hsides" border="1">
+<col style="width:15%" />
+<col style="width:24%" />
+<col style="width:30%" />
+<col style="width:30%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" rowspan="2" colspan="2" style="text-align:left;vertical-align:top;" id="d115240e112">&#160;</th>
+
+<th class="entry row-nocellborder" colspan="2" style="text-align:left;vertical-align:top;" id="d115240e114">
+<p class="p">Master axis position at instruction execution</p>
+
+</th>
+
+</tr>
+
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d115240e123">
+<p class="p">Within MasterStartDistance range</p>
+
+</th>
+
+<th class="entry row-nocellborder" style="text-align:left;vertical-align:top;" id="d115240e129">
+<p class="p">Outside MasterStartDistance range</p>
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:top;" headers="d115240e112 d115240e123 ">
+<p class="p">Travel direction of the master axis at instruction execution</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d115240e112 d115240e129 ">
+<p class="p">Toward MasterSyncPosition</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d115240e114 ">
+<p class="p">The slave axis enters the catching phase simultaneously with instruction execution.</p>
+
+</td>
+
+<td class="entry row-nocellborder" rowspan="2" style="text-align:left;vertical-align:top;" headers="d115240e114 ">
+<p class="p">The slave axis enters the catching phase when it moves into the MasterStartDistance range, regardless of the travel direction of the master axis at instruction execution.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d115240e112 d115240e129 ">
+<p class="p">Away from MasterSyncPosition</p>
+
+</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d115240e114 ">
+<p class="p">&lt;Case where the master axis moves outside the MasterStartDistance range and reverses direction&gt;</p>
+
+<p class="p">When the master axis moves into the MasterStartDistance range after reversing direction, the slave axis enters the catching phase. &#8594; Figure 1</p>
+
+<p class="p linespace_14pt"></p>
+
+<p class="p">&lt;Case where the master axis reverses direction within the MasterStartDistance range&gt;</p>
+
+<p class="p">When the master axis reaches the master axis position at instruction execution after reversing direction, the slave axis enters the catching phase. &#8594; Figure 2</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_14pt"></p>
+
+<p class="p">
+<br /><img class="image" id="ooy1757667158405__image_e2n_3n1_jhc" src="qod1763555103666.gif" /><br />
+</p>
+
+<p class="p">
+<br /><img class="image" id="ooy1757667158405__image_apt_kn1_jhc" src="kmk1763555148555.gif" /><br />
+</p>
+
+</li>
+
+<li class="li" id="ooy1757667158405__li_N10158_N1009B_N1007F_N10063_N10010_N10002">
+<p class="p">When MasterStartDistance is 0</p>
+
+<p class="p">When the travel direction of the master axis at instruction execution is toward MasterSyncPosition, the slave axis enters the catching phase simultaneously with instruction execution.</p>
+
+<p class="p">When the travel direction of the master axis at instruction execution is away from MasterSyncPosition, the slave axis enters the catching phase when the master axis reaches the master axis position at instruction execution after reversing direction. (This is the same as Figure 2 above.)</p>
+
+</li>
+
+</ol>
+
+</li>
+
+<li class="li" id="ooy1757667158405__li_N1008A_N10063_N1000F_N10002">
+<p class="p">The <span class="ph phtype_variable"><span class="termtype">Velocity</span></span> (Target Velocity) input variable is the target velocity for the catching phase.</p>
+
+</li>
+
+<li class="li" id="ooy1757667158405__li_N1009B_N10063_N1000F_N10002">
+<p class="p">If multi-execution of this instruction is performed while the slave axis is in motion, during the waiting phase, the slave axis continues operation at the velocity and direction before the multi-execution.</p>
+
+<p class="p">If the master axis velocity is 0 when the catching operation starts, an error occurs.</p>
+
+</li>
+
+<li class="li" id="ooy1757667158405__li_N100C0_N10063_N1000F_N10002">
+<p class="p">If the direction of the slave axis velocity at the start of the catching operation differs from the direction of the slave axis velocity at the sync position and reversing the slave axis is necessary, but <span class="ph phtype_choice"><span class="termtype">Slave axis reversing not possible</span></span> is specified in <span class="ph phtype_variable"><span class="termtype">SyncMode</span></span> (Sync Mode), an error will occur.</p>
+
+</li>
+
+<li class="li" id="ooy1757667158405__li_N10111_N10063_N1000F_N10002">
+<p class="p">If the master axis velocity changes significantly, the slave axis velocity will not be constant.</p>
+
+</li>
+
+<li class="li" id="ooy1757667158405__li_N1011C_N10063_N1000F_N10002">
+<p class="p">If the gear ratio is positive, <span class="ph phtype_variable"><span class="termtype">Slave</span></span> (Slave Axis) and <span class="ph phtype_variable"><span class="termtype">Master</span></span> (Master Axis) move in the same direction.</p>
+
+<br /><img class="image" id="ooy1757667158405__image_o33_ld1_tgc" src="bkc1758607927587.gif" /><br />
+</li>
+
+</ul>
+
+<p class="p linespace_7pt"></p>
+
+<ul class="ul" id="ooy1757667158405__ul_ejd_35n_kx">
+<li class="li" id="ooy1757667158405__li_N10146_N10141_N1000F_N10002">
+<p class="p linespace_7pt">If the gear ratio is negative, <span class="ph phtype_variable"><span class="termtype">Slave</span></span> (Slave Axis) and <span class="ph phtype_variable"><span class="termtype">Master</span></span> (Master Axis) move in the opposite directions.</p>
+
+<br /><img class="image" id="ooy1757667158405__image_v52_qd1_tgc" src="ims1758608028674.gif" /><br />
+</li>
+
+</ul>
+
+<ul class="ul">
+<li class="li" id="ooy1757667158405__li_N1016B_N10167_N1000F_N10002">
+<p class="p">The MC Function Module calculates the velocity profile for linear acceleration and deceleration with the following three velocities using the <span class="ph phtype_variable"><span class="termtype">Acceleration</span></span> (Acceleration Rate) and <span class="ph phtype_variable"><span class="termtype">Deceleration</span></span> (Deceleration Rate).</p>
+
+<ol class="ol liststyle_alphabet1">
+<li class="li" id="ooy1757667158405__li_N10186_N10181_N1016B_N10167_N1000F_N10002">
+<p class="p">The velocity of the <span class="ph phtype_variable"><span class="termtype">Slave</span></span> (Slave Axis) when an instruction is executed is the initial velocity.</p>
+
+</li>
+
+<li class="li" id="ooy1757667158405__li_N10197_N10181_N1016B_N10167_N1000F_N10002">
+<p class="p">The velocity of the <span class="ph phtype_variable"><span class="termtype">Master</span></span> (Master Axis) at the start of the catching operation multiplied by the gear ratio is the final velocity.</p>
+
+</li>
+
+<li class="li" id="ooy1757667158405__li_N101A8_N10181_N1016B_N10167_N1000F_N10002">
+<p class="p">The <span class="ph phtype_variable"><span class="termtype">Velocity</span></span> (Target Velocity) is the target velocity.</p>
+
+</li>
+
+</ol>
+
+<p class="p linespace_7pt" id="ooy1757667158405__ID0EVC6Q">If the travel distance during the catching phase is too short, the target velocity will not be reached.</p>
+
+<br /><img class="image" id="ooy1757667158405__image_ks1_m21_tgc" src="pcy1758608412122.gif" /><br />
+<p class="p linespace_7pt">For the <span class="ph phtype_variable"><span class="termtype">Slave</span></span> (Slave Axis) to catch up with the <span class="ph phtype_variable"><span class="termtype">Master</span></span> (Master Axis) for the <span class="ph phtype_variable"><span class="termtype">MasterSyncPosition</span></span> (Master Sync Position) and <span class="ph phtype_variable"><span class="termtype">SlaveSyncPosition</span></span> (Slave Sync Position), the following condition must be met for the <span class="ph phtype_variable"><span class="termtype">Velocity</span></span> (Target Velocity).</p>
+
+<br /><img class="image" id="ooy1757667158405__image_tdf_z2z_pgc" src="rqp1757669999341.gif" /><br />
+<p class="p linespace_7pt">The information that is used as the master axis velocity depends on the setting of <span class="ph phtype_variable"><span class="termtype">ReferenceType</span></span> (Position Type Selection).</p>
+
+                
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ooy1757667158405__table_N101EC_N1015E_N1015A_N1000F_N10002" class="rules_all " frame="hsides" border="1">
+                        
+                        
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d115240e382">Setting of <span class="ph phtype_variable"><span class="termtype">ReferenceType</span></span></th>
+
+<th class="entry row-nocellborder" style="text-align:left;vertical-align:top;" id="d115240e387">Information used as the master axis velocity</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d115240e382 ">When _mcCommand or _mcLatestCommand is set</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d115240e387 ">Use the command current velocity.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d115240e382 ">When _mcFeedback is set</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d115240e387 ">Use the actual current velocity.</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt">If the <span class="ph phtype_variable"><span class="termtype">Slave</span></span> (Slave Axis) cannot catch up with the <span class="ph phtype_variable"><span class="termtype">Master</span></span> (Master Axis) for the <span class="ph phtype_variable"><span class="termtype">MasterSyncPosition</span></span> (Master Sync Position) and <span class="ph phtype_variable"><span class="termtype">SlaveSyncPosition</span></span> (Slave Sync Position), a Positioning Gear Operation Insufficient Target Velocity error (error code 5447 hex) will occur.</p>
+
+</li>
+
+<li class="li" id="ooy1757667158405__li_N1034E_N1023C_N10010_N10002">
+<p class="p">If the initial velocity exceeds the <span class="ph phtype_variable"><span class="termtype">Velocity</span></span> (Target Velocity) value, a Position Gear Value Error (error code 5475 hex) will occur.</p>
+
+</li>
+
+<li class="li" id="ooy1757667158405__li_N10272_N10167_N1000F_N10002">When the Count Mode of the master axis is <span class="ph phtype_choice"><span class="termtype">Rotary Mode</span></span>, you can specify a <span class="ph phtype_variable"><span class="termtype">MasterSyncPosition</span></span> (Master Sync Position) outside the range specified by the modulo maximum position and modulo minimum position setting values. If you do, the relationship between the master axis current position and the master axis sync position will be the same as when <span class="ph phtype_choice"><span class="termtype">_mcNoDirection</span></span> (No direction) is specified for <span class="ph phtype_variable"><span class="termtype">Direction</span></span> in the MC_MoveAbsolute (Absolute Positioning) instruction. Refer to <a class="xref" href="rqe1484547327478.html#rqe1484547327478"><i style="display:none;">☆</i>MC_MoveAbsolute</a> for information on the MC_MoveAbsolute (Absolute Positioning) instruction.</li>
+
+<li class="li" id="ooy1757667158405__li_N10297_N10167_N1000F_N10002">In the same way, when the Count Mode of the slave axis is <span class="ph phtype_choice"><span class="termtype">Rotary Mode</span></span>, you can specify a <span class="ph phtype_variable"><span class="termtype">SlaveSyncPosition</span></span> (Slave Sync Position) outside the range specified by the modulo maximum position and modulo minimum position setting values.</li>
+
+</ul>
+
+<div class="note" id="ooy1757667158405__note_N10297_N1000F_N10002"><div class="use"><span class="notetitle use">use:</span>
+<ul class="ul" id="ooy1757667158405__ul_ltg_vft_3hc">
+<li class="li" id="ooy1757667158405__li_N103B5_N103B1_N103AA_N10010_N10002">
+<p class="p">Refer to <a class="xref" href="sfc1484547208570.html#sfc1484547208570"><i style="display:none;">☆</i>Precautions for Master and Auxiliary Axes in Synchronized Control</a> for precautions on the master axis.</p>
+
+</li>
+
+<li class="li" id="ooy1757667158405__li_N103C5_N103B1_N103AA_N10010_N10002">
+<p class="p">This instruction calculates the slave axis command assuming that the master axis velocity does not change from the start of the catching operation. Therefore, if the master axis velocity changes during the catching phase, the velocity, acceleration rate, or deceleration rate input to this instruction may be exceeded. Make adjustments so that the catching operation starts only after the master axis velocity has become constant.</p>
+
+</li>
+
+</ul>
+
+</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="oma1757659117578">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">ReferenceType (Position Type Selection)</h1>
+
+<div class="body conbody">
+<p class="p">You can select one of the following position types.</p>
+
+<ul class="ul">
+<li class="li" id="oma1757659117578__li_N1001B_N10017_N1000F_N10002">
+<p class="p">_mcCommand: Command position (value calculated in the previous task period)</p>
+
+<p class="p">The master axis command position that was calculated in the previous task period is used for the current period.</p>
+
+<p class="p">The command value that was calculated for the master axis in the last periodic task is used to calculate the command position of the slave axis in the current period.</p>
+
+</li>
+
+<li class="li" id="oma1757659117578__li_N10030_N10017_N1000F_N10002">
+<p class="p">_mcFeedback: Value obtained in the same task period</p>
+
+<p class="p">The actual position of the master axis that was obtained in the same task period is used.</p>
+
+</li>
+
+<li class="li" id="oma1757659117578__li_N10040_N10017_N1000F_N10002">
+<p class="p">_mcLatestCommand: Command position (value calculated in the same task period)</p>
+
+<p class="p">The command position of the master axis that was calculated in the same task period is used.</p>
+
+<p class="p">This enables the use of information that is more recent than for _mcCommand. However, the axis number of the master axis must be set lower than the axis number of the slave axis.</p>
+
+<p class="p">If the axis number of the slave axis is lower than the axis number of the master axis, <span class="ph phtype_variable"><span class="termtype">Error</span></span> will change to TRUE. A Master/Slave Axis Numbers Not in Ascending Order error (error code: 5438 hex) will be output to <span class="ph phtype_variable"><span class="termtype">ErrorID</span></span>.</p>
+
+</li>
+
+</ul>
+
+<div class="note" id="oma1757659117578__note_N10068_N10010_N10002"><div class="use"><span class="notetitle use">use:</span>
+<p class="p">Here, the task period is the primary period if the task is the primary periodic task and the task period of the priority-5 periodic task if the task is the priority-5 periodic task. In the same way, the periodic task is the primary periodic task or the priority-5 periodic task.</p>
+
+</div></div>
+
+<div class="note" id="oma1757659117578__note_N10075_N10010_N10002"><div class="memo"><span class="notetitle memo">memo:</span>
+<p class="p">The command position that is calculated in the same task period enables greater precision in synchronization than the command position that was calculated in the previous task period.</p>
+
+<p class="p">However, the axis number set for the <span class="ph phtype_variable"><span class="termtype">Master</span></span> (Master Axis) in the system-defined variable for motion control must be lower than the axis number set for the <span class="ph phtype_variable"><span class="termtype">Slave</span></span> (Slave Axis) in the system-defined variable for motion control.</p>
+
+</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="dmg1757659153059">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Relationship between Axis Types and Position Types</h1>
+
+<div class="body conbody">
+<p class="p">The relationship between the axis types that you can monitor and position types that is monitored is shown below.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="dmg1757659153059__table_N10017_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:18%" />
+<col style="width:40%" />
+<col style="width:40%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:top;" id="d27679e40">Axis Type</th>
+
+<th class="entry cellrowborder" colspan="2" style="text-align:center;vertical-align:top;" id="d27679e43">ReferecneType</th>
+
+</tr>
+
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d27679e49">_mcCommand or _mcLatestCommand</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d27679e52">_mcFeedback</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d27679e40 d27679e49 ">Servo axis</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d27679e43 d27679e52 ">OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d27679e43 ">OK</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d27679e40 d27679e49 ">Encoder axis</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d27679e43 d27679e52 ">Error<a class="xref" href="#dmg1757659153059__fn_us4_5jz_pgc"><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d27679e43 ">OK</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d27679e40 d27679e49 ">Virtual servo axis</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d27679e43 d27679e52 ">OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d27679e43 ">OK</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d27679e40 d27679e49 ">Virtual encoder axis</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d27679e43 d27679e52 ">Error<a class="xref" href="#dmg1757659153059__fn_us4_5jz_pgc"><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d27679e43 ">OK</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="dmg1757659153059__fn_us4_5jz_pgc" id="dmg1757659153059__fn_us4_5jz_pgc"><sup>*1</sup></a>  <p class="p">A Position Type Selection Out of Range error (error code: 5430 hex) occurs when the instruction is executed.</p>
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="tue1757659184641">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Timing Charts</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="tue1757659184641__li_N10015_N10012_N1000F_N10002">
+<p class="p">Electronic gear operation starts when <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to TRUE.</p>
+
+</li>
+
+<li class="li" id="tue1757659184641__li_N10025_N10012_N1000F_N10002">
+<p class="p"><span class="ph phtype_variable"><span class="termtype">Busy</span></span> (Executing) changes to TRUE at the same time as <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to TRUE. <span class="ph phtype_variable"><span class="termtype">Active</span></span> (Controlling) changes to TRUE in the next period. At the start of the catching operation, <span class="ph phtype_variable"><span class="termtype">StartSync</span></span> (Following) change to TRUE and the <span class="ph phtype_variable"><span class="termtype">Slave</span></span> (Slave Axis) starts the gear operation.</p>
+
+</li>
+
+<li class="li" id="tue1757659184641__li_N1004D_N10012_N1000F_N10002">
+<p class="p">When the <span class="ph phtype_variable"><span class="termtype">MasterSyncPosition</span></span> (Master Sync Position) and <span class="ph phtype_variable"><span class="termtype">SlaveSyncPosition</span></span> (Slave Sync Position) are reached, <span class="ph phtype_variable"><span class="termtype">InSync</span></span> changes to TRUE.</p>
+
+</li>
+
+<li class="li" id="tue1757659184641__li_N10069_N10012_N1000F_N10002">
+<p class="p">If another instruction aborts this instruction, <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> changes to TRUE, and <span class="ph phtype_variable"><span class="termtype">Busy</span></span> (Executing), <span class="ph phtype_variable"><span class="termtype">Active</span></span> (Controlling), <span class="ph phtype_variable"><span class="termtype">StartSync</span></span> (Following), and <span class="ph phtype_variable"><span class="termtype">InSync</span></span> change to FALSE.</p>
+
+</li>
+
+</ul>
+
+<br /><img class="image" id="tue1757659184641__image_xsx_q21_tgc" src="ook1758608491323.gif" /><br />
+<p class="p linespace_7pt">The operation when this instruction is aborted by another instruction is shown below.</p>
+
+<br /><img class="image" id="tue1757659184641__image_fvk_z21_tgc" src="ylx1758608632082.gif" /><br />
+<p class="p linespace_7pt">Depending on the setting of the <span class="ph phtype_variable"><span class="termtype">SlaveSyncPosition</span></span>, the axis may not reach the target velocity. An example of this is shown below.</p>
+
+<br /><img class="image" id="tue1757659184641__image_j2h_cf1_tgc" src="wvu1758608691636.gif" /><br />
+<p class="p">Depending on the settings, the slave axis may not operate immediately after execution.</p>
+
+<p class="p">The slave axis maintains the slave axis velocity set when <span class="ph phtype_variable"><span class="termtype">Execute</span></span> is TRUE until the catching phase starts (until <span class="ph phtype_variable"><span class="termtype">StartSync</span></span> (Following) changes to TRUE).</p>
+
+<br /><img class="image" id="tue1757659184641__image_rrq_2f1_tgc" src="uhu1758608737554.gif" /><br />
+<p class="p linespace_7pt">The slave axis follows the master axis position before the InSync phase as well. An example of this is shown below.</p>
+
+<br /><img class="image" id="tue1757659184641__image_eqk_hf1_tgc" src="crb1758608782162.gif" /><br />
+<p class="p linespace_7pt">You can specify the <span class="ph phtype_variable"><span class="termtype">Acceleration</span></span> (Acceleration Rate) and <span class="ph phtype_variable"><span class="termtype">Deceleration</span></span> (Deceleration Rate) as input variables. The following figures show operation examples of the electronic gear.</p>
+
+<br /><img class="image" id="tue1757659184641__image_gm4_jf1_tgc" src="iju1758608824787.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="hbd1757659210754">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Re-execution of Motion Control Instructions</h1>
+
+<div class="body conbody">
+<p class="p">You cannot re-execute motion control instructions.</p>
+
+<p class="p">A Motion Control Instruction Re-execution Disabled error (error code: 543B hex) occurs if re-execution is attempted.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="kuu1757659241237">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Multi-execution of Motion Control Instructions</h1>
+
+<div class="body conbody">
+<p class="p">The axis command status of the master axis, including whether it is stopped due to an error or it is decelerating to a stop, does not affect the execution of this instruction.</p>
+
+<p class="p">For details on multi-execution of motion control instructions, refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Motion Control User&#8217;s Manual (Cat. No. W507)</span></span></span>.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="ucm1757673168681">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Execution during Execution of Other Instructions</h1>
+
+<div class="body conbody">
+<p class="p">You can switch to this instruction or buffer this instruction if you execute it during execution of another instruction.</p>
+
+<p class="p">You can buffer one instruction per axis.</p>
+
+<p class="p">Specifies the operation of this instruction with <span class="ph phtype_variable"><span class="termtype">BufferMode</span></span> (Buffer Mode Selection) for multi-execution of instructions.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ucm1757673168681__table_N10023_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:21%" />
+<col style="width:78%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d169411e39">Buffer Mode Selection</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d169411e42">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d169411e39 ">Aborting</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d169411e42 ">
+<p class="p">Aborts other instructions being executed and switches to this instruction.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="vnn1757659275054">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Execution of Other Instructions during Instruction Execution</h1>
+
+<div class="body conbody">
+<p class="p">Specifies the operation of this instruction with <span class="ph phtype_variable"><span class="termtype">BufferMode</span></span> (Buffer Mode Selection) for multi-execution of instructions.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="vnn1757659275054__table_N1001D_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:21%" />
+<col style="width:78%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d185034e33">Buffer Mode Selection</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d185034e36">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d185034e33 ">Aborting</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d185034e36 ">
+<p class="p">Aborts this instruction being executed and switches to another instruction.</p>
+
+<p class="p">If the direction of axis motion is reversed by switching instructions, the motion will be reversed according to the <dfn class="term termtype_parameter">［Operation Selection at Reversing］</dfn> axis parameter.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt">For details on <span class="ph phtype_variable"><span class="termtype">BufferMode</span></span> (Buffer Mode Selection), refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Motion Control User&#8217;s Manual (Cat. No. W507)</span></span></span>.</p>
+
+<div class="note" id="vnn1757659275054__note_N1007E_N1000F_N10002"><div class="use"><span class="notetitle use">use:</span> <p class="p">If another instruction is executed with <span class="ph phtype_variable"><span class="termtype">BufferMode</span></span> (Buffer Mode Selection) set to anything other than <span class="ph phtype_choice"><span class="termtype">0: Aborting</span></span>, an error will occur in the other instruction.</p>
+
+<p class="p">During execution of this instruction, multi-execution of the MC_GearInPos (Position-Specified Gear Operation) instruction cannot be performed.</p>
+
+<p class="p">Multiple execution of this instruction is possible during execution of the MC_GearInPos (Positioning Gear Operation) instruction.</p>
+
+</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="yay1757659303713">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Errors</h1>
+
+<div class="body conbody">
+<p class="p">If an error occurs during execution of this instruction, <span class="ph phtype_variable"><span class="termtype">Error</span></span> will change to TRUE.</p>
+
+<p class="p">You can find out the cause of the error by referring to the value output by <span class="ph phtype_variable"><span class="termtype">ErrorID</span></span> (Error Code).</p>
+
+<br /><img class="image" id="yay1757659303713__image_m2p_jkf_jhc" src="mfi1763613158872.gif" /><br />
+<p class="p">The slave axis is not affected by the error status of the master axis during synchronized control. After the error status of the master axis is cleared, the slave axis continues electronic gear operation when the master axis operates.</p>
+
+<p class="p">The master axis is not affected if an error occurs for the slave axis at or during execution of this instruction.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="tjd1757659370363">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Error Code</h1>
+
+<div class="body conbody">
+<p class="p">Refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series Troubleshooting Manual (Cat. No. W503)</span></span></span> for errors that may occur with this instruction.</p>
+
+</div>
+
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

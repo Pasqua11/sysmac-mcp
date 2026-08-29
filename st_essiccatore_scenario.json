@@ -1,0 +1,82 @@
+{
+ "nome": "Essiccatore a tre fasi - collaudo",
+ "tempi": {
+  "SET_T_Salita": "T#3s",
+  "SET_T_Mantieni": "T#2s"
+ },
+ "passi": [
+  {"descrizione": "stato iniziale: macchina pronta, ferma",
+   "set": {"IN_Emergenza": false, "IN_Protezioni": true, "IN_Termico": true,
+           "IN_Temp_Raggiunta": false, "IN_Temp_Alta": false,
+           "V_P_Start": false, "V_P_Stop": false, "V_P_Reset": false,
+           "V_S_Passo": 0, "V_S_Cicli": 0},
+   "impulso": ["V_P_Reset"],
+   "attendi": 0.4,
+   "verifica": {"V_L_Pronto": true, "V_L_Allarme": false, "V_S_Passo": 0,
+                "OUT_Resistenze": false}},
+
+  {"descrizione": "START: parte il riscaldamento, contatore cicli a 1",
+   "impulso": ["V_P_Start"],
+   "attendi": 0.3,
+   "verifica": {"V_S_Passo": 1, "OUT_Resistenze": true, "OUT_Ventola": true,
+                "V_L_Ciclo": true, "V_S_Cicli": 1}},
+
+  {"descrizione": "temperatura raggiunta: si passa al mantenimento",
+   "set": {"IN_Temp_Raggiunta": true},
+   "attendi": 0.3,
+   "verifica": {"V_S_Passo": 2, "V_S_All_Salita": false}},
+
+  {"descrizione": "durante il mantenimento le resistenze restano inserite",
+   "attendi": 0.3,
+   "verifica": {"OUT_Resistenze": true, "V_S_Passo": 2}},
+
+  {"descrizione": "sovratemperatura: le resistenze cadono subito",
+   "set": {"IN_Temp_Alta": true},
+   "attendi": 0.3,
+   "verifica": {"OUT_Resistenze": false, "V_S_All_Sovratemp": true,
+                "V_L_Allarme": true}},
+
+  {"descrizione": "temperatura rientrata e reset: allarme sparito",
+   "set": {"IN_Temp_Alta": false},
+   "impulso": ["V_P_Reset"],
+   "attendi": 0.3,
+   "verifica": {"V_S_All_Sovratemp": false, "V_L_Allarme": false}},
+
+  {"descrizione": "scaduto il tempo di mantenimento: raffreddamento",
+   "attendi": 2.2,
+   "verifica": {"V_S_Passo": 3, "OUT_Resistenze": false, "OUT_Ventola": true}},
+
+  {"descrizione": "temperatura scesa: ciclo completato",
+   "set": {"IN_Temp_Raggiunta": false},
+   "attendi": 0.4,
+   "verifica": {"V_S_Passo": 4, "V_L_Fine": true, "OUT_Ventola": false,
+                "V_L_Ciclo": false}},
+
+  {"descrizione": "reset: si torna a riposo",
+   "impulso": ["V_P_Reset"],
+   "attendi": 0.4,
+   "verifica": {"V_S_Passo": 0, "V_L_Fine": false}},
+
+  {"descrizione": "SECONDO CICLO: deve ripartire e contare 2",
+   "impulso": ["V_P_Start"],
+   "attendi": 0.4,
+   "verifica": {"V_S_Passo": 1, "V_S_Cicli": 2, "OUT_Resistenze": true}},
+
+  {"descrizione": "la temperatura non arriva: dopo 3 s scatta l'allarme salita",
+   "attendi": 3.4,
+   "verifica": {"V_S_All_Salita": true, "V_S_Passo": 9,
+                "OUT_Resistenze": false, "OUT_Ventola": true,
+                "V_L_Allarme": true}},
+
+  {"descrizione": "reset dall'anomalia",
+   "impulso": ["V_P_Reset"],
+   "attendi": 0.4,
+   "verifica": {"V_S_Passo": 0, "V_S_All_Salita": false, "V_L_Allarme": false}},
+
+  {"descrizione": "EMERGENZA: tutto giu' e macchina non pronta",
+   "set": {"IN_Emergenza": true},
+   "attendi": 0.4,
+   "verifica": {"OUT_Resistenze": false, "OUT_Ventola": false,
+                "V_L_Pronto": false, "V_S_All_Sicurezza": true}}
+ ]
+}

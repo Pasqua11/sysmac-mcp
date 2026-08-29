@@ -1,0 +1,235 @@
+{
+ "out_dir": "C:\\Users\\tecni\\Claude\\sysmac-mcp\\out",
+ "variables": [
+  {
+   "name": "Mem_Ciclo",
+   "type": "BOOL",
+   "comment": "nastro in ciclo"
+  },
+  {
+   "name": "Consensi",
+   "type": "BOOL",
+   "comment": "consensi di sicurezza presenti"
+  },
+  {
+   "name": "Mem_Lotto_Pieno",
+   "type": "BOOL",
+   "comment": "lotto completato"
+  },
+  {
+   "name": "Mem_Scarto",
+   "type": "BOOL",
+   "comment": "scarto in corso"
+  },
+  {
+   "name": "Tim_Deviatore",
+   "type": "TON",
+   "comment": "durata comando deviatore"
+  },
+  {
+   "name": "Tim_Inceppo",
+   "type": "TON",
+   "comment": "sorveglianza inceppamento"
+  }
+ ],
+ "sections": {
+  "Nastro": [
+   {
+    "cmt": "CONSENSI DI SICUREZZA (emergenza, protezioni, aria)",
+    "chain": [
+     "/IN_Emergenza",
+     "IN_Protezioni",
+     "IN_Press_Aria",
+     "(Consensi)"
+    ]
+   },
+   {
+    "cmt": "START CICLO",
+    "chain": [
+     "^V_P_Start",
+     "Consensi",
+     "/Mem_Lotto_Pieno",
+     "(S Mem_Ciclo)"
+    ]
+   },
+   {
+    "cmt": "ARRESTO CICLO: stop, mancanza consensi, lotto completo o inceppamento",
+    "chain": [
+     {
+      "or": [
+       "^V_P_Stop",
+       "/Consensi",
+       "Mem_Lotto_Pieno",
+       "V_S_Allarme_Inceppo"
+      ]
+     },
+     "(R Mem_Ciclo)"
+    ]
+   },
+   {
+    "cmt": "COMANDO MARCIA NASTRO",
+    "chain": [
+     "Mem_Ciclo",
+     "Consensi",
+     "(OUT_Nastro_Marcia)"
+    ]
+   },
+   {
+    "cmt": "CONTEGGIO PEZZI IN TRANSITO (fronte della fotocellula)",
+    "chain": [
+     "^IN_Foto_Ingresso",
+     "Mem_Ciclo",
+     {
+      "f": "@Inc",
+      "p": {
+       "InOut": "V_S_Pezzi_Contati",
+       "OUT:InOut": "V_S_Pezzi_Contati"
+      }
+     }
+    ]
+   },
+   {
+    "cmt": "PEZZO DA SCARTARE: memorizza al passaggio in fotocellula",
+    "chain": [
+     "^IN_Foto_Ingresso",
+     "IN_Qualita_KO",
+     "Mem_Ciclo"
+    ],
+    "out": [
+     [
+      "(S Mem_Scarto)"
+     ],
+     [
+      {
+       "f": "@Inc",
+       "p": {
+        "InOut": "V_S_Pezzi_Scartati",
+        "OUT:InOut": "V_S_Pezzi_Scartati"
+       }
+      }
+     ]
+    ]
+   },
+   {
+    "cmt": "TEMPO DI DEVIAZIONE ALLO SCARTO",
+    "chain": [
+     "Mem_Scarto",
+     {
+      "fb": "TON",
+      "inst": "Tim_Deviatore",
+      "p": {
+       "PT": "SET_T_Deviatore"
+      }
+     }
+    ]
+   },
+   {
+    "cmt": "COMANDO DEVIATORE",
+    "chain": [
+     "Mem_Scarto",
+     "(OUT_Deviatore)"
+    ]
+   },
+   {
+    "cmt": "FINE DEVIAZIONE",
+    "chain": [
+     "Tim_Deviatore.Q",
+     "(R Mem_Scarto)"
+    ]
+   },
+   {
+    "cmt": "LOTTO COMPLETATO: pezzi contati >= pezzi impostati",
+    "chain": [
+     {
+      "f": ">=",
+      "p": {
+       "In1": "V_S_Pezzi_Contati",
+       "In2": "SET_Pezzi_Lotto"
+      }
+     },
+     "Mem_Ciclo",
+     "(S Mem_Lotto_Pieno)"
+    ]
+   },
+   {
+    "cmt": "SORVEGLIANZA INCEPPAMENTO IN USCITA",
+    "chain": [
+     "IN_Pres_Uscita",
+     "Mem_Ciclo",
+     {
+      "fb": "TON",
+      "inst": "Tim_Inceppo",
+      "p": {
+       "PT": "SET_T_Inceppo"
+      }
+     }
+    ]
+   },
+   {
+    "cmt": "ALLARME INCEPPAMENTO",
+    "chain": [
+     "Tim_Inceppo.Q",
+     "(S V_S_Allarme_Inceppo)"
+    ]
+   },
+   {
+    "cmt": "RESET CONTEGGI E ALLARMI DA SCADA",
+    "chain": [
+     "^V_P_Reset_Conteggi"
+    ],
+    "out": [
+     [
+      "(R Mem_Lotto_Pieno)"
+     ],
+     [
+      "(R V_S_Allarme_Inceppo)"
+     ],
+     [
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "0",
+        "OUT:Out": "V_S_Pezzi_Contati"
+       }
+      }
+     ],
+     [
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "0",
+        "OUT:Out": "V_S_Pezzi_Scartati"
+       }
+      }
+     ]
+    ]
+   },
+   {
+    "cmt": "SPIA CICLO",
+    "chain": [
+     "Mem_Ciclo",
+     "(V_L_Ciclo)"
+    ]
+   },
+   {
+    "cmt": "SPIA LOTTO COMPLETO",
+    "chain": [
+     "Mem_Lotto_Pieno",
+     "(V_L_Lotto_Completo)"
+    ]
+   },
+   {
+    "cmt": "SPIA ALLARME CUMULATIVO",
+    "chain": [
+     {
+      "or": [
+       "V_S_Allarme_Inceppo",
+       "/Consensi"
+      ]
+     },
+     "(V_L_Allarme)"
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,2052 @@
+{
+ "out_dir": "C:\\Users\\tecni\\Claude\\sysmac-mcp\\out",
+ "variables": [
+  {
+   "name": "Consensi",
+   "type": "BOOL",
+   "comment": "consensi di sicurezza"
+  },
+  {
+   "name": "Mem_Ciclo",
+   "type": "BOOL",
+   "comment": "ciclo in corso"
+  },
+  {
+   "name": "Mem_Carico",
+   "type": "BOOL",
+   "comment": "passo: prelievo al carico"
+  },
+  {
+   "name": "Mem_Scarico",
+   "type": "BOOL",
+   "comment": "passo: deposito allo scarico"
+  },
+  {
+   "name": "Mem_Pieno",
+   "type": "BOOL",
+   "comment": "carro con cestello"
+  },
+  {
+   "name": "Mem_Fine",
+   "type": "BOOL",
+   "comment": "ciclo completato"
+  },
+  {
+   "name": "Mem_Target",
+   "type": "BOOL",
+   "comment": "carro fermo sopra la vasca da fare"
+  },
+  {
+   "name": "Mem_Estrai",
+   "type": "BOOL",
+   "comment": "cestello da sollevare fuori dalla vasca"
+  },
+  {
+   "name": "Seq_Attiva",
+   "type": "BOOL",
+   "comment": "un passo qualsiasi in corso"
+  },
+  {
+   "name": "Tim_Traslazione",
+   "type": "TON",
+   "comment": "sorveglianza traslazione"
+  },
+  {
+   "name": "Mem_V1",
+   "type": "BOOL",
+   "comment": "passo: permanenza in vasca 1"
+  },
+  {
+   "name": "End_V1",
+   "type": "BOOL",
+   "comment": "vasca 1 completata"
+  },
+  {
+   "name": "Tim_V1",
+   "type": "TON",
+   "comment": "permanenza vasca 1"
+  },
+  {
+   "name": "Tim_Temp_V1",
+   "type": "TON",
+   "comment": "ritardo allarme temperatura vasca 1"
+  },
+  {
+   "name": "Mem_V2",
+   "type": "BOOL",
+   "comment": "passo: permanenza in vasca 2"
+  },
+  {
+   "name": "End_V2",
+   "type": "BOOL",
+   "comment": "vasca 2 completata"
+  },
+  {
+   "name": "Tim_V2",
+   "type": "TON",
+   "comment": "permanenza vasca 2"
+  },
+  {
+   "name": "Tim_Temp_V2",
+   "type": "TON",
+   "comment": "ritardo allarme temperatura vasca 2"
+  },
+  {
+   "name": "Mem_V3",
+   "type": "BOOL",
+   "comment": "passo: permanenza in vasca 3"
+  },
+  {
+   "name": "End_V3",
+   "type": "BOOL",
+   "comment": "vasca 3 completata"
+  },
+  {
+   "name": "Tim_V3",
+   "type": "TON",
+   "comment": "permanenza vasca 3"
+  },
+  {
+   "name": "Tim_Temp_V3",
+   "type": "TON",
+   "comment": "ritardo allarme temperatura vasca 3"
+  },
+  {
+   "name": "Mem_V4",
+   "type": "BOOL",
+   "comment": "passo: permanenza in vasca 4"
+  },
+  {
+   "name": "End_V4",
+   "type": "BOOL",
+   "comment": "vasca 4 completata"
+  },
+  {
+   "name": "Tim_V4",
+   "type": "TON",
+   "comment": "permanenza vasca 4"
+  },
+  {
+   "name": "Tim_Temp_V4",
+   "type": "TON",
+   "comment": "ritardo allarme temperatura vasca 4"
+  },
+  {
+   "name": "Mem_V5",
+   "type": "BOOL",
+   "comment": "passo: permanenza in vasca 5"
+  },
+  {
+   "name": "End_V5",
+   "type": "BOOL",
+   "comment": "vasca 5 completata"
+  },
+  {
+   "name": "Tim_V5",
+   "type": "TON",
+   "comment": "permanenza vasca 5"
+  },
+  {
+   "name": "Tim_Temp_V5",
+   "type": "TON",
+   "comment": "ritardo allarme temperatura vasca 5"
+  },
+  {
+   "name": "Mem_V6",
+   "type": "BOOL",
+   "comment": "passo: permanenza in vasca 6"
+  },
+  {
+   "name": "End_V6",
+   "type": "BOOL",
+   "comment": "vasca 6 completata"
+  },
+  {
+   "name": "Tim_V6",
+   "type": "TON",
+   "comment": "permanenza vasca 6"
+  },
+  {
+   "name": "Tim_Temp_V6",
+   "type": "TON",
+   "comment": "ritardo allarme temperatura vasca 6"
+  },
+  {
+   "name": "Mem_V7",
+   "type": "BOOL",
+   "comment": "passo: permanenza in vasca 7"
+  },
+  {
+   "name": "End_V7",
+   "type": "BOOL",
+   "comment": "vasca 7 completata"
+  },
+  {
+   "name": "Tim_V7",
+   "type": "TON",
+   "comment": "permanenza vasca 7"
+  },
+  {
+   "name": "Tim_Temp_V7",
+   "type": "TON",
+   "comment": "ritardo allarme temperatura vasca 7"
+  },
+  {
+   "name": "Mem_V8",
+   "type": "BOOL",
+   "comment": "passo: permanenza in vasca 8"
+  },
+  {
+   "name": "End_V8",
+   "type": "BOOL",
+   "comment": "vasca 8 completata"
+  },
+  {
+   "name": "Tim_V8",
+   "type": "TON",
+   "comment": "permanenza vasca 8"
+  },
+  {
+   "name": "Tim_Temp_V8",
+   "type": "TON",
+   "comment": "ritardo allarme temperatura vasca 8"
+  },
+  {
+   "name": "Mem_V9",
+   "type": "BOOL",
+   "comment": "passo: permanenza in vasca 9"
+  },
+  {
+   "name": "End_V9",
+   "type": "BOOL",
+   "comment": "vasca 9 completata"
+  },
+  {
+   "name": "Tim_V9",
+   "type": "TON",
+   "comment": "permanenza vasca 9"
+  },
+  {
+   "name": "Tim_Temp_V9",
+   "type": "TON",
+   "comment": "ritardo allarme temperatura vasca 9"
+  },
+  {
+   "name": "Mem_V10",
+   "type": "BOOL",
+   "comment": "passo: permanenza in vasca 10"
+  },
+  {
+   "name": "End_V10",
+   "type": "BOOL",
+   "comment": "vasca 10 completata"
+  },
+  {
+   "name": "Tim_V10",
+   "type": "TON",
+   "comment": "permanenza vasca 10"
+  },
+  {
+   "name": "Tim_Temp_V10",
+   "type": "TON",
+   "comment": "ritardo allarme temperatura vasca 10"
+  },
+  {
+   "name": "Mem_V11",
+   "type": "BOOL",
+   "comment": "passo: permanenza in vasca 11"
+  },
+  {
+   "name": "End_V11",
+   "type": "BOOL",
+   "comment": "vasca 11 completata"
+  },
+  {
+   "name": "Tim_V11",
+   "type": "TON",
+   "comment": "permanenza vasca 11"
+  },
+  {
+   "name": "Tim_Temp_V11",
+   "type": "TON",
+   "comment": "ritardo allarme temperatura vasca 11"
+  },
+  {
+   "name": "Mem_V12",
+   "type": "BOOL",
+   "comment": "passo: permanenza in vasca 12"
+  },
+  {
+   "name": "End_V12",
+   "type": "BOOL",
+   "comment": "vasca 12 completata"
+  },
+  {
+   "name": "Tim_V12",
+   "type": "TON",
+   "comment": "permanenza vasca 12"
+  },
+  {
+   "name": "Tim_Temp_V12",
+   "type": "TON",
+   "comment": "ritardo allarme temperatura vasca 12"
+  },
+  {
+   "name": "Mem_V13",
+   "type": "BOOL",
+   "comment": "passo: permanenza in vasca 13"
+  },
+  {
+   "name": "End_V13",
+   "type": "BOOL",
+   "comment": "vasca 13 completata"
+  },
+  {
+   "name": "Tim_V13",
+   "type": "TON",
+   "comment": "permanenza vasca 13"
+  },
+  {
+   "name": "Tim_Temp_V13",
+   "type": "TON",
+   "comment": "ritardo allarme temperatura vasca 13"
+  }
+ ],
+ "sections": {
+  "Lavaggio": [
+   {
+    "cmt": "CONSENSI DI SICUREZZA",
+    "chain": [
+     "/IN_Emergenza",
+     "IN_Protezioni",
+     "IN_Press_Aria",
+     "(Consensi)"
+    ]
+   },
+   {
+    "cmt": "START CICLO (azzera anche il fine ciclo precedente)",
+    "chain": [
+     "^V_P_Start",
+     "Consensi",
+     "V_S_Auto",
+     "IN_Presenza_Cesto",
+     "/Seq_Attiva"
+    ],
+    "out": [
+     [
+      "(R Mem_Fine)"
+     ],
+     [
+      "(S Mem_Ciclo)"
+     ]
+    ]
+   },
+   {
+    "cmt": "ARRESTO CICLO",
+    "chain": [
+     {
+      "or": [
+       "^V_P_Stop",
+       "/Consensi",
+       "Mem_Fine"
+      ]
+     },
+     "(R Mem_Ciclo)"
+    ]
+   },
+   {
+    "cmt": "SEQUENZA ATTIVA: un passo qualsiasi in corso",
+    "chain": [
+     {
+      "or": [
+       "Mem_Carico",
+       "Mem_V1",
+       "Mem_V2",
+       "Mem_V3",
+       "Mem_V4",
+       "Mem_V5",
+       "Mem_V6",
+       "Mem_V7",
+       "Mem_V8",
+       "Mem_V9",
+       "Mem_V10",
+       "Mem_V11",
+       "Mem_V12",
+       "Mem_V13",
+       "Mem_Scarico"
+      ]
+     },
+     "(Seq_Attiva)"
+    ]
+   },
+   {
+    "cmt": "CARRO SOPRA LA VASCA DA FARE: qui si ferma e cala il cestello",
+    "chain": [
+     "Mem_Ciclo",
+     "Mem_Pieno",
+     {
+      "or": [
+       [
+        "V_S_Usa_V1",
+        "/End_V1",
+        "IN_Pos_V1"
+       ],
+       [
+        "V_S_Usa_V2",
+        "/End_V2",
+        "IN_Pos_V2"
+       ],
+       [
+        "V_S_Usa_V3",
+        "/End_V3",
+        "IN_Pos_V3"
+       ],
+       [
+        "V_S_Usa_V4",
+        "/End_V4",
+        "IN_Pos_V4"
+       ],
+       [
+        "V_S_Usa_V5",
+        "/End_V5",
+        "IN_Pos_V5"
+       ],
+       [
+        "V_S_Usa_V6",
+        "/End_V6",
+        "IN_Pos_V6"
+       ],
+       [
+        "V_S_Usa_V7",
+        "/End_V7",
+        "IN_Pos_V7"
+       ],
+       [
+        "V_S_Usa_V8",
+        "/End_V8",
+        "IN_Pos_V8"
+       ],
+       [
+        "V_S_Usa_V9",
+        "/End_V9",
+        "IN_Pos_V9"
+       ],
+       [
+        "V_S_Usa_V10",
+        "/End_V10",
+        "IN_Pos_V10"
+       ],
+       [
+        "V_S_Usa_V11",
+        "/End_V11",
+        "IN_Pos_V11"
+       ],
+       [
+        "V_S_Usa_V12",
+        "/End_V12",
+        "IN_Pos_V12"
+       ],
+       [
+        "V_S_Usa_V13",
+        "/End_V13",
+        "IN_Pos_V13"
+       ]
+      ]
+     },
+     "(Mem_Target)"
+    ]
+   },
+   {
+    "cmt": "AZZERAMENTO PASSI A INIZIO CICLO",
+    "chain": [
+     "^V_P_Start"
+    ],
+    "out": [
+     [
+      "(R End_V1)"
+     ],
+     [
+      "(R End_V2)"
+     ],
+     [
+      "(R End_V3)"
+     ],
+     [
+      "(R End_V4)"
+     ],
+     [
+      "(R End_V5)"
+     ],
+     [
+      "(R End_V6)"
+     ],
+     [
+      "(R End_V7)"
+     ],
+     [
+      "(R End_V8)"
+     ],
+     [
+      "(R End_V9)"
+     ],
+     [
+      "(R End_V10)"
+     ],
+     [
+      "(R End_V11)"
+     ],
+     [
+      "(R End_V12)"
+     ],
+     [
+      "(R End_V13)"
+     ]
+    ]
+   },
+   {
+    "cmt": "PRELIEVO AL CARICO",
+    "chain": [
+     "Mem_Ciclo",
+     "IN_Pos_Carico",
+     "IN_Presenza_Cesto",
+     "/Mem_Pieno",
+     "(S Mem_Carico)"
+    ]
+   },
+   {
+    "cmt": "CESTELLO PRELEVATO",
+    "chain": [
+     "Mem_Carico",
+     "IN_Carro_Alto"
+    ],
+    "out": [
+     [
+      "(S Mem_Pieno)"
+     ],
+     [
+      "(R Mem_Carico)"
+     ]
+    ]
+   },
+   {
+    "cmt": "INGRESSO VASCA 1",
+    "chain": [
+     "Mem_Ciclo",
+     "Mem_Pieno",
+     "V_S_Usa_V1",
+     "IN_Pos_V1",
+     "IN_Carro_Basso",
+     "Mem_Pieno",
+     "/End_V1",
+     "(S Mem_V1)"
+    ]
+   },
+   {
+    "cmt": "PERMANENZA IN VASCA 1",
+    "chain": [
+     "Mem_V1",
+     {
+      "fb": "TON",
+      "inst": "Tim_V1",
+      "p": {
+       "PT": "SET_T_V1"
+      }
+     }
+    ]
+   },
+   {
+    "cmt": "USCITA DALLA VASCA 1",
+    "chain": [
+     {
+      "or": [
+       "Tim_V1.Q",
+       "/V_S_Usa_V1"
+      ]
+     },
+     {
+      "or": [
+       "Mem_V1",
+       [
+        "Mem_Ciclo",
+        "/V_S_Usa_V1",
+        "Mem_Pieno"
+       ]
+      ]
+     }
+    ],
+    "out": [
+     [
+      "(S End_V1)"
+     ],
+     [
+      "(R Mem_V1)"
+     ],
+     [
+      "(S Mem_Estrai)"
+     ]
+    ]
+   },
+   {
+    "cmt": "RISCALDAMENTO VASCA 1 (solo se in ricetta e livello ok)",
+    "chain": [
+     "V_S_Usa_V1",
+     "IN_Livello_V1",
+     "/IN_Temp_V1",
+     "Consensi",
+     "(OUT_Risc_V1)"
+    ]
+   },
+   {
+    "cmt": "ALLARME LIVELLO VASCA 1",
+    "chain": [
+     "V_S_Usa_V1",
+     "/IN_Livello_V1",
+     "Mem_Ciclo",
+     "(S V_S_All_Liv_V1)"
+    ]
+   },
+   {
+    "cmt": "ALLARME TEMPERATURA VASCA 1 (fuori range da troppo tempo)",
+    "chain": [
+     "V_S_Usa_V1",
+     "/IN_Temp_V1",
+     "Mem_V1",
+     {
+      "fb": "TON",
+      "inst": "Tim_Temp_V1",
+      "p": {
+       "PT": "T#120s"
+      }
+     }
+    ],
+    "out": [
+     [
+      "(S V_S_All_Temp_V1)"
+     ]
+    ]
+   },
+   {
+    "cmt": "INGRESSO VASCA 2",
+    "chain": [
+     "Mem_Ciclo",
+     "Mem_Pieno",
+     "V_S_Usa_V2",
+     "IN_Pos_V2",
+     "IN_Carro_Basso",
+     "End_V1",
+     "/End_V2",
+     "(S Mem_V2)"
+    ]
+   },
+   {
+    "cmt": "PERMANENZA IN VASCA 2",
+    "chain": [
+     "Mem_V2",
+     {
+      "fb": "TON",
+      "inst": "Tim_V2",
+      "p": {
+       "PT": "SET_T_V2"
+      }
+     }
+    ]
+   },
+   {
+    "cmt": "USCITA DALLA VASCA 2",
+    "chain": [
+     {
+      "or": [
+       "Tim_V2.Q",
+       "/V_S_Usa_V2"
+      ]
+     },
+     {
+      "or": [
+       "Mem_V2",
+       [
+        "Mem_Ciclo",
+        "/V_S_Usa_V2",
+        "End_V1"
+       ]
+      ]
+     }
+    ],
+    "out": [
+     [
+      "(S End_V2)"
+     ],
+     [
+      "(R Mem_V2)"
+     ],
+     [
+      "(S Mem_Estrai)"
+     ]
+    ]
+   },
+   {
+    "cmt": "RISCALDAMENTO VASCA 2 (solo se in ricetta e livello ok)",
+    "chain": [
+     "V_S_Usa_V2",
+     "IN_Livello_V2",
+     "/IN_Temp_V2",
+     "Consensi",
+     "(OUT_Risc_V2)"
+    ]
+   },
+   {
+    "cmt": "ALLARME LIVELLO VASCA 2",
+    "chain": [
+     "V_S_Usa_V2",
+     "/IN_Livello_V2",
+     "Mem_Ciclo",
+     "(S V_S_All_Liv_V2)"
+    ]
+   },
+   {
+    "cmt": "ALLARME TEMPERATURA VASCA 2 (fuori range da troppo tempo)",
+    "chain": [
+     "V_S_Usa_V2",
+     "/IN_Temp_V2",
+     "Mem_V2",
+     {
+      "fb": "TON",
+      "inst": "Tim_Temp_V2",
+      "p": {
+       "PT": "T#120s"
+      }
+     }
+    ],
+    "out": [
+     [
+      "(S V_S_All_Temp_V2)"
+     ]
+    ]
+   },
+   {
+    "cmt": "INGRESSO VASCA 3",
+    "chain": [
+     "Mem_Ciclo",
+     "Mem_Pieno",
+     "V_S_Usa_V3",
+     "IN_Pos_V3",
+     "IN_Carro_Basso",
+     "End_V2",
+     "/End_V3",
+     "(S Mem_V3)"
+    ]
+   },
+   {
+    "cmt": "PERMANENZA IN VASCA 3",
+    "chain": [
+     "Mem_V3",
+     {
+      "fb": "TON",
+      "inst": "Tim_V3",
+      "p": {
+       "PT": "SET_T_V3"
+      }
+     }
+    ]
+   },
+   {
+    "cmt": "USCITA DALLA VASCA 3",
+    "chain": [
+     {
+      "or": [
+       "Tim_V3.Q",
+       "/V_S_Usa_V3"
+      ]
+     },
+     {
+      "or": [
+       "Mem_V3",
+       [
+        "Mem_Ciclo",
+        "/V_S_Usa_V3",
+        "End_V2"
+       ]
+      ]
+     }
+    ],
+    "out": [
+     [
+      "(S End_V3)"
+     ],
+     [
+      "(R Mem_V3)"
+     ],
+     [
+      "(S Mem_Estrai)"
+     ]
+    ]
+   },
+   {
+    "cmt": "RISCALDAMENTO VASCA 3 (solo se in ricetta e livello ok)",
+    "chain": [
+     "V_S_Usa_V3",
+     "IN_Livello_V3",
+     "/IN_Temp_V3",
+     "Consensi",
+     "(OUT_Risc_V3)"
+    ]
+   },
+   {
+    "cmt": "ALLARME LIVELLO VASCA 3",
+    "chain": [
+     "V_S_Usa_V3",
+     "/IN_Livello_V3",
+     "Mem_Ciclo",
+     "(S V_S_All_Liv_V3)"
+    ]
+   },
+   {
+    "cmt": "ALLARME TEMPERATURA VASCA 3 (fuori range da troppo tempo)",
+    "chain": [
+     "V_S_Usa_V3",
+     "/IN_Temp_V3",
+     "Mem_V3",
+     {
+      "fb": "TON",
+      "inst": "Tim_Temp_V3",
+      "p": {
+       "PT": "T#120s"
+      }
+     }
+    ],
+    "out": [
+     [
+      "(S V_S_All_Temp_V3)"
+     ]
+    ]
+   },
+   {
+    "cmt": "INGRESSO VASCA 4",
+    "chain": [
+     "Mem_Ciclo",
+     "Mem_Pieno",
+     "V_S_Usa_V4",
+     "IN_Pos_V4",
+     "IN_Carro_Basso",
+     "End_V3",
+     "/End_V4",
+     "(S Mem_V4)"
+    ]
+   },
+   {
+    "cmt": "PERMANENZA IN VASCA 4",
+    "chain": [
+     "Mem_V4",
+     {
+      "fb": "TON",
+      "inst": "Tim_V4",
+      "p": {
+       "PT": "SET_T_V4"
+      }
+     }
+    ]
+   },
+   {
+    "cmt": "USCITA DALLA VASCA 4",
+    "chain": [
+     {
+      "or": [
+       "Tim_V4.Q",
+       "/V_S_Usa_V4"
+      ]
+     },
+     {
+      "or": [
+       "Mem_V4",
+       [
+        "Mem_Ciclo",
+        "/V_S_Usa_V4",
+        "End_V3"
+       ]
+      ]
+     }
+    ],
+    "out": [
+     [
+      "(S End_V4)"
+     ],
+     [
+      "(R Mem_V4)"
+     ],
+     [
+      "(S Mem_Estrai)"
+     ]
+    ]
+   },
+   {
+    "cmt": "RISCALDAMENTO VASCA 4 (solo se in ricetta e livello ok)",
+    "chain": [
+     "V_S_Usa_V4",
+     "IN_Livello_V4",
+     "/IN_Temp_V4",
+     "Consensi",
+     "(OUT_Risc_V4)"
+    ]
+   },
+   {
+    "cmt": "ALLARME LIVELLO VASCA 4",
+    "chain": [
+     "V_S_Usa_V4",
+     "/IN_Livello_V4",
+     "Mem_Ciclo",
+     "(S V_S_All_Liv_V4)"
+    ]
+   },
+   {
+    "cmt": "ALLARME TEMPERATURA VASCA 4 (fuori range da troppo tempo)",
+    "chain": [
+     "V_S_Usa_V4",
+     "/IN_Temp_V4",
+     "Mem_V4",
+     {
+      "fb": "TON",
+      "inst": "Tim_Temp_V4",
+      "p": {
+       "PT": "T#120s"
+      }
+     }
+    ],
+    "out": [
+     [
+      "(S V_S_All_Temp_V4)"
+     ]
+    ]
+   },
+   {
+    "cmt": "INGRESSO VASCA 5",
+    "chain": [
+     "Mem_Ciclo",
+     "Mem_Pieno",
+     "V_S_Usa_V5",
+     "IN_Pos_V5",
+     "IN_Carro_Basso",
+     "End_V4",
+     "/End_V5",
+     "(S Mem_V5)"
+    ]
+   },
+   {
+    "cmt": "PERMANENZA IN VASCA 5",
+    "chain": [
+     "Mem_V5",
+     {
+      "fb": "TON",
+      "inst": "Tim_V5",
+      "p": {
+       "PT": "SET_T_V5"
+      }
+     }
+    ]
+   },
+   {
+    "cmt": "USCITA DALLA VASCA 5",
+    "chain": [
+     {
+      "or": [
+       "Tim_V5.Q",
+       "/V_S_Usa_V5"
+      ]
+     },
+     {
+      "or": [
+       "Mem_V5",
+       [
+        "Mem_Ciclo",
+        "/V_S_Usa_V5",
+        "End_V4"
+       ]
+      ]
+     }
+    ],
+    "out": [
+     [
+      "(S End_V5)"
+     ],
+     [
+      "(R Mem_V5)"
+     ],
+     [
+      "(S Mem_Estrai)"
+     ]
+    ]
+   },
+   {
+    "cmt": "RISCALDAMENTO VASCA 5 (solo se in ricetta e livello ok)",
+    "chain": [
+     "V_S_Usa_V5",
+     "IN_Livello_V5",
+     "/IN_Temp_V5",
+     "Consensi",
+     "(OUT_Risc_V5)"
+    ]
+   },
+   {
+    "cmt": "ALLARME LIVELLO VASCA 5",
+    "chain": [
+     "V_S_Usa_V5",
+     "/IN_Livello_V5",
+     "Mem_Ciclo",
+     "(S V_S_All_Liv_V5)"
+    ]
+   },
+   {
+    "cmt": "ALLARME TEMPERATURA VASCA 5 (fuori range da troppo tempo)",
+    "chain": [
+     "V_S_Usa_V5",
+     "/IN_Temp_V5",
+     "Mem_V5",
+     {
+      "fb": "TON",
+      "inst": "Tim_Temp_V5",
+      "p": {
+       "PT": "T#120s"
+      }
+     }
+    ],
+    "out": [
+     [
+      "(S V_S_All_Temp_V5)"
+     ]
+    ]
+   },
+   {
+    "cmt": "INGRESSO VASCA 6",
+    "chain": [
+     "Mem_Ciclo",
+     "Mem_Pieno",
+     "V_S_Usa_V6",
+     "IN_Pos_V6",
+     "IN_Carro_Basso",
+     "End_V5",
+     "/End_V6",
+     "(S Mem_V6)"
+    ]
+   },
+   {
+    "cmt": "PERMANENZA IN VASCA 6",
+    "chain": [
+     "Mem_V6",
+     {
+      "fb": "TON",
+      "inst": "Tim_V6",
+      "p": {
+       "PT": "SET_T_V6"
+      }
+     }
+    ]
+   },
+   {
+    "cmt": "USCITA DALLA VASCA 6",
+    "chain": [
+     {
+      "or": [
+       "Tim_V6.Q",
+       "/V_S_Usa_V6"
+      ]
+     },
+     {
+      "or": [
+       "Mem_V6",
+       [
+        "Mem_Ciclo",
+        "/V_S_Usa_V6",
+        "End_V5"
+       ]
+      ]
+     }
+    ],
+    "out": [
+     [
+      "(S End_V6)"
+     ],
+     [
+      "(R Mem_V6)"
+     ],
+     [
+      "(S Mem_Estrai)"
+     ]
+    ]
+   },
+   {
+    "cmt": "RISCALDAMENTO VASCA 6 (solo se in ricetta e livello ok)",
+    "chain": [
+     "V_S_Usa_V6",
+     "IN_Livello_V6",
+     "/IN_Temp_V6",
+     "Consensi",
+     "(OUT_Risc_V6)"
+    ]
+   },
+   {
+    "cmt": "ALLARME LIVELLO VASCA 6",
+    "chain": [
+     "V_S_Usa_V6",
+     "/IN_Livello_V6",
+     "Mem_Ciclo",
+     "(S V_S_All_Liv_V6)"
+    ]
+   },
+   {
+    "cmt": "ALLARME TEMPERATURA VASCA 6 (fuori range da troppo tempo)",
+    "chain": [
+     "V_S_Usa_V6",
+     "/IN_Temp_V6",
+     "Mem_V6",
+     {
+      "fb": "TON",
+      "inst": "Tim_Temp_V6",
+      "p": {
+       "PT": "T#120s"
+      }
+     }
+    ],
+    "out": [
+     [
+      "(S V_S_All_Temp_V6)"
+     ]
+    ]
+   },
+   {
+    "cmt": "INGRESSO VASCA 7",
+    "chain": [
+     "Mem_Ciclo",
+     "Mem_Pieno",
+     "V_S_Usa_V7",
+     "IN_Pos_V7",
+     "IN_Carro_Basso",
+     "End_V6",
+     "/End_V7",
+     "(S Mem_V7)"
+    ]
+   },
+   {
+    "cmt": "PERMANENZA IN VASCA 7",
+    "chain": [
+     "Mem_V7",
+     {
+      "fb": "TON",
+      "inst": "Tim_V7",
+      "p": {
+       "PT": "SET_T_V7"
+      }
+     }
+    ]
+   },
+   {
+    "cmt": "USCITA DALLA VASCA 7",
+    "chain": [
+     {
+      "or": [
+       "Tim_V7.Q",
+       "/V_S_Usa_V7"
+      ]
+     },
+     {
+      "or": [
+       "Mem_V7",
+       [
+        "Mem_Ciclo",
+        "/V_S_Usa_V7",
+        "End_V6"
+       ]
+      ]
+     }
+    ],
+    "out": [
+     [
+      "(S End_V7)"
+     ],
+     [
+      "(R Mem_V7)"
+     ],
+     [
+      "(S Mem_Estrai)"
+     ]
+    ]
+   },
+   {
+    "cmt": "RISCALDAMENTO VASCA 7 (solo se in ricetta e livello ok)",
+    "chain": [
+     "V_S_Usa_V7",
+     "IN_Livello_V7",
+     "/IN_Temp_V7",
+     "Consensi",
+     "(OUT_Risc_V7)"
+    ]
+   },
+   {
+    "cmt": "ALLARME LIVELLO VASCA 7",
+    "chain": [
+     "V_S_Usa_V7",
+     "/IN_Livello_V7",
+     "Mem_Ciclo",
+     "(S V_S_All_Liv_V7)"
+    ]
+   },
+   {
+    "cmt": "ALLARME TEMPERATURA VASCA 7 (fuori range da troppo tempo)",
+    "chain": [
+     "V_S_Usa_V7",
+     "/IN_Temp_V7",
+     "Mem_V7",
+     {
+      "fb": "TON",
+      "inst": "Tim_Temp_V7",
+      "p": {
+       "PT": "T#120s"
+      }
+     }
+    ],
+    "out": [
+     [
+      "(S V_S_All_Temp_V7)"
+     ]
+    ]
+   },
+   {
+    "cmt": "INGRESSO VASCA 8",
+    "chain": [
+     "Mem_Ciclo",
+     "Mem_Pieno",
+     "V_S_Usa_V8",
+     "IN_Pos_V8",
+     "IN_Carro_Basso",
+     "End_V7",
+     "/End_V8",
+     "(S Mem_V8)"
+    ]
+   },
+   {
+    "cmt": "PERMANENZA IN VASCA 8",
+    "chain": [
+     "Mem_V8",
+     {
+      "fb": "TON",
+      "inst": "Tim_V8",
+      "p": {
+       "PT": "SET_T_V8"
+      }
+     }
+    ]
+   },
+   {
+    "cmt": "USCITA DALLA VASCA 8",
+    "chain": [
+     {
+      "or": [
+       "Tim_V8.Q",
+       "/V_S_Usa_V8"
+      ]
+     },
+     {
+      "or": [
+       "Mem_V8",
+       [
+        "Mem_Ciclo",
+        "/V_S_Usa_V8",
+        "End_V7"
+       ]
+      ]
+     }
+    ],
+    "out": [
+     [
+      "(S End_V8)"
+     ],
+     [
+      "(R Mem_V8)"
+     ],
+     [
+      "(S Mem_Estrai)"
+     ]
+    ]
+   },
+   {
+    "cmt": "RISCALDAMENTO VASCA 8 (solo se in ricetta e livello ok)",
+    "chain": [
+     "V_S_Usa_V8",
+     "IN_Livello_V8",
+     "/IN_Temp_V8",
+     "Consensi",
+     "(OUT_Risc_V8)"
+    ]
+   },
+   {
+    "cmt": "ALLARME LIVELLO VASCA 8",
+    "chain": [
+     "V_S_Usa_V8",
+     "/IN_Livello_V8",
+     "Mem_Ciclo",
+     "(S V_S_All_Liv_V8)"
+    ]
+   },
+   {
+    "cmt": "ALLARME TEMPERATURA VASCA 8 (fuori range da troppo tempo)",
+    "chain": [
+     "V_S_Usa_V8",
+     "/IN_Temp_V8",
+     "Mem_V8",
+     {
+      "fb": "TON",
+      "inst": "Tim_Temp_V8",
+      "p": {
+       "PT": "T#120s"
+      }
+     }
+    ],
+    "out": [
+     [
+      "(S V_S_All_Temp_V8)"
+     ]
+    ]
+   },
+   {
+    "cmt": "INGRESSO VASCA 9",
+    "chain": [
+     "Mem_Ciclo",
+     "Mem_Pieno",
+     "V_S_Usa_V9",
+     "IN_Pos_V9",
+     "IN_Carro_Basso",
+     "End_V8",
+     "/End_V9",
+     "(S Mem_V9)"
+    ]
+   },
+   {
+    "cmt": "PERMANENZA IN VASCA 9",
+    "chain": [
+     "Mem_V9",
+     {
+      "fb": "TON",
+      "inst": "Tim_V9",
+      "p": {
+       "PT": "SET_T_V9"
+      }
+     }
+    ]
+   },
+   {
+    "cmt": "USCITA DALLA VASCA 9",
+    "chain": [
+     {
+      "or": [
+       "Tim_V9.Q",
+       "/V_S_Usa_V9"
+      ]
+     },
+     {
+      "or": [
+       "Mem_V9",
+       [
+        "Mem_Ciclo",
+        "/V_S_Usa_V9",
+        "End_V8"
+       ]
+      ]
+     }
+    ],
+    "out": [
+     [
+      "(S End_V9)"
+     ],
+     [
+      "(R Mem_V9)"
+     ],
+     [
+      "(S Mem_Estrai)"
+     ]
+    ]
+   },
+   {
+    "cmt": "RISCALDAMENTO VASCA 9 (solo se in ricetta e livello ok)",
+    "chain": [
+     "V_S_Usa_V9",
+     "IN_Livello_V9",
+     "/IN_Temp_V9",
+     "Consensi",
+     "(OUT_Risc_V9)"
+    ]
+   },
+   {
+    "cmt": "ALLARME LIVELLO VASCA 9",
+    "chain": [
+     "V_S_Usa_V9",
+     "/IN_Livello_V9",
+     "Mem_Ciclo",
+     "(S V_S_All_Liv_V9)"
+    ]
+   },
+   {
+    "cmt": "ALLARME TEMPERATURA VASCA 9 (fuori range da troppo tempo)",
+    "chain": [
+     "V_S_Usa_V9",
+     "/IN_Temp_V9",
+     "Mem_V9",
+     {
+      "fb": "TON",
+      "inst": "Tim_Temp_V9",
+      "p": {
+       "PT": "T#120s"
+      }
+     }
+    ],
+    "out": [
+     [
+      "(S V_S_All_Temp_V9)"
+     ]
+    ]
+   },
+   {
+    "cmt": "INGRESSO VASCA 10",
+    "chain": [
+     "Mem_Ciclo",
+     "Mem_Pieno",
+     "V_S_Usa_V10",
+     "IN_Pos_V10",
+     "IN_Carro_Basso",
+     "End_V9",
+     "/End_V10",
+     "(S Mem_V10)"
+    ]
+   },
+   {
+    "cmt": "PERMANENZA IN VASCA 10",
+    "chain": [
+     "Mem_V10",
+     {
+      "fb": "TON",
+      "inst": "Tim_V10",
+      "p": {
+       "PT": "SET_T_V10"
+      }
+     }
+    ]
+   },
+   {
+    "cmt": "USCITA DALLA VASCA 10",
+    "chain": [
+     {
+      "or": [
+       "Tim_V10.Q",
+       "/V_S_Usa_V10"
+      ]
+     },
+     {
+      "or": [
+       "Mem_V10",
+       [
+        "Mem_Ciclo",
+        "/V_S_Usa_V10",
+        "End_V9"
+       ]
+      ]
+     }
+    ],
+    "out": [
+     [
+      "(S End_V10)"
+     ],
+     [
+      "(R Mem_V10)"
+     ],
+     [
+      "(S Mem_Estrai)"
+     ]
+    ]
+   },
+   {
+    "cmt": "RISCALDAMENTO VASCA 10 (solo se in ricetta e livello ok)",
+    "chain": [
+     "V_S_Usa_V10",
+     "IN_Livello_V10",
+     "/IN_Temp_V10",
+     "Consensi",
+     "(OUT_Risc_V10)"
+    ]
+   },
+   {
+    "cmt": "ALLARME LIVELLO VASCA 10",
+    "chain": [
+     "V_S_Usa_V10",
+     "/IN_Livello_V10",
+     "Mem_Ciclo",
+     "(S V_S_All_Liv_V10)"
+    ]
+   },
+   {
+    "cmt": "ALLARME TEMPERATURA VASCA 10 (fuori range da troppo tempo)",
+    "chain": [
+     "V_S_Usa_V10",
+     "/IN_Temp_V10",
+     "Mem_V10",
+     {
+      "fb": "TON",
+      "inst": "Tim_Temp_V10",
+      "p": {
+       "PT": "T#120s"
+      }
+     }
+    ],
+    "out": [
+     [
+      "(S V_S_All_Temp_V10)"
+     ]
+    ]
+   },
+   {
+    "cmt": "INGRESSO VASCA 11",
+    "chain": [
+     "Mem_Ciclo",
+     "Mem_Pieno",
+     "V_S_Usa_V11",
+     "IN_Pos_V11",
+     "IN_Carro_Basso",
+     "End_V10",
+     "/End_V11",
+     "(S Mem_V11)"
+    ]
+   },
+   {
+    "cmt": "PERMANENZA IN VASCA 11",
+    "chain": [
+     "Mem_V11",
+     {
+      "fb": "TON",
+      "inst": "Tim_V11",
+      "p": {
+       "PT": "SET_T_V11"
+      }
+     }
+    ]
+   },
+   {
+    "cmt": "USCITA DALLA VASCA 11",
+    "chain": [
+     {
+      "or": [
+       "Tim_V11.Q",
+       "/V_S_Usa_V11"
+      ]
+     },
+     {
+      "or": [
+       "Mem_V11",
+       [
+        "Mem_Ciclo",
+        "/V_S_Usa_V11",
+        "End_V10"
+       ]
+      ]
+     }
+    ],
+    "out": [
+     [
+      "(S End_V11)"
+     ],
+     [
+      "(R Mem_V11)"
+     ],
+     [
+      "(S Mem_Estrai)"
+     ]
+    ]
+   },
+   {
+    "cmt": "RISCALDAMENTO VASCA 11 (solo se in ricetta e livello ok)",
+    "chain": [
+     "V_S_Usa_V11",
+     "IN_Livello_V11",
+     "/IN_Temp_V11",
+     "Consensi",
+     "(OUT_Risc_V11)"
+    ]
+   },
+   {
+    "cmt": "ALLARME LIVELLO VASCA 11",
+    "chain": [
+     "V_S_Usa_V11",
+     "/IN_Livello_V11",
+     "Mem_Ciclo",
+     "(S V_S_All_Liv_V11)"
+    ]
+   },
+   {
+    "cmt": "ALLARME TEMPERATURA VASCA 11 (fuori range da troppo tempo)",
+    "chain": [
+     "V_S_Usa_V11",
+     "/IN_Temp_V11",
+     "Mem_V11",
+     {
+      "fb": "TON",
+      "inst": "Tim_Temp_V11",
+      "p": {
+       "PT": "T#120s"
+      }
+     }
+    ],
+    "out": [
+     [
+      "(S V_S_All_Temp_V11)"
+     ]
+    ]
+   },
+   {
+    "cmt": "INGRESSO VASCA 12",
+    "chain": [
+     "Mem_Ciclo",
+     "Mem_Pieno",
+     "V_S_Usa_V12",
+     "IN_Pos_V12",
+     "IN_Carro_Basso",
+     "End_V11",
+     "/End_V12",
+     "(S Mem_V12)"
+    ]
+   },
+   {
+    "cmt": "PERMANENZA IN VASCA 12",
+    "chain": [
+     "Mem_V12",
+     {
+      "fb": "TON",
+      "inst": "Tim_V12",
+      "p": {
+       "PT": "SET_T_V12"
+      }
+     }
+    ]
+   },
+   {
+    "cmt": "USCITA DALLA VASCA 12",
+    "chain": [
+     {
+      "or": [
+       "Tim_V12.Q",
+       "/V_S_Usa_V12"
+      ]
+     },
+     {
+      "or": [
+       "Mem_V12",
+       [
+        "Mem_Ciclo",
+        "/V_S_Usa_V12",
+        "End_V11"
+       ]
+      ]
+     }
+    ],
+    "out": [
+     [
+      "(S End_V12)"
+     ],
+     [
+      "(R Mem_V12)"
+     ],
+     [
+      "(S Mem_Estrai)"
+     ]
+    ]
+   },
+   {
+    "cmt": "RISCALDAMENTO VASCA 12 (solo se in ricetta e livello ok)",
+    "chain": [
+     "V_S_Usa_V12",
+     "IN_Livello_V12",
+     "/IN_Temp_V12",
+     "Consensi",
+     "(OUT_Risc_V12)"
+    ]
+   },
+   {
+    "cmt": "ALLARME LIVELLO VASCA 12",
+    "chain": [
+     "V_S_Usa_V12",
+     "/IN_Livello_V12",
+     "Mem_Ciclo",
+     "(S V_S_All_Liv_V12)"
+    ]
+   },
+   {
+    "cmt": "ALLARME TEMPERATURA VASCA 12 (fuori range da troppo tempo)",
+    "chain": [
+     "V_S_Usa_V12",
+     "/IN_Temp_V12",
+     "Mem_V12",
+     {
+      "fb": "TON",
+      "inst": "Tim_Temp_V12",
+      "p": {
+       "PT": "T#120s"
+      }
+     }
+    ],
+    "out": [
+     [
+      "(S V_S_All_Temp_V12)"
+     ]
+    ]
+   },
+   {
+    "cmt": "INGRESSO VASCA 13",
+    "chain": [
+     "Mem_Ciclo",
+     "Mem_Pieno",
+     "V_S_Usa_V13",
+     "IN_Pos_V13",
+     "IN_Carro_Basso",
+     "End_V12",
+     "/End_V13",
+     "(S Mem_V13)"
+    ]
+   },
+   {
+    "cmt": "PERMANENZA IN VASCA 13",
+    "chain": [
+     "Mem_V13",
+     {
+      "fb": "TON",
+      "inst": "Tim_V13",
+      "p": {
+       "PT": "SET_T_V13"
+      }
+     }
+    ]
+   },
+   {
+    "cmt": "USCITA DALLA VASCA 13",
+    "chain": [
+     {
+      "or": [
+       "Tim_V13.Q",
+       "/V_S_Usa_V13"
+      ]
+     },
+     {
+      "or": [
+       "Mem_V13",
+       [
+        "Mem_Ciclo",
+        "/V_S_Usa_V13",
+        "End_V12"
+       ]
+      ]
+     }
+    ],
+    "out": [
+     [
+      "(S End_V13)"
+     ],
+     [
+      "(R Mem_V13)"
+     ],
+     [
+      "(S Mem_Estrai)"
+     ]
+    ]
+   },
+   {
+    "cmt": "RISCALDAMENTO VASCA 13 (solo se in ricetta e livello ok)",
+    "chain": [
+     "V_S_Usa_V13",
+     "IN_Livello_V13",
+     "/IN_Temp_V13",
+     "Consensi",
+     "(OUT_Risc_V13)"
+    ]
+   },
+   {
+    "cmt": "ALLARME LIVELLO VASCA 13",
+    "chain": [
+     "V_S_Usa_V13",
+     "/IN_Livello_V13",
+     "Mem_Ciclo",
+     "(S V_S_All_Liv_V13)"
+    ]
+   },
+   {
+    "cmt": "ALLARME TEMPERATURA VASCA 13 (fuori range da troppo tempo)",
+    "chain": [
+     "V_S_Usa_V13",
+     "/IN_Temp_V13",
+     "Mem_V13",
+     {
+      "fb": "TON",
+      "inst": "Tim_Temp_V13",
+      "p": {
+       "PT": "T#120s"
+      }
+     }
+    ],
+    "out": [
+     [
+      "(S V_S_All_Temp_V13)"
+     ]
+    ]
+   },
+   {
+    "cmt": "DEPOSITO ALLO SCARICO",
+    "chain": [
+     "Mem_Ciclo",
+     "End_V13",
+     "IN_Pos_Scarico",
+     "IN_Carro_Basso",
+     "Mem_Pieno",
+     "(S Mem_Scarico)"
+    ]
+   },
+   {
+    "cmt": "CESTELLO DEPOSITATO",
+    "chain": [
+     "Mem_Scarico",
+     "IN_Carro_Alto"
+    ],
+    "out": [
+     [
+      "(R Mem_Pieno)"
+     ],
+     [
+      "(R Mem_Scarico)"
+     ],
+     [
+      "(S Mem_Fine)"
+     ],
+     [
+      {
+       "f": "@Inc",
+       "p": {
+        "InOut": "V_S_Cicli_Fatti",
+        "OUT:InOut": "V_S_Cicli_Fatti"
+       }
+      }
+     ]
+    ]
+   },
+   {
+    "cmt": "TRASLAZIONE AVANTI: verso la vasca successiva o lo scarico",
+    "chain": [
+     "Mem_Ciclo",
+     "Mem_Pieno",
+     "IN_Carro_Alto",
+     "/Mem_Target",
+     "/IN_Pos_Scarico",
+     "Consensi",
+     "(OUT_Carro_Avanti)"
+    ]
+   },
+   {
+    "cmt": "TRASLAZIONE INDIETRO: rientro a vuoto al carico",
+    "chain": [
+     "Mem_Ciclo",
+     "/Mem_Pieno",
+     "IN_Carro_Alto",
+     "/IN_Pos_Carico",
+     "Consensi",
+     "(OUT_Carro_Indietro)"
+    ]
+   },
+   {
+    "cmt": "SORVEGLIANZA TEMPO DI TRASLAZIONE",
+    "chain": [
+     {
+      "or": [
+       "OUT_Carro_Avanti",
+       "OUT_Carro_Indietro"
+      ]
+     },
+     {
+      "fb": "TON",
+      "inst": "Tim_Traslazione",
+      "p": {
+       "PT": "SET_T_Traslazione"
+      }
+     }
+    ]
+   },
+   {
+    "cmt": "FINE ESTRAZIONE DALLA VASCA",
+    "chain": [
+     "IN_Carro_Alto",
+     "(R Mem_Estrai)"
+    ]
+   },
+   {
+    "cmt": "SOLLEVAMENTO CESTELLO",
+    "chain": [
+     {
+      "or": [
+       "Mem_Carico",
+       "Mem_Scarico",
+       "Mem_Estrai"
+      ]
+     },
+     "/IN_Carro_Alto",
+     "Consensi",
+     "(OUT_Solleva)"
+    ]
+   },
+   {
+    "cmt": "ABBASSAMENTO CESTELLO (in vasca o sulla stazione di scarico)",
+    "chain": [
+     {
+      "or": [
+       "Mem_Target",
+       [
+        "Mem_Ciclo",
+        "Mem_Pieno",
+        "End_V13",
+        "IN_Pos_Scarico"
+       ]
+      ]
+     },
+     "/IN_Carro_Basso",
+     "/Mem_Estrai",
+     "Consensi",
+     "(OUT_Abbassa)"
+    ]
+   },
+   {
+    "cmt": "RESET ALLARMI",
+    "chain": [
+     "^V_P_Reset"
+    ],
+    "out": [
+     [
+      "(R V_S_All_Liv_V1)"
+     ],
+     [
+      "(R V_S_All_Liv_V2)"
+     ],
+     [
+      "(R V_S_All_Liv_V3)"
+     ],
+     [
+      "(R V_S_All_Liv_V4)"
+     ],
+     [
+      "(R V_S_All_Liv_V5)"
+     ],
+     [
+      "(R V_S_All_Liv_V6)"
+     ],
+     [
+      "(R V_S_All_Liv_V7)"
+     ],
+     [
+      "(R V_S_All_Liv_V8)"
+     ],
+     [
+      "(R V_S_All_Liv_V9)"
+     ],
+     [
+      "(R V_S_All_Liv_V10)"
+     ],
+     [
+      "(R V_S_All_Liv_V11)"
+     ],
+     [
+      "(R V_S_All_Liv_V12)"
+     ],
+     [
+      "(R V_S_All_Liv_V13)"
+     ],
+     [
+      "(R V_S_All_Temp_V1)"
+     ],
+     [
+      "(R V_S_All_Temp_V2)"
+     ],
+     [
+      "(R V_S_All_Temp_V3)"
+     ],
+     [
+      "(R V_S_All_Temp_V4)"
+     ],
+     [
+      "(R V_S_All_Temp_V5)"
+     ],
+     [
+      "(R V_S_All_Temp_V6)"
+     ],
+     [
+      "(R V_S_All_Temp_V7)"
+     ],
+     [
+      "(R V_S_All_Temp_V8)"
+     ],
+     [
+      "(R V_S_All_Temp_V9)"
+     ],
+     [
+      "(R V_S_All_Temp_V10)"
+     ],
+     [
+      "(R V_S_All_Temp_V11)"
+     ],
+     [
+      "(R V_S_All_Temp_V12)"
+     ],
+     [
+      "(R V_S_All_Temp_V13)"
+     ]
+    ]
+   },
+   {
+    "cmt": "SPIA ALLARME CUMULATIVO",
+    "chain": [
+     {
+      "or": [
+       "V_S_All_Liv_V1",
+       "V_S_All_Liv_V2",
+       "V_S_All_Liv_V3",
+       "V_S_All_Liv_V4",
+       "V_S_All_Liv_V5",
+       "V_S_All_Liv_V6",
+       "V_S_All_Liv_V7",
+       "V_S_All_Liv_V8",
+       "V_S_All_Liv_V9",
+       "V_S_All_Liv_V10",
+       "V_S_All_Liv_V11",
+       "V_S_All_Liv_V12",
+       "V_S_All_Liv_V13",
+       "V_S_All_Temp_V1",
+       "V_S_All_Temp_V2",
+       "V_S_All_Temp_V3",
+       "V_S_All_Temp_V4",
+       "V_S_All_Temp_V5",
+       "V_S_All_Temp_V6",
+       "V_S_All_Temp_V7",
+       "V_S_All_Temp_V8",
+       "V_S_All_Temp_V9",
+       "V_S_All_Temp_V10",
+       "V_S_All_Temp_V11",
+       "V_S_All_Temp_V12",
+       "V_S_All_Temp_V13",
+       "/Consensi"
+      ]
+     },
+     "(V_L_Allarme)"
+    ]
+   },
+   {
+    "cmt": "SPIA CICLO",
+    "chain": [
+     "Mem_Ciclo",
+     "(V_L_Ciclo)"
+    ]
+   },
+   {
+    "cmt": "SPIA FINE CICLO",
+    "chain": [
+     "Mem_Fine",
+     "(V_L_Fine_Ciclo)"
+    ]
+   }
+  ]
+ }
+}

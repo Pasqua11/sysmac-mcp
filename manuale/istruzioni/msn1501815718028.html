@@ -1,0 +1,3241 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>TimeProportionalOut</title>
+</head>
+<body class="msn1501815718028"><div class="layer02" id="msn1501815718028">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">TimeProportionalOut</h1>
+
+<div class="body conbody">
+<p class="p" id="msn1501815718028__ID0EKTHO">The TimeProportionalOut instruction converts a manipulated variable to a time-proportional output.</p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="msn1501815718028__table_N10017_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:13%" />
+<col style="width:14%" />
+<col style="width:6%" />
+<col style="width:35%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d664069e37">Instruction</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d664069e40">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d664069e43">
+<p class="p">FB/</p>
+
+<p class="p">FUN</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d664069e52">Graphic expression</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d664069e55">ST expression</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d664069e37 "><span class="indexterm">TimeProportionalOut (Time-proportional Output)</span>TimeProportionalOut</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d664069e40 "><span class="indexterm">Time-proportional Output</span>Time-proportional Output</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d664069e43 ">FB</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d664069e52 ">
+<br /><img class="image" id="msn1501815718028__image_CDF6BE1CA95B465E949999FEF2D60C90" src="nxm1501815717189.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d664069e55 ">TimeProportionalOut_instance( Enable, AIn, CtlPrd, MinPlsWidth, Delay, DOut, Error);</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<div class="note" id="msn1501815718028__note_N100AB_N1000F_N10002"><div class="ver"><span class="notetitle ver">ver:</span> A CPU Unit with unit version 1.02 or later and Sysmac Studio version 1.03 or higher are required to use this instruction.</div></div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="gof1501816782794">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Variables</h1>
+ 
+<div class="body conbody">
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="gof1501816782794__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:20%" />
+<col style="width:9%" />
+<col style="width:20%" />
+<col style="width:14%" />
+<col style="width:14%" />
+<col style="width:8%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d316557e38">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d316557e40">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d316557e43">I/O</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d316557e46">Description</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d316557e49">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d316557e53">Unit</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d316557e56">Default</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e38 ">Enable</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e40 ">Enable</td>
+
+<td class="entry cellrowborder" rowspan="5" style="text-align:left;vertical-align:middle;" headers="d316557e43 ">Input</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e46 ">
+<p class="p">TRUE: Execute</p>
+
+<p class="p">FALSE: Reset time-proportional output</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e49 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e53 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e56 ">FALSE</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e38 ">AIn</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e40 ">Manipulated variable</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e46 ">Manipulated variable</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e49 ">0 to 100</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e53 ">%</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e56 ">0</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e38 ">CtlPrd</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e40 ">Control period</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e46 ">Control period of time-proportional output</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e49 ">T#0.1 s to T#100 s</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e53 ">s</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e56 ">T#2 s</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e38 ">MinPlsWidth</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e40 ">Minimum pulse width</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e46 ">Minimum pulse width</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e49 ">0 to 50</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e53 ">%</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e56 ">1</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e38 ">Delay</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e40 ">Delay</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e46 ">ON-delay time</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e49 ">0 to 100</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e53 ">%</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e56 ">0</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e38 ">DOut</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e40 ">Time-proportional output</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e43 ">Output</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e46 ">
+<p class="p">TRUE: Time-proportional output is ON.</p>
+
+<p class="p">FALSE: Time-proportional output is OFF.</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e49 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e53 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e56 ">---</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="gof1501816782794__ID0EDMIO" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:5%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:top;" id="d316557e270">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d316557e272">Boolean</th>
+
+<th class="entry cellrowborder" colspan="4" style="text-align:center;vertical-align:middle;" id="d316557e275">Bit strings</th>
+
+<th class="entry cellrowborder" colspan="8" style="text-align:center;vertical-align:middle;" id="d316557e278">Integers</th>
+
+<th class="entry cellrowborder" colspan="2" style="text-align:center;vertical-align:middle;" id="d316557e281">Real numbers</th>
+
+<th class="entry cellrowborder" colspan="5" style="text-align:center;vertical-align:middle;" id="d316557e285">Times, durations, dates, and text strings</th>
+
+</tr>
+
+<tr class="row">
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d316557e291">BOOL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d316557e294">BYTE</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d316557e297">WORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d316557e300">DWORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d316557e303">LWORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d316557e307">USINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d316557e310">UINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d316557e313">UDINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d316557e316">ULINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d316557e319">SINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d316557e322">INT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d316557e326">DINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d316557e329">LINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d316557e332">REAL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d316557e335">LREAL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d316557e338">TIME</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d316557e341">DATE</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d316557e345">TOD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d316557e348">DT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d316557e351">STRING</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e270 d316557e291 ">Enable</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e272 d316557e294 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e275 d316557e297 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e275 d316557e300 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e275 d316557e303 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e275 d316557e307 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e310 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e313 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e316 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e319 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e322 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e326 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e329 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e332 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e281 d316557e335 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e281 d316557e338 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e285 d316557e341 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e285 d316557e345 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e285 d316557e348 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e285 d316557e351 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e285 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e270 d316557e291 ">AIn</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e272 d316557e294 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e275 d316557e297 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e275 d316557e300 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e275 d316557e303 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e275 d316557e307 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e310 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e313 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e316 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e319 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e322 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e326 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e329 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e332 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e281 d316557e335 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e281 d316557e338 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e285 d316557e341 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e285 d316557e345 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e285 d316557e348 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e285 d316557e351 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e285 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e270 d316557e291 ">CtlPrd</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e272 d316557e294 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e275 d316557e297 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e275 d316557e300 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e275 d316557e303 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e275 d316557e307 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e310 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e313 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e316 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e319 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e322 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e326 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e329 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e332 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e281 d316557e335 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e281 d316557e338 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e285 d316557e341 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e285 d316557e345 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e285 d316557e348 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e285 d316557e351 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e285 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e270 d316557e291 ">MinPlsWidth</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e272 d316557e294 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e275 d316557e297 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e275 d316557e300 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e275 d316557e303 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e275 d316557e307 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e310 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e313 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e316 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e319 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e322 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e326 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e329 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e332 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e281 d316557e335 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e281 d316557e338 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e285 d316557e341 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e285 d316557e345 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e285 d316557e348 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e285 d316557e351 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e285 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e270 d316557e291 ">Delay</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e272 d316557e294 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e275 d316557e297 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e275 d316557e300 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e275 d316557e303 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e275 d316557e307 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e310 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e313 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e316 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e319 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e322 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e326 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e329 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e332 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e281 d316557e335 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e281 d316557e338 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e285 d316557e341 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e285 d316557e345 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e285 d316557e348 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e285 d316557e351 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e285 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d316557e270 d316557e291 ">DOut</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e272 d316557e294 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e275 d316557e297 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e275 d316557e300 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e275 d316557e303 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e275 d316557e307 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e310 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e313 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e316 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e319 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e322 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e326 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e329 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e278 d316557e332 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e281 d316557e335 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e281 d316557e338 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e285 d316557e341 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e285 d316557e345 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e285 d316557e348 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e285 d316557e351 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d316557e285 ">&#160;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="hgv1501816784695">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function</h1>
+
+<div class="body conbody">
+<p class="p">The TimeProportionalOut instruction converts a manipulated variable, such as the one for PID control, to a time-proportional output.</p>
+
+<p class="p">A time-proportional output converts a manipulated variable to a time ratio between ON and OFF.</p>
+
+<p class="p linespace_7pt">While <span class="ph phtype_variable"><span class="termtype">Enable</span></span> is TRUE, the value of manipulated variable <span class="ph phtype_variable"><span class="termtype">AIn</span></span> is converted to time-proportional output <span class="ph phtype_variable"><span class="termtype">DOut</span></span> for control period <span class="ph phtype_variable"><span class="termtype">CtlPrd</span></span>.</p>
+
+<p class="p">If <span class="ph phtype_variable"><span class="termtype">Enable</span></span> changes to FALSE, the time-proportional output is reset.</p>
+
+<p class="p"><span class="ph phtype_variable"><span class="termtype">DOut</span></span> and <span class="ph phtype_variable"><span class="termtype">Error</span></span> change to FALSE. The values of <span class="ph phtype_variable"><span class="termtype">CtlPrd</span></span>, <span class="ph phtype_variable"><span class="termtype">MinPlsWidth</span></span>, and <span class="ph phtype_variable"><span class="termtype">Delay</span></span> are updated when <span class="ph phtype_variable"><span class="termtype">Enable</span></span> changes from FALSE to TRUE.</p>
+
+<p class="p linespace_7pt">The following example is for when the value of <span class="ph phtype_variable"><span class="termtype">CtlPrd</span></span> is 10 s and the value of <span class="ph phtype_variable"><span class="termtype">AIn</span></span> is 20%. While <span class="ph phtype_variable"><span class="termtype">Enable</span></span> is TRUE, <span class="ph phtype_variable"><span class="termtype">DOut</span></span> is TRUE for two seconds and then FALSE for eight seconds. This is repeated in a 10-second cycle.</p>
+
+<br /><img class="image" src="ane1501816783064.gif" /><br />
+<br /><img class="image" src="swk1501816783912.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="efu1501816784931">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Resolution of Time-proportional Output DOut</h1>
+
+<div class="body conbody">
+<p class="p" id="efu1501816784931__ID0EEHKO">The minimum unit for the conversion of the value of <span class="ph phtype_variable"><span class="termtype">AIn</span></span> to <span class="ph phtype_variable"><span class="termtype">DOut</span></span> is referred to as the resolution of <span class="ph phtype_variable"><span class="termtype">DOut</span></span>.</p>
+
+<p class="p" id="efu1501816784931__ID0EHHKO">If the resolution of the value of <span class="ph phtype_variable"><span class="termtype">AIn</span></span> is higher than the resolution of <span class="ph phtype_variable"><span class="termtype">DOut</span></span>, <span class="ph phtype_variable"><span class="termtype">AIn</span></span> is rounded according to the resolution of <span class="ph phtype_variable"><span class="termtype">DOut</span></span> when it is converted to <span class="ph phtype_variable"><span class="termtype">DOut</span></span>.</p>
+
+<p class="p linespace_7pt">The resolution of <span class="ph phtype_variable"><span class="termtype">DOut</span></span> is given by the following formula.</p>
+
+<p class="p linespace_7pt indent_extra1">Resolution of <span class="ph phtype_variable"><span class="termtype">DOut</span></span> (%) = Task period / <span class="ph phtype_variable"><span class="termtype">CtlPrd</span></span> x 100</p>
+
+<p class="p linespace_7pt">For example, if the task period is 1 ms and the value of <span class="ph phtype_variable"><span class="termtype">CtlPrd</span></span> is 1 s, the resolution of <span class="ph phtype_variable"><span class="termtype">DOut</span></span> is 0.1%. In this case, the value of <span class="ph phtype_variable"><span class="termtype">AIn</span></span> is rounded to one decimal place.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="fwp1501816785159">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Update Timing of the Value of Manipulated Variable AIn</h1>
+
+<div class="body conbody">
+<p class="p" id="fwp1501816785159__ID0EAKKO">When the value of <span class="ph phtype_variable"><span class="termtype">AIn</span></span> is updated depends on whether <span class="ph phtype_variable"><span class="termtype">DOut</span></span> is FALSE or TRUE.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="bkc1501816786219">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">DOut = FALSE</h1>
+
+<div class="body conbody">
+<p class="p" id="bkc1501816786219__ID0EVKKO">While <span class="ph phtype_variable"><span class="termtype">DOut</span></span> is FALSE, any change in the value of <span class="ph phtype_variable"><span class="termtype">AIn</span></span> is applied in the next control period.</p>
+
+<br /><img class="image" src="tbr1501816785394.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="zdy1501816787510">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">DOut = TRUE</h1>
+
+<div class="body conbody">
+<p class="p" id="zdy1501816787510__ID0EEMKO">While <span class="ph phtype_variable"><span class="termtype">DOut</span></span> is TRUE, any change in the value of <span class="ph phtype_variable"><span class="termtype">AIn</span></span> is applied immediately.</p>
+
+<p class="p linespace_7pt">For example, the following figure shows the operation when the value of control period <span class="ph phtype_variable"><span class="termtype">CtlPrd</span></span> is 1 s.</p>
+
+<ul class="ul">
+<li class="li" id="zdy1501816787510__li_N10031_N1002E_N10013_N10002">
+<p class="p" id="zdy1501816787510__ID0EANKO">Assume that the value of <span class="ph phtype_variable"><span class="termtype">AIn</span></span> is 60% at the start of the control period. If the value of <span class="ph phtype_variable"><span class="termtype">AIn</span></span> changes to 50% while <span class="ph phtype_variable"><span class="termtype">DOut</span></span> is TRUE, <span class="ph phtype_variable"><span class="termtype">DOut</span></span> stays TRUE only for 500 ms.</p>
+
+</li>
+
+<li class="li" id="zdy1501816787510__li_N1004F_N1002E_N10013_N10002">
+<p class="p" id="zdy1501816787510__ID0ELNKO">Assume that the value of <span class="ph phtype_variable"><span class="termtype">AIn</span></span> is 90% at the start of the control period, and that the value of <span class="ph phtype_variable"><span class="termtype">AIn</span></span> changes to 10% 300 ms after <span class="ph phtype_variable"><span class="termtype">DOut</span></span> changes to TRUE. In this case, 100 ms, which is equivalent to 10% of the control period, has already elapsed, so <span class="ph phtype_variable"><span class="termtype">DOut</span></span> changes to FALSE immediately.</p>
+
+</li>
+
+</ul>
+
+<br /><img class="image" id="zdy1501816787510__image_skb_bz5_d1b" src="gbc1501816786466.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="aco1501816789422">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Operation of Time-proportional Output DOut for Minimum Pulse Width MinPlsWidth</h1>
+ 
+<div class="body conbody">
+<p class="p">The minimum pulse width is the minimum time that <span class="ph phtype_variable"><span class="termtype">DOut</span></span> will retain a value of TRUE or FALSE.</p>
+
+<p class="p">You can set minimum pulse width <span class="ph phtype_variable"><span class="termtype">MinPlsWidth</span></span> to reduce chattering in <span class="ph phtype_variable"><span class="termtype">DOut</span></span>.</p>
+
+<p class="p">For example, if the number of times a fan is turned ON and OFF is reduced in cooling control, power consumption is reduced.</p>
+
+<p class="p linespace_7pt">The following table shows the operation of <span class="ph phtype_variable"><span class="termtype">DOut</span></span> for the relationship between the values of <span class="ph phtype_variable"><span class="termtype">MinPlsWidth</span></span> and <span class="ph phtype_variable"><span class="termtype">AIn</span></span>.</p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="aco1501816789422__table_N1004A_N10019_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d3973e62">Relationship between the values of <span class="ph phtype_variable"><span class="termtype">MinPlsWidth</span></span> and <span class="ph phtype_variable"><span class="termtype">AIn</span></span></th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d3973e70">Operation of <span class="ph phtype_variable"><span class="termtype">DOut</span></span></th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d3973e62 "><span class="ph phtype_variable"><span class="termtype">AIn</span></span> &lt; <span class="ph phtype_variable"><span class="termtype">MinPlsWidth</span></span></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d3973e70 ">Always FALSE</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d3973e62 "><span class="ph phtype_variable"><span class="termtype">MinPlsWidth</span></span> &#8804; <span class="ph phtype_variable"><span class="termtype">AIn</span></span> &#8804; 100 - <span class="ph phtype_variable"><span class="termtype">MinPlsWidth</span></span></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d3973e70 ">Time-proportional output</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d3973e62 "><span class="ph phtype_variable"><span class="termtype">AIn</span></span> &gt; 100 - <span class="ph phtype_variable"><span class="termtype">MinPlsWidth</span></span></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d3973e70 ">Always TRUE</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+<p class="p linespace_7pt">For example, the following figure shows the operation of <span class="ph phtype_variable"><span class="termtype">DOut</span></span> when <span class="ph phtype_variable"><span class="termtype">MinPlsWidth</span></span> is 30%.</p>
+
+<p class="p">If the value of <span class="ph phtype_variable"><span class="termtype">AIn</span></span> is higher than 70%, the output is always TRUE. When the value is 70% or lower, the time-proportional operation is performed for the output.</p>
+
+<br /><img class="image" id="aco1501816789422__image_7811C508CD2C4131B33FE6F01FF15546" src="rae1501816787748.gif" /><br />
+<p class="p" id="aco1501816789422__ID0ELVKO">If the value of <span class="ph phtype_variable"><span class="termtype">AIn</span></span> is lower than 30%, the output is always FALSE. When the value is 30% or higher, the time-proportional operation is performed for the output.</p>
+
+<br /><img class="image" id="aco1501816789422__image_1408E2BBB195499DA132E7F72715021B" src="xzw1501816788612.gif" /><br />
+</div>
+ 
+<div class="related-links"></div></div><div class="layer04" id="vcu1501816790405">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Operation of Time-proportional Output DOut for Delay</h1>
+ 
+<div class="body conbody">
+<p class="p">The delay prevents <span class="ph phtype_variable"><span class="termtype">DOut</span></span> from changing to TRUE until the set time has elapsed since the start of the control period.</p>
+
+<p class="p">If more than one TimePropotionalOut instruction is executed, you can specify <span class="ph phtype_variable"><span class="termtype">Delay</span></span> to change <span class="ph phtype_variable"><span class="termtype">DOut</span></span> to TRUE at different timings for each execution.</p>
+
+<p class="p">This reduces the chance that <span class="ph phtype_variable"><span class="termtype">DOut</span></span> will turn ON simultaneously for more than one instruction.</p>
+
+<p class="p">For example, if you operate more than one heating device, you can specify <span class="ph phtype_variable"><span class="termtype">Delay</span></span> with a different value for each device so that the output to each heating device will be turned ON at different timings, and thus the power to be consumed at a time can be reduced.</p>
+
+<p class="p linespace_7pt"><span class="ph phtype_variable"><span class="termtype">DOut</span></span> changes to TRUE after the percentage of time specified with <span class="ph phtype_variable"><span class="termtype">Delay</span></span> elapses from the start of the control period.</p>
+
+<p class="p linespace_7pt">For example, you could set the following values for devices A and B, which have the same control period.</p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="vcu1501816790405__table_N10059_N10019_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1015130e75">Device</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1015130e78">Value of <span class="ph phtype_variable"><span class="termtype">Delay</span></span></th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1015130e83">Value of <span class="ph phtype_variable"><span class="termtype">AIn</span></span></th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1015130e88">Value of <span class="ph phtype_variable"><span class="termtype">CtlPrd</span></span></th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1015130e75 ">Device A</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1015130e78 ">0%</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d1015130e83 ">20%</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d1015130e88 ">10 s</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1015130e75 ">Device B</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1015130e78 ">30%</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+<p class="p linespace_7pt"><span class="ph phtype_variable"><span class="termtype">DOut</span></span> for device A changes to TRUE at the start of the control period. <span class="ph phtype_variable"><span class="termtype">DOut</span></span> for device B changes to TRUE three seconds after the start of the control period.</p>
+
+<br /><img class="image" id="vcu1501816790405__image_0833A97FB16B4B47926B6412A051339A" src="ifx1501816789677.gif" /><br />
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="etl1501816793138">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Precautions for Correct Use</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="etl1501816793138__li_N10015_N10012_N1000F_N10002">
+<p class="p">Set the value of control period <span class="ph phtype_variable"><span class="termtype">CtlPrd</span></span> to a multiple of the task period of the task to which the program is assigned.</p>
+
+<p class="p">If the task period is not set to a multiple of <span class="ph phtype_variable"><span class="termtype">CtlPrd</span></span>, the actual control period will be from when the control period ends until the next time the task is executed. For example, if the task period is set to 3 ms and the value of <span class="ph phtype_variable"><span class="termtype">CtlPrd</span></span> is 1 s, the actual control period will be 1,002 ms (from when <span class="ph phtype_variable"><span class="termtype">CtlPrd</span></span> ends until the next time the task is executed).</p>
+
+</li>
+
+</ul>
+
+<br /><img class="image" src="kcj1501816790642.gif" /><br />
+<p class="p linespace_7pt"></p>
+
+<ul class="ul">
+<li class="li" id="etl1501816793138__li_N10043_N10040_N1000F_N10002">Set the task period and control period <span class="ph phtype_variable"><span class="termtype">CtlPrd</span></span> so that the resolution of <span class="ph phtype_variable"><span class="termtype">DOut</span></span> is 0.1% or less. If the resolution of <span class="ph phtype_variable"><span class="termtype">DOut</span></span> exceeds 0.1%, the error between the ratio when <span class="ph phtype_variable"><span class="termtype">DOut</span></span> is TRUE and the value of <span class="ph phtype_variable"><span class="termtype">AIn</span></span> will be excessive, and control performance will decrease. For example, if <span class="ph phtype_variable"><span class="termtype">CtlPrd</span></span> is 10 s, set the task period to 10 ms or shorter.</li>
+
+<li class="li" id="etl1501816793138__li_N10065_N10040_N1000F_N10002">If you use more than one of this instruction and need to synchronize the control periods, use the instructions in the same program. If you use them in different programs, the control periods will depend on the timing of the execution of the programs, and they will not be synchronized.</li>
+
+<li class="li" id="etl1501816793138__li_N1006A_N10040_N1000F_N10002">The time from when the value of <span class="ph phtype_variable"><span class="termtype">Enable</span></span> changes to TRUE until when operation starts for <span class="ph phtype_variable"><span class="termtype">DOut</span></span> is not constant.</li>
+
+<li class="li" id="etl1501816793138__li_N10078_N10040_N1000F_N10002">An error occurs if the value of <span class="ph phtype_variable"><span class="termtype">AIn</span></span>, <span class="ph phtype_variable"><span class="termtype">CtlPrd</span></span>, <span class="ph phtype_variable"><span class="termtype">MinPlsWidth</span></span>, or <span class="ph phtype_variable"><span class="termtype">Delay</span></span> is outside the valid range. <span class="ph phtype_variable"><span class="termtype">Error</span></span> changes to TRUE and <span class="ph phtype_variable"><span class="termtype">DOut</span></span> changes to FALSE. If the value of <span class="ph phtype_variable"><span class="termtype">AIn</span></span> exceeds the valid range, the operation of <span class="ph phtype_variable"><span class="termtype">DOut</span></span> will be as shown below, depending on when the error is reset.<ol class="ol liststyle_alphabet1">
+<li class="li" id="etl1501816793138__li_N100A7_N100A3_N10078_N10040_N1000F_N10002">
+<p class="p" id="etl1501816793138__ID0E6BLO">If the error is reset after the point where <span class="ph phtype_variable"><span class="termtype">DOut</span></span> changes to TRUE, the time-proportional output for <span class="ph phtype_variable"><span class="termtype">DOut</span></span> is restarted from the next control period.</p>
+
+<br /><img class="image" src="tty1501816791360.gif" /><br />
+</li>
+
+<li class="li" id="etl1501816793138__li_N100BF_N100A3_N10078_N10040_N1000F_N10002">
+<p class="p" id="etl1501816793138__ID0EDDLO">If the error is reset before the point where <span class="ph phtype_variable"><span class="termtype">DOut</span></span> changes to TRUE, the time-proportional output for <span class="ph phtype_variable"><span class="termtype">DOut</span></span> is restarted in the control period in which the error is reset.</p>
+
+<br /><img class="image" src="ivc1501816792272.gif" /><br />
+</li>
+
+</ol>
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="pms1501816736385">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Sample Programming</h1>
+<div class="body conbody"><p class="p" id="pms1501816736385__ID0EEGLO">This sample performs temperature control for four points with upper/lower limit alarms and upper/lower deviation alarms. PID control is performed. The manipulated variables of PID control are converted to time-proportional output values that are output to heating devices.</p>
+<br /><img class="image" src="lwv1501816735699.gif" /><br /></div>
+<div class="related-links"></div></div><div class="layer04" id="ada1501816793400">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Specifications</h1>
+
+<div class="body conbody">
+<p class="p" id="ada1501816793400__ID0EDILO">Temperature control is performed according to the following specifications.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ada1501816793400__table_N10017_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d4286e30">Item</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d4286e33">Specification</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d4286e30 ">Input Unit</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d4286e33 ">CJ1W-PH41U Isolated-type Universal Input Unit</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d4286e30 ">Input types</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d4286e33 ">K thermocouples</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d4286e30 ">Output Unit</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d4286e33 ">CJ1W-OD212 Transistor Output Unit</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d4286e30 ">Set point</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d4286e33 ">100<span class="ph font_Arial">&#176;C</span></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d4286e30 ">Upper limit of temperature</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d4286e33 ">200<span class="ph font_Arial">&#176;C</span></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d4286e30 ">Lower limit of temperature</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d4286e33 ">0<span class="ph font_Arial">&#176;C</span></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d4286e30 ">Hysteresis of upper/lower limit alarm</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d4286e33 ">5<span class="ph font_Arial">&#176;C</span></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d4286e30 ">Upper deviation temperature</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d4286e33 ">50<span class="ph font_Arial">&#176;C</span></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d4286e30 ">Lower deviation temperature</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d4286e33 ">50<span class="ph font_Arial">&#176;C</span></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d4286e30 ">Hysteresis of upper/lower deviation alarm</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d4286e33 ">3<span class="ph font_Arial">&#176;C</span></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d4286e30 ">Sampling period for PID control</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d4286e33 ">100 ms</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d4286e30 ">Output control period</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d4286e33 ">1 s</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="ysi1501816793635">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Configuration and Settings</h1>
+<div class="body conbody"><p class="p" id="ysi1501816793635__ID0E5ULO">The following settings are used for the CJ1W-PH41U Input Unit.</p>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ysi1501816793635__table_N10017_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all"><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1181357e20">Item</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1181357e22">Set value</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1181357e20 ">Input1:Input signal type</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1181357e22 ">K(1)</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1181357e20 ">Input2:Input signal type</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1181357e22 ">K(1)</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1181357e20 ">Input3:Input signal type</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1181357e22 ">K(1)</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1181357e20 ">Input4:Input signal type</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1181357e22 ">K(1)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p linespace_7pt">The following I/O map settings are used.</p>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ysi1501816793635__table_N1008D_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all"><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1181357e55">Unit</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1181357e57">I/O port</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1181357e59">Description</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1181357e61">Variable</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry cellrowborder" rowspan="4" style="text-align:left;vertical-align:middle;" headers="d1181357e55 ">CJ1W-PH41U</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1181357e57 ">Ch1_AIInPV</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1181357e59 ">Process value for input 1 (INT data)</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1181357e61 ">AI1</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1181357e57 ">Ch2_AIInPV</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1181357e59 ">Process value for input 2 (INT data)</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1181357e61 ">AI2</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1181357e57 ">Ch3_AIInPV</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1181357e59 ">Process value for input 3 (INT data)</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1181357e61 ">AI3</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1181357e57 ">Ch4_AIInPV</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1181357e59 ">Process value for input 4 (INT data)</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1181357e61 ">AI4</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" rowspan="4" style="text-align:left;vertical-align:middle;" headers="d1181357e55 ">CJ1W-OD212</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1181357e57 ">Ch1_Out00</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1181357e59 ">Bit 00 of output word 1</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1181357e61 ">DO1</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1181357e57 ">Ch1_Out01</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1181357e59 ">Bit 01 of output word 1</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1181357e61 ">DO2</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1181357e57 ">Ch1_Out02</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1181357e59 ">Bit 02 of output word 1</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1181357e61 ">DO3</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1181357e57 ">Ch1_Out03</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1181357e59 ">Bit 03 of output word 1</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1181357e61 ">DO4</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p linespace_7pt">The inputs and outputs for the temperature control for the four points correspond as shown below.</p>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ysi1501816793635__table_N1019B_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all"><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1181357e132">Input</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1181357e134">Output</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1181357e132 ">AI1</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1181357e134 ">DO1</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1181357e132 ">AI2</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1181357e134 ">DO2</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1181357e132 ">AI3</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1181357e134 ">DO3</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1181357e132 ">AI4</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1181357e134 ">DO4</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p linespace_7pt">The task period of the task to which the program is assigned is 1 ms.</p>
+</div>
+<div class="related-links"></div></div><div class="layer05" id="spi1501816794786">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Configuration Diagram</h1>
+<div class="body conbody"><br /><img class="image" src="bom1501816793880.gif" /><br /></div>
+<div class="related-links"></div></div><div class="layer04" id="zno1501816795030">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Processing</h1>
+
+<div class="body taskbody">
+<div class="section context">
+<p class="p" id="zno1501816795030__ID0EEOMO">Perform the following procedure for all four points.</p>
+
+</div>
+
+<ol class="ol steps"><li class="li step"><span alt="test" class="ph cmd" id="zno1501816795030__ID0ETOMO">Get the process temperature.</span></li>
+<li class="li step"><span alt="test" class="ph cmd" id="zno1501816795030__ID0E5OMO">Use the LimitAlarm_REAL instruction to output upper/lower limit alarms for the process temperature.</span></li>
+<li class="li step"><span alt="test" class="ph cmd" id="zno1501816795030__ID0EJPMO">Perform an output as a safety measure if an error occurs in the LimitAlarm_REAL instruction or if an upper/lower limit alarm occurs.</span></li>
+<li class="li step"><span alt="test" class="ph cmd" id="zno1501816795030__ID0EUPMO">Use the LimitAlarmDv_REAL instruction to output upper/lower deviation alarms for the deviation between the set point and the process temperature.</span></li>
+<li class="li step"><span alt="test" class="ph cmd" id="zno1501816795030__ID0E6PMO">Perform an output as a safety measure if an error occurs in the LimitAlarmDv_REAL instruction or if an upper/lower deviation alarm occurs.</span></li>
+<li class="li step"><span alt="test" class="ph cmd" id="zno1501816795030__ID0EKQMO">Perform temperature control with the PIDAT instruction.</span></li>
+<li class="li step"><span alt="test" class="ph cmd" id="zno1501816795030__ID0EVQMO">Use the TimeProportionalOut instruction to output the manipulated variable as a time-proportional value to the heating device.</span></li>
+</ol>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="kni1501816796389">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Operation of Upper/Lower Limit Alarms and Upper/Lower Deviation Alarms</h1>
+<div class="body conbody"><br /><img class="image" src="clf1501816795269.gif" /><br /></div>
+<div class="related-links"></div></div><div class="layer04" id="rpb1501816500359">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Definitions of Global Variables</h1>
+<div class="body conbody"></div>
+<div class="related-links"></div></div><div class="layer05" id="tgz1501816796636">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Global Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="tgz1501816796636__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d915746e41">Variable</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d915746e44">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d915746e47">AT specification<a class="xref" href="msn1501815718028.html#tgz1501816796636__fn_ar5_tbv_d1b"><i style="display:none;">☆</i><sup>*1</sup></a></th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d915746e53">Comment</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d915746e41 ">AI1</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d915746e44 ">INT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d915746e47 ">IOBus://rack#0/slot#0/Ch1_AIInPV</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d915746e53 ">Process value for input 1 (INT data)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d915746e41 ">AI2</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d915746e44 ">INT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d915746e47 ">IOBus://rack#0/slot#0/Ch2_AIInPV</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d915746e53 ">Process value for input 2 (INT data)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d915746e41 ">AI3</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d915746e44 ">INT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d915746e47 ">IOBus://rack#0/slot#0/Ch3_AIInPV</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d915746e53 ">Process value for input 3 (INT data)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d915746e41 ">AI4</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d915746e44 ">INT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d915746e47 ">IOBus://rack#0/slot#0/Ch4_AIInPV</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d915746e53 ">Process value for input 4 (INT data)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d915746e41 ">DO1</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d915746e44 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d915746e47 ">IOBus://rack#0/slot#1/Ch1_Out/Ch1_Out00</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d915746e53 ">Bit 00 of output word 1</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d915746e41 ">DO2</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d915746e44 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d915746e47 ">IOBus://rack#0/slot#1/Ch1_Out/Ch1_Out01</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d915746e53 ">Bit 01 of output word 1</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d915746e41 ">DO3</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d915746e44 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d915746e47 ">IOBus://rack#0/slot#1/Ch1_Out/Ch1_Out02</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d915746e53 ">Bit 02 of output word 1</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d915746e41 ">DO4</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d915746e44 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d915746e47 ">IOBus://rack#0/slot#1/Ch1_Out/Ch1_Out03</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d915746e53 ">Bit 03 of output word 1</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="tgz1501816796636__fn_ar5_tbv_d1b" id="tgz1501816796636__fn_ar5_tbv_d1b"><sup>*1</sup></a>  This table shows the variables for the CJ1W-PH41U Input Unit mounted to Slot #0 of Rack #0, and the CJ1W-OD212 Output Unit mounted to Slot #1 of the same rack. </div></div></div>
+
+<ol class="ol liststyle_annotation1" id="tgz1501816796636__ul_FFAC99106EA64068A328E744729D6972">
+<li class="li" id="tgz1501816796636__li_24A84A6691BF454AAD3DFB5210257E5C">
+    
+    &#8194;Note<span class="num"></span>&#8194;The global variables for the port of each Unit are automatically generated based on the I/O mapping settings.</li>
+
+</ol>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="imt1501816806790">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">LD</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="imt1501816806790__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:8%" />
+<col style="width:17%" />
+<col style="width:22%" />
+<col style="width:26%" />
+<col style="width:5%" />
+<col style="width:20%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d445718e39">Internal Variables</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d445718e42">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d445718e45">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d445718e48">Default</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d445718e51">Retain</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d445718e55">Comment</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">index</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_F6E29849472546E188AE0A426EEAAD22" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">Loop index</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">LimitAlarm_ON</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">True</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_47161F02120241608F299F71CBC641E7" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">Execution of Upper/Lower Limit Alarm instruction</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">LimitAlarmDv_ON</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">True</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_C7CEADFEA62A45A1A23BE37030CC1E84" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">Execution of Upper/Lower Deviation Alarm instruction</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">TimeProportionalOut_ON</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">True</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_97CEDF2310034B999B40ADCB545EA201" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">Execution of TimeproportionalOutput instruction</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">AI</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">INT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_9462DE1DF8CB4B7989043AE7F9E8C565" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">Present value</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">PV</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">ARRAY[0..3] OF REAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">[4(0.0)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_06A7523E2656451D8D0543808FFEB693" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">Process value</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">SP</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">ARRAY[0..3] OF REAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">[4(100)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_3EE3648C88F1457388FC28636889D876" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">Set point</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">DOut_TPO</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">False</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_65BAA913743947388329D86B6180C34F" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">Time-proportional output</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">HighVal</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">ARRAY[0..3] OF REAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">[4(200)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_CA7EB7A23E5647FE811EAB0CEFE9D07F" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">Upper limit set value of upper/lower limit alarm</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">LowVal</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">ARRAY[0..3] OF REAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">[4(0.0)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_5F1896C721F74F6F9978079F99402961" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">Lower limit set value of upper/lower limit alarm</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">Hystrs_LimitAlarm</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">ARRAY[0..3] OF REAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">[4(5)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_7DB55266264F47CA844B05EEB4FF41FE" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">Hysteresis of upper/lower limit alarm</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">Q_LimitAlarm</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">ARRAY[0..3] OF BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">[4(False)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_03EC4030232B497EBD4A135BD64B9B53" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">Upper/lower limit alarm output</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">HighAlm</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">ARRAY[0..3] OF BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">[4(False)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_D988EF3A77A348598372C802B3AA503C" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">Upper limit alarm</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">LowAlm</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">ARRAY[0..3] OF BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">[4(False)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_063A58F5274F44F989F1D14331A57635" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">Lower limit alarm</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">Error_LimitAlarm</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">ARRAY[0..3] OF BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">[4(False)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_499BDDEE761E417BAE3615768C073D1A" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">Error in LimitAlarm_REAL instruction</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">Alm_LimitAlarm</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">ARRAY[0..3] OF BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">[4(False)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_711145A996534F1EA56A8FC345E7487B" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">Output for safety measure for Upper/Lower Limit Alarm instruction</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">DvHighVal</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">ARRAY[0..3] OF REAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">[4(50)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_01DD27911C564DA998242FDE209F78BA" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">Upper deviation set value of upper/lower deviation alarm</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">DvLowVal</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">ARRAY[0..3] OF REAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">[4(50)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_29E33C26A61C4E10A7D10D4D61AA550A" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">Lower deviation set value of upper/lower deviation alarm</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">Q_LimitAlarmDv</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">ARRAY[0..3] OF BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">[4(False)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_811212F4333E4A71938B1B2B97F938AF" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">Upper/lower deviation alarm output</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">HighAlmDv</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">ARRAY[0..3] OF BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">[4(False)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_38680A6E1D0D48258E70DA9254B26A54" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">Upper deviation alarm</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">LowAlmDv</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">ARRAY[0..3] OF BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">[4(False)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_3706CA915592420EB6CB4C761AFF1509" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">Lower deviation alarm</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">Error_LimitAlarmDv</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">ARRAY[0..3] OF BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">[4(False)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_10428DE22AA34CCAA7EE51AD7E9CBF7E" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">Error in LimitAlarmDv_REAL instruction</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">Hystrs_LimitAlarmDv</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">ARRAY[0..3] OF REAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">[4(3)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_33450ACB25014CFDBF54E9B6A9A425CF" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">Hysteresis of upper/lower deviation alarm</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">Alm_LimitAlarmDv</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">ARRAY[0..3] OF BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">[4(False)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_AF5AD135714C4CFD92E6414BD9525E02" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">Output for safety measure for Upper/Lower Deviation Alarm instruction</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">Run</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">ARRAY[0..3] OF BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">[4(False)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_942627C3ED4A4E21867B2D5BAE0BFB83" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">Execution condition</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">ManCtl</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">ARRAY[0..3] OF BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">[4(False)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_A18C72F800314DBCB133540225CF84F2" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">Manual/auto control</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">StartAT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">ARRAY[0..3] OF BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">[4(False)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_3846BA521A1248E79A8627CC77AC9E1D" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">Autotuning execution condition</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">OprSetParams</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">_sOPR_SET_PARAMS</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">(MVLowLmt:=0.0, MVUpLmt:=100.0, ManResetVal:=0.0, MVTrackSw:=False, MVTrackVal:=0.0, StopMV:=0.0, ErrorMV:=0.0,Alpha:=0.65, ATCalcGain:=1.0, ATHystrs:=0.2)</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_337934D895914603944084FC40F4B039" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">Operation setting parameters</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">InitSetParams</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">_sINIT_SET_PARAMS</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">(SampTime:=T#100 ms, RngLowLmt:=-10.0, RngUpLmt:=1000.0, DirOpr:=False)</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_DD8FAE8822CB4BC491AC866B76F614EC" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">Initial setting parameters</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">PB</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">ARRAY[0..3] OF REAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">[4(10)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_A6C63F4C19AE49A5902FA988A5FAD725" src="eeo1501816740271.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">Proportional band</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">TI</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">ARRAY[0..3] OF TIME</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">[4(T#0 s)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_9C4BAB77410246D09B5E89619CB45535" src="eeo1501816740271.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">Integration time</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">TD</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">ARRAY[0..3] OF TIME</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">[4(T#0 s)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_9BAD267F32CA4449804E7C71DB90EE71" src="eeo1501816740271.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">Derivative time</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">ManMV</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">ARRAY[0..3] OF REAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">[4(0.0)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_C8691D5867AD45248DF0F469A60D29A6" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">Manual manipulated variable</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">ATDone</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">ARRAY[0..3] OF BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">[4(False)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_81F232F56563488E9BE58945040E7417" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">Autotuning normal completion</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">ATBusy</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">ARRAY[0..3] OF BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">[4(False)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_EAD4F9C86A8043A092CDD3DA22F6745E" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">Autotuning busy</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">Error_PIDAT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">ARRAY[0..3] OF BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">[4(False)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_07F289257D924B5BBDD940D215161DCA" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">Error in PIDAT instruction</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">ErrorID</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">ARRAY[0..3] OF WORD</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">[4(16#0)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_6E3022EB550742EAB3297C7EE0823F4A" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">Error ID for PIDAT instruction</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">MV</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">ARRAY[0..3] OF REAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">[4(0.0)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_F606528D46324C48969C1D56024C92BE" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">Manipulated variable</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">CtlPrd</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">ARRAY[0..3] OF TIME</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">[4(T#1 s)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_0DA031C10CC141AB999A1F0FAF03BDFC" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">Control period</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">MinPlsWidth</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">ARRAY[0..3] OF REAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">[4(0.0)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_BA9AFAB8B6A14301A3D122E34FEC1A7B" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">Minimum pulse width</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">Delay</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">ARRAY[0..3] OF REAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">[4(0.0)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_EF549EC90BFA4DC6979AF701F6ED06A4" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">ON-delay time</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">Error_TimeProportionalOut</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">ARRAY[0..3] OF BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">[4(False)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_3206D4C91D8E4ADD83738289F0EF946B" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">Error in TimeProportionalOut instruction</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">LimitAlarm_REAL_instance</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">ARRAY[0..3] OF LimitAlarm_REAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_DD395A4A0C1D43DD97C0421C16EB9A73" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">LimitAlarmDv_REAL_instance</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">ARRAY[0..3] OF LimitAlarmDv_REAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_2CD0BA15F0BF46DDBD6827FFF64603A7" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">PIDAT_instance</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">ARRAY[0..3] OF PIDAT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_A830D7F1A2644D6B95D5D020C030631B" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d445718e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e42 ">TimeProportionalOut_instance</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e45 ">ARRAY[0..3] OF TimeProportionalOut</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e48 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d445718e51 ">
+<br /><img class="image" id="imt1501816806790__image_78FC0CD1CE274B67808F9A675A2D6CED" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d445718e55 ">&#160;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="imt1501816806790__table_vhb_qc2_ccb" class="rules_all " frame="hsides" border="1">
+<col style="width:9%" />
+<col style="width:30%" />
+<col style="width:30%" />
+<col style="width:30%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d445718e1138">External Variables</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d445718e1141">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d445718e1144">Data type</th>
+
+<th class="entry row-nocellborder" style="text-align:left;vertical-align:top;" id="d445718e1147">Comment</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e1138 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d445718e1141 ">AI1</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d445718e1144 ">INT</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d445718e1147 ">Input No.1 (Process value)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e1138 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d445718e1141 ">AI2</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d445718e1144 ">INT</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d445718e1147 ">Input No.2 (Process value)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e1138 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d445718e1141 ">AI3</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d445718e1144 ">INT</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d445718e1147 ">Input No.3 (Process value)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e1138 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d445718e1141 ">AI4</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d445718e1144 ">INT</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d445718e1147 ">Input No.4 (Process value)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e1138 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d445718e1141 ">DO1</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d445718e1144 ">BOOL</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d445718e1147 ">output word 1 (Bit 00)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e1138 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d445718e1141 ">DO2</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d445718e1144 ">BOOL</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d445718e1147 ">output word 1 (Bit 01)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d445718e1138 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d445718e1141 ">DO3</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d445718e1144 ">BOOL</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d445718e1147 ">output word 1 (Bit 02)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d445718e1138 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d445718e1141 ">DO4</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d445718e1144 ">BOOL</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d445718e1147 ">output word 1 (Bit 03)</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<br /><img class="image" id="imt1501816806790__image_B83C289BE70C450A88AE40F791317062" src="kkw1501816796917.gif" /><br />
+<br /><img class="image" id="imt1501816806790__image_nxs_mz5_p1b" src="sfy1501816798163.gif" /><br />
+<br /><img class="image" id="imt1501816806790__image_rbd_nz5_p1b" src="xmi1501816799070.gif" /><br />
+<br /><img class="image" id="imt1501816806790__image_e4m_nz5_p1b" src="dki1501816800212.gif" /><br />
+<br /><img class="image" id="imt1501816806790__image_of5_nz5_p1b" src="ykt1501816801262.gif" /><br />
+<br /><img class="image" id="imt1501816806790__image_vbc_4z5_p1b" src="ung1501816802390.gif" /><br />
+<br /><img class="image" id="imt1501816806790__image_F5B9D7F8667546FEA7F840485EA7C8AA" src="mid1501816803414.gif" /><br />
+<br /><img class="image" id="imt1501816806790__image_xvv_j1v_p1b" src="hcb1501816804575.gif" /><br />
+<br /><img class="image" id="imt1501816806790__image_tjd_k1v_p1b" src="cge1501816805671.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="tfa1501816807099">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Contents of Inline ST 1</h1>
+
+<div class="body conbody">
+<pre class="pre codeblock">//Get values of inputs 1 to 4.
+CASE index OF
+INT#0: 
+  AI:=AI1;
+INT#1: 
+  AI:=AI2;
+INT#2: 
+  AI:=AI3;
+ELSE
+  AI:=AI4;
+END_CASE;
+
+//Convert PV AI to real number.
+PV[index]:=INT_TO_REAL(AI)/REAL#10.0;  // CJ1W-PH41U output is ten times the process value, so divide by 10.0.
+</pre>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="eik1501816807335">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Contents of Inline ST 2</h1>
+
+<div class="body conbody">
+<pre class="pre codeblock">//Perform outputs for bits 00 to 03 of output word 1.
+CASE index OF
+INT#0:
+  DO1:=DOut_TPO;
+INT#1:
+  DO2:=DOut_TPO;
+INT#2:
+  DO3:=DOut_TPO;
+ELSE
+  DO4:=DOut_TPO;
+END_CASE;
+</pre>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="coe1501816807637">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">ST</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="coe1501816807637__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:8%" />
+<col style="width:17%" />
+<col style="width:22%" />
+<col style="width:26%" />
+<col style="width:5%" />
+<col style="width:20%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d120522e39">Internal Variables</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d120522e42">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d120522e45">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d120522e48">Default</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d120522e51">Retain</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d120522e55">Comment</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">index</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_B14485EB18214A5283C36195C7B29BAC" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">Loop index</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">LimitAlarm_ON</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">True</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_51962556768F45408A00117BA0DFEA64" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">Execution of Upper/Lower Limit Alarm instruction</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">LimitAlarmDv_ON</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">True</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_CCDA93B7C64C402FA7ABE438F8212579" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">Execution of Upper/Lower Deviation Alarm instruction</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">TimeProportionalOut_ON</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">True</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_1ED138F3F5354E12881F8D3FA5615848" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">Execution of Timeproportional Output instruction</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">AI</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">INT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_5DED24FB830349FBA398546528423B68" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">Present value</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">PV</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">ARRAY[0..3] OF REAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">[4(0.0)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_6CE5059099274607B04265273C41371D" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">Process value</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">SP</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">ARRAY[0..3] OF REAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">[4(100)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_17918B2EFFCC46F4AE6CC4B9CDAE12D0" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">Set point</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">DOut_TPO</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">False</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_02C8BF6094CE4F6CA38D643A6EFD4E00" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">Time-proportional output</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">HighVal</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">ARRAY[0..3] OF REAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">[4(200)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_3FAE1AD131CB44B2A1F155EA3C09C3B5" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">Upper limit set value of upper/lower limit alarm</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">LowVal</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">ARRAY[0..3] OF REAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">[4(0.0)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_3ADE7500CBCF472095A8EA058FBFA3E9" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">Lower limit set value of upper/lower limit alarm</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">Hystrs_LimitAlarm</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">ARRAY[0..3] OF REAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">[4(5)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_7D435783827840E1B660A682C243388F" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">Hysteresis of upper/lower limit alarm</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">Q_LimitAlarm</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">ARRAY[0..3] OF BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">[4(False)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_867D0B172BB24C28BCC343FC64FC21C3" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">Upper/lower limit alarm output</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">HighAlm</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">ARRAY[0..3] OF BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">[4(False)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_F30E2C70BA144AE68CAF0EBA28FD88C3" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">Upper limit alarm</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">LowAlm</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">ARRAY[0..3] OF BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">[4(False)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_5CCF6AE141394AA3B0027E0E525D7FE4" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">Lower limit alarm</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">Error_LimitAlarm</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">ARRAY[0..3] OF BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">[4(False)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_6C6933CB1F3D45C7B71D81F5EC515F73" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">Error in LimitAlarm_REAL instruction</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">Alm_LimitAlarm</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">ARRAY[0..3] OF BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">[4(False)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_202300C62CA84F46857131E18FEE9CA8" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">Output for safety measure for Upper/Lower Limit Alarm instruction</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">DvHighVal</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">ARRAY[0..3] OF REAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">[4(50)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_238DD6C1A7074D0D879A885DFCA74BCC" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">Upper deviation set value of upper/lower deviation alarm</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">DvLowVal</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">ARRAY[0..3] OF REAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">[4(50)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_0BA3620544104C89B2993FD20AE668E2" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">Lower deviation set value of upper/lower deviation alarm</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">Q_LimitAlarmDv</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">ARRAY[0..3] OF BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">[4(False)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_139FBD6836A649A18D5B551B47C8F081" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">Upper/lower deviation alarm output</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">HighAlmDv</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">ARRAY[0..3] OF BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">[4(False)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_8A233C5A227A4CD092913A83A7EAD7A2" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">Upper deviation alarm</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">LowAlmDv</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">ARRAY[0..3] OF BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">[4(False)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_BB2D8AD0A961433BB7D1CBB5E0070F3E" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">Lower deviation alarm</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">Error_LimitAlarmDv</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">ARRAY[0..3] OF BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">[4(False)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_B8A635062BDF4E13A9ADEF3816F3D2F4" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">Error in LimitAlarmDv_REAL instruction</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">Hystrs_LimitAlarmDv</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">ARRAY[0..3] OF REAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">[4(3)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_91475F002C33408BA2634F89AD4DE234" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">Hysteresis of upper/lower deviation alarm</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">Alm_LimitAlarmDv</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">ARRAY[0..3] OF BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">[4(False)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_632C31A3EC0B4ADAB30954EECC1AAC6B" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">Output for safety measure for Upper/Lower Deviation Alarm instruction</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">Run</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">ARRAY[0..3] OF BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">[4(False)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_3CD9DA76B6BD422AB755458262705050" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">Execution condition</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">ManCtl</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">ARRAY[0..3] OF BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">[4(False)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_DB06005511624A59AE554990B90B471C" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">Manual/auto control</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">StartAT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">ARRAY[0..3] OF BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">[4(False)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_28D98B2DDEAD4F2B92E519A2E42AF975" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">Autotuning execution condition</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">OprSetParams</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">_sOPR_SET_PARAMS</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">(MVLowLmt:=0.0, MVUpLmt:=100.0, ManResetVal:=0.0, MVTrackSw:=False, MVTrackVal:=0.0, StopMV:=0.0, ErrorMV:=0.0,Alpha:=0.65, ATCalcGain:=1.0, ATHystrs:=0.2)</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_794D0FC6062C496C85A080525300411B" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">Operation setting parameters</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">InitSetParams</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">_sINIT_SET_PARAMS</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">(SampTime:=T#100 ms, RngLowLmt:=-10.0,RngUpLmt:=1000.0, DirOpr:=False)</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_14DB96963F2044188A30520BE1A0FB02" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">Initial setting parameters</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">PB</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">ARRAY[0..3] OF REAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">[4(10)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_1A264102A5FC4689A2BAC6BDF57FED89" src="eeo1501816740271.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">Proportional band</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">TI</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">ARRAY[0..3] OF TIME</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">[4(T#0 s)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_2B4268B25500488D8246C637764676E9" src="eeo1501816740271.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">Integration time</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">TD</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">ARRAY[0..3] OF TIME</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">[4(T#0 s)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_D196194F29F045069EB6C0B0D3E434F5" src="eeo1501816740271.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">Derivative time</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">ManMV</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">ARRAY[0..3] OF REAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">[4(0.0)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_BEC3B6398DFB4AD38CB620D178E70E94" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">Manual manipulated variable</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">ATDone</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">ARRAY[0..3] OF BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">[4(False)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_2D1B568AF23B4F08981BF8174A7276AF" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">Autotuning normal completion</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">ATBusy</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">ARRAY[0..3] OF BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">[4(False)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_B731179395054ED9A55F7C49FB27FB94" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">Autotuning busy</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">Error_PIDAT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">ARRAY[0..3] OF BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">[4(False)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_7A52D4370EB14CAD992470C2718B797A" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">Error in PIDAT instruction</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">ErrorID</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">ARRAY[0..3] OF WORD</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">[4(16#0)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_980841D95A6E41E0874223997D694BA8" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">Error ID for PIDAT instruction</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">MV</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">ARRAY[0..3] OF REAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">[4(0.0)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_BBEDFB700F6F461C8076CE36BF7FC79B" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">Manipulated variable</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">CtlPrd</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">ARRAY[0..3] OF TIME</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">[4(T#1 s)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_9ADA84DBD0F941CCAE2A43E2DBABFD90" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">Control period</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">MinPlsWidth</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">ARRAY[0..3] OF REAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">[4(0.0)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_8FC93119E39740FE8AF92C6E9D2F50AF" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">Minimum pulse width</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">Delay</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">ARRAY[0..3] OF REAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">[4(0.0)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_B19BC416F90E42068AA70D41A09B9283" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">ON-delay time</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">Error_TimeProportionalOut</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">ARRAY[0..3] OF BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">[4(False)]</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_BBC8C882821E47ED9BA284385574E37F" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">Error in TimeProportionalOut instruction</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">LimitAlarm_REAL_instance</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">ARRAY[0..3] OF LimitAlarm_REAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_443BF158124045C5826B2F3499B3A331" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">LimitAlarmDv_REAL_instance</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">ARRAY[0..3] OF LimitAlarmDv_REAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_69D4DF3EB7FA4FB088FEA0951441A698" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">PIDAT_instance</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">ARRAY[0..3] OF PIDAT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_61CD2C1B4AB446109D2C8ADE71B0A011" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d120522e39 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e42 ">TimeProportionalOut_instance</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e45 ">ARRAY[0..3] OF TimeProportionalOut</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e48 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d120522e51 ">
+<br /><img class="image" id="coe1501816807637__image_2FB43842A33F414BBAAF33891F7F1280" src="pos1501816739536.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d120522e55 ">&#160;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="coe1501816807637__table_N109A2_N10010_N10002" class="rules_all " frame="hsides" border="1">
+<col style="width:9%" />
+<col style="width:30%" />
+<col style="width:30%" />
+<col style="width:30%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d120522e1138">External Variables</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d120522e1141">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d120522e1144">Data type</th>
+
+<th class="entry row-nocellborder" style="text-align:left;vertical-align:top;" id="d120522e1147">Comment</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e1138 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d120522e1141 ">AI1</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d120522e1144 ">INT</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d120522e1147 ">Input No.1 (Process value)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e1138 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d120522e1141 ">AI2</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d120522e1144 ">INT</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d120522e1147 ">Input No.2 (Process value)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e1138 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d120522e1141 ">AI3</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d120522e1144 ">INT</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d120522e1147 ">Input No.3 (Process value)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e1138 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d120522e1141 ">AI4</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d120522e1144 ">INT</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d120522e1147 ">Input No.4 (Process value)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e1138 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d120522e1141 ">DO1</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d120522e1144 ">BOOL</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d120522e1147 ">output word 1 (Bit 00)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e1138 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d120522e1141 ">DO2</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d120522e1144 ">BOOL</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d120522e1147 ">output word 1 (Bit 01)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d120522e1138 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d120522e1141 ">DO3</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d120522e1144 ">BOOL</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d120522e1147 ">output word 1 (Bit 02)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d120522e1138 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d120522e1141 ">DO4</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d120522e1144 ">BOOL</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d120522e1147 ">output word 1 (Bit 03)</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt"></p>
+
+<pre class="pre codeblock">
+// Control temperature for four points.
+FOR index:=UINT#0 TO UINT#3 BY UINT#1 DO
+
+  // Get values of inputs 1 to 4.
+  CASE index OF
+  INT#0:
+    AI:=AI1;
+  INT#1:
+    AI:=AI2;
+  INT#2:
+    AI:=AI3;
+  ELSE
+    AI:=AI4;
+  END_CASE;
+
+  // Convert PV AI to real number.
+  PV[index]:=INT_TO_REAL(AI)/REAL#10.0; // CJ1W-PH41U output is ten times the process value, so divide by 10.0.
+
+  // Upper/lower limit alarm
+  LimitAlarm_REAL_instance[index](
+    Enable :=LimitAlarm_ON,
+    H :=HighVal[index],
+    X :=PV[index],
+    L :=LowVal[index],
+    EPS :=Hystrs_LimitAlarm[index],
+    Q =&gt;Q_LimitAlarm[index],
+    QH =&gt;HighAlm[index],
+    QL =&gt;LowAlm[index],
+    Error =&gt;Error_LimitAlarm[index]);
+
+  // Perform an output as a safety measure if an error occurs in the LimitAlarmDv_REAL instruction or if an upper/lower limit alarm occurs.
+  Alm_LimitAlarm[index]:=Q_LimitAlarm[index] OR Error_LimitAlarm[index];
+
+  // Upper/lower deviation alarm
+  LimitAlarmDv_REAL_instance[index](
+    Enable :=LimitAlarmDv_ON,
+    X :=PV[index],
+    H :=DvHighVal[index],
+    Y :=SP[index],
+    L :=DvLowVal[index],
+    EPS :=Hystrs_LimitAlarmDv[index],
+    Q =&gt;Q_LimitAlarmDv[index],
+    QH =&gt;HighAlmDv[index],
+    QL =&gt;LowAlmDv[index],
+    Error =&gt;Error_LimitAlarmDv[index]);
+
+  // Perform an output as a safety measure if an error occurs in the LimitAlarmDv_REAL instruction or if an upper/lower limit alarm occurs.
+  Alm_LimitAlarmDv[index]:=Q_LimitAlarmDv[index] OR Error_LimitAlarmDv[index];
+
+  // Execute PIDAT instruction.
+  PIDAT_instance[index](
+    Run :=Run[index],
+    ManCtl :=ManCtl[index],
+    StartAT :=StartAT[index],
+    PV :=PV[index],
+    SP :=SP[index],
+    OprSetParams :=OprSetParams,
+    InitSetParams :=InitSetParams,
+    ProportionalBand:=PB[index],
+    IntegrationTime :=TI[index],
+    DerivativeTime :=TD[index],
+    ManMV :=ManMV[index],
+    ATDone =&gt;ATDone[index],
+    ATBusy =&gt;ATBusy[index],
+    Error =&gt;Error_PIDAT[index],
+    ErrorID =&gt;ErrorID[index],
+    MV =&gt;MV[index]);
+
+  // Time-proportional output
+  TimeProportionalOut_instance[index](
+    Enable :=TimeProportionalOut_ON,
+    AIn :=MV[index],
+    CtlPrd :=CtlPrd[index],
+    MinPlsWidth :=MinPlsWidth[index],
+    Delay :=Delay[index],
+    DOut =&gt;DOut_TPO,
+    Error =&gt;Error_TimeProportionalOut[index]);
+
+  // Perform outputs for bits 00 to 03 of output word 1.
+  CASE index OF
+  INT#0:
+    DO1:=DOut_TPO;
+  INT#1:
+    DO2:=DOut_TPO;
+  INT#2:
+    DO3:=DOut_TPO;
+  ELSE
+    DO4:=DOut_TPO;
+  END_CASE;
+
+END_FOR;
+</pre>
+
+</div>
+
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

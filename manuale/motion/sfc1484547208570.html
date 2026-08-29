@@ -1,0 +1,140 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>Precautions for Master and Auxiliary Axes in Synchronized Control</title>
+</head>
+<body class="sfc1484547208570"><div class="layer02" id="sfc1484547208570">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Precautions for Master and Auxiliary Axes in Synchronized Control</h1>
+
+<div class="body conbody">
+<p class="p" id="sfc1484547208570__ID0E1LAG">Precautions that are related to sudden changes in velocity and conditions that lead to errors are given below for master and auxiliary axes in synchronized control.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="mxp1484547208960">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Sudden Changes in Velocity</h1>
+
+<div class="body conbody">
+<p class="p" id="mxp1484547208960__ID0EINAG">When the velocity of the master or auxiliary axis changes suddenly when synchronized motion is started or during synchronized motion, the motion of the slave axis can change suddenly and sometimes place an excessive load on the machine.</p>
+
+<p class="p" id="mxp1484547208960__ID0EPNAG">Take suitable precautions in the following cases because the velocity of the master or auxiliary axis may change suddenly.</p>
+
+<ul class="ul">
+<li class="li" id="mxp1484547208960__li_N10021_N1001E_N1000F_N10001">
+<p class="p" id="mxp1484547208960__ID0ECOAG">When one of the following four instructions is executed for the master or auxiliary axis:</p>
+
+            
+<p class="p" id="mxp1484547208960__ID0EMOAG">MC_ImmediateStop instruction</p>
+
+<p class="p" id="mxp1484547208960__ID0EPOAG">MC_SetPosition instruction</p>
+
+<p class="p" id="mxp1484547208960__ID0EWOAG">MC_ResetFollowingError instruction</p>
+
+<p class="p" id="mxp1484547208960__ID0E4OAG">MC_SyncMoveVelocity (Cyclic Synchronous Velocity Control) instruction</p>
+
+<p class="p" id="mxp1484547208960__ID0EEPAG">To ensure that the slave axis does not move suddenly, set suitable input parameters and execution timing for the above instructions or execute them after synchronized control has been released.</p>
+
+</li>
+
+<li class="li" id="mxp1484547208960__li_N10052_N1001E_N1000F_N10001">
+<p class="p" id="mxp1484547208960__ID0EUPAG">When the immediate stop input signal or limit stop input signal changes to TRUE for the master or auxiliary axis</p>
+
+</li>
+
+<li class="li" id="mxp1484547208960__li_N1005E_N1001E_N1000F_N10001">
+<p class="p" id="mxp1484547208960__ID0E6PAG">When the Servo turns OFF for the master or auxiliary axis</p>
+
+<p class="p" id="mxp1484547208960__ID0EJQAG">When the Servo is turned OFF when the master or auxiliary axis is a vertical axis, the position of the axis may change suddenly.</p>
+
+<p class="p" id="mxp1484547208960__ID0EMQAG">Take suitable measures to prevent the slave axis from moving suddenly, such as applying a brake to the master or auxiliary axis or turning OFF the Servo after synchronized control has been released.</p>
+
+</li>
+
+<li class="li" id="mxp1484547208960__li_N10076_N1001E_N1000F_N10001">
+<p class="p" id="mxp1484547208960__ID0E3QAG">When you change the control mode of the Servo Drive</p>
+
+<p class="p" id="mxp1484547208960__ID0EGRAG">Take suitable precautions for changes in the velocity when an instruction is executed.</p>
+
+<p class="p" id="mxp1484547208960__ID0EJRAG">Set suitable input parameters for the instruction.</p>
+
+</li>
+
+</ul>
+
+<div class="note" id="mxp1484547208960__note_N1008B_N1000F_N10001"><div class="ver"><span class="notetitle ver">ver:</span> <p class="p" id="mxp1484547208960__ID0EFSAG">With a CPU Unit with unit version 1.10 or later, the operation of the slave axis does not change suddenly even if you use the MC_SetPosition (Set Position) instruction to change the command current position of the master axis or auxiliary axis for a synchronized control instruction.</p>
+
+</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="hbe1484547209257">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Conditions That Lead to Errors</h1>
+
+<div class="body conbody">
+        
+        
+<p class="p">Some conditions apply to NJ-series, NX-series and NY-series CPU Units, and other conditions apply only to NX701 CPU Units.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="prs1484547209459">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Conditions for NJ/NX/NY-series CPU Units</h1>
+
+<div class="body conbody">
+<p class="p" id="prs1484547209459__ID0EVUAG">When any of the following four conditions occurs for the master or auxiliary axis when synchronized motion is started or during synchronized motion, a Master Axis Position Read Error or Auxiliary Axis Position Read Error occurs for the slave axis.</p>
+
+<p class="p" id="prs1484547209459__ID0EYUAG">The <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> output variable from the synchronized control instruction changes to TRUE at the same time.</p>
+
+<ul class="ul" id="prs1484547209459__ul_F27C33845812456D839E3059BCDB2962">
+<li class="li" id="prs1484547209459__li_4B15B4DDA2D248DAB683E681037C5F79">EtherCAT process data communications are not established.</li>
+
+<li class="li" id="prs1484547209459__li_792CCD68DF8E4AF7AEF5889016A7942B">An EtherCAT Slave Communications Error occurs while EtherCAT communications are not established.</li>
+
+<li class="li" id="prs1484547209459__li_7A33C594710E4995AF5763E2879BE586">An Absolute Encoder Current Position Calculation Failed error occurs.</li>
+
+<li class="li" id="prs1484547209459__li_5B2CFBF9127D4FC99B23E03558D48548">The slave is disconnected.</li>
+
+</ul>
+
+<p class="p linespace_7pt" id="prs1484547209459__ID0E4WAG">The following occur if multi-execution of instructions is used for synchronized control instructions for the slave axis.</p>
+
+<ul class="ul" id="prs1484547209459__ul_6687E5572AA9473590B2223D3EFEA926">
+<li class="li" id="prs1484547209459__li_B88E524CE6F649C8AF8C3823BE9BBEC6">Even if the master or auxiliary axis is in one of the four conditions given above, multi-execution of instructions is acknowledged normally and the instruction is buffered.</li>
+
+<li class="li" id="prs1484547209459__li_F8676A406CED44A7B64136C06AE06C94">The motion for the buffered instruction is started as normal if none of the above four conditions exist.</li>
+
+</ul>
+
+<div class="note" id="prs1484547209459__note_N1005D_N10013_N10002"><div class="memo"><span class="notetitle memo">memo:</span>
+<p class="p" id="prs1484547209459__ID0E5YAG">If the MC_Home or MC_HomeWithParameter instruction is executed for the master or auxiliary axis or if the MC_Power instruction is executed for an axis that uses an absolute encoder, the slave ignores the changes in position of the master or auxiliary axis.</p>
+
+<p class="p" id="prs1484547209459__ID0EFZAG">Therefore, the slave axis does not move suddenly when defining home.</p>
+
+</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="yzb1484547209693">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">Conditions for NX701 CPU Units</h1>
+ 
+<div class="body conbody">
+<p class="p" id="yzb1484547209693__ID0EN1AG">If the master axis and auxiliary axis are assigned to a different task from the slave axis, an Illegal Master Axis Specification (error code 5462 hex) occurs for the slave axis and the <span class="ph phtype_variable"><span class="termtype">Error</span></span> output variable from the synchronized control instructions change to TRUE.</p>
+ 
+</div>
+ 
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+
+

@@ -1,0 +1,1067 @@
+{
+ "progetto": "Slayer_Blades_C777_V2",
+ "guid": "4d2ce61e-9790-404d-b44b-022daa3fd208",
+ "sections": {
+  "Aspiratore": {
+   "rungs": [
+    {
+     "cmt": "#MARCIA ASPIRATORE:ATTIVO IL RELè DI SICUREZZA PER LA MARCIA ASPIRATORE",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "^V_P_Marcia_Aspira",
+       "(S Mem_Marcia_Aspiratore)"
+      ],
+      [
+       "IN_RELE_SICUREZZA",
+       "(V_L_Marcia_Aspira)"
+      ]
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "OUT_ARRESTO_ASPIRATORE",
+        "IN_EMERGENZA",
+        "Mem_Arresto_Aspiratore"
+       ]
+      },
+      "(R Mem_Marcia_Aspiratore)"
+     ]
+    },
+    {
+     "cmt": "TIMER DISATTIVAZIONE DELLA MEMORIA DI MARCIA ASPIRATORE",
+     "chain": [
+      "Mem_Marcia_Aspiratore",
+      {
+       "fb": "TON",
+       "inst": "Tim1",
+       "p": {
+        "PT": "T#1s"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "OUTPUT MARCIA ASPIRATORE",
+     "chain": [
+      "Mem_Marcia_Aspiratore",
+      "/Tim1.Q",
+      "(OUT_MARCIA_ASPIRATORE)"
+     ]
+    },
+    {
+     "cmt": "DOPO 1 SECONDO CHE HO IL RELè DI SICUREZZA ATTIVO AVVIO L'INVERTER",
+     "chain": [
+      "/IN_EMERGENZA",
+      "IN_RELE_SICUREZZA",
+      "IN_INVERTER_READY",
+      {
+       "fb": "TON",
+       "inst": "Tim2",
+       "p": {
+        "PT": "T#1s"
+       }
+      },
+      "/Mem_Arresto_Aspiratore",
+      "/Speed_0_Orologio",
+      "(OUT_START_INVERTER)"
+     ]
+    },
+    {
+     "cmt": "VELOCITà ASPIRATORE",
+     "chain": [
+      "P_On",
+      {
+       "or": [
+        [
+         "/V_P_Orologio",
+         {
+          "f": "MOVE",
+          "p": {
+           "In": "SET_Speed_Manu_Inverter",
+           "OUT:Out": "OUT_FreqSetpoint"
+          }
+         },
+         {
+          "f": "MOVE",
+          "p": {
+           "In": "SET_Speed_Manu_Inverter",
+           "OUT:Out": "PV_Set_Speed_Inverter"
+          }
+         }
+        ],
+        [
+         "V_P_Orologio",
+         {
+          "or": [
+           [
+            {
+             "f": "<=",
+             "p": {
+              "In1": "SET_Speed_Auto_Inverter",
+              "In2": "int#50"
+             }
+            },
+            {
+             "f": "MUL",
+             "p": {
+              "In1": "SET_Speed_Auto_Inverter",
+              "In2": "int#10",
+              "OUT:": "MUL_SET_Speed_Auto_Inverter"
+             }
+            },
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "MUL_SET_Speed_Auto_Inverter",
+              "OUT:Out": "OUT_FreqSetpoint"
+             }
+            },
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "MUL_SET_Speed_Auto_Inverter",
+              "OUT:Out": "PV_Set_Speed_Inverter"
+             }
+            }
+           ],
+           [
+            {
+             "f": "=",
+             "p": {
+              "In1": "SET_Speed_Auto_Inverter",
+              "In2": "0"
+             }
+            },
+            "(Speed_0_Orologio)"
+           ]
+          ]
+         }
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       {
+        "f": "<=",
+        "p": {
+         "In1": "SET_Speed_Auto_Inverter",
+         "In2": "0"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "0",
+         "OUT:Out": "SET_Speed_Auto_Inverter"
+        }
+       }
+      ],
+      [
+       {
+        "f": "<=",
+        "p": {
+         "In1": "SET_Speed_Manu_Inverter",
+         "In2": "0"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "0",
+         "OUT:Out": "SET_Speed_Manu_Inverter"
+        }
+       }
+      ]
+     ]
+    },
+    {
+     "cmt": "TRASFORMO IL VALORE 0-500(0-50HZ) IN 0-4000 PER L'USCITA ANALOGICA",
+     "chain": [
+      "P_On",
+      {
+       "f": "INT_TO_REAL",
+       "p": {
+        "In": "OUT_FreqSetpoint",
+        "OUT:": "OUT_Analog_FreqSetpoint"
+       }
+      },
+      {
+       "f": "ScaleTrans",
+       "p": {
+        "SclIn": "OUT_Analog_FreqSetpoint",
+        "X0": "real#0",
+        "Y0": "real#0",
+        "X1": "real#500",
+        "Y1": "real#3960",
+        "OUT:": "OUT_Analog_Scale_FreqSetpoint"
+       }
+      },
+      {
+       "f": "REAL_TO_INT",
+       "p": {
+        "In": "OUT_Analog_Scale_FreqSetpoint",
+        "OUT:": "OUT_ANALOG_1"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "#ARRESTO ASPIRATORE",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "^V_P_Arresto_Aspira",
+       "(S Mem_Arresto_Aspiratore)"
+      ],
+      [
+       "Mem_Arresto_Aspiratore",
+       {
+        "f": "Get1sClk",
+        "p": {}
+       },
+       "(V_L_Arresto_Aspira)"
+      ]
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "IN_EMERGENZA",
+        "/IN_RELE_SICUREZZA"
+       ]
+      },
+      "(R Mem_Arresto_Aspiratore)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Arresto_Aspiratore",
+      "/Inverter_STS.DriveRunning",
+      {
+       "f": "<=",
+       "p": {
+        "In1": "PV_Inverter_Speed",
+        "In2": "int#1"
+       }
+      },
+      "(OUT_ARRESTO_ASPIRATORE)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "_EIP1_EstbTargetSta[3]",
+      "(Ethernet_Inverter_OK)"
+     ]
+    },
+    {
+     "cmt": "TRASFORMO L'INGRESSO ANALOGICO 1 IN UNA FREQUENZA 0-500 (0-50hZ)",
+     "chain": [
+      "P_On",
+      {
+       "f": "INT_TO_REAL",
+       "p": {
+        "In": "IN_ANALOG_1",
+        "OUT:": "IN_ANALOG_1_REAL"
+       }
+      },
+      {
+       "f": "ScaleTrans",
+       "p": {
+        "SclIn": "IN_ANALOG_1_REAL",
+        "X0": "real#0",
+        "Y0": "real#0",
+        "X1": "real#4004",
+        "Y1": "real#500",
+        "OUT:": "IN_ANALOG_1_REAL_Scale"
+       }
+      },
+      {
+       "f": "REAL_TO_INT",
+       "p": {
+        "In": "IN_ANALOG_1_REAL_Scale",
+        "OUT:": "PV_Inverter_Speed"
+       }
+      },
+      {
+       "f": ">",
+       "p": {
+        "In1": "PV_Inverter_Speed",
+        "In2": "INT#0"
+       }
+      },
+      "(PV_Inverter_Enable)"
+     ]
+    },
+    {
+     "cmt": "TRASFORMO L'INGRESSO ANALOGICO 2 IN UN VALORE DI ASSORBIMENTO IN AMPERE",
+     "chain": [
+      "P_On",
+      {
+       "f": "INT_TO_REAL",
+       "p": {
+        "In": "IN_ANALOG_2",
+        "OUT:": "IN_ANALOG_2_REAL"
+       }
+      },
+      {
+       "f": "ScaleTrans",
+       "p": {
+        "SclIn": "IN_ANALOG_2_REAL",
+        "X0": "real#0",
+        "Y0": "real#0",
+        "X1": "real#4000",
+        "Y1": "real#360",
+        "OUT:": "IN_ANALOG_2_REAL_Scale"
+       }
+      },
+      {
+       "f": "REAL_TO_INT",
+       "p": {
+        "In": "IN_ANALOG_2_REAL_Scale",
+        "OUT:": "PV_Inverter_Current"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "CONTEGGIO ORE DI FUNZIONAMENTO ASPIRATORE",
+     "chain": [
+      "OUT_START_INVERTER",
+      "^Clock_1Min",
+      {
+       "f": "@Inc",
+       "p": {
+        "InOut": "PV_Contaore",
+        "OUT:InOut": "PV_Contaore"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "f": "Get1minClk",
+       "p": {}
+      },
+      "(Clock_1Min)"
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Clock_1Min",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Ethernet_Inverter_OK",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_ANALOG_1",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_ANALOG_1_REAL",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_ANALOG_1_REAL_Scale",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_ANALOG_2",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_ANALOG_2_REAL",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_ANALOG_2_REAL_Scale",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EMERGENZA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "1=ON  0=OFF"
+    },
+    {
+     "name": "IN_INVERTER_READY",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_RELE_SICUREZZA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Inverter_STS",
+     "type": "Status_Inverter",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MUL_SET_Speed_Auto_Inverter",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Arresto_Aspiratore",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Marcia_Aspiratore",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "OUT_ANALOG_1",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_ARRESTO_ASPIRATORE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_Analog_FreqSetpoint",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_Analog_Scale_FreqSetpoint",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_FreqSetpoint",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_MARCIA_ASPIRATORE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_START_INVERTER",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Contaore",
+     "type": "DINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Inverter_Current",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Inverter_Enable",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Inverter_Speed",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Set_Speed_Inverter",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Speed_Auto_Inverter",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Speed_Manu_Inverter",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Speed_0_Orologio",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim1",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim2",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_L_Arresto_Aspira",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_L_Marcia_Aspira",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Arresto_Aspira",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Marcia_Aspira",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Orologio",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "_EIP1_EstbTargetSta",
+     "type": "ARRAY[0..255] OF BOOL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Pompa": {
+   "rungs": [
+    {
+     "cmt": "LIVELLO POMPA OK",
+     "chain": [
+      "IN_LIV_POMPA",
+      {
+       "fb": "TON",
+       "inst": "Tim_Liv_Pompa_OK",
+       "p": {
+        "PT": "TIME#2S"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "#MARCIA POMPA:ATTIVO LA POMPA",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "^V_P_Marcia_Pompa",
+       "(S Mem_Marcia_Pompa)"
+      ],
+      [
+       "Mem_Marcia_Pompa",
+       "(V_L_Marcia_Pompa)"
+      ]
+     ]
+    },
+    {
+     "cmt": "ARRESTO POMPA",
+     "chain": [
+      "P_On",
+      {
+       "or": [
+        "^V_P_Arresto_Pompa",
+        "IN_EMERGENZA",
+        "IN_TERMICO_POMPA"
+       ]
+      },
+      "(R Mem_Marcia_Pompa)"
+     ]
+    },
+    {
+     "cmt": "USCITA POMPA",
+     "chain": [
+      "Mem_Marcia_Pompa",
+      "Tim_Liv_Pompa_OK.Q",
+      {
+       "or": [
+        "/V_P_Orologio",
+        [
+         "V_P_Orologio",
+         {
+          "f": ">",
+          "p": {
+           "In1": "SET_Speed_Auto_Inverter",
+           "In2": "0"
+          }
+         }
+        ]
+       ]
+      },
+      "(OUT_MARCIA_POMPA)"
+     ]
+    },
+    {
+     "cmt": "REINTEGRO ACQUA",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "/IN_LIV_MIN",
+       "(S Mem_Riempimento)"
+      ],
+      [
+       "IN_LIV_MAX",
+       "(R Mem_Riempimento)"
+      ]
+     ]
+    },
+    {
+     "cmt": "USCITE",
+     "chain": [
+      "/IN_EMERGENZA",
+      {
+       "or": [
+        "V_P_Manu_Valve_1",
+        "Mem_Riempimento"
+       ]
+      },
+      "(OUT_EV_1)"
+     ]
+    },
+    {
+     "cmt": "CONTEGGIO ORE DI FUNZIONAMENTO POMPA",
+     "chain": [
+      "OUT_MARCIA_POMPA",
+      "^Clock_1Min",
+      {
+       "f": "@Inc",
+       "p": {
+        "InOut": "PV_Contaore_Pompa",
+        "OUT:InOut": "PV_Contaore_Pompa"
+       }
+      }
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Clock_1Min",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EMERGENZA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "1=ON  0=OFF"
+    },
+    {
+     "name": "IN_LIV_MAX",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIV_MIN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIV_POMPA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TERMICO_POMPA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Marcia_Pompa",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Riempimento",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "OUT_EV_1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_MARCIA_POMPA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Contaore_Pompa",
+     "type": "DINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Speed_Auto_Inverter",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Liv_Pompa_OK",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_L_Marcia_Pompa",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Arresto_Pompa",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Manu_Valve_1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Marcia_Pompa",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Orologio",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Allarmi": {
+   "rungs": [
+    {
+     "cmt": "Accendo la spia Allarmi del visualizzatore se ho un bit Allarmi Attivo",
+     "chain": [
+      {
+       "f": "ArySearch",
+       "p": {
+        "In": "Allarme_Bit[1]",
+        "Size": "uint#10",
+        "Key": "bool#1",
+        "InOutPos": "local1",
+        "OUT:": "Spia_Allarme",
+        "OUT:InOutPos": "local1"
+       }
+      },
+      "Spia_Allarme",
+      {
+       "f": "Get1sClk",
+       "p": {}
+      }
+     ],
+     "out": [
+      "(V_L_Allarmi)",
+      "(OUT_LAMP)"
+     ]
+    },
+    {
+     "cmt": "ALLARME 1: EMERGENZA PREMUTA",
+     "chain": [
+      "IN_EMERGENZA",
+      "(Allarme_Bit[1])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 2: INVERTER NO READY",
+     "chain": [
+      "/IN_INVERTER_READY",
+      "/Allarme_Bit[4]",
+      {
+       "fb": "TON",
+       "inst": "Tim3",
+       "p": {
+        "PT": "T#2s"
+       }
+      },
+      "(Allarme_Bit[2])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 3: LIVELLO POMPA",
+     "chain": [
+      "/Tim_Liv_Pompa_OK.Q",
+      "(Allarme_Bit[3])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 4: MARCIA ASPIRATORE OFF",
+     "chain": [
+      "/IN_RELE_SICUREZZA",
+      "(Allarme_Bit[4])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 5: INVERTER IN MANUALE",
+     "chain": [
+      "P_Off",
+      "(Allarme_Bit[5])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 6: ERRORE CONNESSIONE ETHERNET INVERTER",
+     "chain": [
+      "P_Off",
+      "(Allarme_Bit[6])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 7: FAULT INVERTER",
+     "chain": [
+      "P_Off",
+      "(Allarme_Bit[7])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 8: TERMICO POMPA",
+     "chain": [
+      "IN_TERMICO_POMPA",
+      "(Allarme_Bit[8])"
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Allarme_Bit",
+     "type": "ARRAY[1..20] OF bool",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EMERGENZA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "1=ON  0=OFF"
+    },
+    {
+     "name": "IN_INVERTER_READY",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_RELE_SICUREZZA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TERMICO_POMPA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_LAMP",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Spia_Allarme",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim3",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Liv_Pompa_OK",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_L_Allarmi",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "local1",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "LadderBody": {
+   "rungs": [
+    {
+     "cmt": "",
+     "chain": [
+      "ENABLE",
+      {
+       "f": "Get1sClk",
+       "p": {}
+      },
+      {
+       "f": "@Dec",
+       "p": {
+        "InOut": "VALUE",
+        "OUT:InOut": "VALUE"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "ENABLE",
+      {
+       "f": "<=",
+       "p": {
+        "In1": "VALUE",
+        "In2": "0"
+       }
+      },
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "0",
+        "OUT:Out": "VALUE"
+       }
+      },
+      "(End_Conteggio)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "/ENABLE",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "SET_VALUE",
+        "OUT:Out": "VALUE"
+       }
+      }
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "ENABLE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "End_Conteggio",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_VALUE",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "VALUE",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  }
+ }
+}

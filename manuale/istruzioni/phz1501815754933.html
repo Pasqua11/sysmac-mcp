@@ -1,0 +1,1178 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>EC_CoESDORead</title>
+</head>
+<body class="phz1501815754933"><div class="layer02" id="phz1501815754933">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">EC_CoESDORead</h1>
+
+<div class="body conbody">
+<p class="p">The EC_CoESDORead instruction reads a value from a CoE (CAN Application Protocol over EtherCAT) object of a specified slave on the EtherCAT network.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="phz1501815754933__table_N10016_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:13%" />
+<col style="width:14%" />
+<col style="width:6%" />
+<col style="width:35%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d764844e37">Instruction</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d764844e40">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d764844e43">
+<p class="p">FB/</p>
+
+<p class="p">FUN</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d764844e52">Graphic expression</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d764844e55">ST expression</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d764844e37 "><span class="indexterm">EC_CoESDORead (Read EtherCAT CoE SDO)</span>EC_CoESDORead</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d764844e40 "><span class="indexterm">Read EtherCAT CoE SDO</span>Read EtherCAT CoE SDO</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d764844e43 ">FB</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d764844e52 ">
+<br /><img class="image" id="phz1501815754933__image_F969A06E9CA24156AA6218CC55593549" src="qrk1501815754266.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d764844e55 ">EC_CoESDORead_instance(Execute, NodeAdr, SdoObj, TimeOut, ReadDat, Done, Busy, Error, ErrorID, AbortCode, ReadSize);</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="mfl1501817055218">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="mfl1501817055218__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:20%" />
+<col style="width:9%" />
+<col style="width:20%" />
+<col style="width:14%" />
+<col style="width:14%" />
+<col style="width:8%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d646104e66">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d646104e68">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d646104e71">I/O</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d646104e74">Description</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d646104e77">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d646104e81">Unit</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d646104e84">Default</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d646104e66 ">NodeAdr</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d646104e68 ">Slave node address</td>
+
+<td class="entry cellrowborder" rowspan="3" style="text-align:left;vertical-align:middle;" headers="d646104e71 ">Input</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d646104e74 ">Node address of the slave to access</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d646104e77 ">1 to 512<a class="xref" href="phz1501815754933.html#mfl1501817055218__fn-1829829"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d646104e81 ">---</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d646104e84 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d646104e66 ">SdoObj</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d646104e68 ">SDO parameter</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d646104e74 ">SDO parameter</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d646104e77 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d646104e66 ">TimeOut</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d646104e68 ">Timeout time</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d646104e74 ">
+<p class="p">0: 2.0 s</p>
+
+<p class="p">1 to 65535: 0.1 to 6553.5 s</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d646104e77 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d646104e81 ">0.1 s</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d646104e84 ">
+<p class="p">0</p>
+
+<p class="p">(2.0 s)</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d646104e66 ">AbortCode</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d646104e68 ">Abort code</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d646104e71 ">Output</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d646104e74 ">
+<p class="p">Response code for SDO access specified by CoE</p>
+
+<p class="p">0: Normal end</p>
+
+</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d646104e77 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d646104e81 ">---</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d646104e84 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d646104e66 ">ReadSize</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d646104e68 ">Read data size</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d646104e74 ">Size of data stored in <span class="ph phtype_variable"><span class="termtype">ReadDat</span></span> after the data is read<a class="xref" href="phz1501815754933.html#mfl1501817055218__fn-1829830"><i style="display:none;">☆</i><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d646104e81 ">Bytes</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d646104e66 ">ReadDat</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d646104e68 ">Read data</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d646104e71 ">In-out</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d646104e74 ">Read data buffer</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d646104e77 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d646104e81 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d646104e84 ">---</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="mfl1501817055218__fn-1829829" id="mfl1501817055218__fn-1829829"><sup>*1</sup></a>
+<p class="p">The range is <span class="ph phtype_settingvalue"><span class="termtype">1 to 256</span></span> for the NX502 CPU Unit.</p>
+
+<p class="p">The range is <span class="ph phtype_settingvalue"><span class="termtype">1 to 192</span></span> for the NX102 CPU Unit, NX1P2 CPU Unit, and NJ-series CPU Unit.</p>
+
+</div>
+<div class="fn"><a name="mfl1501817055218__fn-1829830" id="mfl1501817055218__fn-1829830"><sup>*2</sup></a>  The read data size may be less than 1 byte, e.g., if the read data is BOOL or a BOOL array. If it is less than 1 byte, set the value of <span class="ph phtype_variable"><span class="termtype">ReadSize</span></span> to 1. </div></div></div>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="mfl1501817055218__table_N101B8_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:5%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:top;" id="d646104e302">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d646104e304">Boolean</th>
+
+<th class="entry cellrowborder" colspan="4" style="text-align:center;vertical-align:middle;" id="d646104e307">Bit strings</th>
+
+<th class="entry cellrowborder" colspan="8" style="text-align:center;vertical-align:middle;" id="d646104e310">Integers</th>
+
+<th class="entry cellrowborder" colspan="2" style="text-align:center;vertical-align:middle;" id="d646104e313">Real numbers</th>
+
+<th class="entry cellrowborder" colspan="5" style="text-align:center;vertical-align:middle;" id="d646104e317">Times, durations, dates, and text strings</th>
+
+</tr>
+
+<tr class="row">
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d646104e323">BOOL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d646104e326">BYTE</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d646104e329">WORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d646104e332">DWORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d646104e335">LWORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d646104e339">USINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d646104e342">UINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d646104e345">UDINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d646104e348">ULINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d646104e351">SINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d646104e354">INT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d646104e358">DINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d646104e361">LINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d646104e364">REAL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d646104e367">LREAL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d646104e370">TIME</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d646104e373">DATE</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d646104e377">TOD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d646104e380">DT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d646104e383">STRING</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d646104e302 d646104e323 ">NodeAdr</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e304 d646104e326 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e307 d646104e329 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e307 d646104e332 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e307 d646104e335 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e307 d646104e339 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e310 d646104e342 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e310 d646104e345 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e310 d646104e348 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e310 d646104e351 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e310 d646104e354 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e310 d646104e358 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e310 d646104e361 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e310 d646104e364 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e313 d646104e367 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e313 d646104e370 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e317 d646104e373 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e317 d646104e377 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e317 d646104e380 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e317 d646104e383 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e317 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d646104e302 d646104e323 ">SdoObj</td>
+
+<td class="entry cellrowborder" colspan="20" style="text-align:center;vertical-align:middle;" headers="d646104e304 d646104e307 d646104e310 d646104e313 d646104e317 d646104e326 d646104e329 d646104e332 d646104e335 d646104e339 d646104e342 d646104e345 d646104e348 d646104e351 d646104e354 d646104e358 d646104e361 d646104e364 d646104e367 d646104e370 d646104e373 d646104e377 d646104e380 d646104e383 ">Refer to <a class="xref" href="phz1501815754933.html"><i style="display:none;">☆</i>EC_CoESDORead</a> for details on the structure _sSDO_ACCESS.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d646104e302 d646104e323 ">TimeOut</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e304 d646104e326 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e307 d646104e329 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e307 d646104e332 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e307 d646104e335 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e307 d646104e339 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e310 d646104e342 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e310 d646104e345 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e310 d646104e348 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e310 d646104e351 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e310 d646104e354 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e310 d646104e358 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e310 d646104e361 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e310 d646104e364 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e313 d646104e367 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e313 d646104e370 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e317 d646104e373 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e317 d646104e377 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e317 d646104e380 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e317 d646104e383 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e317 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d646104e302 d646104e323 ">AbortCode</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e304 d646104e326 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e307 d646104e329 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e307 d646104e332 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e307 d646104e335 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e307 d646104e339 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e310 d646104e342 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e310 d646104e345 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e310 d646104e348 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e310 d646104e351 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e310 d646104e354 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e310 d646104e358 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e310 d646104e361 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e310 d646104e364 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e313 d646104e367 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e313 d646104e370 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e317 d646104e373 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e317 d646104e377 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e317 d646104e380 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e317 d646104e383 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e317 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d646104e302 d646104e323 ">ReadSize</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e304 d646104e326 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e307 d646104e329 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e307 d646104e332 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e307 d646104e335 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e307 d646104e339 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e310 d646104e342 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e310 d646104e345 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e310 d646104e348 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e310 d646104e351 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e310 d646104e354 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e310 d646104e358 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e310 d646104e361 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e310 d646104e364 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e313 d646104e367 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e313 d646104e370 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e317 d646104e373 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e317 d646104e377 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e317 d646104e380 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e317 d646104e383 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e317 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d646104e302 d646104e323 ">ReadDat</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e304 d646104e326 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e307 d646104e329 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e307 d646104e332 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e307 d646104e335 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e307 d646104e339 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e310 d646104e342 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e310 d646104e345 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e310 d646104e348 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e310 d646104e351 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e310 d646104e354 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e310 d646104e358 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e310 d646104e361 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e310 d646104e364 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e313 d646104e367 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e313 d646104e370 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e317 d646104e373 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e317 d646104e377 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e317 d646104e380 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e317 d646104e383 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d646104e317 "><span class="ph font_Wingdings"></span>OK</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" colspan="20" style="text-align:center;vertical-align:middle;" headers="d646104e304 d646104e307 d646104e310 d646104e313 d646104e317 d646104e326 d646104e329 d646104e332 d646104e335 d646104e339 d646104e342 d646104e345 d646104e348 d646104e351 d646104e354 d646104e358 d646104e361 d646104e364 d646104e367 d646104e370 d646104e373 d646104e377 d646104e380 d646104e383 ">An enumeration, array, array element, structure member, or union member can also be specified.</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="ejg1501817056259">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function</h1>
+ 
+<div class="body conbody">
+<p class="p" id="ejg1501817056259__ID0EOTCI">The EC_CoESDORead instruction reads data from the CoE object of the node specified with slave node address <span class="ph phtype_variable"><span class="termtype">NodeAdr</span></span>.</p>
+
+<p class="p" id="ejg1501817056259__ID0ERTCI">The read data is stored in <span class="ph phtype_variable"><span class="termtype">ReadDat</span></span>. The size of the stored data is stored in <span class="ph phtype_variable"><span class="termtype">ReadSize</span></span>. The value of <span class="ph phtype_variable"><span class="termtype">ReadSize</span></span> is valid only when the data was stored successfully.</p>
+
+<p class="p" id="ejg1501817056259__ID0EYTCI">The SDO parameter is specified with <span class="ph phtype_variable"><span class="termtype">SdoObj</span></span>.</p>
+
+<p class="p linespace_7pt">The data type of <span class="ph phtype_variable"><span class="termtype">SdoObj</span></span> is structure _sSDO_ACCESS. The specifications are as follows:</p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ejg1501817056259__table_N10043_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:2%" />
+<col style="width:4%" />
+<col style="width:9%" />
+<col style="width:13%" />
+<col style="width:22%" />
+<col style="width:13%" />
+<col style="width:15%" />
+<col style="width:6%" />
+<col style="width:11%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" colspan="3" style="text-align:center;vertical-align:middle;" id="d218085e72">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d218085e75">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d218085e78">Description</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d218085e81">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d218085e84">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d218085e88">Unit</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d218085e91">Default</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cell-norowborder" colspan="3" style="text-align:left;vertical-align:middle;" headers="d218085e72 ">SdoObj</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d218085e75 ">SDO parameter</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d218085e78 ">SDO parameter</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d218085e81 ">_sSDO_ACCESS</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d218085e84 ">---</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d218085e88 ">---</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d218085e91 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:middle;" headers="d218085e72 ">&#160;</td>
+
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d218085e72 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d218085e75 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d218085e78 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d218085e81 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d218085e84 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d218085e88 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d218085e91 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" rowspan="3" style="text-align:left;vertical-align:middle;" headers="d218085e72 ">&#160;</td>
+
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d218085e72 ">Index</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d218085e75 ">Index</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d218085e78 ">Index number in the object dictionary defined in CoE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d218085e81 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d218085e84 ">1 to 65535</td>
+
+<td class="entry cellrowborder" rowspan="3" style="text-align:left;vertical-align:middle;" headers="d218085e88 ">---</td>
+
+<td class="entry cellrowborder" rowspan="3" style="text-align:left;vertical-align:middle;" headers="d218085e91 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d218085e72 ">Subindex</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d218085e75 ">Subindex</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d218085e78 ">Subindex number in the object dictionary defined in CoE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d218085e81 ">USINT</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d218085e84 ">Depends on data type.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d218085e72 ">IsCompleteAccess</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d218085e75 ">Complete access</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d218085e78 ">
+<p class="p">Specification of complete access of SDO</p>
+
+<p class="p">TRUE: Access data for all subindexes</p>
+
+<p class="p">FALSE: Access data for the specified subindex</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d218085e81 ">BOOL</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+<p class="p linespace_7pt">After the read is completed, the instruction waits for the response for the period of time specified with <span class="ph phtype_variable"><span class="termtype">TimeOut</span></span>.</p>
+
+<p class="p">The response is stored in <span class="ph phtype_variable"><span class="termtype">AbortCode</span></span>.</p>
+
+<p class="p linespace_7pt"><span class="ph phtype_variable"><span class="termtype">AbortCode</span></span> is 0 for a normal response. A value is stored in <span class="ph phtype_variable"><span class="termtype">AbortCode</span></span> only when the value of <span class="ph phtype_variable"><span class="termtype">ErrorID</span></span> is 16#1804 (SDO abort response).</p>
+
+<p class="p" id="ejg1501817056259__ID0ENCDI">The value and meaning of <span class="ph phtype_variable"><span class="termtype">AbortCode</span></span> depend on the slave. Refer to the manual for the slave.</p>
+
+<p class="p linespace_7pt">The following figure shows a timing chart. A value is stored in <span class="ph phtype_variable"><span class="termtype">AbortCode</span></span> when <span class="ph phtype_variable"><span class="termtype">Busy</span></span> changes to FALSE after the completion of instruction processing.</p>
+
+<br /><img class="image" id="ejg1501817056259__image_CA1102BF1CBA41B598240D1DFADF801A" src="ijj1501817055486.gif" /><br />
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="dhp1501816968221">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Related System-defined Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="dhp1501816968221__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:23%" />
+<col style="width:20%" />
+<col style="width:8%" />
+<col style="width:47%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d164205e31">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d164205e34">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d164205e37">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d164205e40">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d164205e31 ">
+<p class="p">_EC_MBXSlavTbl[i]</p>
+
+<p class="p linespace_7pt"><span class="ph phtype_quote"><span class="termtype">"i"</span></span> is the node address.</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d164205e34 ">Message Communications Enabled Slave Table</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d164205e37 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d164205e40 ">
+<p class="p">This variable indicates whether communications are possible for each slave.</p>
+
+<p class="p">TRUE: Communications are possible.</p>
+
+<p class="p">FALSE: Communications are not possible.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="boq1501817054739">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Additional Information</h1>
+
+<div class="body conbody">
+<ul class="ul">
+            
+<li class="li" id="boq1501817054739__li_N10022_N10012_N1000F_N10002">Refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Built-in EtherCAT Port User&#8217;s Manual (Cat. No. W505)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series IPC Machine Controller Industrial Panel PC / Industrial Box PC Built-in EtherCAT Port User&#8217;s Manual (Cat.No. W562)</span></span></span> for details on EtherCAT communications.</li>
+
+<li class="li" id="boq1501817054739__li_N10036_N10012_N1000F_N10002">Refer to <a class="xref" href="tky1501817054534.html#tky1501817054534"><i style="display:none;">☆</i>SDO Abort Codes</a> for the SDO abort codes.</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="gdj1501817056519">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Precautions for Correct Use</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="gdj1501817056519__li_N10015_N10012_N1000F_N10002">Execution of this instruction is continued until processing is completed even if the value of <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to FALSE or the execution time exceeds the task period. The value of <span class="ph phtype_variable"><span class="termtype">Done</span></span> changes to TRUE when processing is completed. Use this to confirm normal completion of processing.</li>
+
+<li class="li" id="gdj1501817056519__li_N10029_N10012_N1000F_N10002">Refer to <a class="xref" href="aag1501815842589.html#aag1501815842589"><i style="display:none;">☆</i>Using this Section</a> for a timing chart for <span class="ph phtype_variable"><span class="termtype">Execute</span></span>, <span class="ph phtype_variable"><span class="termtype">Done</span></span>, <span class="ph phtype_variable"><span class="termtype">Busy</span></span>, and <span class="ph phtype_variable"><span class="termtype">Error</span></span>.</li>
+
+            
+<li class="li" id="gdj1501817056519__li_N1005E_N10012_N1000F_N10002">This instruction can be used only for the NJ/NX-series and NY-series EtherCAT ports.</li>
+
+<li class="li" id="gdj1501817056519__li_N10069_N10012_N1000F_N10002">You can execute a maximum of 32 of the following instructions at the same time: EC_CoESDOWrite, EC_CoESDORead, EC_StartMon, EC_StopMon, EC_SaveMon, EC_CopyMon, EC_DisconnectSlave, EC_ConnectSlave, EC_ChangeEnableSetting, EC_GetMasterStatistics, EC_ClearMasterStatistics, EC_GetSlaveStatistics, EC_ClearSlaveStatistics, IOL_ReadObj, and IOL_WriteObj.</li>
+
+<li class="li" id="gdj1501817056519__li_N10073_N10012_N1000F_N10002">An error will occur in the following cases. <span class="ph phtype_variable"><span class="termtype">Error</span></span> will change to TRUE, and an error code is assigned to <span class="ph phtype_variable"><span class="termtype">ErrorID</span></span>.<ol class="ol liststyle_alphabet1">
+<li class="li" id="gdj1501817056519__li_N10085_N10081_N10073_N10012_N1000F_N10002">The EtherCAT master is not in a state that allows message communications.</li>
+
+<li class="li" id="gdj1501817056519__li_N1008A_N10081_N10073_N10012_N1000F_N10002">The slave specified with <span class="ph phtype_variable"><span class="termtype">NodeAdr</span></span> does not exist.</li>
+
+<li class="li" id="gdj1501817056519__li_N10093_N10081_N10073_N10012_N1000F_N10002">The slave specified with <span class="ph phtype_variable"><span class="termtype">NodeAdr</span></span> is not in a state that allows communications.</li>
+
+<li class="li" id="gdj1501817056519__li_N1009C_N10081_N10073_N10012_N1000F_N10002">The slave returns an error response.</li>
+
+<li class="li" id="gdj1501817056519__li_N100A1_N10081_N10073_N10012_N1000F_N10002">The read data size is larger than the size of <span class="ph phtype_variable"><span class="termtype">ReadDat</span></span>.</li>
+
+<li class="li" id="gdj1501817056519__li_N100AA_N10081_N10073_N10012_N1000F_N10002">More than 32 of the following instructions were executed at the same time: EC_CoESDOWrite, EC_CoESDORead, EC_StartMon, EC_StopMon, EC_SaveMon, EC_CopyMon, EC_DisconnectSlave, EC_ConnectSlave, EC_ChangeEnableSetting, EC_GetMasterStatistics, EC_ClearMasterStatistics, EC_GetSlaveStatistics, EC_ClearSlaveStatistics, IOL_ReadObj, and IOL_WriteObj.</li>
+
+</ol>
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="pgw1501817057465">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Sample Programming</h1>
+
+<div class="body conbody">
+<p class="p" id="pgw1501817057465__ID0ETRDI">This sample uses an EtherCAT SDO message to read the software version of an OMRON 1S-series Servo Drive. The node address of the slave is 1.</p>
+
+<p class="p linespace_7pt">The object index for the software version is 16#100A. The subindex is 0.</p>
+
+<p class="p">The read value is stored in STRING variable <span class="ph phtype_variable"><span class="termtype">VersionInfo</span></span>.</p>
+
+<br /><img class="image" id="pgw1501817057465__image_37A870C8A271408E8DCDE324D0C9EAC4" src="bsz1501817056765.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="xsx1501817061452">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">LD</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="xsx1501817061452__table_sc2_ccz_h1b" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:10%" />
+<col style="width:22%" />
+<col style="width:22%" />
+<col style="width:22%" />
+<col style="width:22%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1132485e37">Internal Variables</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1132485e40">Variable</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1132485e43">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1132485e46">Initial value</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1132485e49">Comment</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1132485e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1132485e40 ">Trigger</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1132485e43 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1132485e46 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1132485e49 ">Execution condition</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1132485e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1132485e40 ">SdoObject</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1132485e43 ">_sSDO_ACCESS</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1132485e46 ">(Index:=0, Subindex:=0, IsCompleteAccess:=FALSE)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1132485e49 ">SDO parameter</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1132485e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1132485e40 ">VersionInfo</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1132485e43 ">STRING[256]</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1132485e46 ">''</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1132485e49 ">Read data</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d1132485e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1132485e40 ">EC_CoESDORead_instance</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1132485e43 ">EC_CoESDORead</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1132485e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1132485e49 ">&#160;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="xsx1501817061452__table_tc2_ccz_h1b" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:10%" />
+<col style="width:22%" />
+<col style="width:22%" />
+<col style="width:22%" />
+<col style="width:22%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1132485e165">External Variables</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1132485e168">Variable</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1132485e171">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1132485e174">Constant</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1132485e177">Comment</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d1132485e165 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1132485e168 ">_EC_MBXSlavTbl</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1132485e171 ">ARRAY[1..512] OF BOOL<a class="xref" href="phz1501815754933.html#xsx1501817061452__fn-1829846"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1132485e174 ">
+<br /><img class="image" id="xsx1501817061452__image_A8AD9B5125834BC9956B3F7DBDF194F7" src="qzb1501817057696.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1132485e177 ">Message Communications Enabled Slave Table</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="xsx1501817061452__fn-1829846" id="xsx1501817061452__fn-1829846"><sup>*1</sup></a>
+<p class="p">For the NX502 CPU Unit, the data type is <span class="ph phtype_type2"><span class="termtype">ARRAY [1..256] OF BOOL</span></span>.</p>
+
+<p class="p">For the NX102 CPU Unit, NX1P2 CPU Unit, and NJ-series CPU Unit, the data type is <span class="ph phtype_type2"><span class="termtype">ARRAY [1..192] OF BOOL</span></span>.</p>
+
+</div></div></div>
+
+<br /><img class="image" id="xsx1501817061452__image_5D130605F89841B68B5A300C8ABFF957" src="odq1501817058340.gif" /><br />
+<br /><img class="image" id="xsx1501817061452__image_wrd_qzr_q1b" src="tjv1501817059627.gif" /><br />
+<br /><img class="image" id="xsx1501817061452__image_rrl_qzr_q1b" src="sqr1501817060521.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="wgh1501817061698">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">ST</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="wgh1501817061698__table_pmg_dcz_h1b" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:10%" />
+<col style="width:22%" />
+<col style="width:22%" />
+<col style="width:22%" />
+<col style="width:22%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1058817e37">Internal Variables</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1058817e40">Variable</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1058817e43">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1058817e46">Initial value</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1058817e49">Comment</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1058817e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1058817e40 ">Trigger</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1058817e43 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1058817e46 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1058817e49 ">Execution condition</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1058817e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1058817e40 ">SdoObject</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1058817e43 ">_sSDO_ACCESS</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1058817e46 ">(Index:=0, Subindex:=0, IsCompleteAccess:=FALSE)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1058817e49 ">SDO parameter</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1058817e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1058817e40 ">DoSdoRead</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1058817e43 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1058817e46 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1058817e49 ">Processing</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1058817e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1058817e40 ">VersionInfo</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1058817e43 ">STRING[256]</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1058817e46 ">''</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1058817e49 ">Read data</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1058817e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1058817e40 ">NormalEnd</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1058817e43 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1058817e46 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1058817e49 ">Normal end</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1058817e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1058817e40 ">ErrorEnd</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1058817e43 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1058817e46 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1058817e49 ">Error end</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d1058817e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1058817e40 ">EC_CoESDORead_instance</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1058817e43 ">EC_CoESDORead</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1058817e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1058817e49 ">&#160;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="wgh1501817061698__table_qmg_dcz_h1b" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:10%" />
+<col style="width:22%" />
+<col style="width:22%" />
+<col style="width:22%" />
+<col style="width:22%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1058817e217">External Variables</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1058817e220">Variable</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1058817e223">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1058817e226">Constant</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1058817e229">Comment</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d1058817e217 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1058817e220 ">_EC_MBXSlavTbl</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1058817e223 ">ARRAY[1..512] OF BOOL<a class="xref" href="phz1501815754933.html#wgh1501817061698__fn-1829835"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1058817e226 ">
+<br /><img class="image" id="wgh1501817061698__image_6C831E862F3F42108AA5EDF6D6A75D90" src="qzb1501817057696.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1058817e229 ">Message Communications Enabled Slave Table</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="wgh1501817061698__fn-1829835" id="wgh1501817061698__fn-1829835"><sup>*1</sup></a>
+<p class="p">For the NX502 CPU Unit, the data type is <span class="ph phtype_type2"><span class="termtype">ARRAY [1..256] OF BOOL</span></span>.</p>
+
+<p class="p">For the NX102 CPU Unit, NX1P2 CPU Unit, and NJ-series CPU Unit, the data type is <span class="ph phtype_type2"><span class="termtype">ARRAY [1..192] OF BOOL</span></span>.</p>
+
+</div></div></div>
+
+<p class="p linespace_7pt"></p>
+
+<pre class="pre codeblock">
+// Detect when Trigger changes to TRUE.
+IF ( (Trigger=TRUE) AND (DoSdoRead=FALSE) AND (_EC_MBXSlavTbl[1]=TRUE) ) THEN
+  DoSdoRead :=TRUE;
+  SdoObject.Index :=UINT#16#100A;
+  SdoObject.Subindex :=USINT#0;
+  SdoObject.IsCompleteAccess:=FALSE;
+  EC_CoESDORead_instance(
+    Execute:=FALSE, // Initialize instance.
+    ReadDat:=VersionInfo); // Dummy
+END_IF;
+
+// Execute EC_CoESDORead instruction.
+IF (DoSdoRead=TRUE) THEN
+  EC_CoESDORead_instance(
+    Execute:=TRUE,
+    NodeAdr:=UINT#1, // Node address 1
+    SdoObj :=SdoObject, // SDO parameter
+    TimeOut:=UINT#20, // Timeout time: 2.0 s
+    ReadDat:=VersionInfo); // Read data
+
+  IF (EC_CoESDORead_instance.Done=TRUE) THEN
+    // Processing after normal end
+    NormalEnd:=NormalEnd+UINT#1;
+  ELSIF (EC_CoESDORead_instance.Error=TRUE) THEN
+    // Processing after error end
+    ErrorEnd :=ErrorEnd+UINT#1;
+  END_IF;
+
+END_IF;
+</pre>
+
+</div>
+
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+
+
+
+
+
+

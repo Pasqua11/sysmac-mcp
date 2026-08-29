@@ -1,0 +1,1624 @@
+{
+ "progetto": "Lib 3G3M1 ECT v1.0.2",
+ "guid": "c4fc8a94-bfe8-4506-917f-7db8f95204df",
+ "sections": {
+  "Section0": {
+   "rungs": [
+    {
+     "cmt": "",
+     "chain": [
+      "ReadAlarms",
+      {
+       "fb": "INV000_3G3M1_Alarm",
+       "inst": "fb3G3M1_Alarm",
+       "p": {
+        "Status": "M1_Status",
+        "NodeAddress": "1",
+        "OUT:Status": "M1_Status",
+        "OUT:Busy": "Busy",
+        "OUT:ErrorCodeInfo": "ErrorCodeInfo",
+        "OUT:ErrorCode": "ErrorCode"
+       }
+      },
+      "(Error)"
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Busy",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Error",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ErrorCode",
+     "type": "STRING[256]",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ErrorCodeInfo",
+     "type": "STRING[256]",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "M1_Status",
+     "type": "WORD",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ReadAlarms",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "fb3G3M1_Alarm",
+     "type": "INV000_3G3M1_Alarm",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Section0#2": {
+   "rungs": [
+    {
+     "cmt": "",
+     "chain": [
+      "FB_Activate",
+      {
+       "fb": "INV001_3G3M1_ECT",
+       "inst": "fb3G3M1_ECT",
+       "p": {
+        "Command": "M1_Command",
+        "FrequencyReference": "M1_Frequency_Reference",
+        "OutputFrequencyMonitor": "M1_Output_Frequency_Monitor",
+        "Status": "M1_Status",
+        "ForwardRun": "Fwd",
+        "ReverseRun": "Rev",
+        "FaultReset": "FaultReset",
+        "OUT:Command": "M1_Command",
+        "OUT:FrequencyReference": "M1_Frequency_Reference",
+        "OUT:OutputFrequencyMonitor": "M1_Output_Frequency_Monitor",
+        "OUT:Status": "M1_Status",
+        "OUT:DriveStatus": "DriveStatus"
+       }
+      },
+      "(FB_Active)"
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "DriveStatus",
+     "type": "OEE_S\\Inverter\\M1\\sDriveStatus",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "FB_Activate",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "FB_Active",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "FaultReset",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Fwd",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "M1_Command",
+     "type": "WORD",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "M1_Frequency_Reference",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "M1_Output_Frequency_Monitor",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "M1_Status",
+     "type": "WORD",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Rev",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "fb3G3M1_ECT",
+     "type": "INV001_3G3M1_ECT",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Section0#3": {
+   "rungs": [
+    {
+     "cmt": "",
+     "chain": [
+      "FB_Activate",
+      {
+       "fb": "INV002_3G3M1_ECT",
+       "inst": "fb3G3M1_ECT",
+       "p": {
+        "Command": "M1_Command",
+        "FrequencyReference": "M1_Frequency_Reference",
+        "OutputFrequencyMonitor": "M1_Output_Frequency_Monitor",
+        "Status": "M1_Status",
+        "ForwardRun": "Fwd",
+        "ReverseRun": "Rev",
+        "FaultReset": "FaultReset",
+        "CmdFrequencyReference": "FrequencyReference",
+        "OUT:Command": "M1_Command",
+        "OUT:FrequencyReference": "M1_Frequency_Reference",
+        "OUT:OutputFrequencyMonitor": "M1_Output_Frequency_Monitor",
+        "OUT:Status": "M1_Status",
+        "OUT:DriveStatus": "DriveStatus",
+        "OUT:ActOutputFrequencyMonitor": "OutputFrequencyMonitor"
+       }
+      },
+      "(FB_Active)"
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "DriveStatus",
+     "type": "OEE_S\\Inverter\\M1\\sDriveStatus",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "FB_Activate",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "FB_Active",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "FaultReset",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "FrequencyReference",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Fwd",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "M1_Command",
+     "type": "WORD",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "M1_Frequency_Reference",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "M1_Output_Frequency_Monitor",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "M1_Status",
+     "type": "WORD",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OutputFrequencyMonitor",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Rev",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "fb3G3M1_ECT",
+     "type": "INV001_3G3M1_ECT",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Section0#4": {
+   "rungs": [
+    {
+     "cmt": "",
+     "chain": [
+      "FB_Activate",
+      {
+       "fb": "INV003_3G3M1_ECT",
+       "inst": "fb3G3M1_ECT",
+       "p": {
+        "Command": "M1_Command",
+        "FrequencyReference": "M1_Frequency_Reference",
+        "OutputFrequencyMonitor": "M1_Output_Frequency_Monitor",
+        "Status": "M1_Status",
+        "Acceleration": "M1_Acceleration",
+        "Deceleration": "M1_Deceleration",
+        "ForwardRun": "Fwd",
+        "ReverseRun": "Rev",
+        "CmdFrequencyReference": "FrequencyReference",
+        "CmdAccelerationReference": "AccelerationReference",
+        "CmdDecelerationReference": "DecelerationReference",
+        "FaultReset": "FaultReset",
+        "OUT:Command": "M1_Command",
+        "OUT:FrequencyReference": "M1_Frequency_Reference",
+        "OUT:OutputFrequencyMonitor": "M1_Output_Frequency_Monitor",
+        "OUT:Status": "M1_Status",
+        "OUT:Acceleration": "M1_Acceleration",
+        "OUT:Deceleration": "M1_Deceleration",
+        "OUT:DriveStatus": "DriveStatus",
+        "OUT:ActOutputFrequencyMonitor": "OutputFrequencyMonitor"
+       }
+      },
+      "(FB_Active)"
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "AccelerationReference",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "DecelerationReference",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "DriveStatus",
+     "type": "OEE_S\\Inverter\\M1\\sDriveStatus",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "FB_Activate",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "FB_Active",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "FaultReset",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "FrequencyReference",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Fwd",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "M1_Acceleration",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "M1_Command",
+     "type": "WORD",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "M1_Deceleration",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "M1_Frequency_Reference",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "M1_Output_Frequency_Monitor",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "M1_Status",
+     "type": "WORD",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OutputFrequencyMonitor",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Rev",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "fb3G3M1_ECT",
+     "type": "INV001_3G3M1_ECT",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Section0#5": {
+   "rungs": [
+    {
+     "cmt": "",
+     "chain": [
+      "FB_Activate",
+      {
+       "fb": "INV011_3G3M1_Terminal_Inputs",
+       "inst": "fb3G3M1_TerminalInputs",
+       "p": {
+        "InputTerminalMonitor": "M1_W040_Input_Terminal_Monitor",
+        "OUT:DI1": "DI1",
+        "OUT:DI2": "DI2",
+        "OUT:DI3": "DI3",
+        "OUT:DI4": "DI4",
+        "OUT:DI5": "DI5",
+        "OUT:DI6": "DI6",
+        "OUT:DI7": "DI7",
+        "OUT:EN1": "EN1",
+        "OUT:EN2": "EN2"
+       }
+      },
+      "(FB_Active)"
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "DI1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "DI2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "DI3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "DI4",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "DI5",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "DI6",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "DI7",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "EN1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "EN2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "FB_Activate",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "FB_Active",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "M1_W040_Input_Terminal_Monitor",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "fb3G3M1_TerminalInputs",
+     "type": "INV011_3G3M1_Terminal_Inputs",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Section0#6": {
+   "rungs": [
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "ist": "fb3G3M1_Alarm(\r\n\tStatus:=M1_Status,\r\n\tEnable:=ReadAlarms,\r\n\tNodeAddress:= 1,\r\n\tError => Error,\r\n\tBusy => Busy,\r\n\tErrorCodeInfo => ErrorCodeInfo,\r\n\tErrorCode => ErrorCode\r\n\t);"
+      }
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Busy",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Enable",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Enables the Functionblock"
+    },
+    {
+     "name": "Error",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ErrorCode",
+     "type": "STRING[256]",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ErrorCodeInfo",
+     "type": "STRING[256]",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "M1_Status",
+     "type": "WORD",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "NodeAddress",
+     "type": "UINT",
+     "retain": false,
+     "comment": "EtherCAT Node number to the drive"
+    },
+    {
+     "name": "ReadAlarms",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Status",
+     "type": "WORD",
+     "retain": false,
+     "comment": "Drive Status Index: 5100:00 (RO; UINT).$tInverter Status word"
+    },
+    {
+     "name": "fb3G3M1_Alarm",
+     "type": "INV000_3G3M1_Alarm",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Section0#7": {
+   "rungs": [
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "ist": "fb3G3M1_ECT(\r\n\tCommand:= M1_Command, \r\n\tFrequencyReference:= M1_Frequency_Reference, \r\n\tOutputFrequencyMonitor:= M1_Output_Frequency_Monitor, \r\n\tStatus:= M1_Status, \r\n\tActive=> FB_Active, \r\n\tDriveStatus=> DriveStatus,\r\n\tEnable:= FB_Activate, \r\n\tForwardRun:= Fwd, \r\n\tReverseRun:= Rev, \r\n\tFaultReset:=FaultReset\r\n\t);\r\n"
+      }
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Active",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "The FB is Active."
+    },
+    {
+     "name": "Command",
+     "type": "WORD",
+     "retain": false,
+     "comment": "Command Index: 5000:00 (RW, WORD).$tInverter Command word"
+    },
+    {
+     "name": "DriveStatus",
+     "type": "OEE_S\\Inverter\\M1\\sDriveStatus",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Enable",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Enables the Functionblock"
+    },
+    {
+     "name": "FB_Activate",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "FB_Active",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "FaultReset",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ForwardRun",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Forward Run Command = 0: Stop, 1: Forward run.$t0: Stop, 1: Forward command"
+    },
+    {
+     "name": "FrequencyReference",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Fwd",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "M1_Command",
+     "type": "WORD",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "M1_Frequency_Reference",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "M1_Output_Frequency_Monitor",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "M1_Status",
+     "type": "WORD",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OutputFrequencyMonitor",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Rev",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ReverseRun",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Reverse Run Command = 0: Stop, 1: Reverse run.$t0: Stop, 1: Reverse command"
+    },
+    {
+     "name": "Status",
+     "type": "WORD",
+     "retain": false,
+     "comment": "Drive Status Index: 5100:00 (RO; UINT).$tInverter Status word"
+    },
+    {
+     "name": "fb3G3M1_ECT",
+     "type": "INV001_3G3M1_ECT",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Section0#8": {
+   "rungs": [
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "ist": "fb3G3M1_ECT(\r\n\tCommand:= M1_Command, \r\n\tFrequencyReference:= M1_Frequency_Reference, \r\n\tOutputFrequencyMonitor:= M1_Output_Frequency_Monitor, \r\n\tStatus:= M1_Status, \r\n\tActive=> FB_Active, \r\n\tDriveStatus=> DriveStatus,\r\n\tActOutputFrequencyMonitor=> OutputFrequencyMonitor,\r\n\tEnable:= FB_Activate, \r\n\tForwardRun:= Fwd, \r\n\tReverseRun:= Rev, \r\n\tFaultReset:=FaultReset,\r\n\tCmdFrequencyReference:= FrequencyReference\r\n\t);"
+      }
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "ActOutputFrequencyMonitor",
+     "type": "REAL",
+     "retain": false,
+     "comment": "Output Frequency Monitor  (0.0hz)$tShows the frequency in 0.01 Hz "
+    },
+    {
+     "name": "Active",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "The FB is Active."
+    },
+    {
+     "name": "CmdFrequencyReference",
+     "type": "REAL",
+     "retain": false,
+     "comment": "Frequency Reference (0.0hz)$tSpecify the set point frequency in 0.01 Hz "
+    },
+    {
+     "name": "Command",
+     "type": "WORD",
+     "retain": false,
+     "comment": "Command Index: 5000:00 (RW, WORD).$tInverter Command word"
+    },
+    {
+     "name": "DriveStatus",
+     "type": "OEE_S\\Inverter\\M1\\sDriveStatus",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Enable",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Enables the Functionblock"
+    },
+    {
+     "name": "FB_Activate",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "FB_Active",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "FaultReset",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ForwardRun",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Forward Run Command = 0: Stop, 1: Forward run.$t0: Stop, 1: Forward command"
+    },
+    {
+     "name": "FrequencyReference",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Fwd",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "M1_Command",
+     "type": "WORD",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "M1_Frequency_Reference",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "M1_Output_Frequency_Monitor",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "M1_Status",
+     "type": "WORD",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OutputFrequencyMonitor",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Rev",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ReverseRun",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Reverse Run Command = 0: Stop, 1: Reverse run.$t0: Stop, 1: Reverse command"
+    },
+    {
+     "name": "Status",
+     "type": "WORD",
+     "retain": false,
+     "comment": "Drive Status Index: 5100:00 (RO; UINT).$tInverter Status word"
+    },
+    {
+     "name": "fb3G3M1_ECT",
+     "type": "INV001_3G3M1_ECT",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Section0#9": {
+   "rungs": [
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "ist": "fb3G3M1_ECT(\r\n\tCommand:= M1_Command, \r\n\tFrequencyReference:= M1_Frequency_Reference, \r\n\tOutputFrequencyMonitor:= M1_Output_Frequency_Monitor, \r\n\tStatus:= M1_Status, \r\n\tAcceleration:=M1_Acceleration,\r\n\tDeceleration:=M1_Deceleration, \r\n\tActive=> FB_Active, \r\n\tDriveStatus=> DriveStatus,\r\n\tActOutputFrequencyMonitor=> OutputFrequencyMonitor,\r\n\tEnable:= FB_Activate, \r\n\tForwardRun:= Fwd, \r\n\tReverseRun:= Rev, \r\n\tCmdFrequencyReference:= FrequencyReference,\r\n\tCmdAccelerationReference:=AccelerationReference,\r\n\tCmdDecelerationReference:=DecelerationReference,\r\n\tFaultReset:=FaultReset\r\n\t);\r\n"
+      }
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Acceleration",
+     "type": "UINT",
+     "retain": false,
+     "comment": "Acceleration time setting 1 / F007 Index: 3004:08 (RW; UINT)"
+    },
+    {
+     "name": "AccelerationReference",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ActOutputFrequencyMonitor",
+     "type": "REAL",
+     "retain": false,
+     "comment": "Output Frequency Monitor  (0.0hz)$tShows the frequency in 0.01 Hz "
+    },
+    {
+     "name": "Active",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "The FB is Active."
+    },
+    {
+     "name": "CmdAccelerationReference",
+     "type": "REAL",
+     "retain": false,
+     "comment": "Acceleration Reference (0.0s)$tSpecify the set point frequency in 0.01 Hz "
+    },
+    {
+     "name": "CmdDecelerationReference",
+     "type": "REAL",
+     "retain": false,
+     "comment": "Deceleration Reference (0.0s)$tSpecify the set point frequency in 0.01 Hz "
+    },
+    {
+     "name": "CmdFrequencyReference",
+     "type": "REAL",
+     "retain": false,
+     "comment": "Frequency Reference (0.0hz)$tSpecify the set point frequency in 0.01 Hz "
+    },
+    {
+     "name": "Command",
+     "type": "WORD",
+     "retain": false,
+     "comment": "Command Index: 5000:00 (RW, WORD).$tInverter Command word"
+    },
+    {
+     "name": "Deceleration",
+     "type": "UINT",
+     "retain": false,
+     "comment": "Deceleration time setting 1 / F008 Index: 3004:09 (RW; UINT)"
+    },
+    {
+     "name": "DecelerationReference",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "DriveStatus",
+     "type": "OEE_S\\Inverter\\M1\\sDriveStatus",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Enable",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Enables the Functionblock"
+    },
+    {
+     "name": "FB_Activate",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "FB_Active",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "FaultReset",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ForwardRun",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Forward Run Command = 0: Stop, 1: Forward run.$t0: Stop, 1: Forward command"
+    },
+    {
+     "name": "FrequencyReference",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Fwd",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "M1_Acceleration",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "M1_Command",
+     "type": "WORD",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "M1_Deceleration",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "M1_Frequency_Reference",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "M1_Output_Frequency_Monitor",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "M1_Status",
+     "type": "WORD",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OutputFrequencyMonitor",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Rev",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ReverseRun",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Reverse Run Command = 0: Stop, 1: Reverse run.$t0: Stop, 1: Reverse command"
+    },
+    {
+     "name": "Status",
+     "type": "WORD",
+     "retain": false,
+     "comment": "Drive Status Index: 5100:00 (RO; UINT).$tInverter Status word"
+    },
+    {
+     "name": "fb3G3M1_ECT",
+     "type": "INV001_3G3M1_ECT",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Section0#10": {
+   "rungs": [
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "ist": "fb3G3M1_TerminalInputs(\r\n\tActive=>FB_Active, \r\n\tEnable:= FB_Activate, \r\n\tInputTerminalMonitor:= M1_W040_Input_Terminal_Monitor, \r\n\tDI1=>DI1, \r\n\tDI2=>DI2, \r\n\tDI3=>DI3, \r\n\tDI4=>DI4, \r\n\tDI5=>DI5, \r\n\tDI6=>DI6, \r\n\tDI7=>DI7, \r\n\tEN1=>EN1, \r\n\tEN2=>EN2);"
+      }
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Active",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "The FB is Active."
+    },
+    {
+     "name": "DI1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "DI2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "DI3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "DI4",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "DI5",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "DI6",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "DI7",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "EN1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "EN2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Enable",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Enables the Functionblock"
+    },
+    {
+     "name": "FB_Activate",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "FB_Active",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "InputTerminalMonitor",
+     "type": "UINT",
+     "retain": false,
+     "comment": "W040 Input Terminal Monitor Index: 3010:29 (RO, UINT)."
+    },
+    {
+     "name": "M1_W040_Input_Terminal_Monitor",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "fb3G3M1_TerminalInputs",
+     "type": "INV011_3G3M1_Terminal_Inputs",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "LadderBody": {
+   "rungs": [
+    {
+     "cmt": "Check that the input value is not out of range for ACC and DEC",
+     "chain": [
+      "EN",
+      {
+       "f": ">",
+       "p": {
+        "In1": "Value",
+        "In2": "REAL#0"
+       }
+      },
+      {
+       "f": "<",
+       "p": {
+        "In1": "Value",
+        "In2": "REAL#9990"
+       }
+      },
+      "(/Error)"
+     ]
+    },
+    {
+     "cmt": "Adding the Exponent ",
+     "chain": [
+      "/Error"
+     ],
+     "out": [
+      [
+       {
+        "f": ">=",
+        "p": {
+         "In1": "Value",
+         "In2": "REAL#0"
+        }
+       },
+       {
+        "f": "<",
+        "p": {
+         "In1": "Value",
+         "In2": "REAL#10"
+        }
+       },
+       {
+        "f": "*",
+        "p": {
+         "In1": "Value",
+         "In2": "REAL#100.0",
+         "OUT:": "iValueREAL"
+        }
+       },
+       {
+        "f": "REAL_TO_WORD",
+        "p": {
+         "In": "iValueREAL",
+         "OUT:": "iVaueToWord"
+        }
+       },
+       {
+        "f": "OR",
+        "p": {
+         "In1": "iVaueToWord",
+         "In2": "WORD#0",
+         "OUT:": "iVaueToWord2"
+        }
+       }
+      ],
+      [
+       {
+        "f": ">=",
+        "p": {
+         "In1": "Value",
+         "In2": "REAL#10"
+        }
+       },
+       {
+        "f": "<",
+        "p": {
+         "In1": "Value",
+         "In2": "REAL#100"
+        }
+       },
+       {
+        "f": "*",
+        "p": {
+         "In1": "Value",
+         "In2": "REAL#10.0",
+         "OUT:": "iValueREAL"
+        }
+       },
+       {
+        "f": "REAL_TO_WORD",
+        "p": {
+         "In": "iValueREAL",
+         "OUT:": "iVaueToWord"
+        }
+       },
+       {
+        "f": "OR",
+        "p": {
+         "In1": "iVaueToWord",
+         "In2": "WORD#1024",
+         "OUT:": "iVaueToWord2"
+        }
+       }
+      ],
+      [
+       {
+        "f": ">=",
+        "p": {
+         "In1": "Value",
+         "In2": "REAL#1000"
+        }
+       },
+       {
+        "f": "<",
+        "p": {
+         "In1": "Value",
+         "In2": "REAL#9990"
+        }
+       },
+       {
+        "f": "*",
+        "p": {
+         "In1": "Value",
+         "In2": "REAL#0.1",
+         "OUT:": "iValueREAL"
+        }
+       },
+       {
+        "f": "REAL_TO_WORD",
+        "p": {
+         "In": "iValueREAL",
+         "OUT:": "iVaueToWord"
+        }
+       },
+       {
+        "f": "OR",
+        "p": {
+         "In1": "iVaueToWord",
+         "In2": "WORD#3072",
+         "OUT:": "iVaueToWord2"
+        }
+       }
+      ],
+      [
+       {
+        "f": ">=",
+        "p": {
+         "In1": "Value",
+         "In2": "REAL#100"
+        }
+       },
+       {
+        "f": "<",
+        "p": {
+         "In1": "Value",
+         "In2": "REAL#1000"
+        }
+       },
+       {
+        "f": "*",
+        "p": {
+         "In1": "Value",
+         "In2": "REAL#1.0",
+         "OUT:": "iValueREAL"
+        }
+       },
+       {
+        "f": "REAL_TO_WORD",
+        "p": {
+         "In": "iValueREAL",
+         "OUT:": "iVaueToWord"
+        }
+       },
+       {
+        "f": "OR",
+        "p": {
+         "In1": "iVaueToWord",
+         "In2": "WORD#2048",
+         "OUT:": "iVaueToWord2"
+        }
+       }
+      ]
+     ]
+    },
+    {
+     "cmt": "Converting the format ",
+     "chain": [
+      {
+       "f": "WORD_TO_UINT",
+       "p": {
+        "In": "iVaueToWord2",
+        "OUT:": "ValueOut"
+       }
+      }
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "EN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Error",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Value",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ValueOut",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "iValueREAL",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "iVaueToWord",
+     "type": "WORD",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "iVaueToWord2",
+     "type": "WORD",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "LadderBody#2": {
+   "rungs": [
+    {
+     "cmt": "Converting the format",
+     "chain": [
+      {
+       "f": "UINT_TO_WORD",
+       "p": {
+        "In": "Value",
+        "OUT:": "iVaueToWord"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "Adding the Exponent ",
+     "chain": [
+      "EN"
+     ],
+     "out": [
+      [
+       {
+        "f": "TestABitN",
+        "p": {
+         "In": "iVaueToWord",
+         "Pos": "USINT#10"
+        }
+       },
+       {
+        "f": "TestABitN",
+        "p": {
+         "In": "iVaueToWord",
+         "Pos": "USINT#11"
+        }
+       },
+       {
+        "f": "WORD_TO_REAL",
+        "p": {
+         "In": "iVaueToWord",
+         "OUT:": "iValueREAL"
+        }
+       },
+       {
+        "f": "*",
+        "p": {
+         "In1": "iValueREAL",
+         "In2": "REAL#0.01",
+         "OUT:": "ValueOut"
+        }
+       }
+      ],
+      [
+       {
+        "f": "TestABit",
+        "p": {
+         "In": "iVaueToWord",
+         "Pos": "USINT#10"
+        }
+       },
+       {
+        "f": "TestABitN",
+        "p": {
+         "In": "iVaueToWord",
+         "Pos": "USINT#11"
+        }
+       },
+       {
+        "f": "XOR",
+        "p": {
+         "In1": "iVaueToWord",
+         "In2": "WORD#1024",
+         "OUT:": "iVaueToWord2"
+        }
+       },
+       {
+        "f": "WORD_TO_REAL",
+        "p": {
+         "In": "iVaueToWord2",
+         "OUT:": "iValueREAL"
+        }
+       },
+       {
+        "f": "*",
+        "p": {
+         "In1": "iValueREAL",
+         "In2": "REAL#0.1",
+         "OUT:": "ValueOut"
+        }
+       }
+      ],
+      [
+       {
+        "f": "TestABit",
+        "p": {
+         "In": "iVaueToWord",
+         "Pos": "USINT#10"
+        }
+       },
+       {
+        "f": "TestABit",
+        "p": {
+         "In": "iVaueToWord",
+         "Pos": "USINT#11"
+        }
+       },
+       {
+        "f": "XOR",
+        "p": {
+         "In1": "iVaueToWord",
+         "In2": "WORD#3072",
+         "OUT:": "iVaueToWord2"
+        }
+       },
+       {
+        "f": "WORD_TO_REAL",
+        "p": {
+         "In": "iVaueToWord2",
+         "OUT:": "iValueREAL"
+        }
+       },
+       {
+        "f": "*",
+        "p": {
+         "In1": "iValueREAL",
+         "In2": "REAL#10.0",
+         "OUT:": "ValueOut"
+        }
+       }
+      ],
+      [
+       {
+        "f": "TestABitN",
+        "p": {
+         "In": "iVaueToWord",
+         "Pos": "USINT#10"
+        }
+       },
+       {
+        "f": "TestABit",
+        "p": {
+         "In": "iVaueToWord",
+         "Pos": "USINT#11"
+        }
+       },
+       {
+        "f": "XOR",
+        "p": {
+         "In1": "iVaueToWord",
+         "In2": "WORD#2048",
+         "OUT:": "iVaueToWord2"
+        }
+       },
+       {
+        "f": "WORD_TO_REAL",
+        "p": {
+         "In": "iVaueToWord2",
+         "OUT:": "iValueREAL"
+        }
+       },
+       {
+        "f": "*",
+        "p": {
+         "In1": "iValueREAL",
+         "In2": "REAL#1.0",
+         "OUT:": "ValueOut"
+        }
+       }
+      ]
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "EN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Value",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ValueOut",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "iValueREAL",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "iVaueToWord",
+     "type": "WORD",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "iVaueToWord2",
+     "type": "WORD",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  }
+ }
+}

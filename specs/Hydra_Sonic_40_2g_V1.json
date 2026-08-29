@@ -1,0 +1,8495 @@
+{
+ "progetto": "Hydra_Sonic_40_2g_V1",
+ "guid": "b00abc66-83f4-4930-a005-6b9e89509878",
+ "sections": {
+  "Marcia_Robot": {
+   "rungs": [
+    {
+     "cmt": "GIRO IL BIT DI MARCIA",
+     "chain": [
+      "/IN_MARCIA",
+      "(Marcia_ON)"
+     ]
+    },
+    {
+     "cmt": "RITARDO ABILITAZIONE SERVO",
+     "chain": [
+      "Marcia_ON",
+      {
+       "fb": "TON",
+       "inst": "Tim_Marcia",
+       "p": {
+        "PT": "T#3s"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "ABILITAZIONE SERVO",
+     "chain": [
+      "Tim_Marcia.Q",
+      "MC_X.DrvStatus.Ready",
+      "MC_Y.DrvStatus.Ready",
+      "MC_X.DrvStatus.MainPower",
+      "MC_Y.DrvStatus.MainPower"
+     ],
+     "out": [
+      {
+       "fb": "MC_Power",
+       "inst": "Power_x",
+       "p": {
+        "Axis": "MC_X",
+        "OUT:Axis": "MC_X"
+       }
+      },
+      {
+       "fb": "MC_Power",
+       "inst": "Power_y",
+       "p": {
+        "Axis": "MC_Y",
+        "OUT:Axis": "MC_Y"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "ABILITAZIONE GRUPPO ASSI PER INTERPOLAZIONI",
+     "chain": [
+      "End_Reset_Robot",
+      {
+       "fb": "TON",
+       "inst": "Tim3",
+       "p": {
+        "PT": "T#2s"
+       }
+      },
+      "(GruppoEnable)"
+     ]
+    },
+    {
+     "cmt": "ABILITAZIONE GRUPPO ASSI PER INTERPOLAZIONI",
+     "chain": [
+      "GruppoEnable",
+      {
+       "fb": "MC_GroupEnable",
+       "inst": "Group1",
+       "p": {
+        "AxesGroup": "MC_Group000",
+        "OUT:AxesGroup": "MC_Group000"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "/GruppoEnable",
+      {
+       "fb": "MC_GroupDisable",
+       "inst": "Group1_OFF",
+       "p": {
+        "AxesGroup": "MC_Group000",
+        "OUT:AxesGroup": "MC_Group000"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "MANUALE ASSE X",
+     "chain": [
+      "MC_X.DrvStatus.ServoOn",
+      "/MC_X.DrvStatus.DrvAlarm",
+      "/Manu_Y.Busy"
+     ],
+     "out": [
+      [
+       "X_Jog_SX",
+       {
+        "fb": "MC_MoveJog",
+        "inst": "Manu_X",
+        "p": {
+         "Axis": "MC_X",
+         "NegativeEnable": "X_Jog_DX",
+         "Velocity": "40",
+         "Acceleration": "15",
+         "Deceleration": "100000",
+         "OUT:Axis": "MC_X"
+        }
+       }
+      ],
+      [
+       "V_P_Sx",
+       "(X_Jog_SX)"
+      ],
+      [
+       "V_P_Dx",
+       "(X_Jog_DX)"
+      ]
+     ]
+    },
+    {
+     "cmt": "MANUALE ASSE Y",
+     "chain": [
+      "MC_Y.DrvStatus.ServoOn",
+      "/MC_Y.DrvStatus.DrvAlarm",
+      "/Manu_X.Busy"
+     ],
+     "out": [
+      [
+       "Y_Jog_GIU",
+       {
+        "fb": "MC_MoveJog",
+        "inst": "Manu_Y",
+        "p": {
+         "Axis": "MC_Y",
+         "NegativeEnable": "Y_Jog_SU",
+         "Velocity": "15",
+         "Acceleration": "30",
+         "Deceleration": "100000",
+         "OUT:Axis": "MC_Y"
+        }
+       }
+      ],
+      [
+       "V_P_Up",
+       "(Y_Jog_SU)"
+      ],
+      [
+       "V_P_Down",
+       "(Y_Jog_GIU)"
+      ]
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "IN_RESET",
+        [
+         "Reset_Auto_All_Robot",
+         {
+          "f": "Get100msClk",
+          "p": {}
+         }
+        ]
+       ]
+      }
+     ],
+     "out": [
+      {
+       "fb": "MC_Reset",
+       "inst": "X_Reset_Error",
+       "p": {
+        "Axis": "MC_X",
+        "OUT:Axis": "MC_X"
+       }
+      },
+      {
+       "fb": "MC_Reset",
+       "inst": "Y_Reset_Error",
+       "p": {
+        "Axis": "MC_Y",
+        "OUT:Axis": "MC_Y"
+       }
+      },
+      {
+       "fb": "MC_GroupReset",
+       "inst": "Group_Reset_Error",
+       "p": {
+        "AxesGroup": "MC_Group000",
+        "OUT:AxesGroup": "MC_Group000"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "RESET ERRORI ASSI",
+     "chain": [
+      "^IN_RESET"
+     ],
+     "out": [
+      [
+       "/End_Reset_Robot",
+       {
+        "fb": "MC_Stop",
+        "inst": "MC_Y_Stop",
+        "p": {
+         "Axis": "MC_Y",
+         "Deceleration": "200",
+         "OUT:Axis": "MC_Y"
+        }
+       }
+      ],
+      [
+       "/End_Reset_Robot",
+       {
+        "fb": "MC_Stop",
+        "inst": "MC_X_Stop",
+        "p": {
+         "Axis": "MC_X",
+         "Deceleration": "200",
+         "OUT:Axis": "MC_X"
+        }
+       }
+      ]
+     ]
+    },
+    {
+     "cmt": "ROBOT READY",
+     "chain": [
+      "MC_X.DrvStatus.ServoOn",
+      "MC_Y.DrvStatus.ServoOn",
+      "/MC_X.DrvStatus.DrvAlarm",
+      "/MC_X.DrvStatus.DrvWarning",
+      "/MC_Y.DrvStatus.DrvAlarm",
+      "/MC_Y.DrvStatus.DrvWarning",
+      "/MC_X.MFaultLvl.Active",
+      "/MC_Y.MFaultLvl.Active",
+      "(Robot_Ready)"
+     ]
+    },
+    {
+     "cmt": "MEMORIA TEMPORALE PULSANTE DI MARCIA",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "IN_PULS_MARCIA",
+       "(S Mem_Puls_Marcia)"
+      ],
+      [
+       "/IN_PULS_MARCIA",
+       {
+        "fb": "TON",
+        "inst": "Tim25",
+        "p": {
+         "PT": "time#2s"
+        }
+       },
+       "(R Mem_Puls_Marcia)"
+      ]
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "End_Reset_Robot",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Group1",
+     "type": "MC_GroupEnable",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Group1_OFF",
+     "type": "MC_GroupDisable",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Group_Reset_Error",
+     "type": "MC_GroupReset",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "GruppoEnable",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_MARCIA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_PULS_MARCIA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_RESET",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MC_Group000",
+     "type": "_sGROUP_REF",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MC_X",
+     "type": "_sAXIS_REF",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MC_X_Stop",
+     "type": "MC_Stop",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MC_Y",
+     "type": "_sAXIS_REF",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MC_Y_Stop",
+     "type": "MC_Stop",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Manu_X",
+     "type": "MC_MoveJog",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Manu_Y",
+     "type": "MC_MoveJog",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Marcia_ON",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Puls_Marcia",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Power_x",
+     "type": "MC_Power",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Power_y",
+     "type": "MC_Power",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Reset_Auto_All_Robot",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Robot_Ready",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim25",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim3",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Marcia",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Down",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Dx",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Sx",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Up",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "X_Jog_DX",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "X_Jog_SX",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "X_Reset_Error",
+     "type": "MC_Reset",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Y_Jog_GIU",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Y_Jog_SU",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Y_Reset_Error",
+     "type": "MC_Reset",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Portelli": {
+   "rungs": [
+    {
+     "cmt": "PORTELLI\r\nCHUSURA ",
+     "chain": [
+      {
+       "or": [
+        "Mem_Puls_Marcia",
+        [
+         "Marcia_ON",
+         "/Apro_Porte"
+        ]
+       ]
+      },
+      "(OUT_PORTELLI)"
+     ]
+    },
+    {
+     "cmt": "PORTELLI\r\nPRENOTO L'APERTURA DEI PORTELLI",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "Marcia_ON",
+       "V_P_Prenoto_Porte",
+       {
+        "fb": "TON",
+        "inst": "Tim26",
+        "p": {
+         "PT": "TIME#500MS"
+        }
+       },
+       "(S Call_Prenoto_Porte)"
+      ],
+      [
+       {
+        "or": [
+         [
+          "IN_PULS_MARCIA",
+          "/IN_PORTE_BLOCCATE"
+         ],
+         "IN_RESET"
+        ]
+       },
+       "(R Call_Prenoto_Porte)"
+      ]
+     ]
+    },
+    {
+     "cmt": "ATTIVO L'APERTURA DEI PORTELLI",
+     "chain": [
+      "Call_Prenoto_Porte",
+      "End_Reset_Robot",
+      "/Movim_Prenotati",
+      {
+       "fb": "TON",
+       "inst": "Tim27",
+       "p": {
+        "PT": "TIME#1S"
+       }
+      },
+      "/OUT_AGITAZIONE",
+      "/OUT_NASTRO_CARICO",
+      "/OUT_NASTRO_SCARICO"
+     ],
+     "out": [
+      [
+       {
+        "fb": "TON",
+        "inst": "Tim28",
+        "p": {
+         "PT": "TIME#1S"
+        }
+       },
+       "(Apro_Porte)"
+      ],
+      "(Alt_Apro_Porte)"
+     ]
+    },
+    {
+     "cmt": "MEMORIZZO CHE HO ESEGUITO UN APERTURA PORTELLI COMANDATA DA VISUALIZZATORE",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "Call_Prenoto_Porte",
+       "Apro_Porte",
+       "(S Mem_Portelle_Open)"
+      ],
+      [
+       "Marcia_ON",
+       "(R Mem_Portelle_Open)"
+      ]
+     ]
+    },
+    {
+     "cmt": "DOPO UNA CHIUSURA PORTELLI RESETTO GLI ALLARMI DEL ROBOT IN AUTOMATICO",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "vMem_Portelle_Open",
+       "(S Reset_Auto_All_Robot)"
+      ],
+      [
+       {
+        "or": [
+         "Robot_Ready",
+         "IN_RESET"
+        ]
+       },
+       "(R Reset_Auto_All_Robot)"
+      ]
+     ]
+    },
+    {
+     "cmt": "LAMP PRENOTAZIONE PORTELLI",
+     "chain": [
+      {
+       "or": [
+        "Apro_Porte",
+        [
+         "Call_Prenoto_Porte",
+         {
+          "f": "Get1sClk",
+          "p": {}
+         }
+        ]
+       ]
+      },
+      "(V_L_Prenoto_Porte)"
+     ]
+    },
+    {
+     "cmt": "MEMORIZZO CHE HO ESEGUITO UN APERTURA PORTELLI.MI SERVE DURANTE LA RIPARTENZA DELLA MOVIMENTAZIONE PER EVITARE UNA\r\nDISCESA BRUSCA DELL'ASSE Y DURANTE IL MOV 2.QUINDI METTO UNA PAUSA TRA MOV1 E MOV 2 ",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "vMem_Portelle_Open",
+       "(S Pausa_Mov1_2)"
+      ],
+      [
+       "MOV3_Done",
+       "(R Pausa_Mov1_2)"
+      ]
+     ]
+    },
+    {
+     "cmt": "BLOCCO IL PORTELLINO DI CARICO SCARICO IN BASE ALLE ESIGENZE",
+     "chain": [
+      {
+       "or": [
+        "Look1",
+        "Look2",
+        "IN_PULS_MARCIA",
+        "IN_RESET"
+       ]
+      },
+      "(S Blocco_Portellino)"
+     ]
+    },
+    {
+     "cmt": "SBLOCCO PORTELLINO",
+     "chain": [
+      {
+       "or": [
+        "^End_Reset_Robot",
+        "vCar_V1",
+        "vCar_V3",
+        "Tim34.Q",
+        [
+         "/Marcia_ON",
+         "/IN_PULS_MARCIA",
+         {
+          "fb": "TON",
+          "inst": "Tim35",
+          "p": {
+           "PT": "TIME#2S"
+          }
+         }
+        ]
+       ]
+      },
+      "(R Blocco_Portellino)"
+     ]
+    },
+    {
+     "cmt": "Dopo 30 secondi se ho il blocco porte e nessun movimento che richiede il loro blocco li sblocco.",
+     "chain": [
+      "End_Reset_Robot",
+      "Blocco_Portellino",
+      "/Car_V1",
+      "/Car_V3",
+      "/Look1",
+      "/Look2",
+      {
+       "fb": "TON",
+       "inst": "Tim34",
+       "p": {
+        "PT": "TIME#30S"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "CHIUSURA PORTELLINO CARICO/SCARICO",
+     "chain": [
+      "Blocco_Portellino",
+      "(OUT_PORTELLINO_CARICO)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Blocco_Portellino",
+      "OUT_PORTELLINO_CARICO",
+      "/IN_PORTELLINO_SBLOCCATO",
+      {
+       "fb": "TON",
+       "inst": "Tim37",
+       "p": {
+        "PT": "TIME#1S"
+       }
+      },
+      "(Carico_Sicuro)"
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Alt_Apro_Porte",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Apro_Porte",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Blocco_Portellino",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Call_Prenoto_Porte",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Car_V1",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Car_V3",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Carico_Sicuro",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "End_Reset_Robot",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_PORTELLINO_SBLOCCATO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_PORTE_BLOCCATE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_PULS_MARCIA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_RESET",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Look1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Look2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV3_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Marcia_ON",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Portelle_Open",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Puls_Marcia",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Movim_Prenotati",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_AGITAZIONE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_NASTRO_CARICO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_NASTRO_SCARICO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_PORTELLI",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_PORTELLINO_CARICO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Pausa_Mov1_2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Reset_Auto_All_Robot",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Robot_Ready",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim26",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim27",
+     "type": "TON",
+     "retain": false,
+     "comment": "blocco agitazione per prenotazione apertura Portelli"
+    },
+    {
+     "name": "Tim28",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim34",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim35",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim37",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_L_Prenoto_Porte",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Prenoto_Porte",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Reset_Movimenti": {
+   "rungs": [
+    {
+     "cmt": "TRASFERISCO PAGINA VISU QUANDO ATTIVO L'INGRESSO DI RESET",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "IN_RESET",
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "INT#19",
+         "OUT:Out": "V_Write_Pagina[0]"
+        }
+       }
+      ],
+      [
+       "/IN_RESET",
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "0",
+         "OUT:Out": "V_Write_Pagina[0]"
+        }
+       }
+      ]
+     ]
+    },
+    {
+     "cmt": "RESET ROBOT:INIZIO SEQUENZA DI RESET",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "Robot_Ready",
+       "V_P_Start_Reset",
+       "(S Start_Reset_Robot)"
+      ],
+      [
+       {
+        "or": [
+         "IN_RESET",
+         [
+          "/Marcia_ON",
+          "/Alt_Apro_Porte",
+          "/Mem_Portelle_Open"
+         ]
+        ]
+       },
+       "(R Start_Reset_Robot)"
+      ]
+     ]
+    },
+    {
+     "cmt": "RESET ASSI",
+     "chain": [
+      "Start_Reset_Robot",
+      {
+       "fb": "MC_Home",
+       "inst": "Home_Y",
+       "p": {
+        "Axis": "MC_Y",
+        "OUT:Axis": "MC_Y"
+       }
+      },
+      {
+       "fb": "TON",
+       "inst": "Tim1",
+       "p": {
+        "PT": "T#1s"
+       }
+      },
+      {
+       "fb": "MC_Home",
+       "inst": "Home_X",
+       "p": {
+        "Axis": "MC_X",
+        "OUT:Axis": "MC_X"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "RESET ROBOT:FINE SEQUENZA DI RESET",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "Start_Reset_Robot",
+       "Home_Y.Done",
+       "Home_X.Done",
+       "(S End_Reset_Robot)"
+      ],
+      [
+       {
+        "or": [
+         "IN_RESET",
+         [
+          "/Marcia_ON",
+          "/Alt_Apro_Porte",
+          "/Mem_Portelle_Open"
+         ]
+        ]
+       },
+       "(R End_Reset_Robot)"
+      ]
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Alt_Apro_Porte",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "End_Reset_Robot",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Home_X",
+     "type": "MC_Home",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Home_Y",
+     "type": "MC_Home",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_RESET",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MC_X",
+     "type": "_sAXIS_REF",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MC_Y",
+     "type": "_sAXIS_REF",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Marcia_ON",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Portelle_Open",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Robot_Ready",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Start_Reset_Robot",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim1",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Start_Reset",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_Write_Pagina",
+     "type": "ARRAY[0..1] OF INT",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Trasf_Dati": {
+   "rungs": [
+    {
+     "cmt": "TRASFERIMENTO DATI DA CARICO A VASCA1",
+     "chain": [
+      "Car_V1",
+      {
+       "ist": "X_PRESA:=X_CARICO;\r\nY_PRESA:=Y_CARICO;\r\nX_AGGANCIO:=X_CARICO_Svincolo;\r\n\r\nX_DEPOSITO:=X_V1;\r\nY_DEPOSITO:=Y_V1;\r\nX_SGANCIO:=X_V1_Svincolo;\r\n"
+      }
+     ]
+    },
+    {
+     "cmt": "TRASFERIMENTO DATI DA CARICO A VASCA3",
+     "chain": [
+      "Car_V3",
+      {
+       "ist": "X_PRESA:=X_CARICO;\r\nY_PRESA:=Y_CARICO;\r\nX_AGGANCIO:=X_CARICO_Svincolo;\r\n\r\nX_DEPOSITO:=X_V3;\r\nY_DEPOSITO:=Y_V3;\r\nX_SGANCIO:=X_V3_Svincolo;"
+      }
+     ]
+    },
+    {
+     "cmt": "TRASFERIMENTO DATI DA VASCA1 A VASCA2",
+     "chain": [
+      "V1_V2",
+      {
+       "ist": "X_PRESA:=X_V1;\r\nY_PRESA:=Y_V1;\r\nX_AGGANCIO:=X_V1_Svincolo;\r\n\r\nX_DEPOSITO:=X_V2;\r\nY_DEPOSITO:=Y_V2;\r\nX_SGANCIO:=X_V2_Svincolo;"
+      }
+     ]
+    },
+    {
+     "cmt": "TRASFERIMENTO DATI DA VASCA2 A VASCA3",
+     "chain": [
+      "V2_V3",
+      {
+       "ist": "X_PRESA:=X_V2;\r\nY_PRESA:=Y_V2;\r\nX_AGGANCIO:=X_V2_Svincolo;\r\n\r\nX_DEPOSITO:=X_V3;\r\nY_DEPOSITO:=Y_V3;\r\nX_SGANCIO:=X_V3_Svincolo;\r\n"
+      }
+     ]
+    },
+    {
+     "cmt": "TRASFERIMENTO DATI DA VASCA3 A VASCA4",
+     "chain": [
+      "V3_V4",
+      {
+       "ist": "X_PRESA:=X_V3;\r\nY_PRESA:=Y_V3;\r\nX_AGGANCIO:=X_V3_Svincolo;\r\n\r\nX_DEPOSITO:=X_V4;\r\nY_DEPOSITO:=Y_V4;\r\nX_SGANCIO:=X_V4_Svincolo;\r\n"
+      }
+     ]
+    },
+    {
+     "cmt": "TRASFERIMENTO DATI DA VASCA4 A VASCA5",
+     "chain": [
+      "V4_V5",
+      {
+       "ist": "X_PRESA:=X_V4;\r\nY_PRESA:=Y_V4;\r\nX_AGGANCIO:=X_V4_Svincolo;\r\n\r\nX_DEPOSITO:=X_V5;\r\nY_DEPOSITO:=Y_V5;\r\nX_SGANCIO:=X_V5_Svincolo;\r\n"
+      }
+     ]
+    },
+    {
+     "cmt": "TRASFERIMENTO DATI DA VASCA5 A VASCA6",
+     "chain": [
+      "V5_V6",
+      {
+       "ist": "X_PRESA:=X_V5;\r\nY_PRESA:=Y_V5;\r\nX_AGGANCIO:=X_V5_Svincolo;\r\n\r\nX_DEPOSITO:=X_V6;\r\nY_DEPOSITO:=Y_V6;\r\nX_SGANCIO:=X_V6_Svincolo;"
+      }
+     ]
+    },
+    {
+     "cmt": "TRASFERIMENTO DATI DA VASCA6 A VASCA7",
+     "chain": [
+      "V6_V7",
+      {
+       "ist": "X_PRESA:=X_V6;\r\nY_PRESA:=Y_V6;\r\nX_AGGANCIO:=X_V6_Svincolo;\r\n\r\nX_DEPOSITO:=X_V7;\r\nY_DEPOSITO:=Y_V7_Basso;\r\nX_SGANCIO:=X_V7_Svincolo;\r\n"
+      }
+     ]
+    },
+    {
+     "cmt": "TRASFERIMENTO DATI DA VASCA7 A FORNO1",
+     "chain": [
+      "V7_F1",
+      {
+       "ist": "X_PRESA:=X_V7;\r\nY_PRESA:=Y_V7_Alto;\r\nX_AGGANCIO:=X_V7_Svincolo;\r\n\r\nX_DEPOSITO:=X_F1;\r\nY_DEPOSITO:=Y_F1;\r\nX_SGANCIO:=X_F1_Svincolo;\r\n"
+      }
+     ]
+    },
+    {
+     "cmt": "TRASFERIMENTO DATI DA VASCA7 A FORNO2",
+     "chain": [
+      "V7_F2",
+      {
+       "ist": "X_PRESA:=X_V7;\r\nY_PRESA:=Y_V7_Alto;\r\nX_AGGANCIO:=X_V7_Svincolo;\r\n\r\nX_DEPOSITO:=X_F2;\r\nY_DEPOSITO:=Y_F2;\r\nX_SGANCIO:=X_F2_Svincolo;"
+      }
+     ]
+    },
+    {
+     "cmt": "TRASFERIMENTO DATI DA FORNO1 A SCARICO",
+     "chain": [
+      "F1_Scar",
+      {
+       "ist": "X_PRESA:=X_F1;\r\nY_PRESA:=Y_F1;\r\nX_AGGANCIO:=X_F1_Svincolo;\r\n\r\nX_DEPOSITO:=X_SCARICO;\r\nY_DEPOSITO:=Y_SCARICO;\r\nX_SGANCIO:=X_SCARICO_Svincolo;\r\n"
+      }
+     ]
+    },
+    {
+     "cmt": "TRASFERIMENTO DATI DA FORNO2 A SCARICO",
+     "chain": [
+      "F2_Scar",
+      {
+       "ist": "X_PRESA:=X_F2;\r\nY_PRESA:=Y_F2;\r\nX_AGGANCIO:=X_F2_Svincolo;\r\n\r\nX_DEPOSITO:=X_SCARICO;\r\nY_DEPOSITO:=Y_SCARICO;\r\nX_SGANCIO:=X_SCARICO_Svincolo;"
+      }
+     ]
+    },
+    {
+     "cmt": "TRASFERIMENTO DATI DI POSIZIONE A VARIABILI PER CONDIVIDERE CON VISUALIZZATORE",
+     "chain": [
+      {
+       "ist": "Posizione_Asse_X:=MC_X.Act.Pos;\r\nPosizione_Asse_Y:=MC_Y.Act.Pos;\r\n\r\nX_Coppia:=MC_X.Act.Trq;\r\nY_Coppia:=MC_Y.Act.Trq;\r\n\r\nX_Origin:=MC_X.DrvStatus.HomeSw;\r\nX_Cw:=MC_X.DrvStatus.P_OT;\r\nX_Ccw:=MC_X.DrvStatus.N_OT;\r\n\r\nY_Origin:=MC_Y.DrvStatus.HomeSw;\r\nY_Cw:=MC_Y.DrvStatus.P_OT;\r\nY_Ccw:=MC_Y.DrvStatus.N_OT;\r\n\r\nX_Allarm_Code:=MC_X.MFaultLvl.Code;\r\nY_Allarm_Code:=MC_Y.MFaultLvl.Code;"
+      }
+     ]
+    },
+    {
+     "cmt": "SCALO IL VALORE DI POSIZIONE DELL'ASSE X PER UTILIZZARLO NELLA VISUALIZZAZIONE",
+     "chain": [
+      {
+       "f": "ScaleTrans",
+       "p": {
+        "SclIn": "MC_X.Act.Pos",
+        "X0": "real#-40",
+        "Y0": "real#0",
+        "X1": "real#4450",
+        "Y1": "real#770",
+        "OUT:": "Scala_Pos_Asse_X"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "SCALO IL VALORE DI POSIZIONE DELL'ASSE Y PER UTILIZZARLO NELLA VISUALIZZAZIONE",
+     "chain": [
+      {
+       "f": "ScaleTrans",
+       "p": {
+        "SclIn": "MC_Y.Act.Pos",
+        "X0": "real#0",
+        "Y0": "real#0",
+        "X1": "real#414",
+        "Y1": "real#100",
+        "OUT:": "Scala_Pos_Asse_Y"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "SCALO IL TEMPO DI SALITA DELL'ASSE Y",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      {
+       "f": "ScaleTrans",
+       "p": {
+        "SclIn": "Lift_Durata1_Real",
+        "X0": "real#0",
+        "Y0": "real#0",
+        "X1": "Lift_Durata2_Real",
+        "Y1": "real#40",
+        "OUT:": "Scala_Pos_Lift"
+       }
+      },
+      {
+       "f": "INT_TO_REAL",
+       "p": {
+        "In": "Lift_Durata1",
+        "OUT:": "Lift_Durata1_Real"
+       }
+      },
+      {
+       "f": "INT_TO_REAL",
+       "p": {
+        "In": "Lift_Durata2",
+        "OUT:": "Lift_Durata2_Real"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "BIT DI VISUALIZZAZIONE CESTELLO SU ONLINE VISUALIZZATORE",
+     "chain": [
+      "MOV3_Done",
+      "/MOV6A_Done",
+      "(Bit_Cestello)"
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Bit_Cestello",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Car_V1",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Car_V3",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "F1_Scar",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "F2_Scar",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Lift_Durata1",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Lift_Durata1_Real",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Lift_Durata2",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Lift_Durata2_Real",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MC_X",
+     "type": "_sAXIS_REF",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MC_Y",
+     "type": "_sAXIS_REF",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV3_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV6A_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Posizione_Asse_X",
+     "type": "LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Posizione_Asse_Y",
+     "type": "LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Scala_Pos_Asse_X",
+     "type": "LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Scala_Pos_Asse_Y",
+     "type": "LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Scala_Pos_Lift",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V1_V2",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V2_V3",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V3_V4",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V4_V5",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V5_V6",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V6_V7",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V7_F1",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V7_F2",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "X_AGGANCIO",
+     "type": "REAL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "X_Allarm_Code",
+     "type": "WORD",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "X_CARICO",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "X_CARICO_Svincolo",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "X_Ccw",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "X_Coppia",
+     "type": "LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "X_Cw",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "X_DEPOSITO",
+     "type": "REAL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "X_F1",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "X_F1_Svincolo",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "X_F2",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "X_F2_Svincolo",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "X_Origin",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "X_PRESA",
+     "type": "REAL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "X_SCARICO",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "X_SCARICO_Svincolo",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "X_SGANCIO",
+     "type": "REAL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "X_V1",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "X_V1_Svincolo",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "X_V2",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "X_V2_Svincolo",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "X_V3",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "X_V3_Svincolo",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "X_V4",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "X_V4_Svincolo",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "X_V5",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "X_V5_Svincolo",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "X_V6",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "X_V6_Svincolo",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "X_V7",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "X_V7_Svincolo",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Y_Allarm_Code",
+     "type": "WORD",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Y_CARICO",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Y_Ccw",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Y_Coppia",
+     "type": "LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Y_Cw",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Y_DEPOSITO",
+     "type": "REAL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Y_F1",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Y_F2",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Y_Origin",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Y_PRESA",
+     "type": "REAL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Y_SCARICO",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Y_V1",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Y_V2",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Y_V3",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Y_V4",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Y_V5",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Y_V6",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Y_V7_Alto",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Y_V7_Basso",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Movimentazione_Robot": {
+   "rungs": [
+    {
+     "cmt": "CALCOLO QUOTE PER MOVIMENTAZIONE",
+     "chain": [
+      "P_On",
+      {
+       "ist": "(*Quote robot movimentazione da PRESA a DEPOSITO*)\r\n(*MOV1 asse X*)\r\nDistance1[0]:=(X_PRESA +(X_AGGANCIO));\r\nDistance1[1]:=0;\r\n(*MOV2 asse Y giù*)\r\nDistance2[0]:=(Distance1[0]);\r\nDistance2[1]:=(Y_PRESA);\r\n(*MOV3 asse X aggancio*)\r\nDistance3[0]:=(X_PRESA );\r\nDistance3[1]:=Distance2[1];\r\n(*MOV4A asse Y aggancio *)\r\nDistance4_Acc[0]:=0;\r\nDistance4_Acc[1]:=-50;(*mm di velocità bassa)\r\n(*MOV4 asse Y salita con cesto*)\r\nDistance4[0]:=Distance3[0];\r\nDistance4[1]:=0;\r\n(*MOV5 asse X con cesto*)\r\nDistance5[0]:=(X_DEPOSITO );\r\nDistance5[1]:=Distance4[1];\r\n(*MOV6 asse Y deposito cesto*)\r\nDistance6[0]:=(Distance5[0]);\r\nDistance6[1]:=(Y_DEPOSITO-50);\r\n(*MOV6A asse Y deposito cesto velocità bassa*)\r\nDistance6_Dec[0]:=(Distance5[0]);\r\nDistance6_Dec[1]:=(Y_DEPOSITO);\r\n(*MOV7*)\r\nDistance7[0]:=(X_DEPOSITO+(X_SGANCIO));\r\nDistance7[1]:=Distance6_Dec[1];\r\n(*MOV8*)\r\nDistance8[0]:=(Distance7[0] );\r\nDistance8[1]:=0;\r\n\r\n;"
+      }
+     ]
+    },
+    {
+     "cmt": "BLOCCO PRINCIPALE DI MOVIMENTAZIONE ASSI DOVE CARICO DI VOLTA IN VOLTA LE QUOTE CALCOLATE",
+     "chain": [
+      "Movim_Prenotati",
+      "End_Reset_Robot",
+      {
+       "fb": "TON",
+       "inst": "Tim_Movim_Prenotati",
+       "p": {
+        "PT": "T#400ms"
+       }
+      },
+      {
+       "or": [
+        [
+         {
+          "fb": "MC_MoveLinearAbsolute",
+          "inst": "MOV1",
+          "p": {
+           "AxesGroup": "MC_Group000",
+           "Position": "Distance1",
+           "Velocity": "300",
+           "Acceleration": "500",
+           "Deceleration": "500",
+           "OUT:AxesGroup": "MC_Group000"
+          }
+         },
+         "(MOV1_Done)"
+        ],
+        [
+         {
+          "or": [
+           "MOV1_Done",
+           "/Pausa_Mov1_2"
+          ]
+         },
+         {
+          "fb": "MC_MoveLinearAbsolute",
+          "inst": "MOV2",
+          "p": {
+           "AxesGroup": "MC_Group000",
+           "Position": "Distance2",
+           "Velocity": "250",
+           "Acceleration": "100",
+           "Deceleration": "100",
+           "BufferMode": "_eMC_BUFFER_MODE#_mcBlendingNext",
+           "TransitionMode": "_eMC_TRANSITION_MODE#_mcTMCornerSuperimposed",
+           "OUT:AxesGroup": "MC_Group000"
+          }
+         },
+         "(MOV2_Done)"
+        ],
+        [
+         "MOV3_Done",
+         {
+          "fb": "MC_MoveLinearRelative",
+          "inst": "MOV4A",
+          "p": {
+           "AxesGroup": "MC_Group000",
+           "Distance": "Distance4_Acc",
+           "Velocity": "50",
+           "Acceleration": "100",
+           "Deceleration": "100",
+           "OUT:AxesGroup": "MC_Group000",
+           "OUT:Active": "MOV4A_Active"
+          }
+         },
+         "(MOV4A_Done)"
+        ],
+        [
+         "MOV7_Done",
+         {
+          "fb": "MC_MoveLinearAbsolute",
+          "inst": "MOV8",
+          "p": {
+           "AxesGroup": "MC_Group000",
+           "Position": "Distance8",
+           "Velocity": "250",
+           "Acceleration": "500",
+           "Deceleration": "500",
+           "BufferMode": "_eMC_BUFFER_MODE#_mcBlendingNext",
+           "TransitionMode": "_eMC_TRANSITION_MODE#_mcTMCornerSuperimposed",
+           "OUT:AxesGroup": "MC_Group000"
+          }
+         },
+         "(MOV8_Done)"
+        ],
+        [
+         "MOV4A_Done",
+         {
+          "or": [
+           "OK_Lift_Down",
+           "MOV5.Execute"
+          ]
+         },
+         {
+          "or": [
+           [
+            {
+             "fb": "MC_MoveLinearAbsolute",
+             "inst": "MOV5",
+             "p": {
+              "AxesGroup": "MC_Group000",
+              "Position": "Distance5",
+              "Velocity": "250",
+              "Acceleration": "100",
+              "Deceleration": "500",
+              "BufferMode": "_eMC_BUFFER_MODE#_mcBlendingNext",
+              "TransitionMode": "_eMC_TRANSITION_MODE#_mcTMCornerSuperimposed",
+              "OUT:AxesGroup": "MC_Group000"
+             }
+            },
+            "(MOV5_Done)"
+           ],
+           [
+            {
+             "fb": "MC_MoveLinearAbsolute",
+             "inst": "MOV6",
+             "p": {
+              "AxesGroup": "MC_Group000",
+              "Position": "Distance6",
+              "Velocity": "100",
+              "Acceleration": "100",
+              "Deceleration": "100",
+              "BufferMode": "_eMC_BUFFER_MODE#_mcBlendingNext",
+              "TransitionMode": "_eMC_TRANSITION_MODE#_mcTMCornerSuperimposed",
+              "OUT:AxesGroup": "MC_Group000"
+             }
+            },
+            "(MOV6_Done)"
+           ],
+           [
+            {
+             "fb": "MC_MoveLinearAbsolute",
+             "inst": "MOV6A",
+             "p": {
+              "AxesGroup": "MC_Group000",
+              "Position": "Distance6_Dec",
+              "Velocity": "30",
+              "Acceleration": "100",
+              "Deceleration": "100",
+              "BufferMode": "_eMC_BUFFER_MODE#_mcBlendingNext",
+              "TransitionMode": "_eMC_TRANSITION_MODE#_mcTMCornerSuperimposed",
+              "OUT:AxesGroup": "MC_Group000"
+             }
+            },
+            "(MOV6A_Done)"
+           ]
+          ]
+         }
+        ],
+        [
+         "MOV3_Done",
+         {
+          "fb": "MC_MoveLinearAbsolute",
+          "inst": "MOV4",
+          "p": {
+           "AxesGroup": "MC_Group000",
+           "Position": "Distance4",
+           "Velocity": "200",
+           "Acceleration": "500",
+           "Deceleration": "500",
+           "BufferMode": "_eMC_BUFFER_MODE#_mcBlendingNext",
+           "TransitionMode": "_eMC_TRANSITION_MODE#_mcTMCornerSuperimposed",
+           "OUT:AxesGroup": "MC_Group000"
+          }
+         },
+         "(MOV4_Done)"
+        ],
+        [
+         "MOV6A_Done",
+         {
+          "or": [
+           "OK_Sgancio",
+           "MOV7.Execute"
+          ]
+         },
+         {
+          "fb": "MC_MoveLinearAbsolute",
+          "inst": "MOV7",
+          "p": {
+           "AxesGroup": "MC_Group000",
+           "Position": "Distance7",
+           "Velocity": "50",
+           "Acceleration": "100",
+           "Deceleration": "100",
+           "OUT:AxesGroup": "MC_Group000"
+          }
+         },
+         "(MOV7_Done)"
+        ],
+        [
+         "MOV2_Done",
+         {
+          "or": [
+           "OK_Aggancio",
+           "MOV3.Execute"
+          ]
+         },
+         {
+          "fb": "MC_MoveLinearAbsolute",
+          "inst": "MOV3",
+          "p": {
+           "AxesGroup": "MC_Group000",
+           "Position": "Distance3",
+           "Velocity": "50",
+           "Acceleration": "100",
+           "Deceleration": "100",
+           "OUT:AxesGroup": "MC_Group000"
+          }
+         },
+         "(MOV3_Done)"
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "cmt": "FINE CICLO MOVIMENTAZIONE",
+     "chain": [
+      "MOV8_Done",
+      "(End_Movimenti)"
+     ]
+    },
+    {
+     "cmt": "CONSENSO DI AGGANCIO",
+     "chain": [
+      "MOV2_Done",
+      "/MOV3_Done",
+      {
+       "or": [
+        "Car_V1",
+        "Car_V3",
+        "V7_F1",
+        "F2_Scar",
+        "F1_Scar",
+        [
+         {
+          "or": [
+           "V1_V2",
+           "V2_V3",
+           "V3_V4",
+           "V4_V5",
+           "V5_V6",
+           "V6_V7"
+          ]
+         },
+         "/Enable_Agitazione",
+         "/OUT_AGITAZIONE",
+         "IN_AGITAZ_UP"
+        ],
+        "V7_F2"
+       ]
+      },
+      "(OK_Aggancio)"
+     ]
+    },
+    {
+     "cmt": "CONSENSO DI SGANCIO",
+     "chain": [
+      "MOV6A_Done",
+      {
+       "or": [
+        [
+         {
+          "or": [
+           "Car_V1",
+           "Car_V3",
+           "V1_V2",
+           "V2_V3",
+           "V3_V4",
+           "V4_V5",
+           "V5_V6"
+          ]
+         },
+         "/Enable_Agitazione",
+         "/OUT_AGITAZIONE",
+         "IN_AGITAZ_UP"
+        ],
+        "V7_F1",
+        "F2_Scar",
+        "V7_F2",
+        "V6_V7",
+        "F1_Scar"
+       ]
+      },
+      "(OK_Sgancio)"
+     ]
+    },
+    {
+     "cmt": "BIT DI ATTESA DI DISCESA DEL LIFT  PRIMA DELLA TRASLAZIONE ORIZZONTALE CON CESTO AGGANCIATO DELLE SEQUENZE DI MOVIMENTAZIONE DA VASCA 7 A FORNO 1/2",
+     "chain": [
+      {
+       "or": [
+        "V7_F1",
+        "V7_F2"
+       ]
+      },
+      "(Alt_Lift_Down)"
+     ]
+    },
+    {
+     "cmt": "OK IL LIFT è BASSO E POSSO TRASLARE",
+     "chain": [
+      {
+       "or": [
+        "/Alt_Lift_Down",
+        [
+         "MOV3_Done",
+         "/OUT_LIFT_ENABLE",
+         "/IN_LIFT_SU",
+         "IN_LIFT_EXTRACORSA",
+         "IN_LIFT_GIU",
+         {
+          "fb": "TON",
+          "inst": "Tim_Lift_Down",
+          "p": {
+           "PT": "T#2s"
+          }
+         }
+        ]
+       ]
+      },
+      "(OK_Lift_Down)"
+     ]
+    },
+    {
+     "cmt": "CONTROLLO SE LA SEQUENZA DI MOVIMENTAZIONE è CORRETTA",
+     "chain": [
+      {
+       "or": [
+        [
+         "MOV1_Done",
+         "/MOV2_Done",
+         {
+          "or": [
+           "MOV3_Done",
+           "MOV4A_Done",
+           "MOV4_Done",
+           "MOV5_Done",
+           "MOV6_Done",
+           "MOV6A_Done",
+           "MOV7_Done",
+           "MOV8_Done"
+          ]
+         }
+        ],
+        [
+         "MOV2_Done",
+         "/MOV3_Done",
+         {
+          "or": [
+           "MOV4A_Done",
+           "MOV4_Done",
+           "MOV5_Done",
+           "MOV6_Done",
+           "MOV6A_Done",
+           "MOV7_Done",
+           "MOV8_Done"
+          ]
+         }
+        ],
+        [
+         "MOV3_Done",
+         "/MOV4A_Done",
+         {
+          "or": [
+           "MOV4_Done",
+           "MOV5_Done",
+           "MOV6_Done",
+           "MOV6A_Done",
+           "MOV7_Done",
+           "MOV8_Done"
+          ]
+         }
+        ],
+        [
+         "MOV4A_Done",
+         "/MOV4_Done",
+         {
+          "or": [
+           "MOV5_Done",
+           "MOV6_Done",
+           "MOV6A_Done",
+           "MOV7_Done",
+           "MOV8_Done"
+          ]
+         }
+        ],
+        [
+         "MOV5_Done",
+         "/MOV6_Done",
+         {
+          "or": [
+           "MOV6A_Done",
+           "MOV7_Done",
+           "MOV8_Done"
+          ]
+         }
+        ],
+        [
+         "MOV6_Done",
+         "/MOV6A_Done",
+         {
+          "or": [
+           "MOV7_Done",
+           "MOV8_Done"
+          ]
+         }
+        ],
+        [
+         "MOV4_Done",
+         "/MOV5_Done",
+         {
+          "or": [
+           "MOV6_Done",
+           "MOV6A_Done",
+           "MOV7_Done",
+           "MOV8_Done"
+          ]
+         }
+        ],
+        [
+         "MOV6A_Done",
+         "/MOV7_Done",
+         "MOV8_Done"
+        ]
+       ]
+      },
+      {
+       "f": "@Inc",
+       "p": {
+        "InOut": "Errori_Movimento",
+        "OUT:InOut": "Errori_Movimento"
+       }
+      }
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Alt_Lift_Down",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Car_V1",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Car_V3",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Distance1",
+     "type": "ARRAY[0..3] OF LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Distance2",
+     "type": "ARRAY[0..3] OF LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Distance3",
+     "type": "ARRAY[0..3] OF LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Distance4",
+     "type": "ARRAY[0..3] OF LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Distance4_Acc",
+     "type": "ARRAY[0..3] OF LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Distance5",
+     "type": "ARRAY[0..3] OF LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Distance6",
+     "type": "ARRAY[0..3] OF LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Distance6_Dec",
+     "type": "ARRAY[0..3] OF LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Distance7",
+     "type": "ARRAY[0..3] OF LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Distance8",
+     "type": "ARRAY[0..3] OF LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Enable_Agitazione",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "End_Movimenti",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "End_Reset_Robot",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Errori_Movimento",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "F1_Scar",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "F2_Scar",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "IN_AGITAZ_UP",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIFT_EXTRACORSA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIFT_GIU",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIFT_SU",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MC_Group000",
+     "type": "_sGROUP_REF",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV1",
+     "type": "MC_MoveLinearAbsolute",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV1_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV2",
+     "type": "MC_MoveLinearAbsolute",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV2_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV3",
+     "type": "MC_MoveLinearAbsolute",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV3_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV4",
+     "type": "MC_MoveLinearAbsolute",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV4A",
+     "type": "MC_MoveLinearRelative",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV4A_Active",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV4A_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV4_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV5",
+     "type": "MC_MoveLinearAbsolute",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV5_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV6",
+     "type": "MC_MoveLinearAbsolute",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV6A",
+     "type": "MC_MoveLinearAbsolute",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV6A_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV6_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV7",
+     "type": "MC_MoveLinearAbsolute",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV7_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV8",
+     "type": "MC_MoveLinearAbsolute",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV8_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Movim_Prenotati",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OK_Aggancio",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OK_Lift_Down",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OK_Sgancio",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_AGITAZIONE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_LIFT_ENABLE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Pausa_Mov1_2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Lift_Down",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Movim_Prenotati",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V1_V2",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V2_V3",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V3_V4",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V4_V5",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V5_V6",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V6_V7",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V7_F1",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V7_F2",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "X_AGGANCIO",
+     "type": "REAL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "X_DEPOSITO",
+     "type": "REAL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "X_PRESA",
+     "type": "REAL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "X_SGANCIO",
+     "type": "REAL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Y_DEPOSITO",
+     "type": "REAL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Y_PRESA",
+     "type": "REAL",
+     "retain": true,
+     "comment": ""
+    }
+   ]
+  },
+  "Sequenze_Movimentazione": {
+   "rungs": [
+    {
+     "cmt": "MACCHINA OK PER MOVIMENTAZIONE",
+     "chain": [
+      "Robot_Ready",
+      "MC_Group000.Status.Ready",
+      "End_Reset_Robot",
+      "End_Reset_Agita",
+      "End_Reset_Lift",
+      "(Macchina_OK)"
+     ]
+    },
+    {
+     "cmt": "READY MOVIMENTAZIONE: TUTTO OK PER ESEGUIRE UNA SEQUENZA DI MOVIMENTAZIONE",
+     "chain": [
+      "/Call_Prenoto_Porte",
+      "/Movim_Prenotati",
+      "Macchina_OK",
+      "(Ready_Movimentazione)"
+     ]
+    },
+    {
+     "cmt": "CLOCK MOVIMENTAZIONE",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       {
+        "f": "Get100msClk",
+        "p": {}
+       },
+       {
+        "f": "@Inc",
+        "p": {
+         "InOut": "Clock_Movimenti",
+         "OUT:InOut": "Clock_Movimenti"
+        }
+       }
+      ],
+      [
+       {
+        "or": [
+         "Movim_Prenotati",
+         {
+          "f": ">",
+          "p": {
+           "In1": "Clock_Movimenti",
+           "In2": "13"
+          }
+         }
+        ]
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "0",
+         "OUT:Out": "Clock_Movimenti"
+        }
+       }
+      ]
+     ]
+    },
+    {
+     "cmt": "RICETTA 1",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "V_P_Ricetta1",
+       "(S Mem_Ricetta1)"
+      ],
+      [
+       "Mem_Ricetta1",
+       "(V_L_Ricetta1)"
+      ],
+      [
+       "V_P_Ricetta2",
+       "(R Mem_Ricetta1)"
+      ]
+     ]
+    },
+    {
+     "cmt": "PRENOTAZIONE RICETTA 2",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "V_P_Ricetta2",
+       "(S Mem_Prenoto_Ricetta2)"
+      ],
+      [
+       "Mem_Ricetta1",
+       "(R Mem_Prenoto_Ricetta2)"
+      ]
+     ]
+    },
+    {
+     "cmt": "RICETTA2",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "Mem_Prenoto_Ricetta2",
+       "/Mem_V1",
+       "/Mem_V2",
+       "/Mem_V3",
+       "/Movim_Prenotati",
+       "(S Mem_Ricetta2)"
+      ],
+      [
+       "V_P_Ricetta1",
+       "(R Mem_Ricetta2)"
+      ],
+      [
+       "Mem_Prenoto_Ricetta2",
+       {
+        "or": [
+         {
+          "f": "Get1sClk",
+          "p": {}
+         },
+         "Mem_Ricetta2"
+        ]
+       },
+       "(V_L_Ricetta2)"
+      ]
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "IN_CAR_POS1",
+      "/OUT_NASTRO_CARICO",
+      {
+       "fb": "TON",
+       "inst": "Tim_Carico",
+       "p": {
+        "PT": "TIME#2S"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "VERIFICA_TEMPER\r\nVERIFICO SE LE TEMPERATURE DELLE VASCHE CHE DEVO UTILIZZARE SONO OK\r\n",
+     "chain": [
+      {
+       "or": [
+        "/Allarme_Bit[16]",
+        "Mem_Ricetta2"
+       ]
+      },
+      "/Allarme_Bit[17]",
+      "/Allarme_Bit[18]",
+      "/Allarme_Bit[19]",
+      "/Allarme_Bit[20]",
+      "(Temper_OK)"
+     ]
+    },
+    {
+     "cmt": "MOV-CAR-V1\r\nPRIMO MOVIMENTO DA CARICO A V1\r\n",
+     "chain": [
+      "P_On",
+      {
+       "or": [
+        [
+         "Ready_Movimentazione",
+         "Tim_Carico.Q",
+         "/Mem_V1",
+         "Mem_Ricetta1",
+         "Temper_OK",
+         {
+          "f": "=",
+          "p": {
+           "In1": "Clock_Movimenti",
+           "In2": "11"
+          }
+         },
+         {
+          "or": [
+           [
+            "Carico_Sicuro",
+            "(S Car_V1)"
+           ],
+           "(Look1)"
+          ]
+         }
+        ],
+        [
+         {
+          "or": [
+           "IN_RESET",
+           "End_Movimenti"
+          ]
+         },
+         "(R Car_V1)"
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "cmt": "MOV-CAR-V3\r\nPRIMO MOVIMENTO DA CARICO A V3\r\n",
+     "chain": [
+      "P_On",
+      {
+       "or": [
+        [
+         "Ready_Movimentazione",
+         "Tim_Carico.Q",
+         "/Mem_V1",
+         "/Mem_V2",
+         "/Mem_V3",
+         "Mem_Ricetta2",
+         "Temper_OK",
+         {
+          "f": "=",
+          "p": {
+           "In1": "Clock_Movimenti",
+           "In2": "12"
+          }
+         },
+         {
+          "or": [
+           [
+            "Carico_Sicuro",
+            "(S Car_V3)"
+           ],
+           "(Look2)"
+          ]
+         }
+        ],
+        [
+         {
+          "or": [
+           "IN_RESET",
+           "End_Movimenti"
+          ]
+         },
+         "(R Car_V3)"
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "cmt": "MOV-V1-V2\r\nPRIMO MOVIMENTO DA V1 A V2\r\n",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "Ready_Movimentazione",
+       "Cnt_V1.End_Conteggio",
+       "/Mem_V2",
+       {
+        "f": "=",
+        "p": {
+         "In1": "Clock_Movimenti",
+         "In2": "2"
+        }
+       },
+       "(S V1_V2)"
+      ],
+      [
+       {
+        "or": [
+         "IN_RESET",
+         "End_Movimenti"
+        ]
+       },
+       "(R V1_V2)"
+      ]
+     ]
+    },
+    {
+     "cmt": "MOV-V2-V3\r\nPRIMO MOVIMENTO DA V2 A V3\r\n",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "Ready_Movimentazione",
+       "Cnt_V2.End_Conteggio",
+       "/Mem_V3",
+       {
+        "f": "=",
+        "p": {
+         "In1": "Clock_Movimenti",
+         "In2": "4"
+        }
+       },
+       "(S V2_V3)"
+      ],
+      [
+       {
+        "or": [
+         "IN_RESET",
+         "End_Movimenti"
+        ]
+       },
+       "(R V2_V3)"
+      ]
+     ]
+    },
+    {
+     "cmt": "MOV-V3-V4\r\nPRIMO MOVIMENTO DA V3 A V4\r\n",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "Ready_Movimentazione",
+       "Cnt_V3.End_Conteggio",
+       "/Mem_V4",
+       {
+        "f": "=",
+        "p": {
+         "In1": "Clock_Movimenti",
+         "In2": "1"
+        }
+       },
+       "(S V3_V4)"
+      ],
+      [
+       {
+        "or": [
+         "IN_RESET",
+         "End_Movimenti"
+        ]
+       },
+       "(R V3_V4)"
+      ]
+     ]
+    },
+    {
+     "cmt": "MOV-V4-V5\r\nPRIMO MOVIMENTO DA V4 A V5\r\n",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "Ready_Movimentazione",
+       "Cnt_V4.End_Conteggio",
+       "/Mem_V5",
+       {
+        "f": "=",
+        "p": {
+         "In1": "Clock_Movimenti",
+         "In2": "3"
+        }
+       },
+       "(S V4_V5)"
+      ],
+      [
+       {
+        "or": [
+         "IN_RESET",
+         "End_Movimenti"
+        ]
+       },
+       "(R V4_V5)"
+      ]
+     ]
+    },
+    {
+     "cmt": "MOV-V5-V6\r\nPRIMO MOVIMENTO DA V5 A V6\r\n",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "Ready_Movimentazione",
+       "Cnt_V5.End_Conteggio",
+       "/Mem_V6",
+       {
+        "f": "=",
+        "p": {
+         "In1": "Clock_Movimenti",
+         "In2": "10"
+        }
+       },
+       "(S V5_V6)"
+      ],
+      [
+       {
+        "or": [
+         "IN_RESET",
+         "End_Movimenti"
+        ]
+       },
+       "(R V5_V6)"
+      ]
+     ]
+    },
+    {
+     "cmt": "MOV-V6-V7\r\nPRIMO MOVIMENTO DA V6 A V7\r\n",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "Ready_Movimentazione",
+       "Cnt_V6.End_Conteggio",
+       "/Mem_V7",
+       "/OUT_LIFT_ENABLE",
+       "IN_LIFT_GIU",
+       "IN_LIFT_EXTRACORSA",
+       {
+        "f": "=",
+        "p": {
+         "In1": "Clock_Movimenti",
+         "In2": "9"
+        }
+       },
+       "(S V6_V7)"
+      ],
+      [
+       {
+        "or": [
+         "IN_RESET",
+         "End_Movimenti"
+        ]
+       },
+       "(R V6_V7)"
+      ]
+     ]
+    },
+    {
+     "cmt": "MOV-V7-F1\r\nPRIMO MOVIMENTO DA V7 A FORNO1\r\n",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "Ready_Movimentazione",
+       "Mem_V7",
+       "/Mem_F1",
+       "/OUT_LIFT_ENABLE",
+       "IN_LIFT_SU",
+       "IN_LIFT_EXTRACORSA",
+       {
+        "f": "=",
+        "p": {
+         "In1": "Clock_Movimenti",
+         "In2": "8"
+        }
+       },
+       "(S V7_F1)"
+      ],
+      [
+       {
+        "or": [
+         "IN_RESET",
+         "End_Movimenti"
+        ]
+       },
+       "(R V7_F1)"
+      ]
+     ]
+    },
+    {
+     "cmt": "MOV-V7-F2\r\nPRIMO MOVIMENTO DA V7 A FORNO2\r\n",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "Ready_Movimentazione",
+       "Mem_V7",
+       "Mem_F1",
+       "/Mem_F2",
+       "/OUT_LIFT_ENABLE",
+       "IN_LIFT_SU",
+       "IN_LIFT_EXTRACORSA",
+       {
+        "f": "=",
+        "p": {
+         "In1": "Clock_Movimenti",
+         "In2": "7"
+        }
+       },
+       "(S V7_F2)"
+      ],
+      [
+       {
+        "or": [
+         "IN_RESET",
+         "End_Movimenti"
+        ]
+       },
+       "(R V7_F2)"
+      ]
+     ]
+    },
+    {
+     "cmt": "MOV-F1-SCARICO\r\nPRIMO MOVIMENTO DA  FORNO1 A SCARICO\r\n",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "Ready_Movimentazione",
+       "Cnt_F1.End_Conteggio",
+       "/IN_SCAR_POS1",
+       "/OUT_NASTRO_SCARICO",
+       {
+        "f": "=",
+        "p": {
+         "In1": "Clock_Movimenti",
+         "In2": "6"
+        }
+       },
+       "(S F1_Scar)"
+      ],
+      [
+       {
+        "or": [
+         "IN_RESET",
+         "End_Movimenti"
+        ]
+       },
+       "(R F1_Scar)"
+      ]
+     ]
+    },
+    {
+     "cmt": "MOV-F2-SCARICO\r\nPRIMO MOVIMENTO DA  FORNO2 A SCARICO\r\n",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "Ready_Movimentazione",
+       "Cnt_F2.End_Conteggio",
+       "/IN_SCAR_POS1",
+       "/OUT_NASTRO_SCARICO",
+       {
+        "f": "=",
+        "p": {
+         "In1": "Clock_Movimenti",
+         "In2": "5"
+        }
+       },
+       "(S F2_Scar)"
+      ],
+      [
+       {
+        "or": [
+         "IN_RESET",
+         "End_Movimenti"
+        ]
+       },
+       "(R F2_Scar)"
+      ]
+     ]
+    },
+    {
+     "cmt": "MOVIMENTAZIONE PRENOTATA",
+     "chain": [
+      {
+       "or": [
+        "Car_V1",
+        "Car_V3",
+        "V1_V2",
+        "V2_V3",
+        "V3_V4",
+        "V4_V5",
+        "V5_V6",
+        "V6_V7",
+        "V7_F1",
+        "V7_F2",
+        "F1_Scar",
+        "F2_Scar"
+       ]
+      },
+      "(Movim_Prenotati)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "Car_V1",
+       {
+        "f": "@ADD",
+        "p": {
+         "In1": "int#1",
+         "In2": "Somma_Movimenti",
+         "OUT:": "Somma_Movimenti"
+        }
+       }
+      ],
+      [
+       "V5_V6",
+       {
+        "f": "@ADD",
+        "p": {
+         "In1": "int#1",
+         "In2": "Somma_Movimenti",
+         "OUT:": "Somma_Movimenti"
+        }
+       }
+      ],
+      [
+       {
+        "f": ">=",
+        "p": {
+         "In1": "Somma_Movimenti",
+         "In2": "2"
+        }
+       },
+       {
+        "f": "@Inc",
+        "p": {
+         "InOut": "Errore_Movimenti",
+         "OUT:InOut": "Errore_Movimenti"
+        }
+       }
+      ],
+      [
+       "V2_V3",
+       {
+        "f": "@ADD",
+        "p": {
+         "In1": "int#1",
+         "In2": "Somma_Movimenti",
+         "OUT:": "Somma_Movimenti"
+        }
+       }
+      ],
+      [
+       "V7_F2",
+       {
+        "f": "@ADD",
+        "p": {
+         "In1": "int#1",
+         "In2": "Somma_Movimenti",
+         "OUT:": "Somma_Movimenti"
+        }
+       }
+      ],
+      [
+       "/Movim_Prenotati",
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "int#0",
+         "OUT:Out": "Somma_Movimenti"
+        }
+       }
+      ],
+      [
+       "V1_V2",
+       {
+        "f": "@ADD",
+        "p": {
+         "In1": "int#1",
+         "In2": "Somma_Movimenti",
+         "OUT:": "Somma_Movimenti"
+        }
+       }
+      ],
+      [
+       "V4_V5",
+       {
+        "f": "@ADD",
+        "p": {
+         "In1": "int#1",
+         "In2": "Somma_Movimenti",
+         "OUT:": "Somma_Movimenti"
+        }
+       }
+      ],
+      [
+       "F2_Scar",
+       {
+        "f": "@ADD",
+        "p": {
+         "In1": "int#1",
+         "In2": "Somma_Movimenti",
+         "OUT:": "Somma_Movimenti"
+        }
+       }
+      ],
+      [
+       "V7_F1",
+       {
+        "f": "@ADD",
+        "p": {
+         "In1": "int#1",
+         "In2": "Somma_Movimenti",
+         "OUT:": "Somma_Movimenti"
+        }
+       }
+      ],
+      [
+       "V3_V4",
+       {
+        "f": "@ADD",
+        "p": {
+         "In1": "int#1",
+         "In2": "Somma_Movimenti",
+         "OUT:": "Somma_Movimenti"
+        }
+       }
+      ],
+      [
+       "Car_V3",
+       {
+        "f": "@ADD",
+        "p": {
+         "In1": "int#1",
+         "In2": "Somma_Movimenti",
+         "OUT:": "Somma_Movimenti"
+        }
+       }
+      ],
+      [
+       "V6_V7",
+       {
+        "f": "@ADD",
+        "p": {
+         "In1": "int#1",
+         "In2": "Somma_Movimenti",
+         "OUT:": "Somma_Movimenti"
+        }
+       }
+      ],
+      [
+       "F1_Scar",
+       {
+        "f": "@ADD",
+        "p": {
+         "In1": "int#1",
+         "In2": "Somma_Movimenti",
+         "OUT:": "Somma_Movimenti"
+        }
+       }
+      ]
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Allarme_Bit",
+     "type": "ARRAY[0..40] OF bool",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Call_Prenoto_Porte",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Car_V1",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Car_V3",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Carico_Sicuro",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Clock_Movimenti",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_F1",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_F2",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_V1",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_V2",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_V3",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_V4",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_V5",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_V6",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "End_Movimenti",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "End_Reset_Agita",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "End_Reset_Lift",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "End_Reset_Robot",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Errore_Movimenti",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "F1_Scar",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "F2_Scar",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "IN_CAR_POS1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIFT_EXTRACORSA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIFT_GIU",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIFT_SU",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_RESET",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_SCAR_POS1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Look1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Look2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MC_Group000",
+     "type": "_sGROUP_REF",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Macchina_OK",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_F1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_F2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Prenoto_Ricetta2",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Ricetta1",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Ricetta2",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_V1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_V2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_V3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_V4",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_V5",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_V6",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_V7",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Movim_Prenotati",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_LIFT_ENABLE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_NASTRO_CARICO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_NASTRO_SCARICO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Ready_Movimentazione",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Robot_Ready",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Somma_Movimenti",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Temper_OK",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Carico",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V1_V2",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V2_V3",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V3_V4",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V4_V5",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V5_V6",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V6_V7",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V7_F1",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V7_F2",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V_L_Ricetta1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_L_Ricetta2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Ricetta1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Ricetta2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Memorie_Vasche": {
+   "rungs": [
+    {
+     "cmt": "CARICO LE MEMORIE DEI CESTELLI",
+     "chain": [
+      "MOV6_Done"
+     ],
+     "out": [
+      [
+       "Car_V1",
+       "(S Mem_V1)"
+      ],
+      [
+       "V5_V6",
+       "(S Mem_V6)"
+      ],
+      [
+       "V7_F2",
+       "(S Mem_F2)"
+      ],
+      [
+       {
+        "or": [
+         "Car_V3",
+         "V2_V3"
+        ]
+       },
+       "(S Mem_V3)"
+      ],
+      [
+       "V4_V5",
+       "(S Mem_V5)"
+      ],
+      [
+       "V7_F1",
+       "(S Mem_F1)"
+      ],
+      [
+       "V3_V4",
+       "(S Mem_V4)"
+      ],
+      [
+       "V1_V2",
+       "(S Mem_V2)"
+      ],
+      [
+       "V6_V7",
+       "(S Mem_V7)"
+      ]
+     ]
+    },
+    {
+     "cmt": "SCARICO LE MEMORIE DEI CESTELLI",
+     "chain": [
+      "MOV4_Done"
+     ],
+     "out": [
+      [
+       "V1_V2",
+       "(R Mem_V1)"
+      ],
+      [
+       {
+        "or": [
+         "V7_F1",
+         "V7_F2"
+        ]
+       },
+       "(R Mem_V7)"
+      ],
+      [
+       "V4_V5",
+       "(R Mem_V4)"
+      ],
+      [
+       "F2_Scar",
+       "(R Mem_F2)"
+      ],
+      [
+       "V3_V4",
+       "(R Mem_V3)"
+      ],
+      [
+       "V6_V7",
+       "(R Mem_V6)"
+      ],
+      [
+       "F1_Scar",
+       "(R Mem_F1)"
+      ],
+      [
+       "V5_V6",
+       "(R Mem_V5)"
+      ],
+      [
+       "V2_V3",
+       "(R Mem_V2)"
+      ]
+     ]
+    },
+    {
+     "cmt": "RESETTO TUTTE LE MEMORIE VASCA SE TENGO GIRATA LA CHIAVE DI RESET PER 5 SECONDI",
+     "chain": [
+      "IN_RESET",
+      {
+       "fb": "TON",
+       "inst": "Tim15",
+       "p": {
+        "PT": "TIME#5S"
+       }
+      }
+     ],
+     "out": [
+      "(R Mem_V1)",
+      "(R Mem_V2)",
+      "(R Mem_V3)",
+      "(R Mem_V4)",
+      "(R Mem_V5)",
+      "(R Mem_V6)",
+      "(R Mem_V7)",
+      "(R Mem_F1)",
+      "(R Mem_F2)"
+     ]
+    },
+    {
+     "cmt": "SETTO TUTTE LE MEMORIE DEI CESTELLI",
+     "chain": [
+      "V_P_Set_Memory"
+     ],
+     "out": [
+      "(S Mem_V1)",
+      "(S Mem_V2)",
+      "(S Mem_V3)",
+      "(S Mem_V4)",
+      "(S Mem_V5)",
+      "(S Mem_V6)",
+      "(S Mem_V7)",
+      "(S Mem_F1)",
+      "(S Mem_F2)"
+     ]
+    },
+    {
+     "cmt": "TEMPORIZZATORE VASCA 1",
+     "chain": [
+      "Mem_V1",
+      {
+       "fb": "Contatore",
+       "inst": "Cnt_V1",
+       "p": {
+        "SET_VALUE": "SET_Timer",
+        "VALUE": "PV_Timer_V1",
+        "OUT:VALUE": "PV_Timer_V1"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "TEMPORIZZATORE VASCA 2",
+     "chain": [
+      "Mem_V2",
+      {
+       "fb": "Contatore",
+       "inst": "Cnt_V2",
+       "p": {
+        "SET_VALUE": "SET_Timer",
+        "VALUE": "PV_Timer_V2",
+        "OUT:VALUE": "PV_Timer_V2"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "TEMPORIZZATORE VASCA 3",
+     "chain": [
+      "Mem_V3",
+      {
+       "fb": "Contatore",
+       "inst": "Cnt_V3",
+       "p": {
+        "SET_VALUE": "SET_Timer",
+        "VALUE": "PV_Timer_V3",
+        "OUT:VALUE": "PV_Timer_V3"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "TEMPORIZZATORE VASCA 4",
+     "chain": [
+      "Mem_V4",
+      {
+       "fb": "Contatore",
+       "inst": "Cnt_V4",
+       "p": {
+        "SET_VALUE": "SET_Timer",
+        "VALUE": "PV_Timer_V4",
+        "OUT:VALUE": "PV_Timer_V4"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "TEMPORIZZATORE VASCA 5",
+     "chain": [
+      "Mem_V5",
+      {
+       "fb": "Contatore",
+       "inst": "Cnt_V5",
+       "p": {
+        "SET_VALUE": "SET_Timer",
+        "VALUE": "PV_Timer_V5",
+        "OUT:VALUE": "PV_Timer_V5"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "TEMPORIZZATORE VASCA 6",
+     "chain": [
+      "Mem_V6",
+      {
+       "fb": "Contatore",
+       "inst": "Cnt_V6",
+       "p": {
+        "SET_VALUE": "SET_Timer",
+        "VALUE": "PV_Timer_V6",
+        "OUT:VALUE": "PV_Timer_V6"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "TEMPORIZZATORE VASCA 7",
+     "chain": [
+      "Mem_V7",
+      {
+       "fb": "Contatore",
+       "inst": "Cnt_V7",
+       "p": {
+        "SET_VALUE": "SET_Timer",
+        "VALUE": "PV_Timer_V7",
+        "OUT:VALUE": "PV_Timer_V7"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "ist": "Timer_Forni:=SET_Timer*2;"
+      }
+     ]
+    },
+    {
+     "cmt": "TEMPORIZZATORE FORNO1",
+     "chain": [
+      "Mem_F1",
+      {
+       "fb": "Contatore",
+       "inst": "Cnt_F1",
+       "p": {
+        "SET_VALUE": "Timer_Forni",
+        "VALUE": "PV_Timer_F1",
+        "OUT:VALUE": "PV_Timer_F1"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "TEMPORIZZATORE FORNO2",
+     "chain": [
+      "Mem_F2",
+      {
+       "fb": "Contatore",
+       "inst": "Cnt_F2",
+       "p": {
+        "SET_VALUE": "Timer_Forni",
+        "VALUE": "PV_Timer_F2",
+        "OUT:VALUE": "PV_Timer_F2"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "MACCHINA VUOTA",
+     "chain": [
+      "/Mem_V1",
+      "/Mem_V2",
+      "/Mem_V3",
+      "/Mem_V4",
+      "/Mem_V5",
+      "/Mem_V6",
+      "/Mem_V7",
+      "/Mem_F1",
+      "/Mem_F2",
+      {
+       "fb": "TON",
+       "inst": "Tim_Macchina_Vuota",
+       "p": {
+        "PT": "TIME#20S"
+       }
+      }
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Car_V1",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Car_V3",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_F1",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_F2",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_V1",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_V2",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_V3",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_V4",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_V5",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_V6",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_V7",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "F1_Scar",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "F2_Scar",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "IN_RESET",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV4_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV6_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_F1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_F2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_V1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_V2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_V3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_V4",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_V5",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_V6",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_V7",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Timer_F1",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Timer_F2",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Timer_V1",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Timer_V2",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Timer_V3",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Timer_V4",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Timer_V5",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Timer_V6",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Timer_V7",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Timer",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim15",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Macchina_Vuota",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Timer_Forni",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V1_V2",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V2_V3",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V3_V4",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V4_V5",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V5_V6",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V6_V7",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V7_F1",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V7_F2",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Set_Memory",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Agitazione": {
+   "rungs": [
+    {
+     "cmt": "RESET AGITAZIONE\r\nFACCIO IL RESET DELL'AGITAZIONE",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "End_Reset_Robot",
+       "(S Start_Reset_Agita)"
+      ],
+      [
+       "IN_RESET",
+       "(R Start_Reset_Agita)"
+      ]
+     ]
+    },
+    {
+     "cmt": "END RESET AGITAZIONE\r\nRESET AGITAZIONE FINITO",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "Start_Reset_Agita",
+       "^IN_AGITAZ_UP",
+       "(S End_Reset_Agita)"
+      ],
+      [
+       "IN_RESET",
+       "(R End_Reset_Agita)"
+      ]
+     ]
+    },
+    {
+     "cmt": "CHIAMATA DI START AGITAZIONE DA PARTE DEL ROBOT",
+     "chain": [
+      "End_Reset_Agita",
+      {
+       "or": [
+        [
+         {
+          "or": [
+           [
+            "MOV4A_Active",
+            "/MOV4_Done"
+           ],
+           "MOV8.Execute"
+          ]
+         },
+         {
+          "or": [
+           "V1_V2",
+           "V2_V3",
+           "V3_V4",
+           "V4_V5",
+           "V5_V6",
+           "V6_V7"
+          ]
+         }
+        ],
+        [
+         "MOV8.Execute",
+         {
+          "or": [
+           "Car_V1",
+           "Car_V3"
+          ]
+         }
+        ]
+       ]
+      },
+      "(Call_Start_Agita)"
+     ]
+    },
+    {
+     "cmt": "CHIAMATA DI STOP AGITAZIONE DA PARTE DEL ROBOT",
+     "chain": [
+      "End_Reset_Agita",
+      {
+       "or": [
+        [
+         "MOV1_Done",
+         "/MOV3_Done",
+         {
+          "or": [
+           "V1_V2",
+           "V2_V3",
+           "V3_V4",
+           "V4_V5",
+           "V5_V6",
+           "V6_V7"
+          ]
+         }
+        ],
+        [
+         "MOV5_Done",
+         "/MOV7_Done",
+         {
+          "or": [
+           "Car_V1",
+           "Car_V3",
+           "V1_V2",
+           "V2_V3",
+           "V3_V4",
+           "V4_V5",
+           "V5_V6"
+          ]
+         }
+        ]
+       ]
+      },
+      "(Call_Stop_Agita)"
+     ]
+    },
+    {
+     "cmt": "ECONOMY AGITAZIONE. QUANDO NON HO PIU CESTI NELLE VASCHE DIA AGITAZIONE LA BLOCCO",
+     "chain": [
+      "End_Reset_Agita",
+      "/Car_V1",
+      "/Car_V3",
+      "/Mem_V1",
+      "/Mem_V2",
+      "/Mem_V3",
+      "/Mem_V4",
+      "/Mem_V5",
+      "/Mem_V6",
+      {
+       "fb": "TON",
+       "inst": "Tim6",
+       "p": {
+        "PT": "TIME#30S"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "ENABLE AGITAZIONE",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       {
+        "or": [
+         "^Call_Start_Agita",
+         [
+          {
+           "or": [
+            "^End_Reset_Agita",
+            "^Marcia_ON"
+           ]
+          },
+          {
+           "or": [
+            "Mem_V1",
+            "Mem_V2",
+            "Mem_V3",
+            "Mem_V4",
+            "Mem_V5",
+            "Mem_V6"
+           ]
+          }
+         ]
+        ]
+       },
+       "(S Enable_Agitazione)"
+      ],
+      [
+       {
+        "or": [
+         [
+          {
+           "or": [
+            "Call_Stop_Agita",
+            "Tim6.Q",
+            "Tim27.Q"
+           ]
+          },
+          "^IN_AGITAZ_UP"
+         ],
+         "IN_RESET"
+        ]
+       },
+       "(R Enable_Agitazione)"
+      ]
+     ]
+    },
+    {
+     "cmt": "OUT AGITAZIONE  SET INVERTER SHNEIDER ATV12\r\nACC=1 / dEC=0,1 / LSP=30\r\nConF>FuLL>CtL>Frl>ALl      ConF>FuLL>i_O>tCC>2C\r\nSet Speed Min   Conf>FULL>FUn>PSS>PS2>L2H       Conf>FULL>FUn>PSS>SP2>30\r\nSet Speed Max   Conf>FULL>FUn>PSS>PS4>L3H       Conf>FULL>FUn>PSS>SP3>50\r\nConF>FuLL>i_O>tCt>LEL\r\nConf>FULL>FLt>oPL>NO",
+     "chain": [
+      "Marcia_ON",
+      {
+       "or": [
+        [
+         "Start_Reset_Agita",
+         "/End_Reset_Agita"
+        ],
+        [
+         "V_P_Agita_Manu",
+         "/Start_Reset_Robot"
+        ],
+        [
+         "Enable_Agitazione",
+         "End_Reset_Agita"
+        ]
+       ]
+      },
+      "(OUT_AGITAZIONE)"
+     ]
+    },
+    {
+     "cmt": "SET SPEED AGITAZIONE",
+     "chain": [
+      "V_P_Agita_Speed1"
+     ],
+     "out": [
+      "(S SET_Speed_1_Agitaz)",
+      "(R SET_Speed_2_Agitaz)"
+     ]
+    },
+    {
+     "cmt": "SET SPEED AGITAZIONE",
+     "chain": [
+      "V_P_Agita_Speed2"
+     ],
+     "out": [
+      "(S SET_Speed_2_Agitaz)",
+      "(R SET_Speed_1_Agitaz)"
+     ]
+    },
+    {
+     "cmt": "SET SPEED AGITAZIONE",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "SET_Speed_1_Agitaz",
+       "(OUT_AGITAZIONE_SPEED_1)"
+      ],
+      [
+       "SET_Speed_2_Agitaz",
+       "(OUT_AGITAZIONE_SPEED_2)"
+      ]
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Call_Start_Agita",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Call_Stop_Agita",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Car_V1",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Car_V3",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Enable_Agitazione",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "End_Reset_Agita",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "End_Reset_Robot",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_AGITAZ_UP",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_RESET",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV1_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV3_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV4A_Active",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV4_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV5_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV7_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV8",
+     "type": "MC_MoveLinearAbsolute",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Marcia_ON",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_V1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_V2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_V3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_V4",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_V5",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_V6",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_AGITAZIONE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_AGITAZIONE_SPEED_1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_AGITAZIONE_SPEED_2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Speed_1_Agitaz",
+     "type": "bool",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Speed_2_Agitaz",
+     "type": "bool",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Start_Reset_Agita",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Start_Reset_Robot",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim27",
+     "type": "TON",
+     "retain": false,
+     "comment": "blocco agitazione per prenotazione apertura Portelli"
+    },
+    {
+     "name": "Tim6",
+     "type": "TON",
+     "retain": false,
+     "comment": "Temporizzatore Economy Agitazione"
+    },
+    {
+     "name": "V1_V2",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V2_V3",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V3_V4",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V4_V5",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V5_V6",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V6_V7",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Agita_Manu",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Agita_Speed1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Agita_Speed2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Lift": {
+   "rungs": [
+    {
+     "cmt": "RESET LIFT\r\nFACCIO IL RESET DEL LIFT",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "End_Reset_Robot",
+       "(S Start_Reset_Lift)"
+      ],
+      [
+       "IN_RESET",
+       "(R Start_Reset_Lift)"
+      ]
+     ]
+    },
+    {
+     "cmt": "END RESET LIFT\r\n",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "Start_Reset_Lift",
+       "IN_LIFT_GIU",
+       "(S End_Reset_Lift)"
+      ],
+      [
+       "IN_RESET",
+       "(R End_Reset_Lift)"
+      ]
+     ]
+    },
+    {
+     "cmt": "LIFT-LENTO SALITA\r\nATTIVO LA SALITA LENTA DEL LIFT",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "End_Reset_Lift",
+       "Mem_V7",
+       "/V6_V7",
+       "/V7_F1",
+       "/V7_F2",
+       "/IN_LIFT_SU",
+       "(S Lift_Su_Lento)"
+      ],
+      [
+       {
+        "or": [
+         "IN_RESET",
+         "IN_LIFT_SU",
+         "/IN_LIFT_EXTRACORSA"
+        ]
+       },
+       "(R Lift_Su_Lento)"
+      ]
+     ]
+    },
+    {
+     "cmt": "LIFT VELOCE DISCESA",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "^MOV4_Done",
+       {
+        "or": [
+         "V7_F1",
+         "V7_F2"
+        ]
+       },
+       "(S Lift_Giu_Veloce)"
+      ],
+      [
+       {
+        "or": [
+         "IN_RESET",
+         "IN_LIFT_GIU"
+        ]
+       },
+       "(R Lift_Giu_Veloce)"
+      ]
+     ]
+    },
+    {
+     "cmt": "OUT LIFT",
+     "chain": [
+      "Marcia_ON"
+     ],
+     "out": [
+      [
+       {
+        "or": [
+         [
+          "V_P_Lift_Up",
+          "IN_LIFT_EXTRACORSA",
+          "/IN_LIFT_SU"
+         ],
+         [
+          "Lift_Giu_Veloce",
+          "/IN_LIFT_GIU"
+         ],
+         [
+          "Start_Reset_Lift",
+          "/End_Reset_Lift"
+         ],
+         [
+          "V_P_Lift_Down",
+          "/IN_LIFT_GIU"
+         ],
+         [
+          "Lift_Su_Lento",
+          "IN_LIFT_EXTRACORSA"
+         ]
+        ]
+       },
+       "(OUT_LIFT_ENABLE)"
+      ],
+      [
+       {
+        "or": [
+         "V_P_Lift_Down",
+         "Lift_Giu_Veloce",
+         [
+          "Start_Reset_Lift",
+          "/End_Reset_Lift"
+         ]
+        ]
+       },
+       "(OUT_LIFT_DISCESA)"
+      ],
+      [
+       "Lift_Su_Lento",
+       "(OUT_LIFT_LENTO)"
+      ]
+     ]
+    },
+    {
+     "cmt": "CALCOLO DURATA LIFT",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "OUT_LIFT_ENABLE",
+       "OUT_LIFT_LENTO",
+       {
+        "f": "Get1sClk",
+        "p": {}
+       },
+       {
+        "f": "@Inc",
+        "p": {
+         "InOut": "Lift_Durata1",
+         "OUT:InOut": "Lift_Durata1"
+        }
+       }
+      ],
+      [
+       "vLift_Giu_Veloce",
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "int#0",
+         "OUT:Out": "Lift_Durata1"
+        }
+       }
+      ],
+      [
+       "Lift_Giu_Veloce",
+       "(Log_Lift)"
+      ],
+      [
+       "vOUT_LIFT_LENTO",
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "Lift_Durata1",
+         "OUT:Out": "Lift_Durata2"
+        }
+       }
+      ]
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "End_Reset_Lift",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "End_Reset_Robot",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIFT_EXTRACORSA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIFT_GIU",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIFT_SU",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_RESET",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Lift_Durata1",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Lift_Durata2",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Lift_Giu_Veloce",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Lift_Su_Lento",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Log_Lift",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV4_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Marcia_ON",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_V7",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_LIFT_DISCESA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_LIFT_ENABLE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_LIFT_LENTO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Start_Reset_Lift",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V6_V7",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V7_F1",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V7_F2",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Lift_Down",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Lift_Up",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Nastrini": {
+   "rungs": [
+    {
+     "cmt": "NASTRINO CARICO",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       {
+        "or": [
+         [
+          "IN_START_NAST",
+          "/Car_V1",
+          "/Car_V3"
+         ],
+         "vCar_V1",
+         "vCar_V3"
+        ]
+       },
+       "/IN_CAR_POS1",
+       "(S Enable_Nast_Car)"
+      ],
+      [
+       "Enable_Nast_Car",
+       {
+        "or": [
+         {
+          "fb": "TON",
+          "inst": "Tim9",
+          "p": {
+           "PT": "time#30s"
+          }
+         },
+         [
+          "IN_CAR_POS1",
+          {
+           "fb": "TON",
+           "inst": "Tim10",
+           "p": {
+            "PT": "time#2s"
+           }
+          }
+         ]
+        ]
+       },
+       "(R Enable_Nast_Car)"
+      ]
+     ]
+    },
+    {
+     "cmt": "USCITA NASTRINO CARICO",
+     "chain": [
+      "Marcia_ON",
+      "Enable_Nast_Car",
+      "(OUT_NASTRO_CARICO)"
+     ]
+    },
+    {
+     "cmt": "NASTRINO SCARICO",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "/F1_Scar",
+       "/F2_Scar",
+       "IN_SCAR_POS1",
+       "/Tim11.Q",
+       "(S Enable_Nast_Scar)"
+      ],
+      [
+       {
+        "or": [
+         [
+          "Enable_Nast_Scar",
+          {
+           "fb": "TON",
+           "inst": "Tim12",
+           "p": {
+            "PT": "time#30s"
+           }
+          }
+         ],
+         [
+          "IN_SCAR_POS2",
+          {
+           "fb": "TON",
+           "inst": "Tim13",
+           "p": {
+            "PT": "time#600ms"
+           }
+          }
+         ],
+         "^Tim14.Q"
+        ]
+       },
+       "(R Enable_Nast_Scar)"
+      ]
+     ]
+    },
+    {
+     "cmt": "SE PER 20  SECONDI IL NASTRINO TENTA DI PORTARE VIA IL CESTELLO MA NON CI RIESCE E VEDE ANCHE IL SENSORE ALLO SCARICO PIENO\r\n BLOCCA LA NETW.DI PARTENZA NASTRINO DI SCARICO",
+     "chain": [
+      "IN_SCAR_POS1",
+      "IN_SCAR_POS2",
+      {
+       "fb": "TON",
+       "inst": "Tim11",
+       "p": {
+        "PT": "TIME#20S"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "Trasformo il sensore 1bis in un Keep per temporizzare il difu",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "Enable_Nast_Scar",
+       "^IN_SCAR_POS1_Bis",
+       "(S Mem_Pos1_Bis)"
+      ],
+      [
+       "/IN_SCAR_POS1_Bis",
+       "(R Mem_Pos1_Bis)"
+      ],
+      [
+       "Mem_Pos1_Bis",
+       {
+        "fb": "TON",
+        "inst": "Tim14",
+        "p": {
+         "PT": "time#200ms"
+        }
+       }
+      ]
+     ]
+    },
+    {
+     "cmt": "USCITA NASTRINO SCARICO",
+     "chain": [
+      "Marcia_ON",
+      "Enable_Nast_Scar",
+      "(OUT_NASTRO_SCARICO)"
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Car_V1",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Car_V3",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Enable_Nast_Car",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Enable_Nast_Scar",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "F1_Scar",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "F2_Scar",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "IN_CAR_POS1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_SCAR_POS1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_SCAR_POS1_Bis",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_SCAR_POS2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_START_NAST",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Marcia_ON",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Pos1_Bis",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "OUT_NASTRO_CARICO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_NASTRO_SCARICO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim10",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim11",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim12",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim13",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim14",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim9",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Vasche": {
+   "rungs": [
+    {
+     "cmt": "LIVELLI:Temporizzo i livelli",
+     "chain": [
+      "IN_LIV_V1",
+      {
+       "fb": "TON",
+       "inst": "Tim_Liv_Min_V1",
+       "p": {
+        "PT": "T#2s"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "IN_LIV_V3",
+      {
+       "fb": "TON",
+       "inst": "Tim_Liv_Min_V3",
+       "p": {
+        "PT": "T#2s"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "IN_LIV_V5",
+      {
+       "fb": "TON",
+       "inst": "Tim_Liv_Min_V5",
+       "p": {
+        "PT": "T#2s"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "IN_LIV_V6",
+      {
+       "fb": "TON",
+       "inst": "Tim_Liv_Min_V6",
+       "p": {
+        "PT": "T#2s"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "IN_LIV_V7",
+      {
+       "fb": "TON",
+       "inst": "Tim_Liv_Min_V7",
+       "p": {
+        "PT": "T#2s"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "IN_LIV_PUMP_V4_2",
+      {
+       "fb": "TON",
+       "inst": "Tim_Liv_Pump_V4_2",
+       "p": {
+        "PT": "T#2s"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "IN_LIV_PUMP_V6_5",
+      {
+       "fb": "TON",
+       "inst": "Tim_Liv_Pump_V6_5",
+       "p": {
+        "PT": "T#2s"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "RICIRCOLI",
+     "chain": [
+      "P_On",
+      {
+       "or": [
+        [
+         "Marcia_ON",
+         {
+          "or": [
+           [
+            "Tim_Liv_Min_V1.Q",
+            "(OUT_PUMP_V1)"
+           ],
+           [
+            "Tim_Liv_Min_V3.Q",
+            "(OUT_PUMP_V3)"
+           ],
+           [
+            "Tim_Liv_Pump_V4_2.Q",
+            "(OUT_PUMP_V4_2)"
+           ]
+          ]
+         }
+        ],
+        [
+         "Tim_Liv_Pump_V6_5.Q",
+         "(OUT_PUMP_V6_5)"
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "cmt": "PRECARICO ACQUA DI RISCIACQUO VASCA 4  SOLO A MACCHINA VUOTA",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "IN_PULS_MARCIA",
+       "Tim_Macchina_Vuota.Q",
+       "(S Mem_Prec_Acqua_V4)"
+      ],
+      [
+       "/Tim_Macchina_Vuota.Q",
+       "(R Mem_Prec_Acqua_V4)"
+      ]
+     ]
+    },
+    {
+     "cmt": "END PRECARICO ACQUA ",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "Mem_Prec_Acqua_V4",
+       {
+        "fb": "Contatore",
+        "inst": "Tim_Pre_H2O_V4",
+        "p": {
+         "SET_VALUE": "600",
+         "VALUE": "PV_Tim_Pre_H2O_V4",
+         "OUT:VALUE": "PV_Tim_Pre_H2O_V4"
+        }
+       },
+       "(S Mem_End_Prec_Acqua_V4)"
+      ],
+      [
+       "/Tim_Macchina_Vuota.Q",
+       "(R Mem_End_Prec_Acqua_V4)"
+      ]
+     ]
+    },
+    {
+     "cmt": "TEMPORIZZATORE DI LIVELLI DI SICUREZZA VASCHE 2 E 4 OK",
+     "chain": [
+      "IN_LIV_MAX_V2",
+      "IN_LIV_MAX_V4",
+      {
+       "fb": "TON",
+       "inst": "Tim_Liv_V2_4_OK",
+       "p": {
+        "PT": "t#2s"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "TEMPORIZZATORE CHE DISATTIVA L'EV ACQUA DI VASCA 4  IN CASO DI ASSENZA CESTELLI.",
+     "chain": [
+      "/Mem_V1",
+      "/Mem_V2",
+      "/Mem_V3",
+      "/Mem_V4",
+      {
+       "fb": "TON",
+       "inst": "Tim_Rinse_Auto",
+       "p": {
+        "PT": "TIME#30S"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "ELETTROVALVOLA RINSE VASCA 2_4",
+     "chain": [
+      "Marcia_ON",
+      "Tim_Liv_V2_4_OK.Q",
+      {
+       "or": [
+        "/Tim_Rinse_Auto.Q",
+        "/V_S_Rinse_Auto",
+        [
+         "Mem_Prec_Acqua_V4",
+         "/Mem_End_Prec_Acqua_V4"
+        ]
+       ]
+      },
+      "(OUT_H2O_V4)"
+     ]
+    },
+    {
+     "cmt": "ELETTROVALVOLE REINTEGRO ACQUA VASCA 1 E 3",
+     "chain": [
+      "Marcia_ON"
+     ],
+     "out": [
+      [
+       "V_P_Reintegro_V1",
+       "(OUT_H2O_V1)"
+      ],
+      [
+       "V_P_Reintegro_V3",
+       "(OUT_H2O_V3)"
+      ]
+     ]
+    },
+    {
+     "cmt": "ULTRASUONI SEQUENZA DI DEGAS SOLO A MACCHINA VUOTA CON TEMPERATURE BASSE",
+     "chain": [
+      "P_Off"
+     ],
+     "out": [
+      [
+       "IN_PULS_MARCIA",
+       "Tim_Macchina_Vuota.Q",
+       "(S Mem_Degas_US)"
+      ],
+      [
+       "/Allarme_Bit[16]",
+       "/Allarme_Bit[17]",
+       "/Allarme_Bit[18]",
+       "/Allarme_Bit[19]",
+       "/Allarme_Bit[20]",
+       "(R Mem_Degas_US)"
+      ]
+     ]
+    },
+    {
+     "cmt": "RITARDO ABILITAZIONE ULTRASUONI AUTOMATICO=USATO PER SBLOCCARE LIVELLI CON US ANCHE IN FUNZIONAMENTO AUTOMATIC",
+     "chain": [
+      "Marcia_ON",
+      "^/Refresh_US",
+      {
+       "fb": "TON",
+       "inst": "Tim_US",
+       "p": {
+        "PT": "T#10s"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "CONTEGGIO MACCHINA VUOTA SENZA CESTINI PER DARE UNA FIAMMATA AGLI ULTRASUONI OGNI 10 MINUTI",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "Tim_Macchina_Vuota.Q",
+       {
+        "f": "Get1minClk",
+        "p": {}
+       },
+       {
+        "f": "@Inc",
+        "p": {
+         "InOut": "Minut_Macchina_Vuota",
+         "OUT:InOut": "Minut_Macchina_Vuota"
+        }
+       }
+      ],
+      [
+       {
+        "f": ">=",
+        "p": {
+         "In1": "Minut_Macchina_Vuota",
+         "In2": "int#10"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "0",
+         "OUT:Out": "Minut_Macchina_Vuota"
+        }
+       },
+       "(Refresh_US)"
+      ],
+      [
+       "/Tim_Macchina_Vuota.Q",
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "0",
+         "OUT:Out": "Minut_Macchina_Vuota"
+        }
+       }
+      ]
+     ]
+    },
+    {
+     "cmt": "ULTRASUONI",
+     "chain": [
+      "Marcia_ON"
+     ],
+     "out": [
+      [
+       "Tim_Liv_Min_V1.Q",
+       {
+        "or": [
+         "Mem_V1",
+         "/V_S_US_Auto",
+         "Mem_Degas_US"
+        ]
+       },
+       "(OUT_US_V1)"
+      ],
+      [
+       "Tim_Liv_Min_V3.Q",
+       {
+        "or": [
+         "Mem_V3",
+         "/V_S_US_Auto",
+         "Mem_Degas_US"
+        ]
+       },
+       "(OUT_US_V3)"
+      ],
+      [
+       "Tim_Liv_Min_V6.Q",
+       {
+        "or": [
+         "Mem_V6",
+         "/V_S_US_Auto",
+         "Mem_Degas_US"
+        ]
+       },
+       "(OUT_US_V6)"
+      ],
+      [
+       "Tim_Liv_Min_V5.Q",
+       {
+        "or": [
+         "Mem_V5",
+         "/V_S_US_Auto",
+         "Mem_Degas_US"
+        ]
+       },
+       "(OUT_US_V5)"
+      ]
+     ]
+    },
+    {
+     "cmt": "SEQUENZA DI ULTIMO CICLO PER RISPARMIO RISCALDAMENTO VASCHE",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "^V_P_Ultimo_Ciclo",
+       "/Mem_Ultimo_Ciclo",
+       "(S Mem_Ultimo_Ciclo)"
+      ],
+      [
+       "Mem_Ultimo_Ciclo",
+       "(V_L_Ultimo_Ciclo)"
+      ],
+      [
+       {
+        "or": [
+         [
+          "Mem_Ultimo_Ciclo",
+          {
+           "fb": "TON",
+           "inst": "Tim29",
+           "p": {
+            "PT": "TIME#200MS"
+           }
+          },
+          "^V_P_Ultimo_Ciclo"
+         ],
+         [
+          "IN_PULS_MARCIA",
+          "Tim_Macchina_Vuota.Q"
+         ]
+        ]
+       },
+       "(R Mem_Ultimo_Ciclo)"
+      ]
+     ]
+    },
+    {
+     "cmt": "VERIFICO QUANDO DEVO SPEGNERE RISCALDAMENTO",
+     "chain": [
+      "Mem_Ultimo_Ciclo",
+      "/Mem_V1",
+      {
+       "or": [
+        {
+         "fb": "TON",
+         "inst": "Tim40",
+         "p": {
+          "PT": "time#10s"
+         }
+        },
+        [
+         "/Mem_V2",
+         "/Mem_V3",
+         {
+          "or": [
+           {
+            "fb": "TON",
+            "inst": "Tim41",
+            "p": {
+             "PT": "time#10s"
+            }
+           },
+           [
+            "/Mem_V4",
+            "/Mem_V5",
+            {
+             "or": [
+              {
+               "fb": "TON",
+               "inst": "Tim42",
+               "p": {
+                "PT": "time#10s"
+               }
+              },
+              [
+               "/Mem_V6",
+               {
+                "or": [
+                 {
+                  "fb": "TON",
+                  "inst": "Tim43",
+                  "p": {
+                   "PT": "time#10s"
+                  }
+                 },
+                 [
+                  "/Mem_V7",
+                  {
+                   "fb": "TON",
+                   "inst": "Tim44",
+                   "p": {
+                    "PT": "time#10s"
+                   }
+                  }
+                 ]
+                ]
+               }
+              ]
+             ]
+            }
+           ]
+          ]
+         }
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "cmt": "RISCALDAMENTO VASCHE\r\nVERIFICO SE DEVO RISCALDARE LE VASCHE IN BASE ALLA TEMPERATURA IMPOSTATA",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "SET_Riscalda_V1",
+         "OUT:Out": "SET_Real_Riscalda_V1"
+        }
+       },
+       "Marcia_ON",
+       "Tim_Liv_Min_V1.Q",
+       "/Tim40.Q",
+       "/Allarme_Bit[28]",
+       {
+        "fb": "TON",
+        "inst": "Tim2",
+        "p": {
+         "PT": "time#5s"
+        }
+       },
+       "(/OUT_RISCALDA_V1)"
+      ],
+      [
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "SET_Riscalda_V3",
+         "OUT:Out": "SET_Real_Riscalda_V3"
+        }
+       },
+       "Marcia_ON",
+       "Tim_Liv_Min_V3.Q",
+       "/Tim41.Q",
+       "/Allarme_Bit[29]",
+       {
+        "fb": "TON",
+        "inst": "Tim7",
+        "p": {
+         "PT": "time#5s"
+        }
+       },
+       "(/OUT_RISCALDA_V3)"
+      ],
+      [
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "SET_Riscalda_V7",
+         "OUT:Out": "SET_Real_Riscalda_V7"
+        }
+       },
+       "Marcia_ON",
+       "Tim_Liv_Min_V7.Q",
+       "/Tim44.Q",
+       "/Allarme_Bit[32]",
+       {
+        "fb": "TON",
+        "inst": "Tim19",
+        "p": {
+         "PT": "time#5s"
+        }
+       },
+       "(/OUT_RISCALDA_V7)"
+      ],
+      [
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "SET_Riscalda_V6",
+         "OUT:Out": "SET_Real_Riscalda_V6"
+        }
+       },
+       "Marcia_ON",
+       "Tim_Liv_Min_V6.Q",
+       "/Tim43.Q",
+       "/Allarme_Bit[31]",
+       {
+        "fb": "TON",
+        "inst": "Tim5",
+        "p": {
+         "PT": "time#5s"
+        }
+       },
+       "(/OUT_RISCALDA_V6)"
+      ],
+      [
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "SET_Riscalda_V5",
+         "OUT:Out": "SET_Real_Riscalda_V5"
+        }
+       },
+       "Marcia_ON",
+       "Tim_Liv_Min_V5.Q",
+       "/Tim42.Q",
+       "/Allarme_Bit[30]",
+       {
+        "fb": "TON",
+        "inst": "Tim4",
+        "p": {
+         "PT": "time#5s"
+        }
+       },
+       "(/OUT_RISCALDA_V5)"
+      ]
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Allarme_Bit",
+     "type": "ARRAY[0..40] OF bool",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIV_MAX_V2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIV_MAX_V4",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIV_PUMP_V4_2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIV_PUMP_V6_5",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIV_V1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIV_V3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIV_V5",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIV_V6",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIV_V7",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_PULS_MARCIA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Marcia_ON",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Degas_US",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_End_Prec_Acqua_V4",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Prec_Acqua_V4",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Ultimo_Ciclo",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_V1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_V2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_V3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_V4",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_V5",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_V6",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_V7",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Minut_Macchina_Vuota",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_H2O_V1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_H2O_V3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_H2O_V4",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_PUMP_V1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_PUMP_V3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_PUMP_V4_2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_PUMP_V6_5",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_RISCALDA_V1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_RISCALDA_V3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_RISCALDA_V5",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_RISCALDA_V6",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_RISCALDA_V7",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_US_V1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_US_V3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_US_V5",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_US_V6",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Tim_Pre_H2O_V4",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Refresh_US",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Real_Riscalda_V1",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Real_Riscalda_V3",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Real_Riscalda_V5",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Real_Riscalda_V6",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Real_Riscalda_V7",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Riscalda_V1",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Riscalda_V3",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Riscalda_V5",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Riscalda_V6",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Riscalda_V7",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim19",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim2",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim29",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim4",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim40",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim41",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim42",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim43",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim44",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim5",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim7",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Liv_Min_V1",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Liv_Min_V3",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Liv_Min_V5",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Liv_Min_V6",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Liv_Min_V7",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Liv_Pump_V4_2",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Liv_Pump_V6_5",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Liv_V2_4_OK",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Macchina_Vuota",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Pre_H2O_V4",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Rinse_Auto",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_US",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_L_Ultimo_Ciclo",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Reintegro_V1",
+     "type": "bool",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Reintegro_V3",
+     "type": "bool",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Ultimo_Ciclo",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_S_Rinse_Auto",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_S_US_Auto",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Forni": {
+   "rungs": [
+    {
+     "cmt": "ATTIVAZIONE FORNI SOLO IN CASO DI UTILIZZO",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "Mem_V4",
+       "(S Mem_Enable_Forni)"
+      ],
+      [
+       "/Mem_V4",
+       "/Mem_V5",
+       "/Mem_V6",
+       "/Mem_V7",
+       "/Mem_F1",
+       "/Mem_F2",
+       {
+        "fb": "TON",
+        "inst": "Tim24",
+        "p": {
+         "PT": "time#30s"
+        }
+       },
+       "(R Mem_Enable_Forni)"
+      ]
+     ]
+    },
+    {
+     "cmt": "USCITA RISCALDAMENTO FORNO 1",
+     "chain": [
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "SET_Riscalda_Forni",
+        "OUT:Out": "SET_Real_Riscalda_F1"
+       }
+      },
+      "Marcia_ON",
+      "Mem_Enable_Forni",
+      "/Allarme_Bit[33]",
+      {
+       "f": "<",
+       "p": {
+        "In1": "PV_Temper_F1",
+        "In2": "Sovra_Riscaldamento_Forni"
+       }
+      },
+      "(/OUT_RISCALDA_F1)"
+     ]
+    },
+    {
+     "cmt": "USCITA RISCALDAMENTO FORNO 2",
+     "chain": [
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "SET_Riscalda_Forni",
+        "OUT:Out": "SET_Real_Riscalda_F2"
+       }
+      },
+      "Marcia_ON",
+      "Mem_Enable_Forni",
+      "/Allarme_Bit[34]",
+      {
+       "f": "<",
+       "p": {
+        "In1": "PV_Temper_F2",
+        "In2": "Sovra_Riscaldamento_Forni"
+       }
+      },
+      "(/OUT_RISCALDA_F2)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "P_On",
+      {
+       "f": "+",
+       "p": {
+        "In1": "SET_Riscalda_Forni",
+        "In2": "real#2",
+        "OUT:": "Sovra_Riscaldamento_Forni"
+       }
+      }
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Allarme_Bit",
+     "type": "ARRAY[0..40] OF bool",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Marcia_ON",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Enable_Forni",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_F1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_F2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_V4",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_V5",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_V6",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_V7",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_RISCALDA_F1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_RISCALDA_F2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Temper_F1",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Temper_F2",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Real_Riscalda_F1",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Real_Riscalda_F2",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Riscalda_Forni",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Sovra_Riscaldamento_Forni",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim24",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Ausiliari": {
+   "rungs": [
+    {
+     "cmt": "COLONNA BLU",
+     "chain": [
+      "IN_SCAR_POS2"
+     ],
+     "out": [
+      "(OUT_LUCE_BLU)",
+      "(OUT_BUZZER)"
+     ]
+    },
+    {
+     "cmt": "COLONNA ARANCIO",
+     "chain": [
+      "P_On",
+      {
+       "or": [
+        [
+         "Spia_Allarme",
+         {
+          "f": "Get1sClk",
+          "p": {}
+         }
+        ],
+        "IN_EMERGENZA"
+       ]
+      },
+      "(OUT_LUCE_ARANCIO)"
+     ]
+    },
+    {
+     "cmt": "SPIA EMERGENZA",
+     "chain": [
+      "IN_EMERGENZA",
+      "(OUT_SPIA_EMERGENZA)"
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "IN_EMERGENZA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_SCAR_POS2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_BUZZER",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_LUCE_ARANCIO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_LUCE_BLU",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_SPIA_EMERGENZA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Spia_Allarme",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Allarmi": {
+   "rungs": [
+    {
+     "cmt": "Accendo la spia Allarmi del visualizzatore se ho un bit Allarmi Attivo",
+     "chain": [
+      {
+       "f": "ArySearch",
+       "p": {
+        "In": "Allarme_Bit[0]",
+        "Size": "uint#40",
+        "Key": "bool#1",
+        "InOutPos": "local1",
+        "OUT:": "Spia_Allarme",
+        "OUT:InOutPos": "local1"
+       }
+      },
+      "Spia_Allarme",
+      {
+       "f": "Get1sClk",
+       "p": {}
+      },
+      "(V_L_Allarmi)"
+     ]
+    },
+    {
+     "cmt": "ALLARME 1: ERRORE ASSE X",
+     "chain": [
+      "P_On",
+      {
+       "or": [
+        "MC_X.DrvStatus.DrvAlarm",
+        "MC_X.DrvStatus.DrvWarning",
+        "MC_X.MFaultLvl.Active",
+        "/MC_X.DrvStatus.Ready",
+        "/MC_X.DrvStatus.MainPower"
+       ]
+      },
+      "(Allarme_Bit[1])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 2: ERRORE ASSE Y",
+     "chain": [
+      "P_On",
+      {
+       "or": [
+        "MC_Y.DrvStatus.DrvAlarm",
+        "MC_Y.DrvStatus.DrvWarning",
+        "MC_Y.MFaultLvl.Active",
+        "/MC_Y.DrvStatus.Ready",
+        "/MC_Y.DrvStatus.MainPower"
+       ]
+      },
+      "(Allarme_Bit[2])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 3: RESET ROBOT NECESSARIO",
+     "chain": [
+      "/End_Reset_Robot",
+      "(Allarme_Bit[3])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 4: TERMICI MOVIMENTAZIONE",
+     "chain": [
+      "IN_TERMICO_MOVIMENTI",
+      "(Allarme_Bit[4])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 5: TERMICO LAVAGGIO",
+     "chain": [
+      "IN_TERMICO_LAVAGGIO",
+      "(Allarme_Bit[5])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 6: TERMICO  VENTILAZIONE",
+     "chain": [
+      "IN_TERMICO_VENTILAZIONE",
+      "(Allarme_Bit[6])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 7: LIVELLO VASCA1",
+     "chain": [
+      "/Tim_Liv_Min_V1.Q",
+      "(Allarme_Bit[7])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 8: LIVELLO VASCA3",
+     "chain": [
+      "/Tim_Liv_Min_V3.Q",
+      "(Allarme_Bit[8])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 9: LIVELLO VASCA5",
+     "chain": [
+      "/Tim_Liv_Min_V5.Q",
+      "(Allarme_Bit[9])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 10: LIVELLO VASCA6",
+     "chain": [
+      "/Tim_Liv_Min_V6.Q",
+      "(Allarme_Bit[10])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 11: LIVELLO VASCA7",
+     "chain": [
+      "/Tim_Liv_Min_V7.Q",
+      "(Allarme_Bit[11])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 12: LIVELLO POMPA SERBATOIO PER RILANCIO ACQUA RINSE DA VASCA 4 A VASCA 2",
+     "chain": [
+      "/Tim_Liv_Pump_V4_2.Q",
+      "OUT_H2O_V4",
+      {
+       "fb": "TON",
+       "inst": "Tim17",
+       "p": {
+        "PT": "TIME#5S"
+       }
+      },
+      "(Allarme_Bit[12])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 13: LIVELLO POMPA SERBATOIO PER RILANCIO ACQUA RINSE DA VASCA 6 A VASCA 5",
+     "chain": [
+      "/Tim_Liv_Pump_V6_5.Q",
+      {
+       "fb": "TON",
+       "inst": "Tim18",
+       "p": {
+        "PT": "TIME#5S"
+       }
+      },
+      "(Allarme_Bit[13])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 14: ALLARME EXTRACORSA IN SALITA LIFT",
+     "chain": [
+      "/IN_LIFT_EXTRACORSA",
+      "(Allarme_Bit[14])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 15: BASSO FLUSSO ACQUA DI RISCIACQUO VASCA 4",
+     "chain": [
+      "OUT_H2O_V4",
+      "IN_FLUSSO_H2O_V4",
+      {
+       "fb": "TON",
+       "inst": "Tim21",
+       "p": {
+        "PT": "TIME#5S"
+       }
+      },
+      "(Allarme_Bit[15])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 16: TEMPERATURA BASSA VASCA1",
+     "chain": [
+      {
+       "f": "<",
+       "p": {
+        "In1": "PV_Temper_V1",
+        "In2": "SET_Temper_OK_V1"
+       }
+      },
+      "(Allarme_Bit[16])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 17: TEMPERATURA BASSA VASCA3",
+     "chain": [
+      {
+       "f": "<",
+       "p": {
+        "In1": "PV_Temper_V3",
+        "In2": "SET_Temper_OK_V3"
+       }
+      },
+      "(Allarme_Bit[17])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 18: TEMPERATURA BASSA VASCA5",
+     "chain": [
+      {
+       "f": "<",
+       "p": {
+        "In1": "PV_Temper_V5",
+        "In2": "SET_Temper_OK_V5"
+       }
+      },
+      "(Allarme_Bit[18])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 19: TEMPERATURA BASSA VASCA6",
+     "chain": [
+      {
+       "f": "<",
+       "p": {
+        "In1": "PV_Temper_V6",
+        "In2": "SET_Temper_OK_V6"
+       }
+      },
+      "(Allarme_Bit[19])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 20: TEMPERATURA BASSA VASCA7",
+     "chain": [
+      {
+       "f": "<",
+       "p": {
+        "In1": "PV_Temper_V7",
+        "In2": "SET_Temper_OK_V7"
+       }
+      },
+      "(Allarme_Bit[20])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 21: ULTRASUONI VASCA1",
+     "chain": [
+      "Marcia_ON",
+      "/IN_US_V1_OK",
+      "(Allarme_Bit[21])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 22: ULTRASUONI VASCA3",
+     "chain": [
+      "Marcia_ON",
+      "/IN_US_V3_OK",
+      "(Allarme_Bit[22])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 23: ULTRASUONI VASCA5",
+     "chain": [
+      "Marcia_ON",
+      "/IN_US_V5_OK",
+      "(Allarme_Bit[23])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 24: ULTRASUONI VASCA6",
+     "chain": [
+      "Marcia_ON",
+      "/IN_US_V6_OK",
+      "(Allarme_Bit[24])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 25: SPARE",
+     "chain": [
+      "P_Off",
+      "(Allarme_Bit[25])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 26: TEMPERATURA BASSA FORNO1",
+     "chain": [
+      "Mem_F1",
+      {
+       "fb": "TON",
+       "inst": "Tim31",
+       "p": {
+        "PT": "TIME#15S"
+       }
+      },
+      {
+       "f": "<",
+       "p": {
+        "In1": "PV_Temper_F1",
+        "In2": "SET_Temper_OK_Forni"
+       }
+      },
+      "(Allarme_Bit[26])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 27: TEMPERATURA BASSA FORNO2",
+     "chain": [
+      "Mem_F2",
+      {
+       "fb": "TON",
+       "inst": "Tim32",
+       "p": {
+        "PT": "TIME#15S"
+       }
+      },
+      {
+       "f": "<",
+       "p": {
+        "In1": "PV_Temper_F2",
+        "In2": "SET_Temper_OK_Forni"
+       }
+      },
+      "(Allarme_Bit[27])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 28: TEMPERATURA ALTA VASCA1",
+     "chain": [
+      {
+       "f": ">",
+       "p": {
+        "In1": "PV_Temper_V1",
+        "In2": "SET_Hi_Temper_V1"
+       }
+      },
+      "(Allarme_Bit[28])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 29: TEMPERATURA ALTA VASCA3",
+     "chain": [
+      {
+       "f": ">",
+       "p": {
+        "In1": "PV_Temper_V3",
+        "In2": "SET_Hi_Temper_V3"
+       }
+      },
+      "(Allarme_Bit[29])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 30: TEMPERATURA ALTA VASCA5",
+     "chain": [
+      {
+       "f": ">",
+       "p": {
+        "In1": "PV_Temper_V5",
+        "In2": "SET_Hi_Temper_V5"
+       }
+      },
+      "(Allarme_Bit[30])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 31: TEMPERATURA ALTA VASCA6",
+     "chain": [
+      {
+       "f": ">",
+       "p": {
+        "In1": "PV_Temper_V6",
+        "In2": "SET_Hi_Temper_V6"
+       }
+      },
+      "(Allarme_Bit[31])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 32: TEMPERATURA ALTA VASCA7",
+     "chain": [
+      {
+       "f": ">",
+       "p": {
+        "In1": "PV_Temper_V7",
+        "In2": "SET_Hi_Temper_V7"
+       }
+      },
+      "(Allarme_Bit[32])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 33: TEMPERATURA ALTA FORNO1",
+     "chain": [
+      {
+       "f": ">",
+       "p": {
+        "In1": "PV_Temper_F1",
+        "In2": "SET_Hi_Temper_Forni"
+       }
+      },
+      "(Allarme_Bit[33])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 34: TEMPERATURA ALTA FORNO2",
+     "chain": [
+      {
+       "f": ">",
+       "p": {
+        "In1": "PV_Temper_F2",
+        "In2": "SET_Hi_Temper_Forni"
+       }
+      },
+      "(Allarme_Bit[34])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 35: EMERGENZA PREMUTA",
+     "chain": [
+      "IN_EMERGENZA",
+      "(Allarme_Bit[35])"
+     ]
+    },
+    {
+     "cmt": "ALLARME 36: CHIUDERE PORTELLO CARICO",
+     "chain": [
+      "Blocco_Portellino",
+      "IN_PORTELLINO_SBLOCCATO",
+      {
+       "fb": "TON",
+       "inst": "Tim36",
+       "p": {
+        "PT": "T#2s"
+       }
+      },
+      "(Allarme_Bit[36])"
+     ]
+    },
+    {
+     "cmt": "VISUALIZZO L'ERRORE DEGLI ASSI",
+     "chain": [
+      {
+       "f": "GetMCError",
+       "p": {
+        "OUT:Level": "GetMc_Level",
+        "OUT:Code": "GetMc_Code"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "VISUALIZZO L'ERRORE DEL DRIVE X",
+     "chain": [
+      {
+       "fb": "Drive_Error_Warning",
+       "inst": "Drive_X_Error",
+       "p": {
+        "Node": "1",
+        "OUT:Warning": "Warning_X",
+        "OUT:Errore": "Errore_X"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "VISUALIZZO L'ERRORE DEL DRIVE Y",
+     "chain": [
+      {
+       "fb": "Drive_Error_Warning",
+       "inst": "Drive_Y_Error",
+       "p": {
+        "Node": "2",
+        "OUT:Warning": "Warning_Y",
+        "OUT:Errore": "Errore_Y"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "BIT UTILIZZATO PER RESETTARE L'ALLERME DI CONNESSIONE PLC",
+     "chain": [
+      {
+       "f": "Get1sClk",
+       "p": {}
+      },
+      "(Bit_Connessione_Plc)"
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Allarme_Bit",
+     "type": "ARRAY[0..40] OF bool",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Bit_Connessione_Plc",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Blocco_Portellino",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Drive_X_Error",
+     "type": "Drive_Error_Warning",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Drive_Y_Error",
+     "type": "Drive_Error_Warning",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "End_Reset_Robot",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Errore_X",
+     "type": "STRING[20]",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Errore_Y",
+     "type": "STRING[20]",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "GetMc_Code",
+     "type": "DWORD",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "GetMc_Level",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EMERGENZA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_FLUSSO_H2O_V4",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIFT_EXTRACORSA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_PORTELLINO_SBLOCCATO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TERMICO_LAVAGGIO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TERMICO_MOVIMENTI",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TERMICO_VENTILAZIONE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_US_V1_OK",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_US_V3_OK",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_US_V5_OK",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_US_V6_OK",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MC_X",
+     "type": "_sAXIS_REF",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MC_Y",
+     "type": "_sAXIS_REF",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Marcia_ON",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_F1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_F2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_H2O_V4",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Temper_F1",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Temper_F2",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Temper_V1",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Temper_V3",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Temper_V5",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Temper_V6",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Temper_V7",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Hi_Temper_Forni",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Hi_Temper_V1",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Hi_Temper_V3",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Hi_Temper_V5",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Hi_Temper_V6",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Hi_Temper_V7",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Temper_OK_Forni",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Temper_OK_V1",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Temper_OK_V3",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Temper_OK_V5",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Temper_OK_V6",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Temper_OK_V7",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Spia_Allarme",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim17",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim18",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim21",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim31",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim32",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim36",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Liv_Min_V1",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Liv_Min_V3",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Liv_Min_V5",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Liv_Min_V6",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Liv_Min_V7",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Liv_Pump_V4_2",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Liv_Pump_V6_5",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_L_Allarmi",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Warning_X",
+     "type": "STRING[20]",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Warning_Y",
+     "type": "STRING[20]",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "local1",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "LadderBody": {
+   "rungs": [
+    {
+     "cmt": "",
+     "chain": [
+      "ENABLE",
+      {
+       "f": "Get1sClk",
+       "p": {}
+      },
+      {
+       "f": "@Dec",
+       "p": {
+        "InOut": "VALUE",
+        "OUT:InOut": "VALUE"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "ENABLE",
+      {
+       "f": "<=",
+       "p": {
+        "In1": "VALUE",
+        "In2": "0"
+       }
+      },
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "0",
+        "OUT:Out": "VALUE"
+       }
+      },
+      "(End_Conteggio)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "/ENABLE",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "SET_VALUE",
+        "OUT:Out": "VALUE"
+       }
+      }
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "ENABLE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "End_Conteggio",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_VALUE",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "VALUE",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Server": {
+   "rungs": [
+    {
+     "cmt": "Warning: Keep Alive option allow to check cyclically that client is still alive. Default value is set to 300 second which should be decreased according to your process\r\nFor Port No2 on NX102 serie, use system flag _EIP2_EtnOnlineSta",
+     "chain": [
+      "_EIP_EtnOnlineSta",
+      {
+       "fb": "MTCP_Server_NJNX",
+       "inst": "ModbusTCP_Server",
+       "p": {
+        "Registers": "Modbus_Registers",
+        "Coils": "Modbus_Coils",
+        "Local_TcpPort": "UINT#502",
+        "ConnectionTimeout": "T#60s",
+        "Reset_SdRcvCounter": "Reset_Counter",
+        "OUT:Registers": "Modbus_Registers",
+        "OUT:Coils": "Modbus_Coils",
+        "OUT:Error": "Error_Server",
+        "OUT:ErrorID": "Err_Code_Server",
+        "OUT:TCP_Status": "Server_Status",
+        "OUT:IP_Client": "IP_Client",
+        "OUT:Port_Client": "Port_Client",
+        "OUT:SdRcv_Counter": "SdRcv_Counter"
+       }
+      },
+      "(Client_Connected)"
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Client_Connected",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Err_Code_Server",
+     "type": "WORD",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Error_Server",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IP_Client",
+     "type": "STRING[24]",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ModbusTCP_Server",
+     "type": "MTCP_Server_NJNX",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Modbus_Coils",
+     "type": "ARRAY[0..1023] OF BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Modbus_Registers",
+     "type": "ARRAY[0..1023] OF WORD",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Port_Client",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Reset_Counter",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SdRcv_Counter",
+     "type": "UDINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Server_Status",
+     "type": "_eCONNECTION_STATE",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "_EIP_EtnOnlineSta",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "LadderBody#2": {
+   "rungs": [
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "ist": "//Default di 60FE.01=0 (ver. <= 1.1)\r\n//Default di 60FE.01=1 (ver. > 1.1)\r\n\r\n//60FE.01=0   60FE.02=0  -> Freno MANTENUTO (Asse NON cade)\r\n//60FE.01=0   60FE.02=1\t  -> Freno RILASCIATO (Asse cade)\r\n//60FE.01=1   60FE.02=0   -> Freno MANTENUTO (Asse NON cade)\r\n//60FE.01=1   60FE.02=1   -> Freno MANTENUTO (Asse NON cade)\r\n\r\n//Mantenere 60FE.01 a 0 e Usare 60FE.02 per bloccare e sbloccare il freno\r\n\r\n\r\nSDO_BrkSet.Index:=UINT#16#60FE;\r\nSDO_BrkSet.Subindex:=USINT#16#01;\r\nSDO_BrkSet.IsCompleteAccess:=FALSE;\r\n\r\nSDO_Brk.Index:=UINT#16#60FE;\r\nSDO_Brk.Subindex:=USINT#16#02;\r\nSDO_Brk.IsCompleteAccess:=FALSE;\r\n\r\nData_BrkLock:=DWORD#16#0;\r\nData_BrkRel:=DWORD#16#1;\r\nData:=DWORD#16#0;"
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "^Release",
+      {
+       "fb": "EC_CoESDOWrite",
+       "inst": "Inst_BrkSet_1",
+       "p": {
+        "NodeAdr": "Node",
+        "SdoObj": "SDO_BrkSet",
+        "WriteDat": "Data",
+        "WriteSize": "UINT#4"
+       }
+      },
+      {
+       "fb": "EC_CoESDOWrite",
+       "inst": "Inst_BrkRel",
+       "p": {
+        "NodeAdr": "Node",
+        "SdoObj": "SDO_Brk",
+        "WriteDat": "Data_BrkRel",
+        "WriteSize": "UINT#4"
+       }
+      },
+      "(S Released)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "vRelease",
+      {
+       "fb": "EC_CoESDOWrite",
+       "inst": "Inst_BrkSet_2",
+       "p": {
+        "NodeAdr": "Node",
+        "SdoObj": "SDO_BrkSet",
+        "WriteDat": "Data",
+        "WriteSize": "UINT#4"
+       }
+      },
+      {
+       "fb": "EC_CoESDOWrite",
+       "inst": "Inst_BrkLock",
+       "p": {
+        "NodeAdr": "Node",
+        "SdoObj": "SDO_Brk",
+        "WriteDat": "Data_BrkLock",
+        "WriteSize": "UINT#4"
+       }
+      },
+      "(R Released)"
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Data",
+     "type": "DWORD",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Data_BrkLock",
+     "type": "DWORD",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Data_BrkRel",
+     "type": "DWORD",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Inst_BrkLock",
+     "type": "EC_CoESDOWrite",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Inst_BrkRel",
+     "type": "EC_CoESDOWrite",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Inst_BrkSet_1",
+     "type": "EC_CoESDOWrite",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Inst_BrkSet_2",
+     "type": "EC_CoESDOWrite",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Node",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Release",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Released",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SDO_Brk",
+     "type": "_sSDO_ACCESS",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SDO_BrkSet",
+     "type": "_sSDO_ACCESS",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "LadderBody#3": {
+   "rungs": [
+    {
+     "cmt": "",
+     "chain": [
+      "^Restart",
+      "(R Eseguito)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        [
+         "Restart",
+         "Eseguito"
+        ],
+        [
+         "/Restart",
+         "^Eseguito"
+        ]
+       ]
+      },
+      "(Done)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "ist": "SDO_Restart.Index:=UINT#16#2400;\r\nSDO_Restart.Subindex:=USINT#16#1;\r\nSDO_Restart.IsCompleteAccess:=FALSE;\r\n\r\nData_Restart[0]:=BYTE#16#74;\r\nData_Restart[1]:=BYTE#16#65;\r\nData_Restart[2]:=BYTE#16#73;\r\nData_Restart[3]:=BYTE#16#65;\r\nData_Restart[4]:=BYTE#16#72;\r\nData_Restart[5]:=BYTE#16#61;"
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "^Restart",
+      {
+       "fb": "EC_CoESDOWrite",
+       "inst": "Inst_Restart",
+       "p": {
+        "NodeAdr": "Node",
+        "SdoObj": "SDO_Restart",
+        "WriteDat": "Data_Restart",
+        "WriteSize": "UINT#6"
+       }
+      },
+      {
+       "fb": "TOF",
+       "inst": "Ist_Rit_Reset_EC_Error",
+       "p": {
+        "PT": "T#5s"
+       }
+      },
+      {
+       "f": "Down",
+       "p": {}
+      },
+      {
+       "fb": "ResetECError",
+       "inst": "Ist_Reset_EC_Error",
+       "p": {}
+      },
+      {
+       "fb": "ResetMCError",
+       "inst": "Ist_Reset_MC_Error",
+       "p": {}
+      },
+      "(S Eseguito)"
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Data_Restart",
+     "type": "ARRAY[0..6] OF BYTE",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Eseguito",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Inst_Restart",
+     "type": "EC_CoESDOWrite",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Ist_Reset_EC_Error",
+     "type": "ResetECError",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Ist_Reset_MC_Error",
+     "type": "ResetMCError",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Ist_Rit_Reset_EC_Error",
+     "type": "TOF",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Node",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Restart",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SDO_Restart",
+     "type": "_sSDO_ACCESS",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "LadderBody#4": {
+   "rungs": [
+    {
+     "cmt": "",
+     "chain": [
+      "^Test",
+      "(R In_STO)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "ist": "SDO_ErrSafety.Index:=UINT#16#4132;\r\nSDO_ErrSafety.Subindex:=USINT#16#A0;\r\nSDO_ErrSafety.IsCompleteAccess:=FALSE;"
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Test",
+      {
+       "f": "Get100msClk",
+       "p": {}
+      },
+      {
+       "fb": "EC_CoESDORead",
+       "inst": "Inst_Read_ErrSafety",
+       "p": {
+        "NodeAdr": "Node",
+        "SdoObj": "SDO_ErrSafety",
+        "ReadDat": "In_STO",
+        "OUT:ReadDat": "In_STO"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "vTest",
+      "(R In_STO)"
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "In_STO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Inst_Read_ErrSafety",
+     "type": "EC_CoESDORead",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Node",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SDO_ErrSafety",
+     "type": "_sSDO_ACCESS",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Test",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "LadderBody#5": {
+   "rungs": [
+    {
+     "cmt": "",
+     "chain": [
+      "^Test",
+      {
+       "ist": "Active:=TRUE;\r\nErrore:='';\r\nWarning:='';"
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "ist": "SDO_ErrCode.Index:=UINT#16#4000;\r\nSDO_ErrCode.Subindex:=USINT#16#82;\r\nSDO_ErrCode.IsCompleteAccess:=FALSE;\r\n\r\nSDO_ErrSubCode.Index:=UINT#16#4000;\r\nSDO_ErrSubCode.Subindex:=USINT#16#81;\r\nSDO_ErrSubCode.IsCompleteAccess:=FALSE;"
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Test",
+      {
+       "f": "Get100msClk",
+       "p": {}
+      },
+      {
+       "fb": "EC_CoESDORead",
+       "inst": "Inst_Read_ErrCode",
+       "p": {
+        "NodeAdr": "Node",
+        "SdoObj": "SDO_ErrCode",
+        "ReadDat": "Data_ErrCode",
+        "OUT:ReadDat": "Data_ErrCode"
+       }
+      },
+      {
+       "fb": "EC_CoESDORead",
+       "inst": "Inst_Read_ErrSubCode",
+       "p": {
+        "NodeAdr": "Node",
+        "SdoObj": "SDO_ErrSubCode",
+        "ReadDat": "Data_ErrSubCode",
+        "OUT:ReadDat": "Data_ErrSubCode"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Test",
+      {
+       "ist": "CASE (WORD_TO_UINT (Data_ErrCode AND WORD#16#00F0)) OF\r\n\t160:\r\n\t\tIF (WORD_TO_INT(Data_ErrCode AND WORD#16#000F))<10 THEN\t\t\t\r\n\t\t\t\tWarning:=CONCAT ('A',INT_TO_STRING(WORD_TO_INT(Data_ErrCode AND WORD#16#000F)));\r\n\t\tELSIF (Data_ErrCode AND WORD#16#000F)=WORD#16#B THEN\r\n\t\t\t\tWarning:='AB';\r\n\t\tELSE\r\n\t\t\tClearString (Warning);\r\n\t\t\tEND_IF;\r\n\t\tClearString (Errore);\r\n\t176:\r\n\t\tIF (WORD_TO_INT(Data_ErrCode AND WORD#16#000F))<10 THEN\r\n\t\t\tWarning:=CONCAT ('B',INT_TO_STRING(WORD_TO_INT(Data_ErrCode AND WORD#16#000F)));\r\n\t\tELSE\r\n\t\t\tClearString(Warning);\r\n\t\tEND_IF;\r\n\t\tClearString (Errore);\r\nELSE\r\n\tIF BCD_TO_UINT (Data_ErrCode AND WORD#16#00FF) <> 0 THEN\r\n\t\tErrore:=UINT_TO_STRING(BCD_TO_UINT (Data_ErrCode AND WORD#16#00FF));\r\n\tELSE\r\n\t\tClearString (Errore);\r\n\tEND_IF;\r\n\tClearString(Warning);\r\nEND_CASE;\r\n\r\nNumero_Subcode:=DWORD_TO_UINT (Data_ErrSubCode AND DWORD#16#000000FF);\r\nIF Numero_Subcode>9 THEN\r\n\tNumero_Subcode:=UINT#0;\r\nEND_IF;\r\n\r\nIF Errore<>'' THEN\r\n\tErrore:=CONCAT (Errore,'.',UINT_TO_STRING(Numero_Subcode));\r\nEND_IF;\r\n \r\n IF Warning<>'' THEN\r\n\tWarning:=CONCAT (Warning,'.',UINT_TO_STRING(Numero_Subcode));\r\n END_IF;"
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "vTest",
+      {
+       "ist": "Active:=FALSE;\r\nErrore:='';\r\nWarning:='';"
+      }
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Active",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Data_ErrCode",
+     "type": "WORD",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Data_ErrSubCode",
+     "type": "DWORD",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Errore",
+     "type": "STRING[20]",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Inst_Read_ErrCode",
+     "type": "EC_CoESDORead",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Inst_Read_ErrSubCode",
+     "type": "EC_CoESDORead",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Node",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Numero_Subcode",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SDO_ErrCode",
+     "type": "_sSDO_ACCESS",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SDO_ErrSubCode",
+     "type": "_sSDO_ACCESS",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Test",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Warning",
+     "type": "STRING[20]",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "LadderBody#6": {
+   "rungs": [
+    {
+     "cmt": "",
+     "chain": [
+      "enable",
+      {
+       "ist": "SdoObj.Index:=16#60FE;\r\nSdoObj.Subindex:=2;\r\nSdoObj.IsCompleteAccess:=FALSE;\r\nWriteBlocca:=0;\r\nWriteSblocca:=1;"
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "enable",
+      {
+       "fb": "EC_CoESDOWrite",
+       "inst": "Sblocca",
+       "p": {
+        "NodeAdr": "NodeNo",
+        "SdoObj": "SdoObj",
+        "WriteDat": "WriteSblocca",
+        "WriteSize": "4"
+       }
+      },
+      "(S Done)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "/enable",
+      "/P_First_Run",
+      {
+       "fb": "EC_CoESDOWrite",
+       "inst": "blocca",
+       "p": {
+        "NodeAdr": "NodeNo",
+        "SdoObj": "SdoObj",
+        "WriteDat": "WriteBlocca",
+        "WriteSize": "4"
+       }
+      },
+      "(R Done)"
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "NodeNo",
+     "type": "UINT",
+     "retain": false,
+     "comment": "Node Number"
+    },
+    {
+     "name": "Sblocca",
+     "type": "EC_CoESDOWrite",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SdoObj",
+     "type": "_sSDO_ACCESS",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "WriteBlocca",
+     "type": "DWORD",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "WriteSblocca",
+     "type": "DWORD",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "blocca",
+     "type": "EC_CoESDOWrite",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ENABLE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  }
+ }
+}

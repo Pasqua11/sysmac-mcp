@@ -1,0 +1,1023 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>SktSetOption</title>
+</head>
+<body class="zos1501815787432"><div class="layer02" id="zos1501815787432">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">SktSetOption</h1>
+
+<div class="body conbody">
+<p class="p" id="zos1501815787432__ID0EJ5LQ">The SktSetOption instruction sets the option for TCP socket specified for the EtherNet/IP.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="zos1501815787432__table_N10017_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:13%" />
+<col style="width:14%" />
+<col style="width:6%" />
+<col style="width:35%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1220535e37">Instruction</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1220535e40">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1220535e43">
+<p class="p" id="zos1501815787432__ID0E36LQ">FB/</p>
+
+<p class="p">FUN</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1220535e52">Graphic expression</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1220535e55">ST expression</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1220535e37 "><span class="indexterm">SktSetOption (Set TCP Socket Option)</span>SktSetOption</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1220535e40 "><span class="indexterm">Set TCP Socket Option</span>Set TCP Socket Option</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1220535e43 ">FB</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1220535e52 ">
+<br /><img class="image" id="zos1501815787432__image_01C3A64AFAD14AE5A14616839BC12480" src="gxw1501815786797.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1220535e55 ">SktSetOption_instance(Execute, Socket, OptionType, OptionParam, Done, Busy, Error, ErrorID);</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<div class="note" id="zos1501815787432__note_N100AC_N1000F_N10002"><div class="ver"><span class="notetitle ver">ver:</span>
+<p class="p">A CPU Unit with unit version 1.12 or later and Sysmac Studio version 1.16 or higher are required to use this instruction.</p>
+
+<p class="p">For an NX1P2 CPU Unit, a CPU Unit with unit version 1.14 or later and Sysmac Studio 1.18 or higher are required to use this instruction.</p>
+
+</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="hhm1501817243834">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Variables</h1>
+ 
+<div class="body conbody">
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="hhm1501817243834__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:20%" />
+<col style="width:9%" />
+<col style="width:20%" />
+<col style="width:14%" />
+<col style="width:14%" />
+<col style="width:8%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d359811e38">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d359811e40">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d359811e43">I/O</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d359811e46">Description</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d359811e49">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d359811e53">Unit</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d359811e56">Default</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d359811e38 ">Socket</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d359811e40 ">Socket</td>
+
+<td class="entry cellrowborder" rowspan="3" style="text-align:left;vertical-align:middle;" headers="d359811e43 ">Input</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d359811e46 ">Socket</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d359811e49 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d359811e53 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d359811e56 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d359811e38 ">OptionType</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d359811e40 ">Option type</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d359811e46 ">Type of socket option</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d359811e49 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d359811e53 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d359811e56 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d359811e38 ">OptionParam</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d359811e40 ">Option parameter</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d359811e46 ">Setting parameters according to the specified socket option</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d359811e49 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d359811e53 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d359811e56 ">---</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="hhm1501817243834__table_N10100_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:5%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:top;" id="d359811e195">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d359811e197">Boolean</th>
+
+<th class="entry cellrowborder" colspan="4" style="text-align:center;vertical-align:middle;" id="d359811e200">Bit strings</th>
+
+<th class="entry cellrowborder" colspan="8" style="text-align:center;vertical-align:middle;" id="d359811e203">Integers</th>
+
+<th class="entry cellrowborder" colspan="2" style="text-align:center;vertical-align:middle;" id="d359811e206">Real numbers</th>
+
+<th class="entry cellrowborder" colspan="5" style="text-align:center;vertical-align:middle;" id="d359811e210">Times, durations, dates, and text strings</th>
+
+</tr>
+
+<tr class="row">
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d359811e216">BOOL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d359811e219">BYTE</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d359811e222">WORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d359811e225">DWORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d359811e228">LWORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d359811e232">USINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d359811e235">UINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d359811e238">UDINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d359811e241">ULINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d359811e244">SINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d359811e247">INT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d359811e251">DINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d359811e254">LINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d359811e257">REAL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d359811e260">LREAL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d359811e263">TIME</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d359811e266">DATE</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d359811e270">TOD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d359811e273">DT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d359811e276">STRING</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d359811e195 d359811e216 ">Socket</td>
+
+<td class="entry cellrowborder" colspan="20" style="text-align:center;vertical-align:middle;" headers="d359811e197 d359811e200 d359811e203 d359811e206 d359811e210 d359811e219 d359811e222 d359811e225 d359811e228 d359811e232 d359811e235 d359811e238 d359811e241 d359811e244 d359811e247 d359811e251 d359811e254 d359811e257 d359811e260 d359811e263 d359811e266 d359811e270 d359811e273 d359811e276 ">Refer to <a class="xref" href="zos1501815787432.html"><i style="display:none;">☆</i>SktSetOption</a> for details on the structure _sSOCKET.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d359811e195 d359811e216 ">OptionType</td>
+
+<td class="entry cellrowborder" colspan="20" style="text-align:center;vertical-align:middle;" headers="d359811e197 d359811e200 d359811e203 d359811e206 d359811e210 d359811e219 d359811e222 d359811e225 d359811e228 d359811e232 d359811e235 d359811e238 d359811e241 d359811e244 d359811e247 d359811e251 d359811e254 d359811e257 d359811e260 d359811e263 d359811e266 d359811e270 d359811e273 d359811e276 ">Refer to <a class="xref" href="zos1501815787432.html"><i style="display:none;">☆</i>SktSetOption</a> for the enumerators of the enumerated type _eSKT_OPTION_TYPE.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d359811e195 d359811e216 ">OptionParam</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d359811e197 d359811e219 "><span class="ph font_Wingdings"></span>OK <a class="xref" href="zos1501815787432.html#hhm1501817243834__fn-1903255"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d359811e200 d359811e222 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d359811e200 d359811e225 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d359811e200 d359811e228 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d359811e200 d359811e232 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d359811e203 d359811e235 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d359811e203 d359811e238 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d359811e203 d359811e241 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d359811e203 d359811e244 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d359811e203 d359811e247 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d359811e203 d359811e251 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d359811e203 d359811e254 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d359811e203 d359811e257 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d359811e206 d359811e260 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d359811e206 d359811e263 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d359811e210 d359811e266 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d359811e210 d359811e270 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d359811e210 d359811e273 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d359811e210 d359811e276 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d359811e210 ">&#160;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="hhm1501817243834__fn-1903255" id="hhm1501817243834__fn-1903255"><sup>*1</sup></a>  A constant (literal) cannot be input. Specify a variable.</div></div></div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="nfa1501817244085">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function</h1>
+ 
+<div class="body conbody">
+<p class="p" id="nfa1501817244085__ID0EXFNQ">The SktSetOption instruction sets the socket option for the socket specified with <span class="ph phtype_variable"><span class="termtype">Socket</span></span>.</p>
+
+<p class="p" id="nfa1501817244085__ID0E1FNQ"><span class="ph phtype_variable"><span class="termtype">Done</span></span> changes to TRUE when processing of the instruction is completed normally.</p>
+
+<p class="p" id="nfa1501817244085__ID0EBGNQ">The socket option setting is completed when processing of the instruction is completed normally.</p>
+
+<p class="p linespace_7pt" id="nfa1501817244085__ID0EIGNQ">The data type of <span class="ph phtype_variable"><span class="termtype">Socket</span></span> is structure _sSOCKET. The specifications are as follows:</p>
+
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="nfa1501817244085__table_N10034_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:1%" />
+<col style="width:1%" />
+<col style="width:12%" />
+<col style="width:14%" />
+<col style="width:19%" />
+<col style="width:14%" />
+<col style="width:17%" />
+<col style="width:7%" />
+<col style="width:9%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" colspan="3" style="text-align:center;vertical-align:middle;" id="d678134e69">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d678134e72">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d678134e75">Description</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d678134e78">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d678134e81">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d678134e85">Unit</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d678134e88">Default</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cell-norowborder" colspan="3" style="text-align:left;vertical-align:middle;" headers="d678134e69 ">Socket</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d678134e72 ">Socket</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d678134e75 ">Socket</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d678134e78 ">_sSOCKET</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d678134e81 ">---</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d678134e85 ">---</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d678134e88 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:middle;" headers="d678134e69 ">&#160;</td>
+
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d678134e69 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e72 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e75 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e78 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e81 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e85 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e88 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" rowspan="9" style="text-align:left;vertical-align:middle;" headers="d678134e69 ">&#160;</td>
+
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d678134e69 ">Handle</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e72 ">Handle</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e75 ">The handle of the socket to clear the receive buffer</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e78 ">UDINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e81 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e85 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e88 ">0</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d678134e69 ">SrcAdr<a class="xref" href="zos1501815787432.html#nfa1501817244085__fn_tgv_mzt_k1b"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d678134e72 ">Local address</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d678134e75 ">Local IP address and port number</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d678134e78 ">_sSOCKET_ADDRESS</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d678134e81 ">---</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d678134e85 ">---</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d678134e88 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:middle;" headers="d678134e69 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e69 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e72 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e75 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e78 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e81 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e85 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e88 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d678134e69 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e69 ">PortNo<a class="xref" href="zos1501815787432.html#nfa1501817244085__fn_tgv_mzt_k1b"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e72 ">Port number</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e75 ">Port number</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e78 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e81 ">1 to 65,535</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d678134e85 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e88 ">0</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e69 ">IpAdr<a class="xref" href="zos1501815787432.html#nfa1501817244085__fn_tgv_mzt_k1b"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e72 ">IP address</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e75 ">
+<p class="p" id="nfa1501817244085__ID0EJWNQ">IP address or host name.</p>
+
+<p class="p" id="nfa1501817244085__ID0EQWNQ">A DNS or Hosts setting is required to use a host name.</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e78 ">STRING</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e81 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e88 ">&#8216;&#8217;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" colspan="2" style="text-align:left;vertical-align:middle;" headers="d678134e69 ">DstAdr<a class="xref" href="zos1501815787432.html#nfa1501817244085__fn_tgv_mzt_k1b"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d678134e72 ">Destination address</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d678134e75 ">Destination IP address and port number</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d678134e78 ">_sSOCKET_ADDRESS</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d678134e81 ">---</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d678134e85 ">---</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:middle;" headers="d678134e88 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:middle;" headers="d678134e69 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e69 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e72 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e75 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e78 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e81 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e85 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e88 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d678134e69 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e69 ">PortNo<a class="xref" href="zos1501815787432.html#nfa1501817244085__fn_tgv_mzt_k1b"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e72 ">Port number</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e75 ">Port number</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e78 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e81 ">1 to 65,535</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d678134e85 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e88 ">0</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e69 ">IpAdr<a class="xref" href="zos1501815787432.html#nfa1501817244085__fn_tgv_mzt_k1b"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e72 ">IP address</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e75 ">
+<p class="p" id="nfa1501817244085__ID0EU5NQ">IP address or host name.</p>
+
+<p class="p" id="nfa1501817244085__ID0E25NQ">A DNS or Hosts setting is required to use a host name.</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e78 ">STRING</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e81 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e88 ">&#8216;&#8217;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="nfa1501817244085__fn_tgv_mzt_k1b" id="nfa1501817244085__fn_tgv_mzt_k1b"><sup>*1</sup></a>  These members are not used for this instruction.</div>
+</div></div>
+ 
+<p class="p linespace_7pt">The following table shows the value of <span class="ph phtype_variable"><span class="termtype">OptionType</span></span> that you can specify and the data type of <span class="ph phtype_variable"><span class="termtype">OptionParam</span></span> that you can select for the specified <span class="ph phtype_variable"><span class="termtype">OptionType</span></span>. Also, the default operation when this instruction is not used is given by the default value below.</p>
+
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="nfa1501817244085__table_N1035B_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:12%" />
+<col style="width:25%" />
+<col style="width:12%" />
+<col style="width:37%" />
+<col style="width:12%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" colspan="2" style="text-align:center;vertical-align:middle;" id="d678134e428">OptionType</th>
+
+<th class="entry cellrowborder" colspan="3" style="text-align:center;vertical-align:middle;" id="d678134e431">OptionParam</th>
+
+</tr>
+
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d678134e437">Enumerator</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d678134e440">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d678134e443">Selectable data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d678134e446">Meaning of value</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d678134e449">Default</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e428 d678134e437 ">_TCP_NODELAY</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e428 d678134e440 ">Specifies the TCP_NODELAY option. It can be used only for TCP socket.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e431 d678134e443 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e431 d678134e446 ">
+<p class="p" id="nfa1501817244085__ID0E1FOQ">TRUE<a class="xref" href="zos1501815787432.html#nfa1501817244085__fn-1903256"><i style="display:none;">☆</i><sup>*2</sup></a>: TCP_NODELAY option enabled</p>
+
+<p class="p" id="nfa1501817244085__ID0EFGOQ">FALSE: TCP_NODELAY option disabled</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d678134e431 d678134e449 ">FALSE</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+
+<div class="fn"><a name="nfa1501817244085__fn-1903256" id="nfa1501817244085__fn-1903256"><sup>*2</sup></a>  When it is set to TRUE, the Nagle algorithm is disabled. With this setting, even small data is not transmitted collectively. </div></div></div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="sso1501817185456">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Related System-defined Variables</h1>
+
+<div class="body conbody">
+        
+        
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="sso1501817185456__table_zlr_p4q_j1b" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:30%" />
+<col style="width:20%" />
+<col style="width:10%" />
+<col style="width:40%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d893648e54">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d893648e57">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d893648e60">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d893648e63">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d893648e54 ">_EIP_EtnOnlineSta<a class="xref" href="#sso1501817185456__fn_v41_fpq_j1b"><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" rowspan="3" style="text-align:left;vertical-align:middle;" headers="d893648e57 ">Online</td>
+
+<td class="entry cellrowborder" rowspan="3" style="text-align:left;vertical-align:middle;" headers="d893648e60 ">BOOL</td>
+
+<td class="entry cellrowborder" rowspan="3" style="text-align:left;vertical-align:middle;" headers="d893648e63 ">
+<p class="p">This variable indicates when built-in EtherNet/IP port communications can be used.</p>
+
+<p class="p">TRUE: Communications are possible.</p>
+
+<p class="p">FALSE: Communications are not possible.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d893648e54 ">
+<p class="p">_EIP1_EtnOnlineSta<a class="xref" href="#sso1501817185456__fn_agf_fpq_j1b"><sup>*2</sup></a></p>
+
+<p class="p">_EIP2_EtnOnlineSta<a class="xref" href="#sso1501817185456__fn_gfj_fpq_j1b"><sup>*3</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d893648e54 ">_EIPIn1_EtnOnlineSta<a class="xref" href="#sso1501817185456__fn_vxm_fpq_j1b"><sup>*4</sup></a></td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="sso1501817185456__fn_v41_fpq_j1b" id="sso1501817185456__fn_v41_fpq_j1b"><sup>*1</sup></a>  Use this variable name for an NJ-series CPU Unit.</div>
+<div class="fn"><a name="sso1501817185456__fn_agf_fpq_j1b" id="sso1501817185456__fn_agf_fpq_j1b"><sup>*2</sup></a>  <p class="p">Use this variable name for port 1 on an NX-series CPU Unit, or for an NY-series Controller.</p>
+
+<p class="p">You can specify _EIP_EtnOnlineSta instead of _EIP1_EtnOnlineSta.</p>
+</div>
+<div class="fn"><a name="sso1501817185456__fn_gfj_fpq_j1b" id="sso1501817185456__fn_gfj_fpq_j1b"><sup>*3</sup></a>  Use this variable name for port 2 on an NX-series CPU Unit. </div>
+<div class="fn"><a name="sso1501817185456__fn_vxm_fpq_j1b" id="sso1501817185456__fn_vxm_fpq_j1b"><sup>*4</sup></a>  Use this variable name for the internal port on an NY-series Controller. </div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="uzj1501817231868">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Additional Information</h1>
+
+<div class="body conbody">
+        
+<p class="p">Refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Built-in EtherNet/IP Port User&#8217;s Manual (Cat. No. W506)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Industrial Panel PC / Industrial Box PC Built-in EtherNet/IPTM Port User's Manual (Cat. No. W563)</span></span></span> for details on socket service functions.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="mpd1501817244341">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Precautions for Correct Use</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="mpd1501817244341__li_N10017_N10013_N10010_N10002">Execution of this instruction is continued until processing is completed even if the value of <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to FALSE or the execution time exceeds the task period. The value of <span class="ph phtype_variable"><span class="termtype">Done</span></span> changes to TRUE when processing is completed. Use this to confirm normal completion of processing.</li>
+
+<li class="li" id="mpd1501817244341__li_N1001C_N10013_N10010_N10002">Refer to <a class="xref" href="aag1501815842589.html#aag1501815842589"><i style="display:none;">☆</i>Using this Section</a> for a timing chart for <span class="ph phtype_variable"><span class="termtype">Execute</span></span>, <span class="ph phtype_variable"><span class="termtype">Done</span></span>, <span class="ph phtype_variable"><span class="termtype">Busy</span></span>, and <span class="ph phtype_variable"><span class="termtype">Error</span></span>.</li>
+
+            
+<li class="li" id="mpd1501817244341__li_N10029_N10013_N10010_N10002">You cannot use this instruction in an event task. A compiling error will occur.</li>
+
+            
+<li class="li" id="mpd1501817244341__li_N10026_N10013_N10010_N10002">
+<p class="p">This instruction can be used for the built-in EtherNet/IP ports on NJ/NX-series CPU Units and NY-series Controllers.</p>
+
+<p class="p">Or you can use this instruction through a port on an NX-series EtherNet/IP Unit by setting <span class="ph phtype_parameter"><span class="termtype">IP Forward</span></span> to <span class="ph phtype_choice"><span class="termtype">Use</span></span> in the NX502 CPU Unit.</p>
+
+</li>
+
+<li class="li" id="mpd1501817244341__li_N10052_N10012_N1000F_N10002">You can use this instruction after the socket handle is opened by the SktTCPAccept, or SktTCPConnect instruction and before data transmission is started by SktTCPRcv, SktTCPSend, or SktClearBuf instruction. An error will occur if you execute this instruction after data transmission is started.</li>
+
+<li class="li" id="mpd1501817244341__li_N10057_N10012_N1000F_N10002">You must set the socket option for each handle specified with <span class="ph phtype_variable"><span class="termtype">Socket</span></span>. The socket option that was set is enabled while the handle is open. After closing the handle with the SktClose instruction, execute the SktTCPAccept and SktTCPConnect instructions again to open the handle, and then execute this instruction to set the socket option.</li>
+
+<li class="li" id="mpd1501817244341__li_N1003D_N10013_N10010_N10002">
+<p class="p">Except for NX502 CPU Units and NX102 CPU Units, you can execute a maximum of 32 of the following instructions at the same time: SktUDPCreate, SktUDPRcv, SktUDPSend, SktTCPAccept, SktTCPConnect, SktTCPRcv, SktTCPSend, SktGetTCPStatus, SktClose, SktClearBuf, SktSetOption, ModbusTCPCmd, ModbusTCPRead, and ModbusTCPWrite.</p>
+
+<p class="p">For NX502 CPU Units and NX102 CPU Units, a maximum of 64 instructions can be executed.</p>
+
+</li>
+
+            
+<li class="li" id="mpd1501817244341__li_N10066_N10012_N1000F_N10002">An error will occur in the following cases. <span class="ph phtype_variable"><span class="termtype">Error</span></span> will change to TRUE. <ol class="ol liststyle_alphabet1">
+<li class="li" id="mpd1501817244341__li_N10057_N10052_N10047_N10013_N10010_N10002">The value of a member of <span class="ph phtype_variable"><span class="termtype">Socket</span></span> is outside of the valid range.</li>
+
+<li class="li" id="mpd1501817244341__li_N1007C_N1006F_N10066_N10012_N1000F_N10002">The data type specified for <span class="ph phtype_variable"><span class="termtype">OptionParam</span></span> is not supported by <span class="ph phtype_variable"><span class="termtype">OptionType</span></span>.</li>
+
+<li class="li" id="mpd1501817244341__li_N1008A_N1006F_N10066_N10012_N1000F_N10002">The specified handle socket already started transmission.</li>
+
+<li class="li" id="mpd1501817244341__li_N1008F_N1006F_N10066_N10012_N1000F_N10002">The specified socket type is not supported by the handle type. Such a case includes when the TCP_NODELAY is executed for UDP socket.</li>
+
+<li class="li" id="mpd1501817244341__li_N10079_N10052_N10047_N10013_N10010_N10002">The handle specified with <span class="ph phtype_variable"><span class="termtype">Socket.Handle</span></span> does not exist.</li>
+
+</ol>
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="foy1501817244566">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Sample Programming</h1>
+<div class="body conbody"></div>
+<div class="related-links"></div></div><div class="layer04" id="xrh1501817244806">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">ST</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="xrh1501817244806__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:10%" />
+<col style="width:25%" />
+<col style="width:22%" />
+<col style="width:15%" />
+<col style="width:27%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1128025e37">Internal Variables</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1128025e40">Variable</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1128025e43">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1128025e46">Initial value</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1128025e49">Comment</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1128025e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1128025e40 ">Trigger</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1128025e43 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1128025e46 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1128025e49 ">Execution condition</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1128025e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1128025e40 ">DoTCP</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1128025e43 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1128025e46 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1128025e49 ">Processing</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1128025e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1128025e40 ">Stage</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1128025e43 ">INT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1128025e46 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1128025e49 ">State transition</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1128025e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1128025e40 ">WkSocket</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1128025e43 ">_sSOCKET</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1128025e46 ">(Handle:=0, SrcAdr:=(PortNo:=0, IpAdr:=''), DstAdr:=(PortNo:=0, IpAdr:=''))</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1128025e49 ">Socket</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1128025e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1128025e40 ">SendSocketDat</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1128025e43 ">ARRAY[0..1999] OF BYTE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1128025e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1128025e49 ">Send data</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1128025e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1128025e40 ">Nodelay</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1128025e43 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1128025e46 ">TRUE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1128025e49 ">NoDelay setting</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1128025e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1128025e40 ">SktTCPConnect_instance</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1128025e43 ">SktTCPConnect</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1128025e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1128025e49 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1128025e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1128025e40 ">SktSetOption_instance</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1128025e43 ">SktSetOption</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1128025e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1128025e49 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1128025e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1128025e40 ">SktTCPSend_instance</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1128025e43 ">SktTCPSend</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1128025e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1128025e49 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d1128025e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1128025e40 ">SktClose_instance</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1128025e43 ">SktClose</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1128025e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1128025e49 ">&#160;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt"></p>
+
+<pre class="pre codeblock">
+// Start sequence when Trigger changes to TRUE.
+IF ((Trigger=TRUE) AND (DoTCP=FALSE) AND (_EIP_EtnOnlineSta=TRUE)) THEN
+          DoTCP:=TRUE;
+          Nodelay:=TRUE;
+          Stage:=INT#1;
+          SktTCPConnect_instance(Execute:=FALSE);// Initialize instance.
+          SktSetOption_instance( // Initialize instance.
+                 Execute:=FALSE,
+                 OptionType:=_TCP_NODELAY,
+                 OptionParam:= Nodelay);
+          SktTCPSend_instance(// Initialize instance.
+                 Execute:=FALSE,
+                 SendDat:=SendSocketDat[0]);// Dummy
+          SktClose_instance(Execute:=FALSE);// Initialize instance.
+END_IF;
+
+IF (DoTCP=TRUE) THEN
+          CASE Stage OF
+          1 :// Request a connection.
+                 SktTCPConnect_instance(
+                        Execute:=TRUE,
+                        SrcTcpPort:=UINT#0,// Local UDP port number: Automatically
+                        DstAdr:=&#8217;192.168.250.2&#8217;,// Remote IP address
+                        DstTcpPort:=UINT#6000,// Destination TCP port number
+                        Socket =&gt;WkSocket);// Socket
+                 IF (SktTCPConnect_instance.Done=TRUE) THEN
+                        Stage:=INT#2;// Normal end
+                 ELSIF (SktTCPConnect_instance.Error=TRUE) THEN
+                        Stage:=INT#10; // Error end
+                 END_IF;
+
+          2 :// Set Socket Option
+                 SktSetOption_instance(
+                        Execute:=TRUE,
+                        Socket:=WkSocket);// Socket
+                        OptionType:=_TCP_NODELAY, // Option type
+                        OptionParam:= Nodelay); // NODELAY enabled
+                 IF (SktSetOption_instance.Done=TRUE) THEN
+                        Stage:=INT#3;// Normal end
+                 ELSIF (SktSetOption_instance.Error=TRUE) THEN
+                        Stage:=INT#20; // Error end
+                 END_IF;
+
+          3 :// Send request
+                 SktTCPSend_instance(
+                        Execute:=TRUE,
+                        Socket:=WkSocket);// Socket
+                        SendDat:=SendSocketDat[0],// Send data
+                        Size:=UINT#2000);// Send data size
+                 IF (SktTCPSend_instance.Done=TRUE) THEN
+                        Stage:=INT#4;// Normal end
+                 ELSIF (SktTCPSend_instance.Error=TRUE) THEN
+                        Stage:=INT#30; // Error end
+                 END_IF;
+
+          4 :// Request closing data.
+                 SktClose_instance(
+                        Execute:=TRUE,
+                        Socket:=WkSocket);// Socket
+                 IF (SktClose_instance.Done=TRUE) THEN
+                        Stage:=INT#0;// Normal end
+                 ELSIF (SktClose_instance.Error=TRUE) THEN
+                        Stage:= INT#40; // Error end
+                 END_IF;
+
+          0 :// Normal end
+                 DoTCP:=FALSE;
+                 Trigger:=FALSE;
+
+          ELSE // Interrupted by error.
+                 DoTCP:=FALSE;
+                 Trigger:=FALSE;
+      END_CASE;
+END_IF;</pre>
+
+</div>
+
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+
+
+
+
+

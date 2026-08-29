@@ -1,0 +1,3469 @@
+{
+ "progetto": "O3_Diw_7L_V3",
+ "guid": "bcc9c5fe-c906-4b0e-9d9a-a49fc54e4a58",
+ "sections": {
+  "Pompa": {
+   "rungs": [
+    {
+     "cmt": "GESTIONE SELETTORE POMPA",
+     "chain": [
+      {
+       "or": [
+        "/IN_EMERGENZA",
+        "Allarme_Bit[10]",
+        "^Allarme_Bit[49]"
+       ]
+      },
+      "(R V_S_Enable_Pump)"
+     ]
+    },
+    {
+     "cmt": "ATTIVO LA CHIAMATA ALL OZONIZZATORE",
+     "chain": [
+      "V_S_Enable_Pump",
+      "/Allarme_Bit[7]",
+      "(OUT_CALL_OZONIZZATORE)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "IN_EMERGENZA",
+      "V_S_Enable_Pump",
+      "/Allarme_Bit[38]",
+      "/Allarme_Bit[7]",
+      {
+       "or": [
+        [
+         "IN_OZONIZZATORE_READY",
+         "/Allarme_Bit[5]"
+        ],
+        "P_On"
+       ]
+      },
+      {
+       "fb": "TON",
+       "inst": "Tim_1",
+       "p": {
+        "PT": "T#1s"
+       }
+      },
+      {
+       "or": [
+        "IN_OZONIZZATORE_LEVEL",
+        "Tim_Ozono_Level.Q"
+       ]
+      },
+      "(OUT_ENABLE_POMPA)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "IN_OZONIZZATORE_LEVEL",
+      {
+       "fb": "TOF",
+       "inst": "Tim_Ozono_Level",
+       "p": {
+        "PT": "T#3s"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "TIMER POMPA ATTIVA",
+     "chain": [
+      "OUT_ENABLE_POMPA",
+      {
+       "fb": "TON",
+       "inst": "Tim_OUT_Enable_Pompa",
+       "p": {
+        "PT": "t#7S"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "Populate the PID tuning parameters with values. Theses are fairly slow acting. Remove this rung after tuning if running on an actual PLC",
+     "chain": [
+      "Inizial_Setting",
+      {
+       "ist": "// Starting Tuning values and Setpoint\r\nPID_PBand:=REAL#100;\r\nPID_ITime:=T#1S;\r\nPID_DTime:=T#1S;\r\nPID_SP:=REAL#55;\r\n// Remove this section when this logic is running in a PLC. these should\r\n//all be retained variables that will be overwritten when tuning is done"
+      }
+     ]
+    },
+    {
+     "cmt": "Populate the OprSetParams structure with starting values. See help for details on the structure members",
+     "chain": [
+      "Inizial_Setting",
+      {
+       "ist": "// Starting Operation Settings Parameters\r\nPID_OprSetParams.Alpha:=REAL#0.65;  //Setpoint filter for cascading, not relevant\r\nPID_OprSetParams.ATCalcGain:= REAL#10;//1 = FAST, 10 = SLOW(influisce i tempi di reazione autotunning)\r\nPID_OprSetParams.ATHystrs:=REAL#1;\r\nPID_OprSetParams.MVLowLmt:=REAL#0;\r\nPID_OprSetParams.MVUpLmt:=REAL#100; // Limite di regolazione autotunning 100%"
+      }
+     ]
+    },
+    {
+     "cmt": "Populate the InitSetParams structure with starting values. See help for details on the structure members",
+     "chain": [
+      "Inizial_Setting",
+      {
+       "ist": "// Starting Initial Settings Parameters\r\nPID_InitSetParams.DirOpr:=FALSE; //False = Heating, TRUE = Cooling\r\nPID_InitSetParams.RngLowLmt:=REAL#0;\r\nPID_InitSetParams.RngUpLmt:=REAL#10;//Indica la pressione massima letta dallo strumento\r\nPID_InitSetParams.SampTime:=T#100ms; // The time period for PID processing"
+      }
+     ]
+    },
+    {
+     "cmt": "PID Simulation\r\nTo activate the PID loop change the bit TEST_PID to true and change the PID_SP (setpoint) variable to a value between 0 and 100.\r\nThere is a floating average block below the PID block that feeds the PID output back into the PID input\r\nat a delayed rate to simulate a real-world delay.\r\n\r\nTo test auto-tuning simply turn on the bit PID_StartAT bit while the block is active. Starting values are applied with the first run bit.",
+     "chain": [
+      "OUT_ENABLE_POMPA",
+      "V_S_Control_PID",
+      {
+       "fb": "PIDAT",
+       "inst": "PID_Pompa",
+       "p": {
+        "ManCtl": "PID_ManCtl",
+        "StartAT": "PID_StartAt",
+        "PV": "PID_PV",
+        "SP": "PID_SP",
+        "OprSetParams": "PID_OprSetParams",
+        "InitSetParams": "PID_InitSetParams",
+        "ProportionalBand": "PID_PBand",
+        "IntegrationTime": "PID_ITime",
+        "DerivativeTime": "PID_DTime",
+        "ManMV": "PID_ManMV",
+        "OUT:ATBusy": "PID_ATBusy",
+        "OUT:Error": "PID_Error",
+        "OUT:ErrorID": "PID_ErrorID",
+        "OUT:MV": "PID_MV",
+        "OUT:ProportionalBand": "PID_PBand",
+        "OUT:IntegrationTime": "PID_ITime",
+        "OUT:DerivativeTime": "PID_DTime",
+        "OUT:ManMV": "PID_ManMV"
+       }
+      },
+      "(AT_Done)"
+     ]
+    },
+    {
+     "cmt": "TRASFERISCO IL VALORE DI SETTAGGIO DEPRESSIONE AL BLOCCO PID",
+     "chain": [
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "SET_Press_Pump",
+        "OUT:Out": "PID_SP"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "TRASMETTO IL VALORE LETTO DALLO STRUMENTO PT1 0-10 BAR AL VALORE PID",
+     "chain": [
+      {
+       "f": ">=",
+       "p": {
+        "In1": "PV_PT3",
+        "In2": "REAL#0"
+       }
+      },
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "PV_PT3",
+        "OUT:Out": "PID_PV"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "#SOVRAPRESSIONE:SEQUENZA DI ABBASSAMENTO VELOCITà POMPA FINO AL RIENTRO DI TALE VALORE",
+     "chain": [
+      "P_Off",
+      {
+       "or": [
+        "Allarme_Bit[28]",
+        "Allarme_Bit[29]",
+        "Allarme_Bit[30]",
+        "Allarme_Bit[31]"
+       ]
+      },
+      "(Allarme_Sovrapressione)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "^Allarme_Sovrapressione",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "ANALOG_IN_1",
+        "OUT:Out": "Temp_Analog_IN_1"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Allarme_Sovrapressione",
+      {
+       "or": [
+        {
+         "f": ">",
+         "p": {
+          "In1": "PV_PT1",
+          "In2": "SET_All_HIHI_PT1"
+         }
+        },
+        {
+         "f": ">",
+         "p": {
+          "In1": "PV_PT2",
+          "In2": "SET_All_HIHI_PT2"
+         }
+        },
+        {
+         "f": ">",
+         "p": {
+          "In1": "PV_PT3",
+          "In2": "SET_All_HIHI_PT3"
+         }
+        },
+        {
+         "f": ">",
+         "p": {
+          "In1": "PV_PT4",
+          "In2": "SET_All_HIHI_PT4"
+         }
+        }
+       ]
+      },
+      {
+       "f": "Get100msClk",
+       "p": {}
+      },
+      {
+       "f": "@-",
+       "p": {
+        "In1": "ANALOG_OUT_1",
+        "In2": "int#1",
+        "OUT:": "ANALOG_OUT_1"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "OUT EV1",
+     "chain": [
+      "Allarme_Bit[34]"
+     ],
+     "out": [
+      "(OUT_EV_SCAMBIATORE_EV1)",
+      [
+       "P_Off",
+       "(OUT_EV_SCAMBIATORE_EV1A)"
+      ]
+     ]
+    },
+    {
+     "cmt": "OUT EV2",
+     "chain": [
+      {
+       "or": [
+        "Allarme_Bit[35]",
+        "Allarme_Bit[37]",
+        "V_S_Force_EV2"
+       ]
+      },
+      "(OUT_EV_FINE_LINEA_EV2)"
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "ANALOG_IN_1",
+     "type": "int",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ANALOG_OUT_1",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "AT_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Allarme_Bit",
+     "type": "ARRAY[1..50] OF bool",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Allarme_Sovrapressione",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EMERGENZA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_OZONIZZATORE_LEVEL",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_OZONIZZATORE_READY",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Inizial_Setting",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_CALL_OZONIZZATORE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_ENABLE_POMPA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_EV_FINE_LINEA_EV2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_EV_SCAMBIATORE_EV1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_EV_SCAMBIATORE_EV1A",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PID_ATBusy",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PID_DTime",
+     "type": "TIME",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PID_Error",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PID_ErrorID",
+     "type": "WORD",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PID_ITime",
+     "type": "TIME",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PID_InitSetParams",
+     "type": "_sINIT_SET_PARAMS",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PID_MV",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PID_ManCtl",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PID_ManMV",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PID_OprSetParams",
+     "type": "_sOPR_SET_PARAMS",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PID_PBand",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PID_PV",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PID_Pompa",
+     "type": "PIDAT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PID_SP",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PID_StartAt",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_PT1",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_PT2",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_PT3",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_PT4",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_All_HIHI_PT1",
+     "type": "real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_All_HIHI_PT2",
+     "type": "real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_All_HIHI_PT3",
+     "type": "real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_All_HIHI_PT4",
+     "type": "real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Press_Pump",
+     "type": "real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Temp_Analog_IN_1",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_1",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_OUT_Enable_Pompa",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Ozono_Level",
+     "type": "TOF",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_S_Control_PID",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_S_Enable_Pump",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_S_Force_EV2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Tool": {
+   "rungs": [
+    {
+     "cmt": "SELEZIONO I LOOP DI OZONO DA VISUALIZZARE IN BASE AL SYSTEMA DI DISTRIBUZIONE\r\nSYSTEM1=5 LOOP\r\nSYSTEM2=7 LOOP",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "P_Off",
+       "(SYSTEM1)"
+      ],
+      "(SYSTEM2)"
+     ]
+    },
+    {
+     "cmt": "ALLARMI COMULATIVI PER USCITA RELè DI READY TOOL",
+     "chain": [
+      {
+       "or": [
+        "/OUT_ENABLE_POMPA",
+        "Allarme_Bit[8]",
+        "/IN_EMERGENZA"
+       ]
+      },
+      "(Bit_Allarm_Tool)"
+     ]
+    },
+    {
+     "cmt": "GESTIONE TOOL 1",
+     "chain": [
+      "IN_EMERGENZA",
+      "IN_TOOL1_FUGA_O3",
+      "IN_TOOL1_REQUEST",
+      "/Allarme_Bit[11]",
+      "P_Off"
+     ],
+     "out": [
+      "(OUT_TOOL1_EV_IN)",
+      "(OUT_TOOL1_EV_OUT)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "/Bit_Allarm_Tool",
+      "/Allarme_Bit[11]",
+      "IN_TOOL1_FUGA_O3",
+      "(OUT_TOOL1_READY)"
+     ]
+    },
+    {
+     "cmt": "GESTIONE TOOL 2",
+     "chain": [
+      "IN_EMERGENZA",
+      "IN_TOOL2_FUGA_O3",
+      "IN_TOOL2_REQUEST",
+      "/Allarme_Bit[12]"
+     ],
+     "out": [
+      "(OUT_TOOL2_EV_IN)",
+      [
+       "P_Off",
+       "(OUT_TOOL2_EV_OUT)"
+      ]
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "/Bit_Allarm_Tool",
+      "/Allarme_Bit[12]",
+      "IN_TOOL2_FUGA_O3",
+      "(OUT_TOOL2_READY)"
+     ]
+    },
+    {
+     "cmt": "GESTIONE TOOL 3",
+     "chain": [
+      "IN_EMERGENZA",
+      "IN_TOOL3_FUGA_O3",
+      "IN_TOOL3_REQUEST",
+      "/Allarme_Bit[13]"
+     ],
+     "out": [
+      "(OUT_TOOL3_EV_IN)",
+      "(OUT_TOOL3_EV_OUT)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "/Bit_Allarm_Tool",
+      "/Allarme_Bit[13]",
+      "IN_TOOL3_FUGA_O3",
+      "(OUT_TOOL3_READY)"
+     ]
+    },
+    {
+     "cmt": "GESTIONE TOOL 4",
+     "chain": [
+      "IN_EMERGENZA",
+      "IN_TOOL4_FUGA_O3",
+      "IN_TOOL4_REQUEST",
+      "/Allarme_Bit[14]"
+     ],
+     "out": [
+      "(OUT_TOOL4_EV_IN)",
+      "(OUT_TOOL4_EV_OUT)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "/Bit_Allarm_Tool",
+      "/Allarme_Bit[14]",
+      "IN_TOOL4_FUGA_O3",
+      "(OUT_TOOL4_READY)"
+     ]
+    },
+    {
+     "cmt": "GESTIONE TOOL 5",
+     "chain": [
+      "IN_EMERGENZA",
+      "IN_TOOL5_FUGA_O3",
+      "IN_TOOL5_REQUEST",
+      "/Allarme_Bit[15]"
+     ],
+     "out": [
+      "(OUT_TOOL5_EV_IN)",
+      "(OUT_TOOL5_EV_OUT)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "/Bit_Allarm_Tool",
+      "/Allarme_Bit[15]",
+      "IN_TOOL5_FUGA_O3",
+      "(OUT_TOOL5_READY)"
+     ]
+    },
+    {
+     "cmt": "GESTIONE TOOL 6",
+     "chain": [
+      "IN_EMERGENZA",
+      "IN_TOOL6_FUGA_O3",
+      "IN_TOOL6_REQUEST",
+      "/Allarme_Bit[16]"
+     ],
+     "out": [
+      "(OUT_TOOL6_EV_IN)",
+      "(OUT_TOOL6_EV_OUT)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "/Bit_Allarm_Tool",
+      "/Allarme_Bit[16]",
+      "IN_TOOL6_FUGA_O3",
+      "(OUT_TOOL6_READY)"
+     ]
+    },
+    {
+     "cmt": "GESTIONE TOOL 7",
+     "chain": [
+      "IN_EMERGENZA",
+      "IN_TOOL7_FUGA_O3",
+      "IN_TOOL7_REQUEST",
+      "/Allarme_Bit[17]"
+     ],
+     "out": [
+      "(OUT_TOOL7_EV_IN)",
+      "(OUT_TOOL7_EV_OUT)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "/Bit_Allarm_Tool",
+      "/Allarme_Bit[17]",
+      "IN_TOOL7_FUGA_O3",
+      "(OUT_TOOL7_READY)"
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Allarme_Bit",
+     "type": "ARRAY[1..50] OF bool",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Bit_Allarm_Tool",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EMERGENZA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TOOL1_FUGA_O3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TOOL1_REQUEST",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TOOL2_FUGA_O3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TOOL2_REQUEST",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TOOL3_FUGA_O3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TOOL3_REQUEST",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TOOL4_FUGA_O3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TOOL4_REQUEST",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TOOL5_FUGA_O3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TOOL5_REQUEST",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TOOL6_FUGA_O3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TOOL6_REQUEST",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TOOL7_FUGA_O3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TOOL7_REQUEST",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_ENABLE_POMPA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_TOOL1_EV_IN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_TOOL1_EV_OUT",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_TOOL1_READY",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_TOOL2_EV_IN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_TOOL2_EV_OUT",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_TOOL2_READY",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_TOOL3_EV_IN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_TOOL3_EV_OUT",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_TOOL3_READY",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_TOOL4_EV_IN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_TOOL4_EV_OUT",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_TOOL4_READY",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_TOOL5_EV_IN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_TOOL5_EV_OUT",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_TOOL5_READY",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_TOOL6_EV_IN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_TOOL6_EV_OUT",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_TOOL6_READY",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_TOOL7_EV_IN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_TOOL7_EV_OUT",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_TOOL7_READY",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SYSTEM1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SYSTEM2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Analogiche": {
+   "rungs": [
+    {
+     "cmt": "SCALO L'INGRESSO ANALOGICO1 PT1    0-10 Bar",
+     "chain": [
+      {
+       "f": "LIMIT",
+       "p": {
+        "MN": "int#0",
+        "In": "ANALOG_IN_1",
+        "MX": "int#8000",
+        "OUT:": "ANALOG_IN_1_Limit"
+       }
+      },
+      {
+       "f": "INT_TO_REAL",
+       "p": {
+        "In": "ANALOG_IN_1_Limit",
+        "OUT:": "PV_Analog1_Real"
+       }
+      },
+      {
+       "f": "ScaleTrans",
+       "p": {
+        "SclIn": "PV_Analog1_Real",
+        "X0": "real#0",
+        "Y0": "real#0",
+        "X1": "real#8000",
+        "Y1": "real#10",
+        "OUT:": "PV_PT1"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "SCALO L'INGRESSO ANALOGICO2 PT2    0-10 Bar",
+     "chain": [
+      {
+       "f": "LIMIT",
+       "p": {
+        "MN": "int#0",
+        "In": "ANALOG_IN_2",
+        "MX": "int#8000",
+        "OUT:": "ANALOG_IN_2_Limit"
+       }
+      },
+      {
+       "f": "INT_TO_REAL",
+       "p": {
+        "In": "ANALOG_IN_2_Limit",
+        "OUT:": "PV_Analog2_Real"
+       }
+      },
+      {
+       "f": "ScaleTrans",
+       "p": {
+        "SclIn": "PV_Analog2_Real",
+        "X0": "real#0",
+        "Y0": "real#0",
+        "X1": "real#8000",
+        "Y1": "real#10",
+        "OUT:": "PV_PT2"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "SCALO L'INGRESSO ANALOGICO3 PT3    0-10 Bar",
+     "chain": [
+      {
+       "f": "LIMIT",
+       "p": {
+        "MN": "int#0",
+        "In": "ANALOG_IN_3",
+        "MX": "int#8000",
+        "OUT:": "ANALOG_IN_3_Limit"
+       }
+      },
+      {
+       "f": "INT_TO_REAL",
+       "p": {
+        "In": "ANALOG_IN_3_Limit",
+        "OUT:": "PV_Analog3_Real"
+       }
+      },
+      {
+       "f": "ScaleTrans",
+       "p": {
+        "SclIn": "PV_Analog3_Real",
+        "X0": "real#0",
+        "Y0": "real#0",
+        "X1": "real#8000",
+        "Y1": "real#10",
+        "OUT:": "PV_PT3"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "SCALO L'INGRESSO ANALOGICO4 PT4    0-10 Bar",
+     "chain": [
+      {
+       "f": "LIMIT",
+       "p": {
+        "MN": "int#0",
+        "In": "ANALOG_IN_4",
+        "MX": "int#8000",
+        "OUT:": "ANALOG_IN_4_Limit"
+       }
+      },
+      {
+       "f": "INT_TO_REAL",
+       "p": {
+        "In": "ANALOG_IN_4_Limit",
+        "OUT:": "PV_Analog4_Real"
+       }
+      },
+      {
+       "f": "ScaleTrans",
+       "p": {
+        "SclIn": "PV_Analog4_Real",
+        "X0": "real#0",
+        "Y0": "real#0",
+        "X1": "real#8000",
+        "Y1": "real#10",
+        "OUT:": "PV_PT4"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "SCALO L'INGRESSO ANALOGICO5 TT1    0-100 °C",
+     "chain": [
+      {
+       "f": "LIMIT",
+       "p": {
+        "MN": "int#0",
+        "In": "ANALOG_IN_5",
+        "MX": "int#8000",
+        "OUT:": "ANALOG_IN_5_Limit"
+       }
+      },
+      {
+       "f": "INT_TO_REAL",
+       "p": {
+        "In": "ANALOG_IN_5_Limit",
+        "OUT:": "PV_Analog5_Real"
+       }
+      }
+     ],
+     "out": [
+      {
+       "f": "ScaleTrans",
+       "p": {
+        "SclIn": "Average1",
+        "X0": "real#0",
+        "Y0": "real#0",
+        "X1": "real#8000",
+        "Y1": "real#100",
+        "OUT:": "PV_TT1"
+       }
+      },
+      [
+       {
+        "f": "Get100msClk",
+        "p": {}
+       },
+       {
+        "f": "@MovingAverage",
+        "p": {
+         "In": "PV_Analog5_Real",
+         "CurIndex": "index1",
+         "Buf": "Buffer1[0]",
+         "BufSize": "uint#30",
+         "Q": "Done1",
+         "OUT:": "Average1",
+         "OUT:CurIndex": "index1",
+         "OUT:Buf": "Buffer1[0]",
+         "OUT:Q": "Done1"
+        }
+       }
+      ]
+     ]
+    },
+    {
+     "cmt": "SCALO L'INGRESSO ANALOGICO6 TT2    0-100 °C",
+     "chain": [
+      {
+       "f": "LIMIT",
+       "p": {
+        "MN": "int#0",
+        "In": "ANALOG_IN_6",
+        "MX": "int#8000",
+        "OUT:": "ANALOG_IN_6_Limit"
+       }
+      },
+      {
+       "f": "INT_TO_REAL",
+       "p": {
+        "In": "ANALOG_IN_6_Limit",
+        "OUT:": "PV_Analog6_Real"
+       }
+      }
+     ],
+     "out": [
+      {
+       "f": "ScaleTrans",
+       "p": {
+        "SclIn": "Average2",
+        "X0": "real#0",
+        "Y0": "real#0",
+        "X1": "real#8000",
+        "Y1": "real#100",
+        "OUT:": "PV_TT2"
+       }
+      },
+      [
+       {
+        "f": "Get100msClk",
+        "p": {}
+       },
+       {
+        "f": "@MovingAverage",
+        "p": {
+         "In": "PV_Analog6_Real",
+         "CurIndex": "index2",
+         "Buf": "Buffer2[0]",
+         "BufSize": "uint#30",
+         "Q": "Done2",
+         "OUT:": "Average2",
+         "OUT:CurIndex": "index2",
+         "OUT:Buf": "Buffer2[0]",
+         "OUT:Q": "Done2"
+        }
+       }
+      ]
+     ]
+    },
+    {
+     "cmt": "SCALO L'INGRESSO ANALOGICO7 QT1   0-500 lt/m",
+     "chain": [
+      {
+       "f": "LIMIT",
+       "p": {
+        "MN": "int#0",
+        "In": "ANALOG_IN_7",
+        "MX": "int#8000",
+        "OUT:": "ANALOG_IN_7_Limit"
+       }
+      },
+      {
+       "f": "INT_TO_REAL",
+       "p": {
+        "In": "ANALOG_IN_7_Limit",
+        "OUT:": "PV_Analog7_Real"
+       }
+      },
+      {
+       "f": "ScaleTrans",
+       "p": {
+        "SclIn": "PV_Analog7_Real",
+        "X0": "real#0",
+        "Y0": "real#0",
+        "X1": "real#8000",
+        "Y1": "real#500",
+        "OUT:": "PV_QT1"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "SCALO L'INGRESSO ANALOGICO8 QT2   0-100 lt/m",
+     "chain": [
+      {
+       "f": "LIMIT",
+       "p": {
+        "MN": "int#0",
+        "In": "ANALOG_IN_8",
+        "MX": "int#8000",
+        "OUT:": "ANALOG_IN_8_Limit"
+       }
+      },
+      {
+       "f": "INT_TO_REAL",
+       "p": {
+        "In": "ANALOG_IN_8_Limit",
+        "OUT:": "PV_Analog8_Real"
+       }
+      },
+      {
+       "f": "ScaleTrans",
+       "p": {
+        "SclIn": "PV_Analog8_Real",
+        "X0": "real#0",
+        "Y0": "real#0",
+        "X1": "real#8000",
+        "Y1": "real#100",
+        "OUT:": "PV_QT2"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "CONTO I LTRI SCARICATI PER ALTA TEMPERATURA",
+     "chain": [
+      {
+       "f": "/",
+       "p": {
+        "In1": "PV_QT2",
+        "In2": "REAL#600.0",
+        "OUT:": "PV_QT2_Dec"
+       }
+      },
+      "OUT_EV_FINE_LINEA_EV2",
+      {
+       "f": "Get100msClk",
+       "p": {}
+      },
+      {
+       "f": "@+",
+       "p": {
+        "In1": "PV_QT2_Dec",
+        "In2": "PV_QT2_Litri",
+        "OUT:": "PV_QT2_Litri"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "SCALO L'INGRESSO ANALOGICO1 DELLA CPU PER SENSORE DI ASPIRAZIONE TARATO 0-1000 Pa",
+     "chain": [
+      {
+       "f": "LIMIT",
+       "p": {
+        "MN": "int#400",
+        "In": "ANALOG_CPU_IN_1",
+        "MX": "int#2000",
+        "OUT:": "ANALOG_CPU_IN_1_Limit"
+       }
+      },
+      {
+       "f": "INT_TO_REAL",
+       "p": {
+        "In": "ANALOG_CPU_IN_1_Limit",
+        "OUT:": "PV_Analog_CPU_1_Real"
+       }
+      },
+      {
+       "f": "ScaleTrans",
+       "p": {
+        "SclIn": "PV_Analog_CPU_1_Real",
+        "X0": "real#400",
+        "Y0": "real#0",
+        "X1": "real#2000",
+        "Y1": "real#1000",
+        "OUT:": "PV_Aspirazione"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "CONTROLLO POMPA TRAMITE FLUSSO : SCALO IL VALORE PER L'USCITA ANALOGICA GESTIONE VELOCITà POMPA.METTO set poin speed a 8000 nel software levitronix",
+     "chain": [
+      "V_S_Control_PID",
+      "/Allarme_Sovrapressione",
+      {
+       "f": "ScaleTrans",
+       "p": {
+        "SclIn": "PID_MV",
+        "X0": "real#0",
+        "Y0": "real#80",
+        "X1": "real#100",
+        "Y1": "real#7920",
+        "OUT:": "OUT_Pid_MW"
+       }
+      },
+      {
+       "f": "REAL_TO_INT",
+       "p": {
+        "In": "OUT_Pid_MW",
+        "OUT:": "ANALOG_OUT_1"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "CONTROLLO POMPA TRAMITE VELOCITà SCALO IL VALORE PER L'USCITA ANALOGICA GESTIONE VELOCITà POMPA.METTO set poin speed a 8000 nel software levitronix",
+     "chain": [
+      "/V_S_Control_PID",
+      "/Allarme_Sovrapressione",
+      {
+       "f": "ScaleTrans",
+       "p": {
+        "SclIn": "SET_Rpm_Pump",
+        "X0": "real#0",
+        "Y0": "real#80",
+        "X1": "real#8000",
+        "Y1": "real#7920",
+        "OUT:": "Scale_SET_Rpm_Pump"
+       }
+      },
+      {
+       "f": "REAL_TO_INT",
+       "p": {
+        "In": "Scale_SET_Rpm_Pump",
+        "OUT:": "ANALOG_OUT_1"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "CONTROLLO USCITA PER OZONIZZATORE (4-20ma)",
+     "chain": [
+      {
+       "f": "ScaleTrans",
+       "p": {
+        "SclIn": "PV_Rpm_Pump",
+        "X0": "SET_4ma_OUT_Ozono",
+        "Y0": "real#0",
+        "X1": "SET_20ma_OUT_Ozono",
+        "Y1": "real#8000",
+        "OUT:": "Scale_SET_Concentraz_Ozono"
+       }
+      }
+     ],
+     "out": [
+      [
+       {
+        "f": ">",
+        "p": {
+         "In1": "Scale_SET_Concentraz_Ozono",
+         "In2": "real#0"
+        }
+       },
+       {
+        "f": "REAL_TO_INT",
+        "p": {
+         "In": "Scale_SET_Concentraz_Ozono",
+         "OUT:": "ANALOG_OUT_2"
+        }
+       }
+      ],
+      [
+       {
+        "f": "<=",
+        "p": {
+         "In1": "Scale_SET_Concentraz_Ozono",
+         "In2": "real#0"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "0",
+         "OUT:Out": "ANALOG_OUT_2"
+        }
+       }
+      ]
+     ]
+    },
+    {
+     "cmt": "TRASFORMO IL COMANDO IN PERCENTULALE IN NUMERO GIRI",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       {
+        "f": "INT_TO_REAL",
+        "p": {
+         "In": "ANALOG_OUT_1",
+         "OUT:": "Real_Analog_OUT_1"
+        }
+       },
+       "V_S_Enable_Pump",
+       {
+        "f": "ScaleTrans",
+        "p": {
+         "SclIn": "Average",
+         "X0": "real#80",
+         "Y0": "real#0",
+         "X1": "real#7920",
+         "Y1": "real#8000",
+         "OUT:": "PV_Rpm_Pump"
+        }
+       }
+      ],
+      [
+       "/V_S_Enable_Pump",
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "0",
+         "OUT:Out": "PV_Rpm_Pump"
+        }
+       }
+      ]
+     ]
+    },
+    {
+     "cmt": "This floating average block will average the PID_MV and send it back to the PIDAT block as the PV simulating a delay caused by a process. Adjustments to the frequency of execution can be made to simulate a more-responsive or less-responsive process.",
+     "chain": [
+      {
+       "f": "Get100msClk",
+       "p": {}
+      },
+      {
+       "f": "@MovingAverage",
+       "p": {
+        "In": "Real_Analog_OUT_1",
+        "CurIndex": "index",
+        "Buf": "Buffer[0]",
+        "BufSize": "uint#20",
+        "Q": "Done",
+        "OUT:": "Average",
+        "OUT:CurIndex": "index",
+        "OUT:Buf": "Buffer[0]",
+        "OUT:Q": "Done"
+       }
+      }
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "ANALOG_CPU_IN_1",
+     "type": "int",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ANALOG_CPU_IN_1_Limit",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ANALOG_IN_1",
+     "type": "int",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ANALOG_IN_1_Limit",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ANALOG_IN_2",
+     "type": "int",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ANALOG_IN_2_Limit",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ANALOG_IN_3",
+     "type": "int",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ANALOG_IN_3_Limit",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ANALOG_IN_4",
+     "type": "int",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ANALOG_IN_4_Limit",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ANALOG_IN_5",
+     "type": "int",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ANALOG_IN_5_Limit",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ANALOG_IN_6",
+     "type": "int",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ANALOG_IN_6_Limit",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ANALOG_IN_7",
+     "type": "int",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ANALOG_IN_7_Limit",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ANALOG_IN_8",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ANALOG_IN_8_Limit",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ANALOG_OUT_1",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "ANALOG_OUT_2",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Allarme_Sovrapressione",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Average",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Average1",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Average2",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Buffer",
+     "type": "ARRAY[0..999] OF Real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Buffer1",
+     "type": "ARRAY[0..999] OF Real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Buffer2",
+     "type": "array[0..999] of real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Done1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Done2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_EV_FINE_LINEA_EV2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_Pid_MW",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PID_MV",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Analog1_Real",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Analog2_Real",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Analog3_Real",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Analog4_Real",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Analog5_Real",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Analog6_Real",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Analog7_Real",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Analog8_Real",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Analog_CPU_1_Real",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Aspirazione",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_PT1",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_PT2",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_PT3",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_PT4",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_QT1",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_QT2",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_QT2_Dec",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_QT2_Litri",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Rpm_Pump",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_TT1",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_TT2",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Real_Analog_OUT_1",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_20ma_OUT_Ozono",
+     "type": "real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_4ma_OUT_Ozono",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Rpm_Pump",
+     "type": "real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Scale_SET_Concentraz_Ozono",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Scale_SET_Rpm_Pump",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_S_Control_PID",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_S_Enable_Pump",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "index",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "index1",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "index2",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Ausiliari": {
+   "rungs": [
+    {
+     "cmt": "",
+     "chain": [
+      "V_L_Allarmi",
+      "(OUT_LUCE_ARANCIO)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "/IN_EMERGENZA",
+      "(OUT_LUCE_ROSSA)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "OUT_ENABLE_POMPA",
+      "(OUT_LUCE_VERDE)"
+     ]
+    },
+    {
+     "cmt": "KEEP BUZZER",
+     "chain": [
+      "P_On",
+      {
+       "or": [
+        "^Allarme_Bit[28]",
+        "^Allarme_Bit[29]",
+        "^Allarme_Bit[30]",
+        "^Allarme_Bit[31]",
+        "^Allarme_Bit[10]"
+       ]
+      },
+      "(S Keep_Buzzer)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "V_P_Reset_Buzzer",
+      "(R Keep_Buzzer)"
+     ]
+    },
+    {
+     "cmt": "BUZZER",
+     "chain": [
+      "Keep_Buzzer",
+      "(OUT_BUZZER)"
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Allarme_Bit",
+     "type": "ARRAY[1..50] OF bool",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EMERGENZA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Keep_Buzzer",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_BUZZER",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_ENABLE_POMPA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_LUCE_ARANCIO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_LUCE_ROSSA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_LUCE_VERDE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_L_Allarmi",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Reset_Buzzer",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Allarmi": {
+   "rungs": [
+    {
+     "cmt": "Accendo la spia Allarmi del visualizzatore se ho un bit Allarmi Attivo",
+     "chain": [
+      {
+       "f": "ArySearch",
+       "p": {
+        "In": "Allarme_Bit[1]",
+        "Size": "uint#50",
+        "Key": "bool#1",
+        "InOutPos": "local1",
+        "OUT:": "Spia_Allarme",
+        "OUT:InOutPos": "local1"
+       }
+      },
+      "Spia_Allarme",
+      {
+       "f": "Get1sClk",
+       "p": {}
+      },
+      "(V_L_Allarmi)"
+     ]
+    },
+    {
+     "cmt": "(non utilizzato)",
+     "chain": [
+      "P_Off",
+      "(Allarme_Bit[1])"
+     ]
+    },
+    {
+     "cmt": "EMERGENZA PREMUTA",
+     "chain": [
+      "/IN_EMERGENZA",
+      "(Allarme_Bit[2])"
+     ]
+    },
+    {
+     "cmt": "MARCIA POMPA OFF",
+     "chain": [
+      "/V_S_Enable_Pump",
+      "(Allarme_Bit[3])"
+     ]
+    },
+    {
+     "cmt": "OZONIZZATORE NO READY",
+     "chain": [
+      "/IN_OZONIZZATORE_READY",
+      "(Allarme_Bit[4])"
+     ]
+    },
+    {
+     "cmt": "OZONIZZATORE IN ALLARME 1=NO ALLARM",
+     "chain": [
+      "/IN_OZONIZZATORE_ALLARME",
+      "(Allarme_Bit[5])"
+     ]
+    },
+    {
+     "cmt": "CENTRALINA DISPERZIONE OZONO WARNING(non usata)",
+     "chain": [
+      "P_Off",
+      "IN_CENTRALINA_O3_2",
+      "(Allarme_Bit[6])"
+     ]
+    },
+    {
+     "cmt": "CENTRALINA DISPERZIONE OZONO ALARM",
+     "chain": [
+      "/IN_CENTRALINA_O3_1",
+      "(Allarme_Bit[7])"
+     ]
+    },
+    {
+     "cmt": "BASSO FLUSSO QT1",
+     "chain": [
+      "Tim_OUT_Enable_Pompa.Q",
+      {
+       "f": "<",
+       "p": {
+        "In1": "PV_QT1",
+        "In2": "SET_All_LO_QT1"
+       }
+      },
+      {
+       "fb": "TON",
+       "inst": "Tim_Low_QT1",
+       "p": {
+        "PT": "t#3S"
+       }
+      },
+      "(Allarme_Bit[8])"
+     ]
+    },
+    {
+     "cmt": "ALTO FLUSSO QT1",
+     "chain": [
+      "Tim_OUT_Enable_Pompa.Q",
+      {
+       "f": ">",
+       "p": {
+        "In1": "PV_QT1",
+        "In2": "SET_All_HI_QT1"
+       }
+      },
+      {
+       "fb": "TON",
+       "inst": "Tim_HI_QT1",
+       "p": {
+        "PT": "t#3S"
+       }
+      },
+      "(Allarme_Bit[9])"
+     ]
+    },
+    {
+     "cmt": "PERDITA CABINET",
+     "chain": [
+      "/IN_PERDITA_CABINET",
+      {
+       "fb": "TON",
+       "inst": "Tim_2",
+       "p": {
+        "PT": "t#3S"
+       }
+      },
+      "(Allarme_Bit[10])"
+     ]
+    },
+    {
+     "cmt": "PERDITA TOOL1",
+     "chain": [
+      "/IN_TOOL1_PERDITA",
+      "(Allarme_Bit[11])"
+     ]
+    },
+    {
+     "cmt": "PERDITA TOOL2",
+     "chain": [
+      "/IN_TOOL2_PERDITA",
+      "(Allarme_Bit[12])"
+     ]
+    },
+    {
+     "cmt": "PERDITA TOOL3",
+     "chain": [
+      "/IN_TOOL3_PERDITA",
+      "(Allarme_Bit[13])"
+     ]
+    },
+    {
+     "cmt": "PERDITA TOOL4",
+     "chain": [
+      "/IN_TOOL4_PERDITA",
+      "(Allarme_Bit[14])"
+     ]
+    },
+    {
+     "cmt": "PERDITA TOOL5",
+     "chain": [
+      "/IN_TOOL5_PERDITA",
+      "(Allarme_Bit[15])"
+     ]
+    },
+    {
+     "cmt": "PERDITA TOOL6",
+     "chain": [
+      "/IN_TOOL6_PERDITA",
+      "(Allarme_Bit[16])"
+     ]
+    },
+    {
+     "cmt": "PERDITA TOOL7",
+     "chain": [
+      "/IN_TOOL7_PERDITA",
+      "(Allarme_Bit[17])"
+     ]
+    },
+    {
+     "cmt": "PERDITA TOOL8",
+     "chain": [
+      "/IN_TOOL8_PERDITA",
+      "(Allarme_Bit[18])"
+     ]
+    },
+    {
+     "cmt": "PERDITA TOOL9",
+     "chain": [
+      "/IN_TOOL9_PERDITA",
+      "(Allarme_Bit[19])"
+     ]
+    },
+    {
+     "cmt": "BASSA PRESSIONE PT1",
+     "chain": [
+      "Tim_OUT_Enable_Pompa.Q",
+      {
+       "f": "<",
+       "p": {
+        "In1": "PV_PT1",
+        "In2": "SET_All_LO_PT1"
+       }
+      },
+      {
+       "fb": "TON",
+       "inst": "Tim_Low_PT1",
+       "p": {
+        "PT": "t#3S"
+       }
+      },
+      "(Allarme_Bit[20])"
+     ]
+    },
+    {
+     "cmt": "BASSA PRESSIONE PT2",
+     "chain": [
+      "Tim_OUT_Enable_Pompa.Q",
+      {
+       "f": "<",
+       "p": {
+        "In1": "PV_PT2",
+        "In2": "SET_All_LO_PT2"
+       }
+      },
+      {
+       "fb": "TON",
+       "inst": "Tim_Low_PT2",
+       "p": {
+        "PT": "t#3S"
+       }
+      },
+      "(Allarme_Bit[21])"
+     ]
+    },
+    {
+     "cmt": "BASSA PRESSIONE PT3",
+     "chain": [
+      "Tim_OUT_Enable_Pompa.Q",
+      {
+       "f": "<",
+       "p": {
+        "In1": "PV_PT3",
+        "In2": "SET_All_LO_PT3"
+       }
+      },
+      {
+       "fb": "TON",
+       "inst": "Tim_Low_PT3",
+       "p": {
+        "PT": "t#3S"
+       }
+      },
+      "(Allarme_Bit[22])"
+     ]
+    },
+    {
+     "cmt": "BASSA PRESSIONE PT4",
+     "chain": [
+      "Tim_OUT_Enable_Pompa.Q",
+      {
+       "f": "<",
+       "p": {
+        "In1": "PV_PT4",
+        "In2": "SET_All_LO_PT4"
+       }
+      },
+      {
+       "fb": "TON",
+       "inst": "Tim_Low_PT4",
+       "p": {
+        "PT": "t#3S"
+       }
+      },
+      "(Allarme_Bit[23])"
+     ]
+    },
+    {
+     "cmt": "ALTA PRESSIONE PT1",
+     "chain": [
+      {
+       "f": ">",
+       "p": {
+        "In1": "PV_PT1",
+        "In2": "SET_All_HI_PT1"
+       }
+      },
+      {
+       "fb": "TON",
+       "inst": "Tim_HI_PT1",
+       "p": {
+        "PT": "t#3S"
+       }
+      },
+      "(Allarme_Bit[24])"
+     ]
+    },
+    {
+     "cmt": "ALTA PRESSIONE PT2",
+     "chain": [
+      {
+       "f": ">",
+       "p": {
+        "In1": "PV_PT2",
+        "In2": "SET_All_HI_PT2"
+       }
+      },
+      {
+       "fb": "TON",
+       "inst": "Tim_HI_PT2",
+       "p": {
+        "PT": "t#3S"
+       }
+      },
+      "(Allarme_Bit[25])"
+     ]
+    },
+    {
+     "cmt": "ALTA PRESSIONE PT3",
+     "chain": [
+      {
+       "f": ">",
+       "p": {
+        "In1": "PV_PT3",
+        "In2": "SET_All_HI_PT3"
+       }
+      },
+      {
+       "fb": "TON",
+       "inst": "Tim_HI_PT3",
+       "p": {
+        "PT": "t#3S"
+       }
+      },
+      "(Allarme_Bit[26])"
+     ]
+    },
+    {
+     "cmt": "ALTA PRESSIONE PT4",
+     "chain": [
+      {
+       "f": ">",
+       "p": {
+        "In1": "PV_PT4",
+        "In2": "SET_All_HI_PT4"
+       }
+      },
+      {
+       "fb": "TON",
+       "inst": "Tim_HI_PT4",
+       "p": {
+        "PT": "t#3S"
+       }
+      },
+      "(Allarme_Bit[27])"
+     ]
+    },
+    {
+     "cmt": "ALTISSIMA PRESSIONE PT1",
+     "chain": [
+      {
+       "f": ">",
+       "p": {
+        "In1": "PV_PT1",
+        "In2": "SET_All_HIHI_PT1"
+       }
+      },
+      {
+       "fb": "TON",
+       "inst": "Tim_HIHI_PT1",
+       "p": {
+        "PT": "t#3S"
+       }
+      },
+      "(S Allarme_Bit[28])"
+     ]
+    },
+    {
+     "cmt": "ALTISSIMA PRESSIONE PT2",
+     "chain": [
+      {
+       "f": ">",
+       "p": {
+        "In1": "PV_PT2",
+        "In2": "SET_All_HIHI_PT2"
+       }
+      },
+      {
+       "fb": "TON",
+       "inst": "Tim_HIHI_PT2",
+       "p": {
+        "PT": "t#3S"
+       }
+      },
+      "(S Allarme_Bit[29])"
+     ]
+    },
+    {
+     "cmt": "ALTISSIMA PRESSIONE PT3",
+     "chain": [
+      {
+       "f": ">",
+       "p": {
+        "In1": "PV_PT3",
+        "In2": "SET_All_HIHI_PT3"
+       }
+      },
+      {
+       "fb": "TON",
+       "inst": "Tim_HIHI_PT3",
+       "p": {
+        "PT": "t#3S"
+       }
+      },
+      "(S Allarme_Bit[30])"
+     ]
+    },
+    {
+     "cmt": "ALTISSIMA PRESSIONE PT4",
+     "chain": [
+      "P_On",
+      {
+       "or": [
+        [
+         {
+          "f": ">",
+          "p": {
+           "In1": "PV_PT4",
+           "In2": "SET_All_HIHI_PT4"
+          }
+         },
+         {
+          "fb": "TON",
+          "inst": "Tim_HIHI_PT4",
+          "p": {
+           "PT": "t#3S"
+          }
+         },
+         "(S Allarme_Bit[31])"
+        ],
+        [
+         "V_P_Reset_All_HIHI_Press",
+         {
+          "or": [
+           "(R Allarme_Bit[28])",
+           "(R Allarme_Bit[31])",
+           "(R Allarme_Bit[30])",
+           "(R Allarme_Bit[29])"
+          ]
+         }
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "cmt": "BASSA TEMPERATURA TT1",
+     "chain": [
+      "Tim_OUT_Enable_Pompa.Q",
+      {
+       "f": "<",
+       "p": {
+        "In1": "PV_TT1",
+        "In2": "SET_All_LO_TT1"
+       }
+      },
+      {
+       "fb": "TON",
+       "inst": "Tim_Low_TT1",
+       "p": {
+        "PT": "t#3S"
+       }
+      },
+      "(Allarme_Bit[32])"
+     ]
+    },
+    {
+     "cmt": "BASSA TEMPERATURA TT2",
+     "chain": [
+      "Tim_OUT_Enable_Pompa.Q",
+      {
+       "f": "<",
+       "p": {
+        "In1": "PV_TT2",
+        "In2": "SET_All_LO_TT2"
+       }
+      },
+      {
+       "fb": "TON",
+       "inst": "Tim_Low_TT2",
+       "p": {
+        "PT": "t#3S"
+       }
+      },
+      "(Allarme_Bit[33])"
+     ]
+    },
+    {
+     "cmt": "ALTA TEMPERATURA TT1",
+     "chain": [
+      "Tim_OUT_Enable_Pompa.Q",
+      {
+       "f": ">",
+       "p": {
+        "In1": "PV_TT1",
+        "In2": "SET_All_HI_TT1"
+       }
+      },
+      {
+       "fb": "TON",
+       "inst": "Tim_HI_TT1",
+       "p": {
+        "PT": "t#60S"
+       }
+      },
+      "(Allarme_Bit[34])"
+     ]
+    },
+    {
+     "cmt": "ALTA TEMPERATURA TT2",
+     "chain": [
+      "Tim_OUT_Enable_Pompa.Q",
+      {
+       "f": ">",
+       "p": {
+        "In1": "PV_TT2",
+        "In2": "SET_All_HI_TT2"
+       }
+      },
+      {
+       "fb": "TON",
+       "inst": "Tim_HI_TT2",
+       "p": {
+        "PT": "t#60S"
+       }
+      },
+      "(Allarme_Bit[35])"
+     ]
+    },
+    {
+     "cmt": "ALTISSIMA TEMPERATURA TT1",
+     "chain": [
+      "Tim_OUT_Enable_Pompa.Q",
+      {
+       "f": ">",
+       "p": {
+        "In1": "PV_TT1",
+        "In2": "SET_All_HIHI_TT1"
+       }
+      },
+      {
+       "fb": "TON",
+       "inst": "Tim_HIHI_TT1",
+       "p": {
+        "PT": "t#60S"
+       }
+      },
+      "(Allarme_Bit[36])"
+     ]
+    },
+    {
+     "cmt": "ALTISSIMA TEMPERATURA TT2",
+     "chain": [
+      "Tim_OUT_Enable_Pompa.Q",
+      {
+       "f": ">",
+       "p": {
+        "In1": "PV_TT2",
+        "In2": "SET_All_HIHI_TT2"
+       }
+      },
+      {
+       "fb": "TON",
+       "inst": "Tim_HIHI_TT2",
+       "p": {
+        "PT": "t#60S"
+       }
+      },
+      "(Allarme_Bit[37])"
+     ]
+    },
+    {
+     "cmt": "CONTROLLER POMPA ERROR",
+     "chain": [
+      "/IN_CONTROLLER_ERROR",
+      "(Allarme_Bit[38])"
+     ]
+    },
+    {
+     "cmt": "CONTROLLER POMPA WARNING",
+     "chain": [
+      "/IN_CONTROLLER_WARNING",
+      "(Allarme_Bit[39])"
+     ]
+    },
+    {
+     "cmt": "CONTROLLER POMPA  NO READY",
+     "chain": [
+      "OUT_ENABLE_POMPA",
+      "/IN_CONTROLLER_READY",
+      {
+       "fb": "TON",
+       "inst": "Ritardo4",
+       "p": {
+        "PT": "t#1s",
+        "OUT:ET": "Rit4_PV"
+       }
+      },
+      "(Allarme_Bit[40])"
+     ]
+    },
+    {
+     "cmt": "ERRORE CHIUSURA VALVOLA SCAMBIATORE1  EV1",
+     "chain": [
+      "/OUT_EV_SCAMBIATORE_EV1",
+      "IN_EV_SCAMBIA_EV1_CLOSE",
+      {
+       "fb": "TON",
+       "inst": "Ritardo1",
+       "p": {
+        "PT": "t#10s",
+        "OUT:ET": "Rit1_PV"
+       }
+      },
+      "(Allarme_Bit[41])"
+     ]
+    },
+    {
+     "cmt": "ERRORE CHIUSURA VALVOLA SCAMBIATORE2  EV1A",
+     "chain": [
+      "/OUT_EV_SCAMBIATORE_EV1A",
+      "IN_EV_SCAMBIA_EV1A_CLOSE",
+      {
+       "fb": "TON",
+       "inst": "Ritardo2",
+       "p": {
+        "PT": "t#10s",
+        "OUT:ET": "Rit2_PV"
+       }
+      },
+      "(Allarme_Bit[42])"
+     ]
+    },
+    {
+     "cmt": "ERRORE CHIUSURA VALVOLA SCARICO  EV2",
+     "chain": [
+      "/OUT_EV_FINE_LINEA_EV2",
+      "IN_EV_FINE_LINEA_EV2_CLOSE",
+      {
+       "fb": "TON",
+       "inst": "Ritardo3",
+       "p": {
+        "PT": "t#10s",
+        "OUT:ET": "Rit3_PV"
+       }
+      },
+      "(Allarme_Bit[43])"
+     ]
+    },
+    {
+     "cmt": "BASSA ASPIRAZIONE 0-1000 Pascal",
+     "chain": [
+      {
+       "f": "<",
+       "p": {
+        "In1": "PV_Aspirazione",
+        "In2": "SET_All_Aspirazione"
+       }
+      },
+      {
+       "fb": "TON",
+       "inst": "Tim_23",
+       "p": {
+        "PT": "T#2S"
+       }
+      },
+      "(Allarme_Bit[44])"
+     ]
+    },
+    {
+     "cmt": "FUGA GAS O3 TOOL",
+     "chain": [
+      {
+       "or": [
+        "/IN_TOOL1_FUGA_O3",
+        "/IN_TOOL2_FUGA_O3",
+        "/IN_TOOL3_FUGA_O3",
+        "/IN_TOOL4_FUGA_O3",
+        "/IN_TOOL5_FUGA_O3",
+        "/IN_TOOL6_FUGA_O3",
+        "/IN_TOOL7_FUGA_O3"
+       ]
+      },
+      "(Allarme_Bit[45])"
+     ]
+    },
+    {
+     "cmt": "ERRORE APERTURA VALVOLA SCAMBIATORE1  EV1",
+     "chain": [
+      "OUT_EV_SCAMBIATORE_EV1",
+      "/IN_EV_SCAMBIA_EV1_CLOSE",
+      {
+       "fb": "TON",
+       "inst": "Ritardo1A",
+       "p": {
+        "PT": "t#10s",
+        "OUT:ET": "Rit1A_PV"
+       }
+      },
+      "(Allarme_Bit[46])"
+     ]
+    },
+    {
+     "cmt": "ERRORE APERTURA VALVOLA SCAMBIATORE2  EV1A",
+     "chain": [
+      "OUT_EV_SCAMBIATORE_EV1A",
+      "/IN_EV_SCAMBIA_EV1A_CLOSE",
+      {
+       "fb": "TON",
+       "inst": "Ritardo2A",
+       "p": {
+        "PT": "t#10s",
+        "OUT:ET": "Rit2A_PV"
+       }
+      },
+      "(Allarme_Bit[47])"
+     ]
+    },
+    {
+     "cmt": "ERRORE APERTURA VALVOLA SCARICO  EV2",
+     "chain": [
+      "OUT_EV_FINE_LINEA_EV2",
+      "/IN_EV_FINE_LINEA_EV2_CLOSE",
+      {
+       "fb": "TON",
+       "inst": "Ritardo3A",
+       "p": {
+        "PT": "t#10s",
+        "OUT:ET": "Rit3A_PV"
+       }
+      },
+      "(Allarme_Bit[48])"
+     ]
+    },
+    {
+     "cmt": "ALLARME FUNZIONAMENTO POMPA A SECCO",
+     "chain": [
+      "Tim_OUT_Enable_Pompa.Q",
+      {
+       "f": "<",
+       "p": {
+        "In1": "PV_QT1",
+        "In2": "SET_All_LOLO_QT1"
+       }
+      },
+      {
+       "fb": "TON",
+       "inst": "Tim_LowLow_QT1",
+       "p": {
+        "PT": "t#3S"
+       }
+      },
+      "(S Allarme_Bit[49])"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "^V_S_Enable_Pump",
+      "(R Allarme_Bit[49])"
+     ]
+    },
+    {
+     "cmt": "RESET ERROR DRIVER POMPA",
+     "chain": [
+      "V_P_Reset_Error_Driver_Pump",
+      "Allarme_Bit[38]",
+      "(OUT_RESET_ERROR_POMPA)"
+     ]
+    },
+    {
+     "cmt": "ALLARME BASSO LIVELLO H2O OZONO",
+     "chain": [
+      "/IN_OZONIZZATORE_LEVEL",
+      "(Allarme_Bit[50])"
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Allarme_Bit",
+     "type": "ARRAY[1..50] OF bool",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_CENTRALINA_O3_1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_CENTRALINA_O3_2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_CONTROLLER_ERROR",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_CONTROLLER_READY",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_CONTROLLER_WARNING",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EMERGENZA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EV_FINE_LINEA_EV2_CLOSE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EV_SCAMBIA_EV1A_CLOSE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EV_SCAMBIA_EV1_CLOSE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_OZONIZZATORE_ALLARME",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_OZONIZZATORE_LEVEL",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_OZONIZZATORE_READY",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_PERDITA_CABINET",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TOOL1_FUGA_O3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TOOL1_PERDITA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TOOL2_FUGA_O3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TOOL2_PERDITA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TOOL3_FUGA_O3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TOOL3_PERDITA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TOOL4_FUGA_O3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TOOL4_PERDITA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TOOL5_FUGA_O3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TOOL5_PERDITA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TOOL6_FUGA_O3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TOOL6_PERDITA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TOOL7_FUGA_O3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TOOL7_PERDITA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TOOL8_PERDITA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_TOOL9_PERDITA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_ENABLE_POMPA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_EV_FINE_LINEA_EV2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_EV_SCAMBIATORE_EV1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_EV_SCAMBIATORE_EV1A",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_RESET_ERROR_POMPA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Aspirazione",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_PT1",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_PT2",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_PT3",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_PT4",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_QT1",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_TT1",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_TT2",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Rit1A_PV",
+     "type": "TIME",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Rit1_PV",
+     "type": "TIME",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Rit2A_PV",
+     "type": "TIME",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Rit2_PV",
+     "type": "TIME",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Rit3A_PV",
+     "type": "TIME",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Rit3_PV",
+     "type": "TIME",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Rit4_PV",
+     "type": "TIME",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Ritardo1",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Ritardo1A",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Ritardo2",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Ritardo2A",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Ritardo3",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Ritardo3A",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Ritardo4",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_All_Aspirazione",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_All_HIHI_PT1",
+     "type": "real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_All_HIHI_PT2",
+     "type": "real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_All_HIHI_PT3",
+     "type": "real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_All_HIHI_PT4",
+     "type": "real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_All_HIHI_TT1",
+     "type": "real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_All_HIHI_TT2",
+     "type": "real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_All_HI_PT1",
+     "type": "real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_All_HI_PT2",
+     "type": "real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_All_HI_PT3",
+     "type": "real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_All_HI_PT4",
+     "type": "real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_All_HI_QT1",
+     "type": "real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_All_HI_TT1",
+     "type": "real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_All_HI_TT2",
+     "type": "real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_All_LOLO_QT1",
+     "type": "real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_All_LO_PT1",
+     "type": "real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_All_LO_PT2",
+     "type": "real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_All_LO_PT3",
+     "type": "real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_All_LO_PT4",
+     "type": "real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_All_LO_QT1",
+     "type": "real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_All_LO_TT1",
+     "type": "real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_All_LO_TT2",
+     "type": "real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Spia_Allarme",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_2",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_23",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_HIHI_PT1",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_HIHI_PT2",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_HIHI_PT3",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_HIHI_PT4",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_HIHI_TT1",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_HIHI_TT2",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_HI_PT1",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_HI_PT2",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_HI_PT3",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_HI_PT4",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_HI_QT1",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_HI_TT1",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_HI_TT2",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_LowLow_QT1",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Low_PT1",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Low_PT2",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Low_PT3",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Low_PT4",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Low_QT1",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Low_TT1",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Low_TT2",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_OUT_Enable_Pompa",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_L_Allarmi",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Reset_All_HIHI_Press",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Reset_Error_Driver_Pump",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_S_Enable_Pump",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "local1",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  }
+ }
+}

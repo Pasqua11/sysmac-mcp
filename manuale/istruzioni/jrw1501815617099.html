@@ -1,0 +1,431 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>SJISToUTF8</title>
+</head>
+<body class="jrw1501815617099"><div class="layer02" id="jrw1501815617099">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">SJISToUTF8</h1>
+
+<div class="body conbody">
+<p class="p" id="jrw1501815617099__ID0ETPFM">The SJISToUTF8 instruction converts a SJIS BYTE array to a UTF-8 text string.</p>
+
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="jrw1501815617099__table_N10017_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:13%" />
+<col style="width:14%" />
+<col style="width:6%" />
+<col style="width:35%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d512844e37">Instruction</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d512844e40">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d512844e43">
+<p class="p">FB/</p>
+
+<p class="p">FUN</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d512844e52">Graphic expression</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d512844e55">ST expression</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d512844e37 "><span class="indexterm">SJISToUTF8 (SJIS to UTF-8 Character Code Conversion)</span>SJISToUTF8</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d512844e40 "><span class="indexterm">SJIS to UTF-8 Character Code Conversion</span>SJIS to UTF-8 Character Code Conversion</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d512844e43 ">FUN</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d512844e52 ">
+<br /><img class="image" id="jrw1501815617099__image_6266EE86850C4BEDBCC8660516397556" src="ykf1501815616454.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d512844e55 ">Out:=SJISToUTF8(In, Size);</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<div class="note" id="jrw1501815617099__note_N100AB_N1000F_N10002"><div class="ver"><span class="notetitle ver">ver:</span> A CPU Unit with unit version 1.01 or later and Sysmac Studio version 1.02 or higher are required to use this instruction.</div></div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="nba1501816357099">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Variables</h1>
+ 
+<div class="body conbody">
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="nba1501816357099__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:20%" />
+<col style="width:9%" />
+<col style="width:20%" />
+<col style="width:14%" />
+<col style="width:14%" />
+<col style="width:8%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d672593e49">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d672593e51">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d672593e54">I/O</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d672593e57">Description</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d672593e60">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d672593e64">Unit</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d672593e67">Default</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d672593e49 ">In[] (array)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d672593e51 ">SJIS array to convert</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d672593e54 ">Input</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d672593e57 ">Array encoded in SJIS to convert<a class="xref" href="jrw1501815617099.html#nba1501816357099__fn_kgg_qwc_zz"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d672593e60 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d672593e64 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d672593e67 "><a class="xref" href="jrw1501815617099.html#nba1501816357099__fn_mfl_swc_zz"><i style="display:none;">☆</i><sup>*2</sup></a></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d672593e49 ">Size</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d672593e51 ">Number of SJIS array elements</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d672593e57 ">Number of elements of In[] to convert</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d672593e67 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d672593e49 ">Out</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d672593e51 ">Resulting text string</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d672593e54 ">Output</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d672593e57 ">
+<p class="p">UTF-8 text string after conversion</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d672593e60 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d672593e64 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d672593e67 ">---</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="nba1501816357099__fn_kgg_qwc_zz" id="nba1501816357099__fn_kgg_qwc_zz"><sup>*1</sup></a>  The maximum number of elements is 1,986, including the NULL character (BYTE#16#00). The maximum number of elements is 1,985 without the NULL character. </div>
+<div class="fn"><a name="nba1501816357099__fn_mfl_swc_zz" id="nba1501816357099__fn_mfl_swc_zz"><sup>*2</sup></a>  If you omit the input parameter, the default value is not applied. A building error will occur. </div></div></div>
+ 
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="nba1501816357099__table_N10123_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:5%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cell-norowborder" style="text-align:left;vertical-align:top;" id="d672593e203">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d672593e205">Boolean</th>
+
+<th class="entry cellrowborder" colspan="4" style="text-align:center;vertical-align:middle;" id="d672593e208">Bit strings</th>
+
+<th class="entry cellrowborder" colspan="8" style="text-align:center;vertical-align:middle;" id="d672593e211">Integers</th>
+
+<th class="entry cellrowborder" colspan="2" style="text-align:center;vertical-align:middle;" id="d672593e214">Real numbers</th>
+
+<th class="entry cellrowborder" colspan="5" style="text-align:center;vertical-align:middle;" id="d672593e218">Times, durations, dates, and text strings</th>
+
+</tr>
+
+<tr class="row rotate_right">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d672593e224">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d672593e226">BOOL</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d672593e229">BYTE</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d672593e232">WORD</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d672593e235">DWORD</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d672593e239">LWORD</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d672593e242">USINT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d672593e245">UINT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d672593e248">UDINT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d672593e251">ULINT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d672593e254">SINT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d672593e258">INT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d672593e261">DINT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d672593e264">LINT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d672593e267">REAL</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d672593e270">LREAL</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d672593e273">TIME</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d672593e277">DATE</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d672593e280">TOD</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d672593e283">DT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d672593e286">STRING</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d672593e203 d672593e224 ">In[] (array)</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e205 d672593e226 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e208 d672593e229 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e208 d672593e232 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e208 d672593e235 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e208 d672593e239 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e211 d672593e242 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e211 d672593e245 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e211 d672593e248 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e211 d672593e251 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e211 d672593e254 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e211 d672593e258 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e211 d672593e261 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e211 d672593e264 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e214 d672593e267 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e214 d672593e270 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e218 d672593e273 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e218 d672593e277 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e218 d672593e280 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e218 d672593e283 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e218 d672593e286 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d672593e203 d672593e224 ">Size</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e205 d672593e226 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e208 d672593e229 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e208 d672593e232 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e208 d672593e235 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e208 d672593e239 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e211 d672593e242 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e211 d672593e245 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e211 d672593e248 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e211 d672593e251 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e211 d672593e254 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e211 d672593e258 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e211 d672593e261 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e211 d672593e264 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e214 d672593e267 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e214 d672593e270 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e218 d672593e273 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e218 d672593e277 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e218 d672593e280 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e218 d672593e283 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e218 d672593e286 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d672593e203 d672593e224 ">Out</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e205 d672593e226 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e208 d672593e229 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e208 d672593e232 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e208 d672593e235 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e208 d672593e239 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e211 d672593e242 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e211 d672593e245 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e211 d672593e248 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e211 d672593e251 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e211 d672593e254 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e211 d672593e258 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e211 d672593e261 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e211 d672593e264 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e214 d672593e267 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e214 d672593e270 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e218 d672593e273 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e218 d672593e277 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e218 d672593e280 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e218 d672593e283 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d672593e218 d672593e286 "><span class="ph font_Wingdings"></span>OK</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="hzi1501816358872">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function</h1>
+
+<div class="body conbody">
+<p class="p" id="hzi1501816358872__ID0EFDHM">The SJISToUTF8 instruction converts the elements in a SJIS array to convert in In[] (a BYTE array) to a UTF-8 text string.</p>
+
+<p class="p" id="hzi1501816358872__ID0EIDHM"><span class="ph phtype_variable"><span class="termtype">Size</span></span> elements of In[], which begins with In[0], are converted. However, if a NULL character (BYTE#16#0) is included somewhere in the elements, the conversion is terminated at the point.</p>
+
+<p class="p" id="hzi1501816358872__ID0EPDHM">The converted text string is stored in <span class="ph phtype_variable"><span class="termtype">Out</span></span> (resulting text string). A NULL character is placed at the end of <span class="ph phtype_variable"><span class="termtype">Out</span></span>.</p>
+
+<p class="p linespace_7pt">The following shows an example where In[0] is BYTE#16#82, In[1] is BYTE#16#A0, and <span class="ph phtype_variable"><span class="termtype">Size</span></span> is UINT#2.</p>
+
+<br /><img class="image" id="hzi1501816358872__image_ip5_2xc_zz" src="ydc1501816357388.gif" /><br />
+<br /><img class="image" id="hzi1501816358872__image_fbl_2xc_zz" src="twt1501816358191.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="oho1501816359118">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Precautions for Correct Use</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="oho1501816359118__li_N10015_N10012_N1000F_N10002">If the value of <span class="ph phtype_variable"><span class="termtype">Size</span></span> is 0, <span class="ph phtype_variable"><span class="termtype">Out</span></span> is a text string containing only NULL characters.</li>
+
+<li class="li" id="oho1501816359118__li_N10023_N10012_N1000F_N10002">An error will occur in the following cases. <span class="ph phtype_variable"><span class="termtype">ENO</span></span> will be FALSE, and <span class="ph phtype_variable"><span class="termtype">Out</span></span> will not change.<ol class="ol liststyle_alphabet1">
+<li class="li" id="oho1501816359118__li_N10035_N10031_N10023_N10012_N1000F_N10002">The value of <span class="ph phtype_variable"><span class="termtype">Size</span></span> exceeds the number of elements in In[].</li>
+
+<li class="li" id="oho1501816359118__li_N1003E_N10031_N10023_N10012_N1000F_N10002">The contents of In[] includes characters that cannot be converted.</li>
+
+</ol>
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+

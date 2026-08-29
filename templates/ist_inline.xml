@@ -1,0 +1,24 @@
+﻿<Rungs>
+  <RungXML Comment="CALCOLO QUOTE PER MOVIMENTAZIONE" Label="" Height="422.2" Width="661">
+    <LadderElement instanceID="0x000046F2" ladderElementType="Connection" IsLeftPowerRail="true" IsRightPowerRail="false">
+      <ConnectionPoint connectionPointType="output" instanceID="0x000046F3">
+        <Edge instanceID="0x000046F9" />
+      </ConnectionPoint>
+    </LadderElement>
+    <LadderElement instanceID="0x000046F4" ladderElementType="Connection" IsLeftPowerRail="false" IsRightPowerRail="true">
+      <ConnectionPoint connectionPointType="input" instanceID="0x000046F5">
+        <Edge instanceID="0x000046FA" />
+      </ConnectionPoint>
+    </LadderElement>
+    <LadderElement instanceID="0x000046F6" ladderElementType="InlineStructuredTextServices.InsertInlineST" textEntityID="25543ff3-0db4-4710-a90f-a24d84f5cfb5" text="(*Quote robot movimentazione da PRESA a DEPOSITO*)&#xD;&#xA;&#xD;&#xA;(*MOV1 asse X*)&#xD;&#xA;Distance1:=(X_PRESA +(X_AGGANCIO));&#xD;&#xA;&#xD;&#xA;(*MOV2 asse Y giù*)&#xD;&#xA;Distance2:=(Y_PRESA);&#xD;&#xA;&#xD;&#xA;(*MOV3 asse X aggancio*)&#xD;&#xA;Distance3:=(X_PRESA );&#xD;&#xA;&#xD;&#xA;(*MOV4A asse Y aggancio *)&#xD;&#xA;Distance4_Acc:=Distance2-50;(*mm di velocità bassa)&#xD;&#xA;&#xD;&#xA;(*MOV4 asse Y salita con cesto*)&#xD;&#xA;Distance4:=0;&#xD;&#xA;&#xD;&#xA;(*MOV5 asse X con cesto*)&#xD;&#xA;Distance5:=(X_DEPOSITO );&#xD;&#xA;&#xD;&#xA;(*MOV6 asse Y deposito cesto*)&#xD;&#xA;Distance6:=(Y_DEPOSITO-230);&#xD;&#xA;&#xD;&#xA;(*MOV6A asse Y deposito cesto velocità bassa*)&#xD;&#xA;Distance6_Dec:=(Y_DEPOSITO);&#xD;&#xA;&#xD;&#xA;(*MOV7*)&#xD;&#xA;Distance7:=(X_DEPOSITO+(X_SGANCIO));&#xD;&#xA;&#xD;&#xA;(*MOV8*)&#xD;&#xA;Distance8:=0;&#xD;&#xA;&#xD;&#xA;(*MOV9*)&#xD;&#xA;Distance9:=X_RIPOSO;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;">
+      <ConnectionPoint connectionPointType="input" instanceID="0x000046F7">
+        <Edge instanceID="0x000046F9" />
+      </ConnectionPoint>
+      <ConnectionPoint connectionPointType="output" instanceID="0x000046F8">
+        <Edge instanceID="0x000046FA" />
+      </ConnectionPoint>
+    </LadderElement>
+    <LadderElement instanceID="0x000046F9" ladderElementType="Edge" sourceID="0x000046F3" targetID="0x000046F7" Focusable="true" />
+    <LadderElement instanceID="0x000046FA" ladderElementType="Edge" sourceID="0x000046F8" targetID="0x000046F5" Focusable="true" />
+  </RungXML>
+</Rungs>

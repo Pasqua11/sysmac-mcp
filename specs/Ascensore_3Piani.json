@@ -1,0 +1,259 @@
+{
+ "progetto": "Ascensore_3Piani",
+ "guid": "d5856292-fd51-49bd-80a3-56fcc886aabf",
+ "sections": {
+  "Sezione0": {
+   "rungs": [
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "FC_Piano0",
+        "Mem_Pos0"
+       ]
+      },
+      "/FC_Piano1",
+      "/FC_Piano2",
+      "(Mem_Pos0)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "FC_Piano1",
+        "Mem_Pos1"
+       ]
+      },
+      "/FC_Piano0",
+      "/FC_Piano2",
+      "(Mem_Pos1)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "FC_Piano2",
+        "Mem_Pos2"
+       ]
+      },
+      "/FC_Piano0",
+      "/FC_Piano1",
+      "(Mem_Pos2)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "PB_Piano0",
+        "Mem_Chiamata0"
+       ]
+      },
+      "/FC_Piano0",
+      "(Mem_Chiamata0)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "PB_Piano1",
+        "Mem_Chiamata1"
+       ]
+      },
+      "/FC_Piano1",
+      "(Mem_Chiamata1)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "PB_Piano2",
+        "Mem_Chiamata2"
+       ]
+      },
+      "/FC_Piano2",
+      "(Mem_Chiamata2)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Chiamata2",
+      "/Mem_Pos2",
+      "(Mem_ReqSali2)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Chiamata1",
+      "Mem_Pos0",
+      "(Mem_ReqSali1)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "Mem_ReqSali2",
+        "Mem_ReqSali1"
+       ]
+      },
+      "/OUT_Scendi",
+      "(OUT_Sali)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Chiamata0",
+      "/Mem_Pos0",
+      "(Mem_ReqScendi0)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Mem_Chiamata1",
+      "Mem_Pos2",
+      "(Mem_ReqScendi1)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "Mem_ReqScendi0",
+        "Mem_ReqScendi1"
+       ]
+      },
+      "/OUT_Sali",
+      "(OUT_Scendi)"
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "FC_Piano0",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Finecorsa presenza cabina piano 0"
+    },
+    {
+     "name": "FC_Piano1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Finecorsa presenza cabina piano 1"
+    },
+    {
+     "name": "FC_Piano2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Finecorsa presenza cabina piano 2"
+    },
+    {
+     "name": "Mem_Chiamata0",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Chiamata piano 0 attiva"
+    },
+    {
+     "name": "Mem_Chiamata1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Chiamata piano 1 attiva"
+    },
+    {
+     "name": "Mem_Chiamata2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Chiamata piano 2 attiva"
+    },
+    {
+     "name": "Mem_Pos0",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Memoria cabina al piano 0"
+    },
+    {
+     "name": "Mem_Pos1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Memoria cabina al piano 1"
+    },
+    {
+     "name": "Mem_Pos2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Memoria cabina al piano 2"
+    },
+    {
+     "name": "Mem_ReqSali1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Richiesta salita verso piano 1"
+    },
+    {
+     "name": "Mem_ReqSali2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Richiesta salita verso piano 2"
+    },
+    {
+     "name": "Mem_ReqScendi0",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Richiesta discesa verso piano 0"
+    },
+    {
+     "name": "Mem_ReqScendi1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Richiesta discesa verso piano 1"
+    },
+    {
+     "name": "OUT_Sali",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Comando motore salita"
+    },
+    {
+     "name": "OUT_Scendi",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Comando motore discesa"
+    },
+    {
+     "name": "PB_Piano0",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Pulsante chiamata piano 0"
+    },
+    {
+     "name": "PB_Piano1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Pulsante chiamata piano 1"
+    },
+    {
+     "name": "PB_Piano2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Pulsante chiamata piano 2"
+    }
+   ]
+  }
+ }
+}

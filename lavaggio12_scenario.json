@@ -1,0 +1,746 @@
+{
+ "nome": "Linea di lavaggio a 12 vasche - collaudo",
+ "tempi": {
+  "SET_T_Traslazione": "T#20s",
+  "SET_T_V1": "T#1s",
+  "SET_T_V2": "T#1s",
+  "SET_T_V3": "T#1s",
+  "SET_T_V4": "T#1s",
+  "SET_T_V5": "T#1s",
+  "SET_T_V6": "T#1s",
+  "SET_T_V7": "T#1s",
+  "SET_T_V8": "T#1s",
+  "SET_T_V9": "T#1s",
+  "SET_T_V10": "T#1s",
+  "SET_T_V11": "T#1s",
+  "SET_T_V12": "T#1s"
+ },
+ "passi": [
+  {
+   "descrizione": "azzeramento e stato iniziale: carro al carico con cestello",
+   "set": {
+    "IN_Emergenza": false,
+    "IN_Protezioni": true,
+    "IN_Press_Aria": true,
+    "IN_Pos_Carico": true,
+    "IN_Pos_Scarico": false,
+    "IN_Carro_Alto": false,
+    "IN_Carro_Basso": true,
+    "IN_Presenza_Cesto": true,
+    "V_S_Auto": true,
+    "V_S_Cicli_Fatti": 0,
+    "IN_Pos_V1": false,
+    "IN_Livello_V1": true,
+    "IN_Temp_V1": true,
+    "V_S_Usa_V1": true,
+    "IN_Pos_V2": false,
+    "IN_Livello_V2": true,
+    "IN_Temp_V2": true,
+    "V_S_Usa_V2": true,
+    "IN_Pos_V3": false,
+    "IN_Livello_V3": true,
+    "IN_Temp_V3": true,
+    "V_S_Usa_V3": false,
+    "IN_Pos_V4": false,
+    "IN_Livello_V4": true,
+    "IN_Temp_V4": true,
+    "V_S_Usa_V4": true,
+    "IN_Pos_V5": false,
+    "IN_Livello_V5": true,
+    "IN_Temp_V5": true,
+    "V_S_Usa_V5": true,
+    "IN_Pos_V6": false,
+    "IN_Livello_V6": true,
+    "IN_Temp_V6": true,
+    "V_S_Usa_V6": true,
+    "IN_Pos_V7": false,
+    "IN_Livello_V7": true,
+    "IN_Temp_V7": true,
+    "V_S_Usa_V7": true,
+    "IN_Pos_V8": false,
+    "IN_Livello_V8": true,
+    "IN_Temp_V8": true,
+    "V_S_Usa_V8": true,
+    "IN_Pos_V9": false,
+    "IN_Livello_V9": true,
+    "IN_Temp_V9": true,
+    "V_S_Usa_V9": true,
+    "IN_Pos_V10": false,
+    "IN_Livello_V10": true,
+    "IN_Temp_V10": true,
+    "V_S_Usa_V10": true,
+    "IN_Pos_V11": false,
+    "IN_Livello_V11": true,
+    "IN_Temp_V11": true,
+    "V_S_Usa_V11": true,
+    "IN_Pos_V12": false,
+    "IN_Livello_V12": true,
+    "IN_Temp_V12": true,
+    "V_S_Usa_V12": true
+   },
+   "impulso": [
+    "V_P_Reset"
+   ],
+   "attendi": 0.5,
+   "verifica": {
+    "OUT_Carro_Avanti": false,
+    "OUT_Solleva": false,
+    "V_L_Ciclo": false,
+    "V_L_Allarme": false
+   }
+  },
+  {
+   "descrizione": "START: aggancio del cestello al carico",
+   "impulso": [
+    "V_P_Start"
+   ],
+   "attendi": 0.4,
+   "verifica": {
+    "V_L_Ciclo": true,
+    "OUT_Solleva": true
+   }
+  },
+  {
+   "descrizione": "cestello sollevato: il carro parte in traslazione",
+   "set": {
+    "IN_Carro_Alto": true,
+    "IN_Carro_Basso": false
+   },
+   "attendi": 0.4,
+   "verifica": {
+    "OUT_Solleva": false,
+    "OUT_Carro_Avanti": true
+   }
+  },
+  {
+   "descrizione": "carro sopra la vasca 1: si ferma e cala",
+   "set": {
+    "IN_Pos_V1": true,
+    "IN_Pos_Carico": false
+   },
+   "attendi": 0.35,
+   "verifica": {
+    "OUT_Carro_Avanti": false,
+    "OUT_Abbassa": true
+   }
+  },
+  {
+   "descrizione": "cestello in vasca 1: parte la permanenza",
+   "set": {
+    "IN_Carro_Alto": false,
+    "IN_Carro_Basso": true
+   },
+   "attendi": 0.35,
+   "verifica": {
+    "OUT_Abbassa": false,
+    "End_V1": false
+   }
+  },
+  {
+   "descrizione": "permanenza scaduta in vasca 1: si solleva",
+   "attendi": 1.0,
+   "verifica": {
+    "End_V1": true,
+    "OUT_Solleva": true
+   }
+  },
+  {
+   "descrizione": "cestello fuori dalla vasca 1: riparte",
+   "set": {
+    "IN_Carro_Alto": true,
+    "IN_Carro_Basso": false,
+    "IN_Pos_V1": false
+   },
+   "attendi": 0.4,
+   "verifica": {
+    "OUT_Solleva": false,
+    "OUT_Carro_Avanti": true,
+    "End_V3": false
+   }
+  },
+  {
+   "descrizione": "carro sopra la vasca 2: si ferma e cala",
+   "set": {
+    "IN_Pos_V2": true,
+    "IN_Pos_Carico": false
+   },
+   "attendi": 0.35,
+   "verifica": {
+    "OUT_Carro_Avanti": false,
+    "OUT_Abbassa": true
+   }
+  },
+  {
+   "descrizione": "cestello in vasca 2: parte la permanenza",
+   "set": {
+    "IN_Carro_Alto": false,
+    "IN_Carro_Basso": true
+   },
+   "attendi": 0.35,
+   "verifica": {
+    "OUT_Abbassa": false,
+    "End_V2": false
+   }
+  },
+  {
+   "descrizione": "permanenza scaduta in vasca 2: si solleva",
+   "attendi": 1.0,
+   "verifica": {
+    "End_V2": true,
+    "OUT_Solleva": true
+   }
+  },
+  {
+   "descrizione": "cestello fuori dalla vasca 2: riparte",
+   "set": {
+    "IN_Carro_Alto": true,
+    "IN_Carro_Basso": false,
+    "IN_Pos_V2": false
+   },
+   "attendi": 0.4,
+   "verifica": {
+    "OUT_Solleva": false,
+    "OUT_Carro_Avanti": true
+   }
+  },
+  {
+   "descrizione": "carro sopra la vasca 4: si ferma e cala",
+   "set": {
+    "IN_Pos_V4": true,
+    "IN_Pos_Carico": false
+   },
+   "attendi": 0.35,
+   "verifica": {
+    "OUT_Carro_Avanti": false,
+    "OUT_Abbassa": true
+   }
+  },
+  {
+   "descrizione": "cestello in vasca 4: parte la permanenza",
+   "set": {
+    "IN_Carro_Alto": false,
+    "IN_Carro_Basso": true
+   },
+   "attendi": 0.35,
+   "verifica": {
+    "OUT_Abbassa": false,
+    "End_V4": false
+   }
+  },
+  {
+   "descrizione": "permanenza scaduta in vasca 4: si solleva",
+   "attendi": 1.0,
+   "verifica": {
+    "End_V4": true,
+    "OUT_Solleva": true
+   }
+  },
+  {
+   "descrizione": "cestello fuori dalla vasca 4: riparte",
+   "set": {
+    "IN_Carro_Alto": true,
+    "IN_Carro_Basso": false,
+    "IN_Pos_V4": false
+   },
+   "attendi": 0.4,
+   "verifica": {
+    "OUT_Solleva": false,
+    "OUT_Carro_Avanti": true
+   }
+  },
+  {
+   "descrizione": "carro sopra la vasca 5: si ferma e cala",
+   "set": {
+    "IN_Pos_V5": true,
+    "IN_Pos_Carico": false
+   },
+   "attendi": 0.35,
+   "verifica": {
+    "OUT_Carro_Avanti": false,
+    "OUT_Abbassa": true
+   }
+  },
+  {
+   "descrizione": "cestello in vasca 5: parte la permanenza",
+   "set": {
+    "IN_Carro_Alto": false,
+    "IN_Carro_Basso": true
+   },
+   "attendi": 0.35,
+   "verifica": {
+    "OUT_Abbassa": false,
+    "End_V5": false
+   }
+  },
+  {
+   "descrizione": "permanenza scaduta in vasca 5: si solleva",
+   "attendi": 1.0,
+   "verifica": {
+    "End_V5": true,
+    "OUT_Solleva": true
+   }
+  },
+  {
+   "descrizione": "cestello fuori dalla vasca 5: riparte",
+   "set": {
+    "IN_Carro_Alto": true,
+    "IN_Carro_Basso": false,
+    "IN_Pos_V5": false
+   },
+   "attendi": 0.4,
+   "verifica": {
+    "OUT_Solleva": false,
+    "OUT_Carro_Avanti": true
+   }
+  },
+  {
+   "descrizione": "carro sopra la vasca 6: si ferma e cala",
+   "set": {
+    "IN_Pos_V6": true,
+    "IN_Pos_Carico": false
+   },
+   "attendi": 0.35,
+   "verifica": {
+    "OUT_Carro_Avanti": false,
+    "OUT_Abbassa": true
+   }
+  },
+  {
+   "descrizione": "cestello in vasca 6: parte la permanenza",
+   "set": {
+    "IN_Carro_Alto": false,
+    "IN_Carro_Basso": true
+   },
+   "attendi": 0.35,
+   "verifica": {
+    "OUT_Abbassa": false,
+    "End_V6": false
+   }
+  },
+  {
+   "descrizione": "permanenza scaduta in vasca 6: si solleva",
+   "attendi": 1.0,
+   "verifica": {
+    "End_V6": true,
+    "OUT_Solleva": true
+   }
+  },
+  {
+   "descrizione": "cestello fuori dalla vasca 6: riparte",
+   "set": {
+    "IN_Carro_Alto": true,
+    "IN_Carro_Basso": false,
+    "IN_Pos_V6": false
+   },
+   "attendi": 0.4,
+   "verifica": {
+    "OUT_Solleva": false,
+    "OUT_Carro_Avanti": true
+   }
+  },
+  {
+   "descrizione": "carro sopra la vasca 7: si ferma e cala",
+   "set": {
+    "IN_Pos_V7": true,
+    "IN_Pos_Carico": false
+   },
+   "attendi": 0.35,
+   "verifica": {
+    "OUT_Carro_Avanti": false,
+    "OUT_Abbassa": true
+   }
+  },
+  {
+   "descrizione": "cestello in vasca 7: parte la permanenza",
+   "set": {
+    "IN_Carro_Alto": false,
+    "IN_Carro_Basso": true
+   },
+   "attendi": 0.35,
+   "verifica": {
+    "OUT_Abbassa": false,
+    "End_V7": false
+   }
+  },
+  {
+   "descrizione": "permanenza scaduta in vasca 7: si solleva",
+   "attendi": 1.0,
+   "verifica": {
+    "End_V7": true,
+    "OUT_Solleva": true
+   }
+  },
+  {
+   "descrizione": "cestello fuori dalla vasca 7: riparte",
+   "set": {
+    "IN_Carro_Alto": true,
+    "IN_Carro_Basso": false,
+    "IN_Pos_V7": false
+   },
+   "attendi": 0.4,
+   "verifica": {
+    "OUT_Solleva": false,
+    "OUT_Carro_Avanti": true
+   }
+  },
+  {
+   "descrizione": "carro sopra la vasca 8: si ferma e cala",
+   "set": {
+    "IN_Pos_V8": true,
+    "IN_Pos_Carico": false
+   },
+   "attendi": 0.35,
+   "verifica": {
+    "OUT_Carro_Avanti": false,
+    "OUT_Abbassa": true
+   }
+  },
+  {
+   "descrizione": "cestello in vasca 8: parte la permanenza",
+   "set": {
+    "IN_Carro_Alto": false,
+    "IN_Carro_Basso": true
+   },
+   "attendi": 0.35,
+   "verifica": {
+    "OUT_Abbassa": false,
+    "End_V8": false
+   }
+  },
+  {
+   "descrizione": "permanenza scaduta in vasca 8: si solleva",
+   "attendi": 1.0,
+   "verifica": {
+    "End_V8": true,
+    "OUT_Solleva": true
+   }
+  },
+  {
+   "descrizione": "cestello fuori dalla vasca 8: riparte",
+   "set": {
+    "IN_Carro_Alto": true,
+    "IN_Carro_Basso": false,
+    "IN_Pos_V8": false
+   },
+   "attendi": 0.4,
+   "verifica": {
+    "OUT_Solleva": false,
+    "OUT_Carro_Avanti": true
+   }
+  },
+  {
+   "descrizione": "carro sopra la vasca 9: si ferma e cala",
+   "set": {
+    "IN_Pos_V9": true,
+    "IN_Pos_Carico": false
+   },
+   "attendi": 0.35,
+   "verifica": {
+    "OUT_Carro_Avanti": false,
+    "OUT_Abbassa": true
+   }
+  },
+  {
+   "descrizione": "cestello in vasca 9: parte la permanenza",
+   "set": {
+    "IN_Carro_Alto": false,
+    "IN_Carro_Basso": true
+   },
+   "attendi": 0.35,
+   "verifica": {
+    "OUT_Abbassa": false,
+    "End_V9": false
+   }
+  },
+  {
+   "descrizione": "permanenza scaduta in vasca 9: si solleva",
+   "attendi": 1.0,
+   "verifica": {
+    "End_V9": true,
+    "OUT_Solleva": true
+   }
+  },
+  {
+   "descrizione": "cestello fuori dalla vasca 9: riparte",
+   "set": {
+    "IN_Carro_Alto": true,
+    "IN_Carro_Basso": false,
+    "IN_Pos_V9": false
+   },
+   "attendi": 0.4,
+   "verifica": {
+    "OUT_Solleva": false,
+    "OUT_Carro_Avanti": true
+   }
+  },
+  {
+   "descrizione": "carro sopra la vasca 10: si ferma e cala",
+   "set": {
+    "IN_Pos_V10": true,
+    "IN_Pos_Carico": false
+   },
+   "attendi": 0.35,
+   "verifica": {
+    "OUT_Carro_Avanti": false,
+    "OUT_Abbassa": true
+   }
+  },
+  {
+   "descrizione": "cestello in vasca 10: parte la permanenza",
+   "set": {
+    "IN_Carro_Alto": false,
+    "IN_Carro_Basso": true
+   },
+   "attendi": 0.35,
+   "verifica": {
+    "OUT_Abbassa": false,
+    "End_V10": false
+   }
+  },
+  {
+   "descrizione": "permanenza scaduta in vasca 10: si solleva",
+   "attendi": 1.0,
+   "verifica": {
+    "End_V10": true,
+    "OUT_Solleva": true
+   }
+  },
+  {
+   "descrizione": "cestello fuori dalla vasca 10: riparte",
+   "set": {
+    "IN_Carro_Alto": true,
+    "IN_Carro_Basso": false,
+    "IN_Pos_V10": false
+   },
+   "attendi": 0.4,
+   "verifica": {
+    "OUT_Solleva": false,
+    "OUT_Carro_Avanti": true
+   }
+  },
+  {
+   "descrizione": "carro sopra la vasca 11: si ferma e cala",
+   "set": {
+    "IN_Pos_V11": true,
+    "IN_Pos_Carico": false
+   },
+   "attendi": 0.35,
+   "verifica": {
+    "OUT_Carro_Avanti": false,
+    "OUT_Abbassa": true
+   }
+  },
+  {
+   "descrizione": "cestello in vasca 11: parte la permanenza",
+   "set": {
+    "IN_Carro_Alto": false,
+    "IN_Carro_Basso": true
+   },
+   "attendi": 0.35,
+   "verifica": {
+    "OUT_Abbassa": false,
+    "End_V11": false
+   }
+  },
+  {
+   "descrizione": "permanenza scaduta in vasca 11: si solleva",
+   "attendi": 1.0,
+   "verifica": {
+    "End_V11": true,
+    "OUT_Solleva": true
+   }
+  },
+  {
+   "descrizione": "cestello fuori dalla vasca 11: riparte",
+   "set": {
+    "IN_Carro_Alto": true,
+    "IN_Carro_Basso": false,
+    "IN_Pos_V11": false
+   },
+   "attendi": 0.4,
+   "verifica": {
+    "OUT_Solleva": false,
+    "OUT_Carro_Avanti": true
+   }
+  },
+  {
+   "descrizione": "carro sopra la vasca 12: si ferma e cala",
+   "set": {
+    "IN_Pos_V12": true,
+    "IN_Pos_Carico": false
+   },
+   "attendi": 0.35,
+   "verifica": {
+    "OUT_Carro_Avanti": false,
+    "OUT_Abbassa": true
+   }
+  },
+  {
+   "descrizione": "cestello in vasca 12: parte la permanenza",
+   "set": {
+    "IN_Carro_Alto": false,
+    "IN_Carro_Basso": true
+   },
+   "attendi": 0.35,
+   "verifica": {
+    "OUT_Abbassa": false,
+    "End_V12": false
+   }
+  },
+  {
+   "descrizione": "permanenza scaduta in vasca 12: si solleva",
+   "attendi": 1.0,
+   "verifica": {
+    "End_V12": true,
+    "OUT_Solleva": true
+   }
+  },
+  {
+   "descrizione": "cestello fuori dalla vasca 12: riparte",
+   "set": {
+    "IN_Carro_Alto": true,
+    "IN_Carro_Basso": false,
+    "IN_Pos_V12": false
+   },
+   "attendi": 0.4,
+   "verifica": {
+    "OUT_Solleva": false,
+    "OUT_Carro_Avanti": true
+   }
+  },
+  {
+   "descrizione": "la vasca 3 era esclusa dalla ricetta: saltata",
+   "attendi": 0.2,
+   "verifica": {
+    "End_V3": true,
+    "OUT_Risc_V3": false
+   }
+  },
+  {
+   "descrizione": "carro allo scarico: cala il cestello",
+   "set": {
+    "IN_Pos_Scarico": true
+   },
+   "attendi": 0.4,
+   "verifica": {
+    "OUT_Carro_Avanti": false,
+    "OUT_Abbassa": true
+   }
+  },
+  {
+   "descrizione": "cestello appoggiato allo scarico",
+   "set": {
+    "IN_Carro_Alto": false,
+    "IN_Carro_Basso": true
+   },
+   "attendi": 0.4,
+   "verifica": {
+    "OUT_Solleva": true
+   }
+  },
+  {
+   "descrizione": "cestello rilasciato: ciclo completato e contatore a 1",
+   "set": {
+    "IN_Carro_Alto": true,
+    "IN_Carro_Basso": false
+   },
+   "attendi": 0.4,
+   "verifica": {
+    "V_L_Fine_Ciclo": true,
+    "V_S_Cicli_Fatti": 1,
+    "V_L_Ciclo": false
+   }
+  },
+  {
+   "descrizione": "rientro a vuoto verso il carico",
+   "set": {
+    "IN_Pos_Scarico": false
+   },
+   "attendi": 0.3,
+   "verifica": {
+    "OUT_Carro_Indietro": false
+   }
+  },
+  {
+   "descrizione": "riscaldamento vasca 1: sotto temperatura il resistore va",
+   "set": {
+    "IN_Temp_V1": false
+   },
+   "attendi": 0.3,
+   "verifica": {
+    "OUT_Risc_V1": true
+   }
+  },
+  {
+   "descrizione": "in temperatura il riscaldamento si spegne",
+   "set": {
+    "IN_Temp_V1": true
+   },
+   "attendi": 0.3,
+   "verifica": {
+    "OUT_Risc_V1": false
+   }
+  },
+  {
+   "descrizione": "livello basso in vasca 1: niente riscaldamento",
+   "set": {
+    "IN_Livello_V1": false,
+    "IN_Temp_V1": false
+   },
+   "attendi": 0.3,
+   "verifica": {
+    "OUT_Risc_V1": false
+   }
+  },
+  {
+   "descrizione": "nuovo ciclo con livello basso: allarme livello vasca 1",
+   "set": {
+    "IN_Pos_Carico": true,
+    "IN_Carro_Alto": false,
+    "IN_Carro_Basso": true
+   },
+   "impulso": [
+    "V_P_Start"
+   ],
+   "attendi": 0.5,
+   "verifica": {
+    "V_S_All_Liv_V1": true,
+    "V_L_Allarme": true
+   }
+  },
+  {
+   "descrizione": "livello ripristinato e RESET: allarme rientrato",
+   "set": {
+    "IN_Livello_V1": true,
+    "IN_Temp_V1": true
+   },
+   "impulso": [
+    "V_P_Reset"
+   ],
+   "attendi": 0.4,
+   "verifica": {
+    "V_S_All_Liv_V1": false,
+    "V_L_Allarme": false
+   }
+  },
+  {
+   "descrizione": "EMERGENZA: cadono tutti i comandi",
+   "set": {
+    "IN_Emergenza": true
+   },
+   "attendi": 0.4,
+   "verifica": {
+    "OUT_Carro_Avanti": false,
+    "OUT_Carro_Indietro": false,
+    "OUT_Solleva": false,
+    "OUT_Abbassa": false,
+    "OUT_Risc_V1": false,
+    "V_L_Allarme": true,
+    "V_L_Ciclo": false,
+    "OUT_Risc_V2": false,
+    "OUT_Risc_V3": false,
+    "OUT_Risc_V4": false
+   }
+  }
+ ]
+}

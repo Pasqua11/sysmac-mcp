@@ -1,0 +1,804 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>MC_ZoneSwitch</title>
+</head>
+<body class="tbq1484547756942"><div class="layer02" id="tbq1484547756942">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">MC_ZoneSwitch</h1>
+
+<div class="body conbody">
+<p class="p" id="tbq1484547756942__ID0E2Q3R">The MC_ZoneSwitch instruction determines if the command current position or actual current position of an axis is within a specified zone.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="tbq1484547756942__ID0EGR3R" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:16%" />
+<col style="width:12%" />
+<col style="width:5%" />
+<col style="width:35%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d161752e36">Instruction</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d161752e39">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d161752e42">FB/ FUN</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d161752e45">Graphic expression</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d161752e48">ST expression</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d161752e36 "><span class="indexterm">MC_ZoneSwitch (Zone Monitor)</span>MC_ZoneSwitch</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d161752e39 "><span class="indexterm">Zone Monitor</span>Zone Monitor</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d161752e42 ">FB</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d161752e45 ">
+<br /><img class="image" id="tbq1484547756942__image_1BF0F4725C894B00B00872254E3B03ED" src="rbm1484547756006.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d161752e48 ">
+<p class="p" id="tbq1484547756942__ID0EJV3R">MC_ZoneSwitch_instance (</p>
+
+<p class="p">Axis :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Enable :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">FirstPosition :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">LastPosition :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">ReferenceType :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Enabled =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">InZone =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Busy =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Error =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">ErrorID =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span></p>
+
+<p class="p">);</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="tna1484547261564">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Variables</h1>
+
+<div class="body conbody"></div>
+
+<div class="related-links"></div></div><div class="layer04" id="jwk1484547757192">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Input Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="jwk1484547757192__ID0ELY3R" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:14%" />
+<col style="width:13%" />
+<col style="width:15%" />
+<col style="width:16%" />
+<col style="width:7%" />
+<col style="width:32%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d75369e80">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d75369e83">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d75369e86">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d75369e89">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d75369e92">Default</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d75369e96">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d75369e80 ">Enable</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d75369e83 ">Enable</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d75369e86 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d75369e89 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d75369e92 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d75369e96 ">
+<p class="p" id="jwk1484547757192__ID0EA43R">The instruction is executed while the value of this variable is TRUE.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d75369e80 ">FirstPosition</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d75369e83 ">First Position</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d75369e86 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d75369e89 ">Negative number, positive number, or 0</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d75369e92 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d75369e96 ">
+<p class="p" id="jwk1484547757192__ID0EL63R">Specify the first position of the zone range. <a class="xref" href="#jwk1484547757192__ID0ELY3R-footnote-2079776"><sup>*1</sup></a></p>
+
+<p class="p" id="jwk1484547757192__ID0EV63R">The unit is command units. <a class="xref" href="#jwk1484547757192__ID0ELY3R-footnote-2079667"><sup>*2</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d75369e80 ">LastPosition</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d75369e83 ">Last Position</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d75369e86 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d75369e89 ">Negative number, positive number, or 0</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d75369e92 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d75369e96 ">
+<p class="p" id="jwk1484547757192__ID0EDC4R">Specify the last position of the zone range. <a class="xref" href="#jwk1484547757192__ID0ELY3R-footnote-2079777"><sup>*3</sup></a></p>
+
+<p class="p" id="jwk1484547757192__ID0ENC4R">The unit is command units. <a class="xref" href="#jwk1484547757192__ID0ELY3R-footnote-2079667"><sup>*2</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d75369e80 ">ReferenceType</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d75369e83 ">Position Type Selection</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d75369e86 ">_eMC_REFERENCE_TYPE</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d75369e89 ">
+<p class="p" id="jwk1484547757192__ID0EEE4R">0: _mcCommand</p>
+
+<p class="p" id="jwk1484547757192__ID0ELE4R">1: _mcFeedback</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d75369e92 ">0<a class="xref" href="#jwk1484547757192__ID0ELY3R-footnote-2080032"><sup>*4</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d75369e96 ">
+<p class="p" id="jwk1484547757192__ID0EGF4R">Specify the axis information to monitor.</p>
+
+<p class="p" id="jwk1484547757192__ID0ENF4R">0: Command position (value calculated in the previous task period<a class="xref" href="#jwk1484547757192__ID0ELY3R-footnote-2080178"><sup>*5</sup></a>)</p>
+
+<p class="p" id="jwk1484547757192__ID0EYF4R">1: Actual position (value obtained in the same task period<a class="xref" href="#jwk1484547757192__ID0ELY3R-footnote-2080178"><sup>*5</sup></a>)</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="jwk1484547757192__ID0ELY3R-footnote-2079776" id="jwk1484547757192__ID0ELY3R-footnote-2079776"><sup>*1</sup></a>  <p class="p" id="jwk1484547757192__ID0E2ZMT">Set a value that is smaller than the last position.</p>
+</div>
+<div class="fn"><a name="jwk1484547757192__ID0ELY3R-footnote-2079667" id="jwk1484547757192__ID0ELY3R-footnote-2079667"><sup>*2</sup></a>
+<p class="p">Refer to <span class="ph phtype_type2"><span class="termtype">Unit Conversion Settingsins</span></span> in the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Motion Control User&#8217;s Manual (Cat. No. W507)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Industrial Panel PC / Industrial Box PC Motion Control User&#8217;s Manual (Cat. No. W559)</span></span></span> for information on command units.</p>
+</div>
+<div class="fn"><a name="jwk1484547757192__ID0ELY3R-footnote-2079777" id="jwk1484547757192__ID0ELY3R-footnote-2079777"><sup>*3</sup></a>  <p class="p" id="jwk1484547757192__ID0EL2MT">Set a value that is larger than the first position.</p>
+</div>
+<div class="fn"><a name="jwk1484547757192__ID0ELY3R-footnote-2080032" id="jwk1484547757192__ID0ELY3R-footnote-2080032"><sup>*4</sup></a>  <p class="p" id="jwk1484547757192__ID0E52MT">The default value for an enumeration variable is actually not the number, but the enumerator.</p>
+</div>
+<div class="fn"><a name="jwk1484547757192__ID0ELY3R-footnote-2080178" id="jwk1484547757192__ID0ELY3R-footnote-2080178"><sup>*5</sup></a>  <p class="p" id="jwk1484547757192__ID0ER3MT">The task period is the primary period if the task is the primary periodic task and the task period of the priority-5 periodic task if the task is the priority-5 periodic task.</p>
+
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="vys1484547757395">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Output Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="vys1484547757395__ID0EKH4R" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:17%" />
+<col style="width:14%" />
+<col style="width:9%" />
+<col style="width:10%" />
+<col style="width:47%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d189209e50">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d189209e53">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d189209e56">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d189209e59">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d189209e62">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d189209e50 ">Enabled</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d189209e53 ">Enable</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d189209e56 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d189209e59 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d189209e62 ">
+<p class="p" id="vys1484547757395__ID0EHL4R">TRUE while the axis is being controlled.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d189209e50 ">InZone</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d189209e53 ">In Zone</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d189209e56 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d189209e59 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d189209e62 ">
+<p class="p" id="vys1484547757395__ID0EGN4R">TRUE when the axes position is within the zone.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d189209e50 ">Busy</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d189209e53 ">Executing</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d189209e56 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d189209e59 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d189209e62 ">
+<p class="p" id="vys1484547757395__ID0EFP4R">TRUE when the instruction is acknowledged.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d189209e50 ">Error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d189209e53 ">Error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d189209e56 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d189209e59 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d189209e62 ">
+<p class="p" id="vys1484547757395__ID0EER4R">TRUE while there is an error.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d189209e50 ">ErrorID</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d189209e53 ">Error Code</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d189209e56 ">WORD</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d189209e59 "><a class="xref" href="#vys1484547757395__fn_kjj_3gm_fx"><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d189209e62 ">
+<p class="p" id="vys1484547757395__ID0EDT4R">Contains the error code when an error occurs.</p>
+
+<p class="p">A value of 16#0000 indicates normal execution.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="vys1484547757395__fn_kjj_3gm_fx" id="vys1484547757395__fn_kjj_3gm_fx"><sup>*1</sup></a>
+<p class="p">The upper four digits of the event code give the error code for ErrorID. Refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series Troubleshooting Manual (Cat. No. W503)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Troubleshooting Manual (Cat. No. W564)</span></span></span> for the event codes.</p>
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="uqo1484547757597">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">Output Variable Update Timing</h1>
+ 
+<div class="body conbody">
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="uqo1484547757597__ID0ECV4R" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:18%" />
+<col style="width:41%" />
+<col style="width:40%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d174719e28">Name</th>
+ 
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d174719e31">Timing for changing to TRUE</th>
+ 
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d174719e34">Timing for changing to FALSE</th>
+ 
+</tr>
+ 
+</thead>
+ 
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d174719e28 ">Enabled</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d174719e31 ">
+<p class="p">When <span class="ph phtype_variable"><span class="termtype">Enable</span></span> changes to TRUE.</p>
+
+</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d174719e34 ">
+<p class="p" id="uqo1484547757597__ID0EPX4R">When <span class="ph phtype_variable"><span class="termtype">Enable</span></span> changes to FALSE.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d174719e28 ">InZone</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d174719e31 ">
+<p class="p" id="uqo1484547757597__ID0EKY4R">When the zone is entered.</p>
+ 
+</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d174719e34 ">
+<ul class="ul" id="uqo1484547757597__ul_40DD641B4ACD400CB6F260354F30C8D5">
+<li class="li" id="uqo1484547757597__li_FC4B1F0113E145CD9C6424EB6D562D2B">
+<p class="p" id="uqo1484547757597__ID0ECZ4R">When the zone is exited.</p>
+ 
+</li>
+ 
+<li class="li" id="uqo1484547757597__li_D0E5002BFC1D4EDCA43DE039A8B80E29">
+<p class="p" id="uqo1484547757597__ID0ENZ4R">When <span class="ph phtype_variable"><span class="termtype">Enable</span></span> changes to FALSE.</p>
+ 
+</li>
+ 
+</ul>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d174719e28 ">Busy</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d174719e31 ">
+<p class="p" id="uqo1484547757597__ID0EG14R">When <span class="ph phtype_variable"><span class="termtype">Enable</span></span> changes to TRUE.</p>
+ 
+</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d174719e34 ">
+<ul class="ul" id="uqo1484547757597__ul_37C6CBF1FA0C4948B76C66B2C2F507E0">
+<li class="li" id="uqo1484547757597__li_FDAC18E50A134F67A7D8A86751622733">
+<p class="p" id="uqo1484547757597__ID0E514R">When <span class="ph phtype_variable"><span class="termtype">Error</span></span> changes to TRUE.</p>
+ 
+</li>
+ 
+<li class="li" id="uqo1484547757597__li_9E4383E1B5004D13972113AECFDA0CAB">
+<p class="p" id="uqo1484547757597__ID0EJ24R">When <span class="ph phtype_variable"><span class="termtype">Enable</span></span> changes to FALSE.</p>
+ 
+</li>
+ 
+</ul>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d174719e28 ">Error</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d174719e31 ">
+<p class="p" id="uqo1484547757597__ID0EC34R">When there is an error in the execution conditions or input parameters for the instruction.</p>
+ 
+</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d174719e34 ">
+<p class="p" id="uqo1484547757597__ID0EO34R">When the error is cleared.</p>
+ 
+</td>
+ 
+</tr>
+ 
+</tbody>
+ 
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer04" id="htx1484547262438">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">In-Out Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="htx1484547262438__ID0E23AE" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:17%" />
+<col style="width:16%" />
+<col style="width:13%" />
+<col style="width:10%" />
+<col style="width:42%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d58021e50">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d58021e53">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d58021e56">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d58021e59">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d58021e62">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d58021e50 ">Axis</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d58021e53 ">Axis</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d58021e56 ">
+<p class="p" id="htx1484547262438__ID0EBAAG">_sAXIS_REF</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d58021e59 ">
+<p class="p" id="htx1484547262438__ID0ENAAG">---</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d58021e62 ">
+<p class="p" id="htx1484547262438__ID0EZAAG">Specifies the axis. <a class="xref" href="#htx1484547262438__ID0E23AE-footnote-2079946"><sup>*1</sup></a></p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="htx1484547262438__ID0E23AE-footnote-2079946" id="htx1484547262438__ID0E23AE-footnote-2079946"><sup>*1</sup></a>  <p class="p" id="htx1484547262438__ID0EKKKT">Specify a user-defined Axis Variable that was created in the Axis Basic Settings of the Sysmac Studio (default: MC_Axis*) or a system-defined axis variable name (_MC_AX[*], _MC1_AX[*], or _MC2_AX[*]).</p>
+
+                        
+<p class="p">If you use Sysmac Studio version 1.29 or higher, you can specify the system-defined axis variable name for AT specification of a user-defined variable. This will allow you to specify the user-defined variable.</p>
+
+<p class="p">If you use Sysmac Studio version 1.28 or lower, do not specify any user-defined variable created in the variable table.</p>
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="mgi1484547757785">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="mgi1484547757785__li_N10015_N10012_N1000F_N10001">
+<p class="p" id="mgi1484547757785__ID0EUD5R">If the axis command position or actual current position is above the <span class="ph phtype_variable"><span class="termtype">FirstPosition</span></span> and below the <span class="ph phtype_variable"><span class="termtype">LastPosition</span></span> (i.e., if it is in the specified zone) when <span class="ph phtype_variable"><span class="termtype">Enable</span></span> of this instruction is TRUE, the output variable <span class="ph phtype_variable"><span class="termtype">InZone</span></span> will change to TRUE.</p>
+
+<p class="p">You can use <span class="ph phtype_variable"><span class="termtype">ReferenceType</span></span> (Position Type Selection) to set either the command position or actual position as the axis information to monitor.</p>
+
+</li>
+
+<li class="li" id="mgi1484547757785__li_N1003E_N10012_N1000F_N10001">
+<p class="p" id="mgi1484547757785__ID0ECE5R">You can perform zone monitoring for any axis type.</p>
+
+</li>
+
+<li class="li" id="mgi1484547757785__li_N1004A_N10012_N1000F_N10001">
+<p class="p" id="mgi1484547757785__ID0ENE5R">If <span class="ph phtype_variable"><span class="termtype">FirstPosition</span></span> or <span class="ph phtype_variable"><span class="termtype">LastPosition</span></span> is changed while <span class="ph phtype_variable"><span class="termtype">Enable</span></span> is TRUE, the new value is applied in the period in which it is changed.</p>
+
+</li>
+
+<li class="li" id="mgi1484547757785__li_N10064_N10012_N1000F_N10001">
+<p class="p" id="mgi1484547757785__ID0EYE5R">You can set multiple zones for one axis, and these zones can overlap. You can also set zones outside the software limits.</p>
+
+</li>
+
+</ul>
+
+<div class="note" id="mgi1484547757785__note_N1006D_N1000F_N10001"><div class="use"><span class="notetitle use">use:</span> <p class="p" id="mgi1484547757785__ID0E1F5R">If <span class="ph phtype_variable"><span class="termtype">FirstPosition</span></span> or <span class="ph phtype_variable"><span class="termtype">LastPosition</span></span> contains a non-terminating decimal number, e.g., resulting from division, error may cause unexpected processing results.</p>
+
+</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="aml1484547758003">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Instruction Details</h1>
+
+<div class="body conbody">
+<p class="p" id="aml1484547758003__ID0EKH5R">Set the <span class="ph phtype_variable"><span class="termtype">FirstPosition</span></span> and <span class="ph phtype_variable"><span class="termtype">LastPosition</span></span> so that the following relationships are established for the Counter Mode. An error occurs if the relationship is not established.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="cix1484547759189">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Linear Mode</h1>
+
+<div class="body conbody">
+<p class="p" id="cix1484547759189__ID0ECI5R">Set <span class="ph phtype_variable"><span class="termtype">FirstPosition</span></span> to the same value or a smaller value than <span class="ph phtype_variable"><span class="termtype">LastPosition</span></span>.</p>
+
+<br /><img class="image linespace_7pt" id="cix1484547759189__image_zpb_myb_jx" src="hed1484547758221.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="iuo1484547761685">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Rotary Mode</h1>
+
+<div class="body conbody">
+<p class="p" id="iuo1484547761685__ID0ETJ5R">In <span class="ph phtype_choice"><span class="termtype">Rotary Mode</span></span>, there is a difference depending on whether the modulo maximum position and modulo minimum position setting values are included.</p>
+
+<p class="p linespace_7pt"><strong class="ph b">When Maximum/Minimum Position Is Not Included</strong></p>
+
+<p class="p" id="iuo1484547761685__ID0EKK5R">Set <span class="ph phtype_variable"><span class="termtype">FirstPosition</span></span> to the same value or a smaller value than <span class="ph phtype_variable"><span class="termtype">LastPosition</span></span>.</p>
+
+<br /><img class="image linespace_7pt" id="iuo1484547761685__image_m2y_czb_jx" src="lif1484547759407.gif" /><br />
+<p class="p linespace_14pt"><strong class="ph b">When Maximum/Minimum Position Is Included</strong></p>
+
+<p class="p" id="iuo1484547761685__ID0EOL5R">Set <span class="ph phtype_variable"><span class="termtype">FirstPosition</span></span> to a larger value than <span class="ph phtype_variable"><span class="termtype">LastPosition</span></span>.</p>
+
+<br /><img class="image linespace_7pt" id="iuo1484547761685__image_nh2_2zb_jx" src="ped1484547760499.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="kse1484547761903">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">ReferenceType (Position Type Selection)</h1>
+
+<div class="body conbody">
+<p class="p" id="kse1484547761903__ID0E6M5R">You can select one of the following position types.</p>
+
+<ul class="ul">
+<li class="li" id="kse1484547761903__li_N1001C_N10018_N1000F_N10001">
+<p class="p" id="kse1484547761903__ID0EON5R">_mcCommand: Command position (value calculated in the previous task period)</p>
+
+<p class="p">The master axis command position that was calculated in the previous task period is used for the current period.</p>
+
+<p class="p">The command value that was calculated for the master axis in the last periodic task is used to calculate the command position of the slave axis in the current period.</p>
+
+</li>
+
+<li class="li" id="kse1484547761903__li_N10032_N10018_N1000F_N10001">
+<p class="p" id="kse1484547761903__ID0E5N5R">_mcFeedback: Value obtained in the same task period</p>
+
+<p class="p">The actual position of the master axis that was obtained in the same task period is used.</p>
+
+</li>
+
+</ul>
+
+<div class="note" id="kse1484547761903__note_N10042_N1000F_N10001"><div class="use"><span class="notetitle use">use:</span>
+<p class="p" id="kse1484547761903__ID0EEP5R">Here, the task period is the primary period if the task is the primary periodic task and the task period of the priority-5 periodic task if the task is the priority-5 periodic task. In the same way, the periodic task is the primary periodic task or the priority-5 periodic task.</p>
+
+         
+</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="clx1484547762106">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Relationship between Axis Types and Position Types</h1>
+
+<div class="body conbody">
+<p class="p" id="clx1484547762106__ID0EGQ5R">The relationship between the axis types that you can monitor and position types that is monitored is shown below.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="clx1484547762106__ID0EUQ5R" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:top;" id="d17555e43">Axis Type</th>
+
+<th class="entry cellrowborder" colspan="2" style="text-align:center;vertical-align:top;" id="d17555e46">ReferenceType</th>
+
+</tr>
+
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d17555e52">_mcCommand</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d17555e55">_mcFeedback</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d17555e43 d17555e52 ">Servo axis</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d17555e46 d17555e55 ">OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d17555e46 ">OK</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d17555e43 d17555e52 ">Encoder axis</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d17555e46 d17555e55 ">No<a class="xref" href="#clx1484547762106__ID0EUQ5R-footnote-2079965"><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d17555e46 ">OK</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d17555e43 d17555e52 ">Virtual servo axis</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d17555e46 d17555e55 ">OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d17555e46 ">OK</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d17555e43 d17555e52 ">Virtual encoder axis</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d17555e46 d17555e55 ">No<a class="xref" href="#clx1484547762106__ID0EUQ5R-footnote-2079965"><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d17555e46 ">OK</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="clx1484547762106__ID0EUQ5R-footnote-2079965" id="clx1484547762106__ID0EUQ5R-footnote-2079965"><sup>*1</sup></a>  <p class="p" id="clx1484547762106__ID0EX4MT">A Position Type Selection Out of Range error (error code: 5430 hex) occurs when the instruction is executed.</p>
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="aui1484547486499">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Timing Charts</h1>
+
+<div class="body conbody"></div>
+
+<div class="related-links"></div></div><div class="layer05" id="wcy1484547763307">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">When the Zone Is Entered during Operation or When Enable Changes to FALSE Within the Zone</h1>
+
+<div class="body conbody">
+<br /><img class="image" src="ogy1484547762356.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="gdd1484547764649">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">When Inside the Zone before the Instruction Is Executed and Then the Zone Is Exited</h1>
+
+<div class="body conbody">
+<br /><img class="image" src="mhk1484547763541.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="nca1484547268164">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Re-execution of Motion Control Instructions</h1>
+
+<div class="body conbody">
+<p class="p" id="nca1484547268164__ID0EVOAG">You cannot re-execute motion instructions with enable-type inputs.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="uek1484547764883">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Multi-execution of Motion Control Instructions</h1>
+
+<div class="body conbody">
+<p class="p" id="uek1484547764883__ID0E535R">This instruction is executed independently from other instructions. The restrictions for multi-execution of motion instructions do not apply.</p>
+
+        
+<p class="p linespace_7pt">For details on multi-execution of motion control instructions, refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Motion Control User&#8217;s Manual (Cat. No. W507)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Industrial Panel PC / Industrial Box PC Motion Control User&#8217;s Manual (Cat. No. W559)</span></span></span>.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="kla1484547287275">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Errors</h1>
+
+<div class="body conbody">
+<p class="p" id="kla1484547287275__ID0ET2AI">If an error occurs during instruction execution, <span class="ph phtype_variable"><span class="termtype">Error</span></span> will change to TRUE.</p>
+
+<p class="p" id="kla1484547287275__ID0EW2AI">You can find out the cause of the error by referring to the value output by <span class="ph phtype_variable"><span class="termtype">ErrorID</span></span> (Error Code).</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="mcu1484547766474">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Timing Chart When Error Occurs</h1>
+
+<div class="body conbody">
+<br /><img class="image" src="jhy1484547765273.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="rzo1484547270426">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Error Codes</h1>
+
+<div class="body conbody">
+        
+<p class="p">Refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series Troubleshooting Manual (Cat. No. W503)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Troubleshooting Manual (Cat. No. W564)</span></span></span> for instruction errors.</p>
+
+</div>
+
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

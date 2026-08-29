@@ -1,0 +1,1366 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>SubDelimiter</title>
+</head>
+<body class="mjw1501815678965"><div class="layer02" id="mjw1501815678965">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">SubDelimiter</h1>
+
+<div class="body conbody">
+<p class="p" id="mjw1501815678965__ID0E6EMM">The SubDelimiter instruction reads out delimited part of a text string and stores as the value of the members of a structure.</p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="mjw1501815678965__table_N10017_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:13%" />
+<col style="width:14%" />
+<col style="width:6%" />
+<col style="width:35%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d653451e37">Instruction</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d653451e40">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d653451e43">
+<p class="p">FB/</p>
+
+<p class="p">FUN</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d653451e52">Graphic expression</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d653451e55">ST expression</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d653451e37 "><span class="indexterm">SubDelimiter (Get Text Strings Minus Delimiters)</span>SubDelimiter</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d653451e40 "><span class="indexterm">Get Text Strings Minus Delimiters</span>Get Text Strings Minus Delimiters</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d653451e43 ">FUN</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d653451e52 ">
+<br /><img class="image" id="mjw1501815678965__image_4F390371323142BFB605CDD024232208" src="rbi1501815678378.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d653451e55 ">Out:=SubDelimiter(In, OutStruct, Delimiter);</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<div class="note" id="mjw1501815678965__note_N100AB_N1000F_N10002"><div class="ver"><span class="notetitle ver">ver:</span> A CPU Unit with unit version 1.02 or later and Sysmac Studio version 1.03 or higher are required to use this instruction.</div></div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="dqq1501816581725">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Variables</h1>
+ 
+<div class="body conbody">
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="dqq1501816581725__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:20%" />
+<col style="width:9%" />
+<col style="width:20%" />
+<col style="width:14%" />
+<col style="width:14%" />
+<col style="width:8%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d180030e38">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d180030e40">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d180030e43">I/O</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d180030e46">Description</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d180030e49">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d180030e53">Unit</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d180030e56">Default</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d180030e38 ">In</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d180030e40 ">Input text string</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d180030e43 ">Input</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d180030e46 ">Delimited text string to convert to the values of the members of a structure</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d180030e49 ">1,986 bytes max. (1,985 single-byte alphanumeric characters plus the final NULL character)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d180030e53 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d180030e56 ">''</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d180030e38 ">Delimiter</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d180030e40 ">Delimiter</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d180030e46 ">Delimiter</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d180030e49 ">_COMMA, _TAB, _SEMICOLON, _SPACE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d180030e53 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d180030e56 ">_COMMA</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d180030e38 ">OutStruct</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d180030e40 ">Storage structure</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d180030e43 ">In-out</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d180030e46 ">Structure to store results of data conversion</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d180030e49 ">8,192 bytes max.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d180030e53 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d180030e56 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d180030e38 ">Out</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d180030e40 ">Return value</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d180030e43 ">Output</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d180030e46 ">Always TRUE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d180030e49 ">TRUE only</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d180030e53 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d180030e56 ">---</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="dqq1501816581725__table_N10134_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:5%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:top;" id="d180030e216">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d180030e218">Boolean</th>
+
+<th class="entry cellrowborder" colspan="4" style="text-align:center;vertical-align:middle;" id="d180030e221">Bit strings</th>
+
+<th class="entry cellrowborder" colspan="8" style="text-align:center;vertical-align:middle;" id="d180030e224">Integers</th>
+
+<th class="entry cellrowborder" colspan="2" style="text-align:center;vertical-align:middle;" id="d180030e227">Real numbers</th>
+
+<th class="entry cellrowborder" colspan="5" style="text-align:center;vertical-align:middle;" id="d180030e231">Times, durations, dates, and text strings</th>
+
+</tr>
+
+<tr class="row">
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d180030e237">BOOL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d180030e240">BYTE</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d180030e243">WORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d180030e246">DWORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d180030e249">LWORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d180030e253">USINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d180030e256">UINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d180030e259">UDINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d180030e262">ULINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d180030e265">SINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d180030e268">INT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d180030e272">DINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d180030e275">LINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d180030e278">REAL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d180030e281">LREAL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d180030e284">TIME</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d180030e287">DATE</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d180030e291">TOD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d180030e294">DT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d180030e297">STRING</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d180030e216 d180030e237 ">In</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d180030e218 d180030e240 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d180030e221 d180030e243 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d180030e221 d180030e246 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d180030e221 d180030e249 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d180030e221 d180030e253 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d180030e224 d180030e256 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d180030e224 d180030e259 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d180030e224 d180030e262 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d180030e224 d180030e265 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d180030e224 d180030e268 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d180030e224 d180030e272 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d180030e224 d180030e275 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d180030e224 d180030e278 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d180030e227 d180030e281 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d180030e227 d180030e284 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d180030e231 d180030e287 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d180030e231 d180030e291 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d180030e231 d180030e294 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d180030e231 d180030e297 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d180030e231 "><span class="ph font_Wingdings"></span>OK</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d180030e216 d180030e237 ">Delimiter</td>
+
+<td class="entry cellrowborder" colspan="20" style="text-align:center;vertical-align:middle;" headers="d180030e218 d180030e221 d180030e224 d180030e227 d180030e231 d180030e240 d180030e243 d180030e246 d180030e249 d180030e253 d180030e256 d180030e259 d180030e262 d180030e265 d180030e268 d180030e272 d180030e275 d180030e278 d180030e281 d180030e284 d180030e287 d180030e291 d180030e294 d180030e297 ">Refer to <a class="xref" href="mjw1501815678965.html"><i style="display:none;">☆</i>SubDelimiter</a> for the enumerators for the enumerated data type _eDELIMITER.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d180030e216 d180030e237 ">OutStruct</td>
+
+<td class="entry cellrowborder" colspan="20" style="text-align:center;vertical-align:middle;" headers="d180030e218 d180030e221 d180030e224 d180030e227 d180030e231 d180030e240 d180030e243 d180030e246 d180030e249 d180030e253 d180030e256 d180030e259 d180030e262 d180030e265 d180030e268 d180030e272 d180030e275 d180030e278 d180030e281 d180030e284 d180030e287 d180030e291 d180030e294 d180030e297 ">Structure</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d180030e216 d180030e237 ">Out</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d180030e218 d180030e240 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d180030e221 d180030e243 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d180030e221 d180030e246 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d180030e221 d180030e249 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d180030e221 d180030e253 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d180030e224 d180030e256 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d180030e224 d180030e259 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d180030e224 d180030e262 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d180030e224 d180030e265 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d180030e224 d180030e268 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d180030e224 d180030e272 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d180030e224 d180030e275 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d180030e224 d180030e278 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d180030e227 d180030e281 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d180030e227 d180030e284 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d180030e231 d180030e287 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d180030e231 d180030e291 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d180030e231 d180030e294 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d180030e231 d180030e297 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d180030e231 ">&#160;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="hdk1501816581979">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function</h1>
+ 
+<div class="body conbody">
+<p class="p" id="hdk1501816581979__ID0EBVNM">The SubDelimiter instruction converts text strings separated with <span class="ph phtype_variable"><span class="termtype">Delimiter</span></span> in <span class="ph phtype_variable"><span class="termtype">In</span></span> (input text string) into values for the members of <span class="ph phtype_variable"><span class="termtype">OutStruct</span></span> (storage structure) and assign each converted value to the corresponding member.</p>
+
+<p class="p linespace_7pt">The data type of <span class="ph phtype_variable"><span class="termtype">Delimiter</span></span> is enumerated type _eDELIMITER. The meanings of the enumerators are as follows:</p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="hdk1501816581979__table_N1002F_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d354872e45">Enumerator</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d354872e48">Meaning</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d354872e45 ">_COMMA</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d354872e48 ">&#8216;,&#8217; (comma)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d354872e45 ">_TAB</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d354872e48 ">&#8216;$T&#8217; (tab)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d354872e45 ">_SEMICOLON</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d354872e48 ">&#8216;;&#8217; (semicolon)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d354872e45 ">_SPACE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d354872e48 ">&#8216; &#8217; (blank character)</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+<p class="p linespace_7pt">If the number of delimited text strings in <span class="ph phtype_variable"><span class="termtype">In</span></span> exceeds the number of members of <span class="ph phtype_variable"><span class="termtype">OutStruct</span></span>, the remaining string data is ignored.</p>
+
+<p class="p" id="hdk1501816581979__ID0EV1NM">If the number of delimited text strings in <span class="ph phtype_variable"><span class="termtype">In</span></span> is less than the number of members of <span class="ph phtype_variable"><span class="termtype">OutStruct</span></span>, the values of the remaining members are not changed.</p>
+
+<p class="p" id="hdk1501816581979__ID0E31NM">If a member of <span class="ph phtype_variable"><span class="termtype">OutStruct</span></span> is a structure and there is not sufficient data in <span class="ph phtype_variable"><span class="termtype">In</span></span> for all the members of the structure, the data is still stored as far as possible.</p>
+
+<p class="p" id="hdk1501816581979__ID0ED2NM">If a member of <span class="ph phtype_variable"><span class="termtype">OutStruct</span></span> is an array and there is not sufficient data in <span class="ph phtype_variable"><span class="termtype">In</span></span> for all the elements of the array, the data is still stored as far as possible.</p>
+
+<p class="p linespace_7pt">The delimited data in <span class="ph phtype_variable"><span class="termtype">In</span></span> consists of STRING data. The STRING data is converted according to the data types of the members of <span class="ph phtype_variable"><span class="termtype">OutStruct</span></span>, as described below.</p>
+
+</div>
+ 
+<div class="related-links"></div></div><div class="layer04" id="chm1501816582205">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Boolean Data</h1>
+
+<div class="body conbody">
+<p class="p" id="chm1501816582205__ID0EJ3NM">If the STRING data is &#8216;FALSE&#8217; or &#8216;0&#8217;, it is converted to FALSE. If the STRING data is &#8216;TRUE&#8217; or &#8216;1&#8217;, it is converted to TRUE.</p>
+
+<p class="p" id="chm1501816582205__ID0EM3NM">The following are exceptions.</p>
+
+<ul class="ul">
+<li class="li">Any continuous &#8216;0&#8217; characters before &#8216;0&#8217; or &#8216;1&#8217; are ignored.</li>
+
+<li class="li">&#8216;FALSE&#8217; and &#8216;TRUE&#8217; are not case sensitive.</li>
+
+</ul>
+
+<p class="p" id="chm1501816582205__ID0EP4NM">Conversion is not possible if the STRING data is not &#8216;FALSE&#8217;, &#8216;TRUE&#8217;, &#8216;0&#8217;, or &#8216;1&#8217;.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="efd1501816582444">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Bit String Data</h1>
+
+<div class="body conbody">
+<p class="p">The conversion rules are the same as those for <a class="xref" href="mhz1501815557224.html#mhz1501815557224"><i style="display:none;">☆</i>STRING_TO_** (Text String-to-Bit String Conversion Group)</a>.</p>
+
+<p class="p" id="efd1501816582444__ID0ER5NM">Conversion is not possible if the data does not express a hexadecimal number.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="dad1501816582670">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Integer Data</h1>
+
+<div class="body conbody">
+<p class="p">The conversion rules are the same as those for <a class="xref" href="zpq1501815556219.html#zpq1501815556219"><i style="display:none;">☆</i>STRING_TO_** (Text String-to-Integer Conversion Group)</a>.</p>
+
+<p class="p" id="dad1501816582670__ID0ET6NM">Conversion is not possible if the data does not express an integer number.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="cef1501816582910">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Real Number Data</h1>
+
+<div class="body conbody">
+<p class="p">The conversion rules are the same as those for <a class="xref" href="jaf1501815558135.html#jaf1501815558135"><i style="display:none;">☆</i>STRING_TO_** (Text String-to-Real Number Conversion Group)</a>.</p>
+
+<p class="p" id="cef1501816582910__ID0EVAOM">Conversion is not possible if the data does not express a real number.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="ljr1501816583939">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Duration Data</h1>
+ 
+<div class="body conbody">
+<p class="p">Data with the following structure is converted to a duration.</p>
+
+<br /><img class="image" id="ljr1501816583939__image_E1226BD5C7D64DFFAB26A7CFCE015295" src="atd1501816583142.gif" /><br />
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ljr1501816583939__table_N1001C_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d604609e32">Item</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d604609e35">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d604609e32 ">Sign column</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d604609e35 ">
+<p class="p">If there is a positive (+) or if there is no sign column, the value of the member will be positive.</p>
+
+<p class="p">If there is a negative (-), the value of the member will be negative.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d604609e32 ">Days</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d604609e35 ">The value of AA is truncated after the 11th digit below the decimal point.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d604609e32 ">Hours</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d604609e35 ">The value of BB is truncated after the 11th digit below the decimal point.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d604609e32 ">Minutes</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d604609e35 ">The value of CC is truncated after the 10th digit below the decimal point.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d604609e32 ">Seconds</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d604609e35 ">The value of DD is truncated after the 9th digit below the decimal point.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d604609e32 ">Milliseconds</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d604609e35 ">The value of EE is truncated after the 6th digit below the decimal point.</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+<ol class="ol liststyle_annotation1" id="ljr1501816583939__ul_33617F03D75147EBBB5D368C4F2EA359">
+<li class="li" id="ljr1501816583939__li_A285F174CC6A4AB28A658DF03D08DCDE">
+    
+    &#8194;Note<span class="num"></span>&#8194;Any &#8216; &#8216; (blank characters) before the sign column, days, hours, minutes, seconds, or milliseconds are ignored.</li>
+ 
+<li class="li" id="ljr1501816583939__li_7E5E1AB3890E436F838D8CAB4965C0AF">
+    
+    &#8194;Note<span class="num"></span>&#8194;If any characters in the values of AA, BB, CC, DD, or EE are separated with a single &#8216;_&#8217; (underbar), the underbar is ignored.</li>
+ 
+<li class="li" id="ljr1501816583939__li_A78EA9DD7D764074978B5924F6A69C15">
+    
+    &#8194;Note<span class="num"></span>&#8194;Even if the value of the days, hours, minutes, seconds, or milliseconds is a real number with a &#8216;.&#8217; (period), the data can still be converted.</li>
+ 
+<li class="li" id="ljr1501816583939__li_6B3893594BB741ECAADCCAAB116FD617">
+    
+    &#8194;Note<span class="num"></span>&#8194;If the days, hours, minutes, seconds, or milliseconds is included in the data, conversion is possible even if the other items are omitted.</li>
+ 
+<li class="li" id="ljr1501816583939__li_F742C292CD554F56A660B3237A390059">
+    
+    &#8194;Note<span class="num"></span>&#8194;Even if there is a &#8216;0&#8217; before the value of the days, hours, minutes, seconds, or milliseconds, the data can still be converted.</li>
+ 
+</ol>
+ 
+<p class="p linespace_7pt">Conversion is not possible in the following cases.</p>
+
+<ul class="ul" id="ljr1501816583939__ul_30AB109724A14CC8AB8043AC6FAF5225">
+<li class="li" id="ljr1501816583939__li_E9B2A361F7044234AF61FE50FAFCDA5E">The data is not in the above structure.</li>
+ 
+<li class="li" id="ljr1501816583939__li_9A0FD418EAD4431B8C9DD988CC65DD61">There is an &#8216;_&#8217; (underbar) between the sign column and the days.</li>
+ 
+<li class="li" id="ljr1501816583939__li_38C00CC7E7D14F1C80FE19645B0DDFE4">&#8216;.&#8217; (periods) or &#8216;_&#8217; (underbars) appear consecutively.</li>
+ 
+</ul>
+ 
+<p class="p linespace_7pt">For example, if the STRING data is &#8216;-0.5d48h0.123456789ms&#8217;, the value of the member will be T#-2d12h0m0s0.123456ms(T#-216000000.123456ms).</p>
+
+</div>
+ 
+<div class="related-links"></div></div><div class="layer04" id="cbp1501816584860">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Date Data</h1>
+
+<div class="body conbody">
+<p class="p">Data with the following structure is converted to a date.</p>
+
+<br /><img class="image" id="cbp1501816584860__image_ntj_m31_d1b" src="qhr1501816584184.gif" /><br />
+<p class="p linespace_7pt">The following are exceptions.</p>
+
+<ul class="ul">
+<li class="li" id="cbp1501816584860__li_N10024_N10021_N1000F_N10002">Any &#8216; &#8216; (blank characters) before the year, month, or day are ignored.</li>
+
+<li class="li" id="cbp1501816584860__li_N10029_N10021_N1000F_N10002">If any characters in the values of the year, month, or day are separated with a single &#8216;_&#8217; (underbar), the underbar is ignored.</li>
+
+<li class="li" id="cbp1501816584860__li_N1002E_N10021_N1000F_N10002">Even if there is a &#8216;0&#8217; before the value of the year, month, or day, the data can still be converted.<p class="p linespace_7pt">Conversion is not possible in the following cases.</p>
+</li>
+
+<li class="li" id="cbp1501816584860__li_N10037_N10021_N1000F_N10002">The data is not in the above structure.</li>
+
+<li class="li" id="cbp1501816584860__li_N1003C_N10021_N1000F_N10002">The date does not exist.</li>
+
+</ul>
+
+<p class="p linespace_7pt">For example, if the STRING data is &#8216;2000-1-01&#8217;, the value of the member will be D#2000-01-01.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="hld1501816586207">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Date and Time Data</h1>
+ 
+<div class="body conbody">
+<p class="p">Data with the following structure is converted to a duration.</p>
+
+<br /><img class="image" id="hld1501816586207__image_886163B6E2B84B77BDE9BE9A52A6BEBA" src="bch1501816585135.gif" /><br />
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="hld1501816586207__table_N1001C_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d364963e32">Item</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d364963e35">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d364963e32 ">Year, month, and day</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d364963e35 ">This is the year, month, and day that express the date.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d364963e32 ">Hour</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d364963e35 ">The range of the value is 0 to 23.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d364963e32 ">Minutes</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d364963e35 ">The range of the value is 0 to 59.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d364963e32 ">Seconds</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d364963e35 ">The range of the value is 0 to 59.999999999. If the value is an integer, a decimal point is not required.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d364963e32 ">Hyphens and colons</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d364963e35 ">These are always required.</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+<ol class="ol liststyle_annotation1" id="hld1501816586207__ul_F3328A602ACC44A19A9D9F7D3B862CDA">
+<li class="li" id="hld1501816586207__li_12AAA275EE83475299314F9EF23A6B7D">
+    
+    &#8194;Note<span class="num"></span>&#8194;Any &#8216; &#8216; (blank characters) before the year, month, day, hour, minutes, or seconds are ignored.</li>
+ 
+<li class="li" id="hld1501816586207__li_14FBC06D7A1E4A79BA69B4E73448C997">
+    
+    &#8194;Note<span class="num"></span>&#8194;If any characters in the values of the year, month, day, hour, minutes, or seconds are separated with a single &#8216;_&#8217; (underbar), the underbar is ignored.</li>
+ 
+<li class="li" id="hld1501816586207__li_F036874D8FA242B4AE767C50C2CA4E66">
+    
+    &#8194;Note<span class="num"></span>&#8194;Even if there is a '0' before the value of the year, month, day, hour, minutes, or seconds, the data can still be converted.</li>
+ 
+</ol>
+ 
+<p class="p linespace_7pt">Conversion is not possible in the following cases.</p>
+
+<ul class="ul" id="hld1501816586207__ul_68344DBF9E88419E8A8ECF4E4B8C38CA">
+<li class="li" id="hld1501816586207__li_CDBE16DDEA56462080C90466F0E14A75">The data is not in the above structure.</li>
+ 
+<li class="li" id="hld1501816586207__li_0CADE066062A4A5D8F65C89BF50E7063">The date does not exist.</li>
+ 
+</ul>
+ 
+<p class="p linespace_7pt">For example, if the STRING data is &#8216;2000-01-23-4:56:07.89&#8217;, the value of the member will be DT#2000-01-23-04:56:07.89.</p>
+
+</div>
+ 
+<div class="related-links"></div></div><div class="layer04" id="jdk1501816587288">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Time of Day Data</h1>
+ 
+<div class="body conbody">
+<p class="p">Data with the following structure is converted to a time of day.</p>
+
+<br /><img class="image" id="jdk1501816587288__image_B2B949DFE5FF4F42B60B6AD0DD734874" src="bho1501816586508.gif" /><br />
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="jdk1501816587288__table_N1001C_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d485338e32">Item</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d485338e35">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d485338e32 ">Hour</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d485338e35 ">The range of the value is 0 to 23.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d485338e32 ">Minutes</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d485338e35 ">The range of the value is 0 to 59.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d485338e32 ">Seconds</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d485338e35 ">The range of the value is 0 to 59.999999999. If the value is an integer, a decimal point (&#8216;.&#8217; (period)) is not required.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d485338e32 ">Colons</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d485338e35 ">These are always required.</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+<ol class="ol liststyle_annotation1" id="jdk1501816587288__ul_BB3EDDDC93374644AB4FB11596F9269D">
+<li class="li" id="jdk1501816587288__li_F5746A0B27A048EE975BB8FF81C253A8">
+    
+    &#8194;Note<span class="num"></span>&#8194;Any &#8216; &#8216;(blank characters) before the hour, minutes, or seconds are ignored.</li>
+ 
+<li class="li" id="jdk1501816587288__li_E1CF7B0594F24A52B23B02C4972C3DF2">
+    
+    &#8194;Note<span class="num"></span>&#8194;If any characters in the values of hour, minutes, or seconds are separated with a single &#8216;_&#8217; (underbar), the underbar is ignored.</li>
+ 
+<li class="li" id="jdk1501816587288__li_23D72C3EBC8D40C2BE2527D057E86779">
+    
+    &#8194;Note<span class="num"></span>&#8194;Even if there is a &#8216;0&#8217; before the value of the hour, minutes, or seconds, the data can still be converted.</li>
+ 
+</ol>
+ 
+<p class="p linespace_7pt">Conversion is not possible in the following cases.</p>
+
+<ul class="ul" id="jdk1501816587288__ul_392C4A59C9CD47E0903700ED9A6DEBEA">
+<li class="li" id="jdk1501816587288__li_D31CAE537C924213A9846FD9C93E89BE">The data is not in the above structure.</li>
+ 
+<li class="li" id="jdk1501816587288__li_3C625B400AA845DEAEAA7D237998EBF8">&#8216;.&#8217; (periods) or &#8216;_&#8217; (underbars) appear consecutively.</li>
+ 
+</ul>
+ 
+<p class="p linespace_7pt">For example, if the STRING data is &#8216;12:23:34.567&#8217;, the value of the member will be TOD#12:23:34.567.</p>
+
+</div>
+ 
+<div class="related-links"></div></div><div class="layer04" id="sue1501816587555">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Text String Data</h1>
+<div class="body conbody"><p class="p" id="sue1501816587555__ID0EPFPM">The value of the member will be the data with a NULL character added to the end. However, conversion is not possible if the text string exceeds the size of the member.</p>
+<p class="p" id="sue1501816587555__ID0ESFPM">For example, if the STRING data is &#8216;ABC&#8217; without a NULL character at the end, the value of the member will be &#8216;ABC&#8217; with a NULL character at the end.</p>
+</div>
+<div class="related-links"></div></div><div class="layer04" id="zzj1501816589407">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Structure Data</h1>
+<div class="body conbody"><p class="p">The STRING data is converted according to the conversion rules for the data types of the members. The data is converted in order from the start and stored as the values of the members of the structure down to the nesting levels that are not structures.</p>
+<p class="p">For example, if a member of structure A is Structure B, the conversion works as shown below.</p>
+<br /><img class="image" id="zzj1501816589407__image_bd3_cj1_d1b" src="jag1501816587794.gif" /><br /></div>
+<div class="related-links"></div></div><div class="layer04" id="bjs1501816589654">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Enumeration Data</h1>
+
+<div class="body conbody">
+<p class="p">STRING data that expresses a DINT variable is converted to an enumerator of the enumeration.</p>
+
+<p class="p">The same rules as for integers are used to convert to DINT data, the value of the DINT data is taken as the value of the enumeration, and that value is converted to the corresponding enumerator.</p>
+
+<p class="p" id="bjs1501816589654__ID0ENHPM">However, conversion is not possible if the STRING data does not express a DINT value.</p>
+
+<p class="p" id="bjs1501816589654__ID0EUHPM">For example, assume that an enumeration <span class="ph phtype_type2"><span class="termtype">Color</span></span> has three enumerators: <span class="ph phtype_type2"><span class="termtype">red</span></span>, <span class="ph phtype_type2"><span class="termtype">yellow</span></span>, and <span class="ph phtype_type2"><span class="termtype">green</span></span>. The numbers associated with these enumerators are as follows: <span class="ph phtype_type2"><span class="termtype">red</span></span> = 1, <span class="ph phtype_type2"><span class="termtype">yellow</span></span> = 2, <span class="ph phtype_type2"><span class="termtype">green</span></span> = 3. If the data is '3', the value of the member will be <span class="ph phtype_type2"><span class="termtype">green</span></span>.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="yha1501816589896">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Array Data</h1>
+<div class="body conbody"><p class="p" id="yha1501816589896__ID0EOIPM">Each delimited data is converted to the value of an element. The conversion rules for the data type of the array are used. Conversion is possible only if the members are one-dimensional arrays.</p>
+<p class="p" id="yha1501816589896__ID0ERIPM">For example, assume that a member is the myString[0..3] BYTE array. If the comma-delimited text string &#8216;AA,BB,CC,DD&#8217; is converted to the elements of the array, myString[0] will be BYTE#16#AA, myString[1] will be BYTE#16#BB, myString[2] will be BYTE#16#CC, and myString[3] will be BYTE#16#DD.</p>
+</div>
+<div class="related-links"></div></div><div class="layer04" id="hko1501816591620">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Notation Example</h1>
+
+<div class="body conbody">
+<p class="p">The following example shows how comma-separated data in <span class="ph phtype_type2"><span class="termtype">myString</span></span> are converted and assigned to the members of the <span class="ph phtype_type2"><span class="termtype">myStruct</span></span> structure.</p>
+
+<br /><img class="image" id="hko1501816591620__image_jyx_kj1_d1b" src="ehr1501816590641.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="amx1501816591884">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Additional Information</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="amx1501816591884__li_N10015_N10012_N1000F_N10002">You can combine this instruction with the instruction, <a class="xref" href="sxj1501815819967.html#sxj1501815819967"><i style="display:none;">☆</i>FileGets</a>, to easily read values from specified CSV files in an SD Memory Card. Refer to <a class="xref" href="mjw1501815678965.html"><i style="display:none;">☆</i>SubDelimiter</a> for an application example.</li>
+
+<li class="li" id="amx1501816591884__li_N1001E_N10012_N1000F_N10002">Use this instruction to return a text string that was converted with the instruction, <a class="xref" href="rmi1501815678126.html#rmi1501815678126"><i style="display:none;">☆</i>AddDelimiter</a>, to structure data.</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="aca1501816592114">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Precautions for Correct Use</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="aca1501816592114__li_N10015_N10012_N1000F_N10002">If there is more than one consecutive delimiter in <span class="ph phtype_variable"><span class="termtype">In</span></span>, the delimited data will not exist. If the delimited data does not exist, the value of the member of <span class="ph phtype_variable"><span class="termtype">OutStruct</span></span> will be undefined.</li>
+
+<li class="li" id="aca1501816592114__li_N10023_N10012_N1000F_N10002">Do not use delimiters for any other purpose in <span class="ph phtype_variable"><span class="termtype">In</span></span>. If you use a delimiter for any other purpose, the instruction will still treat it as a delimiter.</li>
+
+<li class="li" id="aca1501816592114__li_N1002D_N10012_N1000F_N10002">If there is a STRING member in <span class="ph phtype_variable"><span class="termtype">OutStruct</span></span>, do not attach a final NULL character to the corresponding data in <span class="ph phtype_variable"><span class="termtype">In</span></span>. If you use a NULL character anywhere except at the end of <span class="ph phtype_variable"><span class="termtype">In</span></span>, only the string data before the NULL character will be converted.</li>
+
+<li class="li" id="aca1501816592114__li_N10040_N10012_N1000F_N10002">If there is an enumeration in <span class="ph phtype_variable"><span class="termtype">OutStruct</span></span>, make sure that the corresponding data in <span class="ph phtype_variable"><span class="termtype">In</span></span> is a value that is defined as an enumerator. An error will not occur even if the value of the enumerated variable is not defined as an enumerator.</li>
+
+<li class="li" id="aca1501816592114__li_N1004E_N10012_N1000F_N10002">An error will occur in the following cases. <span class="ph phtype_variable"><span class="termtype">ENO</span></span> will change to FALSE, and the values in <span class="ph phtype_variable"><span class="termtype">OutStruct</span></span> will be undefined.<ol class="ol liststyle_alphabet1">
+<li class="li" id="aca1501816592114__li_N10060_N1005C_N1004E_N10012_N1000F_N10002">Conversion to the data type of a member of <span class="ph phtype_variable"><span class="termtype">OutStruct</span></span> is not possible.</li>
+
+<li class="li" id="aca1501816592114__li_N10069_N1005C_N1004E_N10012_N1000F_N10002">The conversion result exceeds the valid range of the corresponding member of <span class="ph phtype_variable"><span class="termtype">OutStruct</span></span>.</li>
+
+<li class="li" id="aca1501816592114__li_N10073_N1005C_N1004E_N10012_N1000F_N10002">A member of <span class="ph phtype_variable"><span class="termtype">OutStruct</span></span> is an array with more than one dimension.</li>
+
+<li class="li" id="aca1501816592114__li_N1007C_N1005C_N1004E_N10012_N1000F_N10002">A member of <span class="ph phtype_variable"><span class="termtype">OutStruct</span></span> is a union.</li>
+
+<li class="li" id="aca1501816592114__li_N10085_N1005C_N1004E_N10012_N1000F_N10002">The size of <span class="ph phtype_variable"><span class="termtype">OutStruct</span></span> exceeds 8,192 bytes.</li>
+
+</ol>
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="epv1501816593191">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Sample Programming</h1>
+
+<div class="body taskbody">
+<div class="section context" id="epv1501816593191__context_N10012_N1000F_N10002">
+<p class="p" id="epv1501816593191__ID0EPTPM">Here, multiple lines of text strings that are separated by carriage returns (i.e., CR codes) are stored in a file named &#8216;ABC.csv.&#8217; The text string on each line is delimited by commas.</p>
+
+<p class="p" id="epv1501816593191__ID0ESTPM">Text strings are read from this file one line at a time, and the comma-delimited data is stored as the values of the members of the myArray[] array variables in the <span class="ph phtype_type2"><span class="termtype">myStruct</span></span> structure from the start of the structure. The <span class="ph phtype_type2"><span class="termtype">myStruct</span></span> structure has five members that are STRING variables.</p>
+
+<p class="p">Processing ends when the data is read to the end of the file (i.e., when it is read to the EOF code).</p>
+
+<br /><img class="image" id="epv1501816593191__image_jdy_kk1_d1b" src="lpv1501816592350.gif" /><br />
+<p class="p linespace_7pt">The processing procedure is as follows:</p>
+
+</div>
+
+<ol class="ol steps"><li class="li step" id="epv1501816593191__step_N10034_N10031_N1000F_N10002"><span alt="test" class="ph cmd" id="epv1501816593191__ID0EAVPM">The FileOpen instruction is used to open the file &#8216;ABC.csv.&#8217;</span></li>
+<li class="li step" id="epv1501816593191__step_N1003E_N10031_N1000F_N10002"><span alt="test" class="ph cmd" id="epv1501816593191__ID0ELVPM">The FileGets instruction is used to read one line from the file.</span></li>
+<li class="li step" id="epv1501816593191__step_N10048_N10031_N1000F_N10002"><span alt="test" class="ph cmd" id="epv1501816593191__ID0EWVPM">The SubDelimiter is used to store comma-delimited text strings as the values of the myArray[] members.</span></li>
+<li class="li step" id="epv1501816593191__step_N10052_N10031_N1000F_N10002"><span alt="test" class="ph cmd" id="epv1501816593191__ID0EBWPM">Steps 2 and 3 are repeated until the EOF (end of file).</span></li>
+<li class="li step" id="epv1501816593191__step_N1005C_N10031_N1000F_N10002"><span alt="test" class="ph cmd" id="epv1501816593191__ID0EMWPM">The FileClose instruction is used to close the file.</span></li>
+</ol>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="aph1501816593947">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Data Type Definition</h1>
+<div class="body conbody">
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="aph1501816593947__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all"><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d30331e22">Name</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d30331e24">Data type</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d30331e26">Comment</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30331e22 ">myStruct</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30331e24 ">STRUCT</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30331e26 ">Structure</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30331e22 ">member0</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30331e24 ">STRING</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30331e26 ">Member</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30331e22 ">member1</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30331e24 ">STRING</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30331e26 ">Member</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30331e22 ">member2</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30331e24 ">STRING</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30331e26 ">Member</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30331e22 ">member3</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30331e24 ">STRING</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30331e26 ">Member</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30331e22 ">member4</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30331e24 ">STRING</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d30331e26 ">Member</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="related-links"></div></div><div class="layer04" id="xss1501816603031">
+<h1 class="title topictitle1"  topicstatus="Localization:done">LD</h1>
+<div class="body conbody">
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="xss1501816603031__table_ogb_cl1_d1b" class="rules_all " frame="border" border="1" rules="all"><col style="width:12%" /><col style="width:20%" /><col style="width:15%" /><col style="width:37%" /><col style="width:15%" /><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1131772e24">Internal variables</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1131772e26">Variable</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1131772e28">Data type</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1131772e30">Initial value</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1131772e32">Comment</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1131772e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e26 ">OperatingEnd</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e28 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e30 ">False</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e32 ">Processing completed</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1131772e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e26 ">Trigger</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e28 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e30 ">False</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e32 ">Execution condition</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1131772e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e26 ">Operating</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e28 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e30 ">False</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e32 ">Processing</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1131772e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e26 ">Index</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e28 ">INT</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e30 ">0</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e32 ">myArray[] element index</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1131772e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e26 ">Fid</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e28 ">DWORD</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e30 ">16#0</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e32 ">File ID</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1131772e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e26 ">myArray</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e28 ">ARRAY[0..999] OF myStruct</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e30 ">[1000((member0:='',member1:='',member2:='',member3:='',member4:=''))]</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e32 ">Integer data</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1131772e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e26 ">RS_instance</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e28 ">RS</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e30 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e32 ">&#160;</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1131772e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e26 ">FileOpen_instance</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e28 ">FileOpen</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e30 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e32 ">&#160;</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1131772e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e26 ">FileGets_instance</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e28 ">FileGets</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e30 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e32 ">&#160;</td>
+</tr>
+<tr class="row"><td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d1131772e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e26 ">FileClose_instance</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e28 ">FileClose</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e30 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e32 ">&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="xss1501816603031__table_pgb_cl1_d1b" class="rules_all " frame="border" border="1" rules="all"><col style="width:12%" /><col style="width:20%" /><col style="width:27%" /><col style="width:40%" /><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1131772e135">External variables</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1131772e137">Variable</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1131772e139">Data type</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1131772e141">Comment</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d1131772e135 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e137 ">_Card1Ready</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e139 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1131772e141 ">SD Memory Card Ready Flag</td>
+</tr>
+</tbody>
+</table>
+</div>
+<br /><img class="image" id="xss1501816603031__image_38D6F623A11949A9A1E0716BCEA9C7F0" src="toa1501816594195.gif" /><br /><br /><img class="image" id="xss1501816603031__image_ox4_ds5_p1b" src="qhm1501816595188.gif" /><br /><br /><img class="image" id="xss1501816603031__image_rx1_2s5_p1b" src="aqm1501816596194.gif" /><br /><br /><img class="image" id="xss1501816603031__image_xdk_2s5_p1b" src="sec1501816597127.gif" /><br /><br /><img class="image" id="xss1501816603031__image_2A6D1B4D313140DD88F6409DD05D6970" src="qhk1501816598281.gif" /><br /><br /><img class="image" id="xss1501816603031__image_qnr_ft5_p1b" src="irs1501816599395.gif" /><br /><br /><img class="image" id="xss1501816603031__image_iqz_ft5_p1b" src="eee1501816600747.gif" /><br /><br /><img class="image" id="xss1501816603031__image_a23_gt5_p1b" src="bno1501816601904.gif" /><br /></div>
+<div class="related-links"></div></div><div class="layer04" id="zds1501816603301">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">ST</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="zds1501816603301__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:12%" />
+<col style="width:20%" />
+<col style="width:15%" />
+<col style="width:37%" />
+<col style="width:15%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1193700e37">Internal variables</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1193700e40">Variable</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1193700e43">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1193700e46">Initial value</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1193700e49">Comment</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1193700e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e40 ">Trigger</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e43 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e46 ">False</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e49 ">Execution condition</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1193700e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e40 ">LastTrigger</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e43 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e46 ">False</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e49 ">Value of <span class="ph phtype_variable"><span class="termtype">Trigger</span></span> from previous task period</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1193700e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e40 ">OperatingStart</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e43 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e46 ">False</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e49 ">Processing started</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1193700e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e40 ">Operating</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e43 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e46 ">False</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e49 ">Processing</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1193700e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e40 ">myArray</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e43 ">ARRAY[0..999] OF myStruct</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e46 ">[1000((member0:='',member1:='',member2:='',member3:='',member4:=''))]</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e49 ">Integer data</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1193700e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e40 ">Stage</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e43 ">INT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e46 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e49 ">Stage change</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1193700e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e40 ">Index</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e43 ">INT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e46 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e49 ">myArray[] element index</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1193700e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e40 ">Fid</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e43 ">DWORD</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e46 ">16#0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e49 ">File ID</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1193700e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e40 ">FileOpen_instance</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e43 ">FileOpen</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e49 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1193700e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e40 ">FileGets_instance</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e43 ">FileGets</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e49 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d1193700e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e40 ">FileClose_instance</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e43 ">FileClose</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e49 ">&#160;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="zds1501816603301__table_N101CE_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:12%" />
+<col style="width:20%" />
+<col style="width:27%" />
+<col style="width:40%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1193700e260">External variables</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1193700e263">Variable</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1193700e266">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1193700e269">Comment</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d1193700e260 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e263 ">_Card1Ready</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e266 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1193700e269 ">SD Memory Card Ready Flag</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt"></p>
+
+<pre class="pre codeblock">
+// Start sequence when Trigger changes to TRUE.
+IF ( (Trigger=TRUE) AND (LastTrigger=FALSE) AND (_Card1Ready=TRUE) ) THEN
+  OperatingStart:=TRUE;
+  Operating :=TRUE;
+END_IF;
+LastTrigger:=Trigger;
+
+// Initialize instance.
+IF (OperatingStart=TRUE) THEN
+  FileOpen_instance(Execute:=FALSE);
+  FileGets_instance(Execute:=FALSE);
+  FileClose_instance(Execute:=FALSE);
+  Stage :=INT#1;
+  Index :=INT#0;
+  OperatingStart:=FALSE;
+END_IF;
+
+// Execute instruction.
+IF (Operating=TRUE) THEN
+  CASE Stage OF
+  1 : // Open file.
+    FileOpen_instance(
+      Execute :=TRUE,
+      FileName:='ABC.csv', // File name
+      Mode :=_READ_EXIST, // Read file
+      FileID =&gt;Fid); // File ID
+
+    IF (FileOpen_instance.Done=TRUE) THEN
+      Stage:=INT#2; // Normal end
+    END_IF;
+
+    IF (FileOpen_instance.Error=TRUE) THEN
+      Stage:=INT#99; // Error end
+    END_IF;
+
+  2 : // Read text string.
+    FileGets_instance(
+      Execute:=TRUE,
+      FileID :=Fid,
+      TrimLF :=TRUE);
+
+    IF (FileGets_instance.Done=TRUE) THEN
+      // Store the text strings that were read as the values of the myArray[] member.
+      SubDelimiter(FileGets_instance.Out,myArray[Index],_COMMA);
+      Index:=Index+INT#1;
+
+      // Reached end of file.
+      IF (FileGets_instance.EOF=TRUE) THEN
+        Stage:=INT#3; // Normal end
+      ELSE
+        FileGets_instance(Execute:=FALSE);
+      END_IF;
+    END_IF;
+
+    IF (FileGets_instance.Error=TRUE) THEN
+      Stage:=INT#99; // Error end
+    END_IF;
+
+  3 : // Close file.
+    FileClose_instance(
+      Execute:=TRUE,
+      FileID :=Fid); // File ID
+
+    IF (FileClose_instance.Done=TRUE) THEN
+      Operating:=FALSE; // Normal end
+    END_IF;
+
+    IF (FileClose_instance.Error=TRUE) THEN
+      Stage:=INT#99; // Error end
+    END_IF;
+
+  99 : // Processing after error end
+    Operating:=FALSE;
+  END_CASE;
+END_IF;
+</pre>
+
+</div>
+
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

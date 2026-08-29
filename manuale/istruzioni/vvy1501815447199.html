@@ -1,0 +1,152 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>EXIT</title>
+</head>
+<body class="vvy1501815447199"><div class="layer02" id="vvy1501815447199">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">EXIT</h1>
+
+<div class="body conbody">
+<p class="p">The EXIT instruction ends repeat processing for the FOR, WHILE, or REPEAT instruction of the innermost loop.</p>
+
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="vvy1501815447199__table_N10016_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:13%" />
+<col style="width:14%" />
+<col style="width:6%" />
+<col style="width:35%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1038989e37">Instruction</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1038989e40">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1038989e43">
+<p class="p">FB/</p>
+
+<p class="p">FUN</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1038989e52">Graphic expression</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1038989e55">ST expression</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1038989e37 "><span class="indexterm">EXIT (Break Loop)</span>EXIT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1038989e40 "><span class="indexterm">Break Loop</span>Break Loop</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1038989e43 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1038989e52 ">None</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1038989e55 ">
+<pre class="pre codeblock">FOR Index:=0 TO 9 BY 1 DO
+  IF Error[Index] THEN
+    EXIT;
+  END_IF;
+END_FOR;</pre>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="gdx1501815852758">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Variables</h1>
+<div class="body conbody"><p class="p" id="gdx1501815852758__ID0EEKAC">None</p>
+</div>
+<div class="related-links"></div></div><div class="layer03" id="lrf1501815879898">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function</h1>
+
+<div class="body conbody">
+<p class="p" id="lrf1501815879898__ID0EBEDI">The EXIT instruction ends repeat processing for the FOR, WHILE, or REPEAT instruction of the innermost loop. Processing moves to the next instruction after the repeat processing.</p>
+
+<p class="p linespace_7pt">In the following programming, the value of variable <span class="ph phtype_variable"><span class="termtype">A</span></span> is checked every time the FOR instruction is processed for repeat processing. If the value of variable <span class="ph phtype_variable"><span class="termtype">A</span></span> is TRUE, the EXIT instruction is executed and the repeat processing is ended. If that occurs, <span class="ph phtype_variable"><span class="termtype">C:=B;</span></span> following END_IF is not executed and the previous value of variable <span class="ph phtype_variable"><span class="termtype">C</span></span> is retained.</p>
+
+<p class="p linespace_7pt"></p>
+
+<pre class="pre codeblock">FOR position:=INT#0 TO INT#10 BY INT#1 DO
+    IF (A=TRUE) THEN
+        EXIT;
+    END_IF;
+    C:=B;
+END_FOR;
+</pre>
+
+<p class="p linespace_7pt">The flowchart for this programming is given below.</p>
+
+<br /><img class="image" src="rnm1501815878115.gif" /><br />
+<p class="p linespace_7pt">When the EXIT instruction is executed, only the innermost repeat processing is ended. In the following programming, when the value of variable <span class="ph phtype_variable"><span class="termtype">B</span></span> is TRUE, EXIT instruction 2 is executed and the repeat processing for WHILE instruction 2 is ended. And processing moves to <span class="ph phtype_variable"><span class="termtype">x:=x+1;</span></span>. In this case, repeat processing for WHILE instruction 1 (one level higher) is continued.</p>
+
+<p class="p" id="lrf1501815879898__ID0EIHDI">If the value of variable <span class="ph phtype_variable"><span class="termtype">A</span></span> is TRUE, EXIT instruction 1 is executed and the repeat processing for WHILE instruction 1 is ended. And processing moves to <span class="ph phtype_variable"><span class="termtype">C:=D;</span></span>.</p>
+
+<p class="p linespace_7pt"></p>
+
+<pre class="pre codeblock">x:=INT#0;
+y:=INT#0;
+WHILE x&lt;=INT#10 DO        // WHILE instruction 1
+    IF (A=TRUE) THEN
+        EXIT;             // EXIT instruction 1
+    END_IF;
+    WHILE y&lt;=INT#20 DO    // WHILE instruction 2
+        IF (B=TRUE) THEN
+            EXIT;         // EXIT instruction 2
+        END_IF;
+        y:=y+1;
+    END_WHILE;
+    x=x+1;
+END_WHILE
+C:=D;
+</pre>
+
+<p class="p linespace_7pt">The flowchart for this programming is given below.</p>
+
+<br /><img class="image" src="kbi1501815878940.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="lkl1501815880134">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Precautions for Correct Use</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li">
+<p class="p" id="lkl1501815880134__ID0EMNDI">Always place this instruction between the FOR and END_FOR, WHILE and END_WHILE, or REPEAT and END_REPEAT instructions.</p>
+
+</li>
+
+<li class="li">
+<p class="p" id="lkl1501815880134__ID0EXNDI">If you nest repeat processing, one EXIT instruction is required for each nesting level to end all of the repeat processing.</p>
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+

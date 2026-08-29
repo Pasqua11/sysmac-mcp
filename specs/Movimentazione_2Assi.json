@@ -1,0 +1,1202 @@
+{
+ "progetto": "Movimentazione_2Assi",
+ "guid": "55c169f6-dfaf-40b6-b10a-1bbb10388b51",
+ "sections": {
+  "Marcia": {
+   "rungs": [
+    {
+     "cmt": "GIRO IL BIT DI MARCIA",
+     "chain": [
+      "/IN_MARCIA",
+      "(Marcia_ON)"
+     ]
+    },
+    {
+     "cmt": "RITARDO ABILITAZIONE SERVO",
+     "chain": [
+      "Marcia_ON",
+      {
+       "fb": "TON",
+       "inst": "Tim_Marcia",
+       "p": {
+        "PT": "T#3s"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "ABILITAZIONE SERVO ASSE X",
+     "chain": [
+      {
+       "or": [
+        "MC_X.DrvStatus.Ready",
+        "MC_X.DrvStatus.ServoOn"
+       ]
+      },
+      "Tim_Marcia.Q",
+      {
+       "fb": "MC_Power",
+       "inst": "Power_X",
+       "p": {
+        "Axis": "MC_X",
+        "OUT:Axis": "MC_X"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "ABILITAZIONE SERVO ASSE Y",
+     "chain": [
+      {
+       "or": [
+        "MC_Y.DrvStatus.Ready",
+        "MC_Y.DrvStatus.ServoOn"
+       ]
+      },
+      "Tim_Marcia.Q",
+      {
+       "fb": "MC_Power",
+       "inst": "Power_Y",
+       "p": {
+        "Axis": "MC_Y",
+        "OUT:Axis": "MC_Y"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "ROBOT READY",
+     "chain": [
+      "MC_X.Status.Ready",
+      "MC_Y.Status.Ready",
+      "/MC_X.MFaultLvl.Active",
+      "/MC_Y.MFaultLvl.Active",
+      "(Robot_Ready)"
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "IN_MARCIA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "0=MARCIA ON"
+    },
+    {
+     "name": "MC_X",
+     "type": "_sAXIS_REF",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MC_Y",
+     "type": "_sAXIS_REF",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Marcia_ON",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Bit di marcia"
+    },
+    {
+     "name": "Power_X",
+     "type": "MC_Power",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Power_Y",
+     "type": "MC_Power",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Robot_Ready",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Assi pronti"
+    },
+    {
+     "name": "Tim_Marcia",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Sequenze": {
+   "rungs": [
+    {
+     "cmt": "START RESET ROBOT DA HMI",
+     "chain": [
+      "P_On",
+      "Robot_Ready",
+      "^V_P_Start_Reset",
+      "(S Start_Reset)"
+     ]
+    },
+    {
+     "cmt": "HOMING ASSE Y",
+     "chain": [
+      "Start_Reset",
+      {
+       "fb": "MC_Home",
+       "inst": "Home_Y",
+       "p": {
+        "Axis": "MC_Y",
+        "OUT:Axis": "MC_Y"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "HOMING ASSE X DOPO Y",
+     "chain": [
+      "Home_Y.Done",
+      {
+       "fb": "MC_Home",
+       "inst": "Home_X",
+       "p": {
+        "Axis": "MC_X",
+        "OUT:Axis": "MC_X"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "FINE SEQUENZA DI RESET",
+     "chain": [
+      "Home_X.Done",
+      "(S End_Reset)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Home_X.Done",
+      "(R Start_Reset)"
+     ]
+    },
+    {
+     "cmt": "MACCHINA OK PER MOVIMENTAZIONE",
+     "chain": [
+      "Robot_Ready",
+      "End_Reset",
+      "(Macchina_OK)"
+     ]
+    },
+    {
+     "cmt": "READY MOVIMENTAZIONE",
+     "chain": [
+      "Macchina_OK",
+      "/Movim_Prenotati",
+      "(Ready_Movimentazione)"
+     ]
+    },
+    {
+     "cmt": "CLOCK MOVIMENTAZIONE",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       {
+        "f": "Get100msClk",
+        "p": {}
+       },
+       {
+        "f": "@Inc",
+        "p": {
+         "InOut": "Clock_Movimenti",
+         "OUT:InOut": "Clock_Movimenti"
+        }
+       }
+      ],
+      [
+       {
+        "or": [
+         "Movim_Prenotati",
+         {
+          "f": ">",
+          "p": {
+           "In1": "Clock_Movimenti",
+           "In2": "5"
+          }
+         }
+        ]
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "0",
+         "OUT:Out": "Clock_Movimenti"
+        }
+       }
+      ]
+     ]
+    },
+    {
+     "cmt": "PRENOTAZIONE DA STAZIONE A VERSO VASCA 1",
+     "chain": [
+      "Ready_Movimentazione",
+      "IN_PEZZO_A",
+      {
+       "f": "=",
+       "p": {
+        "In1": "Clock_Movimenti",
+        "In2": "INT#1"
+       }
+      },
+      "/Mem_V1",
+      "(S Prelievo_A)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Ready_Movimentazione",
+      "IN_PEZZO_A",
+      {
+       "f": "=",
+       "p": {
+        "In1": "Clock_Movimenti",
+        "In2": "INT#1"
+       }
+      },
+      "/Mem_V1",
+      "(S Deposito_V1)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Prelievo_A",
+      "Deposito_V1",
+      "(Look_A)"
+     ]
+    },
+    {
+     "cmt": "PRENOTAZIONE DA STAZIONE B VERSO VASCA 2",
+     "chain": [
+      "Ready_Movimentazione",
+      "IN_PEZZO_B",
+      {
+       "f": "=",
+       "p": {
+        "In1": "Clock_Movimenti",
+        "In2": "INT#2"
+       }
+      },
+      "/Mem_V2",
+      "(S Prelievo_B)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Ready_Movimentazione",
+      "IN_PEZZO_B",
+      {
+       "f": "=",
+       "p": {
+        "In1": "Clock_Movimenti",
+        "In2": "INT#2"
+       }
+      },
+      "/Mem_V2",
+      "(S Deposito_V2)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "Prelievo_B",
+      "Deposito_V2",
+      "(Look_B)"
+     ]
+    },
+    {
+     "cmt": "MOVIMENTI PRENOTATI",
+     "chain": [
+      {
+       "or": [
+        "Prelievo_A",
+        "Prelievo_B"
+       ]
+      },
+      "(Movim_Prenotati)"
+     ]
+    },
+    {
+     "cmt": "MEMORIA VASCA 1 OCCUPATA",
+     "chain": [
+      "End_Movimenti",
+      "Deposito_V1",
+      "(S Mem_V1)"
+     ]
+    },
+    {
+     "cmt": "MEMORIA VASCA 2 OCCUPATA",
+     "chain": [
+      "End_Movimenti",
+      "Deposito_V2",
+      "(S Mem_V2)"
+     ]
+    },
+    {
+     "cmt": "SVUOTO VASCA 1 DA HMI",
+     "chain": [
+      "V_P_Svuota_V1",
+      "(R Mem_V1)"
+     ]
+    },
+    {
+     "cmt": "SVUOTO VASCA 2 DA HMI",
+     "chain": [
+      "V_P_Svuota_V2",
+      "(R Mem_V2)"
+     ]
+    },
+    {
+     "cmt": "RESETTO TUTTI I MOVIMENTI",
+     "chain": [
+      {
+       "or": [
+        "End_Movimenti",
+        "IN_RESET"
+       ]
+      },
+      "(R Prelievo_A)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "End_Movimenti",
+        "IN_RESET"
+       ]
+      },
+      "(R Prelievo_B)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "End_Movimenti",
+        "IN_RESET"
+       ]
+      },
+      "(R Deposito_V1)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "End_Movimenti",
+        "IN_RESET"
+       ]
+      },
+      "(R Deposito_V2)"
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Clock_Movimenti",
+     "type": "INT",
+     "retain": false,
+     "comment": "Slot prenotazioni"
+    },
+    {
+     "name": "Deposito_V1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Prenotazione deposito vasca1"
+    },
+    {
+     "name": "Deposito_V2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Prenotazione deposito vasca2"
+    },
+    {
+     "name": "End_Movimenti",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Fine catena movimenti"
+    },
+    {
+     "name": "End_Reset",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Reset completato"
+    },
+    {
+     "name": "Home_X",
+     "type": "MC_Home",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Home_Y",
+     "type": "MC_Home",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_PEZZO_A",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Presenza pezzo stazione A"
+    },
+    {
+     "name": "IN_PEZZO_B",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Presenza pezzo stazione B"
+    },
+    {
+     "name": "IN_RESET",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Chiave di reset"
+    },
+    {
+     "name": "Look_A",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Impulso lock movimento A"
+    },
+    {
+     "name": "Look_B",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Impulso lock movimento B"
+    },
+    {
+     "name": "MC_X",
+     "type": "_sAXIS_REF",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MC_Y",
+     "type": "_sAXIS_REF",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Macchina_OK",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "OK per movimentazione"
+    },
+    {
+     "name": "Mem_V1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Vasca 1 occupata"
+    },
+    {
+     "name": "Mem_V2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Vasca 2 occupata"
+    },
+    {
+     "name": "Movim_Prenotati",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Movimento in corso"
+    },
+    {
+     "name": "Prelievo_A",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Prenotazione prelievo staz.A"
+    },
+    {
+     "name": "Prelievo_B",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Prenotazione prelievo staz.B"
+    },
+    {
+     "name": "Ready_Movimentazione",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Pronto a nuova sequenza"
+    },
+    {
+     "name": "Robot_Ready",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Assi pronti"
+    },
+    {
+     "name": "Start_Reset",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Sequenza reset attiva"
+    },
+    {
+     "name": "V_P_Start_Reset",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "HMI start reset"
+    },
+    {
+     "name": "V_P_Svuota_V1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "HMI svuota vasca1"
+    },
+    {
+     "name": "V_P_Svuota_V2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "HMI svuota vasca2"
+    }
+   ]
+  },
+  "Trasf_Dati": {
+   "rungs": [
+    {
+     "cmt": "CALCOLO QUOTE PER MOVIMENTAZIONE",
+     "chain": [
+      "P_On",
+      {
+       "ist": "(*Quote movimentazione da PRESA a DEPOSITO*)\r\n\r\n(*MOV1 asse X su presa*)\r\nDistance1:=X_PRESA;\r\n\r\n(*MOV2 asse Y discesa presa*)\r\nDistance2:=Y_PRESA;\r\n\r\n(*MOV3 asse Y salita con pezzo*)\r\nDistance3:=LREAL#0.0;\r\n\r\n(*MOV4 asse X verso deposito*)\r\nDistance4:=X_DEPOSITO;\r\n\r\n(*MOV5 asse Y discesa deposito veloce*)\r\nDistance5:=Y_DEPOSITO-LREAL#50.0;\r\n\r\n(*MOV5A asse Y avvicinamento lento*)\r\nDistance5A:=Y_DEPOSITO;\r\n\r\n(*MOV6 asse Y salita dopo deposito*)\r\nDistance6:=LREAL#0.0;\r\n\r\n(*MOV7 asse X riposo*)\r\nDistance7:=X_RIPOSO;\r\n"
+      }
+     ]
+    },
+    {
+     "cmt": "DATI DI PRESA DA STAZIONE A",
+     "chain": [
+      "Prelievo_A",
+      {
+       "ist": "X_PRESA:=X_STAZ_A;\r\nY_PRESA:=Y_STAZ_A;\r\n"
+      }
+     ]
+    },
+    {
+     "cmt": "DATI DI PRESA DA STAZIONE B",
+     "chain": [
+      "Prelievo_B",
+      {
+       "ist": "X_PRESA:=X_STAZ_B;\r\nY_PRESA:=Y_STAZ_B;\r\n"
+      }
+     ]
+    },
+    {
+     "cmt": "DATI DI DEPOSITO VASCA 1",
+     "chain": [
+      "Deposito_V1",
+      {
+       "ist": "X_DEPOSITO:=X_V1;\r\nY_DEPOSITO:=Y_V1;\r\n"
+      }
+     ]
+    },
+    {
+     "cmt": "DATI DI DEPOSITO VASCA 2",
+     "chain": [
+      "Deposito_V2",
+      {
+       "ist": "X_DEPOSITO:=X_V2;\r\nY_DEPOSITO:=Y_V2;\r\n"
+      }
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Deposito_V1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Prenotazione deposito vasca1"
+    },
+    {
+     "name": "Deposito_V2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Prenotazione deposito vasca2"
+    },
+    {
+     "name": "Distance1",
+     "type": "LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Distance2",
+     "type": "LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Distance3",
+     "type": "LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Distance4",
+     "type": "LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Distance5",
+     "type": "LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Distance5A",
+     "type": "LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Distance6",
+     "type": "LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Distance7",
+     "type": "LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Prelievo_A",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Prenotazione prelievo staz.A"
+    },
+    {
+     "name": "Prelievo_B",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Prenotazione prelievo staz.B"
+    },
+    {
+     "name": "X_DEPOSITO",
+     "type": "LREAL",
+     "retain": false,
+     "comment": "Quota deposito attiva"
+    },
+    {
+     "name": "X_PRESA",
+     "type": "LREAL",
+     "retain": false,
+     "comment": "Quota presa attiva"
+    },
+    {
+     "name": "X_RIPOSO",
+     "type": "LREAL",
+     "retain": true,
+     "comment": "Quota X riposo"
+    },
+    {
+     "name": "X_STAZ_A",
+     "type": "LREAL",
+     "retain": true,
+     "comment": "Quota X stazione A"
+    },
+    {
+     "name": "X_STAZ_B",
+     "type": "LREAL",
+     "retain": true,
+     "comment": "Quota X stazione B"
+    },
+    {
+     "name": "X_V1",
+     "type": "LREAL",
+     "retain": true,
+     "comment": "Quota X vasca 1"
+    },
+    {
+     "name": "X_V2",
+     "type": "LREAL",
+     "retain": true,
+     "comment": "Quota X vasca 2"
+    },
+    {
+     "name": "Y_DEPOSITO",
+     "type": "LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Y_PRESA",
+     "type": "LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Y_STAZ_A",
+     "type": "LREAL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Y_STAZ_B",
+     "type": "LREAL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Y_V1",
+     "type": "LREAL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Y_V2",
+     "type": "LREAL",
+     "retain": true,
+     "comment": ""
+    }
+   ]
+  },
+  "Movimentazione": {
+   "rungs": [
+    {
+     "cmt": "RITARDO START CATENA DI MOVIMENTAZIONE",
+     "chain": [
+      "Movim_Prenotati",
+      "End_Reset",
+      {
+       "fb": "TON",
+       "inst": "Tim_Prenotati",
+       "p": {
+        "PT": "T#400ms"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "MOV1 ASSE X SOPRA LA PRESA",
+     "chain": [
+      "Tim_Prenotati.Q",
+      {
+       "fb": "MC_MoveAbsolute",
+       "inst": "MOV1",
+       "p": {
+        "Axis": "MC_X",
+        "Position": "Distance1",
+        "Velocity": "SET_Speed_X",
+        "Acceleration": "100",
+        "Deceleration": "100",
+        "OUT:Axis": "MC_X"
+       }
+      },
+      "(MOV1_Done)"
+     ]
+    },
+    {
+     "cmt": "MOV2 ASSE Y DISCESA SU PRESA",
+     "chain": [
+      "MOV1_Done",
+      {
+       "fb": "MC_MoveAbsolute",
+       "inst": "MOV2",
+       "p": {
+        "Axis": "MC_Y",
+        "Position": "Distance2",
+        "Velocity": "SET_Speed_Y",
+        "Acceleration": "100",
+        "Deceleration": "100",
+        "OUT:Axis": "MC_Y"
+       }
+      },
+      "(MOV2_Done)"
+     ]
+    },
+    {
+     "cmt": "CHIUSURA PINZA SUL PEZZO",
+     "chain": [
+      "MOV2_Done",
+      {
+       "fb": "TON",
+       "inst": "Tim_Pinza",
+       "p": {
+        "PT": "T#1s"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "MOV2_Done",
+      "(S OUT_PINZA)"
+     ]
+    },
+    {
+     "cmt": "MOV3 ASSE Y SALITA CON PEZZO",
+     "chain": [
+      "Tim_Pinza.Q",
+      {
+       "fb": "MC_MoveAbsolute",
+       "inst": "MOV3",
+       "p": {
+        "Axis": "MC_Y",
+        "Position": "Distance3",
+        "Velocity": "SET_Speed_Y",
+        "Acceleration": "100",
+        "Deceleration": "100",
+        "OUT:Axis": "MC_Y"
+       }
+      },
+      "(MOV3_Done)"
+     ]
+    },
+    {
+     "cmt": "MOV4 ASSE X VERSO DEPOSITO",
+     "chain": [
+      "MOV3_Done",
+      {
+       "fb": "MC_MoveAbsolute",
+       "inst": "MOV4",
+       "p": {
+        "Axis": "MC_X",
+        "Position": "Distance4",
+        "Velocity": "SET_Speed_X",
+        "Acceleration": "100",
+        "Deceleration": "100",
+        "OUT:Axis": "MC_X"
+       }
+      },
+      "(MOV4_Done)"
+     ]
+    },
+    {
+     "cmt": "MOV5 DISCESA DEPOSITO VELOCE",
+     "chain": [
+      "MOV4_Done",
+      {
+       "fb": "MC_MoveAbsolute",
+       "inst": "MOV5",
+       "p": {
+        "Axis": "MC_Y",
+        "Position": "Distance5",
+        "Velocity": "SET_Speed_Y",
+        "Acceleration": "100",
+        "Deceleration": "100",
+        "OUT:Axis": "MC_Y"
+       }
+      },
+      "(MOV5_Done)"
+     ]
+    },
+    {
+     "cmt": "MOV5A AVVICINAMENTO LENTO IN BLENDING",
+     "chain": [
+      "MOV4_Done",
+      {
+       "fb": "MC_MoveAbsolute",
+       "inst": "MOV5A",
+       "p": {
+        "Axis": "MC_Y",
+        "Position": "Distance5A",
+        "Velocity": "LREAL#20",
+        "Acceleration": "100",
+        "Deceleration": "100",
+        "BufferMode": "_eMC_BUFFER_MODE#_mcBlendingPrevious",
+        "OUT:Axis": "MC_Y"
+       }
+      },
+      "(MOV5A_Done)"
+     ]
+    },
+    {
+     "cmt": "APERTURA PINZA E RILASCIO",
+     "chain": [
+      "MOV5A_Done",
+      {
+       "fb": "TON",
+       "inst": "Tim_Rilascio",
+       "p": {
+        "PT": "T#1s"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "MOV5A_Done",
+      "(R OUT_PINZA)"
+     ]
+    },
+    {
+     "cmt": "MOV6 ASSE Y SALITA DOPO DEPOSITO",
+     "chain": [
+      "Tim_Rilascio.Q",
+      {
+       "fb": "MC_MoveAbsolute",
+       "inst": "MOV6",
+       "p": {
+        "Axis": "MC_Y",
+        "Position": "Distance6",
+        "Velocity": "SET_Speed_Y",
+        "Acceleration": "100",
+        "Deceleration": "100",
+        "OUT:Axis": "MC_Y"
+       }
+      },
+      "(MOV6_Done)"
+     ]
+    },
+    {
+     "cmt": "MOV7 ASSE X IN POSIZIONE DI RIPOSO",
+     "chain": [
+      "MOV6_Done",
+      {
+       "fb": "MC_MoveAbsolute",
+       "inst": "MOV7",
+       "p": {
+        "Axis": "MC_X",
+        "Position": "Distance7",
+        "Velocity": "SET_Speed_X",
+        "Acceleration": "100",
+        "Deceleration": "100",
+        "OUT:Axis": "MC_X"
+       }
+      },
+      "(MOV7_Done)"
+     ]
+    },
+    {
+     "cmt": "FINE CICLO MOVIMENTAZIONE",
+     "chain": [
+      "MOV7_Done",
+      "(End_Movimenti)"
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Distance1",
+     "type": "LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Distance2",
+     "type": "LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Distance3",
+     "type": "LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Distance4",
+     "type": "LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Distance5",
+     "type": "LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Distance5A",
+     "type": "LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Distance6",
+     "type": "LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Distance7",
+     "type": "LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "End_Movimenti",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Fine catena movimenti"
+    },
+    {
+     "name": "End_Reset",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Reset completato"
+    },
+    {
+     "name": "MC_X",
+     "type": "_sAXIS_REF",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MC_Y",
+     "type": "_sAXIS_REF",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV1",
+     "type": "MC_MoveAbsolute",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV1_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV2",
+     "type": "MC_MoveAbsolute",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV2_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV3",
+     "type": "MC_MoveAbsolute",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV3_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV4",
+     "type": "MC_MoveAbsolute",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV4_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV5",
+     "type": "MC_MoveAbsolute",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV5A",
+     "type": "MC_MoveAbsolute",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV5A_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV5_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV6",
+     "type": "MC_MoveAbsolute",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV6_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV7",
+     "type": "MC_MoveAbsolute",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV7_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Movim_Prenotati",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Movimento in corso"
+    },
+    {
+     "name": "OUT_PINZA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "Comando pinza"
+    },
+    {
+     "name": "SET_Speed_X",
+     "type": "LREAL",
+     "retain": true,
+     "comment": "Velocita asse X"
+    },
+    {
+     "name": "SET_Speed_Y",
+     "type": "LREAL",
+     "retain": true,
+     "comment": "Velocita asse Y"
+    },
+    {
+     "name": "Tim_Pinza",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Prenotati",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Rilascio",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  }
+ }
+}

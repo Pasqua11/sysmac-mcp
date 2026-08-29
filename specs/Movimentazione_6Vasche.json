@@ -1,0 +1,823 @@
+{
+ "variabili": {
+  "globali": [
+   {
+    "nome": "V_S_Auto",
+    "tipo": "BOOL",
+    "commento": "selettore AUTOMATICO"
+   },
+   {
+    "nome": "V_P_Start_Ciclo",
+    "tipo": "BOOL",
+    "commento": "comando START da SCADA"
+   },
+   {
+    "nome": "V_P_Stop_Ciclo",
+    "tipo": "BOOL",
+    "commento": "comando STOP da SCADA"
+   },
+   {
+    "nome": "V_P_Annulla",
+    "tipo": "BOOL",
+    "commento": "annulla ciclo da SCADA"
+   },
+   {
+    "nome": "V_L_Ciclo_Attivo",
+    "tipo": "BOOL",
+    "commento": "spia ciclo in corso"
+   },
+   {
+    "nome": "V_L_Carro_Carico",
+    "tipo": "BOOL",
+    "commento": "spia carro con pezzo"
+   },
+   {
+    "nome": "V_L_Allarme",
+    "tipo": "BOOL",
+    "commento": "spia allarme cumulativo"
+   },
+   {
+    "nome": "IN_EMERGENZA",
+    "tipo": "BOOL",
+    "commento": "fungo di emergenza (NC)"
+   },
+   {
+    "nome": "IN_PRESS_ARIA",
+    "tipo": "BOOL",
+    "commento": "pressostato aria"
+   },
+   {
+    "nome": "IN_PRESENZA_PEZZO",
+    "tipo": "BOOL",
+    "commento": "pezzo presente al carico"
+   },
+   {
+    "nome": "IN_POS_CARICO",
+    "tipo": "BOOL",
+    "commento": "carro in posizione di carico"
+   },
+   {
+    "nome": "IN_POS_SCARICO",
+    "tipo": "BOOL",
+    "commento": "carro in posizione di scarico"
+   },
+   {
+    "nome": "IN_POS_V1",
+    "tipo": "BOOL",
+    "commento": "carro sopra la vasca 1"
+   },
+   {
+    "nome": "IN_POS_V2",
+    "tipo": "BOOL",
+    "commento": "carro sopra la vasca 2"
+   },
+   {
+    "nome": "IN_POS_V3",
+    "tipo": "BOOL",
+    "commento": "carro sopra la vasca 3"
+   },
+   {
+    "nome": "IN_POS_V4",
+    "tipo": "BOOL",
+    "commento": "carro sopra la vasca 4"
+   },
+   {
+    "nome": "IN_POS_V5",
+    "tipo": "BOOL",
+    "commento": "carro sopra la vasca 5"
+   },
+   {
+    "nome": "IN_POS_V6",
+    "tipo": "BOOL",
+    "commento": "carro sopra la vasca 6"
+   },
+   {
+    "nome": "IN_CARRO_ALTO",
+    "tipo": "BOOL",
+    "commento": "carro sollevato"
+   },
+   {
+    "nome": "IN_CARRO_BASSO",
+    "tipo": "BOOL",
+    "commento": "carro abbassato"
+   },
+   {
+    "nome": "OUT_CARRO_AVANTI",
+    "tipo": "BOOL",
+    "commento": "traslazione avanti"
+   },
+   {
+    "nome": "OUT_CARRO_INDIETRO",
+    "tipo": "BOOL",
+    "commento": "traslazione indietro"
+   },
+   {
+    "nome": "OUT_SOLLEVA",
+    "tipo": "BOOL",
+    "commento": "sollevamento cestello"
+   },
+   {
+    "nome": "OUT_ABBASSA",
+    "tipo": "BOOL",
+    "commento": "abbassamento cestello"
+   },
+   {
+    "nome": "Enable_Ciclo",
+    "tipo": "BOOL",
+    "commento": "consenso generale"
+   },
+   {
+    "nome": "Mem_Ciclo",
+    "tipo": "BOOL",
+    "commento": "ciclo automatico in corso"
+   },
+   {
+    "nome": "Mem_Pieno",
+    "tipo": "BOOL",
+    "commento": "carro con pezzo a bordo"
+   },
+   {
+    "nome": "Mem_Carico",
+    "tipo": "BOOL",
+    "commento": "passo: prelievo al carico"
+   },
+   {
+    "nome": "Mem_Scarico",
+    "tipo": "BOOL",
+    "commento": "passo: deposito allo scarico"
+   },
+   {
+    "nome": "Seq_Attiva",
+    "tipo": "BOOL",
+    "commento": "un passo qualsiasi e' in corso"
+   },
+   {
+    "nome": "Mem_Fine_Ciclo",
+    "tipo": "BOOL",
+    "commento": "ciclo completato"
+   },
+   {
+    "nome": "Clock_1Sec",
+    "tipo": "BOOL",
+    "commento": "clock 1 s di sistema"
+   },
+   {
+    "nome": "Mem_V1",
+    "tipo": "BOOL",
+    "commento": "passo: permanenza in vasca 1"
+   },
+   {
+    "nome": "End_V1",
+    "tipo": "BOOL",
+    "commento": "tempo vasca 1 scaduto"
+   },
+   {
+    "nome": "SET_Tempo_V1",
+    "tipo": "TIME",
+    "commento": "tempo di permanenza vasca 1",
+    "iniziale": "T#11s"
+   },
+   {
+    "nome": "Mem_V2",
+    "tipo": "BOOL",
+    "commento": "passo: permanenza in vasca 2"
+   },
+   {
+    "nome": "End_V2",
+    "tipo": "BOOL",
+    "commento": "tempo vasca 2 scaduto"
+   },
+   {
+    "nome": "SET_Tempo_V2",
+    "tipo": "TIME",
+    "commento": "tempo di permanenza vasca 2",
+    "iniziale": "T#12s"
+   },
+   {
+    "nome": "Mem_V3",
+    "tipo": "BOOL",
+    "commento": "passo: permanenza in vasca 3"
+   },
+   {
+    "nome": "End_V3",
+    "tipo": "BOOL",
+    "commento": "tempo vasca 3 scaduto"
+   },
+   {
+    "nome": "SET_Tempo_V3",
+    "tipo": "TIME",
+    "commento": "tempo di permanenza vasca 3",
+    "iniziale": "T#13s"
+   },
+   {
+    "nome": "Mem_V4",
+    "tipo": "BOOL",
+    "commento": "passo: permanenza in vasca 4"
+   },
+   {
+    "nome": "End_V4",
+    "tipo": "BOOL",
+    "commento": "tempo vasca 4 scaduto"
+   },
+   {
+    "nome": "SET_Tempo_V4",
+    "tipo": "TIME",
+    "commento": "tempo di permanenza vasca 4",
+    "iniziale": "T#14s"
+   },
+   {
+    "nome": "Mem_V5",
+    "tipo": "BOOL",
+    "commento": "passo: permanenza in vasca 5"
+   },
+   {
+    "nome": "End_V5",
+    "tipo": "BOOL",
+    "commento": "tempo vasca 5 scaduto"
+   },
+   {
+    "nome": "SET_Tempo_V5",
+    "tipo": "TIME",
+    "commento": "tempo di permanenza vasca 5",
+    "iniziale": "T#15s"
+   },
+   {
+    "nome": "Mem_V6",
+    "tipo": "BOOL",
+    "commento": "passo: permanenza in vasca 6"
+   },
+   {
+    "nome": "End_V6",
+    "tipo": "BOOL",
+    "commento": "tempo vasca 6 scaduto"
+   },
+   {
+    "nome": "SET_Tempo_V6",
+    "tipo": "TIME",
+    "commento": "tempo di permanenza vasca 6",
+    "iniziale": "T#16s"
+   },
+   {
+    "nome": "Allarme_Bit",
+    "tipo": "ARRAY[1..16] OF BOOL",
+    "commento": "allarmi macchina"
+   }
+  ],
+  "interne": [
+   {
+    "nome": "Tim_V1",
+    "tipo": "TON"
+   },
+   {
+    "nome": "Tim_V2",
+    "tipo": "TON"
+   },
+   {
+    "nome": "Tim_V3",
+    "tipo": "TON"
+   },
+   {
+    "nome": "Tim_V4",
+    "tipo": "TON"
+   },
+   {
+    "nome": "Tim_V5",
+    "tipo": "TON"
+   },
+   {
+    "nome": "Tim_V6",
+    "tipo": "TON"
+   },
+   {
+    "nome": "Tim_All_Aria",
+    "tipo": "TON"
+   },
+   {
+    "nome": "Tim_All_Traslazione",
+    "tipo": "TON"
+   }
+  ],
+  "esterne": [
+   "V_S_Auto",
+   "V_P_Start_Ciclo",
+   "V_P_Stop_Ciclo",
+   "V_P_Annulla",
+   "V_L_Ciclo_Attivo",
+   "V_L_Carro_Carico",
+   "V_L_Allarme",
+   "IN_EMERGENZA",
+   "IN_PRESS_ARIA",
+   "IN_PRESENZA_PEZZO",
+   "IN_POS_CARICO",
+   "IN_POS_SCARICO",
+   "IN_POS_V1",
+   "IN_POS_V2",
+   "IN_POS_V3",
+   "IN_POS_V4",
+   "IN_POS_V5",
+   "IN_POS_V6",
+   "IN_CARRO_ALTO",
+   "IN_CARRO_BASSO",
+   "OUT_CARRO_AVANTI",
+   "OUT_CARRO_INDIETRO",
+   "OUT_SOLLEVA",
+   "OUT_ABBASSA",
+   "Enable_Ciclo",
+   "Mem_Ciclo",
+   "Mem_Pieno",
+   "Mem_Carico",
+   "Mem_Scarico",
+   "Seq_Attiva",
+   "Mem_Fine_Ciclo",
+   "Clock_1Sec",
+   "Mem_V1",
+   "End_V1",
+   "SET_Tempo_V1",
+   "Mem_V2",
+   "End_V2",
+   "SET_Tempo_V2",
+   "Mem_V3",
+   "End_V3",
+   "SET_Tempo_V3",
+   "Mem_V4",
+   "End_V4",
+   "SET_Tempo_V4",
+   "Mem_V5",
+   "End_V5",
+   "SET_Tempo_V5",
+   "Mem_V6",
+   "End_V6",
+   "SET_Tempo_V6",
+   "Allarme_Bit"
+  ]
+ },
+ "sections": {
+  "Movimentazione": [
+   {
+    "cmt": "CLOCK 1 SECONDO",
+    "chain": [
+     "P_On",
+     {
+      "f": "Get1sClk",
+      "p": {}
+     },
+     "(Clock_1Sec)"
+    ]
+   },
+   {
+    "cmt": "CONSENSO GENERALE",
+    "chain": [
+     "/IN_EMERGENZA",
+     "IN_PRESS_ARIA",
+     "V_S_Auto",
+     "(Enable_Ciclo)"
+    ]
+   },
+   {
+    "cmt": "START CICLO",
+    "chain": [
+     "P_On",
+     "V_P_Start_Ciclo",
+     "Enable_Ciclo",
+     "/Seq_Attiva",
+     "(S Mem_Ciclo)"
+    ]
+   },
+   {
+    "cmt": "ARRESTO E ANNULLAMENTO CICLO",
+    "chain": [
+     {
+      "or": [
+       "V_P_Stop_Ciclo",
+       "V_P_Annulla",
+       "IN_EMERGENZA",
+       "Allarme_Bit[1]",
+       "Mem_Fine_Ciclo"
+      ]
+     },
+     "(R Mem_Ciclo)"
+    ]
+   },
+   {
+    "cmt": "SEQUENZA ATTIVA",
+    "chain": [
+     {
+      "or": [
+       "Mem_Carico",
+       "Mem_Scarico",
+       "Mem_V1",
+       "Mem_V2",
+       "Mem_V3",
+       "Mem_V4",
+       "Mem_V5",
+       "Mem_V6"
+      ]
+     },
+     "(Seq_Attiva)"
+    ]
+   },
+   {
+    "cmt": "PRELIEVO AL CARICO",
+    "chain": [
+     "P_On",
+     "Mem_Ciclo",
+     "IN_POS_CARICO",
+     "IN_PRESENZA_PEZZO",
+     "/Mem_Pieno",
+     "(S Mem_Carico)"
+    ]
+   },
+   {
+    "cmt": "PEZZO PRELEVATO",
+    "chain": [
+     "Mem_Carico",
+     "IN_CARRO_ALTO",
+     "(S Mem_Pieno)"
+    ]
+   },
+   {
+    "cmt": "FINE PASSO DI CARICO",
+    "chain": [
+     "Mem_Pieno",
+     "(R Mem_Carico)"
+    ]
+   },
+   {
+    "cmt": "INGRESSO VASCA 1",
+    "chain": [
+     "P_On",
+     "Mem_Ciclo",
+     "Mem_Pieno",
+     "IN_POS_V1",
+     "IN_CARRO_BASSO",
+     "Mem_Pieno",
+     "/End_V1",
+     "(S Mem_V1)"
+    ]
+   },
+   {
+    "cmt": "TEMPO DI PERMANENZA VASCA 1",
+    "chain": [
+     "Mem_V1",
+     {
+      "fb": "TON",
+      "inst": "Tim_V1",
+      "p": {
+       "PT": "SET_Tempo_V1"
+      }
+     },
+     "(End_V1)"
+    ]
+   },
+   {
+    "cmt": "USCITA VASCA 1",
+    "chain": [
+     "End_V1",
+     "(R Mem_V1)"
+    ]
+   },
+   {
+    "cmt": "INGRESSO VASCA 2",
+    "chain": [
+     "P_On",
+     "Mem_Ciclo",
+     "Mem_Pieno",
+     "IN_POS_V2",
+     "IN_CARRO_BASSO",
+     "End_V1",
+     "/End_V2",
+     "(S Mem_V2)"
+    ]
+   },
+   {
+    "cmt": "TEMPO DI PERMANENZA VASCA 2",
+    "chain": [
+     "Mem_V2",
+     {
+      "fb": "TON",
+      "inst": "Tim_V2",
+      "p": {
+       "PT": "SET_Tempo_V2"
+      }
+     },
+     "(End_V2)"
+    ]
+   },
+   {
+    "cmt": "USCITA VASCA 2",
+    "chain": [
+     "End_V2",
+     "(R Mem_V2)"
+    ]
+   },
+   {
+    "cmt": "INGRESSO VASCA 3",
+    "chain": [
+     "P_On",
+     "Mem_Ciclo",
+     "Mem_Pieno",
+     "IN_POS_V3",
+     "IN_CARRO_BASSO",
+     "End_V2",
+     "/End_V3",
+     "(S Mem_V3)"
+    ]
+   },
+   {
+    "cmt": "TEMPO DI PERMANENZA VASCA 3",
+    "chain": [
+     "Mem_V3",
+     {
+      "fb": "TON",
+      "inst": "Tim_V3",
+      "p": {
+       "PT": "SET_Tempo_V3"
+      }
+     },
+     "(End_V3)"
+    ]
+   },
+   {
+    "cmt": "USCITA VASCA 3",
+    "chain": [
+     "End_V3",
+     "(R Mem_V3)"
+    ]
+   },
+   {
+    "cmt": "INGRESSO VASCA 4",
+    "chain": [
+     "P_On",
+     "Mem_Ciclo",
+     "Mem_Pieno",
+     "IN_POS_V4",
+     "IN_CARRO_BASSO",
+     "End_V3",
+     "/End_V4",
+     "(S Mem_V4)"
+    ]
+   },
+   {
+    "cmt": "TEMPO DI PERMANENZA VASCA 4",
+    "chain": [
+     "Mem_V4",
+     {
+      "fb": "TON",
+      "inst": "Tim_V4",
+      "p": {
+       "PT": "SET_Tempo_V4"
+      }
+     },
+     "(End_V4)"
+    ]
+   },
+   {
+    "cmt": "USCITA VASCA 4",
+    "chain": [
+     "End_V4",
+     "(R Mem_V4)"
+    ]
+   },
+   {
+    "cmt": "INGRESSO VASCA 5",
+    "chain": [
+     "P_On",
+     "Mem_Ciclo",
+     "Mem_Pieno",
+     "IN_POS_V5",
+     "IN_CARRO_BASSO",
+     "End_V4",
+     "/End_V5",
+     "(S Mem_V5)"
+    ]
+   },
+   {
+    "cmt": "TEMPO DI PERMANENZA VASCA 5",
+    "chain": [
+     "Mem_V5",
+     {
+      "fb": "TON",
+      "inst": "Tim_V5",
+      "p": {
+       "PT": "SET_Tempo_V5"
+      }
+     },
+     "(End_V5)"
+    ]
+   },
+   {
+    "cmt": "USCITA VASCA 5",
+    "chain": [
+     "End_V5",
+     "(R Mem_V5)"
+    ]
+   },
+   {
+    "cmt": "INGRESSO VASCA 6",
+    "chain": [
+     "P_On",
+     "Mem_Ciclo",
+     "Mem_Pieno",
+     "IN_POS_V6",
+     "IN_CARRO_BASSO",
+     "End_V5",
+     "/End_V6",
+     "(S Mem_V6)"
+    ]
+   },
+   {
+    "cmt": "TEMPO DI PERMANENZA VASCA 6",
+    "chain": [
+     "Mem_V6",
+     {
+      "fb": "TON",
+      "inst": "Tim_V6",
+      "p": {
+       "PT": "SET_Tempo_V6"
+      }
+     },
+     "(End_V6)"
+    ]
+   },
+   {
+    "cmt": "USCITA VASCA 6",
+    "chain": [
+     "End_V6",
+     "(R Mem_V6)"
+    ]
+   },
+   {
+    "cmt": "DEPOSITO ALLO SCARICO",
+    "chain": [
+     "P_On",
+     "Mem_Ciclo",
+     "End_V6",
+     "IN_POS_SCARICO",
+     "IN_CARRO_BASSO",
+     "Mem_Pieno",
+     "(S Mem_Scarico)"
+    ]
+   },
+   {
+    "cmt": "PEZZO DEPOSITATO",
+    "chain": [
+     "Mem_Scarico",
+     "IN_CARRO_ALTO",
+     "(R Mem_Pieno)"
+    ]
+   },
+   {
+    "cmt": "FINE PASSO DI SCARICO",
+    "chain": [
+     "Mem_Scarico",
+     "/Mem_Pieno",
+     "(R Mem_Scarico)"
+    ]
+   },
+   {
+    "cmt": "CICLO COMPLETATO",
+    "chain": [
+     "Mem_Ciclo",
+     "End_V6",
+     "/Mem_Pieno",
+     "/Mem_Scarico",
+     "(S Mem_Fine_Ciclo)"
+    ]
+   },
+   {
+    "cmt": "RIPRISTINO FINE CICLO",
+    "chain": [
+     {
+      "or": [
+       "V_P_Start_Ciclo",
+       "V_P_Annulla"
+      ]
+     },
+     "(R Mem_Fine_Ciclo)"
+    ]
+   },
+   {
+    "cmt": "TRASLAZIONE AVANTI",
+    "chain": [
+     "Enable_Ciclo",
+     "Mem_Ciclo",
+     "Mem_Pieno",
+     "IN_CARRO_ALTO",
+     "/IN_POS_SCARICO",
+     "(OUT_CARRO_AVANTI)"
+    ]
+   },
+   {
+    "cmt": "TRASLAZIONE INDIETRO",
+    "chain": [
+     "Enable_Ciclo",
+     "Mem_Ciclo",
+     "/Mem_Pieno",
+     "IN_CARRO_ALTO",
+     "/IN_POS_CARICO",
+     "(OUT_CARRO_INDIETRO)"
+    ]
+   },
+   {
+    "cmt": "SOLLEVAMENTO CESTELLO",
+    "chain": [
+     {
+      "or": [
+       "Mem_Carico",
+       "Mem_Scarico"
+      ]
+     },
+     "Enable_Ciclo",
+     "/IN_CARRO_ALTO",
+     "(OUT_SOLLEVA)"
+    ]
+   },
+   {
+    "cmt": "ABBASSAMENTO CESTELLO",
+    "chain": [
+     {
+      "or": [
+       "Mem_V1",
+       "Mem_V2",
+       "Mem_V3",
+       "Mem_V4",
+       "Mem_V5",
+       "Mem_V6"
+      ]
+     },
+     "Enable_Ciclo",
+     "/IN_CARRO_BASSO",
+     "(OUT_ABBASSA)"
+    ]
+   },
+   {
+    "cmt": "SPIA CICLO ATTIVO",
+    "chain": [
+     "Mem_Ciclo",
+     "(V_L_Ciclo_Attivo)"
+    ]
+   },
+   {
+    "cmt": "SPIA CARRO CARICO",
+    "chain": [
+     "Mem_Pieno",
+     "(V_L_Carro_Carico)"
+    ]
+   },
+   {
+    "cmt": "SPIA ALLARME CUMULATIVO",
+    "chain": [
+     {
+      "or": [
+       "Allarme_Bit[1]",
+       "Allarme_Bit[2]",
+       "Allarme_Bit[3]"
+      ]
+     },
+     "(V_L_Allarme)"
+    ]
+   },
+   {
+    "cmt": "ALLARME 1: EMERGENZA PREMUTA",
+    "chain": [
+     "IN_EMERGENZA",
+     "(Allarme_Bit[1])"
+    ]
+   },
+   {
+    "cmt": "ALLARME 2: MANCANZA ARIA COMPRESSA",
+    "chain": [
+     "Mem_Ciclo",
+     "/IN_PRESS_ARIA",
+     {
+      "fb": "TON",
+      "inst": "Tim_All_Aria",
+      "p": {
+       "PT": "T#3s"
+      }
+     },
+     "(Allarme_Bit[2])"
+    ]
+   },
+   {
+    "cmt": "ALLARME 3: TEMPO TRASLAZIONE SUPERATO",
+    "chain": [
+     {
+      "or": [
+       "OUT_CARRO_AVANTI",
+       "OUT_CARRO_INDIETRO"
+      ]
+     },
+     {
+      "fb": "TON",
+      "inst": "Tim_All_Traslazione",
+      "p": {
+       "PT": "T#60s"
+      }
+     },
+     "(Allarme_Bit[3])"
+    ]
+   }
+  ]
+ }
+}

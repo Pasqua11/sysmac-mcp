@@ -1,0 +1,557 @@
+{
+ "out_dir": "C:\\Users\\tecni\\Claude\\sysmac-mcp\\out",
+ "variables": [
+  {
+   "name": "Clock_1s",
+   "type": "BOOL",
+   "comment": "clock 1 s di sistema"
+  },
+  {
+   "name": "Mem_Ciclo",
+   "type": "BOOL",
+   "comment": "impianto in ciclo automatico"
+  },
+  {
+   "name": "Mem_F1",
+   "type": "BOOL",
+   "comment": "fase 1: verde NS"
+  },
+  {
+   "name": "Mem_F2",
+   "type": "BOOL",
+   "comment": "fase 2: giallo NS"
+  },
+  {
+   "name": "Mem_F3",
+   "type": "BOOL",
+   "comment": "fase 3: tutto rosso"
+  },
+  {
+   "name": "Mem_F4",
+   "type": "BOOL",
+   "comment": "fase 4: verde EO"
+  },
+  {
+   "name": "Mem_F5",
+   "type": "BOOL",
+   "comment": "fase 5: giallo EO"
+  },
+  {
+   "name": "Mem_F6",
+   "type": "BOOL",
+   "comment": "fase 6: tutto rosso"
+  },
+  {
+   "name": "Mem_Ped_NS",
+   "type": "BOOL",
+   "comment": "chiamata pedonale NS prenotata"
+  },
+  {
+   "name": "Mem_Ped_EO",
+   "type": "BOOL",
+   "comment": "chiamata pedonale EO prenotata"
+  },
+  {
+   "name": "Mem_Emergenza",
+   "type": "BOOL",
+   "comment": "condizione di emergenza attiva"
+  },
+  {
+   "name": "Tim_F1",
+   "type": "TON",
+   "comment": "durata fase 1"
+  },
+  {
+   "name": "Tim_F2",
+   "type": "TON",
+   "comment": "durata fase 2"
+  },
+  {
+   "name": "Tim_F3",
+   "type": "TON",
+   "comment": "durata fase 3"
+  },
+  {
+   "name": "Tim_F4",
+   "type": "TON",
+   "comment": "durata fase 4"
+  },
+  {
+   "name": "Tim_F5",
+   "type": "TON",
+   "comment": "durata fase 5"
+  },
+  {
+   "name": "Tim_F6",
+   "type": "TON",
+   "comment": "durata fase 6"
+  },
+  {
+   "name": "Tim_F1min",
+   "type": "TON",
+   "comment": "verde minimo fase 1"
+  },
+  {
+   "name": "Tim_F4min",
+   "type": "TON",
+   "comment": "verde minimo fase 4"
+  }
+ ],
+ "sections": {
+  "Semaforo": [
+   {
+    "cmt": "CLOCK 1 SECONDO (lampeggio giallo notturno)",
+    "chain": [
+     "P_On",
+     {
+      "f": "Get1sClk",
+      "p": {}
+     },
+     "(Clock_1s)"
+    ]
+   },
+   {
+    "cmt": "EMERGENZA: fungo premuto o lampada rossa guasta",
+    "chain": [
+     {
+      "or": [
+       "IN_Emergenza",
+       "IN_Guasto_Rosso_NS",
+       "IN_Guasto_Rosso_EO"
+      ]
+     },
+     "(Mem_Emergenza)"
+    ]
+   },
+   {
+    "cmt": "CONSENSO AL CICLO AUTOMATICO",
+    "chain": [
+     "IN_Marcia",
+     "V_S_Auto",
+     "/V_S_Notte",
+     "/Mem_Emergenza",
+     "(Mem_Ciclo)"
+    ]
+   },
+   {
+    "cmt": "PARTENZA CICLO DALLA FASE 1",
+    "chain": [
+     "Mem_Ciclo",
+     "/Mem_F1",
+     "/Mem_F2",
+     "/Mem_F3",
+     "/Mem_F4",
+     "/Mem_F5",
+     "/Mem_F6",
+     "(S Mem_F1)"
+    ]
+   },
+   {
+    "cmt": "ARRESTO CICLO: azzera tutte le fasi",
+    "chain": [
+     "/Mem_Ciclo"
+    ],
+    "out": [
+     [
+      "(R Mem_F1)"
+     ],
+     [
+      "(R Mem_F2)"
+     ],
+     [
+      "(R Mem_F3)"
+     ],
+     [
+      "(R Mem_F4)"
+     ],
+     [
+      "(R Mem_F5)"
+     ],
+     [
+      "(R Mem_F6)"
+     ]
+    ]
+   },
+   {
+    "cmt": "FASE 1 - VERDE NORD-SUD: durata e verde minimo",
+    "chain": [
+     "Mem_F1"
+    ],
+    "out": [
+     [
+      {
+       "fb": "TON",
+       "inst": "Tim_F1",
+       "p": {
+        "PT": "SET_T_Verde_NS"
+       }
+      }
+     ],
+     [
+      {
+       "fb": "TON",
+       "inst": "Tim_F1min",
+       "p": {
+        "PT": "SET_T_Verde_Min"
+       }
+      }
+     ]
+    ]
+   },
+   {
+    "cmt": "FINE FASE 1 -> FASE 2 (anticipata dalla chiamata pedonale NS)",
+    "chain": [
+     "Mem_F1",
+     {
+      "or": [
+       "Tim_F1.Q",
+       [
+        "Mem_Ped_EO",
+        "Tim_F1min.Q"
+       ]
+      ]
+     }
+    ],
+    "out": [
+     [
+      "(R Mem_F1)"
+     ],
+     [
+      "(S Mem_F2)"
+     ],
+     [
+      "(R Mem_Ped_NS)"
+     ]
+    ]
+   },
+   {
+    "cmt": "FASE 2 - GIALLO NORD-SUD",
+    "chain": [
+     "Mem_F2",
+     {
+      "fb": "TON",
+      "inst": "Tim_F2",
+      "p": {
+       "PT": "SET_T_Giallo"
+      }
+     }
+    ]
+   },
+   {
+    "cmt": "FINE FASE 2 -> FASE 3",
+    "chain": [
+     "Mem_F2",
+     "Tim_F2.Q"
+    ],
+    "out": [
+     [
+      "(R Mem_F2)"
+     ],
+     [
+      "(S Mem_F3)"
+     ]
+    ]
+   },
+   {
+    "cmt": "FASE 3 - TUTTO ROSSO DI SICUREZZA",
+    "chain": [
+     "Mem_F3",
+     {
+      "fb": "TON",
+      "inst": "Tim_F3",
+      "p": {
+       "PT": "SET_T_TuttoRosso"
+      }
+     }
+    ]
+   },
+   {
+    "cmt": "FINE FASE 3 -> FASE 4",
+    "chain": [
+     "Mem_F3",
+     "Tim_F3.Q"
+    ],
+    "out": [
+     [
+      "(R Mem_F3)"
+     ],
+     [
+      "(S Mem_F4)"
+     ]
+    ]
+   },
+   {
+    "cmt": "FASE 4 - VERDE EST-OVEST: durata e verde minimo",
+    "chain": [
+     "Mem_F4"
+    ],
+    "out": [
+     [
+      {
+       "fb": "TON",
+       "inst": "Tim_F4",
+       "p": {
+        "PT": "SET_T_Verde_EO"
+       }
+      }
+     ],
+     [
+      {
+       "fb": "TON",
+       "inst": "Tim_F4min",
+       "p": {
+        "PT": "SET_T_Verde_Min"
+       }
+      }
+     ]
+    ]
+   },
+   {
+    "cmt": "FINE FASE 4 -> FASE 5 (anticipata dalla chiamata pedonale EO)",
+    "chain": [
+     "Mem_F4",
+     {
+      "or": [
+       "Tim_F4.Q",
+       [
+        "Mem_Ped_NS",
+        "Tim_F4min.Q"
+       ]
+      ]
+     }
+    ],
+    "out": [
+     [
+      "(R Mem_F4)"
+     ],
+     [
+      "(S Mem_F5)"
+     ],
+     [
+      "(R Mem_Ped_EO)"
+     ]
+    ]
+   },
+   {
+    "cmt": "FASE 5 - GIALLO EST-OVEST",
+    "chain": [
+     "Mem_F5",
+     {
+      "fb": "TON",
+      "inst": "Tim_F5",
+      "p": {
+       "PT": "SET_T_Giallo"
+      }
+     }
+    ]
+   },
+   {
+    "cmt": "FINE FASE 5 -> FASE 6",
+    "chain": [
+     "Mem_F5",
+     "Tim_F5.Q"
+    ],
+    "out": [
+     [
+      "(R Mem_F5)"
+     ],
+     [
+      "(S Mem_F6)"
+     ]
+    ]
+   },
+   {
+    "cmt": "FASE 6 - TUTTO ROSSO DI SICUREZZA",
+    "chain": [
+     "Mem_F6",
+     {
+      "fb": "TON",
+      "inst": "Tim_F6",
+      "p": {
+       "PT": "SET_T_TuttoRosso"
+      }
+     }
+    ]
+   },
+   {
+    "cmt": "FINE FASE 6 -> FASE 1: ciclo completato",
+    "chain": [
+     "Mem_F6",
+     "Tim_F6.Q"
+    ],
+    "out": [
+     [
+      "(R Mem_F6)"
+     ],
+     [
+      "(S Mem_F1)"
+     ],
+     [
+      {
+       "f": "@Inc",
+       "p": {
+        "InOut": "V_S_Cicli_Completati",
+        "OUT:InOut": "V_S_Cicli_Completati"
+       }
+      }
+     ]
+    ]
+   },
+   {
+    "cmt": "CHIAMATA PEDONALE NORD-SUD",
+    "chain": [
+     "^V_P_Chiam_Ped_NS",
+     "(S Mem_Ped_NS)"
+    ]
+   },
+   {
+    "cmt": "CHIAMATA PEDONALE EST-OVEST",
+    "chain": [
+     "^V_P_Chiam_Ped_EO",
+     "(S Mem_Ped_EO)"
+    ]
+   },
+   {
+    "cmt": "SPIE DI PRENOTAZIONE PEDONALE",
+    "chain": [
+     "Mem_Ped_NS",
+     "(V_L_Ped_NS_Prenotato)"
+    ]
+   },
+   {
+    "cmt": "SPIA PRENOTAZIONE PEDONALE EST-OVEST",
+    "chain": [
+     "Mem_Ped_EO",
+     "(V_L_Ped_EO_Prenotato)"
+    ]
+   },
+   {
+    "cmt": "VERDE NORD-SUD",
+    "chain": [
+     "Mem_F1",
+     "(OUT_NS_Verde)"
+    ]
+   },
+   {
+    "cmt": "GIALLO NORD-SUD (anche lampeggiante di notte)",
+    "chain": [
+     {
+      "or": [
+       "Mem_F2",
+       [
+        "V_S_Notte",
+        "Clock_1s"
+       ]
+      ]
+     },
+     "(OUT_NS_Giallo)"
+    ]
+   },
+   {
+    "cmt": "ROSSO NORD-SUD (tutte le fasi in cui NS e' fermo, ed emergenza)",
+    "chain": [
+     {
+      "or": [
+       "Mem_F3",
+       "Mem_F4",
+       "Mem_F5",
+       "Mem_F6",
+       "Mem_Emergenza"
+      ]
+     },
+     "/V_S_Notte",
+     "(OUT_NS_Rosso)"
+    ]
+   },
+   {
+    "cmt": "VERDE EST-OVEST",
+    "chain": [
+     "Mem_F4",
+     "(OUT_EO_Verde)"
+    ]
+   },
+   {
+    "cmt": "GIALLO EST-OVEST (anche lampeggiante di notte)",
+    "chain": [
+     {
+      "or": [
+       "Mem_F5",
+       [
+        "V_S_Notte",
+        "Clock_1s"
+       ]
+      ]
+     },
+     "(OUT_EO_Giallo)"
+    ]
+   },
+   {
+    "cmt": "ROSSO EST-OVEST (tutte le fasi in cui EO e' fermo, ed emergenza)",
+    "chain": [
+     {
+      "or": [
+       "Mem_F1",
+       "Mem_F2",
+       "Mem_F3",
+       "Mem_F6",
+       "Mem_Emergenza"
+      ]
+     },
+     "/V_S_Notte",
+     "(OUT_EO_Rosso)"
+    ]
+   },
+   {
+    "cmt": "PEDONALE NORD-SUD VERDE (si attraversa NS mentre i veicoli EO vanno)",
+    "chain": [
+     "Mem_F4",
+     "/Mem_Emergenza",
+     "(OUT_Ped_NS_Verde)"
+    ]
+   },
+   {
+    "cmt": "PEDONALE NORD-SUD ROSSO",
+    "chain": [
+     "/Mem_F4",
+     "(OUT_Ped_NS_Rosso)"
+    ]
+   },
+   {
+    "cmt": "PEDONALE EST-OVEST VERDE (si attraversa EO mentre i veicoli NS vanno)",
+    "chain": [
+     "Mem_F1",
+     "/Mem_Emergenza",
+     "(OUT_Ped_EO_Verde)"
+    ]
+   },
+   {
+    "cmt": "PEDONALE EST-OVEST ROSSO",
+    "chain": [
+     "/Mem_F1",
+     "(OUT_Ped_EO_Rosso)"
+    ]
+   },
+   {
+    "cmt": "SPIA CICLO ATTIVO",
+    "chain": [
+     "Mem_Ciclo",
+     "(V_L_Ciclo_Attivo)"
+    ]
+   },
+   {
+    "cmt": "SPIA MODALITA NOTTE",
+    "chain": [
+     "V_S_Notte",
+     "(V_L_Notte)"
+    ]
+   },
+   {
+    "cmt": "SPIA EMERGENZA",
+    "chain": [
+     "Mem_Emergenza",
+     "(V_L_Emergenza)"
+    ]
+   }
+  ]
+ }
+}

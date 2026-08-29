@@ -1,0 +1,26 @@
+{
+  "sections": {
+    "Marcia": [
+      {"cmt": "GIRO IL BIT DI MARCIA", "chain": ["/IN_MARCIA", "(Marcia_ON)"]},
+      {"cmt": "RITARDO ABILITAZIONE SERVO", "chain": ["Marcia_ON",
+        {"fb": "TON", "inst": "Tim_Marcia", "p": {"PT": "T#3s"}}]},
+      {"cmt": "ABILITAZIONE SERVO ASSE X",
+       "par": ["MC_X.DrvStatus.Ready", "MC_X.DrvStatus.ServoOn"],
+       "chain": ["Tim_Marcia.Q",
+        {"fb": "MC_Power", "inst": "Power_X", "p": {"Axis": "MC_X", "OUT:Axis": "MC_X"}}]},
+      {"cmt": "ROBOT READY", "chain": ["MC_X.Status.Ready", "/MC_X.MFaultLvl.Active", "(Robot_Ready)"]},
+      {"cmt": "ESEMPIO CONFRONTO E ST INLINE", "chain": ["Robot_Ready",
+        {"f": "=", "p": {"In1": "Clock_Movimenti", "In2": "INT#1"}},
+        "(S Prelievo_A)"]},
+      {"cmt": "ESEMPIO CALCOLO QUOTE", "chain": ["P_On",
+        {"ist": "Distance1:=X_PRESA;\nDistance2:=Y_PRESA;"}]}
+    ]
+  },
+  "variables": [
+    {"name": "IN_MARCIA", "type": "BOOL", "comment": "0=MARCIA ON"},
+    {"name": "Marcia_ON", "type": "BOOL", "comment": "Bit di marcia"},
+    {"name": "Tim_Marcia", "type": "TON"},
+    {"name": "Robot_Ready", "type": "BOOL"},
+    {"name": "X_V1", "type": "LREAL", "init": "700", "retain": true, "comment": "Quota X vasca 1"}
+  ]
+}

@@ -1,0 +1,906 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>MovingAverage</title>
+</head>
+<body class="gek1501815620836"><div class="layer02" id="gek1501815620836">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">MovingAverage</h1>
+ 
+<div class="body conbody">
+<p class="p" id="gek1501815620836__ID0E63LM">The MovingAverage instruction calculates a moving average.</p>
+
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="gek1501815620836__table_N10017_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:13%" />
+<col style="width:14%" />
+<col style="width:6%" />
+<col style="width:35%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d302216e37">Instruction</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d302216e40">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d302216e43">
+<p class="p">FB/</p>
+
+<p class="p">FUN</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d302216e52">Graphic expression</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d302216e55">ST expression</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d302216e37 "><span class="indexterm">MovingAverage (Moving Average)</span>MovingAverage</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d302216e40 "><span class="indexterm">Moving Average</span>Moving Average</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d302216e43 ">FUN</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d302216e52 ">
+<br /><img class="image" id="gek1501815620836__image_EFDD2ABF18AD4D0697DCB8DFC9B33732" src="dgw1501815620183.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d302216e55 ">Out:=MovingAverage(In, CurIndex, Buf, BufSize, Q);</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="jqu1501816369718">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Variables</h1>
+ 
+<div class="body conbody">
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="jqu1501816369718__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:20%" />
+<col style="width:9%" />
+<col style="width:20%" />
+<col style="width:14%" />
+<col style="width:14%" />
+<col style="width:8%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d509010e45">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d509010e47">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d509010e50">I/O</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d509010e53">Description</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d509010e56">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d509010e60">Unit</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d509010e63">Default</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d509010e45 ">In</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d509010e47 ">Input value</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d509010e50 ">Input</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d509010e53 ">Number to include in average</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d509010e56 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d509010e60 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d509010e63 "><a class="xref" href="gek1501815620836.html#jqu1501816369718__fn_bjs_yph_zz"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d509010e45 ">BufSize</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d509010e47 ">Maximum number stored</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d509010e53 ">Maximum number of elements to include in average</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d509010e63 ">1</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d509010e45 ">CurIndex</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d509010e47 ">Input value storage position</td>
+
+<td class="entry cellrowborder" rowspan="3" style="text-align:left;vertical-align:middle;" headers="d509010e50 ">In-out</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d509010e53 ">Position in Buf[] to store <span class="ph phtype_variable"><span class="termtype">In</span></span></td>
+
+<td class="entry cellrowborder" rowspan="3" style="text-align:left;vertical-align:middle;" headers="d509010e56 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" rowspan="3" style="text-align:left;vertical-align:middle;" headers="d509010e60 ">---</td>
+
+<td class="entry cellrowborder" rowspan="3" style="text-align:left;vertical-align:middle;" headers="d509010e63 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d509010e45 ">Buf[] (array)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d509010e47 ">Input value storage array</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d509010e53 ">Array to store <span class="ph phtype_variable"><span class="termtype">In</span></span> values</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d509010e45 ">Q</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d509010e47 ">Calculation completed flag</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d509010e53 ">
+<p class="p">TRUE: The number of values stored in Buf[] has reached or exceeded <span class="ph phtype_variable"><span class="termtype">BufSize</span></span>.</p>
+
+<p class="p">FALSE: The number of values stored in Buf[] has not reached <span class="ph phtype_variable"><span class="termtype">BufSize</span></span>.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d509010e45 ">Out</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d509010e47 ">Calculation result</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d509010e50 ">Output</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d509010e53 ">Calculation result</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d509010e56 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d509010e60 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d509010e63 ">---</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="jqu1501816369718__fn_bjs_yph_zz" id="jqu1501816369718__fn_bjs_yph_zz"><sup>*1</sup></a>  If you omit the input parameter, the default value is not applied. A building error will occur. </div></div></div>
+ 
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="jqu1501816369718__table_N10187_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:5%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cell-norowborder" style="text-align:left;vertical-align:top;" id="d509010e260">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d509010e262">Boolean</th>
+
+<th class="entry cellrowborder" colspan="4" style="text-align:center;vertical-align:middle;" id="d509010e265">Bit strings</th>
+
+<th class="entry cellrowborder" colspan="8" style="text-align:center;vertical-align:middle;" id="d509010e268">Integers</th>
+
+<th class="entry cellrowborder" colspan="2" style="text-align:center;vertical-align:middle;" id="d509010e271">Real numbers</th>
+
+<th class="entry cellrowborder" colspan="5" style="text-align:center;vertical-align:middle;" id="d509010e275">Times, durations, dates, and text strings</th>
+
+</tr>
+
+<tr class="row rotate_right">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d509010e281">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d509010e283">BOOL</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d509010e286">BYTE</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d509010e289">WORD</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d509010e292">DWORD</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d509010e296">LWORD</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d509010e299">USINT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d509010e302">UINT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d509010e305">UDINT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d509010e308">ULINT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d509010e311">SINT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d509010e315">INT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d509010e318">DINT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d509010e321">LINT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d509010e324">REAL</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d509010e327">LREAL</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d509010e330">TIME</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d509010e334">DATE</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d509010e337">TOD</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d509010e340">DT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d509010e343">STRING</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d509010e260 d509010e281 ">In</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e262 d509010e283 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e265 d509010e286 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e265 d509010e289 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e265 d509010e292 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e265 d509010e296 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e268 d509010e299 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e268 d509010e302 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e268 d509010e305 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e268 d509010e308 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e268 d509010e311 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e268 d509010e315 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e268 d509010e318 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e268 d509010e321 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e271 d509010e324 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e271 d509010e327 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e275 d509010e330 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e275 d509010e334 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e275 d509010e337 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e275 d509010e340 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e275 d509010e343 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d509010e260 d509010e281 ">BufSize</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e262 d509010e283 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e265 d509010e286 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e265 d509010e289 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e265 d509010e292 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e265 d509010e296 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e268 d509010e299 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e268 d509010e302 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e268 d509010e305 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e268 d509010e308 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e268 d509010e311 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e268 d509010e315 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e268 d509010e318 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e268 d509010e321 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e271 d509010e324 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e271 d509010e327 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e275 d509010e330 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e275 d509010e334 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e275 d509010e337 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e275 d509010e340 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e275 d509010e343 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d509010e260 d509010e281 ">CurIndex</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e262 d509010e283 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e265 d509010e286 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e265 d509010e289 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e265 d509010e292 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e265 d509010e296 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e268 d509010e299 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e268 d509010e302 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e268 d509010e305 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e268 d509010e308 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e268 d509010e311 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e268 d509010e315 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e268 d509010e318 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e268 d509010e321 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e271 d509010e324 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e271 d509010e327 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e275 d509010e330 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e275 d509010e334 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e275 d509010e337 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e275 d509010e340 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e275 d509010e343 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d509010e260 d509010e281 ">Buf[] (array)</td>
+
+<td class="entry cellrowborder" colspan="20" style="text-align:center;vertical-align:middle;" headers="d509010e262 d509010e265 d509010e268 d509010e271 d509010e275 d509010e283 d509010e286 d509010e289 d509010e292 d509010e296 d509010e299 d509010e302 d509010e305 d509010e308 d509010e311 d509010e315 d509010e318 d509010e321 d509010e324 d509010e327 d509010e330 d509010e334 d509010e337 d509010e340 d509010e343 ">
+<p class="p">Must be an array with elements that have the same data type as <span class="ph phtype_variable"><span class="termtype">In</span></span>.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d509010e260 d509010e281 ">Q</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e262 d509010e283 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e265 d509010e286 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e265 d509010e289 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e265 d509010e292 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e265 d509010e296 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e268 d509010e299 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e268 d509010e302 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e268 d509010e305 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e268 d509010e308 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e268 d509010e311 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e268 d509010e315 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e268 d509010e318 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e268 d509010e321 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e271 d509010e324 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e271 d509010e327 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e275 d509010e330 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e275 d509010e334 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e275 d509010e337 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e275 d509010e340 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e275 d509010e343 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d509010e260 d509010e281 ">Out</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e262 d509010e283 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e265 d509010e286 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e265 d509010e289 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e265 d509010e292 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e265 d509010e296 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e268 d509010e299 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e268 d509010e302 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e268 d509010e305 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e268 d509010e308 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e268 d509010e311 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e268 d509010e315 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e268 d509010e318 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e268 d509010e321 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e271 d509010e324 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e271 d509010e327 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e275 d509010e330 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e275 d509010e334 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e275 d509010e337 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e275 d509010e340 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d509010e275 d509010e343 ">&#160;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="geh1501816370768">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function</h1>
+
+<div class="body conbody">
+<p class="p" id="geh1501816370768__ID0EUGOM">The MovingAverage instruction stores the value of <span class="ph phtype_variable"><span class="termtype">In</span></span> in Buf[] (input value storage array) each time it is executed. And then, it calculates the average of the input values and stores the result in <span class="ph phtype_variable"><span class="termtype">Out</span></span> (calculation result). <span class="ph phtype_variable"><span class="termtype">BufSize</span></span> specifies the maximum number of elements to be included in the average calculation.</p>
+
+<p class="p linespace_7pt">The processing procedure is described in the following example, where <span class="ph phtype_variable"><span class="termtype">BufSize</span></span> is UINT#3. The instruction is executed as below.</p>
+
+<br /><img class="image" id="geh1501816370768__image_h42_sqh_zz" src="usg1501816369990.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="ilr1501816371969">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">First Time a Number Is Input</h1>
+
+<div class="body conbody">
+<p class="p" id="ilr1501816371969__ID0EOIOM">The input value storage position <span class="ph phtype_variable"><span class="termtype">CurIndex</span></span> is set to 0, and the instruction is executed.</p>
+
+<p class="p" id="ilr1501816371969__ID0ERIOM">Buf[0] to Buf[<span class="ph phtype_variable"><span class="termtype">BufSize</span></span>-1] of input value storage array Buf[] are cleared to zeros, and the first input value <span class="ph phtype_variable"><span class="termtype">In</span></span> is stored in Buf[0].</p>
+
+<p class="p" id="ilr1501816371969__ID0EYIOM">The value of calculation completed flag <span class="ph phtype_variable"><span class="termtype">Q</span></span> changes to FALSE. This indicates that the number of values that are stored in Buf[] has not reached <span class="ph phtype_variable"><span class="termtype">BufSize</span></span> yet.</p>
+
+<p class="p" id="ilr1501816371969__ID0E6IOM">While the value of <span class="ph phtype_variable"><span class="termtype">Q</span></span> is FALSE, the average value is calculated for the <span class="ph phtype_variable"><span class="termtype">CurIndex</span></span> + 1 numbers that start from Buf[0]. The calculation result is stored in <span class="ph phtype_variable"><span class="termtype">Out</span></span>.</p>
+
+<p class="p" id="ilr1501816371969__ID0EGJOM">Finally, the value of <span class="ph phtype_variable"><span class="termtype">CurIndex</span></span> is incremented.</p>
+
+<br /><img class="image" id="ilr1501816371969__image_o5p_yqh_zz" src="cac1501816371044.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="sja1501816373363">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Inputting Numbers Up to BufSize</h1>
+
+<div class="body conbody">
+<p class="p" id="sja1501816373363__ID0EXKOM">Each time the instruction is executed, the value of <span class="ph phtype_variable"><span class="termtype">In</span></span> is stored in Buf[<span class="ph phtype_variable"><span class="termtype">CurIndex</span></span>], which starts from Buf[0]. The instruction calculates the average of input values as many as <span class="ph phtype_variable"><span class="termtype">CurIndex</span></span> + 1, and stores the result in <span class="ph phtype_variable"><span class="termtype">Out</span></span>.</p>
+
+<p class="p" id="sja1501816373363__ID0E1KOM">When the number of instruction executions reaches <span class="ph phtype_variable"><span class="termtype">BufSize</span></span>, the value of <span class="ph phtype_variable"><span class="termtype">Q</span></span> changes to TRUE.</p>
+
+<br /><img class="image" id="sja1501816373363__image_u3p_drh_zz" src="sbw1501816372223.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="bdy1501816374575">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Inputting Numbers after Reaching BufSize</h1>
+
+<div class="body conbody">
+<p class="p" id="bdy1501816374575__ID0ELMOM">Each time the instruction is executed, Buf[0] to Buf[<span class="ph phtype_variable"><span class="termtype">BufSize</span></span>-1] are overwritten with the value of <span class="ph phtype_variable"><span class="termtype">In</span></span> in cyclic fashion. The average of Buf[0] to Buf[<span class="ph phtype_variable"><span class="termtype">BufSize</span></span>-1] is calculated and stored in <span class="ph phtype_variable"><span class="termtype">Out</span></span>.</p>
+
+<p class="p" id="bdy1501816374575__ID0EOMOM">The value of <span class="ph phtype_variable"><span class="termtype">CurIndex</span></span> returns to 1 after it reaches <span class="ph phtype_variable"><span class="termtype">BufSize</span></span>, and it is then incremented again. The value of <span class="ph phtype_variable"><span class="termtype">Q</span></span> remains TRUE.</p>
+
+<br /><img class="image" id="bdy1501816374575__image_v44_3rh_zz" src="mrk1501816373607.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="wom1501816374817">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Initializing the Stored Values</h1>
+
+<div class="body conbody">
+<p class="p" id="wom1501816374817__ID0E6NOM">If the value of <span class="ph phtype_variable"><span class="termtype">CurIndex</span></span> is set to 0 before the instruction is executed, the values in Buf[0] to Buf[<span class="ph phtype_variable"><span class="termtype">BufSize</span></span>-1] are once set to 0, and then the current value of <span class="ph phtype_variable"><span class="termtype">In</span></span> is stored in Buf[0].</p>
+
+<p class="p" id="wom1501816374817__ID0ECOOM">The value of <span class="ph phtype_variable"><span class="termtype">CurIndex</span></span> changes to 1, and the value of <span class="ph phtype_variable"><span class="termtype">Q</span></span> changes to FALSE.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="lyj1501816376281">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Changing the Value of BufSize</h1>
+
+<div class="body conbody">
+<p class="p" id="lyj1501816376281__ID0EMPOM">If you change the value of <span class="ph phtype_variable"><span class="termtype">BufSize</span></span> and execute the instruction, operation is performed with the new value of <span class="ph phtype_variable"><span class="termtype">BufSize</span></span> and the current value of <span class="ph phtype_variable"><span class="termtype">CurIndex</span></span>.</p>
+
+<br /><img class="image" id="lyj1501816376281__image_nbz_nrh_zz" src="pen1501816375065.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="ogp1501816376534">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Precautions for Correct Use</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="ogp1501816376534__li_N10015_N10012_N1000F_N10002">
+<p class="p" id="ogp1501816376534__ID0E6QOM">Use the same data type for <span class="ph phtype_variable"><span class="termtype">In</span></span> and the elements of Buf[]. If they are different, a building error will occur.</p>
+
+</li>
+
+<li class="li" id="ogp1501816376534__li_N10023_N10012_N1000F_N10002">
+<p class="p" id="ogp1501816376534__ID0EKROM">Use a Buf[] array that is at least as large as the value of <span class="ph phtype_variable"><span class="termtype">BufSize</span></span>.</p>
+
+</li>
+
+<li class="li" id="ogp1501816376534__li_N10032_N10012_N1000F_N10002">
+<p class="p" id="ogp1501816376534__ID0EVROM">Even if the calculation result exceeds the valid range of <span class="ph phtype_variable"><span class="termtype">Out</span></span>, an error will not occur. <span class="ph phtype_variable"><span class="termtype">Out</span></span> will contain an illegal value.</p>
+
+</li>
+
+<li class="li" id="ogp1501816376534__li_N10046_N10012_N1000F_N10002">
+<p class="p" id="ogp1501816376534__ID0EASOM">If the value of <span class="ph phtype_variable"><span class="termtype">BufSize</span></span> is 0, the values of <span class="ph phtype_variable"><span class="termtype">Out</span></span> and <span class="ph phtype_variable"><span class="termtype">CurIndex</span></span> change to 0. The value of <span class="ph phtype_variable"><span class="termtype">Q</span></span> changes to TRUE.</p>
+
+</li>
+
+<li class="li" id="ogp1501816376534__li_N10063_N10012_N1000F_N10002">
+<p class="p" id="ogp1501816376534__ID0ELSOM">If you change the value of <span class="ph phtype_variable"><span class="termtype">BufSize</span></span>, always set the value of <span class="ph phtype_variable"><span class="termtype">CurIndex</span></span> to 0 and initialize the stored values.</p>
+
+</li>
+
+<li class="li" id="ogp1501816376534__li_N10076_N10012_N1000F_N10002">
+<p class="p" id="ogp1501816376534__ID0EWSOM">An error will occur in the following case. <span class="ph phtype_variable"><span class="termtype">ENO</span></span> will be FALSE, and <span class="ph phtype_variable"><span class="termtype">Out</span></span> will not change.</p>
+
+<ol class="ol liststyle_alphabet1">
+<li class="li" id="ogp1501816376534__li_N1008D_N10089_N10076_N10012_N1000F_N10002">
+<p class="p" id="ogp1501816376534__ID0EFTOM">The value of <span class="ph phtype_variable"><span class="termtype">BufSize</span></span> exceeds the size of the Buf[] array.</p>
+
+</li>
+
+</ol>
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="xtz1501816377538">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Sample Programming</h1>
+ 
+<div class="body conbody">
+<p class="p" id="xtz1501816377538__ID0EOUOM">This sample shows how to eliminate the effect of noise and other disturbances in analog input data, e.g., from a sensor.</p>
+
+<p class="p" id="xtz1501816377538__ID0ERUOM">The average of the last 25 values of <span class="ph phtype_type2"><span class="termtype">InputData</span></span> (input data) is calculated as <span class="ph phtype_type2"><span class="termtype">DataAve</span></span>, which is assigned to <span class="ph phtype_type2"><span class="termtype">InputDataForOperating</span></span> as the input data for the next process.</p>
+
+<p class="p" id="xtz1501816377538__ID0EYUOM"><span class="ph phtype_type2"><span class="termtype">InputData</span></span> is input every task period as long as the value of <span class="ph phtype_type2"><span class="termtype">Trigger</span></span> (execution condition) is TRUE.</p>
+
+<p class="p" id="xtz1501816377538__ID0E6UOM">The most recent value of <span class="ph phtype_type2"><span class="termtype">InputData</span></span>, instead of the average value, is assigned to <span class="ph phtype_type2"><span class="termtype">InputDataForOperating</span></span> until 25 values of <span class="ph phtype_type2"><span class="termtype">InputData</span></span> are input for calculating the average.</p>
+
+<p class="p" id="xtz1501816377538__ID0EGVOM">When the value of <span class="ph phtype_type2"><span class="termtype">Trigger</span></span> changes to TRUE, the calculated average is cleared and input of <span class="ph phtype_type2"><span class="termtype">InputData</span></span> is started again from the beginning.</p>
+
+<br /><img class="image" id="xtz1501816377538__image_507F5AB977574FDF95CB2824FD57CC90" src="mge1501816376830.gif" /><br />
+</div>
+ 
+<div class="related-links"></div></div><div class="layer04" id="idm1501816380813">
+<h1 class="title topictitle1"  topicstatus="Localization:done">LD</h1>
+<div class="body conbody">
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="idm1501816380813__table_uzg_5gz_h1b" class="rules_all " frame="border" border="1" rules="all"><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d426423e23">Variable</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d426423e25">Data type</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d426423e27">Initial value</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d426423e29">Comment</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d426423e23 ">Trigger</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d426423e25 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d426423e27 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d426423e29 ">Execution condition</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d426423e23 ">InputData</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d426423e25 ">INT</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d426423e27 ">10</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d426423e29 ">Input value</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d426423e23 ">Buffer</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d426423e25 ">ARRAY[0..24] OF INT</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d426423e27 ">[25(0)]</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d426423e29 ">Input value storage array</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d426423e23 ">DataAve</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d426423e25 ">INT</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d426423e27 ">0</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d426423e29 ">Average value</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d426423e23 ">OneRound</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d426423e25 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d426423e27 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d426423e29 ">Flag that indicates 25 inputs</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d426423e23 ">IndexNo</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d426423e25 ">UINT</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d426423e27 ">0</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d426423e29 ">Input value storage position</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d426423e23 ">InputDataForOperating</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d426423e25 ">INT</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d426423e27 ">0</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d426423e29 ">Input to next operation</td>
+</tr>
+</tbody>
+</table>
+</div>
+<br /><img class="image" id="idm1501816380813__image_BDC00ED55D6F4FD9867D033CFE2D2B41" src="jus1501816377826.gif" /><br /><br /><img class="image" id="idm1501816380813__image_sv1_4wh_zz" src="fcz1501816378752.gif" /><br /><br /><img class="image" id="idm1501816380813__image_dlc_1xh_zz" src="guc1501816379879.gif" /><br /></div>
+<div class="related-links"></div></div><div class="layer04" id="plw1501816381066">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">ST</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="plw1501816381066__table_oww_5gz_h1b" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d773281e34">Variable</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d773281e37">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d773281e40">Initial value</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d773281e43">Comment</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d773281e34 ">Trigger</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d773281e37 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d773281e40 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d773281e43 ">Execution condition</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d773281e34 ">LastTrigger</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d773281e37 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d773281e40 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d773281e43 ">Value of <span class="ph phtype_variable"><span class="termtype">Trigger</span></span> from the previous task period</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d773281e34 ">Operating</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d773281e37 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d773281e40 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d773281e43 ">Processing</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d773281e34 ">OperatingStart</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d773281e37 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d773281e40 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d773281e43 ">Processing started</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d773281e34 ">Buffer</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d773281e37 ">ARRAY[0..24] OF INT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d773281e40 ">[25(0)]</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d773281e43 ">Input value storage array</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d773281e34 ">InputData</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d773281e37 ">INT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d773281e40 ">10</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d773281e43 ">Input value</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d773281e34 ">DataAve</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d773281e37 ">INT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d773281e40 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d773281e43 ">Average value</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d773281e34 ">OneRound</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d773281e37 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d773281e40 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d773281e43 ">Flag that indicates 25 inputs</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d773281e34 ">IndexNo</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d773281e37 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d773281e40 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d773281e43 ">Input value storage position</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d773281e34 ">InputDataForOperating</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d773281e37 ">INT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d773281e40 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d773281e43 ">Input to next operation</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_14pt"></p>
+
+<pre class="pre codeblock">// Detect when Trigger changes to TRUE.
+IF ((Trigger=TRUE) AND (LastTrigger=FALSE)) THEN
+    OperatingStart:=TRUE;
+    Operating:=TRUE;
+END_IF;
+LastTrigger:=Trigger;
+
+// Clear the average.
+IF (OperatingStart=TRUE) THEN
+    IndexNo:=UINT#0;
+    OperatingStart:=FALSE;
+END_IF;
+
+// Calculate the moving average.
+IF (Operating=TRUE) THEN
+    DataAve:=MovingAverage(
+        In :=InputData,
+        CurIndex:=IndexNo,
+        Buf :=Buffer[0],
+        BufSize :=UINT#25,
+        Q :=OneRound);
+    IF (OneRound=TRUE) THEN
+        // Assign the average of last 25 values to InputDataForOperating.
+        InputDataForOperating:=DataAve;
+    ELSE
+        // Assign the most recent value to InputDataForOperating.
+        InputDataForOperating:=InputData;
+    END_IF;
+END_IF;
+
+// End average processing.
+IF (Trigger=FALSE) THEN
+    Operating:=FALSE;
+END_IF;
+</pre>
+
+</div>
+
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

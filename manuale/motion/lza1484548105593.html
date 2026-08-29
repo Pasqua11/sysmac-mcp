@@ -1,0 +1,3957 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>MC_GenerateCamTable</title>
+</head>
+<body class="lza1484548105593"><div class="layer02" id="lza1484548105593">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">MC_GenerateCamTable</h1>
+
+<div class="body conbody">
+<p class="p" id="lza1484548105593__ID0E3WDI">The MC_GenerateCamTable instruction creates a cam table for the <span class="ph phtype_variable"><span class="termtype">CamProperty</span></span> (Cam Properties) and <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> (Cam Nodes) specified in the I/O variables.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="lza1484548105593__ID0EHXDI" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:16%" />
+<col style="width:12%" />
+<col style="width:5%" />
+<col style="width:35%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d90533e43">Instruction</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d90533e46">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d90533e49">FB/FUN</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d90533e52">Graphic expression</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d90533e55">ST expression</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d90533e43 "><span class="indexterm">MC_GenerateCamTable (Generate Cam Table)</span>MC_GenerateCamTable</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d90533e46 "><span class="indexterm">Generate Cam Table</span>Generate Cam Table</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d90533e49 ">FB</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d90533e52 ">
+<br /><img class="image" id="lza1484548105593__image_CC8DBB89F9A04855B131B466C56D2829" src="wmj1484548104626.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d90533e55 ">
+<p class="p" id="lza1484548105593__ID0EK2DI">MC_GenerateCamTable_instance (</p>
+
+<p class="p">CamTable :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">CamProperty :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">CamNodes :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Execute :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Done =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">EndPointIndex =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Busy =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">CommandAborted =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Error =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">ErrorID =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">ErrorParameterCode =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">ErrorNodePointIndex =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span></p>
+
+<p class="p">);</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<div class="note" id="lza1484548105593__note_N100E9_N10010_N10002"><div class="use"><span class="notetitle use">use:</span>
+<p class="p" id="lza1484548105593__ID0EN4DI">You must create the cam table specified for this instruction with the Cam Editor on the Sysmac Studio and download it to the <span class="keyword">CPU Unit</span> in advance.</p>
+
+<p class="p" id="lza1484548105593__ID0EU4DI">Use the Synchronize Menu of the Sysmac Studio to download the project.</p>
+
+</div></div>
+
+<div class="note" id="lza1484548105593__note_N100FE_N10010_N10002"><div class="ver"><span class="notetitle ver">ver:</span>
+<p class="p" id="lza1484548105593__ID0ET5DI">A CPU Unit with unit version 1.08 or later and Sysmac Studio version 1.09 or higher are required to use this instruction.</p>
+
+</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="tna1484547261564">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Variables</h1>
+
+<div class="body conbody"></div>
+
+<div class="related-links"></div></div><div class="layer04" id="nba1484547289552">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">Input Variables</h1>
+ 
+<div class="body conbody">
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="nba1484547289552__ID0EEGBI" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:14%" />
+<col style="width:11%" />
+<col style="width:16%" />
+<col style="width:12%" />
+<col style="width:8%" />
+<col style="width:37%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d98958e35">Name</th>
+ 
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d98958e38">Meaning</th>
+ 
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d98958e41">Data type</th>
+ 
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d98958e44">Valid range</th>
+ 
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d98958e47">Default</th>
+ 
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d98958e51">Description</th>
+ 
+</tr>
+ 
+</thead>
+ 
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d98958e35 ">Execute</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d98958e38 ">Execute</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d98958e41 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d98958e44 ">TRUE or FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d98958e47 ">FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d98958e51 ">
+<p class="p" id="nba1484547289552__ID0EZKBI">The instruction is executed when the value of this variable changes to TRUE.</p>
+ 
+</td>
+ 
+</tr>
+ 
+</tbody>
+ 
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer04" id="bzr1484548105812">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Output Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="bzr1484548105812__ID0EJHAK" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:17%" />
+<col style="width:13%" />
+<col style="width:8%" />
+<col style="width:13%" />
+<col style="width:47%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d11942e53">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d11942e56">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d11942e59">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d11942e62">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d11942e65">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d11942e53 ">Done</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d11942e56 ">Done</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d11942e59 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d11942e62 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d11942e65 ">
+<p class="p" id="bzr1484548105812__ID0EGLAK">TRUE when the instruction is completed.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d11942e53 ">EndPointIndex</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d11942e56 ">End Point Index</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d11942e59 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d11942e62 ">Non-negative number</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d11942e65 ">
+<p class="p" id="bzr1484548105812__ID0EHNAK">Contains the cam table end point index after the instruction is executed.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d11942e53 ">Busy</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d11942e56 ">Executing</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d11942e59 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d11942e62 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d11942e65 ">
+<p class="p" id="bzr1484548105812__ID0EGPAK">TRUE when the instruction is acknowledged.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d11942e53 ">CommandAborted</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d11942e56 ">Command Aborted</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d11942e59 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d11942e62 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d11942e65 ">
+<p class="p" id="bzr1484548105812__ID0EFRAK">TRUE when the instruction is aborted.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d11942e53 ">Error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d11942e56 ">Error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d11942e59 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d11942e62 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d11942e65 ">
+<p class="p" id="bzr1484548105812__ID0EETAK">TRUE while there is an error.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d11942e53 ">ErrorID</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d11942e56 ">Error Code</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d11942e59 ">WORD</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d11942e62 "><a class="xref" href="#bzr1484548105812__fn_rpd_wtd_hx"><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d11942e65 ">
+<p class="p" id="bzr1484548105812__ID0EDVAK">Contains the error code when an error occurs.</p>
+
+<p class="p">A value of 16#0000 indicates normal execution.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d11942e53 ">ErrorParameterCode</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d11942e56 ">Parameter Detail Code</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d11942e59 ">WORD</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d11942e62 "><a class="xref" href="#bzr1484548105812__fn_rpd_wtd_hx"><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d11942e65 ">
+<p class="p" id="bzr1484548105812__ID0ECXAK">Contains the attached information for some error codes. If the information is saved, the detail code of the parameter for which the error occurred is output.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d11942e53 ">ErrorNodePointIndex</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d11942e56 ">Node Point Element Number</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d11942e59 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d11942e62 "><a class="xref" href="#bzr1484548105812__fn_rpd_wtd_hx"><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d11942e65 ">
+<p class="p" id="bzr1484548105812__ID0EBZAK">Contains the attached information for some error codes. If the information is saved, the element number of the node point for which the error occurred is output.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="bzr1484548105812__fn_rpd_wtd_hx" id="bzr1484548105812__fn_rpd_wtd_hx"><sup>*1</sup></a>
+<p class="p">The upper four digits of the event code give the error code for ErrorID. Refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series Troubleshooting Manual (Cat. No. W503)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Troubleshooting Manual (Cat. No. W564)</span></span></span> for the event codes.</p>
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="ilq1484548106061">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">Output Variable Update Timing</h1>
+ 
+<div class="body conbody">
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ilq1484548106061__ID0EA2AK" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:18%" />
+<col style="width:40%" />
+<col style="width:40%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d62564e28">Name</th>
+ 
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d62564e31">Timing for changing to TRUE</th>
+ 
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d62564e34">Timing for changing to FALSE</th>
+ 
+</tr>
+ 
+</thead>
+ 
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d62564e28 ">Done</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d62564e31 ">
+<p class="p" id="ilq1484548106061__ID0EB4AK">When creating cam table data is completed.</p>
+ 
+</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d62564e34 ">
+<ul class="ul" id="ilq1484548106061__ul_15018EFA50BE44EEA9AFEE72578AD5A6">
+<li class="li" id="ilq1484548106061__li_5E9459D62489463C806E24E37818556E">
+<p class="p" id="ilq1484548106061__ID0EZ4AK">When <span class="ph phtype_variable"><span class="termtype">Execute</span></span> is TRUE and changes to FALSE.<span class="ph phtype_variable"><span class="termtype"></span></span></p>
+ 
+</li>
+ 
+<li class="li" id="ilq1484548106061__li_C3B16B50B6E6452382F3B8D27619D82C">
+<p class="p" id="ilq1484548106061__ID0EE5AK">After one period when <span class="ph phtype_variable"><span class="termtype">Execute</span></span> is FALSE.</p>
+ 
+</li>
+ 
+</ul>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d62564e28 ">Busy</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d62564e31 ">
+<p class="p" id="ilq1484548106061__ID0E45AK">When <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to TRUE.</p>
+ 
+</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d62564e34 ">
+<ul class="ul" id="ilq1484548106061__ul_4D7BFC0A164C4945838B6553583AD63A">
+<li class="li" id="ilq1484548106061__li_A31C62055D7C4215A8D384CE76C9F395">
+<p class="p" id="ilq1484548106061__ID0EV6AK">When <span class="ph phtype_variable"><span class="termtype">Done</span></span> changes to TRUE.</p>
+ 
+</li>
+ 
+<li class="li" id="ilq1484548106061__li_63714D12AFDA40B898CED236D24EE83F">
+<p class="p" id="ilq1484548106061__ID0EAABK">When <span class="ph phtype_variable"><span class="termtype">Error</span></span> changes to TRUE.</p>
+ 
+</li>
+ 
+<li class="li" id="ilq1484548106061__li_A524EC62514D45108FD7C39CF271D881">
+<p class="p" id="ilq1484548106061__ID0ELABK">When <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> changes to TRUE.</p>
+ 
+</li>
+ 
+</ul>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d62564e28 ">CommandAborted</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d62564e31 ">
+<p class="p" id="ilq1484548106061__ID0EEBBK">When there is a reason to abort this instruction.</p>
+ 
+</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d62564e34 ">
+<ul class="ul" id="ilq1484548106061__ul_A496A27EFA764E6F8BF50D9BEEF64552">
+<li class="li" id="ilq1484548106061__li_B563901354234F1682AC150F10AF5D33">
+<p class="p" id="ilq1484548106061__ID0E3BBK">When <span class="ph phtype_variable"><span class="termtype">Execute</span></span> is TRUE and changes to FALSE.<span class="ph phtype_variable"><span class="termtype"></span></span></p>
+ 
+</li>
+ 
+<li class="li" id="ilq1484548106061__li_C1FDE12D17D34EBE89B8D8F5D8869535">
+<p class="p" id="ilq1484548106061__ID0EHCBK">After one period when <span class="ph phtype_variable"><span class="termtype">Execute</span></span> is FALSE.</p>
+ 
+</li>
+ 
+</ul>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d62564e28 ">Error</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d62564e31 ">
+<p class="p" id="ilq1484548106061__ID0EADBK">When there is an error in the execution conditions or input parameters for the instruction.</p>
+ 
+</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d62564e34 ">
+<p class="p" id="ilq1484548106061__ID0EMDBK">When the error is cleared.</p>
+ 
+</td>
+ 
+</tr>
+ 
+</tbody>
+ 
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer04" id="ckg1484548106295">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">In-Out Variables</h1>
+ 
+<div class="body conbody">
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ckg1484548106295__ID0EEFBK" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:15%" />
+<col style="width:16%" />
+<col style="width:17%" />
+<col style="width:9%" />
+<col style="width:41%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d17175e51">Name</th>
+ 
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d17175e54">Meaning</th>
+ 
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d17175e57">Data type</th>
+ 
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d17175e60">Valid range</th>
+ 
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d17175e63">Description</th>
+ 
+</tr>
+ 
+</thead>
+ 
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d17175e51 ">CamTable</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d17175e54 ">Cam Table</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d17175e57 ">ARRAY[0..N] OF _sMC_CAM_REF</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d17175e60 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d17175e63 ">
+<p class="p" id="ckg1484548106295__ID0EBJBK">Specify an array variable of _sMC_CAM_REF cam data structure as the cam table. <a class="xref" href="#ckg1484548106295__ID0EEFBK-footnote-1365933"><sup>*1</sup></a></p>
+ 
+<p class="p" id="ckg1484548106295__ID0ELJBK">Specify a cam data variable that was created on the Cam Editor of the Sysmac Studio.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d17175e51 ">CamProperty</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d17175e54 ">Cam Properties</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d17175e57 ">_sMC_CAM_PROPERTY</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d17175e60 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d17175e63 ">
+<p class="p" id="ckg1484548106295__ID0EKLBK">Specify a variable of _sMC_CAM_PROPERTY cam property structures.</p>
+ 
+<p class="p" id="ckg1484548106295__ID0ERLBK">Specify a user-defined variable with a data type of _sMC_CAM_PROPERTY or a cam property variable created on the Sysmac Studio.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d17175e51 ">CamNodes</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d17175e54 ">Cam Nodes</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d17175e57 ">ARRAY[0..N] OF _sMC_CAM_NODE</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d17175e60 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d17175e63 ">
+<p class="p" id="ckg1484548106295__ID0EQNBK">Specify an array variable of _sMC_CAM_NODE cam node structures.</p>
+ 
+<p class="p" id="ckg1484548106295__ID0EXNBK">Specify a user-defined variable with a data type of _sMC_CAM_NODE or a cam node variable created on the Sysmac Studio. <a class="xref" href="#ckg1484548106295__ID0EEFBK-footnote-1365942"><sup>*2</sup></a></p>
+ 
+</td>
+ 
+</tr>
+ 
+</tbody>
+ 
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="ckg1484548106295__ID0EEFBK-footnote-1365933" id="ckg1484548106295__ID0EEFBK-footnote-1365933"><sup>*1</sup></a>  <p class="p" id="ckg1484548106295__ID0EWJBO"><span class="ph phtype_type2"><span class="termtype">N</span></span> in the array variable is set automatically by the Sysmac Studio.</p>
+</div>
+<div class="fn"><a name="ckg1484548106295__ID0EEFBK-footnote-1365942" id="ckg1484548106295__ID0EEFBK-footnote-1365942"><sup>*2</sup></a>  <p class="p" id="ckg1484548106295__ID0EJKBO">If you use a user-defined variable, create an array variable with a starting element number of 0 and a maximum of 358 array elements <span class="ph phtype_type2"><span class="termtype">N</span></span>.</p>
+</div></div></div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="otc1484548109759">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function</h1>
+
+<div class="body conbody">
+<ul class="ul" id="otc1484548109759__ul_25D7B68291504D0FB3A532C9935679E4">
+<li class="li" id="otc1484548109759__li_07C852CE802242DEBC77F022C60670D3">
+<p class="p" id="otc1484548109759__ID0EPPBK">The MC_GenerateCamTable instruction calculates cam data based on <span class="ph phtype_variable"><span class="termtype">CamProperty</span></span> (Cam Properties) and <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> (Cam Nodes) that are specified for the in-out variables when <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to TRUE.</p>
+
+</li>
+
+<li class="li" id="otc1484548109759__li_DFEB35CA648A43C891616063A2E7BB1D">
+<p class="p" id="otc1484548109759__ID0E1PBK">The calculated cam data values are written to <span class="ph phtype_variable"><span class="termtype">CamTable</span></span> specified for the in-out variable.</p>
+
+</li>
+
+<li class="li" id="otc1484548109759__li_79138F50568C446F8FA8F8FC01F44101">
+<p class="p" id="otc1484548109759__ID0EFQBK">The items in <span class="ph phtype_variable"><span class="termtype">CamProperty</span></span> (Cam Properties) and <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> correspond to the items that are set with the Cam Editor of the Sysmac Studio.</p>
+
+</li>
+
+<li class="li" id="otc1484548109759__li_965FC30C1C6B48FFB142F26F23D180C0">
+<p class="p" id="otc1484548109759__ID0EQQBK">When writing the cam table is completed, the end point index of the cam table is updated and the number of the last cam element is output to <span class="ph phtype_variable"><span class="termtype">EndPointIndex</span></span>.</p>
+
+<p class="p">It is not necessary to execute the MC_SetCamTableProperty or MC_SetCamTableEndPointIndex instruction after completion of this instruction.</p>
+
+</li>
+
+<li class="li" id="otc1484548109759__li_DE39EDC98DAA49788280E7EDD4DC8053">
+<p class="p" id="otc1484548109759__ID0E5QBK">While the cam table creation process is in progress, _MC_COM.Status.GenerateCamBusy (Cam Table Creation Busy) in the MC Common variable of the motion control system variables will be TRUE.</p>
+
+</li>
+
+</ul>
+
+<br /><img class="image" id="otc1484548109759__image_F9D2FCFA29A94D1D985FC8F738425F8E" src="ryh1484548106514.gif" /><br />
+<div class="note" id="otc1484548109759__note_N10066_N1000F_N10001"><div class="use"><span class="notetitle use">use:</span>
+<ul class="ul" id="otc1484548109759__ul_382B7A0985C5462D8298F78900DA2E0A">
+<li class="li" id="otc1484548109759__li_D475118F9CEB461C9BABB00422FE0302">
+<p class="p" id="otc1484548109759__ID0ESSBK">Set the maximum number of cam data to a value that is equal to or higher than the number of data in the cam table that will be created by the instruction.</p>
+
+</li>
+
+<li class="li" id="otc1484548109759__li_6F9909CF410B4496BBF9D28EEB6D992C">
+<p class="p" id="otc1484548109759__ID0E4SBK">Although you can specify a free curve as the curve shape on the Cam Editor of the Sysmac Studio, you cannot specify a free curve with this instruction.</p>
+
+</li>
+
+<li class="li" id="otc1484548109759__li_45F426FD525440CBA25E354EF31BD175">
+<p class="p" id="otc1484548109759__ID0EITBK">This instruction has a considerably longer processing time compared with other instructions. The processing time is greatly affected by the processing load on the <span class="keyword">CPU Unit</span>. If the next instruction is executed taking the completion of this instruction as a trigger, take care with the timing of execution of the next instruction.</p>
+
+</li>
+
+<li class="li" id="otc1484548109759__li_EEC5BE7A71E34263B3713B0AFA7144E4">
+<p class="p" id="otc1484548109759__ID0ETTBK">Even if the same setting items are set for the Cam Editor of the Sysmac Studio and this instruction, differences in internal processing may create differences in the values of the cam data that is created.</p>
+
+</li>
+
+<li class="li" id="otc1484548109759__li_7711E94F28924918A403FBD5FB1A6FEF">
+<p class="p" id="otc1484548109759__ID0E5TBK">Cam data variables are global variables. You can therefore access or change the values of cam data variables from more than one task. If you change the values of cam data variables from more than one task, program the changes so that there is no race condition in writing the value from more than one task.</p>
+
+</li>
+
+<li class="li" id="otc1484548109759__li_A717378A5C6245DE80297291CEEB69A6">
+<p class="p" id="otc1484548109759__ID0EJUBK">If you use exclusive control of global variables between tasks for a cam data variable, do not use the cam data variable for motion control instructions while exclusive control is in effect for the cam data variable. An Incorrect Cam Table Specification error (error code: 5439 hex) will occur.</p>
+
+</li>
+
+<li class="li" id="otc1484548109759__li_AF4596934DA047A7B98B0CDF4BB178E7">
+<p class="p" id="otc1484548109759__ID0EUUBK">If you create the variables that you specify for <span class="ph phtype_variable"><span class="termtype">CamProperty</span></span> (Cam Properties) and <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> as user-defined variables, set the Retain attributes of the variables not to retain their initial values. If you change the values of the variables and use them again after changing the mode to PROGRAM mode or cycling the power supply, set the Retain attributes of the variables to retain their values.</p>
+
+<p class="p">The Retain attributes of Cam Properties variables and Cam Nodes variables created on the Sysmac Studio are always set to retain the values of the variables.</p>
+
+</li>
+
+<li class="li" id="otc1484548109759__li_A797BD26F7FC4426953D2EAB30F32466">
+<p class="p" id="otc1484548109759__ID0ECVBK">The cam data variables that are created with this instruction are not saved in the non-volatile memory of the <span class="keyword">CPU Unit</span>. To save them in non-volatile memory, execute the MC_SaveCamTable instruction.</p>
+
+</li>
+
+<li class="li" id="otc1484548109759__li_441CBC39A71041CE9B890C6F808C6F43">
+<p class="p" id="otc1484548109759__ID0ENVBK">Do not change the values in the array variable that is specified for <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> during execution of the instruction. The instruction may cause unintended operation.</p>
+
+</li>
+
+<li class="li" id="otc1484548109759__li_2AD9CD68A0964ED1860ED010A4DEB156">
+<p class="p" id="otc1484548109759__ID0EYVBK">If the <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> array is large, the instruction execution time increases and the task period may be exceeded. If the task period is exceeded, a Task Period Exceeded error (error code: 6001 hex) will occur. Adjust the array size or change the task period.</p>
+
+</li>
+
+<li class="li" id="otc1484548109759__li_FDC5D520F4E147409D6D2122666211C6">
+<p class="p" id="otc1484548109759__ID0EDWBK">The creation process for the cam table continues even if the operating mode is changed from RUN mode to PROGRAM mode during execution of the instruction. If you then change back to RUN mode and execute the instruction for the same cam table, a Motion Control Instruction Multi-execution Disabled error (error code: 543C hex) will occur.</p>
+
+</li>
+
+</ul>
+
+</div></div>
+
+<div class="note" id="otc1484548109759__note_N100FD_N1000F_N10001"><div class="memo"><span class="notetitle memo">memo:</span>
+<ul class="ul" id="otc1484548109759__ul_A86EB22B182840F4A9F1AB084F16830F">
+<li class="li" id="otc1484548109759__li_6459277B28974676ADD1DF288F2C34B7">
+<p class="p" id="otc1484548109759__ID0ECXBK">You can check the maximum number of cam data in the cam table with the data type of the global variable on the Sysmac Studio or by executing the SizeOfAry (Get Number of Array Elements) instruction in the user program.</p>
+
+</li>
+
+<li class="li" id="otc1484548109759__li_D207B97A4E984AF68822F24D34F6369E">
+<p class="p" id="otc1484548109759__ID0ENXBK">You can calculate the number of cam data in the cam table that is created by this instruction with the following formula.</p>
+
+<br /><img class="image" id="otc1484548109759__image_cj4_qz4_sx" src="zpy1484548107715.gif" /><br />
+                    
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="otc1484548109759__ID0ENYBK" class="table no-line" border="0">
+                            
+                            
+                            
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;">T<sub class="ph sub">cd</sub></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;">:</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;">
+<p class="p" id="otc1484548109759__ID0EEZBK">Number of cam data in cam table</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;">k</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;">:</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;">
+<p class="p" id="otc1484548109759__ID0E6ZBK">Element number in cam node array variable</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;">M<sub class="ph sub">k</sub></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;">:</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;">
+<p class="p" id="otc1484548109759__ID0E11BK"><span class="ph phtype_variable"><span class="termtype">Phase</span></span> (Master Axis Phase) of element number k in cam node array variable</p>
+
+<p class="p" id="otc1484548109759__ID0EB2BK">However, <span class="ph phtype_variable"><span class="termtype">Phase</span></span> (Master Axis Phase) of M<sub class="ph sub">k-1</sub> is taken as 0.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;">P<sub class="ph sub">k</sub></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;">:</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;">
+<p class="p" id="otc1484548109759__ID0E32BK"><span class="ph phtype_variable"><span class="termtype">PhasePitch</span></span> (Phase Pitch) of element number k in cam node array variable</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;">n</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;">:</td>
+
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;">
+<p class="p" id="otc1484548109759__ID0EX3BK">Number of node points</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<ol class="ol liststyle_annotation1" id="otc1484548109759__ul_bfn_hvd_hx">
+<li class="li" id="otc1484548109759__li_N101D9_N101D4_N10114_N10104_N100FD_N1000F_N10001">
+    
+    &#8194;Note<span class="num"></span>&#8194;
+<p class="p" id="otc1484548109759__ID0EL5BK">If <span class="ph phtype_variable"><span class="termtype">Phase</span></span> (Master Axis Phase) cannot be divided evenly by <span class="ph phtype_variable"><span class="termtype">PhasePitch</span></span>, the value is rounded up at the first decimal place.</p>
+
+</li>
+
+</ol>
+
+</li>
+
+<li class="li" id="otc1484548109759__li_91C6056EE87B41B89E1123AB512684DF">
+<p class="p" id="otc1484548109759__ID0EQ6BK">Do not use this instruction to create a cam table with more than 65,535 cam data.</p>
+
+</li>
+
+<li class="li" id="otc1484548109759__li_BF923F8B01BE4A979F08AFA2420D5326">
+<p class="p" id="otc1484548109759__ID0E26BK">You can check the number of cam data in the created cam table with <span class="ph phtype_variable"><span class="termtype">EndPointIndex</span></span>. You can use an HMI to display the value of <span class="ph phtype_variable"><span class="termtype">EndPointIndex</span></span> to improve the resolution of the cam table, add node points, or make other adjustments.</p>
+
+</li>
+
+<li class="li" id="otc1484548109759__li_78D49D6A63E04484B2E916274522F292">
+<p class="p" id="otc1484548109759__ID0EGACK">Refer to information on <a class="xref" href="ick1484547506187.html"><i style="display:none;">☆</i>MC_CamIn</a> for details on the cam data in cam tables.</p>
+
+</li>
+
+<li class="li" id="otc1484548109759__li_62E9C51EC1604D63BC006E63B9FE76DA">
+<p class="p" id="otc1484548109759__ID0ERACK">Refer to information on <a class="xref" href="slu1484548086903.html"><i style="display:none;">☆</i>MC_SetCamTableProperty</a> for information on the end point index.</p>
+
+</li>
+
+<li class="li" id="otc1484548109759__li_6E1B5FB8309B4CFDA6B31C191713A237">
+<p class="p" id="otc1484548109759__ID0E3ACK">Refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">Sysmac Studio Version 1 Operation Manual (Cat. No. W504)</span></span></span> for information on the setting items for <span class="ph phtype_variable"><span class="termtype">CamProperty</span></span> (Cam Properties) and <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span>.</p>
+
+</li>
+
+<li class="li" id="otc1484548109759__li_1326BC5275CD4079BF337CAEF38CD9E5">
+<p class="p" id="otc1484548109759__ID0ENBCK">Refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">Sysmac Studio Version 1 Operation Manual (Cat. No. W504)</span></span></span> for information on the relationship between curve shapes, connecting velocities, and connecting accelerations.</p>
+
+</li>
+
+</ul>
+
+</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="lei1484548109977">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Relation to CPU Unit Operating Modes</h1>
+
+<div class="body conbody">
+<p class="p" id="lei1484548109977__ID0ESCCK">The cam table creation process for this instruction continues even if the operating mode of the <span class="keyword">CPU Unit</span> changes to PROGRAM mode.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="vjp1484548110180">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Deleting the Instruction with Online Editing</h1>
+
+<div class="body conbody">
+<p class="p" id="vjp1484548110180__ID0EKDCK">The cam table creation process for this instruction continues even if you delete the instruction in online editing.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="loi1484548110398">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">Execution of an MC Test Run</h1>
+
+<div class="body conbody">
+<p class="p" id="loi1484548110398__ID0ECECK">The <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> output variable from the instruction changes to TRUE if you execute an MC Test Run during the cam table creation process for this instruction, but the creation process continues.</p>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer04" id="xqt1484547315231">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Instruction Details</h1>
+
+<div class="body conbody">
+<p class="p">This section describes the instruction in detail.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="mtj1484548110586">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Cam Property Structure (_sMC_CAM_PROPERTY Data Type)</h1>
+
+<div class="body conbody">
+<p class="p" id="mtj1484548110586__ID0EAGCK">The cam property structure (_sMC_CAM_PROPERTY) is used to specify the properties. Some of the members correspond to the cam table properties that are set with the Cam Editor of the Sysmac Studio.</p>
+
+<p class="p" id="mtj1484548110586__ID0EDGCK">This cam property structure is used for the <span class="ph phtype_variable"><span class="termtype">CamProperty</span></span> (Cam Properties) in-out variable that is specified for this instruction.</p>
+
+<p class="p" id="mtj1484548110586__ID0EKGCK">The members of the cam property structure are described in the following table.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="mtj1484548110586__ID0E3GCK" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:16%" />
+<col style="width:12%" />
+<col style="width:11%" />
+<col style="width:24%" />
+<col style="width:35%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d96307e57">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d96307e60">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d96307e63">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d96307e66">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d96307e69">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d96307e57 ">InitVel</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d96307e60 ">Initial Velocity</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d96307e63 ">REAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d96307e66 ">Negative number<a class="xref" href="#mtj1484548110586__ID0E3GCK-footnote-1365950"><sup>*1</sup></a>, positive number<a class="xref" href="#mtj1484548110586__ID0E3GCK-footnote-1365950"><sup>*1</sup></a>, or 0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d96307e69 ">
+<p class="p" id="mtj1484548110586__ID0E4KCK">Set the velocity when operation is started at the start node (phase = 0 and displacement = 0).</p>
+
+<p class="p" id="mtj1484548110586__ID0EELCK">The initial velocity is valid when the curve shape for the next cam node after the start node is set to polynomic 3 or polynomic 5.</p>
+
+<p class="p" id="mtj1484548110586__ID0ELLCK">The unit is command units/s. </p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d96307e57 ">InitAcc</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d96307e60 ">Initial Acceleration</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d96307e63 ">REAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d96307e66 ">Negative number<a class="xref" href="#mtj1484548110586__ID0E3GCK-footnote-1365950"><sup>*1</sup></a>, positive number<a class="xref" href="#mtj1484548110586__ID0E3GCK-footnote-1365950"><sup>*1</sup></a>, or 0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d96307e69 ">
+<p class="p" id="mtj1484548110586__ID0EKNCK">Set the acceleration when operation is started at the start node (phase = 0 and displacement = 0).</p>
+
+<p class="p" id="mtj1484548110586__ID0ERNCK">The initial acceleration is valid when the curve shape for the next cam node after the start node is set to polynomic 5.</p>
+
+<p class="p" id="mtj1484548110586__ID0EYNCK">The unit is command units/s<sup class="ph sup">2</sup>.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d96307e57 ">CycleTime</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d96307e60 ">Cycle Time</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d96307e63 ">REAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d96307e66 ">Positive number<a class="xref" href="#mtj1484548110586__ID0E3GCK-footnote-1365950"><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d96307e69 ">
+<p class="p" id="mtj1484548110586__ID0EXPCK">Specify the time for one cam operation cycle.</p>
+
+<p class="p" id="mtj1484548110586__ID0E5PCK">The unit is seconds.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="mtj1484548110586__ID0E3GCK-footnote-1365950" id="mtj1484548110586__ID0E3GCK-footnote-1365950"><sup>*1</sup></a>
+<p class="p" id="mtj1484548110586__ID0E3KBO">Specify a value that has an absolute value of 0.001 or greater. The value is rounded to the forth decimal place.</p>
+
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="jyp1484548113019">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Cam Node Structure (_sMC_CAM_NODE Data Type)</h1>
+
+<div class="body conbody">
+<p class="p" id="jyp1484548113019__ID0E6QCK">The cam node structure (_sMC_CAM_NODE) is used to define the curve shapes. Some of the members correspond to the <span class="ph phtype_ui"><span class="termtype">Cam Nodes</span></span> items that are set with the Cam Editor of the Sysmac Studio.</p>
+
+<br /><img class="image linespace_7pt" id="jyp1484548113019__image_CE2B313D646D4D358DFEF43E469D2973" src="bkf1484548110788.gif" /><br />
+<p class="p linespace_7pt" id="jyp1484548113019__ID0E2RCK">This cam node structure is used for the <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> in-out variable that is specified for this instruction.</p>
+
+<p class="p" id="jyp1484548113019__ID0ECSCK">An element in the cam node array variable is called a node point. The number of elements in the array variable must be equal to or greater than the number of node points that is set.</p>
+
+<p class="p" id="jyp1484548113019__ID0EJSCK">The node point that is the start point of the cam profile curve (phase = 0, displacement = 0) is called the start node. Except for the start node, the node points in the array variable are in the order of the element numbers.</p>
+
+<p class="p" id="jyp1484548113019__ID0EQSCK">If you specify a positive number that is <span class="ph phtype_settingvalue"><span class="termtype">0.001</span></span> or higher for <span class="ph phtype_variable"><span class="termtype">Phase</span></span> (Master Axis Phase), the node is valid. If you specify <span class="ph phtype_settingvalue"><span class="termtype">0</span></span>, that node and all following nodes are invalid. However, if you set <span class="ph phtype_variable"><span class="termtype">Phase</span></span> (Master Axis Phase) for element number 0 to <span class="ph phtype_settingvalue"><span class="termtype">0</span></span>, an error occurs.</p>
+
+<p class="p linespace_7pt" id="jyp1484548113019__ID0EXSCK">The following example shows five valid nodes and 10 elements in an array variable.</p>
+
+<br /><img class="image linespace_7pt" id="jyp1484548113019__image_FD0F3F6ED0EC41CE9B0299E8698BF4C6" src="lga1484548111802.gif" /><br />
+<p class="p linespace_7pt" id="jyp1484548113019__ID0ERTCK">Specify the values of <span class="ph phtype_variable"><span class="termtype">Phase</span></span> (Master Axis Phase) so that they increase in the order of the array element numbers. (The previous value must be less than the current value.)</p>
+
+<p class="p linespace_7pt" id="jyp1484548113019__ID0EDUCK">The following table shows the members of the cam node structure.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="jyp1484548113019__ID0EPUCK" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:15%" />
+<col style="width:12%" />
+<col style="width:11%" />
+<col style="width:24%" />
+<col style="width:35%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d76272e123">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d76272e126">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d76272e129">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d76272e132">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d76272e135">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d76272e123 ">Phase</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d76272e126 ">Master Axis Phase</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d76272e129 ">REAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d76272e132 ">Non-negative number<a class="xref" href="#jyp1484548113019__ID0EPUCK-footnote-1365951"><sup>*1</sup></a><a class="xref" href="#jyp1484548113019__ID0EPUCK-footnote-1365968"><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d76272e135 ">
+<p class="p" id="jyp1484548113019__ID0EUYCK">Set the phase of the master axis at the node point.</p>
+
+<p class="p" id="jyp1484548113019__ID0E2YCK">The unit is command units.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d76272e123 ">Distance</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d76272e126 ">Slave Axis Displacement</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d76272e129 ">REAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d76272e132 ">Negative number<a class="xref" href="#jyp1484548113019__ID0EPUCK-footnote-1365951"><sup>*1</sup></a><a class="xref" href="#jyp1484548113019__ID0EPUCK-footnote-1365968"><sup>*2</sup></a>, positive number<a class="xref" href="#jyp1484548113019__ID0EPUCK-footnote-1365951"><sup>*1</sup></a><a class="xref" href="#jyp1484548113019__ID0EPUCK-footnote-1365968"><sup>*2</sup></a>, or 0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d76272e135 ">
+<p class="p" id="jyp1484548113019__ID0E11CK">Set the displacement of the slave axis at the node point.</p>
+
+<p class="p" id="jyp1484548113019__ID0EB2CK">The unit is command units.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d76272e123 ">Curve</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d76272e126 ">Curve Shape</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d76272e129 ">_eMC_CAM_CURVE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d76272e132 ">
+<p class="p" id="jyp1484548113019__ID0EU3CK">0: _mcConstantLine</p>
+
+<p class="p" id="jyp1484548113019__ID0E23CK">1: _mcStraightLine</p>
+
+<p class="p" id="jyp1484548113019__ID0EC4CK">2: _mcParabolic</p>
+
+<p class="p" id="jyp1484548113019__ID0EJ4CK">3: _mcModifiedConstantVel</p>
+
+<p class="p" id="jyp1484548113019__ID0ES4CK">4: _mcModifiedTrapezoid</p>
+
+<p class="p" id="jyp1484548113019__ID0EZ4CK">5: _mcModifiedSine</p>
+
+<p class="p" id="jyp1484548113019__ID0EA5CK">6: _mcCycloidal</p>
+
+<p class="p" id="jyp1484548113019__ID0EH5CK">7: _mcTrapecloid</p>
+
+<p class="p" id="jyp1484548113019__ID0EO5CK">8: _mcReverseTrapecloid</p>
+
+<p class="p" id="jyp1484548113019__ID0EV5CK">9: _mcSimpleHarmonic</p>
+
+<p class="p" id="jyp1484548113019__ID0E35CK">10: _mcDoubleHarmonic</p>
+
+<p class="p" id="jyp1484548113019__ID0ED6CK">11: _mcReverseDoubleHarmonic</p>
+
+<p class="p" id="jyp1484548113019__ID0EM6CK">12: _mcNC2Curve</p>
+
+<p class="p" id="jyp1484548113019__ID0ET6CK">13: _mcPolynomic3</p>
+
+<p class="p" id="jyp1484548113019__ID0E16CK">14: _mcPolynomic5</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d76272e135 ">
+<p class="p" id="jyp1484548113019__ID0EGADK">Specify the shape of the cam curve to the node point.</p>
+
+<p class="p" id="jyp1484548113019__ID0ENADK">0: Constant<a class="xref" href="#jyp1484548113019__ID0EPUCK-footnote-1365953"><sup>*3</sup></a></p>
+
+<p class="p" id="jyp1484548113019__ID0EXADK">1: Straight line</p>
+
+<p class="p" id="jyp1484548113019__ID0E5ADK">2: Parabolic</p>
+
+<p class="p" id="jyp1484548113019__ID0EFBDK">3: Modified constant velocity</p>
+
+<p class="p" id="jyp1484548113019__ID0EMBDK">4: Modified trapezoid</p>
+
+<p class="p" id="jyp1484548113019__ID0ETBDK">5: Modified sine</p>
+
+<p class="p" id="jyp1484548113019__ID0E1BDK">6: Cycloidal</p>
+
+<p class="p" id="jyp1484548113019__ID0EBCDK">7: Trapecloid</p>
+
+<p class="p" id="jyp1484548113019__ID0EICDK">8: Reverse trapecloid</p>
+
+<p class="p" id="jyp1484548113019__ID0EPCDK">9: Simple harmonic</p>
+
+<p class="p" id="jyp1484548113019__ID0EWCDK">10: Double harmonic</p>
+
+<p class="p" id="jyp1484548113019__ID0E4CDK">11: Reverse double harmonic</p>
+
+<p class="p" id="jyp1484548113019__ID0EEDDK">12: NC2 curve</p>
+
+<p class="p" id="jyp1484548113019__ID0ELDDK">13: Polynomic 3</p>
+
+<p class="p" id="jyp1484548113019__ID0ESDDK">14: Polynomic 5</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d76272e123 ">ConnectingVelEnable</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d76272e126 ">Connecting Velocity Enable</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d76272e129 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d76272e132 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d76272e135 ">
+<p class="p" id="jyp1484548113019__ID0ERFDK">Set to TRUE to enable the specified connecting velocity when the specified curve shape is polynomic 3 or polynomic 5.</p>
+
+<p class="p" id="jyp1484548113019__ID0EYFDK">Set to FALSE to disable the connecting velocity.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d76272e123 ">ConnectingVel</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d76272e126 ">Connecting Velocity</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d76272e129 ">REAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d76272e132 ">Negative number<a class="xref" href="#jyp1484548113019__ID0EPUCK-footnote-1365951"><sup>*1</sup></a>, positive number<a class="xref" href="#jyp1484548113019__ID0EPUCK-footnote-1365951"><sup>*1</sup></a>, or 0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d76272e135 ">
+<p class="p" id="jyp1484548113019__ID0EXHDK">If the specified curve shape is polynomic 3 or polynomic 5, you can specify the velocity of the connecting section to the next curve.</p>
+
+<p class="p" id="jyp1484548113019__ID0E5HDK">Use this setting for smooth connections between curves.</p>
+
+<p class="p" id="jyp1484548113019__ID0EFIDK">The unit is command units/s.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d76272e123 ">ConnectingAccEnable</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d76272e126 ">Connecting Acceleration Enable</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d76272e129 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d76272e132 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d76272e135 ">
+<p class="p" id="jyp1484548113019__ID0EEKDK">Set to TRUE to enable the specified connecting acceleration when the specified curve shape is polynomic 5.</p>
+
+<p class="p" id="jyp1484548113019__ID0ELKDK">Set to FALSE to disable the connecting acceleration.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d76272e123 ">ConnectingAcc</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d76272e126 ">Connecting Acceleration</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d76272e129 ">REAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d76272e132 ">Negative number<a class="xref" href="#jyp1484548113019__ID0EPUCK-footnote-1365951"><sup>*1</sup></a>, positive number<a class="xref" href="#jyp1484548113019__ID0EPUCK-footnote-1365951"><sup>*1</sup></a>, or 0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d76272e135 ">
+<p class="p" id="jyp1484548113019__ID0EKMDK">If the specified curve shape is polynomic 5, you can specify the acceleration of the connecting section to the next curve.</p>
+
+<p class="p" id="jyp1484548113019__ID0ERMDK">Use this setting for smooth connections between curves.</p>
+
+<p class="p" id="jyp1484548113019__ID0EYMDK">The unit is command units/s<sup class="ph sup">2</sup>.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d76272e123 ">PhasePitch</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d76272e126 ">Phase Pitch</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d76272e129 ">REAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d76272e132 ">Positive number<a class="xref" href="#jyp1484548113019__ID0EPUCK-footnote-1365951"><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d76272e135 ">
+<p class="p" id="jyp1484548113019__ID0EXODK">The phase between node points is divided by the specified pitch width. <a class="xref" href="#jyp1484548113019__ID0EPUCK-footnote-1365954"><sup>*4</sup></a></p>
+
+<p class="p" id="jyp1484548113019__ID0EBPDK">The unit is command units.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="jyp1484548113019__ID0EPUCK-footnote-1365951" id="jyp1484548113019__ID0EPUCK-footnote-1365951"><sup>*1</sup></a>  <p class="p" id="jyp1484548113019__ID0EPLBO">Specify a value that has an absolute value of 0.001 or greater. The value is rounded to the forth decimal place.</p>
+</div>
+<div class="fn"><a name="jyp1484548113019__ID0EPUCK-footnote-1365968" id="jyp1484548113019__ID0EPUCK-footnote-1365968"><sup>*2</sup></a>  <p class="p" id="jyp1484548113019__ID0ECMBO"><span class="ph phtype_variable"><span class="termtype">Phase</span></span> (Master Axis Phase) and <span class="ph phtype_variable"><span class="termtype">Distance</span></span> (Slave Axis Displacement) are effective to seven digits. If you enter more than seven digits, the digits that are not effective are truncated. If a truncated value is the same as the value of another value in <span class="ph phtype_variable"><span class="termtype">Phase</span></span> (Master Axis Phase), a Cam Node Master Axis Phase Not in Ascending Order error (error code: 5740 hex) occurs. Enter values in ascending order for seven digits or less.</p>
+</div>
+<div class="fn"><a name="jyp1484548113019__ID0EPUCK-footnote-1365953" id="jyp1484548113019__ID0EPUCK-footnote-1365953"><sup>*3</sup></a>  <p class="p" id="jyp1484548113019__ID0EVMBO">If you specify a straight line with constant displacement, <span class="ph phtype_variable"><span class="termtype">Distance</span></span> (Slave Axis Displacement) is disabled and the value that is specified for the previous node point is used for processing. If the array element number is 0 and you specify a straight line with constant displacement, <span class="ph phtype_variable"><span class="termtype">Distance</span></span> (Slave Axis Displacement) is treated as 0.</p>
+</div>
+<div class="fn"><a name="jyp1484548113019__ID0EPUCK-footnote-1365954" id="jyp1484548113019__ID0EPUCK-footnote-1365954"><sup>*4</sup></a>  <p class="p" id="jyp1484548113019__ID0EINBO">Make the settings so that the total of all cam data that is created for each node point is 65,535 or less.</p>
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="kjo1484548113285">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">Example of Creating a Cam Table</h1>
+ 
+<div class="body conbody">
+<p class="p" id="kjo1484548113285__ID0EDQDK">This section provides an example of creating a cam table with this instruction.</p>
+ 
+<p class="p" id="kjo1484548113285__ID0EGQDK">There are four elements in the array variable that is specified for <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span>. _mcStraightLine (Straight Line) is specified for <span class="ph phtype_variable"><span class="termtype">Curve</span></span> (Curve Shape). <span class="ph phtype_variable"><span class="termtype">ConnectingVel</span></span> (Connecting Velocity) and <span class="ph phtype_variable"><span class="termtype">ConnectingAcc</span></span> (Connecting Acceleration) are disabled, as are <span class="ph phtype_variable"><span class="termtype">InitVel</span></span> (Initial Velocity) and <span class="ph phtype_variable"><span class="termtype">InitAcc</span></span> (Initial Acceleration) in <span class="ph phtype_variable"><span class="termtype">CamProperty</span></span> (Cam Properties), so they are not given here. The values of <span class="ph phtype_variable"><span class="termtype">Phase</span></span> (Master Axis Phase) and <span class="ph phtype_variable"><span class="termtype">Distance</span></span> (Slave Axis Displacement) are given in the following table.</p>
+ 
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="kjo1484548113285__ID0EYQDK" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d79945e67">Element number in CamNodes array variable</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d79945e70">
+<p class="p" id="kjo1484548113285__ID0EPRDK">Phase</p>
+
+<p class="p">(Master Axis Phase)</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d79945e79">
+<p class="p" id="kjo1484548113285__ID0E4RDK">Distance</p>
+
+<p class="p">(Slave Axis Displacement)</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d79945e88">
+<p class="p" id="kjo1484548113285__ID0ELSDK">Curve</p>
+
+<p class="p">(Curve Shape)</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d79945e97">
+<p class="p" id="kjo1484548113285__ID0EZSDK">PhasePitch</p>
+
+<p class="p">(Phase Pitch)</p>
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e67 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e70 ">180.000</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e79 ">180.000</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e88 ">_mcStraightLine</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e97 ">0.100</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e67 ">1</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e70 ">360.000</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e79 ">0.000</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e88 ">_mcStraightLine</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e97 ">0.100</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e67 ">2</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e70 ">0.00</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e79 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e88 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e97 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e67 ">3</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e70 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e79 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e88 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e97 ">---</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+<p class="p linespace_7pt" id="kjo1484548113285__ID0ER2DK">This example uses a cam data variable with 4,000 elements that was created in advance with the Cam Editor of the Sysmac Studio. All phases and displacements are set to &#8220;undefined.&#8221;</p>
+ 
+<p class="p" id="kjo1484548113285__ID0EY2DK">The cam data variable for the cam table is as shown in the following table before the instruction is executed.</p>
+ 
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="kjo1484548113285__ID0EE3DK" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d79945e206">Element No.</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d79945e209">Phase (Phase)</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d79945e212">Distance (Displacement)</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e206 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e209 ">(Undefined)</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e212 ">(Undefined)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e206 ">1</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e209 ">(Undefined)</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e212 ">(Undefined)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e206 ">...</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e209 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e212 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e206 ">1799</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e209 ">(Undefined)</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e212 ">(Undefined)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e206 ">1800</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e209 ">(Undefined)</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e212 ">(Undefined)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e206 ">1801</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e209 ">(Undefined)</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e212 ">(Undefined)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e206 ">...</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e209 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e212 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e206 ">3599</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e209 ">(Undefined)</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e212 ">(Undefined)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e206 ">3600</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e209 ">(Undefined)</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e212 ">(Undefined)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e206 ">3601</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e209 ">(Undefined)</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e212 ">(Undefined)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e206 ">...</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e209 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e212 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e206 ">3999</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e209 ">(Undefined)</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e212 ">(Undefined)</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+<p class="p linespace_7pt" id="kjo1484548113285__ID0EKMEK">Next, we describe the sequence of changes that occur in the cam data variable as the instruction is executed. The locations that changed are showed by filled backgrounds.</p>
+ 
+<p class="p" id="kjo1484548113285__ID0ERMEK">When the MC_GenerateCamTable instruction is executed, 0 is written to the phase and displacement of element 0 of the cam data variable.</p>
+ 
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="kjo1484548113285__ID0E4MEK" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d79945e382">Element No.</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d79945e385">Phase (Phase)</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d79945e388">Distance (Displacement)</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row bgcolor_yellow">
+<td class="entry cellrowborder fonttype_head" style="text-align:center;vertical-align:top;" headers="d79945e382 ">0</td>
+
+<td class="entry cellrowborder fonttype_head" style="text-align:right;vertical-align:top;" headers="d79945e385 ">0.0</td>
+
+<td class="entry cellrowborder fonttype_head" style="text-align:right;vertical-align:top;" headers="d79945e388 ">0.0</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e382 ">1</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e385 ">(Undefined)</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e388 ">(Undefined)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e382 ">...</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e385 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e388 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e382 ">1799</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e385 ">(Undefined)</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e388 ">(Undefined)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e382 ">1800</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e385 ">(Undefined)</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e388 ">(Undefined)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e382 ">1801</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e385 ">(Undefined)</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e388 ">(Undefined)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e382 ">...</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e385 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e388 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e382 ">3599</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e385 ">(Undefined)</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e388 ">(Undefined)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e382 ">3600</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e385 ">(Undefined)</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e388 ">(Undefined)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e382 ">3601</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e385 ">(Undefined)</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e388 ">(Undefined)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e382 ">...</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e385 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e388 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e382 ">3999</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e385 ">(Undefined)</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e388 ">(Undefined)</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+<p class="p linespace_7pt" id="kjo1484548113285__ID0ED4EK">Next, the number of cam data and the phase and displacement for each cam data are calculated from the start node to the node point according to the specified values for element 0 in <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span>. The number of cam data calculates as 1,800, so the phases and displacements of element 1 to 1800 are written to the cam data variable.</p>
+ 
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="kjo1484548113285__ID0EP4EK" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d79945e558">Element No.</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d79945e561">Phase (Phase)</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d79945e564">Distance (Displacement)</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e558 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e561 ">0.0</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e564 ">0.0</td>
+
+</tr>
+
+<tr class="row bgcolor_yellow">
+<td class="entry cellrowborder fonttype_head" style="text-align:center;vertical-align:top;" headers="d79945e558 ">1</td>
+
+<td class="entry cellrowborder fonttype_head" style="text-align:right;vertical-align:top;" headers="d79945e561 ">0.1</td>
+
+<td class="entry cellrowborder fonttype_head" style="text-align:right;vertical-align:top;" headers="d79945e564 ">0.1</td>
+
+</tr>
+
+<tr class="row bgcolor_yellow">
+<td class="entry cellrowborder fonttype_head" style="text-align:center;vertical-align:top;" headers="d79945e558 ">...</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e561 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e564 ">&#160;</td>
+
+</tr>
+
+<tr class="row bgcolor_yellow">
+<td class="entry cellrowborder fonttype_head" style="text-align:center;vertical-align:top;" headers="d79945e558 ">1799</td>
+
+<td class="entry cellrowborder fonttype_head" style="text-align:right;vertical-align:top;" headers="d79945e561 ">179.9</td>
+
+<td class="entry cellrowborder fonttype_head" style="text-align:right;vertical-align:top;" headers="d79945e564 ">179.9</td>
+
+</tr>
+
+<tr class="row bgcolor_yellow">
+<td class="entry cellrowborder fonttype_head" style="text-align:center;vertical-align:top;" headers="d79945e558 ">1800</td>
+
+<td class="entry cellrowborder fonttype_head" style="text-align:right;vertical-align:top;" headers="d79945e561 ">180.0</td>
+
+<td class="entry cellrowborder fonttype_head" style="text-align:right;vertical-align:top;" headers="d79945e564 ">180.0</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e558 ">1801</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e561 ">(Undefined)</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e564 ">(Undefined)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e558 ">...</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e561 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e564 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e558 ">3599</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e561 ">(Undefined)</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e564 ">(Undefined)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e558 ">3600</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e561 ">(Undefined)</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e564 ">(Undefined)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e558 ">3601</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e561 ">(Undefined)</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e564 ">(Undefined)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e558 ">...</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e561 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e564 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e558 ">3999</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e561 ">(Undefined)</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e564 ">(Undefined)</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+<p class="p linespace_7pt" id="kjo1484548113285__ID0EVNFK">In the same way, the number of cam data and the phase and displacement for each cam data are calculated between node points according to the specified values for element 1 in <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span>. The number of cam data calculates as 1,800, so the phases and displacements of element 1801 to 3600 are written to the cam data variable.</p>
+ 
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="kjo1484548113285__ID0EBOFK" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d79945e735">Element No.</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d79945e738">Phase (Phase)</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d79945e741">Distance (Displacement)</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e735 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e738 ">0.0</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e741 ">0.0</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e735 ">1</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e738 ">0.1</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e741 ">0.1</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e735 ">...</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e738 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e741 ">&#160;</td>
+
+</tr>
+
+<tr class="row linespace_7pt">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e735 ">1799</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e738 ">179.9</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e741 ">179.9</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e735 ">1800</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e738 ">180.0</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e741 ">180.0</td>
+
+</tr>
+
+<tr class="row bgcolor_yellow">
+<td class="entry cellrowborder fonttype_head" style="text-align:center;vertical-align:top;" headers="d79945e735 ">1801</td>
+
+<td class="entry cellrowborder fonttype_head" style="text-align:right;vertical-align:top;" headers="d79945e738 ">180.1</td>
+
+<td class="entry cellrowborder fonttype_head" style="text-align:right;vertical-align:top;" headers="d79945e741 ">179.9</td>
+
+</tr>
+
+<tr class="row bgcolor_yellow">
+<td class="entry cellrowborder fonttype_head" style="text-align:center;vertical-align:top;" headers="d79945e735 ">...</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e738 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e741 ">&#160;</td>
+
+</tr>
+
+<tr class="row bgcolor_yellow">
+<td class="entry cellrowborder fonttype_head" style="text-align:center;vertical-align:top;" headers="d79945e735 ">3599</td>
+
+<td class="entry cellrowborder fonttype_head" style="text-align:right;vertical-align:top;" headers="d79945e738 ">359.9</td>
+
+<td class="entry cellrowborder fonttype_head" style="text-align:right;vertical-align:top;" headers="d79945e741 ">0.1</td>
+
+</tr>
+
+<tr class="row bgcolor_yellow">
+<td class="entry cellrowborder fonttype_head" style="text-align:center;vertical-align:top;" headers="d79945e735 ">3600</td>
+
+<td class="entry cellrowborder fonttype_head" style="text-align:right;vertical-align:top;" headers="d79945e738 ">360.0</td>
+
+<td class="entry cellrowborder fonttype_head" style="text-align:right;vertical-align:top;" headers="d79945e741 ">0.0</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e735 ">3601</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e738 ">(Undefined)</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e741 ">(Undefined)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e735 ">...</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e738 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e741 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e735 ">3999</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e738 ">(Undefined)</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e741 ">(Undefined)</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+<p class="p linespace_7pt" id="kjo1484548113285__ID0EB5FK">Next, calculations are ended because element 2 in <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> has an invalid node. The cam data in elements 3601 and higher in the cam data variable are invalid, so 0 is written as the phases.</p>
+ 
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="kjo1484548113285__ID0EN5FK" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d79945e911">Element No.</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d79945e914">Phase (Phase)</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d79945e917">Distance (Displacement)</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e911 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e914 ">0.0</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e917 ">0.0</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e911 ">1</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e914 ">0.1</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e917 ">0.1</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e911 ">...</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e914 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e917 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e911 ">1799</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e914 ">179.9</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e917 ">179.9</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e911 ">1800</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e914 ">180.0</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e917 ">180.0</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e911 ">1801</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e914 ">180.1</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e917 ">179.9</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e911 ">...</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e914 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e917 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e911 ">3599</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e914 ">359.9</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e917 ">0.1</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e911 ">3600</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e914 ">360.0</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e917 ">0.0</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder fonttype_head bgcolor_yellow" style="text-align:center;vertical-align:top;" headers="d79945e911 ">3601</td>
+
+<td class="entry cellrowborder fonttype_head bgcolor_yellow" style="text-align:right;vertical-align:top;" headers="d79945e914 ">0.0</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e917 ">(Undefined)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e911 ">...</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e914 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e917 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e911 ">3999</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e914 ">(Undefined)</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e917 ">(Undefined)</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+<p class="p linespace_7pt" id="kjo1484548113285__ID0ETOGK">However, if there were only 3601 elements in the cam data variable that was created with the Cam Editor of the Sysmac Studio, no invalid cam data would exist, so 0 would not be written as the value of the phase of element 3601.</p>
+ 
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="kjo1484548113285__ID0E6OGK" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d79945e1084">Element No.</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d79945e1087">Phase (Phase)</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d79945e1090">Distance (Displacement)</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e1084 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e1087 ">0.0</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e1090 ">0.0</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e1084 ">1</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e1087 ">0.1</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e1090 ">0.1</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e1084 ">...</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e1087 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e1090 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e1084 ">1799</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e1087 ">179.9</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e1090 ">179.9</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e1084 ">1800</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e1087 ">180.0</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e1090 ">180.0</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e1084 ">1801</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e1087 ">180.1</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e1090 ">179.9</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e1084 ">...</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e1087 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e1090 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e1084 ">3599</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e1087 ">359.9</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e1090 ">0.1</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d79945e1084 ">3600</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e1087 ">360.0</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d79945e1090 ">0.0</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+<p class="p linespace_7pt" id="kjo1484548113285__ID0ES2GK">The number of the last element in the cam data variable that was written is output to the <span class="ph phtype_variable"><span class="termtype">EndPointIndex</span></span> output variable of the instruction as the end point index. In this example, 3600 would be output.</p>
+ 
+<p class="p linespace_7pt" id="kjo1484548113285__ID0EZ2GK">This completes execution of the instruction.</p>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer05" id="edt1484548113519">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Cam Table Displacement Overflow</h1>
+
+<div class="body conbody">
+<p class="p" id="edt1484548113519__ID0EW3GK">A Cam Table Displacement Overflow error (error code: 5742 hex) will occur if the value of <span class="ph phtype_variable"><span class="termtype">Distance</span></span> (Slave Axis Displacement) in the cam data calculated by the instruction exceeds the valid range of REAL data. The value of the relevant <span class="ph phtype_variable"><span class="termtype">Distance</span></span> (Slave Axis Displacement) will not change, and creating the cam table will be aborted.</p>
+
+<p class="p" id="edt1484548113519__ID0EZ3GK">A Cam Table Displacement Overflow error can occur only when <span class="ph phtype_variable"><span class="termtype">Curve</span></span> (Curve Shape) is set to polynomic 3 or polynomic 5. If this error occurs, refer to the following calculation methods for displacements for polynomic 3 or polynomic 5 and correct the values in the <span class="ph phtype_variable"><span class="termtype">CamProperty</span></span> (Cam Properties) and <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> in-out variables.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="sjo1484548131148">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Displacement Calculation Method for Polynomic 3</h1>
+
+<div class="body conbody">
+<p class="p" id="sjo1484548131148__ID0EX4GK">The element number in the array variable specified for <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> is &#8220;m.&#8221;</p>
+
+<p class="p" id="sjo1484548131148__ID0E14GK">When polynomic 3 is specified for <span class="ph phtype_variable"><span class="termtype">Curve</span></span> (Curve Shape) of element m, <span class="ph phtype_variable"><span class="termtype">Phase</span></span> of element m-1 is set as the initial value P<sub class="ph sub">init</sub> of the master axis phase. In the same way, <span class="ph phtype_variable"><span class="termtype">Distance</span></span> is set to the initial value d<sub class="ph sub">init</sub> of the slave axis displacement. When m = 0, calculations are performed with P<sub class="ph sub">init</sub> and d<sub class="ph sub">init</sub> set to 0. Also, <span class="ph phtype_variable"><span class="termtype">Phase</span></span> of element m is set to the final value P<sub class="ph sub">final</sub> of the master axis phase. In the same way, <span class="ph phtype_variable"><span class="termtype">Distance</span></span> for element m is set to the final value d<sub class="ph sub">final</sub> of the slave axis displacement.</p>
+
+<p class="p" id="sjo1484548131148__ID0EB5GK">d(n) is calculated as shown below when d(n) is <span class="ph phtype_variable"><span class="termtype">Distance</span></span> (Slave Axis Displacement) of the nth cam data from d<sub class="ph sub">init</sub>.</p>
+
+<p class="p linespace_14pt" id="sjo1484548131148__ID0EI5GK"><strong class="ph b">When 0 &#8804; n &lt; N,</strong></p>
+
+<br /><img class="image linespace_7pt" id="sjo1484548131148__image_xys_2j4_sx" src="xks1484548113721.gif" /><br />
+<p class="p linespace_14pt" id="sjo1484548131148__ID0EH6GK"><strong class="ph b">When n = N,</strong></p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="sjo1484548131148__table_pyg_r5j_sx" class="table no-line" border="0">
+<col style="width:100%" />
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;">
+<p class="p">d(n) = d<sub class="ph sub">final</sub></p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt" id="sjo1484548131148__ID0EAAHK">However, when <span class="ph phtype_type2"><span class="termtype">(P<sub class="ph sub">final</sub> - P<sub class="ph sub">phase</sub>) / pitch</span></span> is an integer,</p>
+
+<br /><img class="image linespace_7pt" id="sjo1484548131148__image_j51_1k4_sx" src="jxk1484548115437.gif" /><br />
+<p class="p linespace_7pt" id="sjo1484548131148__ID0EABHK">When <span class="ph phtype_type2"><span class="termtype">(P<sub class="ph sub">final</sub> - P<sub class="ph sub">phase</sub>) / pitch</span></span> is not an integer,</p>
+
+<br /><img class="image linespace_7pt" id="sjo1484548131148__image_jt3_mm4_sx" src="lzo1484548117200.gif" /><br />
+<br /><img class="image" id="sjo1484548131148__image_xzp_ft4_sx" src="zct1484548119182.gif" /><br />
+<br /><img class="image" id="sjo1484548131148__image_o5b_gt4_sx" src="omz1484548121631.gif" /><br />
+<br /><img class="image" id="sjo1484548131148__image_tll_gt4_sx" src="gck1484548123113.gif" /><br />
+<br /><img class="image" id="sjo1484548131148__image_dxw_gt4_sx" src="onu1484548125204.gif" /><br />
+<p class="p" id="sjo1484548131148__ID0EPDHK">pitch: <span class="ph phtype_variable"><span class="termtype">PhasePitch</span></span> of element m in <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span></p>
+
+<p class="p" id="sjo1484548131148__ID0EWDHK">CycleTime: <span class="ph phtype_variable"><span class="termtype">CycleTime</span></span> (Cycle Time) in <span class="ph phtype_variable"><span class="termtype">CamProperty</span></span> (Cam Properties)</p>
+
+<p class="p" id="sjo1484548131148__ID0E4DHK">P<sub class="ph sub">max</sub>: Largest value of <span class="ph phtype_variable"><span class="termtype">Phase</span></span> (Master Axis Phase) in valid nodes of <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span></p>
+
+<p class="p" id="sjo1484548131148__ID0EEEHK">V<sub class="ph sub">init</sub>: Initial velocity of cam profile curve [command units/s]</p>
+
+<p class="p linespace_7pt" id="sjo1484548131148__ID0ELEHK">However, when m = 0,</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="sjo1484548131148__table_vmm_d44_sx" class="table no-line" border="0">
+<col style="width:100%" />
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;">
+<p class="p" id="sjo1484548131148__ID0EZEHK">V<sub class="ph sub">init</sub> = <span class="ph phtype_variable"><span class="termtype">InitVel</span></span> (Initial Velocity) in <span class="ph phtype_variable"><span class="termtype">CamProperty</span></span> (Cam Properties)</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt" id="sjo1484548131148__ID0EGFHK">When m &#8805; 1 and <span class="ph phtype_variable"><span class="termtype">Curve</span></span> (Curve Shape) of element m-1 in <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> is a straight line (_mcStraightLine),</p>
+
+<br /><img class="image" id="sjo1484548131148__image_oj2_hs4_sx" src="ifp1484548127013.gif" /><br />
+<p class="p linespace_7pt" id="sjo1484548131148__ID0E6FHK">When m &#8805; 1 and <span class="ph phtype_variable"><span class="termtype">Curve</span></span> (Curve Shape) of element m-1 in <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> is polynomic 3 or polynomic 5,</p>
+
+<ul class="ul">
+<li class="li" id="sjo1484548131148__li_N101B1_N101AE_N1000F_N10002">
+<p class="p" id="sjo1484548131148__ID0ETGHK"><span class="ph phtype_variable"><span class="termtype">ConnectingVelEnable</span></span> (Connecting Velocity Enable) of element m-1 in <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> is TRUE</p>
+
+                
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="sjo1484548131148__table_hgy_h44_sx" class="table no-line" border="0">
+<col style="width:100%" />
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;">
+<p class="p">V<sub class="ph sub">init</sub> = <span class="ph phtype_variable"><span class="termtype">ConnectingVel</span></span> (Connecting Velocity) of element m-1 in <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span></p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</li>
+
+<li class="li" id="sjo1484548131148__li_N101FC_N101AE_N1000F_N10002">
+<p class="p" id="sjo1484548131148__ID0EBHHK"><span class="ph phtype_variable"><span class="termtype">ConnectingVelEnable</span></span> (Connecting Velocity Enable) of element m-1 in <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> is FALSE</p>
+
+                
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="sjo1484548131148__table_c1v_j44_sx" class="table no-line" border="0">
+<col style="width:100%" />
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;">
+<p class="p">V<sub class="ph sub">init</sub> = 0</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</li>
+
+</ul>
+
+<p class="p linespace_7pt" id="sjo1484548131148__ID0EQHHK">When m &#8805; 1 and the Curve Shape is other than the above,</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="sjo1484548131148__table_wtc_l44_sx" class="table no-line" border="0">
+<col style="width:100%" />
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;">
+<p class="p" id="sjo1484548131148__ID0ETHHK">V<sub class="ph sub">init</sub> = 0</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p" id="sjo1484548131148__ID0EGIHK">V<sub class="ph sub">fin</sub>: Final velocity of cam curve [command units/s]</p>
+
+<p class="p linespace_7pt" id="sjo1484548131148__ID0ENIHK">However, when <span class="ph phtype_variable"><span class="termtype">ConnectingVelEnable</span></span> (Connecting Velocity Enable) of element m in <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> is TRUE,</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="sjo1484548131148__table_bxc_m44_sx" class="table no-line" border="0">
+<col style="width:100%" />
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;">
+<p class="p" id="sjo1484548131148__ID0E2IHK">V<sub class="ph sub">fin</sub> = <span class="ph phtype_variable"><span class="termtype">ConnectingVel</span></span> (Connecting Velocity) of element m in <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span></p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt" id="sjo1484548131148__ID0EIJHK">When <span class="ph phtype_variable"><span class="termtype">ConnectingVelEnable</span></span> (Connecting Velocity Enable) of element m in <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> is FALSE,</p>
+
+<ul class="ul">
+<li class="li" id="sjo1484548131148__li_N102D8_N102D5_N1000F_N10002">
+<p class="p" id="sjo1484548131148__ID0E3JHK"><span class="ph phtype_variable"><span class="termtype">Curve</span></span> (Curve Shape) of element m+1 in <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> is a straight line (_mcStraightLine)</p>
+
+<br /><img class="image" id="sjo1484548131148__image_cxy_qs4_sx" src="hax1484548128979.gif" /><br />
+</li>
+
+<li class="li" id="sjo1484548131148__li_N102F4_N102D5_N1000F_N10002">
+<p class="p" id="sjo1484548131148__ID0E4KHK"><span class="ph phtype_variable"><span class="termtype">Curve</span></span> (Curve Shape) of element m+1 in <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> is not a straight line (_mcStraightLine)</p>
+
+                
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="sjo1484548131148__table_s5f_n44_sx" class="table no-line" border="0">
+<col style="width:100%" />
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;">
+<p class="p">V<sub class="ph sub">fin</sub> = 0</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="bcu1484548141538">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Displacement Calculation Method for Polynomic 5</h1>
+
+<div class="body conbody">
+<p class="p" id="bcu1484548141538__ID0E1LHK">The element number in the array variable specified for <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> is &#8220;m.&#8221;</p>
+
+<p class="p" id="bcu1484548141538__ID0E4LHK">When polynomic 5 is specified for <span class="ph phtype_variable"><span class="termtype">Curve</span></span> (Curve Shape) of element m, <span class="ph phtype_variable"><span class="termtype">Phase</span></span> of element m-1 is set as the initial value P<sub class="ph sub">init</sub> of the master axis phase. In the same way, <span class="ph phtype_variable"><span class="termtype">Distance</span></span> is set to the initial value d<sub class="ph sub">init</sub> of the slave axis displacement. When m = 0, calculations are performed with P<sub class="ph sub">init</sub> and d<sub class="ph sub">init</sub> set to 0. Also, <span class="ph phtype_variable"><span class="termtype">Phase</span></span> of element m is set to the final value P<sub class="ph sub">final</sub> of the master axis phase. In the same way, <span class="ph phtype_variable"><span class="termtype">Distance</span></span> for element m is set to the final value d<sub class="ph sub">final</sub> of the slave axis displacement.</p>
+
+<p class="p" id="bcu1484548141538__ID0EEMHK">d(n) is calculated as shown below when d(n) is <span class="ph phtype_variable"><span class="termtype">Distance</span></span> (Slave Axis Displacement) of the nth cam data from d<sub class="ph sub">init</sub>.</p>
+
+<p class="p linespace_14pt" id="bcu1484548141538__ID0EXMHK"><strong class="ph b">When 0 &#8804; n &lt; N,</strong></p>
+
+<br /><img class="image linespace_7pt" id="bcu1484548141538__image_b2x_js4_sx" src="gyx1484548131522.gif" /><br />
+<p class="p linespace_14pt" id="bcu1484548141538__ID0EKNHK"><strong class="ph b">When n = N,</strong></p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="bcu1484548141538__table_z4z_nr4_sx" class="table no-line" border="0">
+<col style="width:100%" />
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;">
+<p class="p">d(n) = d<sub class="ph sub">final</sub></p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt" id="bcu1484548141538__ID0EDOHK">However, when <span class="ph phtype_type2"><span class="termtype">(P<sub class="ph sub">final</sub> - P<sub class="ph sub">phase</sub>) / pitch</span></span> is an integer,</p>
+
+<br /><img class="image linespace_7pt" id="bcu1484548141538__image_n5c_wr4_sx" src="jxk1484548115437.gif" /><br />
+<p class="p linespace_7pt" id="bcu1484548141538__ID0E4OHK">When <span class="ph phtype_type2"><span class="termtype">(P<sub class="ph sub">final</sub> - P<sub class="ph sub">phase</sub>) / pitch</span></span> is not an integer,</p>
+
+<br /><img class="image" id="bcu1484548141538__image_llx_lt4_sx" src="lzo1484548117200.gif" /><br />
+<br /><img class="image" id="bcu1484548141538__image_lnb_4t4_sx" src="zct1484548119182.gif" /><br />
+<br /><img class="image" id="bcu1484548141538__image_bbk_g54_sx" src="auq1484548133628.gif" /><br />
+<br /><img class="image" id="bcu1484548141538__image_wph_2w4_sx" src="emg1484548135594.gif" /><br />
+<br /><img class="image" id="bcu1484548141538__image_flx_ww4_sx" src="jjx1484548137840.gif" /><br />
+<br /><img class="image" id="bcu1484548141538__image_qj2_rx4_sx" src="xwx1484548139697.gif" /><br />
+<br /><img class="image" id="bcu1484548141538__image_hpm_5x4_sx" src="onu1484548125204.gif" /><br />
+<p class="p" id="bcu1484548141538__ID0EESHK">pitch: <span class="ph phtype_variable"><span class="termtype">PhasePitch</span></span> of element m in <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span></p>
+
+<p class="p" id="bcu1484548141538__ID0ELSHK">CycleTime: <span class="ph phtype_variable"><span class="termtype">CycleTime</span></span> (Cycle Time) in <span class="ph phtype_variable"><span class="termtype">CamProperty</span></span> (Cam Properties)</p>
+
+<p class="p" id="bcu1484548141538__ID0ESSHK">P<sub class="ph sub">max</sub>: Largest value of <span class="ph phtype_variable"><span class="termtype">Phase</span></span> (Master Axis Phase) in valid nodes of <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span></p>
+
+<p class="p" id="bcu1484548141538__ID0EZSHK">A<sub class="ph sub">init</sub>: Initial acceleration of cam profile curve [command units/s<sup class="ph sup">2]</sup></p>
+
+<p class="p linespace_7pt" id="bcu1484548141538__ID0EATHK">However, when m = 0,</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="bcu1484548141538__table_pvh_wx4_sx" class="table no-line" border="0">
+<col style="width:100%" />
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;">
+<p class="p" id="bcu1484548141538__ID0EOTHK">A<sub class="ph sub">init</sub> = <span class="ph phtype_variable"><span class="termtype">InitAcc</span></span> (Initial Acceleration) in <span class="ph phtype_variable"><span class="termtype">CamProperty</span></span> (Cam Properties)</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt" id="bcu1484548141538__ID0E2THK">When m &#8805; 1 and <span class="ph phtype_variable"><span class="termtype">Curve</span></span> (Curve Shape) of element m-1 in <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> is polynomic 5,</p>
+
+<ul class="ul">
+<li class="li" id="bcu1484548141538__li_N101AC_N101A9_N1000F_N10002">
+<p class="p" id="bcu1484548141538__ID0EPUHK"><span class="ph phtype_variable"><span class="termtype">ConnectingVelEnable</span></span> (Connecting Velocity Enable) of element m-1 in <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> is TRUE</p>
+
+                
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="bcu1484548141538__table_qrz_xx4_sx" class="table no-line" border="0">
+<col style="width:100%" />
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;">
+<p class="p">A<sub class="ph sub">init</sub> = <span class="ph phtype_variable"><span class="termtype">ConnectingAcc</span></span> (Connecting Acceleration) of element m-1 in <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span></p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</li>
+
+<li class="li" id="bcu1484548141538__li_N101F7_N101A9_N1000F_N10002">
+<p class="p" id="bcu1484548141538__ID0E4UHK"><span class="ph phtype_variable"><span class="termtype">ConnectingVelEnable</span></span> (Connecting Velocity Enable) of element m-1 in <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> is FALSE</p>
+
+                
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="bcu1484548141538__table_izc_zx4_sx" class="table no-line" border="0">
+<col style="width:100%" />
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;">
+<p class="p">A<sub class="ph sub">init</sub> = 0</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</li>
+
+</ul>
+
+<p class="p linespace_7pt" id="bcu1484548141538__ID0EOVHK">When m &#8805; 1 and <span class="ph phtype_variable"><span class="termtype">Curve</span></span> (Curve Shape) of element m-1 in <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> is not polynomic 5,</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="bcu1484548141538__table_csf_1y4_sx" class="table no-line" border="0">
+<col style="width:100%" />
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;">
+<p class="p" id="bcu1484548141538__ID0EVVHK">A<sub class="ph sub">init</sub> = 0</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p" id="bcu1484548141538__ID0ECWHK">A<sub class="ph sub">fin</sub>: Final acceleration of cam curve [command units/s<sup class="ph sup">2</sup>]</p>
+
+<p class="p" id="bcu1484548141538__ID0EJWHK">However, when <span class="ph phtype_variable"><span class="termtype">ConnectingAccEnable</span></span> (Connecting Acceleration Enable) of element m in <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> is TRUE,</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="bcu1484548141538__table_ksd_cy4_sx" class="table no-line" border="0">
+<col style="width:100%" />
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;">
+<p class="p" id="bcu1484548141538__ID0EXWHK">A<sub class="ph sub">fin</sub> = <span class="ph phtype_variable"><span class="termtype">ConnectingAcc</span></span> (Connecting Acceleration) of element m in <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span></p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt" id="bcu1484548141538__ID0EEXHK">When <span class="ph phtype_variable"><span class="termtype">ConnectingAccEnable</span></span> (Connecting Acceleration Enable) of element m in <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> is FALSE,</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="bcu1484548141538__table_rdx_cy4_sx" class="table no-line" border="0">
+<col style="width:100%" />
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;">
+<p class="p" id="bcu1484548141538__ID0ELXHK">A<sub class="ph sub">fin</sub> = 0</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt" id="bcu1484548141538__ID0EYXHK">Refer to <a class="xref" href="lza1484548105593.html#sjo1484548131148"><i style="display:none;">☆</i>Displacement Calculation Method for Polynomic 3</a> for information on V<sub class="ph sub">init</sub> (initial velocity of cam profile curve [command units/s]) and V<sub class="ph sub">fin</sub> (final velocity of cam curve [command units/s]).</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="uct1484548143535">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Timing Charts</h1>
+
+<div class="body conbody">
+<p class="p" id="uct1484548143535__ID0EIZHK"><span class="ph phtype_variable"><span class="termtype">Busy</span></span> (Executing) changes to TRUE at the same time as <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to TRUE. _MC_COM.Status.GenerateCamBusy (Cam Table Creation Busy) changes to TRUE in the next period.</p>
+
+<br /><img class="image linespace_7pt" id="uct1484548143535__image_A7CF617761CE4C6E81CB198A635A7134" src="kxu1484548141803.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="xxe1484548143784">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Re-execution of Motion Control Instructions</h1>
+
+<div class="body conbody">
+<p class="p" id="xxe1484548143784__ID0EB2HK">This instruction cannot be re-executed.</p>
+
+<p class="p" id="xxe1484548143784__ID0EE2HK">A Motion Control Instruction Re-execution Disabled error (error code: 543B hex) occurs if re-execution is attempted. However, creation of the cam table will continue.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="cip1484547605254">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Multi-execution of Motion Control Instructions</h1>
+
+<div class="body conbody"></div>
+
+<div class="related-links"></div></div><div class="layer05" id="udm1484548143956">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Execution during Execution of Other Instructions</h1>
+
+<div class="body conbody">
+<p class="p">Multi-execution of this instruction is not allowed if the following instructions that use the same <span class="ph phtype_variable"><span class="termtype">CamTable</span></span> as that in this instruction have already been executed.</p>
+
+<ul class="ul" id="udm1484548143956__ul_sd3_zgv_y2c">
+<li class="li" id="udm1484548143956__li_N10021_N1001D_N1000F_N10001">
+<p class="p">MC_CamIn (Start Cam Operation) Instruction</p>
+
+</li>
+
+<li class="li" id="udm1484548143956__li_N1002A_N1001D_N1000F_N10001">
+<p class="p">MC_SaveCamTable instruction</p>
+
+</li>
+
+<li class="li" id="udm1484548143956__li_N10033_N1001D_N1000F_N10001">
+<p class="p">MC_SetCamTableProperty instruction</p>
+
+</li>
+
+<li class="li" id="udm1484548143956__li_N1003C_N1001D_N1000F_N10001">
+<p class="p">MC_SetCamTableEndPointIndex instruction</p>
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="xct1484548144159">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Execution of Other Instructions during Instruction Execution</h1>
+
+<div class="body conbody">
+<p class="p">Multi-execution of the following instructions that use the same <span class="ph phtype_variable"><span class="termtype">CamTable</span></span> is not allowed during execution of this Instruction.</p>
+
+<ul class="ul" id="xct1484548144159__ul_sd3_zgv_y2c">
+<li class="li" id="xct1484548144159__li_N10021_N1001D_N1000F_N10001">
+<p class="p">MC_CamIn (Start Cam Operation) Instruction</p>
+
+</li>
+
+<li class="li" id="xct1484548144159__li_N1002A_N1001D_N1000F_N10001">
+<p class="p">MC_SaveCamTable instruction</p>
+
+</li>
+
+<li class="li" id="xct1484548144159__li_N10033_N1001D_N1000F_N10001">
+<p class="p">MC_SetCamTableProperty instruction</p>
+
+</li>
+
+<li class="li" id="xct1484548144159__li_N1003C_N1001D_N1000F_N10001">
+<p class="p">MC_SetCamTableEndPointIndex instruction</p>
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="idv1484548144346">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">Execution during Execution of This Instruction</h1>
+ 
+<div class="body conbody">
+<p class="p" id="idv1484548144346__ID0EF5HK">You cannot execute another instance of this instruction while this instruction is being executed. You also cannot execute this instruction while _MC_COM.Status.GenerateCamBusy (Cam Table Creation Busy) is TRUE. Perform exclusive control with _MC_COM.Status.GenerateCamBusy (Cam Table Creation Busy) or with the output variables from the instruction.</p>
+ 
+<p class="p" id="idv1484548144346__ID0EI5HK">If more than one instance of this instruction is executed during the same period, _MC_COM.Status.GenerateCamBusy (Cam Table Creation Busy) will be FALSE during that period. Perform exclusive control with <span class="ph phtype_variable"><span class="termtype">Busy</span></span> (Executing) from a different instance.</p>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer04" id="jdd1484548145438">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Errors</h1>
+
+<div class="body conbody">
+<p class="p" id="jdd1484548145438__ID0ES6HK">If an error occurs during instruction execution, <span class="ph phtype_variable"><span class="termtype">Error</span></span> will change to TRUE.</p>
+
+<p class="p" id="jdd1484548145438__ID0EV6HK">You can find out the cause of the error by referring to the value output by <span class="ph phtype_variable"><span class="termtype">ErrorID</span></span> (Error Code).</p>
+
+<p class="p" id="jdd1484548145438__ID0E36HK">Depending on <span class="ph phtype_variable"><span class="termtype">ErrorID</span></span> (Error Code), attached information is output to <span class="ph phtype_variable"><span class="termtype">ErrorParameterCode</span></span> (Parameter Detail Code) and <span class="ph phtype_variable"><span class="termtype">ErrorNodePointIndex</span></span> (Node Point Element Number).</p>
+
+<br /><img class="image linespace_7pt" src="wis1484548144533.gif" /><br />
+<p class="p linespace_7pt" id="jdd1484548145438__ID0EIBAM">Even if an error occurs during execution of the instruction, the cam data variable specified for <span class="ph phtype_variable"><span class="termtype">CamTable</span></span> retains the same values as before the execution.</p>
+
+<div class="p" id="jdd1484548145438__ID0EPBAM">However, the values in the cam data variable are not retained in the following cases.<ul class="ul" id="jdd1484548145438__ul_z1l_sf2_hx">
+<li class="li" id="jdd1484548145438__li_N10058_N10054_N1004F_N1000F_N10001">
+<p class="p" id="jdd1484548145438__ID0EECAM">When the parameter specified for <span class="ph phtype_variable"><span class="termtype">CamNodes</span></span> is changed after <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to TRUE.</p>
+
+</li>
+
+<li class="li" id="jdd1484548145438__li_N1006D_N10054_N1004F_N1000F_N10001">
+<p class="p" id="jdd1484548145438__ID0EPCAM">The value of a cam data <span class="ph phtype_variable"><span class="termtype">Distance</span></span> (Slave Axis Displacement) calculated by this instruction exceeds the valid range of REAL data.</p>
+
+</li>
+
+</ul>
+</div>
+
+<p class="p linespace_7pt">If the values in the cam data variable are not retained, the cam table will be in an illegal state. An error will occur if you execute the following instructions with a cam table in an illegal state specified.</p>
+
+<ul class="ul" id="jdd1484548145438__ul_sd3_zgv_y2c">
+<li class="li" id="jdd1484548145438__li_N10093_N1008F_N1000F_N10001">
+<p class="p">MC_CamIn (Start Cam Operation) Instruction</p>
+
+</li>
+
+<li class="li" id="jdd1484548145438__li_N1009C_N1008F_N1000F_N10001">
+<p class="p">MC_SaveCamTable instruction</p>
+
+</li>
+
+<li class="li" id="jdd1484548145438__li_N100A5_N1008F_N1000F_N10001">
+<p class="p">MC_SetCamTableProperty instruction</p>
+
+</li>
+
+<li class="li" id="jdd1484548145438__li_N100AE_N1008F_N1000F_N10001">
+<p class="p">MC_SetCamTableEndPointIndex instruction</p>
+
+</li>
+
+</ul>
+
+<div class="p" id="jdd1484548145438__ID0EEDAM">To recover a cam table from an illegal state, reset the error that occurred for the instruction and then perform one of the following actions.<ul class="ul" id="jdd1484548145438__ul_kbg_4f2_hx">
+<li class="li" id="jdd1484548145438__li_N1008F_N1008B_N10086_N1000F_N10001">
+<p class="p" id="jdd1484548145438__ID0EUDAM">Execute this instruction for the cam table that is in an illegal state again and complete creation of the cam table.</p>
+
+</li>
+
+<li class="li" id="jdd1484548145438__li_N1009B_N1008B_N10086_N1000F_N10001">
+<p class="p" id="jdd1484548145438__ID0E6DAM">Download the cam table from the Sysmac Studio.</p>
+
+</li>
+
+<li class="li" id="jdd1484548145438__li_N100A7_N1008B_N10086_N1000F_N10001">
+<p class="p" id="jdd1484548145438__ID0EKEAM">Cycle the power supply to the <span class="keyword">CPU Unit</span>.</p>
+
+</li>
+
+</ul>
+</div>
+
+<p class="p linespace_7pt" id="jdd1484548145438__ID0EYEAM">An error code is not output to <span class="ph phtype_variable"><span class="termtype">ErrorID</span></span> (Error Code) if an error occurs for this instruction in PROGRAM mode or during an MC Test Run. If that occurs, check the cause of the error in the event log or in the _MC_COM.MFaultLvl.Code (MC Common Minor Fault Code) system-defined variables for motion control.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="rzo1484547270426">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Error Codes</h1>
+
+<div class="body conbody">
+        
+<p class="p">Refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series Troubleshooting Manual (Cat. No. W503)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Troubleshooting Manual (Cat. No. W564)</span></span></span> for instruction errors.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="jku1484548145672">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Sample Programming</h1>
+
+<div class="body conbody">
+<p class="p" id="jku1484548145672__ID0EGHAM">This sample programming writes data to a cam data variable in the cam table that was created on Cam Editor of the Sysmac Studio.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="fym1484547344031">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Parameter Settings</h1>
+
+<div class="body conbody">
+<p class="p" id="fym1484547344031__ID0EYJJM">The minimum settings required for this sample programming are given below.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="azd1484548145828">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">Axis Parameters</h1>
+ 
+<div class="body conbody">
+<p class="p"><strong class="ph b">Axis Type</strong></p>
+ 
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="azd1484548145828__ID0EHJAM" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:1.5cm" />
+<col style="width:4.0cm" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d5519e30">Axis</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d5519e33">Axis type</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d5519e30 ">Axis 1</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d5519e33 ">Servo axis</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d5519e30 ">Axis 2</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d5519e33 ">Servo axis</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt"><strong class="ph b">Count Modes</strong></p>
+ 
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="azd1484548145828__ID0EUMAM" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:1.5cm" />
+<col style="width:4.0cm" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d5519e77">Axis</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d5519e80">Count mode</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d5519e77 ">Axis 1</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d5519e80 ">Rotary Mode</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d5519e77 ">Axis 2</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d5519e80 ">Rotary Mode</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt"><strong class="ph b">Ring Counter</strong></p>
+ 
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="azd1484548145828__ID0EBQAM" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:1.5cm" />
+<col style="width:2.0cm" />
+<col style="width:2.0cm" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d5519e127">Axis</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d5519e130">Modulo maximum position</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d5519e133">Modulo minimum position</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d5519e127 ">Axis 1</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d5519e130 ">360</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d5519e133 ">0</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d5519e127 ">Axis 2</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d5519e130 ">360</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d5519e133 ">0</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt"><strong class="ph b">Unit of Display</strong></p>
+ 
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="azd1484548145828__ID0ESUAM" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:1.5cm" />
+<col style="width:4.0cm" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d5519e183">Axis</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d5519e186">Unit of display</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d5519e183 ">Axis 1</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d5519e186 ">degree</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d5519e183 ">Axis 2</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d5519e186 ">degree</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer04" id="kic1484548146000">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Data That Is Written</h1>
+
+<div class="body conbody">
+<p class="p" id="kic1484548146000__ID0ERYAM">This section describes the initial values of the cam property variable and cam node variable that were created in advanced with the Cam Editor of the Sysmac Studio and the values that are written with this sample programming.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="gfr1484548146171">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">Cam Properties</h1>
+ 
+<div class="body conbody">
+<p class="p" id="gfr1484548146171__ID0EJZAM">The initial values of the cam property variable are given in the following table.</p>
+ 
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="gfr1484548146171__ID0EXZAM" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d48894e31">
+<p class="p" id="gfr1484548146171__ID0EC1AM">InitVel</p>
+
+<p class="p">(Initial Velocity)</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d48894e40">
+<p class="p" id="gfr1484548146171__ID0EQ1AM">InitAcc</p>
+
+<p class="p">(Initial Acceleration)</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d48894e49">
+<p class="p" id="gfr1484548146171__ID0E51AM">CycleTime</p>
+
+<p class="p">(Cycle Time)</p>
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d48894e31 ">0.000</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d48894e40 ">0.000</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d48894e49 ">1.000</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+<p class="p linespace_7pt" id="gfr1484548146171__ID0EB4AM">The sample programming changes <span class="ph phtype_variable"><span class="termtype">CycleTime</span></span> (Cycle Time) to <span class="ph phtype_settingvalue"><span class="termtype">0.8</span></span>.</p>
+ 
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="gfr1484548146171__ID0EN4AM" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d48894e100">
+<p class="p" id="gfr1484548146171__ID0EY4AM">InitVel</p>
+
+<p class="p">(Initial Velocity)</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d48894e109">
+<p class="p" id="gfr1484548146171__ID0EG5AM">InitAcc</p>
+
+<p class="p">(Initial Acceleration)</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d48894e118">
+<p class="p" id="gfr1484548146171__ID0EU5AM">CycleTime</p>
+
+<p class="p">(Cycle Time)</p>
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d48894e100 ">0.000</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d48894e109 ">0.000</td>
+
+<td class="entry cellrowborder fonttype_head bgcolor_yellow" style="text-align:right;vertical-align:top;" headers="d48894e118 ">0.800</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer05" id="wsa1484548146421">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Cam Nodes</h1>
+
+<div class="body conbody">
+<p class="p" id="wsa1484548146421__ID0ECBBM">The initial values of the cam node variable are given in the following table.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="wsa1484548146421__ID0EQBBM" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:5%" />
+<col style="width:9%" />
+<col style="width:9%" />
+<col style="width:15%" />
+<col style="width:13%" />
+<col style="width:10%" />
+<col style="width:10%" />
+<col style="width:13%" />
+<col style="width:11%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d194372e44">Element No.</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d194372e47">
+<p class="p" id="wsa1484548146421__ID0EHCBM">Phase</p>
+
+<p class="p">(Master Axis Phase)</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d194372e56">
+<p class="p" id="wsa1484548146421__ID0EVCBM">Distance</p>
+
+<p class="p">(Slave Axis Displacement)</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d194372e65">
+<p class="p" id="wsa1484548146421__ID0EDDBM">Curve</p>
+
+<p class="p">(Curve Shape)</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d194372e74">
+<p class="p" id="wsa1484548146421__ID0ERDBM">ConnectingVelEnable</p>
+
+<p class="p">(Connecting Velocity Enable)</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d194372e84">
+<p class="p" id="wsa1484548146421__ID0E6DBM">ConnectingVel</p>
+
+<p class="p">(Connecting Velocity)</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d194372e93">
+<p class="p" id="wsa1484548146421__ID0ENEBM">ConnectingAccEnable</p>
+
+<p class="p">(Connecting Acceleration Enable)</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d194372e102">
+<p class="p" id="wsa1484548146421__ID0E2EBM">ConnectingAcc</p>
+
+<p class="p">(Connecting Acceleration)</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d194372e111">
+<p class="p" id="wsa1484548146421__ID0EJFBM">PhasePitch</p>
+
+<p class="p">(Phase Pitch)</p>
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d194372e44 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e47 ">180.000</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e56 ">-100.000</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e65 ">_mcModifiedSine</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e74 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e84 ">0.000</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e93 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e102 ">0.000</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e111 ">0.010</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d194372e44 ">1</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e47 ">360.000</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e56 ">0.000</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e65 ">_mcPolynomic5</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e74 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e84 ">0.000</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e93 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e102 ">0.000</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e111 ">0.010</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d194372e44 ">2</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e47 ">0.0</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e56 ">0.0</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e65 ">_mcConstantLine</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e74 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e84 ">0.000</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e93 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e102 ">0.0</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e111 ">0.0</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d194372e44 ">3</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e47 ">0.0</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e56 ">0.0</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e65 ">_mcConstantLine</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e74 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e84 ">0.000</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e93 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e102 ">0.0</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e111 ">0.0</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt" id="wsa1484548146421__ID0EBUBM">The sample programming changes the curve shape for element 0 and adds a node point to element 1.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="wsa1484548146421__ID0ENUBM" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:5%" />
+<col style="width:9%" />
+<col style="width:9%" />
+<col style="width:15%" />
+<col style="width:13%" />
+<col style="width:10%" />
+<col style="width:10%" />
+<col style="width:13%" />
+<col style="width:11%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d194372e281">Element No.</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d194372e284">
+<p class="p" id="wsa1484548146421__ID0EEVBM">Phase</p>
+
+<p class="p">(Master Axis Phase)</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d194372e293">
+<p class="p" id="wsa1484548146421__ID0ESVBM">Distance</p>
+
+<p class="p">(Slave Axis Displacement)</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d194372e302">
+<p class="p" id="wsa1484548146421__ID0EAWBM">Curve</p>
+
+<p class="p">(Curve Shape)</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d194372e311">
+<p class="p" id="wsa1484548146421__ID0EOWBM">ConnectingVelEnable</p>
+
+<p class="p">(Connecting Velocity Enable)</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d194372e321">
+<p class="p" id="wsa1484548146421__ID0E3WBM">ConnectingVel</p>
+
+<p class="p">(Connecting Velocity)</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d194372e330">
+<p class="p" id="wsa1484548146421__ID0EKXBM">ConnectingAccEnable</p>
+
+<p class="p">(Connecting Acceleration Enable)</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d194372e339">
+<p class="p" id="wsa1484548146421__ID0EYXBM">ConnectingAcc</p>
+
+<p class="p">(Connecting Acceleration)</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d194372e348">
+<p class="p" id="wsa1484548146421__ID0EGYBM">PhasePitch</p>
+
+<p class="p">(Phase Pitch)</p>
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d194372e281 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e284 ">180.000</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e293 ">-100.000</td>
+
+<td class="entry cellrowborder fonttype_head bgcolor_yellow" style="text-align:right;vertical-align:top;" headers="d194372e302 ">_mcPolynomic5</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e311 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e321 ">0.000</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e330 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e339 ">0.000</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e348 ">0.010</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d194372e281 ">1</td>
+
+<td class="entry cellrowborder fonttype_head bgcolor_yellow" style="text-align:right;vertical-align:top;" headers="d194372e284 ">200.000</td>
+
+<td class="entry cellrowborder fonttype_head bgcolor_yellow" style="text-align:right;vertical-align:top;" headers="d194372e293 ">-102.000</td>
+
+<td class="entry cellrowborder fonttype_head bgcolor_yellow" style="text-align:right;vertical-align:top;" headers="d194372e302 ">_mcStraightLine</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e311 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e321 ">0.000</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e330 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e339 ">0.000</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e348 ">0.010</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d194372e281 ">2</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e284 ">360.000</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e293 ">0.000</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e302 ">_mcPolynomic5</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e311 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e321 ">0.000</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e330 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e339 ">0.000</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e348 ">0.010</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d194372e281 ">3</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e284 ">0.0</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e293 ">0.0</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e302 ">_mcConstantLine</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e311 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e321 ">0.000</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e330 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e339 ">0.0</td>
+
+<td class="entry cellrowborder" style="text-align:right;vertical-align:top;" headers="d194372e348 ">0.0</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="fdq1484547345716">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Ladder Diagram</h1>
+
+<div class="body conbody"></div>
+
+<div class="related-links"></div></div><div class="layer05" id="bex1484548146686">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">Main Variables</h1>
+ 
+<div class="body conbody">
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="bex1484548146686__ID0EBICM" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:39%" />
+<col style="width:20%" />
+<col style="width:10%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d8027e30">Name</th>
+ 
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d8027e33">Data type</th>
+ 
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d8027e36">Default</th>
+ 
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d8027e39">Comment</th>
+ 
+</tr>
+ 
+</thead>
+ 
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d8027e30 ">MC_Axis000</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d8027e33 ">_sAXIS_REF</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d8027e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d8027e39 ">
+<p class="p" id="bex1484548146686__ID0EGLCM">Axis Variable for the master axis, axis 1.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d8027e30 ">MC_Axis001</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d8027e33 ">_sAXIS_REF</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d8027e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d8027e39 ">
+<p class="p" id="bex1484548146686__ID0EZMCM">Axis Variable for the slave axis, axis 2.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d8027e30 ">CamProfile0</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d8027e33 ">ARRAY[0..36000] OF _sMC_CAM_REF</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d8027e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d8027e39 ">
+<p class="p" id="bex1484548146686__ID0EMOCM">This is the cam data variable.</p>
+ 
+<p class="p" id="bex1484548146686__ID0ETOCM">The cam data variable is created in advance on the Cam Editor of the Sysmac Studio.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d8027e30 ">Pwr1_Status</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d8027e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d8027e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d8027e39 ">
+<p class="p" id="bex1484548146686__ID0EGQCM">This variable is assigned to the <span class="ph phtype_variable"><span class="termtype">Status</span></span> output variable from the PWR1 instance of the MC_Power instruction. This variable changes to TRUE when the Servo is turned ON.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d8027e30 ">Pwr2_Status</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d8027e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d8027e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d8027e39 ">
+<p class="p" id="bex1484548146686__ID0EZRCM">This variable is assigned to the <span class="ph phtype_variable"><span class="termtype">Status</span></span> output variable from the PWR2 instance of the MC_Power instruction. This variable changes to TRUE when the Servo is turned ON.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d8027e30 ">StartPg</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d8027e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d8027e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d8027e39 ">
+<p class="p" id="bex1484548146686__ID0EMTCM">The Servo is turned ON if this variable is TRUE and EtherCAT process data communications are established.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d8027e30 ">WriteCamDefinition</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d8027e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d8027e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d8027e39 ">
+<p class="p" id="bex1484548146686__ID0E6UCM">The values in the cam property variable and cam node variable are written when this variable is TRUE.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d8027e30 ">CamProperty0</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d8027e33 ">_sMC_CAM_PROPERTY</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d8027e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d8027e39 ">
+<p class="p" id="bex1484548146686__ID0ESWCM">This is the cam property variable.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d8027e30 ">CamNode0</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d8027e33 ">ARRAY[0..3] OF _sMC_CAM_NODE</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d8027e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d8027e39 ">
+<p class="p" id="bex1484548146686__ID0EFYCM">This is the cam node variable.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d8027e30 ">_MC_COM.Status.GenerateCamBusy</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d8027e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d8027e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d8027e39 ">
+<p class="p" id="bex1484548146686__ID0EYZCM">This is a system-defined variable for motion control. It is TRUE while the cam table creation is in progress.</p>
+ 
+</td>
+ 
+</tr>
+ 
+</tbody>
+ 
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer05" id="jqo1484548148683">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Timing Charts</h1>
+
+<div class="body conbody">
+<br /><img class="image" src="yqt1484548146936.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="iuv1484548162911">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Sample Programming</h1>
+
+<div class="body conbody">
+<br /><img class="image" id="iuv1484548162911__image_enn_4nb_lx" src="ikr1484548148917.gif" /><br />
+<br /><img class="image" id="iuv1484548162911__image_ud1_pnb_lx" src="wwl1484548150118.gif" /><br />
+<br /><img class="image" id="iuv1484548162911__image_utn_pnb_lx" src="qhh1484548151367.gif" /><br />
+<br /><img class="image" id="iuv1484548162911__image_ok1_qnb_lx" src="bdg1484548152864.gif" /><br />
+<br /><img class="image" id="iuv1484548162911__image_kll_qnb_lx" src="fpe1484548154097.gif" /><br />
+<br /><img class="image" id="iuv1484548162911__image_ddw_qnb_lx" src="hji1484548155298.gif" /><br />
+<br /><img class="image" id="iuv1484548162911__image_vzd_3pb_lx" src="xsp1484548156624.gif" /><br />
+<br /><img class="image" id="iuv1484548162911__image_zlp_3pb_lx" src="dcp1484548157950.gif" /><br />
+<br /><img class="image" id="iuv1484548162911__image_ey1_jpb_lx" src="uxx1484548159354.gif" /><br />
+<br /><img class="image" id="iuv1484548162911__image_wqm_jpb_lx" src="aht1484548161304.gif" /><br />
+<p class="p linespace_7pt"><strong class="ph b">Contents of Inline ST</strong></p>
+
+<pre class="pre codeblock">CamProperty0.CycleTime := REAL#0.800;
+CamNode0[0].Curve := _eMC_CAM_CURVE#_mcPolynomic5;
+CamNode0[0].ConnectingVelEnable := FALSE;
+CamNode0[0].ConnectingVel := REAL#0.000;
+CamNode0[0].ConnectingAccEnable := FALSE;
+CamNode0[0].ConnectingAcc := REAL#0.000;
+CamNode0[1].Phase := REAL#200.000;
+CamNode0[1].Distance := REAL#-102.000;
+CamNode0[1].Curve := _eMC_CAM_CURVE#_mcStraightLine;
+CamNode0[1].ConnectingVelEnable := FALSE;
+CamNode0[1].ConnectingVel := REAL#0.000;
+CamNode0[1].ConnectingAccEnable := FALSE;
+CamNode0[1].ConnectingAcc := REAL#0.000;
+CamNode0[2].Phase := REAL#360.000;
+CamNode0[2].Distance := REAL#0.000;
+CamNode0[2].Curve := _eMC_CAM_CURVE#_mcPolynomic5;
+CamNode0[2].ConnectingVelEnable := FALSE;
+CamNode0[2].ConnectingVel := REAL#0.000;
+CamNode0[2].ConnectingAccEnable := FALSE;
+CamNode0[2].ConnectingAcc := REAL#0.000;
+CamNode0[2].PhasePitch := REAL#0.010;
+CamNode0[3].Phase := REAL#0.000;
+WriteCamDefinitionDone := TRUE;
+</pre>
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="eju1484547358774">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Structured Text (ST)</h1>
+
+<div class="body conbody"></div>
+
+<div class="related-links"></div></div><div class="layer05" id="jjb1484548163145">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">Main Variables</h1>
+ 
+<div class="body conbody">
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="jjb1484548163145__ID0EDDDM" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:39%" />
+<col style="width:20%" />
+<col style="width:11%" />
+<col style="width:28%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d70195e30">Name</th>
+ 
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d70195e33">Data type</th>
+ 
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d70195e36">Default</th>
+ 
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d70195e39">Comment</th>
+ 
+</tr>
+ 
+</thead>
+ 
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d70195e30 ">MC_Axis000</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d70195e33 ">_sAXIS_REF</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d70195e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d70195e39 ">
+<p class="p" id="jjb1484548163145__ID0EIGDM">Axis Variable for the master axis, axis 1.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d70195e30 ">MC_Axis001</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d70195e33 ">_sAXIS_REF</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d70195e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d70195e39 ">
+<p class="p" id="jjb1484548163145__ID0E2HDM">Axis Variable for the slave axis, axis 2.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d70195e30 ">CamProfile0</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d70195e33 ">ARRAY[0..36000] OF _sMC_CAM_REF</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d70195e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d70195e39 ">
+<p class="p" id="jjb1484548163145__ID0EOJDM">This is the cam data variable.</p>
+ 
+<p class="p" id="jjb1484548163145__ID0EVJDM">The cam profile curve is created in advance on the Cam Editor of the Sysmac Studio.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d70195e30 ">Pwr1_Status</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d70195e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d70195e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d70195e39 ">
+<p class="p" id="jjb1484548163145__ID0EILDM">This variable is assigned to the <span class="ph phtype_variable"><span class="termtype">Status</span></span> output variable from the PWR1 instance of the MC_Power instruction. This variable changes to TRUE when the Servo is turned ON.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d70195e30 ">Pwr2_Status</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d70195e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d70195e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d70195e39 ">
+<p class="p" id="jjb1484548163145__ID0E2MDM">This variable is assigned to the <span class="ph phtype_variable"><span class="termtype">Status</span></span> output variable from the PWR2 instance of the MC_Power instruction. This variable changes to TRUE when the Servo is turned ON.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d70195e30 ">StartPg</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d70195e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d70195e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d70195e39 ">
+<p class="p" id="jjb1484548163145__ID0EOODM">The Servo is turned ON if this variable is TRUE and EtherCAT process data communications are established.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d70195e30 ">WriteCamDefinition</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d70195e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d70195e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d70195e39 ">
+<p class="p" id="jjb1484548163145__ID0EBQDM">The values in the cam property variable and cam node variable are written when this variable is TRUE.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d70195e30 ">CamProperty0</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d70195e33 ">_sMC_CAM_PROPERTY</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d70195e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d70195e39 ">
+<p class="p" id="jjb1484548163145__ID0EURDM">This is the cam property variable.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d70195e30 ">CamNode0</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d70195e33 ">ARRAY[0..3] OF _sMC_CAM_NODE</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d70195e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d70195e39 ">
+<p class="p" id="jjb1484548163145__ID0EHTDM">This is the cam node variable.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d70195e30 ">_MC_COM.Status.GenerateCamBusy</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d70195e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d70195e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d70195e39 ">
+<p class="p" id="jjb1484548163145__ID0E1UDM">This is a system-defined variable for motion control. It is TRUE while the cam table creation is in progress.</p>
+ 
+</td>
+ 
+</tr>
+ 
+</tbody>
+ 
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer05" id="gju1484548164830">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Timing Charts</h1>
+
+<div class="body conbody">
+<br /><img class="image" src="jha1484548163504.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="mvv1484548165049">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Sample Programming</h1>
+
+<div class="body conbody">
+<pre class="pre codeblock">//If StartPg is TRUE and the Servo Drive is ready, the Servo for axis 1 is turned ON.
+//If the Servo Drive is not ready, the Servo is turned OFF.
+IF (StartPg=TRUE)
+ AND (MC_Axis000.DrvStatus.Ready=TRUE) THEN
+    Pwr1_En:=TRUE;
+ELSE
+    Pwr1_En:=FALSE;
+END_IF;
+
+//If StartPg is TRUE and the Servo Drive is ready, the Servo for axis 2 is turned ON.
+//If the Servo Drive is not ready, the Servo is turned OFF.
+IF (StartPg=TRUE)
+ AND (MC_Axis001.DrvStatus.Ready=TRUE) THEN
+    Pwr2_En:=TRUE;
+ELSE
+    Pwr2_En:=FALSE;
+END_IF;
+
+//If a minor fault level error occurs in the MC Common Error Status variable or for any of the axes, the error handler for the device (FaultHandler) is executed.
+//The FaultHandler is programmed according to the device.
+IF (MC_Axis000.MFaultLvl.Active=TRUE)
+OR (MC_Axis001.MFaultLvl.Active=TRUE)
+OR (_MC_COM.MFaultLvl.Active=TRUE) THEN
+    FaultHandler();
+END_IF;
+
+//If the Servo is ON for axis 1 and home is not defined, the Home instruction is executed.
+IF (Pwr1_Status=TRUE) AND (MC_Axis000.Details.Homed=FALSE) THEN
+    Hm1_Ex:=TRUE;
+END_IF;
+
+//If the Servo is ON for axis 2 and home is not defined, the Home instruction is executed.
+IF (Pwr2_Status=TRUE) AND (MC_Axis001.Details.Homed=FALSE) THEN
+    Hm2_Ex:=TRUE;
+END_IF;
+
+//After homing is completed for axis 1, the MC_MoveVelocity instruction is executed.
+IF Hm1_D=TRUE THEN
+    Vel_Ex := TRUE;
+END_IF;
+
+//If WriteCamDefinition is TRUE and the MC_GenerateCamTable (Generate Cam Table) instruction is not yet executed, the cam properties and cam nodes are written.
+//After the data is written, WriteCamDefinitionDone is changed to TRUE.
+IF(WriteCamDefinition = TRUE) THEN
+    //The cam properties are written.
+    CamProperty0.CycleTime := REAL#0.800;
+
+    //The cam nodes are written.
+    CamNode0[0].Curve :=_eMC_CAM_CURVE#_mcPolynomic5;
+    CamNode0[0].ConnectingVelEnable := FALSE;
+    CamNode0[0].ConnectingVel := REAL#0.000;
+    CamNode0[0].ConnectingAccEnable := FALSE;
+    CamNode0[0].ConnectingAcc := REAL#0.000;
+    CamNode0[1].Phase := REAL#200.000;
+    CamNode0[1].Distance := REAL#-102.000;
+    CamNode0[1].Curve :=_eMC_CAM_CURVE#_mcStraightLine;
+    CamNode0[1].ConnectingVelEnable := FALSE;
+    CamNode0[1].ConnectingVel := REAL#0.000;
+    CamNode0[1].ConnectingAccEnable := FALSE;
+    CamNode0[1].ConnectingAcc := REAL#0.000;
+    CamNode0[2].Phase := REAL#360.000;
+    CamNode0[2].Distance := REAL#0.000;
+    CamNode0[2].Curve :=_eMC_CAM_CURVE#_mcPolynomic5;
+    CamNode0[2].ConnectingVelEnable := FALSE;
+    CamNode0[2].ConnectingVel := REAL#0.000;
+    CamNode0[2].ConnectingAccEnable := FALSE;
+    CamNode0[2].ConnectingAcc := REAL#0.000;
+    CamNode0[2].PhasePitch := REAL#0.010;
+    CamNode0[3].Phase := REAL#0.000;
+
+    //WriteCamDefinitionDone is changed to TRUE.
+    WriteCamDefinitionDone := TRUE;
+END_IF;
+
+//If WriteCamDefinitionDone is TRUE and cam table creation processing is not in progress, the MC_GenerateCamTable (Generate Cam Table) instruction is executed.
+IF(WriteCamDefinitionDone = TRUE)
+AND(_MC_COM.Status.GenerateCamBusy = FALSE) THEN
+    Gene_Exe := TRUE;
+END_IF;
+
+//If cam table creation processing is completed and the master axis (axis 1) has reached the target velocity, the MC_CamIn (Start Cam Operation) instruction is executed.
+IF (Gene_D=TRUE)
+AND(_MC_COM.Status.GenerateCamBusy = FALSE)
+AND (Vel_InVel=TRUE) THEN
+    Camin_Ex := TRUE;
+END_IF;
+
+// MC_GenerateCamTable
+GENE_CAM(
+    CamTable := CamProfile0,
+    CamProperty := CamProperty0,
+    CamNodes := CamNode0,
+    execute := Gene_Exe,
+    Done =&gt; Gene_D,
+    EndPointIndex =&gt; Gene_EPI,
+    Busy =&gt; Gene_Bsy,
+    CommandAborted =&gt; Gene_CA,
+    Error =&gt; Gene_Err,
+    ErrorID =&gt; Gene_ErrID,
+    ErrorParameterCode =&gt; Gene_ErrPC,
+    ErrorNodePointIndex =&gt; Gene_ErrNPI
+);
+
+// MC_Power for master axis (axis 1)
+PWR1(
+    Axis := MC_Axis000,
+    Enable := Pwr1_En,
+    Status =&gt; Pwr1_Status,
+    Busy =&gt; Pwr1_Bsy,
+    Error =&gt; Pwr1_Err,
+    ErrorID =&gt; Pwr1_ErrID
+);
+
+// MC_Power for slave axis (axis 2)
+PWR2(
+    Axis := MC_Axis001,
+    Enable := Pwr2_En,
+    Status =&gt; Pwr2_Status,
+    Busy =&gt; Pwr2_Bsy,
+    Error =&gt; Pwr2_Err,
+    ErrorID =&gt; Pwr2_ErrID
+);
+
+// MC_Home for master axis (axis 1)
+HM1(
+    Axis := MC_Axis000,
+    Execute := Hm1_Ex,
+    Done =&gt; Hm1_D,
+    Busy =&gt; Hm1_Bsy,
+    CommandAborted =&gt; Hm1_Ca,
+    Error =&gt; Hm1_Err,
+    ErrorID =&gt; Hm1_ErrID
+);
+
+// MC_Home for slave axis (axis 2)
+HM2(
+    Axis := MC_Axis001,
+    Execute := Hm2_Ex,
+    Done =&gt; Hm2_D,
+    Busy =&gt; Hm2_Bsy,
+    CommandAborted =&gt; Hm2_Ca,
+    Error =&gt; Hm2_Err,
+    ErrorID =&gt; Hm2_ErrID
+);
+
+//MC_MoveVelocity
+VEL(
+    Axis := MC_Axis000,
+    Execute := Vel_Ex,
+    Velocity := Vel_Vel,
+    Acceleration := Vel_Acc,
+    Deceleration := Vel_Dec,
+    Direction := Vel_Dir,
+    InVelocity =&gt; Vel_InVel,
+    Busy =&gt; Vel_Bsy,
+    Active =&gt; Vel_Act,
+    CommandAborted =&gt; Vel_Ca,
+    Error =&gt; Vel_Err,
+    ErrorID =&gt; Vel_ErrID
+);
+
+//MC_CamIn
+CAM_IN(
+    Master := MC_Axis000,
+    Slave := MC_Axis001,
+    CamTable := CamProfile0,
+    Execute := Camin_Ex,
+    Periodic := Camin_P,
+    StartMode := Camin_Sm,
+    StartPosition := Camin_Sp,
+    MasterStartDistance := Camin_Msd,
+    MasterScaling := Camin_Ms,
+    SlaveScaling := Camin_Ss,
+    MasterOffset := Camin_Mo,
+    SlaveOffset := Camin_So,
+    ReferenceType := Camin_Rt,
+    Direction := Camin_Dir,
+    InCam =&gt; Camin_InCam,
+    InSync =&gt; Camin_InSync,
+    EndOfProfile =&gt; Camin_Eop,
+    Index =&gt; Camin_Index,
+    Busy =&gt; Camin_Bsy,
+    Active =&gt; Camin_Act,
+    CommandAborted =&gt; Camin_Ca,
+    Error =&gt; Camin_Err,
+    ErrorID =&gt; Camin_ErrID
+);
+</pre>
+
+</div>
+
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,7729 @@
+{
+ "progetto": "Etcher_Pits_C726_Test_Scada",
+ "guid": "e2453b73-47a6-4c98-86c2-ba72c31beb93",
+ "sections": {
+  "Vasca1_Acido": {
+   "rungs": [
+    {
+     "cmt": "START CICLO VASCA1 (ROCESSO)",
+     "chain": [
+      "V_P_Start_Ciclo_V1",
+      "/Seq_V1",
+      "(S Mem_Ciclo_V1)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "V_P_Reset_Timer_V1",
+      {
+       "fb": "TON",
+       "inst": "Tim_P_Reset_Timer_V1",
+       "p": {
+        "PT": "T#1s"
+       }
+      },
+      "(R Mem_Ciclo_V1)"
+     ]
+    },
+    {
+     "cmt": "CONTEGGIO TEMPO DI PROCESSO",
+     "chain": [
+      "Mem_Ciclo_V1",
+      {
+       "fb": "Contatore",
+       "inst": "Cnt_V1",
+       "p": {
+        "SET_VALUE": "SET_Timer_V1",
+        "VALUE": "PV_Timer_V1",
+        "OUT:VALUE": "PV_Timer_V1"
+       }
+      },
+      "(End_Ciclo_V1)"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA VASCA1",
+     "chain": [
+      {
+       "or": [
+        "Mem_Soluz_V1",
+        "Mem_Scarico_V1",
+        "Mem_Ciclo_V1"
+       ]
+      },
+      "(Seq_V1)"
+     ]
+    },
+    {
+     "cmt": "TEMPORIZZATORE LIVELLO MASSIMO",
+     "chain": [
+      "IN_LIV_MAX_V1",
+      {
+       "fb": "TON",
+       "inst": "Tim_Liv_Max_V1",
+       "p": {
+        "PT": "t#1s"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "CARICO LA VASCA DI SOLUZIONE",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "V_P_Soluz_V1",
+       "IN_CDS_READY",
+       "/IN_LIV_MAX_V1",
+       "IN_PRESS_ARIA",
+       "IN_PORTE_SX_CLOSED",
+       "IN_PORTE_SX2_CLOSED",
+       "(S Mem_Soluz_V1)"
+      ],
+      [
+       "Mem_Soluz_V1",
+       "(V_L_Soluz_V1)"
+      ]
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "V_P_Annulla_V1",
+        "Tim_Liv_Max_V1.Q",
+        "IN_CDS_END_DOSAGGIO",
+        "Allarme_Azoto",
+        "/IN_EMERGENZA"
+       ]
+      },
+      "(R Mem_Soluz_V1)"
+     ]
+    },
+    {
+     "cmt": "SCARICO LA VASCA DI SOLUZIONE",
+     "chain": [
+      "P_On",
+      {
+       "or": [
+        [
+         "V_P_Svuota_V1",
+         "(S Mem_Scarico_V1)"
+        ],
+        [
+         "Mem_Scarico_V1",
+         {
+          "or": [
+           "(V_L_Svuota_V1)",
+           {
+            "fb": "Contatore",
+            "inst": "Cnt_Svuoto_V1",
+            "p": {
+             "SET_VALUE": "SET_Timer_Svuota_V1",
+             "VALUE": "PV_Timer_Svuota_V1",
+             "OUT:VALUE": "PV_Timer_Svuota_V1"
+            }
+           }
+          ]
+         }
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "V_P_Annulla_V1",
+        "Cnt_Svuoto_V1.End_Conteggio"
+       ]
+      },
+      "(R Mem_Scarico_V1)"
+     ]
+    },
+    {
+     "cmt": "USCITE VASCA1.RELE DI CHIAMATA SOLUZIONE DA CDS",
+     "chain": [
+      "IN_EMERGENZA",
+      "Mem_Soluz_V1",
+      "(OUT_SOLUZ_V1)"
+     ]
+    },
+    {
+     "cmt": "USCITE VASCA1.ELETTROVALVOLE DI CARICO SOLUZIONE HF",
+     "chain": [
+      "IN_EMERGENZA",
+      "Mem_Soluz_V1",
+      "IN_CDS_EV_HF_OPEN",
+      "(OUT_EV_HF_V1)"
+     ]
+    },
+    {
+     "cmt": "USCITE VASCA1.ELETTROVALVOLA DI SCARICO",
+     "chain": [
+      {
+       "or": [
+        "Mem_Scarico_V1",
+        "/IN_EMERGENZA",
+        "Allarm_Svuota_Vasche"
+       ]
+      },
+      "(Bit_OUT_SCAR_V1)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "/Bit_OUT_SCAR_V1",
+      "(OUT_SCAR_V1)"
+     ]
+    },
+    {
+     "cmt": "NUMERO ATTACCHI ",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "^Mem_Ciclo_V1",
+       {
+        "f": "Inc",
+        "p": {
+         "InOut": "PV_Attacchi_V1",
+         "OUT:InOut": "PV_Attacchi_V1"
+        }
+       }
+      ],
+      [
+       "Bit_OUT_SCAR_V1",
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "0",
+         "OUT:Out": "PV_Attacchi_V1"
+        }
+       }
+      ]
+     ]
+    },
+    {
+     "cmt": "LOG CONSUMO SOLUZIONE-SHIFT DEI DATI OGNI PRIMO DEL MESE",
+     "chain": [
+      "P_On",
+      {
+       "or": [
+        [
+         "^Mem_Soluz_V1",
+         {
+          "or": [
+           {
+            "f": "Inc",
+            "p": {
+             "InOut": "PV_Consumo_V1",
+             "OUT:InOut": "PV_Consumo_V1"
+            }
+           },
+           {
+            "f": "+",
+            "p": {
+             "In1": "PV_Tot_Lit_V1",
+             "In2": "SET_Moltipl_Litri_V1",
+             "OUT:": "PV_Tot_Lit_V1"
+            }
+           }
+          ]
+         }
+        ],
+        [
+         "^Nuovo_Mese",
+         {
+          "or": [
+           [
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "PV_Consumo_V1meno2",
+              "OUT:Out": "PV_Consumo_V1meno3"
+             }
+            },
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "PV_Consumo_V1meno1",
+              "OUT:Out": "PV_Consumo_V1meno2"
+             }
+            },
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "PV_Consumo_V1",
+              "OUT:Out": "PV_Consumo_V1meno1"
+             }
+            },
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "0",
+              "OUT:Out": "PV_Consumo_V1"
+             }
+            }
+           ],
+           [
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "PV_Tot_Lit_V1meno2",
+              "OUT:Out": "PV_Tot_Lit_V1meno3"
+             }
+            },
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "PV_Tot_Lit_V1meno1",
+              "OUT:Out": "PV_Tot_Lit_V1meno2"
+             }
+            },
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "PV_Tot_Lit_V1",
+              "OUT:Out": "PV_Tot_Lit_V1meno1"
+             }
+            },
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "0",
+              "OUT:Out": "PV_Tot_Lit_V1"
+             }
+            }
+           ]
+          ]
+         }
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "cmt": "CALCOLO IL TEMPO DI DURATA EFFETTIVO ATTACCO",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "Mem_Ciclo_V1",
+       {
+        "f": "Get1sClk",
+        "p": {}
+       },
+       {
+        "f": "@Inc",
+        "p": {
+         "InOut": "Log_Tim_V1",
+         "OUT:InOut": "Log_Tim_V1"
+        }
+       }
+      ],
+      [
+       "/Mem_Ciclo_V1",
+       {
+        "fb": "TON",
+        "inst": "Tim_1",
+        "p": {
+         "PT": "t#3s"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "0",
+         "OUT:Out": "Log_Tim_V1"
+        }
+       }
+      ]
+     ]
+    },
+    {
+     "cmt": "QUANDO RESETTO L'ATTACCO ATTIVO LA REGISTRAZIONE DEL LOG ",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "vMem_Ciclo_V1",
+       "(S Log_Enable_V1)"
+      ],
+      [
+       "Log_Enable_V1",
+       {
+        "fb": "TON",
+        "inst": "Tim_11",
+        "p": {
+         "PT": "t#1s"
+        }
+       },
+       "(R Log_Enable_V1)"
+      ]
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "ist": "Log_Min_V1:=Log_Tim_V1/60;\r\nLog_Sec_V1 :=Log_Tim_V1-(Log_Min_V1*60);"
+      }
+     ]
+    },
+    {
+     "cmt": "NUMERO ATTACCHI PER LOG MESE",
+     "chain": [
+      "vMem_Ciclo_V1",
+      {
+       "f": "Inc",
+       "p": {
+        "InOut": "PV_Attac_Tot_V1",
+        "OUT:InOut": "PV_Attac_Tot_V1"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "SOMMATORIA TEMPI DI PROCESSO PER LOG MESE",
+     "chain": [
+      "vMem_Ciclo_V1",
+      {
+       "f": "+",
+       "p": {
+        "In1": "PV_Tot_Tim_V1",
+        "In2": "Log_Tim_V1",
+        "OUT:": "PV_Tot_Tim_V1"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "CALCOLO MEDIA TEMPI DI PROCESSO NEL MESE",
+     "chain": [
+      {
+       "ist": "PV_Media_Tim_V1:=PV_Tot_Tim_V1/PV_Attac_Tot_V1;\r\n\r\nIF PV_Attac_Tot_V1=0 THEN\r\n\tPV_Media_Tim_V1:=0;\r\nEND_IF;"
+      }
+     ]
+    },
+    {
+     "cmt": "LOG TEMPO MEDIO-SHIFT DEI DATI OGNI PRIMO DEL MESE",
+     "chain": [
+      "^Nuovo_Mese"
+     ],
+     "out": [
+      [
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "PV_Attac_Tot_V1meno2",
+         "OUT:Out": "PV_Attac_Tot_V1meno3"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "PV_Attac_Tot_V1meno1",
+         "OUT:Out": "PV_Attac_Tot_V1meno2"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "PV_Attac_Tot_V1",
+         "OUT:Out": "PV_Attac_Tot_V1meno1"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "0",
+         "OUT:Out": "PV_Attac_Tot_V1"
+        }
+       }
+      ],
+      [
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "PV_Media_Tim_V1meno2",
+         "OUT:Out": "PV_Media_Tim_V1meno3"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "PV_Media_Tim_V1meno1",
+         "OUT:Out": "PV_Media_Tim_V1meno2"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "PV_Media_Tim_V1",
+         "OUT:Out": "PV_Media_Tim_V1meno1"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "0",
+         "OUT:Out": "PV_Tot_Tim_V1"
+        }
+       }
+      ]
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Allarm_Svuota_Vasche",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Allarme_Azoto",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Bit_OUT_SCAR_V1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_Svuoto_V1",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_V1",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "End_Ciclo_V1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_CDS_END_DOSAGGIO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_CDS_EV_HF_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_CDS_READY",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EMERGENZA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIV_MAX_V1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_PORTE_SX2_CLOSED",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_PORTE_SX_CLOSED",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_PRESS_ARIA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Log_Enable_V1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Log_Min_V1",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Log_Sec_V1",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Log_Tim_V1",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Ciclo_V1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Scarico_V1",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Soluz_V1",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Nuovo_Mese",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_EV_HF_V1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_SCAR_V1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_SOLUZ_V1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Attac_Tot_V1",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Attac_Tot_V1meno1",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Attac_Tot_V1meno2",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Attac_Tot_V1meno3",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Attacchi_V1",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Consumo_V1",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Consumo_V1meno1",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Consumo_V1meno2",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Consumo_V1meno3",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Media_Tim_V1",
+     "type": "DINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Media_Tim_V1meno1",
+     "type": "DINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Media_Tim_V1meno2",
+     "type": "DINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Media_Tim_V1meno3",
+     "type": "DINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Timer_Svuota_V1",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Timer_V1",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Tot_Lit_V1",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Tot_Lit_V1meno1",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Tot_Lit_V1meno2",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Tot_Lit_V1meno3",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Tot_Tim_V1",
+     "type": "DINT",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "SET_Moltipl_Litri_V1",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Timer_Svuota_V1",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Timer_V1",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Seq_V1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_1",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_11",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Liv_Max_V1",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_P_Reset_Timer_V1",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_L_Soluz_V1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_L_Svuota_V1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Annulla_V1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Reset_Timer_V1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Soluz_V1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Start_Ciclo_V1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Svuota_V1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Vasca2_Acido": {
+   "rungs": [
+    {
+     "cmt": "START CICLO VASCA2 (RINSE)",
+     "chain": [
+      "V_P_Start_Ciclo_V2",
+      "/Seq_V2",
+      "(S Mem_Ciclo_V2)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "V_P_Reset_Timer_V2",
+      {
+       "fb": "TON",
+       "inst": "Tim_P_Reset_Timer_V2",
+       "p": {
+        "PT": "T#1s"
+       }
+      },
+      "(R Mem_Ciclo_V2)"
+     ]
+    },
+    {
+     "cmt": "CONTEGGIO TEMPO DI PROCESSO",
+     "chain": [
+      "Mem_Ciclo_V2",
+      {
+       "fb": "Contatore",
+       "inst": "Cnt_V2",
+       "p": {
+        "SET_VALUE": "SET_Timer_V2",
+        "VALUE": "PV_Timer_V2",
+        "OUT:VALUE": "PV_Timer_V2"
+       }
+      },
+      "(End_Ciclo_V2)"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA VASCA2",
+     "chain": [
+      {
+       "or": [
+        "Mem_Soluz_V2",
+        "Mem_Carico_V2",
+        "Mem_Scarico_V2",
+        "Mem_Ciclo_V2"
+       ]
+      },
+      "(Seq_V2)"
+     ]
+    },
+    {
+     "cmt": "TEMPORIZZATORE LIVELLO MASSIMO",
+     "chain": [
+      "IN_LIV_MAX_V2",
+      {
+       "fb": "TON",
+       "inst": "Tim_Liv_Max_V2",
+       "p": {
+        "PT": "t#1s"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "CARICO LA VASCA DI ACQUA",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "V_P_DI_V2",
+       "IN_PORTE_SX_CLOSED",
+       "IN_PORTE_SX2_CLOSED",
+       "(S Mem_Carico_V2)"
+      ],
+      [
+       "Mem_Carico_V2",
+       "(V_L_DI_V2)"
+      ]
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "V_P_Annulla_V2",
+        "IN_LIV_MIN_V2",
+        "Allarme_Azoto"
+       ]
+      },
+      "(R Mem_Carico_V2)"
+     ]
+    },
+    {
+     "cmt": "CARICO LA VASCA DI SOLUZIONE",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "V_P_Soluz_V2",
+       "IN_CDS_READY",
+       "/IN_LIV_MAX_V2",
+       "IN_PRESS_ARIA",
+       "IN_PORTE_SX_CLOSED",
+       "IN_PORTE_SX2_CLOSED",
+       "(S Mem_Soluz_V2)"
+      ],
+      [
+       "Mem_Soluz_V2",
+       "(V_L_Soluz_V2)"
+      ]
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "V_P_Annulla_V2",
+        "Tim_Liv_Max_V2.Q",
+        "IN_CDS_END_DOSAGGIO",
+        "Allarme_Azoto",
+        "/IN_EMERGENZA"
+       ]
+      },
+      "(R Mem_Soluz_V2)"
+     ]
+    },
+    {
+     "cmt": "SCARICO LA VASCA DI SOLUZIONE",
+     "chain": [
+      "P_On",
+      {
+       "or": [
+        [
+         "V_P_Svuota_V2",
+         "(S Mem_Scarico_V2)"
+        ],
+        [
+         "Mem_Scarico_V2",
+         {
+          "or": [
+           "(V_L_Svuota_V2)",
+           {
+            "fb": "Contatore",
+            "inst": "Cnt_Svuoto_V2",
+            "p": {
+             "SET_VALUE": "SET_Timer_Svuota_V2",
+             "VALUE": "PV_Timer_Svuota_V2",
+             "OUT:VALUE": "PV_Timer_Svuota_V2"
+            }
+           }
+          ]
+         }
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "V_P_Annulla_V2",
+        "Cnt_Svuoto_V2.End_Conteggio"
+       ]
+      },
+      "(R Mem_Scarico_V2)"
+     ]
+    },
+    {
+     "cmt": "USCITE VASCA2.RELE DI CHIAMATA SOLUZIONE DA CDS",
+     "chain": [
+      "IN_EMERGENZA",
+      "Mem_Soluz_V2",
+      "(OUT_SOLUZ_V2)"
+     ]
+    },
+    {
+     "cmt": "USCITE VASCA2.ELETTROVALVOLE DI CARICO SOLUZIONE HF",
+     "chain": [
+      "IN_EMERGENZA",
+      "Mem_Soluz_V2",
+      "IN_CDS_EV_HF_OPEN",
+      "(OUT_EV_HF_V2)"
+     ]
+    },
+    {
+     "cmt": "Uscite Vasca4.Elettrovalvola di carico acqua DI",
+     "chain": [
+      "IN_EMERGENZA",
+      "Mem_Carico_V2",
+      "(OUT_DI_V2)"
+     ]
+    },
+    {
+     "cmt": "USCITE VASCA2.ELETTROVALVOLA DI SCARICO",
+     "chain": [
+      {
+       "or": [
+        "Mem_Scarico_V2",
+        "/IN_EMERGENZA",
+        "Allarm_Svuota_Vasche"
+       ]
+      },
+      "(Bit_OUT_SCAR_V2)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "/Bit_OUT_SCAR_V2",
+      "(OUT_SCAR_V2)"
+     ]
+    },
+    {
+     "cmt": "NUMERO ATTACCHI",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "^Mem_Ciclo_V2",
+       {
+        "f": "Inc",
+        "p": {
+         "InOut": "PV_Attacchi_V2",
+         "OUT:InOut": "PV_Attacchi_V2"
+        }
+       }
+      ],
+      [
+       "Bit_OUT_SCAR_V2",
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "0",
+         "OUT:Out": "PV_Attacchi_V2"
+        }
+       }
+      ]
+     ]
+    },
+    {
+     "cmt": "LOG CONSUMO SOLUZIONE-SHIFT DEI DATI OGNI PRIMO DEL MESE",
+     "chain": [
+      "P_On",
+      {
+       "or": [
+        [
+         "^Mem_Soluz_V2",
+         {
+          "or": [
+           {
+            "f": "Inc",
+            "p": {
+             "InOut": "PV_Consumo_V2",
+             "OUT:InOut": "PV_Consumo_V2"
+            }
+           },
+           {
+            "f": "+",
+            "p": {
+             "In1": "PV_Tot_Lit_V2",
+             "In2": "SET_Moltipl_Litri_V2",
+             "OUT:": "PV_Tot_Lit_V2"
+            }
+           }
+          ]
+         }
+        ],
+        [
+         "^Nuovo_Mese",
+         {
+          "or": [
+           [
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "PV_Consumo_V2meno2",
+              "OUT:Out": "PV_Consumo_V2meno3"
+             }
+            },
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "PV_Consumo_V2meno1",
+              "OUT:Out": "PV_Consumo_V2meno2"
+             }
+            },
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "PV_Consumo_V2",
+              "OUT:Out": "PV_Consumo_V2meno1"
+             }
+            },
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "0",
+              "OUT:Out": "PV_Consumo_V2"
+             }
+            }
+           ],
+           [
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "PV_Tot_Lit_V2meno2",
+              "OUT:Out": "PV_Tot_Lit_V2meno3"
+             }
+            },
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "PV_Tot_Lit_V2meno1",
+              "OUT:Out": "PV_Tot_Lit_V2meno2"
+             }
+            },
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "PV_Tot_Lit_V2",
+              "OUT:Out": "PV_Tot_Lit_V2meno1"
+             }
+            },
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "0",
+              "OUT:Out": "PV_Tot_Lit_V2"
+             }
+            }
+           ]
+          ]
+         }
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "cmt": "CALCOLO IL TEMPO DI DURATA EFFETTIVO ATTACCO",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "Mem_Ciclo_V2",
+       {
+        "f": "Get1sClk",
+        "p": {}
+       },
+       {
+        "f": "@Inc",
+        "p": {
+         "InOut": "Log_Tim_V2",
+         "OUT:InOut": "Log_Tim_V2"
+        }
+       }
+      ],
+      [
+       "/Mem_Ciclo_V2",
+       {
+        "fb": "TON",
+        "inst": "Tim_2",
+        "p": {
+         "PT": "t#3s"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "0",
+         "OUT:Out": "Log_Tim_V2"
+        }
+       }
+      ]
+     ]
+    },
+    {
+     "cmt": "QUANDO RESETTO L'ATTACCO ATTIVO LA REGISTRAZIONE DEL LOG ",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "vMem_Ciclo_V2",
+       "(S Log_Enable_V2)"
+      ],
+      [
+       "Log_Enable_V2",
+       {
+        "fb": "TON",
+        "inst": "Tim_12",
+        "p": {
+         "PT": "t#1s"
+        }
+       },
+       "(R Log_Enable_V2)"
+      ]
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "ist": "Log_Min_V2:=Log_Tim_V2/60;\r\nLog_Sec_V2 :=Log_Tim_V2-(Log_Min_V2*60);"
+      }
+     ]
+    },
+    {
+     "cmt": "NUMERO ATTACCHI PER LOG MESE",
+     "chain": [
+      "vMem_Ciclo_V2",
+      {
+       "f": "Inc",
+       "p": {
+        "InOut": "PV_Attac_Tot_V2",
+        "OUT:InOut": "PV_Attac_Tot_V2"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "SOMMATORIA TEMPI DI PROCESSO PER LOG MESE",
+     "chain": [
+      "vMem_Ciclo_V2",
+      {
+       "f": "+",
+       "p": {
+        "In1": "PV_Tot_Tim_V2",
+        "In2": "Log_Tim_V2",
+        "OUT:": "PV_Tot_Tim_V2"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "CALCOLO MEDIA TEMPI DI PROCESSO NEL MESE",
+     "chain": [
+      {
+       "ist": "PV_Media_Tim_V2:=PV_Tot_Tim_V2/PV_Attac_Tot_V2;\r\n\r\nIF PV_Attac_Tot_V2=0 THEN\r\n\tPV_Media_Tim_V2:=0;\r\nEND_IF;"
+      }
+     ]
+    },
+    {
+     "cmt": "LOG TEMPO MEDIO-SHIFT DEI DATI OGNI PRIMO DEL MESE",
+     "chain": [
+      "^Nuovo_Mese"
+     ],
+     "out": [
+      [
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "PV_Attac_Tot_V2meno2",
+         "OUT:Out": "PV_Attac_Tot_V2meno3"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "PV_Attac_Tot_V2meno1",
+         "OUT:Out": "PV_Attac_Tot_V2meno2"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "PV_Attac_Tot_V2",
+         "OUT:Out": "PV_Attac_Tot_V2meno1"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "0",
+         "OUT:Out": "PV_Attac_Tot_V2"
+        }
+       }
+      ],
+      [
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "PV_Media_Tim_V2meno2",
+         "OUT:Out": "PV_Media_Tim_V2meno3"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "PV_Media_Tim_V2meno1",
+         "OUT:Out": "PV_Media_Tim_V2meno2"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "PV_Media_Tim_V2",
+         "OUT:Out": "PV_Media_Tim_V2meno1"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "0",
+         "OUT:Out": "PV_Tot_Tim_V2"
+        }
+       }
+      ]
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Allarm_Svuota_Vasche",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Allarme_Azoto",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Bit_OUT_SCAR_V2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_Svuoto_V2",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_V2",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "End_Ciclo_V2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_CDS_END_DOSAGGIO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_CDS_EV_HF_OPEN",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_CDS_READY",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EMERGENZA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIV_MAX_V2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIV_MIN_V2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_PORTE_SX2_CLOSED",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_PORTE_SX_CLOSED",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_PRESS_ARIA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Log_Enable_V2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Log_Min_V2",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Log_Sec_V2",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Log_Tim_V2",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Carico_V2",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Ciclo_V2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Scarico_V2",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Soluz_V2",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Nuovo_Mese",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_DI_V2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_EV_HF_V2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_SCAR_V2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_SOLUZ_V2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Attac_Tot_V2",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Attac_Tot_V2meno1",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Attac_Tot_V2meno2",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Attac_Tot_V2meno3",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Attacchi_V2",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Consumo_V2",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Consumo_V2meno1",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Consumo_V2meno2",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Consumo_V2meno3",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Media_Tim_V2",
+     "type": "DINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Media_Tim_V2meno1",
+     "type": "DINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Media_Tim_V2meno2",
+     "type": "DINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Media_Tim_V2meno3",
+     "type": "DINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Timer_Svuota_V2",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Timer_V2",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Tot_Lit_V2",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Tot_Lit_V2meno1",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Tot_Lit_V2meno2",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Tot_Lit_V2meno3",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Tot_Tim_V2",
+     "type": "DINT",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "SET_Moltipl_Litri_V2",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Timer_Svuota_V2",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Timer_V2",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Seq_V2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_12",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_2",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Liv_Max_V2",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_P_Reset_Timer_V2",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_L_DI_V2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_L_Soluz_V2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_L_Svuota_V2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Annulla_V2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_DI_V2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Reset_Timer_V2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Soluz_V2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Start_Ciclo_V2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Svuota_V2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Vasca3_Mix": {
+   "rungs": [
+    {
+     "cmt": "START CICLO VASCA3",
+     "chain": [
+      "V_P_Start_Ciclo_V3",
+      "/Seq_V3",
+      "(S Mem_Ciclo_V3)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "V_P_Reset_Timer_V3",
+      {
+       "fb": "TON",
+       "inst": "Tim_P_Reset_Timer_V3",
+       "p": {
+        "PT": "T#1s"
+       }
+      },
+      "(R Mem_Ciclo_V3)"
+     ]
+    },
+    {
+     "cmt": "CONTEGGIO TEMPO DI PROCESSO",
+     "chain": [
+      "Mem_Ciclo_V3",
+      {
+       "fb": "Contatore",
+       "inst": "Cnt_V3",
+       "p": {
+        "SET_VALUE": "SET_Timer_V3",
+        "VALUE": "PV_Timer_V3",
+        "OUT:VALUE": "PV_Timer_V3"
+       }
+      },
+      "(End_Ciclo_V3)"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA VASCA3",
+     "chain": [
+      {
+       "or": [
+        "Mem_Soluz_V3",
+        "Mem_Scarico_V3",
+        "Mem_Ciclo_V3"
+       ]
+      },
+      "(Seq_V3)"
+     ]
+    },
+    {
+     "cmt": "TEMPORIZZATORE LIVELLO MASSIMO",
+     "chain": [
+      "IN_LIV_MAX_V3",
+      {
+       "fb": "TON",
+       "inst": "Tim_Liv_Max_V3",
+       "p": {
+        "PT": "t#1s"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "TEMPORIZZATORE LIVELLO MINIMO",
+     "chain": [
+      "IN_LIV_MIN_V3",
+      {
+       "fb": "TON",
+       "inst": "Tim_Liv_Min_V3",
+       "p": {
+        "PT": "t#1s"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "CARICO LA VASCA DI SOLUZIONE",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "V_P_Soluz2_V3",
+       "/IN_LIV_MAX_V3",
+       "IN_PORTE_SX_CLOSED",
+       "IN_PORTE_SX2_CLOSED",
+       "(S Mem_Soluz_V3)"
+      ],
+      [
+       "Mem_Soluz_V3",
+       "(V_L_Soluz_V3)"
+      ]
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "V_P_Annulla_V3",
+        "Tim_Liv_Min_V3.Q",
+        "Tim_Liv_Max_V3.Q",
+        "Allarme_Azoto",
+        "/IN_EMERGENZA"
+       ]
+      },
+      "(R Mem_Soluz_V3)"
+     ]
+    },
+    {
+     "cmt": "SCARICO LA VASCA DI SOLUZIONE",
+     "chain": [
+      "P_On",
+      {
+       "or": [
+        [
+         "V_P_Svuota2_V3",
+         "(S Mem_Scarico_V3)"
+        ],
+        [
+         "Mem_Scarico_V3",
+         {
+          "or": [
+           "(V_L_Svuota_V3)",
+           {
+            "fb": "Contatore",
+            "inst": "Cnt_Svuoto_V3",
+            "p": {
+             "SET_VALUE": "SET_Timer_Svuota_V3",
+             "VALUE": "PV_Timer_Svuota_V3",
+             "OUT:VALUE": "PV_Timer_Svuota_V3"
+            }
+           }
+          ]
+         }
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "V_P_Annulla_V3",
+        "Cnt_Svuoto_V3.End_Conteggio"
+       ]
+      },
+      "(R Mem_Scarico_V3)"
+     ]
+    },
+    {
+     "cmt": "USCITE VASCA3.ELETTROVALVOLE DI CARICO SOLUZIONE MIX 4:1",
+     "chain": [
+      "IN_EMERGENZA",
+      "Mem_Soluz_V3",
+      "(OUT_EV_MIX_V3)"
+     ]
+    },
+    {
+     "cmt": "USCITE VASCA3.ELETTROVALVOLA DI SCARICO",
+     "chain": [
+      {
+       "or": [
+        "Mem_Scarico_V3",
+        "/IN_EMERGENZA",
+        "Allarm_Svuota_Vasche"
+       ]
+      },
+      "(Bit_OUT_SCAR_V3)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "/Bit_OUT_SCAR_V3",
+      "(OUT_SCAR_V3)"
+     ]
+    },
+    {
+     "cmt": "NUMERO ATTACCHI",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "^Mem_Ciclo_V3",
+       {
+        "f": "Inc",
+        "p": {
+         "InOut": "PV_Attacchi_V3",
+         "OUT:InOut": "PV_Attacchi_V3"
+        }
+       }
+      ],
+      [
+       "Bit_OUT_SCAR_V3",
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "0",
+         "OUT:Out": "PV_Attacchi_V3"
+        }
+       }
+      ]
+     ]
+    },
+    {
+     "cmt": "LOG CONSUMO SOLUZIONE-SHIFT DEI DATI OGNI PRIMO DEL MESE",
+     "chain": [
+      "P_On",
+      {
+       "or": [
+        [
+         "^Mem_Soluz_V3",
+         {
+          "or": [
+           {
+            "f": "Inc",
+            "p": {
+             "InOut": "PV_Consumo_V3",
+             "OUT:InOut": "PV_Consumo_V3"
+            }
+           },
+           {
+            "f": "+",
+            "p": {
+             "In1": "PV_Tot_Lit_V3",
+             "In2": "SET_Moltipl_Litri_V3",
+             "OUT:": "PV_Tot_Lit_V3"
+            }
+           }
+          ]
+         }
+        ],
+        [
+         "^Nuovo_Mese",
+         {
+          "or": [
+           [
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "PV_Consumo_V3meno2",
+              "OUT:Out": "PV_Consumo_V3meno3"
+             }
+            },
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "PV_Consumo_V3meno1",
+              "OUT:Out": "PV_Consumo_V3meno2"
+             }
+            },
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "PV_Consumo_V3",
+              "OUT:Out": "PV_Consumo_V3meno1"
+             }
+            },
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "0",
+              "OUT:Out": "PV_Consumo_V3"
+             }
+            }
+           ],
+           [
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "PV_Tot_Lit_V3meno2",
+              "OUT:Out": "PV_Tot_Lit_V3meno3"
+             }
+            },
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "PV_Tot_Lit_V3meno1",
+              "OUT:Out": "PV_Tot_Lit_V3meno2"
+             }
+            },
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "PV_Tot_Lit_V3",
+              "OUT:Out": "PV_Tot_Lit_V3meno1"
+             }
+            },
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "0",
+              "OUT:Out": "PV_Tot_Lit_V3"
+             }
+            }
+           ]
+          ]
+         }
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "cmt": "CALCOLO IL TEMPO DI DURATA EFFETTIVO ATTACCO",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "Mem_Ciclo_V3",
+       {
+        "f": "Get1sClk",
+        "p": {}
+       },
+       {
+        "f": "@Inc",
+        "p": {
+         "InOut": "Log_Tim_V3",
+         "OUT:InOut": "Log_Tim_V3"
+        }
+       }
+      ],
+      [
+       "/Mem_Ciclo_V3",
+       {
+        "fb": "TON",
+        "inst": "Tim_3",
+        "p": {
+         "PT": "t#3s"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "0",
+         "OUT:Out": "Log_Tim_V3"
+        }
+       }
+      ]
+     ]
+    },
+    {
+     "cmt": "QUANDO RESETTO L'ATTACCO ATTIVO LA REGISTRAZIONE DEL LOG ",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "vMem_Ciclo_V3",
+       "(S Log_Enable_V3)"
+      ],
+      [
+       "Log_Enable_V3",
+       {
+        "fb": "TON",
+        "inst": "Tim_13",
+        "p": {
+         "PT": "t#1s"
+        }
+       },
+       "(R Log_Enable_V3)"
+      ]
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "ist": "Log_Min_V3:=Log_Tim_V3/60;\r\nLog_Sec_V3 :=Log_Tim_V3-(Log_Min_V3*60);"
+      }
+     ]
+    },
+    {
+     "cmt": "NUMERO ATTACCHI PER LOG MESE",
+     "chain": [
+      "vMem_Ciclo_V3",
+      {
+       "f": "Inc",
+       "p": {
+        "InOut": "PV_Attac_Tot_V3",
+        "OUT:InOut": "PV_Attac_Tot_V3"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "SOMMATORIA TEMPI DI PROCESSO PER LOG MESE",
+     "chain": [
+      "vMem_Ciclo_V3",
+      {
+       "f": "+",
+       "p": {
+        "In1": "PV_Tot_Tim_V3",
+        "In2": "Log_Tim_V3",
+        "OUT:": "PV_Tot_Tim_V3"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "CALCOLO MEDIA TEMPI DI PROCESSO NEL MESE",
+     "chain": [
+      {
+       "ist": "PV_Media_Tim_V3:=PV_Tot_Tim_V3/PV_Attac_Tot_V3;\r\n\r\nIF PV_Attac_Tot_V3=0 THEN\r\n\tPV_Media_Tim_V3:=0;\r\nEND_IF;"
+      }
+     ]
+    },
+    {
+     "cmt": "LOG TEMPO MEDIO-SHIFT DEI DATI OGNI PRIMO DEL MESE",
+     "chain": [
+      "^Nuovo_Mese"
+     ],
+     "out": [
+      [
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "PV_Attac_Tot_V3meno2",
+         "OUT:Out": "PV_Attac_Tot_V3meno3"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "PV_Attac_Tot_V3meno1",
+         "OUT:Out": "PV_Attac_Tot_V3meno2"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "PV_Attac_Tot_V3",
+         "OUT:Out": "PV_Attac_Tot_V3meno1"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "0",
+         "OUT:Out": "PV_Attac_Tot_V3"
+        }
+       }
+      ],
+      [
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "PV_Media_Tim_V3meno2",
+         "OUT:Out": "PV_Media_Tim_V3meno3"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "PV_Media_Tim_V3meno1",
+         "OUT:Out": "PV_Media_Tim_V3meno2"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "PV_Media_Tim_V3",
+         "OUT:Out": "PV_Media_Tim_V3meno1"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "0",
+         "OUT:Out": "PV_Tot_Tim_V3"
+        }
+       }
+      ]
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Allarm_Svuota_Vasche",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Allarme_Azoto",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Bit_OUT_SCAR_V3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_Svuoto_V3",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_V3",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "End_Ciclo_V3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EMERGENZA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIV_MAX_V3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIV_MIN_V3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_PORTE_SX2_CLOSED",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_PORTE_SX_CLOSED",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Log_Enable_V3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Log_Min_V3",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Log_Sec_V3",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Log_Tim_V3",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Ciclo_V3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Scarico_V3",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Soluz_V3",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Nuovo_Mese",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_EV_MIX_V3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_SCAR_V3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Attac_Tot_V3",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Attac_Tot_V3meno1",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Attac_Tot_V3meno2",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Attac_Tot_V3meno3",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Attacchi_V3",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Consumo_V3",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Consumo_V3meno1",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Consumo_V3meno2",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Consumo_V3meno3",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Media_Tim_V3",
+     "type": "DINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Media_Tim_V3meno1",
+     "type": "DINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Media_Tim_V3meno2",
+     "type": "DINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Media_Tim_V3meno3",
+     "type": "DINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Timer_Svuota_V3",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Timer_V3",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Tot_Lit_V3",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Tot_Lit_V3meno1",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Tot_Lit_V3meno2",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Tot_Lit_V3meno3",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Tot_Tim_V3",
+     "type": "DINT",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "SET_Moltipl_Litri_V3",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Timer_Svuota_V3",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Timer_V3",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Seq_V3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_13",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_3",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Liv_Max_V3",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Liv_Min_V3",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_P_Reset_Timer_V3",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_L_Soluz_V3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_L_Svuota_V3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Annulla_V3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Reset_Timer_V3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Soluz2_V3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Start_Ciclo_V3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Svuota2_V3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Vasca4_Rinse_Acido": {
+   "rungs": [
+    {
+     "cmt": "START CICLO VASCA4",
+     "chain": [
+      "V_P_Start_Ciclo_V4",
+      "/Seq_V4",
+      "(S Mem_Ciclo_V4)"
+     ]
+    },
+    {
+     "cmt": "UTILIZZATO PER IL LOG ATTACCO ACIDO",
+     "chain": [
+      "Mem_Ciclo_V4",
+      "V_S_HCL_V4",
+      "(Ciclo_V4_HCL)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "V_P_Reset_Timer_V4",
+      {
+       "fb": "TON",
+       "inst": "Tim_P_Reset_Timer_V4",
+       "p": {
+        "PT": "T#1s"
+       }
+      },
+      "(R Mem_Ciclo_V4)"
+     ]
+    },
+    {
+     "cmt": "CONTEGGIO TEMPO DI PROCESSO",
+     "chain": [
+      "Mem_Ciclo_V4",
+      {
+       "fb": "Contatore",
+       "inst": "Cnt_V4",
+       "p": {
+        "SET_VALUE": "SET_Timer_V4",
+        "VALUE": "PV_Timer_V4",
+        "OUT:VALUE": "PV_Timer_V4"
+       }
+      },
+      "(End_Ciclo_V4)"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA VASCA4",
+     "chain": [
+      {
+       "or": [
+        "Mem_Carico_V4",
+        "Mem_Scarico_V4",
+        "Mem_Ciclo_V4"
+       ]
+      },
+      "(Seq_V4)"
+     ]
+    },
+    {
+     "cmt": "TEMPORIZZATORE LIVELLO MASSIMO",
+     "chain": [
+      "IN_LIV_MAX_V4",
+      {
+       "fb": "TON",
+       "inst": "Tim_Liv_Max_V4",
+       "p": {
+        "PT": "t#1s"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "CARICO LA VASCA DI ACQUA",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "V_P_DI_V4",
+       "(S Mem_Carico_V4)"
+      ],
+      [
+       "Mem_Carico_V4",
+       "(V_L_DI_V4)"
+      ]
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "V_P_Annulla_V4",
+        "Tim_Liv_Max_V4.Q",
+        "Allarme_Azoto"
+       ]
+      },
+      "(R Mem_Carico_V4)"
+     ]
+    },
+    {
+     "cmt": "SCARICO LA VASCA DI ACQUA",
+     "chain": [
+      "P_On",
+      {
+       "or": [
+        [
+         "V_P_Svuota_V4",
+         "(S Mem_Scarico_V4)"
+        ],
+        [
+         "Mem_Scarico_V4",
+         {
+          "or": [
+           "(V_L_Svuota_V4)",
+           {
+            "fb": "Contatore",
+            "inst": "Cnt_Svuoto_V4",
+            "p": {
+             "SET_VALUE": "SET_Timer_Svuota_V4",
+             "VALUE": "PV_Timer_Svuota_V4",
+             "OUT:VALUE": "PV_Timer_Svuota_V4"
+            }
+           }
+          ]
+         }
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "V_P_Annulla_V4",
+        "Cnt_Svuoto_V4.End_Conteggio"
+       ]
+      },
+      "(R Mem_Scarico_V4)"
+     ]
+    },
+    {
+     "cmt": "Uscite Vasca4.Elettrovalvola di carico acqua DI",
+     "chain": [
+      "IN_EMERGENZA",
+      {
+       "or": [
+        [
+         "Mem_Ciclo_V4",
+         "/End_Ciclo_V4",
+         "/V_S_HCL_V4"
+        ],
+        "Mem_Carico_V4"
+       ]
+      },
+      "(OUT_DI_V4)"
+     ]
+    },
+    {
+     "cmt": "Uscite Vasca4.Elettrovalvola Overflow DI",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       {
+        "or": [
+         "^V_P_DI_V4",
+         "^Mem_Ciclo_V4"
+        ]
+       },
+       "(S Mem_OVERFLOW_V4)"
+      ],
+      [
+       "Mem_OVERFLOW_V4",
+       "IN_EMERGENZA",
+       "P_Off",
+       "(OUT_OVERFLOW_V4)"
+      ],
+      [
+       {
+        "or": [
+         "Bit_OUT_SCAR_V4",
+         "V_S_HCL_V4"
+        ]
+       },
+       "(R Mem_OVERFLOW_V4)"
+      ]
+     ]
+    },
+    {
+     "cmt": "Uscite Vasca4.Elettrovalvola di Scarico",
+     "chain": [
+      {
+       "or": [
+        "Mem_Scarico_V4",
+        "/IN_EMERGENZA",
+        [
+         "Allarm_Svuota_Vasche",
+         "V_S_HCL_V4"
+        ]
+       ]
+      },
+      "(Bit_OUT_SCAR_V4)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "/Bit_OUT_SCAR_V4",
+      "(OUT_SCAR_V4)"
+     ]
+    },
+    {
+     "cmt": "NUMERO ATTACCHI",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "^Mem_Ciclo_V4",
+       "V_S_HCL_V4",
+       {
+        "f": "Inc",
+        "p": {
+         "InOut": "PV_Attacchi_V4",
+         "OUT:InOut": "PV_Attacchi_V4"
+        }
+       }
+      ],
+      [
+       "Bit_OUT_SCAR_V4",
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "0",
+         "OUT:Out": "PV_Attacchi_V4"
+        }
+       }
+      ]
+     ]
+    },
+    {
+     "cmt": "CALCOLO IL TEMPO DI DURATA EFFETTIVO ATTACCO",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "Mem_Ciclo_V4",
+       {
+        "f": "Get1sClk",
+        "p": {}
+       },
+       {
+        "f": "@Inc",
+        "p": {
+         "InOut": "Log_Tim_V4",
+         "OUT:InOut": "Log_Tim_V4"
+        }
+       }
+      ],
+      [
+       "/Mem_Ciclo_V4",
+       {
+        "fb": "TON",
+        "inst": "Tim_4",
+        "p": {
+         "PT": "t#3s"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "0",
+         "OUT:Out": "Log_Tim_V4"
+        }
+       }
+      ]
+     ]
+    },
+    {
+     "cmt": "QUANDO RESETTO L'ATTACCO ATTIVO LA REGISTRAZIONE DEL LOG ",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "vMem_Ciclo_V4",
+       "V_S_HCL_V4",
+       "(S Log_Enable_V4)"
+      ],
+      [
+       "Log_Enable_V4",
+       {
+        "fb": "TON",
+        "inst": "Tim_14",
+        "p": {
+         "PT": "t#1s"
+        }
+       },
+       "(R Log_Enable_V4)"
+      ]
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "ist": "Log_Min_V4:=Log_Tim_V4/60;\r\nLog_Sec_V4 :=Log_Tim_V4-(Log_Min_V4*60);"
+      }
+     ]
+    },
+    {
+     "cmt": "NUMERO ATTACCHI PER LOG MESE",
+     "chain": [
+      "vMem_Ciclo_V4",
+      "V_S_HCL_V4",
+      {
+       "f": "Inc",
+       "p": {
+        "InOut": "PV_Attac_Tot_V4",
+        "OUT:InOut": "PV_Attac_Tot_V4"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "SOMMATORIA TEMPI DI PROCESSO PER LOG MESE",
+     "chain": [
+      "vMem_Ciclo_V4",
+      "V_S_HCL_V4",
+      {
+       "f": "+",
+       "p": {
+        "In1": "PV_Tot_Tim_V4",
+        "In2": "Log_Tim_V4",
+        "OUT:": "PV_Tot_Tim_V4"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "CALCOLO MEDIA TEMPI DI PROCESSO NEL MESE",
+     "chain": [
+      {
+       "ist": "PV_Media_Tim_V4:=PV_Tot_Tim_V4/PV_Attac_Tot_V4;\r\n\r\nIF PV_Attac_Tot_V4=0 THEN\r\n\tPV_Media_Tim_V4:=0;\r\nEND_IF;"
+      }
+     ]
+    },
+    {
+     "cmt": "LOG TEMPO MEDIO-SHIFT DEI DATI OGNI PRIMO DEL MESE",
+     "chain": [
+      "^Nuovo_Mese"
+     ],
+     "out": [
+      [
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "PV_Attac_Tot_V4meno2",
+         "OUT:Out": "PV_Attac_Tot_V4meno3"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "PV_Attac_Tot_V4meno1",
+         "OUT:Out": "PV_Attac_Tot_V4meno2"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "PV_Attac_Tot_V4",
+         "OUT:Out": "PV_Attac_Tot_V4meno1"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "0",
+         "OUT:Out": "PV_Attac_Tot_V4"
+        }
+       }
+      ],
+      [
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "PV_Media_Tim_V4meno2",
+         "OUT:Out": "PV_Media_Tim_V4meno3"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "PV_Media_Tim_V4meno1",
+         "OUT:Out": "PV_Media_Tim_V4meno2"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "PV_Media_Tim_V4",
+         "OUT:Out": "PV_Media_Tim_V4meno1"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "0",
+         "OUT:Out": "PV_Tot_Tim_V4"
+        }
+       }
+      ]
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Allarm_Svuota_Vasche",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Allarme_Azoto",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Bit_OUT_SCAR_V4",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Ciclo_V4_HCL",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_Svuoto_V4",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_V4",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "End_Ciclo_V4",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EMERGENZA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIV_MAX_V4",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Log_Enable_V4",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Log_Min_V4",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Log_Sec_V4",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Log_Tim_V4",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Carico_V4",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Ciclo_V4",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_OVERFLOW_V4",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Scarico_V4",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Nuovo_Mese",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_DI_V4",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_OVERFLOW_V4",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_SCAR_V4",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Attac_Tot_V4",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Attac_Tot_V4meno1",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Attac_Tot_V4meno2",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Attac_Tot_V4meno3",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Attacchi_V4",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Media_Tim_V4",
+     "type": "DINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Media_Tim_V4meno1",
+     "type": "DINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Media_Tim_V4meno2",
+     "type": "DINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Media_Tim_V4meno3",
+     "type": "DINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Timer_Svuota_V4",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Timer_V4",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Tot_Tim_V4",
+     "type": "DINT",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "SET_Timer_Svuota_V4",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Timer_V4",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Seq_V4",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_14",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_4",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Liv_Max_V4",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_P_Reset_Timer_V4",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_L_DI_V4",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_L_Svuota_V4",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Annulla_V4",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_DI_V4",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Reset_Timer_V4",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Start_Ciclo_V4",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Svuota_V4",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_S_HCL_V4",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Vasca5_Rinse": {
+   "rungs": [
+    {
+     "cmt": "START CICLO VASCA5",
+     "chain": [
+      "V_P_Start_Ciclo_V5",
+      "/Seq_V5",
+      "(S Mem_Ciclo_V5)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "V_P_Reset_Timer_V5",
+      {
+       "fb": "TON",
+       "inst": "Tim_P_Reset_Timer_V5",
+       "p": {
+        "PT": "T#1s"
+       }
+      },
+      "(R Mem_Ciclo_V5)"
+     ]
+    },
+    {
+     "cmt": "CONTEGGIO TEMPO DI PROCESSO",
+     "chain": [
+      "Mem_Ciclo_V5",
+      {
+       "fb": "Contatore",
+       "inst": "Cnt_V5",
+       "p": {
+        "SET_VALUE": "SET_Timer_V5",
+        "VALUE": "PV_Timer_V5",
+        "OUT:VALUE": "PV_Timer_V5"
+       }
+      },
+      "(End_Ciclo_V5)"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA VASCA5",
+     "chain": [
+      {
+       "or": [
+        "Mem_Carico_V5",
+        "Mem_Scarico_V5",
+        "Mem_Ciclo_V5"
+       ]
+      },
+      "(Seq_V5)"
+     ]
+    },
+    {
+     "cmt": "TEMPORIZZATORE LIVELLO MASSIMO",
+     "chain": [
+      "IN_LIV_MAX_V5",
+      {
+       "fb": "TON",
+       "inst": "Tim_Liv_Max_V5",
+       "p": {
+        "PT": "t#1s"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "CARICO LA VASCA DI ACQUA",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "V_P_DI_V5",
+       "(S Mem_Carico_V5)"
+      ],
+      [
+       "Mem_Carico_V5",
+       "(V_L_DI_V5)"
+      ]
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "V_P_Annulla_V5",
+        "Tim_Liv_Max_V5.Q",
+        "Allarme_Azoto"
+       ]
+      },
+      "(R Mem_Carico_V5)"
+     ]
+    },
+    {
+     "cmt": "SCARICO LA VASCA DI ACQUA",
+     "chain": [
+      "P_On",
+      {
+       "or": [
+        [
+         "V_P_Svuota_V5",
+         "(S Mem_Scarico_V5)"
+        ],
+        [
+         "Mem_Scarico_V5",
+         {
+          "or": [
+           "(V_L_Svuota_V5)",
+           {
+            "fb": "Contatore",
+            "inst": "Cnt_Svuoto_V5",
+            "p": {
+             "SET_VALUE": "SET_Timer_Svuota_V5",
+             "VALUE": "PV_Timer_Svuota_V5",
+             "OUT:VALUE": "PV_Timer_Svuota_V5"
+            }
+           }
+          ]
+         }
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "V_P_Annulla_V5",
+        "Cnt_Svuoto_V5.End_Conteggio"
+       ]
+      },
+      "(R Mem_Scarico_V5)"
+     ]
+    },
+    {
+     "cmt": "Uscite Vasca5.Elettrovalvola di carico acqua DI",
+     "chain": [
+      "IN_EMERGENZA",
+      {
+       "or": [
+        [
+         "Mem_Ciclo_V5",
+         "/End_Ciclo_V5"
+        ],
+        "Mem_Carico_V5"
+       ]
+      },
+      "(OUT_DI_V5)"
+     ]
+    },
+    {
+     "cmt": "Uscite Vasca5.Elettrovalvola Overflow DI",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       {
+        "or": [
+         "^V_P_DI_V5",
+         "^Mem_Ciclo_V5"
+        ]
+       },
+       "(S Mem_OVERFLOW_V5)"
+      ],
+      [
+       "Bit_OUT_SCAR_V5",
+       "(R Mem_OVERFLOW_V5)"
+      ]
+     ]
+    },
+    {
+     "cmt": "Uscite Vasca5.Elettrovalvola di Scarico",
+     "chain": [
+      {
+       "or": [
+        "Mem_Scarico_V5",
+        "/IN_EMERGENZA"
+       ]
+      },
+      "(Bit_OUT_SCAR_V5)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "/Bit_OUT_SCAR_V5",
+      "(OUT_SCAR_V5)"
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Allarme_Azoto",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Bit_OUT_SCAR_V5",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_Svuoto_V5",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_V5",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "End_Ciclo_V5",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EMERGENZA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIV_MAX_V5",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Carico_V5",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Ciclo_V5",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_OVERFLOW_V5",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Scarico_V5",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "OUT_DI_V5",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_SCAR_V5",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Timer_Svuota_V5",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Timer_V5",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Timer_Svuota_V5",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Timer_V5",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Seq_V5",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Liv_Max_V5",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_P_Reset_Timer_V5",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_L_DI_V5",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_L_Svuota_V5",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Annulla_V5",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_DI_V5",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Reset_Timer_V5",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Start_Ciclo_V5",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Svuota_V5",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Vasca6_Mix": {
+   "rungs": [
+    {
+     "cmt": "START CICLO VASCA6",
+     "chain": [
+      "V_P_Start_Ciclo_V6",
+      "/Seq_V6",
+      "(S Mem_Ciclo_V6)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "V_P_Reset_Timer_V6",
+      {
+       "fb": "TON",
+       "inst": "Tim_P_Reset_Timer_V6",
+       "p": {
+        "PT": "T#1s"
+       }
+      },
+      "(R Mem_Ciclo_V6)"
+     ]
+    },
+    {
+     "cmt": "CONTEGGIO TEMPO DI PROCESSO",
+     "chain": [
+      "Mem_Ciclo_V6",
+      {
+       "fb": "Contatore",
+       "inst": "Cnt_V6",
+       "p": {
+        "SET_VALUE": "SET_Timer_V6",
+        "VALUE": "PV_Timer_V6",
+        "OUT:VALUE": "PV_Timer_V6"
+       }
+      },
+      "(End_Ciclo_V6)"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA VASCA6",
+     "chain": [
+      {
+       "or": [
+        "Mem_Soluz_V6",
+        "Mem_Scarico_V6",
+        "Mem_Ciclo_V6",
+        "Mem_Rinse_V6"
+       ]
+      },
+      "(Seq_V6)"
+     ]
+    },
+    {
+     "cmt": "TEMPORIZZATORE LIVELLO MASSIMO",
+     "chain": [
+      "IN_LIV_MAX_V6",
+      {
+       "fb": "TON",
+       "inst": "Tim_Liv_Max_V6",
+       "p": {
+        "PT": "t#1s"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "TEMPORIZZATORE LIVELLO MINIMO",
+     "chain": [
+      "IN_LIV_MIN_V6",
+      {
+       "fb": "TON",
+       "inst": "Tim_Liv_Min_V6",
+       "p": {
+        "PT": "t#1s"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "CARICO LA VASCA DI SOLUZIONE",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "V_P_Soluz_V6",
+       "/IN_LIV_MAX_V6",
+       "IN_PORTE_SX_CLOSED",
+       "IN_PORTE_SX2_CLOSED",
+       "(S Mem_Soluz_V6)"
+      ],
+      [
+       "Mem_Soluz_V6",
+       "(V_L_Soluz_V6)"
+      ]
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "V_P_Annulla_V6",
+        "Tim_Liv_Max_V6.Q",
+        "Tim_Liv_Min_V6.Q",
+        "Allarme_Azoto",
+        "/IN_EMERGENZA"
+       ]
+      },
+      "(R Mem_Soluz_V6)"
+     ]
+    },
+    {
+     "cmt": "SCARICO LA VASCA DI SOLUZIONE",
+     "chain": [
+      "P_On",
+      {
+       "or": [
+        [
+         "V_P_Svuota_V6",
+         "(S Mem_Scarico_V6)"
+        ],
+        [
+         "Mem_Scarico_V6",
+         {
+          "or": [
+           "(V_L_Svuota_V6)",
+           {
+            "fb": "Contatore",
+            "inst": "Cnt_Svuoto_V6",
+            "p": {
+             "SET_VALUE": "SET_Timer_Svuota_V6",
+             "VALUE": "PV_Timer_Svuota_V6",
+             "OUT:VALUE": "PV_Timer_Svuota_V6"
+            }
+           }
+          ]
+         }
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "V_P_Annulla_V6",
+        "Cnt_Svuoto_V6.End_Conteggio"
+       ]
+      },
+      "(R Mem_Scarico_V6)"
+     ]
+    },
+    {
+     "cmt": "#SEQUENZA DI RINSE",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "V_P_Svuo_Rinse_V6",
+       "(S Mem_Rinse_V6)"
+      ],
+      [
+       "Mem_Rinse_V6",
+       "(V_L_Svuo_Rinse_V6)"
+      ],
+      [
+       "/Mem_Rinse_V6",
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "0",
+         "OUT:Out": "PV_Numero_Rinse_V6"
+        }
+       }
+      ],
+      [
+       {
+        "or": [
+         "V_P_Annulla_V6",
+         "End_Rinse_V6",
+         "Allarme_Azoto"
+        ]
+       },
+       "(R Mem_Rinse_V6)"
+      ]
+     ]
+    },
+    {
+     "cmt": "SEQUENZA DI RINSE: PRIMO SVUOTAMENTO",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "Mem_Rinse_V6",
+       "(S Mem_Rinse_V6_1Svuoto)"
+      ],
+      [
+       "/Mem_Rinse_V6",
+       "(R Mem_Rinse_V6_1Svuoto)"
+      ]
+     ]
+    },
+    {
+     "cmt": "SEQUENZA DI RINSE: FINE PRIMO SVUOTAMENTO",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "Mem_Rinse_V6_1Svuoto",
+       {
+        "fb": "Contatore",
+        "inst": "Cnt_Svuoto_V6_1",
+        "p": {
+         "SET_VALUE": "SET_Timer_Svuota_V6",
+         "VALUE": "PV_Timer_Svuota_V6_1",
+         "OUT:VALUE": "PV_Timer_Svuota_V6_1"
+        }
+       },
+       "(S Mem_Rinse_V6_1_End_Svuoto)"
+      ],
+      [
+       "/Mem_Rinse_V6",
+       "(R Mem_Rinse_V6_1_End_Svuoto)"
+      ]
+     ]
+    },
+    {
+     "cmt": "SEQUENZA DI RINSE: CARICO ACQUA FINO A LIVELLO MASSIMO",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "Mem_Rinse_V6_1_End_Svuoto",
+       "(S Mem_Rinse_V6_Carico_H20)"
+      ],
+      [
+       {
+        "or": [
+         "/Mem_Rinse_V6",
+         "New_Rinse_V6"
+        ]
+       },
+       "(R Mem_Rinse_V6_Carico_H20)"
+      ]
+     ]
+    },
+    {
+     "cmt": "SEQUENZA DI RINSE: FINE CARICO ACQUA ",
+     "chain": [
+      "P_On",
+      {
+       "or": [
+        [
+         "Mem_Rinse_V6_Carico_H20",
+         {
+          "or": [
+           [
+            "Tim_Liv_Max_V6.Q",
+            "(S Mem_Rinse_V6_End_Carico_H20)"
+           ],
+           {
+            "f": "@Inc",
+            "p": {
+             "InOut": "PV_Numero_Rinse_V6",
+             "OUT:InOut": "PV_Numero_Rinse_V6"
+            }
+           }
+          ]
+         }
+        ],
+        [
+         {
+          "or": [
+           "/Mem_Rinse_V6",
+           "New_Rinse_V6"
+          ]
+         },
+         "(R Mem_Rinse_V6_End_Carico_H20)"
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "cmt": "SEQUENZA DI RINSE: SECONDO SVUOTAMENTO",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "Mem_Rinse_V6_End_Carico_H20",
+       "(S Mem_Rinse_V6_2Svuoto)"
+      ],
+      [
+       {
+        "or": [
+         "/Mem_Rinse_V6",
+         "New_Rinse_V6"
+        ]
+       },
+       "(R Mem_Rinse_V6_2Svuoto)"
+      ]
+     ]
+    },
+    {
+     "cmt": "SEQUENZA DI RINSE: FINE SECONDO SVUOTAMENTO",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "Mem_Rinse_V6_2Svuoto",
+       {
+        "fb": "Contatore",
+        "inst": "Cnt_Svuoto_V6_2",
+        "p": {
+         "SET_VALUE": "SET_Timer_Svuota_V6",
+         "VALUE": "PV_Timer_Svuota_V6_2",
+         "OUT:VALUE": "PV_Timer_Svuota_V6_2"
+        }
+       },
+       "(S Mem_Rinse_V6_2_End_Svuoto)"
+      ],
+      [
+       {
+        "or": [
+         "/Mem_Rinse_V6",
+         "New_Rinse_V6"
+        ]
+       },
+       "(R Mem_Rinse_V6_2_End_Svuoto)"
+      ]
+     ]
+    },
+    {
+     "cmt": "SEQUENZA DI RINSE: COMPARAZIONE PER VERIFICARE SE DEVO ESEGUIRE NUOVO RISCIACQUO O TERMINARE SEQUENZA",
+     "chain": [
+      "P_On",
+      "Mem_Rinse_V6_2_End_Svuoto"
+     ],
+     "out": [
+      [
+       {
+        "f": ">=",
+        "p": {
+         "In1": "PV_Numero_Rinse_V6",
+         "In2": "SET_Numero_Rinse_V6"
+        }
+       },
+       "(End_Rinse_V6)"
+      ],
+      [
+       {
+        "f": "<",
+        "p": {
+         "In1": "PV_Numero_Rinse_V6",
+         "In2": "SET_Numero_Rinse_V6"
+        }
+       },
+       "(New_Rinse_V6)"
+      ]
+     ]
+    },
+    {
+     "cmt": "#USCITE VASCA6.ELETTROVALVOLE DI CARICO SOLUZIONE MIX 4:1",
+     "chain": [
+      "IN_EMERGENZA",
+      "Mem_Soluz_V6",
+      "(OUT_EV_MIX_V6)"
+     ]
+    },
+    {
+     "cmt": "USCITE VASCA6.ELETTROVALVOLA DI SCARICO",
+     "chain": [
+      {
+       "or": [
+        "Mem_Scarico_V6",
+        "/IN_EMERGENZA",
+        "Allarm_Svuota_Vasche",
+        [
+         "Mem_Rinse_V6_1Svuoto",
+         "/Mem_Rinse_V6_1_End_Svuoto"
+        ],
+        [
+         "Mem_Rinse_V6_2Svuoto",
+         "/Mem_Rinse_V6_2_End_Svuoto"
+        ]
+       ]
+      },
+      "(Bit_OUT_SCAR_V6)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "/Bit_OUT_SCAR_V6",
+      "(OUT_SCAR_V6)"
+     ]
+    },
+    {
+     "cmt": "USCITE VASCA6.ELETTROVALVOLA DI CARICO ACQUA",
+     "chain": [
+      "IN_EMERGENZA",
+      "Mem_Rinse_V6_Carico_H20",
+      "/Mem_Rinse_V6_End_Carico_H20",
+      "(OUT_OVERFLOW_V5)"
+     ]
+    },
+    {
+     "cmt": "RAFFREDDAMENTO ",
+     "chain": [
+      "V_P_Enable_Raffredda_V6",
+      {
+       "f": ">=",
+       "p": {
+        "In1": "PV_Temperatura_V6",
+        "In2": "SET_Temp_Scambia_V6"
+       }
+      },
+      {
+       "fb": "TON",
+       "inst": "TON1",
+       "p": {
+        "PT": "T#2S"
+       }
+      },
+      "(OUT_RAFFREDDA_V6)"
+     ]
+    },
+    {
+     "cmt": "ROTAZIONE\r\nSET INVERTER:\r\nB1-01=1//B1-02=1//B1-03=0//B1-17=1//C1-01=1s//C1-02=1s//H3-01=1//L2-01=2\r\n",
+     "chain": [
+      "IN_EMERGENZA",
+      "Mem_Ciclo_V6",
+      "(OUT_ROTAZIONE_V6)"
+     ]
+    },
+    {
+     "cmt": "Valore 4000= 100%    corrisponde a 6 giri al minuto",
+     "chain": [
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "SET_Speed_Rota_V6",
+        "OUT:Out": "Out_Analog_1"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "NUMERO ATTACCHI",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "^Mem_Ciclo_V6",
+       {
+        "f": "Inc",
+        "p": {
+         "InOut": "PV_Attacchi_V6",
+         "OUT:InOut": "PV_Attacchi_V6"
+        }
+       }
+      ],
+      [
+       "Bit_OUT_SCAR_V6",
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "0",
+         "OUT:Out": "PV_Attacchi_V6"
+        }
+       }
+      ]
+     ]
+    },
+    {
+     "cmt": "LOG CONSUMO SOLUZIONE-SHIFT DEI DATI OGNI PRIMO DEL MESE",
+     "chain": [
+      "P_On",
+      {
+       "or": [
+        [
+         "^Mem_Soluz_V6",
+         {
+          "or": [
+           {
+            "f": "Inc",
+            "p": {
+             "InOut": "PV_Consumo_V6",
+             "OUT:InOut": "PV_Consumo_V6"
+            }
+           },
+           {
+            "f": "+",
+            "p": {
+             "In1": "PV_Tot_Lit_V6",
+             "In2": "SET_Moltipl_Litri_V6",
+             "OUT:": "PV_Tot_Lit_V6"
+            }
+           }
+          ]
+         }
+        ],
+        [
+         "^Nuovo_Mese",
+         {
+          "or": [
+           [
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "PV_Consumo_V6meno2",
+              "OUT:Out": "PV_Consumo_V6meno3"
+             }
+            },
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "PV_Consumo_V6meno1",
+              "OUT:Out": "PV_Consumo_V6meno2"
+             }
+            },
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "PV_Consumo_V6",
+              "OUT:Out": "PV_Consumo_V6meno1"
+             }
+            },
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "0",
+              "OUT:Out": "PV_Consumo_V6"
+             }
+            }
+           ],
+           [
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "PV_Tot_Lit_V6meno2",
+              "OUT:Out": "PV_Tot_Lit_V6meno3"
+             }
+            },
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "PV_Tot_Lit_V6meno1",
+              "OUT:Out": "PV_Tot_Lit_V6meno2"
+             }
+            },
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "PV_Tot_Lit_V6",
+              "OUT:Out": "PV_Tot_Lit_V6meno1"
+             }
+            },
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "0",
+              "OUT:Out": "PV_Tot_Lit_V6"
+             }
+            }
+           ]
+          ]
+         }
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "cmt": "CALCOLO IL TEMPO DI DURATA EFFETTIVO ATTACCO",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "Mem_Ciclo_V6",
+       {
+        "f": "Get1sClk",
+        "p": {}
+       },
+       {
+        "f": "@Inc",
+        "p": {
+         "InOut": "Log_Tim_V6",
+         "OUT:InOut": "Log_Tim_V6"
+        }
+       }
+      ],
+      [
+       "/Mem_Ciclo_V6",
+       {
+        "fb": "TON",
+        "inst": "Tim_6",
+        "p": {
+         "PT": "t#3s"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "0",
+         "OUT:Out": "Log_Tim_V6"
+        }
+       }
+      ]
+     ]
+    },
+    {
+     "cmt": "QUANDO RESETTO L'ATTACCO ATTIVO LA REGISTRAZIONE DEL LOG ",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "vMem_Ciclo_V6",
+       "(S Log_Enable_V6)"
+      ],
+      [
+       "Log_Enable_V6",
+       {
+        "fb": "TON",
+        "inst": "Tim_16",
+        "p": {
+         "PT": "t#1s"
+        }
+       },
+       "(R Log_Enable_V6)"
+      ]
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "ist": "Log_Min_V6:=Log_Tim_V6/60;\r\nLog_Sec_V6 :=Log_Tim_V6-(Log_Min_V6*60);"
+      }
+     ]
+    },
+    {
+     "cmt": "NUMERO ATTACCHI PER LOG MESE",
+     "chain": [
+      "vMem_Ciclo_V6",
+      {
+       "f": "Inc",
+       "p": {
+        "InOut": "PV_Attac_Tot_V6",
+        "OUT:InOut": "PV_Attac_Tot_V6"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "SOMMATORIA TEMPI DI PROCESSO PER LOG MESE",
+     "chain": [
+      "vMem_Ciclo_V6",
+      {
+       "f": "+",
+       "p": {
+        "In1": "PV_Tot_Tim_V6",
+        "In2": "Log_Tim_V6",
+        "OUT:": "PV_Tot_Tim_V6"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "CALCOLO MEDIA TEMPI DI PROCESSO NEL MESE",
+     "chain": [
+      {
+       "ist": "PV_Media_Tim_V6:=PV_Tot_Tim_V6/PV_Attac_Tot_V6;\r\n\r\nIF PV_Attac_Tot_V6=0 THEN\r\n\tPV_Media_Tim_V6:=0;\r\nEND_IF;"
+      }
+     ]
+    },
+    {
+     "cmt": "LOG TEMPO MEDIO-SHIFT DEI DATI OGNI PRIMO DEL MESE",
+     "chain": [
+      "^Nuovo_Mese"
+     ],
+     "out": [
+      [
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "PV_Attac_Tot_V6meno2",
+         "OUT:Out": "PV_Attac_Tot_V6meno3"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "PV_Attac_Tot_V6meno1",
+         "OUT:Out": "PV_Attac_Tot_V6meno2"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "PV_Attac_Tot_V6",
+         "OUT:Out": "PV_Attac_Tot_V6meno1"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "0",
+         "OUT:Out": "PV_Attac_Tot_V6"
+        }
+       }
+      ],
+      [
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "PV_Media_Tim_V6meno2",
+         "OUT:Out": "PV_Media_Tim_V6meno3"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "PV_Media_Tim_V6meno1",
+         "OUT:Out": "PV_Media_Tim_V6meno2"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "PV_Media_Tim_V6",
+         "OUT:Out": "PV_Media_Tim_V6meno1"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "0",
+         "OUT:Out": "PV_Tot_Tim_V6"
+        }
+       }
+      ]
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "P_On",
+      {
+       "or": [
+        {
+         "f": "@MOVE",
+         "p": {
+          "In": "500",
+          "OUT:Out": "PV_Temperatura_V6"
+         }
+        },
+        [
+         {
+          "f": "Get1sClk",
+          "p": {}
+         },
+         {
+          "or": [
+           [
+            "/Mem_Simu_T_V6_Higt",
+            {
+             "f": "@Inc",
+             "p": {
+              "InOut": "PV_Temperatura_V6",
+              "OUT:InOut": "PV_Temperatura_V6"
+             }
+            },
+            {
+             "f": ">=",
+             "p": {
+              "In1": "PV_Temperatura_V6",
+              "In2": "600"
+             }
+            },
+            "(S Mem_Simu_T_V6_Higt)"
+           ],
+           [
+            "Mem_Simu_T_V6_Higt",
+            {
+             "f": "@Dec",
+             "p": {
+              "InOut": "PV_Temperatura_V6",
+              "OUT:InOut": "PV_Temperatura_V6"
+             }
+            },
+            {
+             "f": "<=",
+             "p": {
+              "In1": "PV_Temperatura_V6",
+              "In2": "400"
+             }
+            },
+            "(R Mem_Simu_T_V6_Higt)"
+           ]
+          ]
+         }
+        ]
+       ]
+      }
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Allarm_Svuota_Vasche",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Allarme_Azoto",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Bit_OUT_SCAR_V6",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_Svuoto_V6",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_Svuoto_V6_1",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_Svuoto_V6_2",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_V6",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "End_Ciclo_V6",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "End_Rinse_V6",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EMERGENZA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIV_MAX_V6",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIV_MIN_V6",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_PORTE_SX2_CLOSED",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_PORTE_SX_CLOSED",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Log_Enable_V6",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Log_Min_V6",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Log_Sec_V6",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Log_Tim_V6",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Ciclo_V6",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Rinse_V6",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Rinse_V6_1Svuoto",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Rinse_V6_1_End_Svuoto",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Rinse_V6_2Svuoto",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Rinse_V6_2_End_Svuoto",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Rinse_V6_Carico_H20",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Rinse_V6_End_Carico_H20",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Scarico_V6",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Simu_T_V6_Higt",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Soluz_V6",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "New_Rinse_V6",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Nuovo_Mese",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_EV_MIX_V6",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_OVERFLOW_V5",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "CARICO DI VASCA 6"
+    },
+    {
+     "name": "OUT_RAFFREDDA_V6",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_ROTAZIONE_V6",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_SCAR_V6",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Out_Analog_1",
+     "type": "int",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Attac_Tot_V6",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Attac_Tot_V6meno1",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Attac_Tot_V6meno2",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Attac_Tot_V6meno3",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Attacchi_V6",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Consumo_V6",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Consumo_V6meno1",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Consumo_V6meno2",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Consumo_V6meno3",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Media_Tim_V6",
+     "type": "DINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Media_Tim_V6meno1",
+     "type": "DINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Media_Tim_V6meno2",
+     "type": "DINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Media_Tim_V6meno3",
+     "type": "DINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Numero_Rinse_V6",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Temperatura_V6",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Timer_Svuota_V6",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Timer_Svuota_V6_1",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Timer_Svuota_V6_2",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Timer_V6",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Tot_Lit_V6",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Tot_Lit_V6meno1",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Tot_Lit_V6meno2",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Tot_Lit_V6meno3",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Tot_Tim_V6",
+     "type": "DINT",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "SET_Moltipl_Litri_V6",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Numero_Rinse_V6",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Speed_Rota_V6",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Temp_Scambia_V6",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Timer_Svuota_V6",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Timer_V6",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Seq_V6",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "TON1",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_16",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_6",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Liv_Max_V6",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Liv_Min_V6",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_P_Reset_Timer_V6",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_L_Soluz_V6",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_L_Svuo_Rinse_V6",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_L_Svuota_V6",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Annulla_V6",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Enable_Raffredda_V6",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Reset_Timer_V6",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Soluz_V6",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Start_Ciclo_V6",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Svuo_Rinse_V6",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Svuota_V6",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Vasca7_Mix": {
+   "rungs": [
+    {
+     "cmt": "START CICLO VASCA7",
+     "chain": [
+      "V_P_Start_Ciclo_V7",
+      "/Seq_V7",
+      "(S Mem_Ciclo_V7)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "V_P_Reset_Timer_V7",
+      {
+       "fb": "TON",
+       "inst": "Tim_P_Reset_Timer_V7",
+       "p": {
+        "PT": "T#1s"
+       }
+      },
+      "(R Mem_Ciclo_V7)"
+     ]
+    },
+    {
+     "cmt": "CONTEGGIO TEMPO DI PROCESSO",
+     "chain": [
+      "Mem_Ciclo_V7",
+      {
+       "fb": "Contatore",
+       "inst": "Cnt_V7",
+       "p": {
+        "SET_VALUE": "SET_Timer_V7",
+        "VALUE": "PV_Timer_V7",
+        "OUT:VALUE": "PV_Timer_V7"
+       }
+      },
+      "(End_Ciclo_V7)"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA VASCA7",
+     "chain": [
+      {
+       "or": [
+        "Mem_Soluz_V7",
+        "Mem_Scarico_V7",
+        "Mem_Ciclo_V7",
+        "Mem_Rinse_V7"
+       ]
+      },
+      "(Seq_V7)"
+     ]
+    },
+    {
+     "cmt": "TEMPORIZZATORE LIVELLO MASSIMO",
+     "chain": [
+      "IN_LIV_MAX_V7",
+      {
+       "fb": "TON",
+       "inst": "Tim_Liv_Max_V7",
+       "p": {
+        "PT": "t#1s"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "TEMPORIZZATORE LIVELLO MINIMO",
+     "chain": [
+      "IN_LIV_MIN_V7",
+      {
+       "fb": "TON",
+       "inst": "Tim_Liv_Min_V7",
+       "p": {
+        "PT": "t#1s"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "CARICO LA VASCA DI SOLUZIONE",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "V_P_Soluz_V7",
+       "/IN_LIV_MAX_V7",
+       "IN_PORTE_DX2_CLOSED",
+       "IN_PORTE_DX_CLOSED",
+       "(S Mem_Soluz_V7)"
+      ],
+      [
+       "Mem_Soluz_V7",
+       "(V_L_Soluz_V7)"
+      ]
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "V_P_Annulla_V7",
+        "Tim_Liv_Max_V7.Q",
+        "Tim_Liv_Min_V7.Q",
+        "Allarme_Azoto",
+        "/IN_EMERGENZA"
+       ]
+      },
+      "(R Mem_Soluz_V7)"
+     ]
+    },
+    {
+     "cmt": "SCARICO LA VASCA DI SOLUZIONE",
+     "chain": [
+      "P_On",
+      {
+       "or": [
+        [
+         "V_P_Svuota_V7",
+         "(S Mem_Scarico_V7)"
+        ],
+        [
+         "Mem_Scarico_V7",
+         {
+          "or": [
+           "(V_L_Svuota_V7)",
+           {
+            "fb": "Contatore",
+            "inst": "Cnt_Svuoto_V7",
+            "p": {
+             "SET_VALUE": "SET_Timer_Svuota_V7",
+             "VALUE": "PV_Timer_Svuota_V7",
+             "OUT:VALUE": "PV_Timer_Svuota_V7"
+            }
+           }
+          ]
+         }
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "V_P_Annulla_V7",
+        "Cnt_Svuoto_V7.End_Conteggio"
+       ]
+      },
+      "(R Mem_Scarico_V7)"
+     ]
+    },
+    {
+     "cmt": "#SEQUENZA DI RINSE",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "V_P_Svuo_Rinse_V7",
+       "(S Mem_Rinse_V7)"
+      ],
+      [
+       "Mem_Rinse_V7",
+       "(V_L_Svuo_Rinse_V7)"
+      ],
+      [
+       "/Mem_Rinse_V7",
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "0",
+         "OUT:Out": "PV_Numero_Rinse_V7"
+        }
+       }
+      ],
+      [
+       {
+        "or": [
+         "V_P_Annulla_V7",
+         "End_Rinse_V7",
+         "Allarme_Azoto"
+        ]
+       },
+       "(R Mem_Rinse_V7)"
+      ]
+     ]
+    },
+    {
+     "cmt": "SEQUENZA DI RINSE: PRIMO SVUOTAMENTO",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "Mem_Rinse_V7",
+       "(S Mem_Rinse_V7_1Svuoto)"
+      ],
+      [
+       "/Mem_Rinse_V7",
+       "(R Mem_Rinse_V7_1Svuoto)"
+      ]
+     ]
+    },
+    {
+     "cmt": "SEQUENZA DI RINSE: FINE PRIMO SVUOTAMENTO",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "Mem_Rinse_V7_1Svuoto",
+       {
+        "fb": "Contatore",
+        "inst": "Cnt_Svuoto_V7_1",
+        "p": {
+         "SET_VALUE": "SET_Timer_Svuota_V7",
+         "VALUE": "PV_Timer_Svuota_V7_1",
+         "OUT:VALUE": "PV_Timer_Svuota_V7_1"
+        }
+       },
+       "(S Mem_Rinse_V7_1_End_Svuoto)"
+      ],
+      [
+       "/Mem_Rinse_V7",
+       "(R Mem_Rinse_V7_1_End_Svuoto)"
+      ]
+     ]
+    },
+    {
+     "cmt": "SEQUENZA DI RINSE: CARICO ACQUA FINO A LIVELLO MASSIMO",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "Mem_Rinse_V7_1_End_Svuoto",
+       "(S Mem_Rinse_V7_Carico_H20)"
+      ],
+      [
+       {
+        "or": [
+         "/Mem_Rinse_V7",
+         "New_Rinse_V7"
+        ]
+       },
+       "(R Mem_Rinse_V7_Carico_H20)"
+      ]
+     ]
+    },
+    {
+     "cmt": "SEQUENZA DI RINSE: FINE CARICO ACQUA ",
+     "chain": [
+      "P_On",
+      {
+       "or": [
+        [
+         "Mem_Rinse_V7_Carico_H20",
+         {
+          "or": [
+           [
+            "Tim_Liv_Max_V7.Q",
+            "(S Mem_Rinse_V7_End_Carico_H20)"
+           ],
+           {
+            "f": "@Inc",
+            "p": {
+             "InOut": "PV_Numero_Rinse_V7",
+             "OUT:InOut": "PV_Numero_Rinse_V7"
+            }
+           }
+          ]
+         }
+        ],
+        [
+         {
+          "or": [
+           "/Mem_Rinse_V7",
+           "New_Rinse_V7"
+          ]
+         },
+         "(R Mem_Rinse_V7_End_Carico_H20)"
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "cmt": "SEQUENZA DI RINSE: SECONDO SVUOTAMENTO",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "Mem_Rinse_V7_End_Carico_H20",
+       "(S Mem_Rinse_V7_2Svuoto)"
+      ],
+      [
+       {
+        "or": [
+         "/Mem_Rinse_V7",
+         "New_Rinse_V7"
+        ]
+       },
+       "(R Mem_Rinse_V7_2Svuoto)"
+      ]
+     ]
+    },
+    {
+     "cmt": "SEQUENZA DI RINSE: FINE SECONDO SVUOTAMENTO",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "Mem_Rinse_V7_2Svuoto",
+       {
+        "fb": "Contatore",
+        "inst": "Cnt_Svuoto_V7_2",
+        "p": {
+         "SET_VALUE": "SET_Timer_Svuota_V7",
+         "VALUE": "PV_Timer_Svuota_V7_2",
+         "OUT:VALUE": "PV_Timer_Svuota_V7_2"
+        }
+       },
+       "(S Mem_Rinse_V7_2_End_Svuoto)"
+      ],
+      [
+       {
+        "or": [
+         "/Mem_Rinse_V7",
+         "New_Rinse_V7"
+        ]
+       },
+       "(R Mem_Rinse_V7_2_End_Svuoto)"
+      ]
+     ]
+    },
+    {
+     "cmt": "SEQUENZA DI RINSE: COMPARAZIONE PER VERIFICARE SE DEVO ESEGUIRE NUOVO RISCIACQUO O TERMINARE SEQUENZA",
+     "chain": [
+      "P_On",
+      "Mem_Rinse_V7_2_End_Svuoto"
+     ],
+     "out": [
+      [
+       {
+        "f": ">=",
+        "p": {
+         "In1": "PV_Numero_Rinse_V7",
+         "In2": "SET_Numero_Rinse_V7"
+        }
+       },
+       "(End_Rinse_V7)"
+      ],
+      [
+       {
+        "f": "<",
+        "p": {
+         "In1": "PV_Numero_Rinse_V7",
+         "In2": "SET_Numero_Rinse_V7"
+        }
+       },
+       "(New_Rinse_V7)"
+      ]
+     ]
+    },
+    {
+     "cmt": "USCITE VASCA7.ELETTROVALVOLE DI CARICO SOLUZIONE MIX 4:1",
+     "chain": [
+      "IN_EMERGENZA",
+      "Mem_Soluz_V7",
+      "(OUT_EV_MIX_V7)"
+     ]
+    },
+    {
+     "cmt": "USCITE VASCA7.ELETTROVALVOLA DI SCARICO",
+     "chain": [
+      {
+       "or": [
+        "Mem_Scarico_V7",
+        "/IN_EMERGENZA",
+        "Allarm_Svuota_Vasche",
+        [
+         "Mem_Rinse_V7_1Svuoto",
+         "/Mem_Rinse_V7_1_End_Svuoto"
+        ],
+        [
+         "Mem_Rinse_V7_2Svuoto",
+         "/Mem_Rinse_V7_2_End_Svuoto"
+        ]
+       ]
+      },
+      "(Bit_OUT_SCAR_V7)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "/Bit_OUT_SCAR_V7",
+      "(OUT_SCAR_V7)"
+     ]
+    },
+    {
+     "cmt": "USCITE VASCA6.ELETTROVALVOLA DI CARICO ACQUA",
+     "chain": [
+      "IN_EMERGENZA",
+      "Mem_Rinse_V7_Carico_H20",
+      "/Mem_Rinse_V7_End_Carico_H20",
+      "(OUT_OVERFLOW_V8)"
+     ]
+    },
+    {
+     "cmt": "RAFFREDDAMENTO ",
+     "chain": [
+      "V_P_Enable_Raffredda_V7",
+      {
+       "f": ">=",
+       "p": {
+        "In1": "PV_Temperatura_V7",
+        "In2": "SET_Temp_Scambia_V7"
+       }
+      },
+      {
+       "fb": "TON",
+       "inst": "TON3",
+       "p": {
+        "PT": "T#2S"
+       }
+      },
+      "(OUT_RAFFREDDA_V7)"
+     ]
+    },
+    {
+     "cmt": "ROTAZIONE\r\nSET INVERTER:\r\nB1-01=1//B1-02=1//B1-03=0//B1-17=1//C1-01=1s//C1-02=1s//H3-01=1//L2-01=2",
+     "chain": [
+      "IN_EMERGENZA",
+      "Mem_Ciclo_V7",
+      "(OUT_ROTAZIONE_V7)"
+     ]
+    },
+    {
+     "cmt": "Valore 4000= 100%    corrisponde a 6 giri al minuto",
+     "chain": [
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "SET_Speed_Rota_V7",
+        "OUT:Out": "Out_Analog_2"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "NUMERO ATTACCHI",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "^Mem_Ciclo_V7",
+       {
+        "f": "Inc",
+        "p": {
+         "InOut": "PV_Attacchi_V7",
+         "OUT:InOut": "PV_Attacchi_V7"
+        }
+       }
+      ],
+      [
+       "Bit_OUT_SCAR_V7",
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "0",
+         "OUT:Out": "PV_Attacchi_V7"
+        }
+       }
+      ]
+     ]
+    },
+    {
+     "cmt": "LOG CONSUMO SOLUZIONE-SHIFT DEI DATI OGNI PRIMO DEL MESE",
+     "chain": [
+      "P_On",
+      {
+       "or": [
+        [
+         "^Mem_Soluz_V7",
+         {
+          "or": [
+           {
+            "f": "Inc",
+            "p": {
+             "InOut": "PV_Consumo_V7",
+             "OUT:InOut": "PV_Consumo_V7"
+            }
+           },
+           {
+            "f": "+",
+            "p": {
+             "In1": "PV_Tot_Lit_V7",
+             "In2": "SET_Moltipl_Litri_V7",
+             "OUT:": "PV_Tot_Lit_V7"
+            }
+           }
+          ]
+         }
+        ],
+        [
+         "^Nuovo_Mese",
+         {
+          "or": [
+           [
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "PV_Consumo_V7meno2",
+              "OUT:Out": "PV_Consumo_V7meno3"
+             }
+            },
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "PV_Consumo_V7meno1",
+              "OUT:Out": "PV_Consumo_V7meno2"
+             }
+            },
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "PV_Consumo_V7",
+              "OUT:Out": "PV_Consumo_V7meno1"
+             }
+            },
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "0",
+              "OUT:Out": "PV_Consumo_V7"
+             }
+            }
+           ],
+           [
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "PV_Tot_Lit_V7meno2",
+              "OUT:Out": "PV_Tot_Lit_V7meno3"
+             }
+            },
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "PV_Tot_Lit_V7meno1",
+              "OUT:Out": "PV_Tot_Lit_V7meno2"
+             }
+            },
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "PV_Tot_Lit_V7",
+              "OUT:Out": "PV_Tot_Lit_V7meno1"
+             }
+            },
+            {
+             "f": "MOVE",
+             "p": {
+              "In": "0",
+              "OUT:Out": "PV_Tot_Lit_V7"
+             }
+            }
+           ]
+          ]
+         }
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "cmt": "CALCOLO IL TEMPO DI DURATA EFFETTIVO ATTACCO",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "Mem_Ciclo_V7",
+       {
+        "f": "Get1sClk",
+        "p": {}
+       },
+       {
+        "f": "@Inc",
+        "p": {
+         "InOut": "Log_Tim_V7",
+         "OUT:InOut": "Log_Tim_V7"
+        }
+       }
+      ],
+      [
+       "/Mem_Ciclo_V7",
+       {
+        "fb": "TON",
+        "inst": "Tim_7",
+        "p": {
+         "PT": "t#3s"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "0",
+         "OUT:Out": "Log_Tim_V7"
+        }
+       }
+      ]
+     ]
+    },
+    {
+     "cmt": "QUANDO RESETTO L'ATTACCO ATTIVO LA REGISTRAZIONE DEL LOG ",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "vMem_Ciclo_V7",
+       "(S Log_Enable_V7)"
+      ],
+      [
+       "Log_Enable_V7",
+       {
+        "fb": "TON",
+        "inst": "Tim_17",
+        "p": {
+         "PT": "t#1s"
+        }
+       },
+       "(R Log_Enable_V7)"
+      ]
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "ist": "Log_Min_V7:=Log_Tim_V7/60;\r\nLog_Sec_V7 :=Log_Tim_V7-(Log_Min_V7*60);"
+      }
+     ]
+    },
+    {
+     "cmt": "NUMERO ATTACCHI PER LOG MESE",
+     "chain": [
+      "vMem_Ciclo_V7",
+      {
+       "f": "Inc",
+       "p": {
+        "InOut": "PV_Attac_Tot_V7",
+        "OUT:InOut": "PV_Attac_Tot_V7"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "SOMMATORIA TEMPI DI PROCESSO PER LOG MESE",
+     "chain": [
+      "vMem_Ciclo_V7",
+      {
+       "f": "+",
+       "p": {
+        "In1": "PV_Tot_Tim_V7",
+        "In2": "Log_Tim_V7",
+        "OUT:": "PV_Tot_Tim_V7"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "CALCOLO MEDIA TEMPI DI PROCESSO NEL MESE",
+     "chain": [
+      {
+       "ist": "PV_Media_Tim_V7:=PV_Tot_Tim_V7/PV_Attac_Tot_V7;\r\n\r\nIF PV_Attac_Tot_V7=0 THEN\r\n\tPV_Media_Tim_V7:=0;\r\nEND_IF;"
+      }
+     ]
+    },
+    {
+     "cmt": "LOG TEMPO MEDIO-SHIFT DEI DATI OGNI PRIMO DEL MESE",
+     "chain": [
+      "^Nuovo_Mese"
+     ],
+     "out": [
+      [
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "PV_Attac_Tot_V7meno2",
+         "OUT:Out": "PV_Attac_Tot_V7meno3"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "PV_Attac_Tot_V7meno1",
+         "OUT:Out": "PV_Attac_Tot_V7meno2"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "PV_Attac_Tot_V7",
+         "OUT:Out": "PV_Attac_Tot_V7meno1"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "0",
+         "OUT:Out": "PV_Attac_Tot_V7"
+        }
+       }
+      ],
+      [
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "PV_Media_Tim_V7meno2",
+         "OUT:Out": "PV_Media_Tim_V7meno3"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "PV_Media_Tim_V7meno1",
+         "OUT:Out": "PV_Media_Tim_V7meno2"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "PV_Media_Tim_V7",
+         "OUT:Out": "PV_Media_Tim_V7meno1"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "0",
+         "OUT:Out": "PV_Tot_Tim_V7"
+        }
+       }
+      ]
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Allarm_Svuota_Vasche",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Allarme_Azoto",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Bit_OUT_SCAR_V7",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_Svuoto_V7",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_Svuoto_V7_1",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_Svuoto_V7_2",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_V7",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "End_Ciclo_V7",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "End_Rinse_V7",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EMERGENZA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIV_MAX_V7",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIV_MIN_V7",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_PORTE_DX2_CLOSED",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_PORTE_DX_CLOSED",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Log_Enable_V7",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Log_Min_V7",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Log_Sec_V7",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Log_Tim_V7",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Ciclo_V7",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Rinse_V7",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Rinse_V7_1Svuoto",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Rinse_V7_1_End_Svuoto",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Rinse_V7_2Svuoto",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Rinse_V7_2_End_Svuoto",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Rinse_V7_Carico_H20",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Rinse_V7_End_Carico_H20",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Scarico_V7",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Soluz_V7",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "New_Rinse_V7",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Nuovo_Mese",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_EV_MIX_V7",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_OVERFLOW_V8",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "CARICO DI VASCA 7"
+    },
+    {
+     "name": "OUT_RAFFREDDA_V7",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_ROTAZIONE_V7",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_SCAR_V7",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Out_Analog_2",
+     "type": "int",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Attac_Tot_V7",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Attac_Tot_V7meno1",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Attac_Tot_V7meno2",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Attac_Tot_V7meno3",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Attacchi_V7",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Consumo_V7",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Consumo_V7meno1",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Consumo_V7meno2",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Consumo_V7meno3",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Media_Tim_V7",
+     "type": "DINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Media_Tim_V7meno1",
+     "type": "DINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Media_Tim_V7meno2",
+     "type": "DINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Media_Tim_V7meno3",
+     "type": "DINT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Numero_Rinse_V7",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Temperatura_V7",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Timer_Svuota_V7",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Timer_Svuota_V7_1",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Timer_Svuota_V7_2",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Timer_V7",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Tot_Lit_V7",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Tot_Lit_V7meno1",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Tot_Lit_V7meno2",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Tot_Lit_V7meno3",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Tot_Tim_V7",
+     "type": "DINT",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "SET_Moltipl_Litri_V7",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Numero_Rinse_V7",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Speed_Rota_V7",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Temp_Scambia_V7",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Timer_Svuota_V7",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Timer_V7",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Seq_V7",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "TON3",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_17",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_7",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Liv_Max_V7",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Liv_Min_V7",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_P_Reset_Timer_V7",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_L_Soluz_V7",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_L_Svuo_Rinse_V7",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_L_Svuota_V7",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Annulla_V7",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Enable_Raffredda_V7",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Reset_Timer_V7",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Soluz_V7",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Start_Ciclo_V7",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Svuo_Rinse_V7",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Svuota_V7",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Vasca8_Rinse": {
+   "rungs": [
+    {
+     "cmt": "START CICLO VASCA8",
+     "chain": [
+      "V_P_Start_Ciclo_V8",
+      "/Seq_V8",
+      "(S Mem_Ciclo_V8)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "V_P_Reset_Timer_V8",
+      {
+       "fb": "TON",
+       "inst": "Tim_P_Reset_Timer_V8",
+       "p": {
+        "PT": "T#1s"
+       }
+      },
+      "(R Mem_Ciclo_V8)"
+     ]
+    },
+    {
+     "cmt": "CONTEGGIO TEMPO DI PROCESSO",
+     "chain": [
+      "Mem_Ciclo_V8",
+      {
+       "fb": "Contatore",
+       "inst": "Cnt_V8",
+       "p": {
+        "SET_VALUE": "SET_Timer_V8",
+        "VALUE": "PV_Timer_V8",
+        "OUT:VALUE": "PV_Timer_V8"
+       }
+      },
+      "(End_Ciclo_V8)"
+     ]
+    },
+    {
+     "cmt": "SEQUENZA VASCA8",
+     "chain": [
+      {
+       "or": [
+        "Mem_Carico_V8",
+        "Mem_Scarico_V8",
+        "Mem_Ciclo_V8"
+       ]
+      },
+      "(Seq_V8)"
+     ]
+    },
+    {
+     "cmt": "TEMPORIZZATORE LIVELLO MASSIMO",
+     "chain": [
+      "IN_LIV_MAX_V8",
+      {
+       "fb": "TON",
+       "inst": "Tim_Liv_Max_V8",
+       "p": {
+        "PT": "t#1s"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "CARICO LA VASCA DI ACQUA",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "V_P_DI_V8",
+       "(S Mem_Carico_V8)"
+      ],
+      [
+       "Mem_Carico_V8",
+       "(V_L_DI_V8)"
+      ]
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "V_P_Annulla_V8",
+        "Tim_Liv_Max_V8.Q",
+        "Allarme_Azoto"
+       ]
+      },
+      "(R Mem_Carico_V8)"
+     ]
+    },
+    {
+     "cmt": "SCARICO LA VASCA DI ACQUA",
+     "chain": [
+      "P_On",
+      {
+       "or": [
+        [
+         "V_P_Svuota_V8",
+         "(S Mem_Scarico_V8)"
+        ],
+        [
+         "Mem_Scarico_V8",
+         {
+          "or": [
+           "(V_L_Svuota_V8)",
+           {
+            "fb": "Contatore",
+            "inst": "Cnt_Svuoto_V8",
+            "p": {
+             "SET_VALUE": "SET_Timer_Svuota_V8",
+             "VALUE": "PV_Timer_Svuota_V8",
+             "OUT:VALUE": "PV_Timer_Svuota_V8"
+            }
+           }
+          ]
+         }
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      {
+       "or": [
+        "V_P_Annulla_V8",
+        "Cnt_Svuoto_V8.End_Conteggio"
+       ]
+      },
+      "(R Mem_Scarico_V8)"
+     ]
+    },
+    {
+     "cmt": "Uscite Vasca8.Elettrovalvola di carico acqua DI",
+     "chain": [
+      "IN_EMERGENZA",
+      {
+       "or": [
+        [
+         "Mem_Ciclo_V8",
+         "/End_Ciclo_V8"
+        ],
+        "Mem_Carico_V8"
+       ]
+      },
+      "(OUT_DI_V8)"
+     ]
+    },
+    {
+     "cmt": "Uscite Vasca8.Elettrovalvola Overflow DI",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       {
+        "or": [
+         "^V_P_DI_V8",
+         "^Mem_Ciclo_V8"
+        ]
+       },
+       "(S Mem_OVERFLOW_V8)"
+      ],
+      [
+       "Bit_OUT_SCAR_V8",
+       "(R Mem_OVERFLOW_V8)"
+      ]
+     ]
+    },
+    {
+     "cmt": "Uscite Vasca8.Elettrovalvola di Scarico",
+     "chain": [
+      {
+       "or": [
+        "Mem_Scarico_V8",
+        "/IN_EMERGENZA"
+       ]
+      },
+      "(Bit_OUT_SCAR_V8)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "/Bit_OUT_SCAR_V8",
+      "(OUT_SCAR_V8)"
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Allarme_Azoto",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Bit_OUT_SCAR_V8",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_Svuoto_V8",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cnt_V8",
+     "type": "Contatore",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "End_Ciclo_V8",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EMERGENZA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIV_MAX_V8",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Carico_V8",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Ciclo_V8",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_OVERFLOW_V8",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Scarico_V8",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "OUT_DI_V8",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_SCAR_V8",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Timer_Svuota_V8",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Timer_V8",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Timer_Svuota_V8",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Timer_V8",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Seq_V8",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Liv_Max_V8",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_P_Reset_Timer_V8",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_L_DI_V8",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_L_Svuota_V8",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Annulla_V8",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_DI_V8",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Reset_Timer_V8",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Start_Ciclo_V8",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Svuota_V8",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Beker": {
+   "rungs": [
+    {
+     "cmt": "RESETTO MEMORIZZAZIONE BEKER",
+     "chain": [
+      "Mem_Beker"
+     ],
+     "out": [
+      [
+       "/V_P_Soluz_Beker",
+       {
+        "fb": "TON",
+        "inst": "TON4",
+        "p": {
+         "PT": "T#10S"
+        }
+       }
+      ],
+      [
+       "TON4.Q",
+       "(R Mem_Beker)"
+      ]
+     ]
+    },
+    {
+     "cmt": "USCITE BEKER.ELETTROVALVOLE DI CARICO SOLUZIONE MIX 4:1",
+     "chain": [
+      "IN_EMERGENZA",
+      "V_P_Soluz_Beker",
+      "IN_PORTE_SX_CLOSED",
+      "IN_PORTE_SX2_CLOSED",
+      "(OUT_EV_MIX_Beker)"
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "IN_EMERGENZA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_PORTE_SX2_CLOSED",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_PORTE_SX_CLOSED",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Beker",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_EV_MIX_Beker",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "TON4",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Soluz_Beker",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Varie": {
+   "rungs": [
+    {
+     "cmt": "USCITA BUZZER",
+     "chain": [
+      {
+       "or": [
+        [
+         {
+          "or": [
+           [
+            "End_Ciclo_V4",
+            "/V_S_HCL_V4"
+           ],
+           "End_Ciclo_V8",
+           "End_Ciclo_V5"
+          ]
+         },
+         {
+          "f": ">=",
+          "p": {
+           "In1": "PV_CTD3",
+           "In2": "3"
+          }
+         }
+        ],
+        "End_Ciclo_V1",
+        [
+         "End_Ciclo_V4",
+         "V_S_HCL_V4"
+        ],
+        "Keep_Buzzer",
+        "End_Ciclo_V3",
+        "End_Ciclo_V7",
+        "End_Ciclo_V2",
+        "End_Ciclo_V6"
+       ]
+      },
+      "(OUT_BUZZER)"
+     ]
+    },
+    {
+     "cmt": "CLOCK BUZZER ",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       {
+        "f": "Get1sClk",
+        "p": {}
+       },
+       {
+        "fb": "CTD",
+        "inst": "CTD3",
+        "p": {
+         "Load": "Reset_CTD3",
+         "PV": "5",
+         "OUT:CV": "PV_CTD3"
+        }
+       }
+      ],
+      [
+       {
+        "or": [
+         "CTD3.Q",
+         "^End_Ciclo_V2"
+        ]
+       },
+       "(Reset_CTD3)"
+      ]
+     ]
+    },
+    {
+     "cmt": "KEEP BUZZER",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       {
+        "or": [
+         "^Allarme_Bit[5]",
+         "^Allarme_Bit[4]",
+         "^Allarme_Bit[8]"
+        ]
+       },
+       "(S Keep_Buzzer)"
+      ],
+      [
+       "V_P_Reset_Buzzer",
+       "(R Keep_Buzzer)"
+      ]
+     ]
+    },
+    {
+     "cmt": "SCALO L'INGRESSO ANALOGICO DI DEPRESSIONE",
+     "chain": [
+      "P_On",
+      {
+       "f": "ScaleTrans",
+       "p": {
+        "SclIn": "PV_Analog1_Real",
+        "X0": "real#399",
+        "Y0": "real#0",
+        "X1": "real#2000",
+        "Y1": "real#2000",
+        "OUT:": "PV_Aspirazione"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "P_On",
+      {
+       "f": "INT_TO_REAL",
+       "p": {
+        "In": "PV_IN_Analog_1",
+        "OUT:": "PV_Analog1_Real"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "BLOCCO PORTE IN BASE AL CICLO ATTIVO",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       {
+        "or": [
+         "OUT_EV_MIX_Beker",
+         "Mem_Soluz_V1",
+         "Mem_Soluz_V2",
+         "Mem_Carico_V2",
+         "Mem_Soluz_V3",
+         "Mem_Soluz_V6"
+        ]
+       },
+       "(OUT_PORTE_SX)"
+      ],
+      [
+       "Mem_Soluz_V7",
+       "(OUT_PORTE_DX)"
+      ]
+     ]
+    },
+    {
+     "cmt": "BASSA ASPIRAZIONE SX",
+     "chain": [
+      "IN_EMERGENZA",
+      "/OUT_PORTE_SX",
+      "IN_PORTE_SX2_CLOSED",
+      "IN_PORTE_SX_CLOSED",
+      "/Mem_Ciclo_V1",
+      "/Mem_Ciclo_V2",
+      "/Mem_Ciclo_V3",
+      {
+       "or": [
+        "/Mem_Ciclo_V4",
+        "/V_S_HCL_V4"
+       ]
+      },
+      "/Mem_Ciclo_V6",
+      "/Bit_OUT_SCAR_V6",
+      {
+       "fb": "TON",
+       "inst": "TON6",
+       "p": {
+        "PT": "t#300s"
+       }
+      },
+      "(OUT_LOW_ASPIRA_SX)"
+     ]
+    },
+    {
+     "cmt": "BASSA ASPIRAZIONE DX",
+     "chain": [
+      "IN_EMERGENZA",
+      "/OUT_PORTE_DX",
+      "IN_PORTE_DX2_CLOSED",
+      "IN_PORTE_DX_CLOSED",
+      "/Mem_Ciclo_V7",
+      "/Bit_OUT_SCAR_V7",
+      {
+       "fb": "TON",
+       "inst": "TON7",
+       "p": {
+        "PT": "t#300s"
+       }
+      },
+      "(OUT_LOW_ASPIRA_DX)"
+     ]
+    },
+    {
+     "cmt": "COLONNINA LUMINOSA",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "V_L_Allarmi",
+       {
+        "f": "Get1sClk",
+        "p": {}
+       },
+       "(OUT_LAMP_GIALLA)"
+      ],
+      [
+       "/IN_EMERGENZA",
+       "(OUT_LAMP_ROSSA)"
+      ],
+      [
+       {
+        "or": [
+         "End_Ciclo_V1",
+         "End_Ciclo_V2",
+         "End_Ciclo_V3",
+         "End_Ciclo_V4",
+         "End_Ciclo_V5",
+         "End_Ciclo_V6",
+         "End_Ciclo_V7"
+        ]
+       },
+       {
+        "f": "Get1sClk",
+        "p": {}
+       },
+       "(OUT_LAMP_VERDE)"
+      ]
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Allarme_Bit",
+     "type": "ARRAY[1..20] OF bool",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Bit_OUT_SCAR_V6",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Bit_OUT_SCAR_V7",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "CTD3",
+     "type": "CTD",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "End_Ciclo_V1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "End_Ciclo_V2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "End_Ciclo_V3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "End_Ciclo_V4",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "End_Ciclo_V5",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "End_Ciclo_V6",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "End_Ciclo_V7",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "End_Ciclo_V8",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EMERGENZA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_PORTE_DX2_CLOSED",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_PORTE_DX_CLOSED",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_PORTE_SX2_CLOSED",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_PORTE_SX_CLOSED",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Keep_Buzzer",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Carico_V2",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Ciclo_V1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Ciclo_V2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Ciclo_V3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Ciclo_V4",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Ciclo_V6",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Ciclo_V7",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Soluz_V1",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Soluz_V2",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Soluz_V3",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Soluz_V6",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Soluz_V7",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "OUT_BUZZER",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_EV_MIX_Beker",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_LAMP_GIALLA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_LAMP_ROSSA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_LAMP_VERDE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_LOW_ASPIRA_DX",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_LOW_ASPIRA_SX",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_PORTE_DX",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_PORTE_SX",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Analog1_Real",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Aspirazione",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_CTD3",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_IN_Analog_1",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Reset_CTD3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "TON6",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "TON7",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_L_Allarmi",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Reset_Buzzer",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_S_HCL_V4",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Allarmi": {
+   "rungs": [
+    {
+     "cmt": "Accendo la spia Allarmoi del visualizzatore se ho un bit Allarmi Attivo",
+     "chain": [
+      {
+       "f": "ArySearch",
+       "p": {
+        "In": "Allarme_Bit[1]",
+        "Size": "uint#20",
+        "Key": "bool#1",
+        "InOutPos": "local1",
+        "OUT:": "V_L_Allarmi",
+        "OUT:InOutPos": "local1"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "ALLARME ERRORE PT 100 VASCA 6",
+     "chain": [
+      {
+       "f": "=",
+       "p": {
+        "In1": "PV_Temperatura_V6",
+        "In2": "32767"
+       }
+      },
+      "(Allarme_Bit[1])"
+     ]
+    },
+    {
+     "cmt": "EMERGENZA PREMUTA",
+     "chain": [
+      "/IN_EMERGENZA",
+      "(Allarme_Bit[2])"
+     ]
+    },
+    {
+     "cmt": "ALLARME PRESSIONE AZOTO (PRESSOSTATO TARATO A 0,4-0,7 BAR   40-70 Pascal). PRESSIONE OPERATIVA 50 Kpa",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "/IN_PRESS_AZOTO",
+       {
+        "fb": "TON",
+        "inst": "TON2",
+        "p": {
+         "PT": "T#2S"
+        }
+       },
+       "(S Allarme_Azoto)"
+      ],
+      [
+       "V_P_Reset_All_Azoto",
+       "(R Allarme_Azoto)"
+      ],
+      [
+       "Allarme_Azoto",
+       "(Allarme_Bit[3])"
+      ]
+     ]
+    },
+    {
+     "cmt": "ALLARME ALTA TEMPERATURA V6",
+     "chain": [
+      {
+       "f": ">",
+       "p": {
+        "In1": "PV_Temperatura_V6",
+        "In2": "SET_Temp_Alta_V6"
+       }
+      },
+      "(Allarme_Bit[4])"
+     ]
+    },
+    {
+     "cmt": "ALLARME ASPIRAZIONE",
+     "chain": [
+      "P_On",
+      {
+       "or": [
+        [
+         {
+          "f": "<",
+          "p": {
+           "In1": "PV_Aspirazione",
+           "In2": "SET_All_Aspirazione"
+          }
+         },
+         {
+          "or": [
+           [
+            {
+             "fb": "TON",
+             "inst": "TON5",
+             "p": {
+              "PT": "T#20S"
+             }
+            },
+            "(S Allarme_Bit[5])"
+           ],
+           "(Allarme_Bit[20])"
+          ]
+         }
+        ],
+        [
+         "V_P_Svuota_Aspira",
+         "Allarme_Bit[5]",
+         "(Allarm_Svuota_Vasche)"
+        ],
+        [
+         "V_P_Reset_All_Aspira",
+         "(R Allarme_Bit[5])"
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "cmt": "ALLARME PORTELLE SX APERTE",
+     "chain": [
+      {
+       "or": [
+        "/IN_PORTE_SX_CLOSED",
+        "/IN_PORTE_SX2_CLOSED"
+       ]
+      },
+      "(Allarme_Bit[6])"
+     ]
+    },
+    {
+     "cmt": "ALLARME PORTELLE DX APERTE",
+     "chain": [
+      {
+       "or": [
+        "/IN_PORTE_DX_CLOSED",
+        "/IN_PORTE_DX2_CLOSED"
+       ]
+      },
+      "(Allarme_Bit[7])"
+     ]
+    },
+    {
+     "cmt": "ALLARME ALTA TEMPERATURA V7",
+     "chain": [
+      {
+       "f": ">",
+       "p": {
+        "In1": "PV_Temperatura_V7",
+        "In2": "SET_Temp_Alta_V7"
+       }
+      },
+      "(Allarme_Bit[8])"
+     ]
+    },
+    {
+     "cmt": "ALLARME ERRORE PT 100 VASCA 7",
+     "chain": [
+      {
+       "f": "=",
+       "p": {
+        "In1": "PV_Temperatura_V7",
+        "In2": "32767"
+       }
+      },
+      "(Allarme_Bit[9])"
+     ]
+    },
+    {
+     "cmt": "ALLARME ARIA COMPRESSA",
+     "chain": [
+      "/IN_PRESS_ARIA",
+      "(Allarme_Bit[10])"
+     ]
+    },
+    {
+     "cmt": "ALLARME DI LIVELLO MASSIMO DURANTE CARICAMENTO SOLUZIONE",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "Mem_Soluz_V1",
+       "Tim_Liv_Max_V1.Q",
+       "(Allarme_Bit[11])"
+      ],
+      [
+       "Mem_Soluz_V7",
+       "Tim_Liv_Max_V7.Q",
+       "(Allarme_Bit[15])"
+      ],
+      [
+       "Mem_Soluz_V6",
+       "Tim_Liv_Max_V6.Q",
+       "(Allarme_Bit[14])"
+      ],
+      [
+       "Mem_Soluz_V2",
+       "Tim_Liv_Max_V2.Q",
+       "(Allarme_Bit[12])"
+      ],
+      [
+       "Mem_Soluz_V3",
+       "Tim_Liv_Max_V3.Q",
+       "(Allarme_Bit[13])"
+      ]
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Allarm_Svuota_Vasche",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Allarme_Azoto",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Allarme_Bit",
+     "type": "ARRAY[1..20] OF bool",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_EMERGENZA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_PORTE_DX2_CLOSED",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_PORTE_DX_CLOSED",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_PORTE_SX2_CLOSED",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_PORTE_SX_CLOSED",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_PRESS_ARIA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_PRESS_AZOTO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Soluz_V1",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Soluz_V2",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Soluz_V3",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Soluz_V6",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Soluz_V7",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "PV_Aspirazione",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Temperatura_V6",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Temperatura_V7",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_All_Aspirazione",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Temp_Alta_V6",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Temp_Alta_V7",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "TON2",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "TON5",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Liv_Max_V1",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Liv_Max_V2",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Liv_Max_V3",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Liv_Max_V6",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Liv_Max_V7",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_L_Allarmi",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Reset_All_Aspira",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Reset_All_Azoto",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Svuota_Aspira",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "local1",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "LadderBody": {
+   "rungs": [
+    {
+     "cmt": "",
+     "chain": [
+      "ENABLE",
+      {
+       "f": "Get1sClk",
+       "p": {}
+      },
+      {
+       "f": "@Dec",
+       "p": {
+        "InOut": "VALUE",
+        "OUT:InOut": "VALUE"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "ENABLE",
+      {
+       "f": "<=",
+       "p": {
+        "In1": "VALUE",
+        "In2": "0"
+       }
+      },
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "0",
+        "OUT:Out": "VALUE"
+       }
+      },
+      "(End_Conteggio)"
+     ]
+    },
+    {
+     "cmt": "",
+     "chain": [
+      "/ENABLE",
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "SET_VALUE",
+        "OUT:Out": "VALUE"
+       }
+      }
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "ENABLE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "End_Conteggio",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_VALUE",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "VALUE",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  }
+ }
+}

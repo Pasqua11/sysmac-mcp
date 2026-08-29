@@ -1,0 +1,3833 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 11">
+<title>GEM_SystemVariables</title>
+<link rel="StyleSheet" href="SECS.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+span.hcp1 { word-spacing:normal;
+font:6.0pt 'Times New Roman'; }
+table.hcp2 { padding-left:4.00pt;
+padding-top:3.00pt;
+padding-right:4.00pt;
+padding-bottom:1.00pt; }
+th.hcp3 { border-top:solid 1px #000000;
+border-right:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+th.hcp4 { border-top:solid 1px #000000;
+border-right:solid 1px #000000;
+border-bottom:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+th.hcp5 { border-top:solid 1px #000000;
+border-bottom:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+th.hcp6 { border-right:solid 1px #000000;
+border-bottom:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+td.hcp7 { border-right:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+td.hcp8 { border-right:solid 1px #000000;
+border-bottom:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+td.hcp9 { border-bottom:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+table.hcp10 { padding-top:5.00pt;
+padding-right:4.00pt;
+padding-bottom:1.00pt; }
+td.hcp11 { vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+td.hcp12 { border-right:solid 1px #000000;
+border-bottom:solid 1px #000000;
+border-top:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+table.hcp13 { margin-left:0.00pt;
+margin-bottom:3.50pt;
+margin-top:6.00pt; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<p class="Title">GEM_SystemVariables</p>
+<p class="FM_body1">&#160;</p>
+<p class="FM_body1">System-defined variables are assigned specific functions 
+ by the system. </p>
+<p class="FM_body1">They are registered in the global variable table, or 
+ the local variable table for each POU, in advance. </p>
+<p class="FM_body1">The variable names cannot be changed. </p>
+<p class="FM_body1">&#160;</p>
+<p class="FM_body1">You read and write the variables with the user program, 
+ with communications from external devices, with the Sysmac Studio, or 
+ with an NS-series PT. </p>
+<p class="FM_body1">&#160;</p>
+<p class="FM_body1">Examples of how to interpret the tables of system-defined 
+ variables are given below. </p>
+<p class="FM_head5"><span class="FM_Wingdings">l<span class="hcp1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span>Example 
+ for Structure Variables </p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th colspan="2" width="113" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th rowspan="2" width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th rowspan="2" width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th rowspan="2" width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th rowspan="2" width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th rowspan="2" width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th rowspan="2" width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th rowspan="2" width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th rowspan="2" width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="19" bgcolor="#B3B3B3" class="hcp6"><p class="FM_tabletitlec8pt">&#160;</p></th>
+		<th style="border-right: solid 1px #000000; border-bottom: solid 1px #000000; 
+			 border-top: solid 1px #000000;" width="94" bgcolor="#B3B3B3"><p 
+			 class="FM_tabletitlec8pt">(b)</p></th>
+		
+	</tr>
+	<tr style="height: 22.00pt;">
+		<td colspan="2" width="113" class="hcp7"><p class="FM_tablebody1c8pt">_GEM_EquipInfo</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Equipment Informa­tion </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives information on the equipment. 
+		 </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_sGEM_EQUIP_INFO</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">&#160;</p></td>
+	</tr>
+	<tr style="height: 22.00pt;">
+		<td rowspan="2" width="19" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td style="border-right: solid 1px #000000; border-bottom: solid 1px #000000; 
+			 border-top: solid 1px #000000;" width="94"><p class="FM_tablebody1c8pt">MDLN</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Equipment Model Type </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the model of the equipment. 
+		 </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">STRING[21]</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		<td rowspan="2" width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td rowspan="2" width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">RW</p></td>
+		<td rowspan="2" width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Retained.</p></td>
+		<td rowspan="2" width="45" class="hcp9"><p class="FM_tablebody1c8pt">Pub­lished.</p></td>
+	</tr>
+	<tr style="height: 22.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">SOFTREV</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Software Revision Code </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the software revision code. 
+		 </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">STRING[21]</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		
+	</tr>
+</table>
+
+<p class="FM_head5"><span class="FM_Wingdings">l<span class="hcp1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span>Example 
+ for Variables That Are Not Structures</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="113" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 66.00pt;">
+		<td width="113" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_GEM_Default<br>
+		Communications<br>
+		State</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Default Communi­cations State </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Specifies the commu­nications state 
+		 to enter when the equipment starts. </p>
+		<p class="FM_tablebody1c8pt">0: DISABLE</p>
+		<p class="FM_tablebody1c8pt">Not 0: ENABLE </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">USINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">RW</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Retained.</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">Pub­lished.</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+<p class="FM_bul1">(a)<span class="hcp1">&#160;&#160;&#160;</span>Gives 
+ the name of the system-defined variable. The name starts with the category 
+ name. </p>
+<p class="FM_bul1">(b)<span class="hcp1">&#160;&#160;&#160;&#160;&#160;</span>Gives 
+ the member names for structure variables only. </p>
+<p class="FM_bul1">(c)<span class="hcp1">&#160;&#160;&#160;&#160;&#160;</span>Gives 
+ the meaning of the variable. </p>
+<p class="FM_bul1">(d)<span class="hcp1">&#160;&#160;&#160;&#160;&#160;</span>Describes 
+ the function of the variable. </p>
+<p class="FM_bul1">(e)<span class="hcp1">&#160;&#160;&#160;&#160;&#160;</span>Gives 
+ the data type of the variable. </p>
+<p class="FM_bul1">(f)<span class="hcp1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span>Gives 
+ the range of values of the variable. </p>
+<p class="FM_bul1">(g)<span class="hcp1">&#160;&#160;&#160;&#160;&#160;</span>G: 
+ Global variable, L: Local variable. </p>
+<p class="FM_bul1">(h)<span class="hcp1">&#160;&#160;&#160;&#160;&#160;</span>Gives 
+ the R/W attribute of the variable. R: Read only, RW: Read/write </p>
+<p class="FM_bul1">(i)<span class="hcp1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span>Gives 
+ the Retain attribute of the variable. Either “Retained” or “Not retained” 
+ is given. </p>
+<p class="FM_bul1">(j)<span class="hcp1">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span>Gives 
+ the Network Publish attribute of the variable. Either “Published” or “Not 
+ published” is given. </p>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp10">
+	<tr style="height: 20.00pt;" bgcolor="#B3B3B3">
+		<td width="661" bgcolor="#B3B3B3" class="hcp11"><p class="FM_CRHead3">Package Version </p></td>
+	</tr>
+</table>
+
+<p class="FM_tabletitlec8pt">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="113" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 160.00pt;">
+		<td width="113" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_GEM_Version</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">GEM Version </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the version of the GEM package. 
+		 </p>
+		<p class="FM_tablebody1c8pt">Element 0 is the inte­ger part of 
+		 the version. </p>
+		<p class="FM_tablebody1c8pt">Element 1 is the frac­tional part 
+		 of the ver­sion. </p>
+		<p class="FM_tablebody1c8pt">Example: For GEM version 1.00, element 
+		 0 is 1 and element 1 is 0. </p>
+		<p class="FM_tablebody1c8pt">Example: For GEM version 1.00, element 
+		 0 is 1 and element 1 is 10. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">ARRAY[0..1] OF USINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">0 to 99 </p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">R</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">Pub­lished.</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp10">
+	<tr style="height: 20.00pt;" bgcolor="#B3B3B3">
+		<td width="661" bgcolor="#B3B3B3" class="hcp11"><p class="FM_CRHead3">Equipment Information 
+		 </p></td>
+	</tr>
+</table>
+
+<p class="FM_tabletitlec8pt">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th colspan="2" width="113" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th rowspan="2" width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th rowspan="2" width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th rowspan="2" width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th rowspan="2" width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th rowspan="2" width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th rowspan="2" width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th rowspan="2" width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th rowspan="2" width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="19" bgcolor="#B3B3B3" class="hcp6"><p class="FM_tabletitlec8pt">&#160;</p></th>
+		<th width="94" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(b)</p></th>
+		
+	</tr>
+	<tr style="height: 22.00pt;">
+		<td colspan="2" width="113" class="hcp7"><p class="FM_tablebody1c8pt">_GEM_EquipInfo</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Equipment Informa­tion </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives information on the equipment. 
+		 </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_sGEM_EQUIP_INFO</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">&#160;</p></td>
+	</tr>
+	<tr style="height: 22.00pt;">
+		<td rowspan="2" width="19" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="94" class="hcp12"><p class="FM_tablebody1c8pt">MDLN</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Equipment Model Type </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the model of the equipment. 
+		 </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">STRING[21]</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		<td rowspan="2" width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td rowspan="2" width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">RW</p></td>
+		<td rowspan="2" width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Retained.</p></td>
+		<td rowspan="2" width="45" class="hcp9"><p class="FM_tablebody1c8pt">Pub­lished.</p></td>
+	</tr>
+	<tr style="height: 22.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">SOFTREV</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Software Revision Code </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the software revision code. 
+		 </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">STRING[21]</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		
+	</tr>
+</table>
+
+
+<table cellspacing="0" width="661" class="hcp10">
+	<tr style="height: 20.00pt;" bgcolor="#B3B3B3">
+		<td width="661" bgcolor="#B3B3B3" class="hcp11"><p class="FM_CRHead3"><a name="A206_GEM_Service_Status">GEM 
+		 Service Status</a></p></td>
+	</tr>
+</table>
+
+<p class="FM_tabletitlec8pt">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th colspan="2" width="113" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th rowspan="2" width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th rowspan="2" width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th rowspan="2" width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th rowspan="2" width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th rowspan="2" width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th rowspan="2" width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th rowspan="2" width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th rowspan="2" width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="19" bgcolor="#B3B3B3" class="hcp6"><p class="FM_tabletitlec8pt">&#160;</p></th>
+		<th width="94" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(b)</p></th>
+		
+	</tr>
+	<tr style="height: 22.00pt;">
+		<td colspan="2" width="113" class="hcp7"><p class="FM_tablebody1c8pt">_GEM_ServiceStatus</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">GEM Service Status </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the GEM Ser­vice status. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_sGEM_SER­VICE_STATUS</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">&#160;</p></td>
+	</tr>
+	<tr style="height: 24.13pt;">
+		<td rowspan="10" width="19" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="94" class="hcp12"><p class="FM_tablebody1c8pt">Idle</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Idle </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE while GEM Ser­vices are inactive. 
+		 <sup>*1</sup></p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		<td rowspan="10" width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td rowspan="10" width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">R</p></td>
+		<td rowspan="10" width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td rowspan="10" width="45" class="hcp9"><p class="FM_tablebody1c8pt">Pub­lished.</p></td>
+	</tr>
+	<tr style="height: 32.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Initializing</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Initializing </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE while GEM Ser­vice initialization 
+		 is in progress. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		
+	</tr>
+	<tr style="height: 22.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Run</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Run </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE while GEM Ser­vices are active. 
+		 </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		
+	</tr>
+	<tr style="height: 32.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">EQStarting</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">EQStarting </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE while waiting for equipment 
+		 initial­ization processing. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		
+	</tr>
+	<tr style="height: 32.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">EQInitializing</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">EQInitializing </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE while equip­ment initialization 
+		 pro­cessing is in progress. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		
+	</tr>
+	<tr style="height: 52.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">EQRun</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">EQRun </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE when you can use all GEM Ser­vices, 
+		 including com­munications with the host. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		
+	</tr>
+	<tr style="height: 32.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Stop</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Stop </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE while GEM Ser­vice activity 
+		 is stopped. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		
+	</tr>
+	<tr style="height: 32.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Error</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Error </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE while GEM Ser­vices are inactive 
+		 because of an error. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		
+	</tr>
+	<tr style="height: 32.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">ShuttingDown</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">ShuttingDown </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE while shut­down processing 
+		 is in progress. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		
+	</tr>
+	<tr style="height: 32.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Shutdown</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Shutdown </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE after shutdown processing is 
+		 com­pleted. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		
+	</tr>
+</table>
+
+
+<table width="661" class="hcp13">
+	<tr>
+		<td><p class="FM_tablebody1c9pt"><sup>*1</sup>This is a standby 
+		 state while waiting for the Controller’s operating mode to change 
+		 from PROGRAM to RUN. </p>
+		<p class="FM_tablespec">&#160;</p></td>
+	</tr>
+</table>
+
+
+<table cellspacing="0" width="661" class="hcp10">
+	<tr style="height: 20.00pt;" bgcolor="#B3B3B3">
+		<td width="661" bgcolor="#B3B3B3" class="hcp11"><p class="FM_CRHead3">SECS Communications</p></td>
+	</tr>
+</table>
+
+<p class="FM_tabletitlec8pt">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="113" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 22.00pt;">
+		<td width="113" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_GEM_CommLogCnt</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">SECS Communica­tions Log Count</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the number of entries in the 
+		 log. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">UINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">R</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">Pub­lished.</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th colspan="2" width="113" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th rowspan="2" width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th rowspan="2" width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th rowspan="2" width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th rowspan="2" width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th rowspan="2" width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th rowspan="2" width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th rowspan="2" width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th rowspan="2" width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="19" bgcolor="#B3B3B3" class="hcp6"><p class="FM_tabletitlec8pt">&#160;</p></th>
+		<th width="94" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(b)</p></th>
+		
+	</tr>
+	<tr style="height: 42.00pt;">
+		<td colspan="2" width="113" class="hcp7"><p class="FM_tablebody1c8pt">_GEM_CommLog</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">SECS Communica­tions Log </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives information on SECS communica­tions 
+		 log. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">ARRAY[0..99] OF _sGEM_COM­MLOG</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">&#160;</p></td>
+	</tr>
+	<tr style="height: 22.00pt;">
+		<td rowspan="8" width="19" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="94" class="hcp12"><p class="FM_tablebody1c8pt">LogNo</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Log Number </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the order of the record in 
+		 the log. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">UINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		<td rowspan="8" width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td rowspan="8" width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">R</p></td>
+		<td rowspan="8" width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td rowspan="8" width="45" class="hcp9"><p class="FM_tablebody1c8pt">Pub­lished.</p></td>
+	</tr>
+	<tr style="height: 32.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">LogDate</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Logged Date </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the date the record was placed 
+		 in the log. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">DATE_AND_­TIME</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		
+	</tr>
+	<tr style="height: 56.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">SndRcv</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Send/Receive </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Tells whether the mes­sage was sent 
+		 or received. </p>
+		<p class="FM_tablebody1c8pt">1: Sent </p>
+		<p class="FM_tablebody1c8pt">2: Received </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">USINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">1 to 2</p></td>
+		
+	</tr>
+	<tr style="height: 32.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">StreamCode</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Stream Number </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the stream number of the mes­sage. 
+		 </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">USINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">0 to 127</p></td>
+		
+	</tr>
+	<tr style="height: 32.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">FunctionCode</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Function Number </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the function number of the 
+		 mes­sage. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">USINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">0 to 255</p></td>
+		
+	</tr>
+	<tr style="height: 32.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">MsgPtn</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Message Branch Number </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the branch number of the mes­sage. 
+		 </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">USINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">0 to 255</p></td>
+		
+	</tr>
+	<tr style="height: 46.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">OutType</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Message Output Type </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Tells how the mes­sage was sent. 
+		 </p>
+		<p class="FM_tablebody1c8pt">0: Normal </p>
+		<p class="FM_tablebody1c8pt">1: Spooled </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">USINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">0 to 1</p></td>
+		
+	</tr>
+	<tr style="height: 164.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Rslt</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Communications Result </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the result of message communica­tions. 
+		 </p>
+		<p class="FM_tablebody1c8pt">0: Normal </p>
+		<p class="FM_tablebody1c8pt">1: T1 timeout </p>
+		<p class="FM_tablebody1c8pt">2: T2 timeout </p>
+		<p class="FM_tablebody1c8pt">3: T3 timeout </p>
+		<p class="FM_tablebody1c8pt">4: T4 timeout </p>
+		<p class="FM_tablebody1c8pt">5: T5 timeout </p>
+		<p class="FM_tablebody1c8pt">6: T6 timeout </p>
+		<p class="FM_tablebody1c8pt">7: T7 timeout </p>
+		<p class="FM_tablebody1c8pt">8: T8 timeout </p>
+		<p class="FM_tablebody1c8pt">9: T9 timeout</p>
+		<p class="FM_tablebody1c8pt">10: Not connected.</p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">USINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">0 to 10</p></td>
+		
+	</tr>
+</table>
+
+<p class="FM_tabletitlec8pt">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="113" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 62.00pt;">
+		<td width="113" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_GEM_EquipMsgBuf</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Equipment-initiated Message Bufferings</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the number of buffering transactions 
+		 in the GEM Service message queue for equipment-initiated messages.</p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">USINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type.</p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">R</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">Pub­lished.</p></td>
+	</tr>
+	<tr style="height: 62.00pt;">
+		<td width="113" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_GEM_HostMsgBuf</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Host-initiated Mes­sage Bufferings</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the number of buffering transactions 
+		 in the GEM Service message queue for host-initiated mes­sages.</p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">USINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type.</p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">R</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">Pub­lished.</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+<p class="FM_tablespec">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp10">
+	<tr style="height: 20.00pt;" bgcolor="#B3B3B3">
+		<td width="661" bgcolor="#B3B3B3" class="hcp11"><p class="FM_CRHead3">Interlocks</p></td>
+	</tr>
+</table>
+
+<p class="FM_tabletitlec8pt">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="113" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 66.00pt;">
+		<td width="113" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_GEM_Interlock_ControlState</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Control State Inter­lock </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Specifies whether to prohibit Request 
+		 ON-LINE from the host.</p>
+		<p class="FM_tablebody1c8pt">TRUE: Prohibited. </p>
+		<p class="FM_tablebody1c8pt">FALSE: Granted. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		<td rowspan="6" width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td rowspan="6" width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">RW</p></td>
+		<td rowspan="6" width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td rowspan="6" width="45" class="hcp9"><p class="FM_tablebody1c8pt">Not 
+		 pub­lished.</p></td>
+	</tr>
+	<tr style="height: 56.00pt;">
+		<td width="113" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_GEM_Interlock_Time</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Time Change Inter­lock </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Specifies whether to prohibit time 
+		 changes from the host.</p>
+		<p class="FM_tablebody1c8pt">TRUE: Prohibited. </p>
+		<p class="FM_tablebody1c8pt">FALSE: Granted. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		
+	</tr>
+	<tr style="height: 66.00pt;">
+		<td width="113" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_GEM_Interlock_HostCmd</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Host Command Interlock </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Specifies whether to prohibit reception 
+		 of host commands from the host.</p>
+		<p class="FM_tablebody1c8pt">TRUE: Prohibited. </p>
+		<p class="FM_tablebody1c8pt">FALSE: Granted. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		
+	</tr>
+	<tr style="height: 76.00pt;">
+		<td width="113" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_GEM_Interlock_EnhancedRmtCmd</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Enhanced Remote Command Interlock 
+		 </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Specifies whether to prohibit reception 
+		 of enhanced remote commands from the host.</p>
+		<p class="FM_tablebody1c8pt">TRUE: Prohibited. </p>
+		<p class="FM_tablebody1c8pt">FALSE: Granted. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		
+	</tr>
+	<tr style="height: 96.00pt;">
+		<td width="113" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_GEM_Interlock_PP</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Process Program Interlock </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Specifies whether to prohibit process 
+		 pro­gram deletion requests and upload/download requests from the 
+		 host.</p>
+		<p class="FM_tablebody1c8pt">TRUE: Prohibited. </p>
+		<p class="FM_tablebody1c8pt">FALSE: Granted. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		
+	</tr>
+	<tr style="height: 66.00pt;">
+		<td width="113" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_GEM_Interlock_ECV</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Equipment Con­stant Interlock </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Specifies whether to prohibit equipment 
+		 constant changes from the host.</p>
+		<p class="FM_tablebody1c8pt">TRUE: Prohibited. </p>
+		<p class="FM_tablebody1c8pt">FALSE: Granted. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp10">
+	<tr style="height: 20.00pt;" bgcolor="#B3B3B3">
+		<td width="661" bgcolor="#B3B3B3" class="hcp11"><p class="FM_CRHead3"><a name="HSMS_Communications">HSMS 
+		 Communications</a></p></td>
+	</tr>
+</table>
+
+<p class="FM_tabletitlec8pt">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th colspan="2" width="113" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th rowspan="2" width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th rowspan="2" width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th rowspan="2" width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th rowspan="2" width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th rowspan="2" width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th rowspan="2" width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th rowspan="2" width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th rowspan="2" width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="19" bgcolor="#B3B3B3" class="hcp6"><p class="FM_tabletitlec8pt">&#160;</p></th>
+		<th width="94" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(b)</p></th>
+		
+	</tr>
+	<tr style="height: 62.00pt;">
+		<td colspan="2" width="113" class="hcp7"><p class="FM_tablebody1c8pt">_GEM_HSMSState</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">HSMS Communica­tions State </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the HSMS Communications state. 
+		 (The HSMS Communications states are defined in E37.) </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_sGEM_HSMS_STATE</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">&#160;</p></td>
+	</tr>
+	<tr style="height: 22.00pt;">
+		<td rowspan="3" width="19" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="94" class="hcp12"><p class="FM_tablebody1c8pt">NotConnected</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">NOT CONNECTED</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE when TCP/IP is not connected. 
+		 </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		<td rowspan="3" width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td rowspan="3" width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">R</p></td>
+		<td rowspan="3" width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td rowspan="3" width="45" class="hcp9"><p class="FM_tablebody1c8pt">Pub­lished.</p></td>
+	</tr>
+	<tr style="height: 22.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">NotSelected</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">NOT SELECTED</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE when attempt­ing to connect 
+		 TCP/IP. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		
+	</tr>
+	<tr style="height: 32.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Selected</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">SELECTED</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE when an TCP/IP connection is 
+		 established. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		
+	</tr>
+</table>
+
+<p class="FM_tabletitlec8pt">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th colspan="2" width="113" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th rowspan="2" width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th rowspan="2" width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th rowspan="2" width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th rowspan="2" width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th rowspan="2" width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th rowspan="2" width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th rowspan="2" width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th rowspan="2" width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="19" bgcolor="#B3B3B3" class="hcp6"><p class="FM_tabletitlec8pt">&#160;</p></th>
+		<th width="94" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(b)</p></th>
+		
+	</tr>
+	<tr style="height: 22.00pt;">
+		<td colspan="2" width="113" class="hcp7"><p class="FM_tablebody1c8pt">_GEM_HSMSError</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">HSMS Communica­tions Errors</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives errors detected by the HSMS. 
+		 </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_sGEM_HSMS_ERROR</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">&#160;</p></td>
+	</tr>
+	<tr style="height: 74.00pt;">
+		<td rowspan="4" width="19" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="94" class="hcp12"><p class="FM_tablebody1c8pt">T5</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Connection Separa­tion Timeout Detec­tion 
+		 Count</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the number of times a connection 
+		 separation timeout has occurred. </p>
+		<p class="FM_tablebody1c8pt">When the upper limit is reached, counting 
+		 continues from 0. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">UINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		<td rowspan="4" width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td rowspan="4" width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">R</p></td>
+		<td rowspan="4" width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td rowspan="4" width="45" class="hcp9"><p class="FM_tablebody1c8pt">Pub­lished.</p></td>
+	</tr>
+	<tr style="height: 74.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">T6</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Control Timeout Detection Count</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the number of times a control 
+		 trans­action timeout has occurred. </p>
+		<p class="FM_tablebody1c8pt">When the upper limit is reached, counting 
+		 continues from 0. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">UINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		
+	</tr>
+	<tr style="height: 74.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">T7</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Connection Idle Timeout Detection 
+		 Count</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the number of times a NOT 
+		 SELECTED timeout has occurred. </p>
+		<p class="FM_tablebody1c8pt">When the upper limit is reached, counting 
+		 continues from 0. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">UINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		
+	</tr>
+	<tr style="height: 74.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">T8</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Network Interchar­acter Timeout 
+		 Detection Count</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the number of times a network 
+		 inter­character timeout has occurred. </p>
+		<p class="FM_tablebody1c8pt">When the upper limit is reached, counting 
+		 continues from 0. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">UINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th colspan="2" width="113" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th rowspan="2" width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th rowspan="2" width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th rowspan="2" width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th rowspan="2" width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th rowspan="2" width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th rowspan="2" width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th rowspan="2" width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th rowspan="2" width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="19" bgcolor="#B3B3B3" class="hcp6"><p class="FM_tabletitlec8pt">&#160;</p></th>
+		<th width="94" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(b)</p></th>
+		
+	</tr>
+	<tr style="height: 32.00pt;">
+		<td colspan="2" width="113" class="hcp7"><p class="FM_tablebody1c8pt">_GEM_HSMSParam</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">HSMS Communica­tions Parameters 
+		 </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the active HSMS communica­tions 
+		 settings. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_sGEM_HSMS_PARAM</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">&#160;</p></td>
+	</tr>
+	<tr style="height: 82.00pt;">
+		<td rowspan="11" width="19" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="94" class="hcp12"><p class="FM_tablebody1c8pt">ConnectMode</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TCP/IP Connection Mode </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the TCP/IP con­nection mode. 
+		 </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_eGEM_CON­NECT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_GEM_­CON­NECT_PASSIVE or _GEM_­CON­NECT_ACTIVE</p></td>
+		<td rowspan="11" width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td rowspan="11" width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">R</p></td>
+		<td rowspan="11" width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td rowspan="11" width="45" class="hcp9"><p class="FM_tablebody1c8pt">Pub­lished.</p></td>
+	</tr>
+	<tr style="height: 106.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">PassiveIPSel</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">IP Address Connec­tion Restriction 
+		 Flag </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Tells whether the IP address for 
+		 connec­tion is restricted when the TCP/IP connection is PASSIVE. 
+		 </p>
+		<p class="FM_tablebody1c8pt">FALSE: No restriction. </p>
+		<p class="FM_tablebody1c8pt">TRUE: Connection is possible only 
+		 with the IP address set in <span style="font-style: italic;">IpAdr</span>. 
+		 </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		
+	</tr>
+	<tr style="height: 42.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">IpAdr</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">IP Address </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the IP address of the host.</p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">STRING[256]</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">000.000.000.000 - 255.255.255.255</p></td>
+		
+	</tr>
+	<tr style="height: 52.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">PortNo</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Port Number </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the standby port number for 
+		 GEM Ser­vices when the TCP/IP connection is PASSIVE. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">UINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		
+	</tr>
+	<tr style="height: 32.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">DeviceID</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Device ID </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the ID that iden­tifies the 
+		 HSMS mes­sage.</p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">UINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">0 to 32767</p></td>
+		
+	</tr>
+	<tr style="height: 52.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">T3</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Reply Timeout Time</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the maximum time in seconds 
+		 to wait for a reply during HSMS message com­munications.</p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">USINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">1 to 120</p></td>
+		
+	</tr>
+	<tr style="height: 62.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">T5</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Connection Separa­tion Timeout Time</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the interval in seconds to 
+		 resend Select Requests when a selection response is not received 
+		 to a sent Select Request. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">USINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">1 to 240</p></td>
+		
+	</tr>
+	<tr style="height: 52.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">T6</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Control Timeout Time</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the maximum time in seconds 
+		 to wait for a reply during HSMS message com­munications. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">USINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">1 to 240</p></td>
+		
+	</tr>
+	<tr style="height: 62.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">T7</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Connection Idle Timeout Time</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the maximum time in seconds 
+		 to wait for a Select Request when the TCP/IP connection is PASSIVE. 
+		 </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">USINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">1 to 240</p></td>
+		
+	</tr>
+	<tr style="height: 42.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">T8</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Network Interchar­acter Timeout 
+		 Time</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the time in sec­onds to monitor 
+		 for multi-packet sent HSMS messages.</p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">USINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">1 to 120</p></td>
+		
+	</tr>
+	<tr style="height: 42.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">ConversationTim­eout</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Conversation Time­out Time</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the maximum time in seconds 
+		 to wait for a reply after sending a message.</p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">USINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">1 to 240</p></td>
+		
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp10">
+	<tr style="height: 20.00pt;" bgcolor="#B3B3B3">
+		<td width="661" bgcolor="#B3B3B3" class="hcp11"><p class="FM_CRHead3"><a name="A212_Communications_State_Model">Communications 
+		 State Model</a></p></td>
+	</tr>
+</table>
+
+<p class="FM_tabletitlec8pt">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th colspan="2" width="113" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th rowspan="2" width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th rowspan="2" width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th rowspan="2" width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th rowspan="2" width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th rowspan="2" width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th rowspan="2" width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th rowspan="2" width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th rowspan="2" width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="19" bgcolor="#B3B3B3" class="hcp6"><p class="FM_tabletitlec8pt">&#160;</p></th>
+		<th width="94" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(b)</p></th>
+		
+	</tr>
+	<tr style="height: 52.00pt;">
+		<td colspan="2" width="113" class="hcp7"><p class="FM_tablebody1c8pt">_GEM_CommunicationsState</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Communications State </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the status of communications 
+		 with the host. (Based on Communications State Model defined in 
+		 E30.) </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_sGEM_COM­M_STATE</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">&#160;</p></td>
+	</tr>
+	<tr style="height: 32.00pt;">
+		<td rowspan="3" width="19" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="94" class="hcp12"><p class="FM_tablebody1c8pt">Disabled</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">DISABLED</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE when commu­nications with the 
+		 host are inactive. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		<td rowspan="3" width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td rowspan="3" width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">R</p></td>
+		<td rowspan="3" width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td rowspan="3" width="45" class="hcp9"><p class="FM_tablebody1c8pt">Pub­lished.</p></td>
+	</tr>
+	<tr style="height: 32.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">EnabledNotComm</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">NOT COMMUNI­CATING</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE while communi­cations with 
+		 the host are established. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		
+	</tr>
+	<tr style="height: 32.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">EnabledComm</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">COMMUNICATING</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE when commu­nications with the 
+		 host are active. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="113" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 66.00pt;">
+		<td width="113" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_GEM_DefaultCommunicationsState</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Default Communi­cations State </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Specifies the commu­nications state 
+		 to enter when the equipment starts. </p>
+		<p class="FM_tablebody1c8pt">0: DISABLE</p>
+		<p class="FM_tablebody1c8pt">Not 0: ENABLE </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">USINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">RW</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Retained.</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">Pub­lished.</p></td>
+	</tr>
+</table>
+
+<p class="FM_tabletitlec8pt">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="113" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 42.00pt;">
+		<td width="113" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_GEM_EstablishCommunicationsTimeout</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Establish Communi­cations Timeout 
+		 </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the timeout time for establishing 
+		 com­munications. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">UINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">1 to 256</p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">R</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Retained.</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">Pub­lished.</p></td>
+	</tr>
+</table>
+
+<p class="FM_CRHead3">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp10">
+	<tr style="height: 20.00pt;" bgcolor="#B3B3B3">
+		<td width="661" bgcolor="#B3B3B3" class="hcp11"><p class="FM_CRHead3">Equipment Processing 
+		 State</p></td>
+	</tr>
+</table>
+
+<p class="FM_tabletitlec8pt">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="113" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 32.00pt;">
+		<td width="113" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_GEM_PreviousPro­cessState</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Previous Process­ing State </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Specifies the previous process state 
+		 of the equipment. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">USINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		<td rowspan="2" width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td rowspan="2" width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">RW</p></td>
+		<td rowspan="2" width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td rowspan="2" width="45" class="hcp9"><p class="FM_tablebody1c8pt">Pub­lished</p></td>
+	</tr>
+	<tr style="height: 32.00pt;">
+		<td width="113" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_GEM_ProcessState</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Processing State </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Specifies the current process state 
+		 of the equipment. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">USINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp10">
+	<tr style="height: 20.00pt;" bgcolor="#B3B3B3">
+		<td width="661" bgcolor="#B3B3B3" class="hcp11"><p class="FM_CRHead3"><a name="A212_Control_State_Model">Control 
+		 State Model</a></p></td>
+	</tr>
+</table>
+
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th colspan="2" width="113" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th rowspan="2" width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th rowspan="2" width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th rowspan="2" width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th rowspan="2" width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th rowspan="2" width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th rowspan="2" width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th rowspan="2" width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th rowspan="2" width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="19" bgcolor="#B3B3B3" class="hcp6"><p class="FM_tabletitlec8pt">&#160;</p></th>
+		<th width="94" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(b)</p></th>
+		
+	</tr>
+	<tr style="height: 22.00pt;">
+		<td colspan="2" width="113" class="hcp7"><p class="FM_tablebody1c8pt">_GEM_ControlState</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Control State </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the control state of the equipment.</p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_sGEM_CON­TROL_STATE</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">&#160;</p></td>
+	</tr>
+	<tr style="height: 22.00pt;">
+		<td rowspan="5" width="19" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="94" class="hcp12"><p class="FM_tablebody1c8pt">EquipOffline</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">EQUIPMENT OFF-LINE</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE when equip­ment is OFF-LINE. 
+		 </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		<td rowspan="5" width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td rowspan="5" width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">R</p></td>
+		<td rowspan="5" width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td rowspan="5" width="45" class="hcp9"><p class="FM_tablebody1c8pt">Pub­lished.</p></td>
+	</tr>
+	<tr style="height: 42.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">HostOffline</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">HOST OFF-LINE</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE when operator requested ON-LINE 
+		 but the host denied ON-LINE. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		
+	</tr>
+	<tr style="height: 32.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">AttemptOnline</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">ATTEMPT ON-LINE</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE when operator requests ON-LINE 
+		 from the host. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		
+	</tr>
+	<tr style="height: 22.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">OnlineLocal</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">ON-LINE/LOCAL</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE during ON-LINE/LOCAL. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		
+	</tr>
+	<tr style="height: 22.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">OnlineRemote</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">ON-LINE/REMOTE</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE during ON-LINE/REMOTE. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th colspan="2" width="113" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th rowspan="2" width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th rowspan="2" width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th rowspan="2" width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th rowspan="2" width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th rowspan="2" width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th rowspan="2" width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th rowspan="2" width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th rowspan="2" width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="19" bgcolor="#B3B3B3" class="hcp6"><p class="FM_tabletitlec8pt">&#160;</p></th>
+		<th width="94" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(b)</p></th>
+		
+	</tr>
+	<tr style="height: 32.00pt;">
+		<td colspan="2" width="113" class="hcp7"><p class="FM_tablebody1c8pt">_GEM_ControlStateParam</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Control State Parameters </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Specifies the default values for 
+		 the control state. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_sGEM_CON­TROL_STATE_PARAM</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">&#160;</p></td>
+	</tr>
+	<tr style="height: 90.00pt;">
+		<td rowspan="3" width="19" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="94" class="hcp12"><p class="FM_tablebody1c8pt">DefaultControl</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Default Control State </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Specifies the default state when 
+		 the system starts. </p>
+		<p class="FM_tablebody1c8pt">0: EQUIPMENT OFF-LINE</p>
+		<p class="FM_tablebody1c8pt">1: HOST OFF-LINE</p>
+		<p class="FM_tablebody1c8pt">2: ATTEMPT ON-LINE</p>
+		<p class="FM_tablebody1c8pt">3: ON-LINE</p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">USINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">0 to 3</p></td>
+		<td rowspan="3" width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td rowspan="3" width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">RW</p></td>
+		<td rowspan="3" width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Retained.</p></td>
+		<td rowspan="3" width="45" class="hcp9"><p class="FM_tablebody1c8pt">Pub­lished.</p></td>
+	</tr>
+	<tr style="height: 56.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">DefaultOnline­SubState</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Default ON-LINE Substate </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Specifies the default substate after 
+		 transi­tion to ON-LINE. </p>
+		<p class="FM_tablebody1c8pt">0: REMOTE</p>
+		<p class="FM_tablebody1c8pt">1: LOCAL</p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">USINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">0 to 1</p></td>
+		
+	</tr>
+	<tr style="height: 66.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">ChangeOnline­Failed</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">ON-LINE Failure State </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Specifies the default state after 
+		 failed ON-LINE attempt. </p>
+		<p class="FM_tablebody1c8pt">0: EQUIPMENT OFF-LINE</p>
+		<p class="FM_tablebody1c8pt">1: HOST OFF-LINE</p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">USINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">0 to 1</p></td>
+		
+	</tr>
+</table>
+
+<p class="FM_tabletitlec8pt">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="113" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 42.00pt;">
+		<td width="113" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_GEM_OperatorCommand</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Operator Command </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Specifies operator activity while 
+		 REMOTE state is active. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">USINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">RW</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">Not 
+		 pub­lished.</p></td>
+	</tr>
+</table>
+
+
+<table cellspacing="0" width="661" class="hcp10">
+	<tr style="height: 20.00pt;" bgcolor="#B3B3B3">
+		<td width="661" bgcolor="#B3B3B3" class="hcp11"><p class="FM_CRHead3"><a name="A215_Remote_Control">Remote 
+		 Control</a></p></td>
+	</tr>
+</table>
+
+<p class="FM_tabletitlec8pt">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="113" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 86.00pt;">
+		<td width="113" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_GEM_BusyHostPPDelete</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Host-initiated Pro­cess Program 
+		 Dele­tion Transaction Processing Flag </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the status of processing a 
+		 transac­tion for a host-initi­ated process program deletion. </p>
+		<p class="FM_tablebody1c8pt">TRUE: Processing </p>
+		<p class="FM_tablebody1c8pt">FALSE: Not process­ing. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">R</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">Not 
+		 pub­lished.</p></td>
+	</tr>
+</table>
+
+<p class="FM_14">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="113" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 96.00pt;">
+		<td width="113" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_GEM_BusyHostFormattedPPUpload</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Host-initiated For­matted Process 
+		 Program Upload Transaction Pro­cessing Flag </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the status of processing a 
+		 transac­tion for a host-initi­ated formatted process program upload. 
+		 </p>
+		<p class="FM_tablebody1c8pt">TRUE: Processing </p>
+		<p class="FM_tablebody1c8pt">FALSE: Not process­ing. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">R</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">Not 
+		 pub­lished.</p></td>
+	</tr>
+	<tr style="height: 86.00pt;">
+		<td width="113" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_GEM_BusyHostPPUpload</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Host-initiated Pro­cess Program 
+		 Upload Transaction Processing Flag </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the status of processing a 
+		 transac­tion for a host-initi­ated process program upload. </p>
+		<p class="FM_tablebody1c8pt">TRUE: Processing </p>
+		<p class="FM_tablebody1c8pt">FALSE: Not process­ing. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">R</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">Not 
+		 pub­lished.</p></td>
+	</tr>
+</table>
+
+<p class="FM_tabletitlec8pt">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="113" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 96.00pt;">
+		<td width="113" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_GEM_BusyEquipFormattedPPUpload</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Equipment-initiated Formatted Process 
+		 Program Upload Transaction Pro­cessing Flag </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the status of processing a 
+		 transac­tion for an equip­ment-initiated formatted process program 
+		 upload. </p>
+		<p class="FM_tablebody1c8pt">TRUE: Processing </p>
+		<p class="FM_tablebody1c8pt">FALSE: Not process­ing. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">R</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">Not 
+		 pub­lished.</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th colspan="2" width="113" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th rowspan="2" width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th rowspan="2" width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th rowspan="2" width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th rowspan="2" width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th rowspan="2" width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th rowspan="2" width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th rowspan="2" width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th rowspan="2" width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="19" bgcolor="#B3B3B3" class="hcp6"><p class="FM_tabletitlec8pt">&#160;</p></th>
+		<th width="94" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(b)</p></th>
+		
+	</tr>
+	<tr style="height: 52.00pt;">
+		<td colspan="2" width="113" class="hcp7"><p class="FM_tablebody1c8pt">_GEM_EquipFormattedPPUploadRslt</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Equipment-initiated Formatted Process 
+		 Program Upload Results </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the results of processing 
+		 an equip­ment-initiated format­ted process program upload. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_sGEM_RSLT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">&#160;</p></td>
+	</tr>
+	<tr style="height: 24.00pt;">
+		<td width="19" class="hcp7"><p class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="94" class="hcp12"><p class="FM_tablebody1c8pt">Rslt</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Result Flag</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE: Successful. </p>
+		<p class="FM_tablebody1c8pt">FALSE: Failed. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		<td rowspan="2" width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td rowspan="2" width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">R</p></td>
+		<td rowspan="2" width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td rowspan="2" width="45" class="hcp9"><p class="FM_tablebody1c8pt">Not 
+		 pub­lished.</p></td>
+	</tr>
+	<tr style="height: 366.13pt;">
+		<td width="19" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">RsltCode</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Result Code</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives a code that tells the result 
+		 of the upload. <sup>*1</sup></p>
+		<p class="FM_tablebody1c8pt">16#0000: Successful</p>
+		<p class="FM_tablebody1c8pt">16#0100: Host trans­mission failure 
+		 </p>
+		<p class="FM_tablebody1c8pt">16#0200: Host com­munications error 
+		 </p>
+		<p class="FM_tablebody1c8pt">16#0301: Data already present </p>
+		<p class="FM_tablebody1c8pt">16#0302: No space </p>
+		<p class="FM_tablebody1c8pt">16#0303: Invalid PPID </p>
+		<p class="FM_tablebody1c8pt">16#0304: Busy, retry requested </p>
+		<p class="FM_tablebody1c8pt">16#0305: Permission not granted </p>
+		<p class="FM_tablebody1c8pt">16#0306 to 16#033F: Other errors </p>
+		<p class="FM_tablebody1c8pt">16#0401: Permission not granted </p>
+		<p class="FM_tablebody1c8pt">16#0402: Length error </p>
+		<p class="FM_tablebody1c8pt">16#0403: Matrix over­flow </p>
+		<p class="FM_tablebody1c8pt">16#0404: PPID not found</p>
+		<p class="FM_tablebody1c8pt">16#0405: Mode unsupported</p>
+		<p class="FM_tablebody1c8pt">16#0406: Command will be performed 
+		 with completion signaled later </p>
+		<p class="FM_tablebody1c8pt">16#0407 to 16#043F: Other errors </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">WORD</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		
+	</tr>
+</table>
+
+
+<table width="661" class="hcp13">
+	<tr>
+		<td><p class="FM_tablebody1c9pt"><sup>*1</sup>Codes 16#0301 to 
+		 16#033F are for PPGNT; codes 16#0401 to 16#043F are for ACKC7. 
+		 </p></td>
+	</tr>
+</table>
+
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="113" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 86.00pt;">
+		<td width="113" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_GEM_Busy­EquipPPUpload</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Equipment-initiated Process Program 
+		 Upload Transaction Processing Flag </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the status of processing a 
+		 transac­tion for an equip­ment-initiated process program upload. 
+		 </p>
+		<p class="FM_tablebody1c8pt">TRUE: Processing </p>
+		<p class="FM_tablebody1c8pt">FALSE: Not process­ing. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">R</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">Not 
+		 pub­lished.</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th colspan="2" width="113" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th rowspan="2" width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th rowspan="2" width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th rowspan="2" width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th rowspan="2" width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th rowspan="2" width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th rowspan="2" width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th rowspan="2" width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th rowspan="2" width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="19" bgcolor="#B3B3B3" class="hcp6"><p class="FM_tabletitlec8pt">&#160;</p></th>
+		<th width="94" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(b)</p></th>
+		
+	</tr>
+	<tr style="height: 42.00pt;">
+		<td colspan="2" width="113" class="hcp7"><p class="FM_tablebody1c8pt">_GEM_EquipPPUploadRslt</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Equipment-Initiated Process Program 
+		 Upload Results </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the results of processing 
+		 an equip­ment-initiated pro­cess program upload. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_sGEM_RSLT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">&#160;</p></td>
+	</tr>
+	<tr style="height: 24.00pt;">
+		<td rowspan="2" width="19" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="94" class="hcp12"><p class="FM_tablebody1c8pt">Rslt</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Result Flag</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE: Successful. </p>
+		<p class="FM_tablebody1c8pt">FALSE: Failed. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		<td rowspan="2" width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td rowspan="2" width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">R</p></td>
+		<td rowspan="2" width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td rowspan="2" width="45" class="hcp9"><p class="FM_tablebody1c8pt">Not 
+		 pub­lished.</p></td>
+	</tr>
+	<tr style="height: 366.13pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">RsltCode</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Result Code</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives a code that tells the result 
+		 of the upload. <sup>*1</sup></p>
+		<p class="FM_tablebody1c8pt">16#0000: Successful</p>
+		<p class="FM_tablebody1c8pt">16#0100: Host trans­mission failure 
+		 </p>
+		<p class="FM_tablebody1c8pt">16#0200: Host com­munications error 
+		 </p>
+		<p class="FM_tablebody1c8pt">16#0301:Data already present </p>
+		<p class="FM_tablebody1c8pt">16#0302: No space </p>
+		<p class="FM_tablebody1c8pt">16#0303: Invalid PPID </p>
+		<p class="FM_tablebody1c8pt">16#0304: Busy, retry requested </p>
+		<p class="FM_tablebody1c8pt">16#0305: Permission not granted </p>
+		<p class="FM_tablebody1c8pt">16#0306 to 16#033F: Other errors </p>
+		<p class="FM_tablebody1c8pt">16#0401: Permission not granted </p>
+		<p class="FM_tablebody1c8pt">16#0402: Length error </p>
+		<p class="FM_tablebody1c8pt">16#0403: Matrix over­flow </p>
+		<p class="FM_tablebody1c8pt">16#0404: PPID not found</p>
+		<p class="FM_tablebody1c8pt">16#0405: Mode unsupported</p>
+		<p class="FM_tablebody1c8pt">16#0406: Command will be performed 
+		 with completion signaled later </p>
+		<p class="FM_tablebody1c8pt">16#0407 to 16#043F: Other errors </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">WORD</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		
+	</tr>
+</table>
+
+
+<table width="661" class="hcp13">
+	<tr>
+		<td><p class="FM_tablebody1c9pt"><sup>*1</sup>Codes 16#0301 to 
+		 16#033F are for PPGNT; codes 16#0401 to 16#043F and for ACKC7. 
+		 </p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="113" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 96.00pt;">
+		<td width="113" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_GEM_BusyHostFormattedPPDownload</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Host-initiated For­matted Process 
+		 Program Download Transaction Pro­cessing Flag </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the status of processing a 
+		 transac­tion for a host-initi­ated formatted process program download. 
+		 </p>
+		<p class="FM_tablebody1c8pt">TRUE: Processing </p>
+		<p class="FM_tablebody1c8pt">FALSE: Not process­ing. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">R</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">Not 
+		 pub­lished.</p></td>
+	</tr>
+	<tr style="height: 86.00pt;">
+		<td width="113" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_GEM_BusyHostPPDownload</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Host-initiated Pro­cess Program 
+		 Download Transac­tion Processing Flag </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the status of processing a 
+		 transac­tion for a host-initi­ated process program download. </p>
+		<p class="FM_tablebody1c8pt">TRUE: Processing </p>
+		<p class="FM_tablebody1c8pt">FALSE: Not process­ing. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">R</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">Not 
+		 pub­lished.</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="113" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 96.00pt;">
+		<td width="113" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_GEM_BusyEquip­FormattedPPDown­load</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Equipment-initiated Formatted Process 
+		 Program Download Transaction Pro­cessing Flag </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the status of processing a 
+		 transac­tion for an equip­ment-initiated formatted process program 
+		 download. </p>
+		<p class="FM_tablebody1c8pt">TRUE: Processing </p>
+		<p class="FM_tablebody1c8pt">FALSE: Not process­ing. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">R</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">Not 
+		 pub­lished.</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th colspan="2" width="113" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th rowspan="2" width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th rowspan="2" width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th rowspan="2" width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th rowspan="2" width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th rowspan="2" width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th rowspan="2" width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th rowspan="2" width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th rowspan="2" width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="19" bgcolor="#B3B3B3" class="hcp6"><p class="FM_tabletitlec8pt">&#160;</p></th>
+		<th width="94" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(b)</p></th>
+		
+	</tr>
+	<tr style="height: 52.00pt;">
+		<td colspan="2" width="113" class="hcp7"><p class="FM_tablebody1c8pt">_GEM_EquipFormattedPPDownloadRslt</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Equipment-initiated Formatted Process 
+		 Program Download Results </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the results of processing 
+		 an equip­ment-initiated format­ted process program download. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_sGEM_RSLT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">&#160;</p></td>
+	</tr>
+	<tr style="height: 24.00pt;">
+		<td rowspan="2" width="19" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="94" class="hcp12"><p class="FM_tablebody1c8pt">Rslt</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Result Flag</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE: Successful. </p>
+		<p class="FM_tablebody1c8pt">FALSE: Failed. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		<td rowspan="2" width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td rowspan="2" width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">R</p></td>
+		<td rowspan="2" width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td rowspan="2" width="45" class="hcp9"><p class="FM_tablebody1c8pt">Not 
+		 pub­lished.</p></td>
+	</tr>
+	<tr style="height: 110.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">RsltCode</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Result Code</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives a code that tells the result 
+		 of the down­load. </p>
+		<p class="FM_tablebody1c8pt">16#0000: Successful</p>
+		<p class="FM_tablebody1c8pt">16#0100: Host cannot communicate </p>
+		<p class="FM_tablebody1c8pt">16#0200: Host com­munications error 
+		 </p>
+		<p class="FM_tablebody1c8pt">16#0300: Rejected by host </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">WORD</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">0 to 63</p></td>
+		
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="113" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 86.00pt;">
+		<td width="113" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_GEM_Busy­EquipPPDownload</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Equipment-initiated Process Program 
+		 Download Transac­tion Processing Flag </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the status of processing a 
+		 transac­tion for an equip­ment-initiated process program download. 
+		 </p>
+		<p class="FM_tablebody1c8pt">TRUE: Processing </p>
+		<p class="FM_tablebody1c8pt">FALSE: Not process­ing. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">R</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">Not 
+		 pub­lished.</p></td>
+	</tr>
+</table>
+
+<p class="FM_tabletitlec8pt">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th colspan="2" width="113" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th rowspan="2" width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th rowspan="2" width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th rowspan="2" width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th rowspan="2" width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th rowspan="2" width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th rowspan="2" width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th rowspan="2" width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th rowspan="2" width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="19" bgcolor="#B3B3B3" class="hcp6"><p class="FM_tabletitlec8pt">&#160;</p></th>
+		<th width="94" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(b)</p></th>
+		
+	</tr>
+	<tr style="height: 52.00pt;">
+		<td colspan="2" width="113" class="hcp7"><p class="FM_tablebody1c8pt">_GEM_EquipPPDownloadRslt</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Equipment-Initiated Process Program 
+		 Download Results </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the results of processing 
+		 an equip­ment-initiated pro­cess program download. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_sGEM_RSLT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">&#160;</p></td>
+	</tr>
+	<tr style="height: 24.00pt;">
+		<td rowspan="2" width="19" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="94" class="hcp12"><p class="FM_tablebody1c8pt">Rslt</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Result Flag</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE: Successful. </p>
+		<p class="FM_tablebody1c8pt">FALSE: Failed. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		<td rowspan="2" width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td rowspan="2" width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">R</p></td>
+		<td rowspan="2" width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td rowspan="2" width="45" class="hcp9"><p class="FM_tablebody1c8pt">Not 
+		 pub­lished.</p></td>
+	</tr>
+	<tr style="height: 110.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">RsltCode</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Result Code</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives a code that tells the result 
+		 of the down­load. </p>
+		<p class="FM_tablebody1c8pt">16#0000: Successful</p>
+		<p class="FM_tablebody1c8pt">16#0100: Host cannot communicate </p>
+		<p class="FM_tablebody1c8pt">16#0200: Host com­munications error 
+		 </p>
+		<p class="FM_tablebody1c8pt">16#0300: Rejected by host </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">WORD</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th colspan="2" width="113" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th rowspan="2" width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th rowspan="2" width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th rowspan="2" width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th rowspan="2" width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th rowspan="2" width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th rowspan="2" width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th rowspan="2" width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th rowspan="2" width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="19" bgcolor="#B3B3B3" class="hcp6"><p class="FM_tabletitlec8pt">&#160;</p></th>
+		<th width="94" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(b)</p></th>
+		
+	</tr>
+	<tr style="height: 52.00pt;">
+		<td colspan="2" width="113" class="hcp7"><p class="FM_tablebody1c8pt">_GEM_PPChangeInfo</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Process Program Change Information 
+		 </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Specifies information on operator 
+		 changes to process programs (i.e., creating, editing, and deleting). 
+		 </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_sGEM_P­P_CHANGE</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">&#160;</p></td>
+	</tr>
+	<tr style="height: 52.00pt;">
+		<td rowspan="2" width="19" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="94" class="hcp12"><p class="FM_tablebody1c8pt">PPChangeName</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Process Program ID </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Specifies the process program that 
+		 was cre­ated, edited, or deleted by the opera­tor. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">STRING[121]</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		<td rowspan="2" width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td rowspan="2" width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">RW</p></td>
+		<td rowspan="2" width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td rowspan="2" width="45" class="hcp9"><p class="FM_tablebody1c8pt">Not 
+		 pub­lished.</p></td>
+	</tr>
+	<tr style="height: 80.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">PPChangeStatus</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Status </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Specifies the action performed for 
+		 the pro­cess program. </p>
+		<p class="FM_tablebody1c8pt">1: Created.</p>
+		<p class="FM_tablebody1c8pt">2: Edited. </p>
+		<p class="FM_tablebody1c8pt">3: Deleted. </p>
+		<p class="FM_tablebody1c8pt">4 to 63: Reserved </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">USINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">1 to 63</p></td>
+		
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="113" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 182.00pt;">
+		<td width="113" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_GEM_PPFormat</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Supported Process Program Formats 
+		 </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Specifies the process program formats 
+		 sup­ported by the equip­ment. </p>
+		<p class="FM_tablebody1c8pt">1: Process programs </p>
+		<p class="FM_tablebody1c8pt">2: Formatted process programs </p>
+		<p class="FM_tablebody1c8pt">3: Process programs and formatted 
+		 process programs </p>
+		<p class="FM_tablebody1c8pt">4 to 15: Specification is not possible 
+		 because large pro­cess programs are not supported. </p>
+		<p class="FM_tablebody1c8pt">16 and higher: Reserved </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">USINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">RW</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">Not 
+		 pub­lished.</p></td>
+	</tr>
+	<tr style="height: 32.00pt;">
+		<td width="113" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_GEM_<br>
+		PPExecName</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Current Process Program </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Specifies the currently selected 
+		 process pro­gram. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">STRING[121]</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">RW</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">Not 
+		 pub­lished.</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp10">
+	<tr style="height: 20.00pt;" bgcolor="#B3B3B3">
+		<td width="661" bgcolor="#B3B3B3" class="hcp11"><p class="FM_CRHead3"><a name="A218_Equipment_Terminal_Services">Equipment 
+		 Terminal Services</a></p></td>
+	</tr>
+</table>
+
+<p class="FM_tabletitlec8pt">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="113" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">G</p></th>
+		<th width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 86.00pt;">
+		<td width="113" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_GEM_BusyEquip­TerminalMsg</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Equipment-initiated Terminal Message 
+		 Transaction Pro­cessing Flag </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the processing status of an 
+		 equip­ment-initiated termi­nal message transaction. </p>
+		<p class="FM_tablebody1c8pt">TRUE: Processing </p>
+		<p class="FM_tablebody1c8pt">FALSE: Not process­ing. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">R</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">Not 
+		 pub­lished.</p></td>
+	</tr>
+</table>
+
+<p class="FM_tabletitlec8pt">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th colspan="2" width="113" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th rowspan="2" width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th rowspan="2" width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th rowspan="2" width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th rowspan="2" width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th rowspan="2" width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th rowspan="2" width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th rowspan="2" width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th rowspan="2" width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="19" bgcolor="#B3B3B3" class="hcp6"><p class="FM_tabletitlec8pt">&#160;</p></th>
+		<th width="94" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(b)</p></th>
+		
+	</tr>
+	<tr style="height: 32.00pt;">
+		<td colspan="2" width="113" class="hcp7"><p class="FM_tablebody1c8pt">_GEM_EquipTerminalMsgRslt</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Equipment-initiated Terminal Message 
+		 Results </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the results of an equipment-initiated 
+		 terminal message. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_sGEM_RSLT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">&#160;</p></td>
+	</tr>
+	<tr style="height: 24.00pt;">
+		<td rowspan="2" width="19" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="94" class="hcp12"><p class="FM_tablebody1c8pt">Rslt</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Result Flag</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE: Successful. </p>
+		<p class="FM_tablebody1c8pt">FALSE: Failed. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		<td rowspan="2" width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td rowspan="2" width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">R</p></td>
+		<td rowspan="2" width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td rowspan="2" width="45" class="hcp9"><p class="FM_tablebody1c8pt">Not 
+		 pub­lished.</p></td>
+	</tr>
+	<tr style="height: 134.13pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">RsltCode</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Result Code </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives a code that tells the result 
+		 of the termi­nal message. <sup>*1</sup></p>
+		<p class="FM_tablebody1c8pt">16#0000: Successful </p>
+		<p class="FM_tablebody1c8pt">16#0100: Host cannot communicate </p>
+		<p class="FM_tablebody1c8pt">16#0200: Host com­munications error 
+		 </p>
+		<p class="FM_tablebody1c8pt">16#0301: Message will not be displayed 
+		 </p>
+		<p class="FM_tablebody1c8pt">16#0302: Terminal is not available 
+		 </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">WORD</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		
+	</tr>
+</table>
+
+
+<table width="661" class="hcp13">
+	<tr>
+		<td><p class="FM_tablebody1c9pt"><sup>*1</sup>Codes 16#0301 to 
+		 16#033F are for ACKC10. </p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="113" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 86.00pt;">
+		<td width="113" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_GEM_BusyHostTerminalMsgSB</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Host-initiated Sin­gle-block Terminal 
+		 Message Transac­tion Processing Flag </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the processing status of a 
+		 host-initi­ated single-block ter­minal message transaction. </p>
+		<p class="FM_tablebody1c8pt">TRUE: Processing </p>
+		<p class="FM_tablebody1c8pt">FALSE: Not process­ing. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		<td rowspan="2" width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td rowspan="2" width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">R</p></td>
+		<td rowspan="2" width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td rowspan="2" width="45" class="hcp9"><p class="FM_tablebody1c8pt">Not 
+		 pub­lished.</p></td>
+	</tr>
+	<tr style="height: 52.00pt;">
+		<td width="113" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_GEM_HostTerminalMsgSB_TID</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Host-initiated Sin­gle-block Terminal 
+		 Message Receiv­ing Terminal Num­ber </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the receiving terminal number 
+		 for a host-initiated sin­gle-block terminal message. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BYTE</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="113" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 86.00pt;">
+		<td width="113" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_GEM_BusyHostTerminalMsgMB</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Host-initiated Multi-block Termi­nal 
+		 Message Trans­action Processing Flag </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the processing status of a 
+		 host-initi­ated multi-block termi­nal message transaction. </p>
+		<p class="FM_tablebody1c8pt">TRUE: Processing </p>
+		<p class="FM_tablebody1c8pt">FALSE: Not process­ing. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		<td rowspan="2" width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td rowspan="2" width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">R</p></td>
+		<td rowspan="2" width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td rowspan="2" width="45" class="hcp9"><p class="FM_tablebody1c8pt">Not 
+		 pub­lished.</p></td>
+	</tr>
+	<tr style="height: 52.00pt;">
+		<td width="113" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_GEM_HostTerminalMsgMB_TID</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Host-initiated Multi-block Termi­nal 
+		 Message Receiving Terminal Number </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the receiving terminal number 
+		 for a host-initiated multi-block terminal message. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BYTE</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp10">
+	<tr style="height: 20.00pt;" bgcolor="#B3B3B3">
+		<td width="661" bgcolor="#B3B3B3" class="hcp11"><p class="FM_CRHead3">Error Messages</p></td>
+	</tr>
+</table>
+
+<p class="FM_tabletitlec8pt">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th colspan="2" width="113" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th rowspan="2" width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th rowspan="2" width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th rowspan="2" width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th rowspan="2" width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th rowspan="2" width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th rowspan="2" width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th rowspan="2" width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th rowspan="2" width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="19" bgcolor="#B3B3B3" class="hcp6"><p class="FM_tabletitlec8pt">&#160;</p></th>
+		<th width="94" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(b)</p></th>
+		
+	</tr>
+	<tr style="height: 42.00pt;">
+		<td colspan="2" width="113" class="hcp7"><p class="FM_tablebody1c8pt">_GEM_S9Error</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">S9 Errors </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives SECS mes­sage alarm informa­tion 
+		 received from the host.</p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_sGEM_S9ER­ROR</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">&#160;</p></td>
+	</tr>
+	<tr style="height: 72.00pt;">
+		<td rowspan="5" width="19" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="94" class="hcp12"><p class="FM_tablebody1c8pt">S9F1</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Unrecognized Device ID Detec­tion 
+		 Count</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the number of times unrecognized 
+		 devices IDs were received from the host. When the upper limit 
+		 is reached, count­ing continues from 0. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">UINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		<td rowspan="5" width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td rowspan="5" width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">R</p></td>
+		<td rowspan="5" width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td rowspan="5" width="45" class="hcp9"><p class="FM_tablebody1c8pt">Pub­lished.</p></td>
+	</tr>
+	<tr style="height: 72.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">S9F3</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Unrecognized Stream Detection Count</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the number of times unrecognized 
+		 stream types were received from the host. When the upper limit 
+		 is reached, count­ing continues from 0. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">UINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		
+	</tr>
+	<tr style="height: 72.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">S9F5</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Unrecognized Function Detection 
+		 Count</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the number of times unrecognized 
+		 functions were received from the host. When the upper limit is 
+		 reached, count­ing continues from 0. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">UINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		
+	</tr>
+	<tr style="height: 72.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">S9F7</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Illegal Data Detec­tion Count</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the number of times illegal 
+		 data for­mats were received from the host. When the upper limit 
+		 is reached, counting continues from 0. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">UINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		
+	</tr>
+	<tr style="height: 72.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">S9F9</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Transaction Timer Timeout Detection 
+		 Count</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the number of times an expected 
+		 reply message was not received from the host. When the upper limit 
+		 is reached, count­ing continues from 0. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">UINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		
+	</tr>
+	<tr style="height: 82.00pt;">
+		<td rowspan="3" width="19" class="hcp8"><p 
+			 class="FM_tablebody1c9pt">&#160;</p></td>
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">S9F11</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Data Too Long Detection Count</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the number of times the equipment 
+		 received data from the host that was too large to process. When 
+		 the upper limit is reached, counting continues from 0.</p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">UINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		<td rowspan="3" width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td rowspan="3" width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">R</p></td>
+		<td rowspan="3" width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td rowspan="3" width="45" class="hcp9"><p class="FM_tablebody1c8pt">Pub­lished.</p></td>
+	</tr>
+	<tr style="height: 62.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">S9F13</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Conversation Time­out Detection 
+		 Count</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the number of times that data 
+		 was not received in time. When the upper limit is reached, counting 
+		 continues from 0.</p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">UINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		
+	</tr>
+	<tr style="height: 42.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">S9F13_MEXP</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Conversation Time­out Message</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Indicates the SECS message that 
+		 resulted in a conversation time­out.</p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">STRING[7]</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp10">
+	<tr style="height: 20.00pt;" bgcolor="#B3B3B3">
+		<td width="661" bgcolor="#B3B3B3" class="hcp11"><p class="FM_CRHead3"><a name="A221_Clock">Clock</a></p></td>
+	</tr>
+</table>
+
+<p class="FM_tabletitlec8pt">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="113" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 76.00pt;">
+		<td width="113" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_GEM_BusyEquip­ChangeTime</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Equipment-initiated Time Change 
+		 Request Transac­tion Processing Flag </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the processing status of an 
+		 equip­ment-initiated time change transaction. </p>
+		<p class="FM_tablebody1c8pt">TRUE: Processing </p>
+		<p class="FM_tablebody1c8pt">FALSE: Not process­ing. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">R</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">Not 
+		 pub­lished.</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th colspan="2" width="113" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th rowspan="2" width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th rowspan="2" width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th rowspan="2" width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th rowspan="2" width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th rowspan="2" width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th rowspan="2" width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th rowspan="2" width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th rowspan="2" width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="19" bgcolor="#B3B3B3" class="hcp6"><p class="FM_tabletitlec8pt">&#160;</p></th>
+		<th width="94" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(b)</p></th>
+		
+	</tr>
+	<tr style="height: 32.00pt;">
+		<td colspan="2" width="113" class="hcp7"><p class="FM_tablebody1c8pt">_GEM_EquipChangeTimeRslt</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Equipment-initiated Time Change 
+		 Results </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the results of an equipment-initiated 
+		 time change.</p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_sGEM_RSLT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">&#160;</p></td>
+	</tr>
+	<tr style="height: 24.00pt;">
+		<td rowspan="2" width="19" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="94" class="hcp12"><p class="FM_tablebody1c8pt">Rslt</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Result Flag</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE: Successful. </p>
+		<p class="FM_tablebody1c8pt">FALSE: Failed. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		<td rowspan="2" width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td rowspan="2" width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">R</p></td>
+		<td rowspan="2" width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td rowspan="2" width="45" class="hcp9"><p class="FM_tablebody1c8pt">Not 
+		 pub­lished.</p></td>
+	</tr>
+	<tr style="height: 110.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">RsltCode</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Result Code </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives a code that tells the result 
+		 of the time change. </p>
+		<p class="FM_tablebody1c8pt">16#0000: Successful </p>
+		<p class="FM_tablebody1c8pt">16#0100: Host cannot communicate </p>
+		<p class="FM_tablebody1c8pt">16#0200: Host com­munications error 
+		 </p>
+		<p class="FM_tablebody1c8pt">16#0300: TIME data error </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">WORD</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="113" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 46.00pt;">
+		<td width="113" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_GEM_TimeFormat</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Time Format </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the format of time data. </p>
+		<p class="FM_tablebody1c8pt">0: 12-byte format </p>
+		<p class="FM_tablebody1c8pt">Not 0: 16-byte format </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">USINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">R</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Retained.</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">Not 
+		 pub­lished.</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+<p class="FM_tablespec">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp10">
+	<tr style="height: 20.00pt;" bgcolor="#B3B3B3">
+		<td width="661" bgcolor="#B3B3B3" class="hcp11"><p class="FM_CRHead3">Spooling</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="113" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 80.00pt;">
+		<td width="113" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_GEM_SpoolingState</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Spooling State </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the spooling state. </p>
+		<p class="FM_tablebody1c8pt">0: FUNCTION OFF</p>
+		<p class="FM_tablebody1c8pt">1: SPOOL INACTIVE</p>
+		<p class="FM_tablebody1c8pt">2: SPOOL ACTIVE</p>
+		<p class="FM_tablebody1c8pt">3: SPOOL ACTIVE/<br>
+		SPOOL FULL</p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">USINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">0 to 3</p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">R</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">Pub­lished.</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th colspan="2" width="113" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th rowspan="2" width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th rowspan="2" width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th rowspan="2" width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th rowspan="2" width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th rowspan="2" width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th rowspan="2" width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th rowspan="2" width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th rowspan="2" width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="19" bgcolor="#B3B3B3" class="hcp6"><p class="FM_tabletitlec8pt">&#160;</p></th>
+		<th width="94" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(b)</p></th>
+		
+	</tr>
+	<tr style="height: 22.00pt;">
+		<td colspan="2" width="113" class="hcp7"><p class="FM_tablebody1c8pt">_GEM_SpoolParam</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Spool Parameters </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the parameters for spooling. 
+		 </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_sGEM_SPOOL_PARAM</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">&#160;</p></td>
+	</tr>
+	<tr style="height: 46.00pt;">
+		<td rowspan="3" width="19" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="94" class="hcp12"><p class="FM_tablebody1c8pt">EnableSpooling</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Spooling Enabled Flag </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Tells whether spool­ing is enabled. 
+		 </p>
+		<p class="FM_tablebody1c8pt">TRUE: Enabled. </p>
+		<p class="FM_tablebody1c8pt">FALSE: Disabled. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		<td rowspan="3" width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td rowspan="3" width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">R</p></td>
+		<td rowspan="3" width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Retained.</p></td>
+		<td rowspan="3" width="45" class="hcp9"><p class="FM_tablebody1c8pt">Pub­lished.</p></td>
+	</tr>
+	<tr style="height: 66.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">OverWriteSpool</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Overwrite Spool </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Tells whether the spool is overwritten 
+		 when it is full. </p>
+		<p class="FM_tablebody1c8pt">TRUE: Overwrite. </p>
+		<p class="FM_tablebody1c8pt">FALSE: Do not over­write. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		
+	</tr>
+	<tr style="height: 42.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">MaxSpoolTrans­mit</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Max Spool Transmit</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the maximum number of SECS 
+		 mes­sages that can be sent from the spool.</p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">UDINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">1 to 1000</p></td>
+		
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th colspan="2" width="113" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th rowspan="2" width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th rowspan="2" width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th rowspan="2" width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th rowspan="2" width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th rowspan="2" width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th rowspan="2" width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th rowspan="2" width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th rowspan="2" width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="19" bgcolor="#B3B3B3" class="hcp6"><p class="FM_tabletitlec8pt">&#160;</p></th>
+		<th width="94" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(b)</p></th>
+		
+	</tr>
+	<tr style="height: 22.00pt;">
+		<td colspan="2" width="113" class="hcp7"><p class="FM_tablebody1c8pt">_GEM_SpoolCondition</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Spool Information </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives information for managing the 
+		 spool. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_sGEM_SPOOL_CONDITION</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">&#160;</p></td>
+	</tr>
+	<tr style="height: 32.00pt;">
+		<td rowspan="4" width="19" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="94" class="hcp12"><p class="FM_tablebody1c8pt">SpoolCountAc­tual</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Spool Count Actual</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the number of SECS messages 
+		 stored on the spool.</p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">UINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">0 to 1000</p></td>
+		<td rowspan="4" width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td rowspan="4" width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">R</p></td>
+		<td rowspan="4" width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td rowspan="4" width="45" class="hcp9"><p class="FM_tablebody1c8pt">Pub­lished.</p></td>
+	</tr>
+	<tr style="height: 42.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">SpoolCountTotal</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Spool Count Total</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the total number of SECS messages 
+		 that were stored on the spool.</p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">UDINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		
+	</tr>
+	<tr style="height: 32.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">SpoolFullTime</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Spool Full Time </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the date and time at which 
+		 the spool was last full. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">DATE_AND_­TIME</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		
+	</tr>
+	<tr style="height: 32.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">SpoolStartTime</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Spool Start Time </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the date and time that the 
+		 spool was last started. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">DATE_AND_­TIME</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp10">
+	<tr style="height: 20.00pt;" bgcolor="#B3B3B3">
+		<td width="661" bgcolor="#B3B3B3" class="hcp11"><p class="FM_CRHead3"><a name="A222_User-defined_Messages">User-defined 
+		 Messages</a></p></td>
+	</tr>
+</table>
+
+<p class="FM_tabletitlec8pt">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="113" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 76.00pt;">
+		<td width="113" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_GEM_BusyHostUserMsg</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Host-initiated User-defined Mes­sage 
+		 Transaction Processing Flag </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the processing status of a 
+		 host-initi­ated user-defined message transaction. </p>
+		<p class="FM_tablebody1c8pt">TRUE: Processing </p>
+		<p class="FM_tablebody1c8pt">FALSE: Not process­ing. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		<td rowspan="2" width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td rowspan="2" width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">R</p></td>
+		<td rowspan="2" width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td rowspan="2" width="45" class="hcp9"><p class="FM_tablebody1c8pt">Not 
+		 pub­lished.</p></td>
+	</tr>
+	<tr style="height: 42.00pt;">
+		<td width="113" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_GEM_HostUserMsgNo</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Host-initiated User-defined Mes­sage 
+		 Number </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the number of the received 
+		 host-initi­ated user-defined message. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">UINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="113" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 86.00pt;">
+		<td width="113" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_GEM_BusyEqui­pUserMsg</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Equipment-initiated User-defined 
+		 Mes­sage Transaction Processing Flag </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the processing status of an 
+		 equip­ment-initiated user-defined mes­sage transaction. </p>
+		<p class="FM_tablebody1c8pt">TRUE: Processing </p>
+		<p class="FM_tablebody1c8pt">FALSE: Not process­ing. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">R</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">Not 
+		 pub­lished.</p></td>
+	</tr>
+	<tr style="height: 52.00pt;">
+		<td width="113" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_GEM_EquipUserMsgNo</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Equipment-initiated User-defined 
+		 Mes­sage Number </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the number of a received equip­ment-initiated 
+		 user-defined mes­sage. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">UINT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">R</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">Not 
+		 pub­lished.</p></td>
+	</tr>
+</table>
+
+<p class="FM_tablespec">&#160;</p>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp2">
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th colspan="2" width="113" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec8pt">(a)</p></th>
+		<th rowspan="2" width="106" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(c)</p></th>
+		<th rowspan="2" width="117" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(d)</p></th>
+		<th rowspan="2" width="91" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(e)</p></th>
+		<th rowspan="2" width="68" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(f)</p></th>
+		<th rowspan="2" width="26" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(g)</p></th>
+		<th rowspan="2" width="34" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(h)</p></th>
+		<th rowspan="2" width="60" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(i)</p></th>
+		<th rowspan="2" width="45" bgcolor="#B3B3B3" class="hcp5"><p class="FM_tabletitlec8pt">(j)</p></th>
+	</tr>
+	<tr style="height: 12.00pt;" bgcolor="#B3B3B3">
+		<th width="19" bgcolor="#B3B3B3" class="hcp6"><p class="FM_tabletitlec8pt">&#160;</p></th>
+		<th width="94" bgcolor="#B3B3B3" class="hcp4"><p class="FM_tabletitlec8pt">(b)</p></th>
+		
+	</tr>
+	<tr style="height: 42.00pt;">
+		<td colspan="2" width="113" class="hcp7"><p class="FM_tablebody1c8pt">_GEM_EquipUserMsgRslt</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Equipment-initiated User-defined 
+		 Mes­sage Results </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives the results of an equipment-initiated 
+		 user-defined mes­sage.</p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">_sGEM_RSLT</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="45" class="hcp9"><p class="FM_tablebody1c8pt">&#160;</p></td>
+	</tr>
+	<tr style="height: 24.00pt;">
+		<td rowspan="2" width="19" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">&#160;</p></td>
+		<td width="94" class="hcp12"><p class="FM_tablebody1c8pt">Rslt</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Result Flag</p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE: Successful. </p>
+		<p class="FM_tablebody1c8pt">FALSE: Failed. </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">BOOL</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">TRUE or FALSE</p></td>
+		<td rowspan="2" width="26" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">G</p></td>
+		<td rowspan="2" width="34" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">R</p></td>
+		<td rowspan="2" width="60" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Not retained.</p></td>
+		<td rowspan="2" width="45" class="hcp9"><p class="FM_tablebody1c8pt">Not 
+		 pub­lished.</p></td>
+	</tr>
+	<tr style="height: 140.00pt;">
+		<td width="94" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">RsltCode</p></td>
+		<td width="106" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Result Code </p></td>
+		<td width="117" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Gives a code that tells the result 
+		 of the user-defined mes­sage. </p>
+		<p class="FM_tablebody1c8pt">16#0000: Successful </p>
+		<p class="FM_tablebody1c8pt">16#0100: Host cannot communicate </p>
+		<p class="FM_tablebody1c8pt">16#0200: Secondary message was not 
+		 received (T3 timeout) </p>
+		<p class="FM_tablebody1c8pt">16#0300: Secondary message data struc­ture 
+		 error </p></td>
+		<td width="91" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">WORD</p></td>
+		<td width="68" class="hcp8"><p 
+			 class="FM_tablebody1c8pt">Depends on data type. </p></td>
+		
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+</body>
+</html>

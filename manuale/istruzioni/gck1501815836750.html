@@ -1,0 +1,954 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>Lock and Unlock</title>
+</head>
+<body class="gck1501815836750"><div class="layer02" id="gck1501815836750">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Lock and Unlock</h1>
+ 
+<div class="body conbody">
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="gck1501815836750__table_N10012_N1000F_N10002" class="table no-line" border="0">
+                
+                
+                
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;">Lock</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;">:</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;">Starts an exclusive lock between tasks. Execution of any other task with a lock region with the same lock number is disabled.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;">Unlock</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;">:</td>
+
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;">Stops an exclusive lock between tasks.</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="gck1501815836750__table_N10059_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:13%" />
+<col style="width:14%" />
+<col style="width:6%" />
+<col style="width:35%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d301472e73">Instruction</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d301472e76">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d301472e79">
+<p class="p" id="gck1501815836750__ID0EHCGK">FB/</p>
+
+<p class="p">FUN</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d301472e88">Graphic expression</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d301472e91">ST expression</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row" style="vertical-align:middle;">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d301472e73 "><span class="indexterm">Lock (Lock Tasks)</span>Lock</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d301472e76 "><span class="indexterm">Lock Tasks</span>Lock Tasks</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d301472e79 ">FUN</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d301472e88 ">
+<br /><img class="image" id="gck1501815836750__image_3A98FF9E6342475CAD96708F45A3D6A4" src="ybr1501815835382.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d301472e91 ">Lock(Index);</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:middle;">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d301472e73 "><span class="indexterm">Unlock (Unlock Tasks)</span>Unlock</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d301472e76 "><span class="indexterm">Unlock Tasks</span>Unlock Tasks</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d301472e79 ">FUN</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d301472e88 ">
+<br /><img class="image" id="gck1501815836750__image_58FF4D1EA5AC40AA89334C7B649F96A5" src="lcj1501815836055.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d301472e91 ">Unlock(Index);</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="lqw1501817632051">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Variables</h1>
+ 
+<div class="body conbody">
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="lqw1501817632051__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:20%" />
+<col style="width:9%" />
+<col style="width:20%" />
+<col style="width:14%" />
+<col style="width:14%" />
+<col style="width:8%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d618781e38">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d618781e40">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d618781e43">I/O</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d618781e46">Description</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d618781e49">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d618781e53">Unit</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d618781e56">Default</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d618781e38 ">Index</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d618781e40 ">Lock number</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d618781e43 ">Input</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d618781e46 ">Lock number</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d618781e49 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d618781e53 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d618781e56 ">0</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d618781e38 ">Out</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d618781e40 ">Return value</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d618781e43 ">Output</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d618781e46 ">Always TRUE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d618781e49 ">TRUE only</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d618781e53 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d618781e56 ">---</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="lqw1501817632051__table_N100BC_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:5%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:top;" id="d618781e169">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d618781e171">Boolean</th>
+
+<th class="entry cellrowborder" colspan="4" style="text-align:center;vertical-align:top;" id="d618781e174">Bit strings</th>
+
+<th class="entry cellrowborder" colspan="8" style="text-align:center;vertical-align:top;" id="d618781e177">Integers</th>
+
+<th class="entry cellrowborder" colspan="2" style="text-align:center;vertical-align:top;" id="d618781e180">Real numbers</th>
+
+<th class="entry cellrowborder" colspan="5" style="text-align:center;vertical-align:top;" id="d618781e184">Times, durations, dates, and text strings</th>
+
+</tr>
+
+<tr class="row">
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d618781e190">BOOL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d618781e193">BYTE</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d618781e196">WORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d618781e199">DWORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d618781e202">LWORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d618781e206">USINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d618781e209">UINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d618781e212">UDINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d618781e215">ULINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d618781e218">SINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d618781e221">INT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d618781e225">DINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d618781e228">LINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d618781e231">REAL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d618781e234">LREAL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d618781e237">TIME</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d618781e240">DATE</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d618781e244">TOD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d618781e247">DT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d618781e250">STRING</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d618781e169 d618781e190 ">Index</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d618781e171 d618781e193 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d618781e174 d618781e196 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d618781e174 d618781e199 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d618781e174 d618781e202 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d618781e174 d618781e206 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d618781e177 d618781e209 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d618781e177 d618781e212 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d618781e177 d618781e215 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d618781e177 d618781e218 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d618781e177 d618781e221 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d618781e177 d618781e225 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d618781e177 d618781e228 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d618781e177 d618781e231 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d618781e180 d618781e234 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d618781e180 d618781e237 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d618781e184 d618781e240 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d618781e184 d618781e244 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d618781e184 d618781e247 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d618781e184 d618781e250 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d618781e184 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d618781e169 d618781e190 ">Out</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d618781e171 d618781e193 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d618781e174 d618781e196 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d618781e174 d618781e199 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d618781e174 d618781e202 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d618781e174 d618781e206 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d618781e177 d618781e209 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d618781e177 d618781e212 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d618781e177 d618781e215 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d618781e177 d618781e218 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d618781e177 d618781e221 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d618781e177 d618781e225 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d618781e177 d618781e228 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d618781e177 d618781e231 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d618781e180 d618781e234 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d618781e180 d618781e237 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d618781e184 d618781e240 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d618781e184 d618781e244 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d618781e184 d618781e247 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d618781e184 d618781e250 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d618781e184 ">&#160;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="otj1501817633261">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function</h1>
+ 
+<div class="body conbody">
+<p class="p" id="otj1501817633261__ID0EZLHK">The Lock and Unlock instructions create lock regions. If a lock region in one task is being executed, the lock regions with the same lock number in other tasks are not executed.</p>
+
+<p class="p" id="otj1501817633261__ID0E3LHK">Specify the lock number with <span class="ph phtype_variable"><span class="termtype">Index</span></span>.</p>
+
+<p class="p linespace_7pt" id="otj1501817633261__ID0EJMHK">The following figure shows a programming example.</p>
+
+<p class="p" id="otj1501817633261__ID0EQMHK">Task T1 and task T2 each have a lock region with <span class="ph phtype_variable"><span class="termtype">Index</span></span> set to 1. If the Lock instruction in T2 is executed first, the lock region in T1 is not executed until the Unlock instruction is executed in T2.</p>
+
+<br /><img class="image" id="otj1501817633261__image_AA947A7B01D14A158CCC974F870D300B" src="sms1501817632286.gif" /><br />
+<p class="p linespace_7pt" id="otj1501817633261__ID0EENHK">Lock regions with different values for <span class="ph phtype_variable"><span class="termtype">Index</span></span> do not affect each other.</p>
+
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="qir1501817633494">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Additional Information</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="qir1501817633494__li_N10015_N10012_N1000F_N10002">
+<p class="p">The Lock and Unlock instructions are used when the same data is read or written from more than one task.</p>
+
+<p class="p">They are used to prevent other tasks from reading or writing the data while a certain task is reading or writing the data.</p>
+
+</li>
+
+<li class="li" id="qir1501817633494__li_N10022_N10012_N1000F_N10002">As long as the <span class="ph phtype_variable"><span class="termtype">Index</span></span> values are different, more than one pair of Lock and Unlock instructions can be placed in the same POU. The instruction pairs can also be nested.</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="evv1501817634888">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Precautions for Correct Use</h1>
+ 
+<div class="body conbody">
+<ul class="ul" id="evv1501817634888__ul_A1D9B1F3527A47E99A852476679C1109">
+<li class="li" id="evv1501817634888__li_56484B4D3DC7495A891019B9BC8EAE9A">Do not make lock regions any longer than necessary. If the lock region is too long, the task execution period may be exceeded.</li>
+ 
+<li class="li" id="evv1501817634888__li_8C97E229A8E74F659F452896B656C653">Always use the Lock and Unlock instructions together as a set in the same section of the same POU.</li>
+ 
+<li class="li" id="evv1501817634888__li_04004EA7AA6549599DC0AADE2085F384">You can set a maximum of 16,777,215 lock regions at the same time.</li>
+ 
+<li class="li" id="evv1501817634888__li_5675046063594E91ADFDCA53A060D8B7">If Lock instructions are used in more than one task, a deadlock may occur if they are positioned poorly. A Task Execution Timeout Error will occur if there is a deadlock and a total stop is performed. The following shows an example where an deadlock occurs.</li>
+ 
+</ul>
+ 
+<br /><img class="image" id="evv1501817634888__image_0E8646CDA773468E82F3B020EA8AD144" src="dlj1501817633728.gif" /><br />
+<p class="p linespace_7pt"></p>
+ 
+<ul class="ul" id="evv1501817634888__ul_2394645162A84FD3BCB2386EC8975BCA">
+<li class="li" id="evv1501817634888__li_4D851918EACE45EE8270BDC0DEEFD968">An error will occur in the following case. The value of <span class="ph phtype_variable"><span class="termtype">Out</span></span> will not change.<ol class="ol liststyle_alphabet1" id="evv1501817634888__ul_C55EB7DEDCAD40D4A9FBA42D27D05B8F">
+<li class="li" id="evv1501817634888__li_4BB922182F7F43A68CCCD3C67E78688F">An attempt is made to set up more than 16,777,215 lock regions at the same time.</li>
+
+</ol>
+</li>
+ 
+</ul>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="jyp1501817635994">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Sample Programming</h1>
+
+<div class="body conbody">
+<p class="p" id="jyp1501817635994__ID0ETUHK">Here, program P1 in task T1 and program P2 in task T2 both access the same global variable <span class="ph phtype_variable"><span class="termtype">GTable1</span></span>.</p>
+
+<p class="p" id="jyp1501817635994__ID0EWUHK">When the value of write request <span class="ph phtype_variable"><span class="termtype">WriteReq</span></span> changes to TRUE, P1 writes one record to record array GTable1.Record[] and increments GTable1.Index.</p>
+
+<p class="p" id="jyp1501817635994__ID0E4UHK">When read request <span class="ph phtype_variable"><span class="termtype">ReadReq</span></span> changes to TRUE, P2 decrements GTable1.Index and reads one record from GTable1.Record[].</p>
+
+<p class="p" id="jyp1501817635994__ID0EEVHK">The Lock instruction is used so that reading and writing do not occur at the same time.</p>
+
+<br /><img class="image" id="jyp1501817635994__image_7D208DF8A2F449F7874D2077F2DA435E" src="kaf1501817635121.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="lyg1501817636248">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Definition of Global Variable GTable</h1>
+<div class="body conbody"></div>
+<div class="related-links"></div></div><div class="layer05" id="pco1501817636477">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Data type</h1>
+<div class="body conbody">
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="pco1501817636477__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all"><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d750418e22">Variable</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d750418e24">Data type</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d750418e26">Comment</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d750418e22 ">USERTABLE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d750418e24 ">STRUCT</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d750418e26 ">Record storage structure</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d750418e22 ">Index</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d750418e24 ">INT</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d750418e26 ">Index</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d750418e22 ">Record</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d750418e24 ">ARRAY[0..99] OF LREAL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d750418e26 ">Record array</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="related-links"></div></div><div class="layer05" id="kfc1501817636708">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Global Variables</h1>
+<div class="body conbody">
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="kfc1501817636708__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all"><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d543659e23">Variable</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d543659e25">Data type</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d543659e27">Initial value</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d543659e29">Comment</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d543659e23 ">GTable1</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d543659e25 ">USERTABLE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d543659e27 ">(Index:=0,Record:=[100(0.0)])</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d543659e29 ">Record storage structure</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="related-links"></div></div><div class="layer04" id="xfq1501817636946">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Program P1</h1>
+<div class="body conbody"></div>
+<div class="related-links"></div></div><div class="layer05" id="rbw1501817638275">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">LD</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="rbw1501817638275__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d844634e37">Internal Variables</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d844634e40">Variable</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d844634e43">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d844634e46">Initial value</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d844634e49">Comment</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d844634e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d844634e40 ">WriteReq</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d844634e43 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d844634e46 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d844634e49 ">Write request</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d844634e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d844634e40 ">InDat</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d844634e43 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d844634e46 ">0.0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d844634e49 ">Write data</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="rbw1501817638275__table_N10097_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d844634e109">External Variables</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d844634e112">Variable</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d844634e115">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d844634e118">Comment</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d844634e109 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d844634e112 ">GTable1</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d844634e115 ">USERTABLE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d844634e118 ">Record storage structure</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<br /><img class="image" id="rbw1501817638275__image_506240534B0D407EBAB4919DEC37C324" src="cwj1501817637188.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="zwa1501817638513">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">ST</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="zwa1501817638513__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d1249396e37">Internal Variables</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d1249396e40">Variable</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d1249396e43">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d1249396e46">Initial value</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d1249396e49">Comment</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1249396e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d1249396e40 ">WriteReq</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d1249396e43 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d1249396e46 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d1249396e49 ">Write request</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d1249396e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d1249396e40 ">InDat</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d1249396e43 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d1249396e46 ">0.0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d1249396e49 ">Write data</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="zwa1501817638513__table_N10097_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d1249396e109">External Variables</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d1249396e112">Variable</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d1249396e115">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d1249396e118">Comment</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d1249396e109 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d1249396e112 ">GTable1</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d1249396e115 ">USERTABLE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d1249396e118 ">Record storage structure</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt"></p>
+
+<pre class="pre codeblock">
+// Detect write request.       
+IF (WriteReq=TRUE) THEN
+     
+    // Execute Lock instruction.
+    Lock(USINT#1);
+     
+    IF (INT#100&gt;GTable1.Index) THEN
+        GTable1.Record[GTable1.Index]:=InDat;
+        GTable1.Index                :=GTable1.Index+INT#1;
+    END_IF;
+     
+    // Execute Unlock instruction.
+    Unlock(USINT#1);
+    WriteReq:=FALSE;
+     
+END_IF;</pre>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="yvb1501817638768">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Program P2</h1>
+<div class="body conbody"></div>
+<div class="related-links"></div></div><div class="layer05" id="fer1501817640276">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">LD</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="fer1501817640276__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d246207e37">Internal Variables</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d246207e40">Variable</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d246207e43">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d246207e46">Initial value</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d246207e49">Comment</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d246207e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d246207e40 ">ReadReq</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d246207e43 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d246207e46 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d246207e49 ">Read request</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d246207e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d246207e40 ">OutDat</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d246207e43 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d246207e46 ">0.0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d246207e49 ">Read data</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="fer1501817640276__table_N10097_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d246207e109">External Variables</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d246207e112">Variable</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d246207e115">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d246207e118">Comment</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d246207e109 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d246207e112 ">GTable1</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d246207e115 ">USERTABLE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d246207e118 ">Record storage structure</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<br /><img class="image" id="fer1501817640276__image_0F04AF8F173B425997E3E8BF7977854E" src="nfx1501817638999.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="xyb1501817640530">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">ST</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="xyb1501817640530__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d1145098e37">Internal Variables</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d1145098e40">Variable</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d1145098e43">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d1145098e46">Initial value</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d1145098e49">Comment</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1145098e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d1145098e40 ">ReadReq</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d1145098e43 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d1145098e46 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d1145098e49 ">Read request</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d1145098e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d1145098e40 ">OutDat</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d1145098e43 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d1145098e46 ">0.0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d1145098e49 ">Read data</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="xyb1501817640530__table_N10097_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d1145098e109">External Variables</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d1145098e112">Variable</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d1145098e115">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d1145098e118">Comment</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d1145098e109 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d1145098e112 ">GTable1</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d1145098e115 ">USERTABLE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d1145098e118 ">Record storage structure</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt"></p>
+
+<pre class="pre codeblock">
+// Detect read request.
+IF (ReadReq=TRUE) THEN
+     
+    // Execute Lock instruction.
+    Lock(USINT#1);
+     
+    IF (GTable1.Index&gt;INT#0) THEN
+        GTable1.Index:=GTable1.Index-INT#1;
+        OutDat       :=GTable1.Record[GTable1.Index];
+    END_IF;
+     
+    // Execute Unlock instruction.
+    Unlock(USINT#1);
+    ReadReq:=FALSE;
+     
+END_IF;</pre>
+
+</div>
+
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

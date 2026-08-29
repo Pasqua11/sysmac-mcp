@@ -1,0 +1,84 @@
+
+@mcp.tool()
+def sysmac_vars_crea(variabili: str, tabella: str = "globali",
+                     tabella_vuota: bool = False,
+                     riga_x: int = 290, riga_y: int = 232) -> str:
+    """Crea VARIABILI in blocco incollandole nella tabella gia' aperta in
+    Sysmac (una sola Ctrl+V per centinaia di righe).
+
+    tabella:
+      "globali" -> Variabili globali        (8 colonne TSV)
+      "interne" -> Variabili interne del POU (7 colonne, qui vanno le istanze
+                   di FB: TON, CTU, blocchi funzione: NON sono ammesse fra le
+                   globali)
+      "esterne" -> Variabili esterne del POU (solo il NOME: il tipo lo eredita
+                   dalla globale). SERVE una riga esterna per OGNI variabile
+                   globale usata dal programma, altrimenti la compilazione da'
+                   "Per utilizzare una variabile globale e' necessario
+                   registrare una variabile esterna corrispondente".
+
+    variabili: una per riga, "NOME TIPO" / "NOME:TIPO" / "NOME<TAB>TIPO".
+    Per la tabella "esterne" basta il nome.
+    tabella_vuota=True se la tabella non ha ancora righe: la prima variabile
+    viene digitata (l'incolla su tabella vuota non funziona), le altre incollate.
+
+    Formati verificati sperimentalmente il 27/08/2026 su Sysmac Studio 1.66.
+    """
+    tab = (tabella or "globali").strip().lower()
+    if tab not in ("globali", "interne", "esterne"):
+        return "tabella deve essere 'globali', 'interne' o 'esterne'"
+
+    righe = []
+    for r in (variabili or "").splitlines():
+        r = r.strip()
+        if not r:
+            continue
+        if "\t" in r:
+            p = r.split("\t")
+        elif ":" in r and " " not in r.split(":")[0]:
+            p = r.split(":", 1)
+        else:
+            p = r.split(None, 1)
+        nome = p[0].strip()
+        tipo = p[1].strip() if len(p) > 1 else ""
+        com = p[2].strip() if len(p) > 2 else ""
+        if tab != "esterne" and not tipo:
+            return "riga senza tipo: %r (atteso NOME TIPO)" % r
+        righe.append((nome, tipo, com))
+    if not righe:
+        return "nessuna variabile indicata"
+
+    def tsv(v):
+        if tab == "globali":     # Nome Tipo Iniziale AT Ritentivo Costante Pubbl. Commento
+            return "\t".join([v[0], v[1], "", "", "False", "False",
+                               "Non pubblicare", v[2]])
+        if tab == "interne":     # Nome Tipo Iniziale AT Ritentivo Costante Commento
+            return "\t".join([v[0], v[1], "", "", "False", "False", v[2]])
+        return "\t".join([v[0], "False", v[2]])        # esterne: Nome Costante Commento
+
+    _focus_sysmac()
+    inizio = 0
+    if tabella_vuota:
+        n, t, _c = righe[0]
+        _click(riga_x + 210, riga_y, double=True)
+        time.sleep(0.35)
+        _send_keys(n + ("{TAB}" + t if tab != "esterne" else "") + "{ENTER}")
+        time.sleep(0.6)
+        _click(riga_x + 1000, riga_y + 60)      # esce dalla cella e conferma
+        time.sleep(0.4)
+        inizio = 1
+        if len(righe) == 1:
+            return "creata 1 variabile (%s): %s" % (tab, n)
+
+    testo = "\r\n".join(tsv(v) for v in righe[inizio:]) + "\r\n"
+    _ps("Set-Clipboard -Value " + _ps_quote(testo), sta=True)
+    _focus_sysmac()
+    _click(riga_x, riga_y)            # seleziona la riga (colonna maniglia)
+    time.sleep(0.3)
+    _send_keys("^v")
+    time.sleep(1.0)
+    return ("tabella '%s': incollate %d variabili%s. Verificare con "
+            "sysmac_compile_text, poi sysmac_save."
+            % (tab, len(righe) - inizio,
+               " (+1 digitata)" if inizio else ""))
+

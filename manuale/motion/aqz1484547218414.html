@@ -1,0 +1,503 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>Treatment of REAL and LREAL Data</title>
+</head>
+<body class="aqz1484547218414"><div class="layer02" id="aqz1484547218414">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Treatment of REAL and LREAL Data</h1>
+
+<div class="body conbody">
+<p class="p" id="aqz1484547218414__ID0EXQAI">REAL and LREAL are floating-point decimal data types.</p>
+
+<p class="p" id="aqz1484547218414__ID0E5QAI">This section describes how they are expressed and processed.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="vfh1484547218633">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">REAL and LREAL Data Sizes</h1>
+<div class="body conbody">
+<p class="p" id="vfh1484547218633__ID0EASAI">The data sizes of REAL data and LREAL data are different.</p>
+
+<p class="p" id="vfh1484547218633__ID0EDSAI">REAL data has 32 bits and LREAL data has 64 bits.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="roi1484547220583">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Floating-point Decimal Data Format</h1>
+
+<div class="body taskbody">
+<div class="section context" id="roi1484547220583__context_kny_lkw_bx">
+<p class="p" id="roi1484547220583__ID0EFTAI">A real number in floating-point decimal format is expressed using a sign, exponent, and mantissa.</p>
+
+<p class="p" id="roi1484547220583__ID0EITAI">When a real number is substituted in the following formulas, the value corresponding to <span class="ph phtype_quote"><span class="termtype">"s"</span></span> becomes the sign, <span class="ph phtype_quote"><span class="termtype">"e"</span></span> the exponent, and <span class="ph phtype_quote"><span class="termtype">"f"</span></span> the mantissa.</p>
+
+<ul class="ul" id="roi1484547220583__ul_DDDAC9E9993342C8A656D1DDE60F71FB">
+<li class="li" id="roi1484547220583__li_B2DBF3FE28BB4D9BBD263669728A1046">
+<p class="p" id="roi1484547220583__ID0EHUAI">REAL Data</p>
+
+<p class="p" id="roi1484547220583__ID0ERUAI">Number = (-1)<sup class="ph sup">s</sup>2<sup class="ph sup">e-127</sup>(1 + f &#215; 2<sup class="ph sup">-23</sup>)</p>
+
+</li>
+
+</ul>
+
+<p class="p linespace_7pt"></p>
+
+<ul class="ul" id="roi1484547220583__ul_sp3_3zr_jx">
+<li class="li" id="roi1484547220583__li_FDB1F84DD5374E7A9EA38CAFF16FDBA3">
+<p class="p" id="roi1484547220583__ID0EPVAI">LREAL Data</p>
+
+<p class="p" id="roi1484547220583__ID0EZVAI">Number = (-1)<sup class="ph sup">s</sup>2<sup class="ph sup">e-1023</sup>(1 + f &#215; 2<sup class="ph sup">-52</sup>)</p>
+
+</li>
+
+</ul>
+
+<p class="p linespace_7pt" id="roi1484547220583__ID0ELWAI">The floating-point data format conforms to the IEEE754 standards. The following formats are used.</p>
+
+<br /><img class="image linespace_7pt" id="roi1484547220583__image_BF6B753A09554883933E91476BD8466F" src="spt1484547218820.gif" /><br />
+<p class="p linespace_7pt fontsize_12pt"><strong class="ph b">Example: Expressing -86.625 as REAL Data</strong></p>
+
+</div>
+
+<ol class="ol steps" id="roi1484547220583__steps_f1v_nkw_bx"><li class="li step stepexpand" id="roi1484547220583__step_N10089_N10085_N1000E_N10001">
+<span alt="test" class="ph cmd">Setting the Sign</span>
+<div class="itemgroup stepresult">The number is negative, so s = 1.</div>
+</li>
+<li class="li step stepexpand" id="roi1484547220583__step_N10099_N10085_N1000E_N10001">
+<span alt="test" class="ph cmd">Binary Expression</span>
+<div class="itemgroup stepresult">The number 86.625 is 1010110.101 as a binary number.</div>
+</li>
+<li class="li step stepexpand" id="roi1484547220583__step_N100A9_N10085_N1000E_N10001">
+<span alt="test" class="ph cmd">Normalized Binary Expression</span>
+<div class="itemgroup stepresult">When the above number is normalized, it becomes 1.010110101&#215;2<sup class="ph sup">6</sup>.</div>
+</li>
+<li class="li step stepexpand" id="roi1484547220583__step_N100BE_N10085_N1000E_N10001">
+<span alt="test" class="ph cmd">Exponent Expression</span>
+<div class="itemgroup stepresult">
+<p class="p">From the previous equation, e-127 = 6. Therefore e = 133.</p>
+
+<p class="p">The number 133 is 10000101 as a binary number. This expresses the exponent.</p>
+
+</div>
+</li>
+<li class="li step stepexpand" id="roi1484547220583__step_N100D8_N10085_N1000E_N10001">
+<span alt="test" class="ph cmd">Mantissa Expression</span>
+<div class="itemgroup stepresult">
+<p class="p">Numbers following the decimal point in 1.010110101 are 010110101.</p>
+
+<p class="p">This number is expressed using 23 bits, but here there are insufficient digits. Therefore zeros are added. The 23-bit figure becomes f.</p>
+
+<p class="p">Therefore f = 01011010100000000000000.</p>
+
+<p class="p" id="roi1484547220583__ID0EY2AI">Therefore, -86.625 is expressed as shown in the following figure.</p>
+
+<br /><img class="image linespace_7pt" id="roi1484547220583__image_1D840499A7FC43DCAEC460C453162C65" src="mqk1484547219553.gif" /><br />
+</div>
+</li>
+</ol>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="gaq1484547221644">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Valid Ranges</h1>
+
+<div class="body conbody">
+<p class="p" id="gaq1484547221644__ID0EP4AI">The valid ranges of REAL and LREAL are shown in the following table.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="gaq1484547221644__ID0E44AI" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:7%" />
+<col style="width:34%" />
+<col style="width:4%" />
+<col style="width:32%" />
+<col style="width:8%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d47172e38">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d47172e41">-&#8734;</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d47172e44">Negative numbers</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d47172e47">0</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d47172e50">Positive number</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d47172e54">+&#8734;</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row" style="vertical-align:middle;">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d47172e38 ">REAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d47172e41 ">-&#8734;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d47172e44 ">-3.402823e+38 to -1.175495e-38</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d47172e47 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d47172e50 ">+1.175495e-38 to +3.402823e+38</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d47172e54 ">+&#8734;</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:middle;">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d47172e38 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d47172e41 ">-&#8734;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d47172e44 ">-1.79769313486231e+308 to -2.22507385850721e-308</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d47172e47 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d47172e50 ">+2.22507385850721e-308 to +1.79769313486231e+308</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d47172e54 ">+&#8734;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<br /><img class="image linespace_7pt" id="gaq1484547221644__image_CD0A29E5596347459D4A3EEB92EB349D" src="oqd1484547220817.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="flf1484547222065">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Special Numbers</h1>
+
+<div class="body conbody">
+<p class="p" id="flf1484547222065__ID0ETGBI">Positive infinity, negative infinity, +0, -0, and nonnumeric data are called special numbers.</p>
+
+<p class="p" id="flf1484547222065__ID0EWGBI">Nonnumeric data is data that cannot be expressed in floating-point decimal format. They are not treated as numbers.</p>
+
+<p class="p" id="flf1484547222065__ID0E4GBI">Mathematically, +0 and -0 both mean the same as 0, but in data processing it is treated differently.</p>
+
+<p class="p" id="flf1484547222065__ID0EEHBI">A detailed explanation is given later.</p>
+
+<p class="p" id="flf1484547222065__ID0ELHBI">The sign <span class="ph phtype_quote"><span class="termtype">"s"</span></span>, exponent <span class="ph phtype_quote"><span class="termtype">"e"</span></span>, and mantissa <span class="ph phtype_quote"><span class="termtype">"f"</span></span> for special numbers take on the following values.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="flf1484547222065__ID0E4HBI" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d39724e58">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d39724e61">Special number</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d39724e64">Sign s</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d39724e67">Exponent e</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d39724e70">Mantissa f</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" rowspan="5" style="text-align:left;vertical-align:middle;" headers="d39724e58 ">REAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39724e61 ">+&#8734;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39724e64 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39724e67 ">255</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39724e70 ">0</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39724e61 ">-&#8734;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39724e64 ">1</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39724e67 ">255</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39724e70 ">0</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39724e61 ">+0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39724e64 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39724e67 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39724e70 ">0</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39724e61 ">-0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39724e64 ">1</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39724e67 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39724e70 ">0</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39724e61 ">Nonnumeric data</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39724e64 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39724e67 ">255</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39724e70 ">Not 0</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" rowspan="5" style="text-align:left;vertical-align:middle;" headers="d39724e58 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39724e61 ">+&#8734;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39724e64 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39724e67 ">2047</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39724e70 ">0</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39724e61 ">-&#8734;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39724e64 ">1</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39724e67 ">2047</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39724e70 ">0</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39724e61 ">+0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39724e64 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39724e67 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39724e70 ">0</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39724e61 ">-0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39724e64 ">1</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39724e67 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39724e70 ">0</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39724e61 ">Nonnumeric data</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39724e64 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39724e67 ">2047</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d39724e70 ">Not 0</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="shd1484547222970">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Subnormal Numbers</h1>
+<div class="body taskbody">
+<div class="section context" id="shd1484547222970__context_vsw_3nw_bx">
+<p class="p" id="shd1484547222970__ID0EM2BI">Numbers that are very close to 0 (with very small absolute values) cannot be expressed using the floating-point decimal format.</p>
+
+<p class="p" id="shd1484547222970__ID0EP2BI">Subnormal numbers were introduced to expand the validity of numbers near 0.</p>
+
+<p class="p" id="shd1484547222970__ID0EW2BI">Subnormal numbers can be used to express numbers whose absolute values are smaller than numbers expressed in the normal data format.</p>
+
+<div class="note" id="shd1484547222970__note_N10028_N10011_N1000E_N10001"><div class="memo"><span class="notetitle memo">memo:</span> <p class="p" id="shd1484547222970__ID0E23BI">Values expressed in the normal data format are called normalized numbers or normal numbers.</p>
+
+</div></div>
+
+<p class="p" id="shd1484547222970__ID0E14BI">Numbers with exponent e = 0 and mantissa f &#8800; 0 are considered subnormal numbers and their values are expressed in the following manner.</p>
+
+<ul class="ul" id="shd1484547222970__ul_18AD0B318DDA4FC996F06E71722D6A4A">
+<li class="li" id="shd1484547222970__li_B2DF6A03A7254602A5B774A331E9692A">
+<p class="p">REAL Data</p>
+
+<p class="p" id="shd1484547222970__ID0ED6BI">Number = (-1)<sup class="ph sup">s</sup>2<sup class="ph sup">-126</sup>(f &#215; 2<sup class="ph sup">-23</sup>)</p>
+
+</li>
+
+</ul>
+
+<p class="p linespace_7pt"></p>
+
+<ul class="ul" id="shd1484547222970__ul_btd_tzr_jx">
+<li class="li" id="shd1484547222970__li_7755029016774580BCF4A530ED9A92D0">
+<p class="p">LREAL Data</p>
+
+<p class="p" id="shd1484547222970__ID0ELACI">Number = (-1)<sup class="ph sup">s</sup>2<sup class="ph sup">-1022</sup>(f &#215; 2<sup class="ph sup">-52</sup>)</p>
+
+</li>
+
+</ul>
+
+<p class="p linespace_7pt fontsize_12pt"><strong class="ph b">Example: Expressing 0.75 x 2<sup class="ph sup">-127</sup> as REAL Data</strong></p>
+
+</div>
+
+<ol class="ol steps" id="shd1484547222970__steps_flm_mnw_bx"><li class="li step stepexpand" id="shd1484547222970__step_N100A0_N1009C_N1000E_N10001">
+<span alt="test" class="ph cmd">Setting the Sign</span>
+<div class="itemgroup stepresult">The number is positive, so s = 0.</div>
+</li>
+<li class="li step stepexpand" id="shd1484547222970__step_N100B0_N1009C_N1000E_N10001">
+<span alt="test" class="ph cmd">Binary Expression</span>
+<div class="itemgroup stepresult">The number 0.75 is 0.11 as a binary number.</div>
+</li>
+<li class="li step stepexpand" id="shd1484547222970__step_N100C0_N1009C_N1000E_N10001">
+<span alt="test" class="ph cmd">Mantissa Calculation</span>
+<div class="itemgroup stepresult">From (0.11)<sub class="ph sub">2</sub> &#215; 2<sup class="ph sup">-127</sup> = 2<sup class="ph sup">-126</sup>(f &#215; 2<sup class="ph sup">-23</sup>), f = (0.11)<sub class="ph sub">2 </sub>&#215; 2<sup class="ph sup">22</sup>.</div>
+</li>
+<li class="li step stepexpand" id="shd1484547222970__step_N100EE_N1009C_N1000E_N10001">
+<span alt="test" class="ph cmd">Mantissa Expression</span>
+<div class="itemgroup stepresult"><p class="p">From the previous equation, f = 01100000000000000000000.</p>
+</div>
+</li>
+</ol>
+
+<div class="section result" id="shd1484547222970__result_wyq_blm_ky">
+<p class="p linespace_7pt" id="shd1484547222970__ID0EHECI">Therefore, 0.75 &#215; 2<sup class="ph sup">-127</sup> is expressed as shown in the following figure.</p>
+
+<br /><img class="image linespace_7pt" id="shd1484547222970__image_C182AA47A45F4E4CA5359793A0E98CFE" src="mzp1484547222268.gif" /><br />
+<p class="p linespace_7pt" id="shd1484547222970__ID0ENFCI">Subnormal numbers have fewer effective digits than normalized numbers. Therefore, if the calculation of a normalized number results in an subnormal number, or if an intermediate result is an subnormal number, the number of effective digits of the calculated result may be less than that of the normalized number.</p>
+
+</div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="mby1484547223188">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Data Processing</h1>
+
+<div class="body conbody">
+<p class="p" id="mby1484547223188__ID0EDGCI">The floating-point decimal format is an approximate expression of a value, with a slight error from the actual value. There is a limit to the valid range of the value. For these reasons, the following process should be used for calculation.</p>
+
+<p class="p linespace_7pt fontsize_12pt"><strong class="ph b">Rounding</strong></p>
+
+<p class="p" id="mby1484547223188__ID0E1GCI">If the actual value exceeds the effective digits of the mantissa, the value must be rounded according to the following rules.</p>
+
+<ul class="ul">
+<li class="li" id="mby1484547223188__li_N1002B_N10027_N1000F_N10001">Of the values that can be expressed in floating-point decimal format, the value that is closest to the actual value is taken as the calculation result.</li>
+
+<li class="li" id="mby1484547223188__li_N10031_N10027_N1000F_N10001">
+<p class="p">If there are two values that are equally close to the actual value that can be expressed in floating-point decimal format, the value with the lowest significant 0 bit is taken as the calculation result.</p>
+
+<p class="p">When there are two values that are equally close to the actual value, the actual value is exactly in the middle of the two values.</p>
+
+</li>
+
+</ul>
+
+<p class="p linespace_7pt fontsize_12pt"><strong class="ph b">Overflows and Underflows</strong></p>
+
+<p class="p" id="mby1484547223188__ID0EQICI">When the true absolute value exceeds the values that can be expressed by a floating-point data type, it is called an overflow. On the other hand, if the value is smaller than the values that can be expressed by a floating-point decimal data type, it is called an underflow.</p>
+
+<ul class="ul">
+<li class="li" id="mby1484547223188__li_N10055_N10051_N1000F_N10001">
+<p class="p" id="mby1484547223188__ID0E6ICI">If the sign of the true value is positive, the processing result will be positive infinity when an overflow occurs.</p>
+
+<p class="p">If the sign of the true value is negative, the processing result will be negative infinity when an overflow occurs.</p>
+
+</li>
+
+<li class="li" id="mby1484547223188__li_N10066_N10051_N1000F_N10001">
+<p class="p" id="mby1484547223188__ID0ENJCI">If the sign of the true value is positive, the processing result will be +0 when an underflow occurs.</p>
+
+<p class="p">If the sign of the true value is negative, the processing result will be -0 when an overflow occurs.</p>
+
+</li>
+
+</ul>
+
+<p class="p linespace_7pt fontsize_12pt"><strong class="ph b">Calculating with Special Numbers</strong></p>
+
+<p class="p" id="mby1484547223188__ID0EJKCI">The following rules apply when calculating with special numbers.</p>
+
+<p class="p" id="mby1484547223188__ID0EMKCI">For details on special values, refer to <a class="xref" href="aqz1484547218414.html#flf1484547222065"><i style="display:none;">☆</i>Special Numbers</a>.</p>
+
+<ul class="ul">
+<li class="li" id="mby1484547223188__li_N10098_N10094_N1000F_N10001">Adding positive infinity and negative infinity results in nonnumeric data.</li>
+
+<li class="li" id="mby1484547223188__li_N1009E_N10094_N1000F_N10001">Subtracting infinity from infinity with the same signs results in nonnumeric data.</li>
+
+<li class="li" id="mby1484547223188__li_N100A4_N10094_N1000F_N10001">Multiplying +0 by infinity or -0 by infinity results in nonnumeric data.</li>
+
+<li class="li" id="mby1484547223188__li_N100AA_N10094_N1000F_N10001">Dividing +0 by +0, -0 by -0, or infinity by infinity results in nonnumeric data.</li>
+
+<li class="li" id="mby1484547223188__li_N100B0_N10094_N1000F_N10001">Adding +0 and -0 results in +0.</li>
+
+<li class="li" id="mby1484547223188__li_N100B6_N10094_N1000F_N10001">Subtracting +0 from +0, or -0 from -0 results in +0.</li>
+
+<li class="li" id="mby1484547223188__li_N100BC_N10094_N1000F_N10001">Basic arithmetic operations including nonnumeric data results in nonnumeric data.</li>
+
+<li class="li" id="mby1484547223188__li_N100C2_N10094_N1000F_N10001">Comparison instructions such as the CMP instruction treat +0 and -0 as the same value.</li>
+
+<li class="li" id="mby1484547223188__li_N100C8_N10094_N1000F_N10001">If a nonnumeric number is included in a comparison, the comparison instruction always returns <span class="ph phtype_quote"><span class="termtype">"Not Equal"</span></span>.</li>
+
+</ul>
+
+<div class="note" id="mby1484547223188__note_N100C7_N1000F_N10001"><div class="use"><span class="notetitle use">use:</span>
+<p class="p" id="mby1484547223188__ID0E5OCI">Floating-point decimal (LREAL) variables are used to set electronic gears, target positions, and other parameters of motion control instructions in the MC Function Module. For this reason, calculation results contain rounding errors.</p>
+
+<p class="p" id="mby1484547223188__ID0EFPCI">For example, if the MC_MoveRelative (Relative Positioning) instruction is repeatedly executed, following error will accumulate.</p>
+
+<p class="p" id="mby1484547223188__ID0EMPCI">If the accumulated error becomes a problem, set the command unit to pulses, or specify an absolute position with the MC_MoveAbsolute (Absolute Positioning) instruction.</p>
+
+</div></div>
+
+</div>
+
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+
+
+
+

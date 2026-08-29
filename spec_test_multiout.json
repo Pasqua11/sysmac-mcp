@@ -1,0 +1,54 @@
+{
+  "out_dir": "C:\\Users\\tecni\\Claude\\sysmac-mcp\\out",
+  "sections": {
+    "Test_MultiOut": [
+      {"cmt": "1) DUE USCITE: ABILITAZIONE SERVO X E Y NELLO STESSO RUNG",
+       "chain": ["Tim_Marcia.Q", "mc_x.DrvStatus.Ready", "mc_y.DrvStatus.Ready"],
+       "out": [
+         [{"fb": "MC_Power", "inst": "Power_x", "p": {"Axis": "mc_x", "OUT:Axis": "mc_x"}}],
+         [{"fb": "MC_Power", "inst": "Power_y", "p": {"Axis": "mc_y", "OUT:Axis": "mc_y"}}]
+       ]},
+
+      {"cmt": "2) OR CON RAMO IN SERIE + TRE USCITE (RESET ASSI COME HYDRA)",
+       "chain": [{"or": ["IN_RESET", ["Reset_Auto_All_Robot", {"f": "Get100msClk", "p": {}}]]}],
+       "out": [
+         [{"fb": "MC_Reset", "inst": "X_Reset_Error", "p": {"Axis": "mc_x", "OUT:Axis": "mc_x"}}],
+         [{"fb": "MC_Reset", "inst": "Y_Reset_Error", "p": {"Axis": "mc_y", "OUT:Axis": "mc_y"}}],
+         [{"fb": "MC_GroupReset", "inst": "Group_Reset_Error", "p": {"AxesGroup": "MC_Group000", "OUT:AxesGroup": "MC_Group000"}}]
+       ]},
+
+      {"cmt": "3) OR A 12 RAMI: MOVIMENTAZIONE PRENOTATA",
+       "chain": [{"or": ["Car_V1", "Car_V3", "V1_V2", "V2_V3", "V3_V4", "V4_V5",
+                          "V5_V6", "V6_V7", "V7_F1", "V7_F2", "F1_Scar", "F2_Scar"]},
+                 "(Movim_Prenotati)"]},
+
+      {"cmt": "4) OR IN MEZZO ALLA CATENA + DUE BOBINE",
+       "chain": ["Robot_Ready", {"or": ["Look1", "Look2"]}, "/IN_MARCIA"],
+       "out": ["(Blocco_Portellino)", "(Spia_Blocco)"]},
+
+      {"cmt": "5) OR CON RITENUTA (MARCIA/ARRESTO CLASSICO)",
+       "chain": [{"or": ["^IN_RESET", "Mem_Start"]}, "/IN_MARCIA", "(Mem_Start)"]}
+    ]
+  },
+  "variables": [
+    {"name": "Reset_Auto_All_Robot", "type": "BOOL"},
+    {"name": "Y_Reset_Error", "type": "MC_Reset"},
+    {"name": "Car_V1", "type": "BOOL"},
+    {"name": "Car_V3", "type": "BOOL"},
+    {"name": "V1_V2", "type": "BOOL"},
+    {"name": "V2_V3", "type": "BOOL"},
+    {"name": "V3_V4", "type": "BOOL"},
+    {"name": "V4_V5", "type": "BOOL"},
+    {"name": "V5_V6", "type": "BOOL"},
+    {"name": "V6_V7", "type": "BOOL"},
+    {"name": "V7_F1", "type": "BOOL"},
+    {"name": "V7_F2", "type": "BOOL"},
+    {"name": "F1_Scar", "type": "BOOL"},
+    {"name": "F2_Scar", "type": "BOOL"},
+    {"name": "Look1", "type": "BOOL"},
+    {"name": "Look2", "type": "BOOL"},
+    {"name": "Blocco_Portellino", "type": "BOOL"},
+    {"name": "Spia_Blocco", "type": "BOOL"},
+    {"name": "Mem_Start", "type": "BOOL"}
+  ]
+}

@@ -1,0 +1,1491 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>GetNXUnitError</title>
+</head>
+<body class="jnk1501815741702"><div class="layer02" id="jnk1501815741702">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">GetNXUnitError</h1>
+
+<div class="body conbody">
+<p class="p" id="jnk1501815741702__ID0E1RDO">The GetNXUnitError instruction gets the highest level status and highest level event code of the current Controller errors in the NX Bus Function Module of the NX-series CPU Unit or NX Units.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="jnk1501815741702__table_N10017_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:13%" />
+<col style="width:14%" />
+<col style="width:6%" />
+<col style="width:35%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d498964e37">Instruction</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d498964e40">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d498964e43">
+<p class="p">FB/</p>
+
+<p class="p">FUN</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d498964e52">Graphic expression</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d498964e55">ST expression</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d498964e37 "><span class="indexterm">GetNXUnitError (Get NX Unit Error Status)</span>GetNXUnitError</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d498964e40 "><span class="indexterm">Get NX Unit Error Status</span>Get NX Unit Error Status</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d498964e43 ">FB</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d498964e52 ">
+<br /><img class="image" id="jnk1501815741702__image_9CFFA3E2ED2C4A42BC448E9EA72A15B4" src="xre1501815740616.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d498964e55 ">GetNXUnitError_instance(Execute, UnitProxy, TimeOut, Done, Busy, Error, ErrorID, ErrorIDEx, Level, Code);</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<div class="note" id="jnk1501815741702__note_N100AB_N1000F_N10002"><div class="use"><span class="notetitle use">use:</span> You can use this instruction for the NX502 CPU Unit, NX102 CPU Unit, and NX1P2 CPU Unit.</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="jwd1501816934828">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Variables</h1>
+ 
+<div class="body conbody">
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="jwd1501816934828__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:20%" />
+<col style="width:9%" />
+<col style="width:20%" />
+<col style="width:14%" />
+<col style="width:14%" />
+<col style="width:8%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d523435e45">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d523435e47">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d523435e50">I/O</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d523435e53">Description</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d523435e56">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d523435e60">Unit</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d523435e63">Default</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d523435e45 ">UnitProxy</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d523435e47 ">Specified Unit</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d523435e50 ">Input</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d523435e53 ">Specifies the target NX Unit.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d523435e56 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d523435e60 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d523435e63 "><a class="xref" href="jnk1501815741702.html#jwd1501816934828__fn-1439484"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d523435e45 ">TimeOut</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d523435e47 ">Timeout time</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d523435e53 ">
+<p class="p">Timeout time</p>
+
+<p class="p">If 0 is set, the timeout time is 2.0 s.</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d523435e56 ">0 to 60000</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d523435e60 ">ms</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d523435e63 ">2000 (2.0 s)</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d523435e45 ">Level</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d523435e47 ">Highest level status</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d523435e50 ">Output</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d523435e53 ">
+<p class="p">Status of the current error with the highest level</p>
+
+<p class="p">0: No error</p>
+
+<p class="p">2: Partial fault level</p>
+
+<p class="p">3: Minor fault level</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d523435e56 ">0, 2, or 3</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d523435e60 ">---</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d523435e63 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d523435e45 ">Code</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d523435e47 ">Highest level event code</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d523435e53 ">Highest level event code of all the current errors</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d523435e56 ">16#00000000, 16#00070000 to 16#FFFFFFFF</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="jwd1501816934828__fn-1439484" id="jwd1501816934828__fn-1439484"><sup>*1</sup></a>  If you omit an input parameter, the default value is not applied. A building error will occur.</div></div></div>
+ 
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="jwd1501816934828__table_N1014F_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:5%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:top;" id="d523435e233">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d523435e235">Boolean</th>
+
+<th class="entry cellrowborder" colspan="4" style="text-align:center;vertical-align:middle;" id="d523435e238">Bit strings</th>
+
+<th class="entry cellrowborder" colspan="8" style="text-align:center;vertical-align:middle;" id="d523435e241">Integers</th>
+
+<th class="entry cellrowborder" colspan="2" style="text-align:center;vertical-align:middle;" id="d523435e244">Real numbers</th>
+
+<th class="entry cellrowborder" colspan="5" style="text-align:center;vertical-align:middle;" id="d523435e248">Times, durations, dates, and text strings</th>
+
+</tr>
+
+<tr class="row">
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d523435e254">BOOL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d523435e257">BYTE</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d523435e260">WORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d523435e263">DWORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d523435e266">LWORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d523435e270">USINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d523435e273">UINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d523435e276">UDINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d523435e279">ULINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d523435e282">SINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d523435e285">INT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d523435e289">DINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d523435e292">LINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d523435e295">REAL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d523435e298">LREAL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d523435e301">TIME</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d523435e304">DATE</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d523435e308">TOD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d523435e311">DT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d523435e314">STRING</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d523435e233 d523435e254 ">UnitProxy</td>
+
+<td class="entry cellrowborder" colspan="20" style="text-align:center;vertical-align:middle;" headers="d523435e235 d523435e238 d523435e241 d523435e244 d523435e248 d523435e257 d523435e260 d523435e263 d523435e266 d523435e270 d523435e273 d523435e276 d523435e279 d523435e282 d523435e285 d523435e289 d523435e292 d523435e295 d523435e298 d523435e301 d523435e304 d523435e308 d523435e311 d523435e314 ">Refer to <a class="xref" href="jnk1501815741702.html"><i style="display:none;">☆</i>GetNXUnitError</a> for details on the structure _sNXUNIT_ID.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d523435e233 d523435e254 ">TimeOut</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e235 d523435e257 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e238 d523435e260 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e238 d523435e263 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e238 d523435e266 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e238 d523435e270 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e241 d523435e273 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e241 d523435e276 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e241 d523435e279 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e241 d523435e282 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e241 d523435e285 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e241 d523435e289 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e241 d523435e292 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e241 d523435e295 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e244 d523435e298 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e244 d523435e301 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e248 d523435e304 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e248 d523435e308 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e248 d523435e311 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e248 d523435e314 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e248 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d523435e233 d523435e254 ">Level</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e235 d523435e257 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e238 d523435e260 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e238 d523435e263 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e238 d523435e266 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e238 d523435e270 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e241 d523435e273 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e241 d523435e276 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e241 d523435e279 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e241 d523435e282 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e241 d523435e285 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e241 d523435e289 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e241 d523435e292 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e241 d523435e295 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e244 d523435e298 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e244 d523435e301 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e248 d523435e304 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e248 d523435e308 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e248 d523435e311 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e248 d523435e314 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e248 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d523435e233 d523435e254 ">Code</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e235 d523435e257 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e238 d523435e260 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e238 d523435e263 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e238 d523435e266 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e238 d523435e270 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e241 d523435e273 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e241 d523435e276 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e241 d523435e279 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e241 d523435e282 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e241 d523435e285 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e241 d523435e289 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e241 d523435e292 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e241 d523435e295 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e244 d523435e298 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e244 d523435e301 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e248 d523435e304 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e248 d523435e308 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e248 d523435e311 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e248 d523435e314 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d523435e248 ">&#160;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="ngq1501816935090">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function</h1>
+
+<div class="body conbody">
+<p class="p" id="ngq1501816935090__ID0E4WFO">The GetNXUnitError instruction outputs the highest level status (partial fault or minor fault) and highest level event code of the current Controller errors in the NX Bus Function Module and NX Units, as well as the lower level NX Units from which to get the data.</p>
+
+<p class="p">This instruction applies to the NX502 CPU Unit, NX102 CPU Unit, NX1P2 CPU Unit and NX Unit connected to the NX bus on the CPU Unit.</p>
+
+<p class="p linespace_7pt">The Unit from which to get data is specified with <span class="ph phtype_variable"><span class="termtype">UnitProxy</span></span>.</p>
+
+<p class="p" id="ngq1501816935090__ID0ENXFO">The instruction is completed when the value of <span class="ph phtype_variable"><span class="termtype">Done</span></span> changes to TRUE.</p>
+
+<p class="p linespace_7pt">The data type of <span class="ph phtype_variable"><span class="termtype">UnitProxy</span></span> is structure _sNXUNIT_ID. The specifications are as follows:</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ngq1501816935090__table_n2m_cl3_z1b" class="rules_all " frame="hsides" border="1">
+<col style="width:1%" />
+<col style="width:18%" />
+<col style="width:25%" />
+<col style="width:38%" />
+<col style="width:15%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:top;" id="d681589e62">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d681589e65">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d681589e68">Description</th>
+
+<th class="entry row-nocellborder" style="text-align:left;vertical-align:top;" id="d681589e71">Data type</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cell-norowborder" colspan="2" style="text-align:left;vertical-align:top;" headers="d681589e62 ">UnitProxy</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;" headers="d681589e65 ">Specified Unit</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;" headers="d681589e68 ">Specified Unit</td>
+
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d681589e71 ">_sNXUNIT_ID</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d681589e62 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d681589e62 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d681589e65 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d681589e68 ">&#160;</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d681589e71 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;" headers="d681589e62 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d681589e62 ">NodeAdr</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d681589e65 ">Node address</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d681589e68 ">Node address of the Communications Coupler Unit</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d681589e71 ">UINT</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;" headers="d681589e62 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d681589e62 ">IPAdr</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d681589e65 ">IP address</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d681589e68 ">IP address of the Communications Coupler Unit</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d681589e71 ">BYTE[5]</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;" headers="d681589e62 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d681589e62 ">UnitNo</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d681589e65 ">Unit number</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d681589e68 ">Unit number of the specified Unit</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d681589e71 ">UDINT</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;" headers="d681589e62 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d681589e62 ">Path</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d681589e65 ">Path</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d681589e68 ">Path information to the specified Unit</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d681589e71 ">BYTE[64]</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d681589e62 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d681589e62 ">PathLength</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d681589e65 ">Valid <span class="ph phtype_variable"><span class="termtype">Path</span></span> length</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d681589e68 ">Valid <span class="ph phtype_variable"><span class="termtype">Path</span></span> length</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d681589e71 ">USINT</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt">Pass a device variable that is assigned to the specified Unit to <span class="ph phtype_variable"><span class="termtype">UnitProxy</span></span>.</p>
+
+<p class="p linespace_7pt"><span class="ph phtype_variable"><span class="termtype">TimeOut</span></span> specifies the timeout time. If a response does not return within the timeout time, it judges that communications failed.</p>
+
+<p class="p linespace_7pt"><span class="ph phtype_variable"><span class="termtype">Level</span></span> gives the status of the current error with the highest level.</p>
+
+<p class="p"><span class="ph phtype_variable"><span class="termtype">Code</span></span> gives the event code of the current error with the highest level. If errors of the same level occur in more than one Unit, it gives the oldest event code. If there is no error, it gives 16#00000000.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="opu1501816935346">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Specified NX Unit and Variable Values</h1>
+
+<div class="body conbody">
+<p class="p" id="opu1501816935346__ID0ENTGO">The values output to in-out and output variables vary depending on the specified NX Unit.</p>
+
+<p class="p" id="opu1501816935346__ID0EQTGO">The relationship between the specified NX Unit and the value of each variable is shown in the following table.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="opu1501816935346__table_itg_d1f_f1b" class="rules_all " frame="hsides" border="1">
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d734999e38">Specified Unit</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d734999e41">
+<p class="p">NX502 CPU Unit</p>
+
+<p class="p">NX102 CPU Unit</p>
+
+<p class="p">NX1P2 CPU Unit</p>
+
+</th>
+
+<th class="entry row-nocellborder" style="text-align:left;vertical-align:top;" id="d734999e53">NX Unit on CPU Unit</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder bgcolor_standardgray fonttype_head" style="text-align:left;vertical-align:top;" headers="d734999e38 ">Value of <span class="ph phtype_variable"><span class="termtype">Level</span></span></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d734999e41 ">Highest level status of CPU Unit</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d734999e53 ">Highest level status of NX Unit</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder bgcolor_standardgray fonttype_head" style="text-align:left;vertical-align:top;" headers="d734999e38 ">Value of <span class="ph phtype_variable"><span class="termtype">Code</span></span></td>
+
+<td class="entry row-nocellborder" colspan="2" style="text-align:left;vertical-align:top;" headers="d734999e41 d734999e53 ">
+<p class="p">If there are more than one error: Highest level event code</p>
+
+<p class="p">If there are more than one error in the same <span class="ph phtype_variable"><span class="termtype">Level</span></span>: Oldest event code</p>
+
+<p class="p">If there is no error: 16#0000_0000</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="qhn1501816935594">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Combined Use with the GetNXBError Instruction</h1>
+
+<div class="body conbody">
+<p class="p">In the user program, normally use the GetNXBError (Get NX Bus Error Status) instruction to monitor if there are errors on the NX bus.</p>
+
+<p class="p linespace_7pt">When the <span class="ph phtype_variable"><span class="termtype">Level</span></span> output variable of the GetNXBError instruction is other than 0, the value that indicates the NX Unit with the highest event level is stored in <span class="ph phtype_variable"><span class="termtype">UnitProxy</span></span> of the instruction.</p>
+
+<p class="p linespace_7pt">To get <span class="ph phtype_variable"><span class="termtype">Level</span></span> and <span class="ph phtype_variable"><span class="termtype">Code</span></span> of the NX Unit where the error occurred, execute the GetNXUnitError instruction.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="wvv1501816935836">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Related System-defined Variables</h1>
+<div class="body conbody">
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="wvv1501816935836__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all"><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1091346e18">Name</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1091346e20">Meaning</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1091346e18 ">_NXB_UnitErrFlagTbl</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1091346e20 ">NX Unit Error Status</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="related-links"></div></div><div class="layer03" id="vmo1501815862388">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Additional Information</h1>
+<div class="body conbody"></div>
+<div class="related-links"></div></div><div class="layer04" id="viq1501816936076">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Parameters to Be Passed to UnitProxy</h1>
+
+<div class="body conbody">
+<p class="p">The following explains parameters to be passed to the <span class="ph phtype_variable"><span class="termtype">UnitProxy</span></span> input variable.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="dag1501816937359">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Using Only the User Program to Pass Parameters to UnitProxy</h1>
+ 
+<div class="body conbody">
+<p class="p" id="dag1501816937359__ID0EYFHO">To <span class="ph phtype_variable"><span class="termtype">UnitProxy</span></span> of the GetNXUnitError instruction, pass the value of <span class="ph phtype_variable"><span class="termtype">ErrorUnit</span></span>; it contains the value of <span class="ph phtype_variable"><span class="termtype">UnitProxy</span></span> you get with the GetNXBError instruction sent to the NX Bus Function Module.</p>
+
+<br /><img class="image" id="dag1501816937359__image_E6214342C778461EBD6C6A1B9AF2C3EA" src="bhx1501816936309.gif" /><br />
+</div>
+ 
+<div class="related-links"></div></div><div class="layer05" id="sqi1501816938658">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Using the Device Variable to Pass Parameters to UnitProxy</h1>
+
+<div class="body conbody">
+<p class="p">Create a device variable that specifies the Unit on the NX bus and pass it to <span class="ph phtype_variable"><span class="termtype">UnitProxy</span></span> of this instruction.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="sqi1501816938658__table_pdy_zpl_f1b" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:9%" />
+<col style="width:32%" />
+<col style="width:22%" />
+<col style="width:13%" />
+<col style="width:21%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d890365e42">External variables</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d890365e45">Variable</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d890365e48">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d890365e51">Constant</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d890365e54">Comment</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d890365e42 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d890365e45 ">N1_Node_location_information</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d890365e48 ">_sNXUNIT_ID</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d890365e51 "><br /><img class="image" id="sqi1501816938658__image_1EE11C8BFE4A4B29A83A5791798B2247" src="tpb1501816888683.gif" /><br /></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d890365e54 ">&#160;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<br /><img class="image" id="sqi1501816938658__image_nwz_5yl_f1b" src="jjl1501816937625.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="bar1501816938897">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Run in the Simulator</h1>
+
+<div class="body conbody">
+<p class="p">When this instruction is executed and changes the value of <span class="ph phtype_variable"><span class="termtype">Execute</span></span> from FALSE to TRUE, the values for the related variables will change as shown below.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="bar1501816938897__table_rk3_lzl_f1b" class="rules_all " frame="hsides" border="1">
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d53647e33">Output variable</th>
+
+<th class="entry row-nocellborder" style="text-align:left;vertical-align:top;" id="d53647e36">Meaning</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d53647e33 ">Done</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d53647e36 ">TRUE</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d53647e33 ">Busy</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d53647e36 ">FALSE</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d53647e33 ">Error</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d53647e36 ">FALSE</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d53647e33 ">ErrorID</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d53647e36 ">0</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d53647e33 ">ErrorIDEx</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d53647e36 ">0</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d53647e33 ">Level</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d53647e36 ">0</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d53647e33 ">Code</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d53647e36 ">0</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="pqb1501816939142">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Precautions for Correct Use</h1>
+ 
+<div class="body conbody">
+<ul class="ul" id="pqb1501816939142__ul_1315EE038BA544C58A326D09E7D72320">
+<li class="li" id="pqb1501816939142__li_62CD6775CCDB4C64A3B120EE6B1F691A">
+<p class="p" id="pqb1501816939142__ID0E62HO">Execution of this instruction is continued until completed even when the value of <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to FALSE or the execution time exceeds the task period. The value of <span class="ph phtype_variable"><span class="termtype">Done</span></span> changes to TRUE when processing is completed. Use this to confirm normal completion of the processing.</p>
+
+</li>
+ 
+<li class="li" id="pqb1501816939142__li_D7EE06B4A0D347838DBA8AEA195A3DDF">
+<p class="p" id="pqb1501816939142__ID0EK3HO">Refer to <a class="xref" href="aag1501815842589.html#aag1501815842589"><i style="display:none;">☆</i>Using this Section</a> for a timing chart for <span class="ph phtype_variable"><span class="termtype">Execute</span></span>, <span class="ph phtype_variable"><span class="termtype">Done</span></span>, <span class="ph phtype_variable"><span class="termtype">Busy</span></span>, and <span class="ph phtype_variable"><span class="termtype">Error</span></span>.</p>
+
+</li>
+ 
+<li class="li" id="pqb1501816939142__li_296B2377A13543818D7CFA5240E90DE9">
+<p class="p" id="pqb1501816939142__ID0E63HO">A compiling error will occur if you use this instruction in an event task. Do not use this instruction in event tasks.</p>
+
+</li>
+ 
+<li class="li" id="pqb1501816939142__li_994BB4F996404105817B0229B0C562DB">
+<p class="p">You cannot execute this instruction more than once at the same time. Only one instance can be executed at a time.</p>
+
+</li>
+ 
+<li class="li" id="pqb1501816939142__li_34064EE41B3F4811B7D5B3C2BD3A0B28">
+<p class="p" id="pqb1501816939142__ID0EV4HO"><span class="ph phtype_variable"><span class="termtype">Error</span></span> will change to TRUE if an error occurs. The meanings of the values of <span class="ph phtype_variable"><span class="termtype">ErrorID</span></span> and <span class="ph phtype_variable"><span class="termtype">ErrorIDEx</span></span> are given in the following table.</p>
+
+</li>
+ 
+</ul>
+ 
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="pqb1501816939142__table_N1007A_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:18%" />
+<col style="width:18%" />
+<col style="width:63%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d782941e92">Value of <span class="ph phtype_variable"><span class="termtype">ErrorID</span></span></th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d782941e97">Value of <span class="ph phtype_variable"><span class="termtype">ErrorIDEx</span></span></th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d782941e102">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e92 ">16#0400</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e97 ">16#00000000</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e102 ">
+<ul class="ul" id="pqb1501816939142__ul_28833AAB66AF41D6932E3855CFDF0DED">
+<li class="li" id="pqb1501816939142__li_FF47F96AC053499292379A60559E174D">The value of <span class="ph phtype_variable"><span class="termtype">UnitProxy</span></span> is outside the valid range.</li>
+
+<li class="li" id="pqb1501816939142__li_D9E112640208479C885A681420BF0D78">The value of <span class="ph phtype_variable"><span class="termtype">TimeOut</span></span> is outside the valid range.</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e92 ">16#041A</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e97 ">16#00000000</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e102 ">While this instruction was being executed, it was executed again.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;" headers="d782941e92 ">16#2C00</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e97 ">16#00000401</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e102 ">The specified Unit does not support the instruction.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;" headers="d782941e92 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e97 ">
+<p class="p">16#00001001</p>
+
+<p class="p">16#00001002</p>
+
+<p class="p">16#00170000</p>
+
+<p class="p">16#00200000</p>
+
+<p class="p">16#00210000</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e102 ">
+<p class="p">An input parameter, output parameter, or in-out parameter is incorrect.</p>
+
+<p class="p">Confirm that the intended parameter is used for the input parameter, output parameter, or in-out parameter.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;" headers="d782941e92 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e97 ">16#00001010</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e102 ">The data size of the specified NX object does not agree with the data size specified in <span class="ph phtype_type2"><span class="termtype">WriteDat</span></span>.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;" headers="d782941e92 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e97 ">16#00001101</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e102 ">
+<p class="p">The Unit is not correct.</p>
+
+<p class="p">Check the Unit.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;" headers="d782941e92 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e97 ">16#0000110B</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e102 ">
+<p class="p">The size of the read data is too large.</p>
+
+<p class="p">Make sure that the read data specification is correct.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;" headers="d782941e92 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e97 ">16#00001110</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e102 ">There is no object that corresponds to the value of <span class="ph phtype_type2"><span class="termtype">Obj.Index</span></span>.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;" headers="d782941e92 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e97 ">16#00001111</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e102 ">There is no object that corresponds to the value of <span class="ph phtype_type2"><span class="termtype">Obj.Subindex</span></span>.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;" headers="d782941e92 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e97 ">16#00002101</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e102 ">The specified NX object cannot be written.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;" headers="d782941e92 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e97 ">16#00002110</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e102 ">The value of <span class="ph phtype_type2"><span class="termtype">WriteDat</span></span> exceeds the range of values for the NX object to write.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;" headers="d782941e92 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e97 ">16#00002210</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e102 ">The specified Unit is not in a mode that allows writing data.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;" headers="d782941e92 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e97 ">16#00002213</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e102 ">
+<p class="p">Instruction execution was not possible because the specified Unit was performing an I/O check.</p>
+
+<p class="p">Execute the instruction after the I/O check is completed.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;" headers="d782941e92 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e97 ">16#00002230</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e102 ">
+<p class="p">The status of the specified Unit does not agree with the value of the read source or write destination NX object.</p>
+
+<p class="p">Take the following actions if the value of <span class="ph phtype_type2"><span class="termtype">Obj.Index</span></span> is between 0x6000 and 0x6FFF or between 0x7000 and 0x7FFF.</p>
+
+<ul class="ul" id="pqb1501816939142__ul_imm_xbm_f1b">
+<li class="li" id="pqb1501816939142__li_N1025B_N10257_N10246_N10237_N100B9_N1007E_N1007A_N1000F_N10002">Delete the read source or write designation NX object from the I/O allocation settings.</li>
+
+<li class="li" id="pqb1501816939142__li_N10260_N10257_N10246_N10237_N100B9_N1007E_N1007A_N1000F_N10002">Reset the error for the specified Unit.</li>
+
+<li class="li" id="pqb1501816939142__li_N10265_N10257_N10246_N10237_N100B9_N1007E_N1007A_N1000F_N10002">Place the specified Unit in a mode that does not allow writing data.</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;" headers="d782941e92 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e97 ">16#00002231</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e102 ">
+<p class="p">Instruction execution was not possible because the specified Unit was performing initialization.</p>
+
+<p class="p">Wait for the Unit to start normal operation and then execute the instruction.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;" headers="d782941e92 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e97 ">16#0000250F</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e102 ">
+<p class="p">Hardware access failed.</p>
+
+<p class="p">Execute the instruction again.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;" headers="d782941e92 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e97 ">
+<p class="p">16#00002601</p>
+
+<p class="p">16#00002602</p>
+
+<p class="p">16#00100000</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e102 ">
+<p class="p">The specified Unit does not support this instruction.</p>
+
+<p class="p">Check the version of the Unit.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;" headers="d782941e92 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e97 ">16#00002603</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e102 ">
+<p class="p">Execution of the instruction failed.</p>
+
+<p class="p">Execute the instruction again.</p>
+
+<p class="p">Make sure that at least one channel is <span class="ph phtype_choice"><span class="termtype">Enabled</span></span> in the selection of the channels to use.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;" headers="d782941e92 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e97 ">16#00002621</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e102 ">
+<p class="p">The NX Unit is not in a status in which it can acknowledge the instruction.</p>
+
+<p class="p">Wait for a while and then execute the instruction again.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;" headers="d782941e92 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e97 ">16#00010000</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e102 ">
+<p class="p">The specified Unit does not exist.</p>
+
+<p class="p">Make sure that the Unit configuration is correct.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;" headers="d782941e92 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e97 ">16#00110000</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e102 ">
+<p class="p">The specified port number does not exist.</p>
+
+<p class="p">Make sure that the Unit configuration is correct.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;" headers="d782941e92 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e97 ">
+<p class="p">16#00120000</p>
+
+<p class="p">16#00130000</p>
+
+<p class="p">16#00150000</p>
+
+<p class="p">16#00160000</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e102 ">
+<p class="p">The value of <span class="ph phtype_variable"><span class="termtype">UnitProxy</span></span> is not correct.</p>
+
+<p class="p">Set the variable that indicates the specified EtherCAT Coupler Unit again.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;" headers="d782941e92 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e97 ">16#00140000</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e102 ">
+<p class="p">The specified node address is not correct.</p>
+
+<p class="p">Make sure that the Unit configuration is correct.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;" headers="d782941e92 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e97 ">
+<p class="p">16#00300000</p>
+
+<p class="p">16#80010000</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e102 ">
+<p class="p">The specified Unit is busy.</p>
+
+<p class="p">Execute the instruction again.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;" headers="d782941e92 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e97 ">16#00310000</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e102 ">
+<p class="p">The specified Unit is not supported for connection.</p>
+
+<p class="p">Check the version of the Unit.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;" headers="d782941e92 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e97 ">
+<p class="p">16#80000000</p>
+
+<p class="p">16#80050000</p>
+
+<p class="p">16#81010000</p>
+
+<p class="p">16#81020000</p>
+
+<p class="p">16#82020000</p>
+
+<p class="p">16#82030000</p>
+
+<p class="p">16#82060000 to 16#8FFF0000</p>
+
+<p class="p">16#90010000 to 16#FFFE0000</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e102 ">
+<p class="p">An error occurred in the communications network.</p>
+
+<p class="p">Execute the instruction again.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;" headers="d782941e92 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e97 ">
+<p class="p">16#80020000</p>
+
+<p class="p">16#80030000</p>
+
+<p class="p">16#81030000</p>
+
+<p class="p">16#82000000</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e102 ">
+<p class="p">An error occurred in the communications network.</p>
+
+<p class="p">Reduce the amount of communications traffic.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e92 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e97 ">
+<p class="p">16#80040000</p>
+
+<p class="p">16#81000000</p>
+
+<p class="p">16#82010000</p>
+
+<p class="p">16#82040000</p>
+
+<p class="p">16#82050000</p>
+
+<p class="p">16#90000000</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e102 ">
+<p class="p">An error occurred in the communications network.</p>
+
+<p class="p">Check the Unit and cable connections.</p>
+
+<p class="p">Make sure that the power supply to the Unit is ON.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e92 ">16#2C02</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e97 ">16#00000000</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d782941e102 ">A timeout occurred during communications.</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="epd1501816939409">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Sample Programming</h1>
+<div class="body conbody"><p class="p" id="epd1501816939409__ID0EDFIO">This sample passes the Unit, level, and code values to variables for display on a touch panel if an error occurs on the NX bus.</p>
+<p class="p linespace_7pt">The system configuration is as shown below.</p>
+<p class="p">Assume that three NX Units are connected to an NX1P2 CPU Unit.</p>
+</div>
+<div class="related-links"></div></div><div class="layer04" id="ocf1501816939649">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Device Variables</h1>
+<div class="body conbody">
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ocf1501816939649__table_jsy_jdm_f1b" class="rules_all " frame="hsides" border="1"><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d715628e21">NX Units</th>
+<th class="entry row-nocellborder" style="text-align:left;vertical-align:top;" id="d715628e23">Device Variable</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d715628e21 ">1st NX Unit</td>
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d715628e23 ">N1_Node_location_information</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d715628e21 ">2nd NX Unit</td>
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d715628e23 ">N2_Node_location_information</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d715628e21 ">3rd NX Unit</td>
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d715628e23 ">N3_Node_location_information</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="related-links"></div></div><div class="layer04" id="rpb1501816500359">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Definitions of Global Variables</h1>
+<div class="body conbody"></div>
+<div class="related-links"></div></div><div class="layer05" id="vyf1501816940601">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Global Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="vyf1501816940601__table_nqm_bfm_f1b" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1043742e44">Variable</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1043742e47">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1043742e50">Constant</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1043742e53">
+<p class="p" id="vyf1501816940601__ID0ECJIO">Comment</p>
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1043742e44 ">N1_Node_location_information</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1043742e47 ">_sNXUNIT_ID</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1043742e50 "><br /><img class="image" id="vyf1501816940601__image_E9542EC1E28D4362B7C0C55528209C1E" src="tpb1501816888683.gif" /><br /></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1043742e53 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1043742e44 ">N2_Node_location_information</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1043742e47 ">_sNXUNIT_ID</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1043742e50 "><br /><img class="image" id="vyf1501816940601__image_sjd_j2m_f1b" src="tpb1501816888683.gif" /><br /></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1043742e53 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1043742e44 ">N3_Node_location_information</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1043742e47 ">_sNXUNIT_ID</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1043742e50 "><br /><img class="image" id="vyf1501816940601__image_np2_j2m_f1b" src="tpb1501816888683.gif" /><br /></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1043742e53 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1043742e44 ">HMI_Level <a class="xref" href="jnk1501815741702.html#vyf1501816940601__fn-1439481"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1043742e47 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1043742e50 "><br /><img class="image" id="vyf1501816940601__image_FB3DC6866191496B9139AA88271875F9" src="syh1501816939885.gif" /><br /></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1043742e53 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1043742e44 ">HMI_Code <a class="xref" href="jnk1501815741702.html#vyf1501816940601__fn-1439481"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1043742e47 ">DWORD</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1043742e50 "><br /><img class="image" id="vyf1501816940601__image_afq_42m_f1b" src="syh1501816939885.gif" /><br /></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1043742e53 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1043742e44 ">HMI_Unit <a class="xref" href="jnk1501815741702.html#vyf1501816940601__fn-1439481"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1043742e47 ">UDINT</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1043742e50 "><br /><img class="image" id="vyf1501816940601__image_ukr_42m_f1b" src="syh1501816939885.gif" /><br /></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1043742e53 ">&#160;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="vyf1501816940601__fn-1439481" id="vyf1501816940601__fn-1439481"><sup>*1</sup></a>  The variables that begin with <span class="ph phtype_type2"><span class="termtype">HMI_</span></span> are variables for display on a touch panel. </div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="vtd1501816944005">
+<h1 class="title topictitle1"  topicstatus="Localization:done">LD</h1>
+<div class="body conbody">
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="vtd1501816944005__table_bbm_2mb_31b" class="rules_all " frame="hsides" border="1"><col style="width:10%" /><col style="width:23%" /><col style="width:22%" /><col style="width:20%" /><col style="width:23%" /><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d1035607e24">Internal variables</th>
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d1035607e26">Variable</th>
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d1035607e28">Data type</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d1035607e30">Constant</th>
+<th class="entry row-nocellborder" style="text-align:left;vertical-align:top;" id="d1035607e32">Comment</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1035607e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d1035607e26 ">instance</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d1035607e28 ">GetNXUnitError</td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d1035607e30 "><br /><img class="image" id="vtd1501816944005__image_fpj_52m_f1b" src="syh1501816939885.gif" /><br /></td>
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d1035607e32 ">&#160;</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d1035607e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d1035607e26 ">ErrorOccurred</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d1035607e28 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d1035607e30 "><br /><img class="image" id="vtd1501816944005__image_k1b_kmb_31b" src="syh1501816939885.gif" /><br /></td>
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d1035607e32 ">&#160;</td>
+</tr>
+<tr class="row"><td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d1035607e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d1035607e26 ">ErrorUnit</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d1035607e28 ">_sNXUNIT_ID</td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d1035607e30 "><br /><img class="image" id="vtd1501816944005__image_lbc_kmb_31b" src="syh1501816939885.gif" /><br /></td>
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d1035607e32 ">&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<br /><img class="image" id="vtd1501816944005__image_8A666260E5B543FD9E1DF2DA59958A3A" src="bwb1501816940853.gif" /><br /><br /><img class="image" id="vtd1501816944005__image_idd_qjw_p1b" src="ntb1501816941945.gif" /><br /><br /><img class="image" id="vtd1501816944005__image_jjl_qjw_p1b" src="nal1501816942873.gif" /><br /></div>
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

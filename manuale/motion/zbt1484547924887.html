@@ -1,0 +1,872 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>MC_SyncOffsetPosition</title>
+</head>
+<body class="zbt1484547924887"><div class="layer02" id="zbt1484547924887">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">MC_SyncOffsetPosition</h1>
+
+<div class="body conbody">
+<p class="p" id="zbt1484547924887__ID0EHUHT">The MC_SyncOffsetPosition cyclically adds the specified position offset to the command current position of the slave axis in synchronized control, and outputs the result.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="zbt1484547924887__ID0ESUHT" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:16%" />
+<col style="width:12%" />
+<col style="width:5%" />
+<col style="width:35%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d210423e36">Instruction</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d210423e39">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d210423e42">FB/ FUN</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d210423e45">Graphic expression</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d210423e48">ST expression</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d210423e36 "><span class="indexterm">MC_SyncOffsetPosition (Cyclic Synchronous Position Offset Compensation)</span>MC_SyncOffsetPosition</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d210423e39 "><span class="indexterm">Cyclic Synchronous Position Offset Compensation</span>Cyclic Synchronous Position Offset Compensation</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d210423e42 ">FB</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d210423e45 ">
+<br /><img class="image" id="zbt1484547924887__image_A59F5F1DAB16446DB987F5F17523B5F4" src="uzk1484547923748.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d210423e48 ">
+<p class="p" id="zbt1484547924887__ID0EVYHT">MC_SyncOffsetPosition_instance (</p>
+
+<p class="p">Axis :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Execute :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">OffsetPosition :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">BufferMode :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">MoveMode :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">OutputtedOffsetPosition =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Busy =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Active =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">CommandAborted =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Error =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">ErrorID =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span></p>
+
+<p class="p">);</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<div class="note" id="zbt1484547924887__note_N100E1_N1000F_N10001"><div class="ver"><span class="notetitle ver">ver:</span> A CPU Unit with unit version 1.10 or later and Sysmac Studio version 1.12 or higher are required to use this instruction.</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="tna1484547261564">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Variables</h1>
+
+<div class="body conbody"></div>
+
+<div class="related-links"></div></div><div class="layer04" id="yia1484547925136">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Input Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="yia1484547925136__ID0EE4HT" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:14%" />
+<col style="width:15%" />
+<col style="width:9%" />
+<col style="width:19%" />
+<col style="width:8%" />
+<col style="width:32%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d207257e63">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d207257e66">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d207257e69">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d207257e72">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d207257e75">Default</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d207257e79">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d207257e63 ">Execute</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d207257e66 ">Execute</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d207257e69 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d207257e72 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d207257e75 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d207257e79 ">
+<p class="p" id="yia1484547925136__ID0EZBIT">The instruction is executed when the value of this variable changes to TRUE.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d207257e63 ">OffsetPosition</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d207257e66 ">Position Offset</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d207257e69 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d207257e72 ">Negative number, positive number, or 0</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d207257e75 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d207257e79 ">
+<p class="p" id="yia1484547925136__ID0EEEIT">Specify the position offset to add to the command current position.</p>
+
+<p class="p" id="yia1484547925136__ID0ELEIT">The unit is command units. <a class="xref" href="#yia1484547925136__ID0EE4HT-footnote-2080206"><sup>*1</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d207257e63 ">BufferMode</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d207257e66 ">Buffer Mode Selection</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d207257e69 ">_eMC_BUFFER_MODE</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d207257e72 ">
+<p class="p" id="yia1484547925136__ID0EBGIT">0: _mcAborting</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d207257e75 ">0<a class="xref" href="#yia1484547925136__ID0EE4HT-footnote-2080342"><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d207257e79 ">
+<p class="p" id="yia1484547925136__ID0E3GIT">Specify the behavior when executing more than one motion instruction.</p>
+
+<p class="p" id="yia1484547925136__ID0EDHIT">0: Aborting</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d207257e63 ">MoveMode</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d207257e66 ">Travel Mode</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d207257e69 ">_eMC_MOVE_MODE</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d207257e72 ">
+<p class="p" id="yia1484547925136__ID0EWIIT">1: _mcRelative</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d207257e75 ">0<a class="xref" href="#yia1484547925136__ID0EE4HT-footnote-2080342"><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d207257e79 ">
+<p class="p" id="yia1484547925136__ID0EOJIT">Select the travel method.</p>
+
+<p class="p" id="yia1484547925136__ID0EVJIT">1: Relative positioning</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="yia1484547925136__ID0EE4HT-footnote-2080206" id="yia1484547925136__ID0EE4HT-footnote-2080206"><sup>*1</sup></a>
+<p class="p">Refer to <span class="ph phtype_type2"><span class="termtype">Unit Conversion Settings</span></span> in the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Motion Control User&#8217;s Manual (Cat. No. W507)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Industrial Panel PC / Industrial Box PC Motion Control User&#8217;s Manual (Cat. No. W559)</span></span></span> for information on command units.</p>
+</div>
+<div class="fn"><a name="yia1484547925136__ID0EE4HT-footnote-2080342" id="yia1484547925136__ID0EE4HT-footnote-2080342"><sup>*2</sup></a>  <p class="p" id="yia1484547925136__ID0ECLOT">The default value for an enumeration variable is actually not the number, but the enumerator.</p>
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="deu1484547925355">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Output Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="deu1484547925355__ID0EHLIT" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:15%" />
+<col style="width:13%" />
+<col style="width:9%" />
+<col style="width:16%" />
+<col style="width:44%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d24684e53">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d24684e56">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d24684e59">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d24684e62">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d24684e65">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d24684e53 ">OutputtedOffsetPosition</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d24684e56 ">Position Offset Output Value</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d24684e59 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d24684e62 ">Negative number, positive number, or 0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d24684e65 ">
+<p class="p" id="deu1484547925355__ID0EEPIT">Contains the position offset that was added to the command current position.</p>
+
+<p class="p" id="deu1484547925355__ID0ELPIT">The value is updated when <span class="ph phtype_variable"><span class="termtype">Active</span></span> is TRUE.</p>
+
+<p class="p" id="deu1484547925355__ID0ESPIT">Updating is stopped and the value is retained when <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> or <span class="ph phtype_variable"><span class="termtype">Error</span></span> is TRUE.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d24684e53 ">Busy</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d24684e56 ">Executing</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d24684e59 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d24684e62 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d24684e65 ">
+<p class="p" id="deu1484547925355__ID0ERRIT">TRUE when the instruction is acknowledged.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d24684e53 ">Active</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d24684e56 ">Controlling</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d24684e59 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d24684e62 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d24684e65 ">
+<p class="p" id="deu1484547925355__ID0EQTIT">TRUE while the axis is being controlled.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d24684e53 ">CommandAborted</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d24684e56 ">Instruction Aborted</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d24684e59 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d24684e62 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d24684e65 ">
+<p class="p" id="deu1484547925355__ID0EPVIT">TRUE when the instruction is aborted.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d24684e53 ">Error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d24684e56 ">Error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d24684e59 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d24684e62 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d24684e65 ">
+<p class="p" id="deu1484547925355__ID0EOXIT">TRUE while there is an error.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d24684e53 ">ErrorID</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d24684e56 ">Error Code</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d24684e59 ">WORD</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d24684e62 "><a class="xref" href="#deu1484547925355__ID0EHLIT-footnote-2080209"><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d24684e65 ">
+<p class="p" id="deu1484547925355__ID0EPZIT">Contains the error code when an error occurs.</p>
+
+<p class="p">A value of 16#0000 indicates normal execution.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="deu1484547925355__ID0EHLIT-footnote-2080209" id="deu1484547925355__ID0EHLIT-footnote-2080209"><sup>*1</sup></a>
+<p class="p">The upper four digits of the event code give the error code for ErrorID. Refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series Troubleshooting Manual (Cat. No. W503)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Troubleshooting Manual (Cat. No. W564)</span></span></span> for the event codes.</p>
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="tlj1484547925620">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Output Variable Update Timing</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="tlj1484547925620__ID0ET1IT" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:17%" />
+<col style="width:41%" />
+<col style="width:41%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d166276e28">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d166276e31">Timing for changing to TRUE</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d166276e34">Timing for changing to FALSE</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d166276e28 ">Busy</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d166276e31 ">
+<p class="p">When <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to TRUE.</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d166276e34 ">
+<ul class="ul" id="tlj1484547925620__ul_D80E476AB82744BCA3E5DEE5B135E95B">
+<li class="li" id="tlj1484547925620__li_D46BBBEFA3614AFEAC896CB532F2D3BF">
+<p class="p" id="tlj1484547925620__ID0EM4IT">When <span class="ph phtype_variable"><span class="termtype">Error</span></span> changes to TRUE.</p>
+ 
+</li>
+
+<li class="li" id="tlj1484547925620__li_4AEDA3BE67384C22BFFC17D320AF3ECF">
+<p class="p" id="tlj1484547925620__ID0EX4IT">When <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> changes to TRUE.</p>
+ 
+</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d166276e28 ">Active</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d166276e31 ">
+<p class="p" id="tlj1484547925620__ID0EQ5IT">When the instruction is started.</p>
+ 
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d166276e34 ">
+<ul class="ul" id="tlj1484547925620__ul_569A34CCFC094F2C9A95AEBCC12802D6">
+<li class="li" id="tlj1484547925620__li_C16201903749479196AEB0CF849EC2F7">
+<p class="p" id="tlj1484547925620__ID0EI6IT">When <span class="ph phtype_variable"><span class="termtype">Error</span></span> changes to TRUE.</p>
+ 
+</li>
+
+<li class="li" id="tlj1484547925620__li_B0BE5507FEF84959942FE6D36D64548B">
+<p class="p" id="tlj1484547925620__ID0ET6IT">When <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> changes to TRUE.</p>
+ 
+</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d166276e28 ">CommandAborted</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d166276e31 ">
+<ul class="ul" id="tlj1484547925620__ul_1815F75B1D8C49C5AFB9F96ED02FE04B">
+<li class="li" id="tlj1484547925620__li_E22A4AAE225E48F5AE210B37906F9783">
+<p class="p" id="tlj1484547925620__ID0EYAJT">When execution of the synchronized control instruction is stopped.</p>
+ 
+</li>
+
+<li class="li" id="tlj1484547925620__li_34A1BFF500F644E7A5A84A3C604606B4">
+<p class="p" id="tlj1484547925620__ID0EDBJT">When this instruction is aborted because another motion control instruction was executed during execution of this instruction.</p>
+ 
+</li>
+
+<li class="li" id="tlj1484547925620__li_069D56A1C5CC4EC09A9B01872DCA9185">
+<p class="p" id="tlj1484547925620__ID0EOBJT">When this instruction is canceled due to an error in another instruction.</p>
+ 
+</li>
+
+<li class="li" id="tlj1484547925620__li_765731BFC52540EB9AAA346370626471">
+<p class="p" id="tlj1484547925620__ID0EZBJT">When this instruction is executed while there is an axis error.</p>
+ 
+</li>
+
+<li class="li" id="tlj1484547925620__li_E5447CE0573246FAAE89D36ED6F4EDC6">
+<p class="p" id="tlj1484547925620__ID0EECJT">When you start this instruction during MC_Stop instruction execution.</p>
+ 
+</li>
+
+</ul>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d166276e34 ">
+<ul class="ul" id="tlj1484547925620__ul_B2D2F3B8EBBC447CB8B6AAF083FB03F2">
+<li class="li" id="tlj1484547925620__li_A893D152EE4F4BB2A3E008761EB93B62">
+<p class="p" id="tlj1484547925620__ID0E1CJT">When <span class="ph phtype_variable"><span class="termtype">Execute</span></span> is TRUE and changes to FALSE.<span class="ph phtype_variable"><span class="termtype"></span></span></p>
+
+</li>
+
+<li class="li" id="tlj1484547925620__li_8E2D12254E554AB08922BC6E39903865">
+<p class="p" id="tlj1484547925620__ID0EFDJT">After one period when <span class="ph phtype_variable"><span class="termtype">Execute</span></span> is FALSE.</p>
+ 
+</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d166276e28 ">Error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d166276e31 ">
+<p class="p" id="tlj1484547925620__ID0E5DJT">When there is an error in the execution conditions or input parameters for the instruction.</p>
+ 
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d166276e34 ">
+<p class="p" id="tlj1484547925620__ID0EKEJT">When the error is cleared.</p>
+ 
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="vhv1484547878146">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">In-Out Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="vhv1484547878146__ID0EDQAT" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:18%" />
+<col style="width:16%" />
+<col style="width:13%" />
+<col style="width:9%" />
+<col style="width:41%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d182526e52">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d182526e55">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d182526e58">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d182526e61">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d182526e64">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d182526e52 ">Axis</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d182526e55 ">Axis</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d182526e58 ">_sAXIS_REF</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d182526e61 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d182526e64 ">
+<p class="p" id="vhv1484547878146__ID0EAUAT">Specify the axis. <a class="xref" href="#vhv1484547878146__ID0EDQAT-footnote-2080155"><sup>*1</sup></a><a class="xref" href="#vhv1484547878146__ID0EDQAT-footnote-2080144"><sup>*2</sup></a></p>
+ 
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="vhv1484547878146__ID0EDQAT-footnote-2080155" id="vhv1484547878146__ID0EDQAT-footnote-2080155"><sup>*1</sup></a>  <p class="p" id="vhv1484547878146__ID0E6DOT">Specify a user-defined Axis Variable that was created in the Axis Basic Settings of the Sysmac Studio (default: MC_Axis*) or a system-defined axis variable name (_MC_AX[*], _MC1_AX[*], or _MC2_AX[*]).</p>
+
+                        
+<p class="p">If you use Sysmac Studio version 1.29 or higher, you can specify the system-defined axis variable name for AT specification of a user-defined variable. This will allow you to specify the user-defined variable.</p>
+
+<p class="p">If you use Sysmac Studio version 1.28 or lower, do not specify any user-defined variable created in the variable table.</p>
+</div>
+<div class="fn"><a name="vhv1484547878146__ID0EDQAT-footnote-2080144" id="vhv1484547878146__ID0EDQAT-footnote-2080144"><sup>*2</sup></a>  <p class="p" id="vhv1484547878146__ID0ESEOT">Specify the encoder axis that is assigned to the NX-series Encoder Input Unit or the axis for the OMRON 1S-series Servo Drive with built-in EtherCAT communications.</p>
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="svs1484547935886">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="svs1484547935886__li_N10015_N10012_N1000F_N10001">
+<p class="p" id="svs1484547935886__ID0EULJT">The MC_SyncOffsetPosition instruction adds an offset that is calculated based on the value of the <span class="ph phtype_variable"><span class="termtype">OffsetPosition</span></span> (Position Offset) input variable to the command current position and outputs the result to the Servo Drive.</p>
+
+</li>
+
+<li class="li" id="svs1484547935886__li_N10026_N10012_N1000F_N10001">
+<p class="p" id="svs1484547935886__ID0E6LJT">You can change the value of the <span class="ph phtype_variable"><span class="termtype">OffsetPosition</span></span> (Position Offset) input variable while the <span class="ph phtype_variable"><span class="termtype">Active</span></span> (Controlling) output variable is TRUE.</p>
+
+</li>
+
+<li class="li" id="svs1484547935886__li_N1003C_N10012_N1000F_N10001"><p class="p" id="svs1484547935886__ID0EKMJT">The starting point for this instruction is used as the starting point for <span class="ph phtype_variable"><span class="termtype">OffsetPosition</span></span> (Position Offset) as long as <span class="ph phtype_variable"><span class="termtype">Active</span></span> (Controlling) of this instruction is TRUE. Refer to <a class="xref" href="zbt1484547924887.html#fdp1484547933265"><i style="display:none;">☆</i>Repeatedly Starting and Stopping this Instruction</a> for details.</p>
+<br /><img class="image linespace_7pt" id="svs1484547935886__image_ewk_2y4_gx" src="kbw1484547933421.gif" /><br />
+<p class="p linespace_7pt"></p>
+<ul class="ul liststyle_alphabet1" id="svs1484547935886__ul_w5w_whp_gx">
+<li class="li" id="svs1484547935886__li_N10067_N10062_N1003C_N10012_N1000F_N10001">Switch 1 is turned ON only once when <span class="ph phtype_variable"><span class="termtype">Execute</span></span> of the motion instruction is changed to TRUE.</li>
+
+<li class="li" id="svs1484547935886__li_N10072_N10062_N1003C_N10012_N1000F_N10001">Switch 2 is ON while <span class="ph phtype_variable"><span class="termtype">Active</span></span> (Controlling) of the MC_SyncOffsetPosition instruction is TRUE.</li>
+
+<li class="li" id="svs1484547935886__li_N1007D_N10062_N1003C_N10012_N1000F_N10001">When switch 2 is OFF, the offset that is added to the command position is 0.</li>
+
+</ul>
+</li>
+
+<li class="li" id="svs1484547935886__li_N10084_N10012_N1000F_N10001">
+<p class="p" id="svs1484547935886__ID0EROJT">You can execute this instruction only for a slave axis that is currently in synchronized control.</p>
+
+</li>
+
+<li class="li" id="svs1484547935886__li_N10090_N10012_N1000F_N10001">
+<p class="p" id="svs1484547935886__ID0E3OJT">After execution of this instruction is started, <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> (Instruction Aborted) changes to TRUE after <span class="ph phtype_variable"><span class="termtype">Done</span></span>, <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> (Instruction Aborted), or <span class="ph phtype_variable"><span class="termtype">Error</span></span> of the target synchronized control instruction changes to TRUE.</p>
+
+</li>
+
+<li class="li" id="svs1484547935886__li_N100B0_N10012_N1000F_N10001">
+<p class="p" id="svs1484547935886__ID0EHPJT">If <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> (Instruction Aborted) or <span class="ph phtype_variable"><span class="termtype">Error</span></span> of this instruction changes to TRUE, the offset that was previously added to the command position is retained.</p>
+
+</li>
+
+<li class="li" id="svs1484547935886__li_N100C6_N10012_N1000F_N10001"><p class="p" id="svs1484547935886__ID0ESPJT">The following timing chart shows execution of this instruction while execution of the MC_GearIn (Start Gear Operation) instruction is in progress in the primary periodic task and then <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> (Instruction Aborted) of the MC_GearIn (Start Gear Operation) instruction changes to TRUE.</p>
+<br /><img class="image linespace_7pt" id="svs1484547935886__image_swl_33p_gx" src="zeo1484547934887.gif" /><br /></li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="fdp1484547933265">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Repeatedly Starting and Stopping this Instruction</h1>
+
+<div class="body conbody">
+<p class="p" id="fdp1484547933265__ID0EARJT">If you execute this instruction again after it is aborted, <span class="ph phtype_settingvalue"><span class="termtype">0</span></span> is used as the starting point for the <span class="ph phtype_variable"><span class="termtype">OffsetPosition</span></span> (Position Offset) input variable. If you specify <span class="ph phtype_settingvalue"><span class="termtype">0</span></span> for <span class="ph phtype_variable"><span class="termtype">OffsetPosition</span></span> (Position Offset) when you execute the instruction the second time, the offset that is added to the command position is <span class="ph phtype_settingvalue"><span class="termtype">0</span></span>.</p>
+
+<br /><img class="image linespace_7pt" src="doc1484547925901.gif" /><br />
+<p class="p linespace_7pt" id="fdp1484547933265__ID0EHSJT">If you want to use the same starting point when you re-execute a previously aborted instruction, use <span class="ph phtype_variable"><span class="termtype">OutputtedOffsetPosition</span></span> (Position Offset Output Value).</p>
+
+<p class="p" id="fdp1484547933265__ID0EOSJT">As shown in this programming sample, <span class="ph phtype_variable"><span class="termtype">OutputtedOffsetPosition</span></span> (Position Offset Output Value) is used to access the position offset when execution was aborted and it is subtracted from the variable for the input parameter specified for this instruction.</p>
+
+<br /><img class="image" id="fdp1484547933265__image_lm1_dx1_lx" src="xmb1484547927196.gif" /><br />
+<br /><img class="image" id="fdp1484547933265__image_lfn_dx1_lx" src="qjr1484547928459.gif" /><br />
+<br /><img class="image" id="fdp1484547933265__image_ocy_dx1_lx" src="uhi1484547929754.gif" /><br />
+<br /><img class="image" id="fdp1484547933265__image_w2j_2x1_lx" src="rwc1484547931174.gif" /><br />
+<br /><img class="image linespace_7pt" src="dri1484547932266.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="apd1484547936135">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Executable Axis Status</h1>
+
+<div class="body conbody">
+<p class="p" id="apd1484547936135__ID0ERUJT">You can execute this instruction for any axis for which <span class="ph phtype_variable"><span class="termtype">Status.Synchronized</span></span> (Synchronized Motion) in the status of the axis specified for <span class="ph phtype_variable"><span class="termtype">Axis</span></span> is TRUE. An error will occur if the instruction is executed for an axis in any other status.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="piz1484547936322">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Command Position Handling</h1>
+
+<div class="body conbody">
+<p class="p" id="piz1484547936322__ID0EJVJT">The value after the position offset is added is managed as the command position of the axis. Therefore, the following errors may occur depending on the value that you set for the position offset.</p>
+
+<ul class="ul">
+<li class="li">
+<p class="p" id="piz1484547936322__ID0EYVJT">Operation Settings in Axis Parameters</p>
+
+<ul class="ul liststyle_alphabet1">
+<li class="li">
+<p class="p" id="piz1484547936322__ID0EHWJT">Maximum Velocity</p>
+
+</li>
+
+<li class="li">
+<p class="p" id="piz1484547936322__ID0ESWJT">Maximum Acceleration</p>
+
+</li>
+
+<li class="li">
+<p class="p" id="piz1484547936322__ID0E4WJT">Maximum Deceleration</p>
+
+</li>
+
+<li class="li">
+<p class="p" id="piz1484547936322__ID0EIXJT">Velocity Warning Value</p>
+
+</li>
+
+<li class="li">
+<p class="p" id="piz1484547936322__ID0ETXJT">Acceleration Warning Value</p>
+
+</li>
+
+<li class="li">
+<p class="p" id="piz1484547936322__ID0E5XJT">Deceleration Warning Value</p>
+
+</li>
+
+<li class="li">
+<p class="p" id="piz1484547936322__ID0EJYJT">In-position Check Time</p>
+
+</li>
+
+</ul>
+
+</li>
+
+<li class="li">
+<p class="p" id="piz1484547936322__ID0EWYJT">Limit Settings in Axis Parameters</p>
+
+<ul class="ul liststyle_alphabet1">
+<li class="li">
+<p class="p" id="piz1484547936322__ID0EFZJT">Software Limits</p>
+
+</li>
+
+<li class="li">
+<p class="p" id="piz1484547936322__ID0EQZJT">Following Error Over Value</p>
+
+</li>
+
+<li class="li">
+<p class="p" id="piz1484547936322__ID0E2ZJT">Following Error Warning Value</p>
+
+</li>
+
+</ul>
+
+</li>
+
+<li class="li">
+<p class="p" id="piz1484547936322__ID0EI1JT">Command Position Overflow</p>
+
+</li>
+
+<li class="li">
+<p class="p" id="piz1484547936322__ID0ET1JT">Command Position Underflow</p>
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="pls1484547936556">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Timing Charts</h1>
+
+<div class="body conbody">
+<p class="p" id="pls1484547936556__ID0E22JT">The following timing charts show when the position offset is applied when this instruction is executed.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="brx1484547937664">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">When this Instruction Is Executed in the Primary Periodic Task or Priority-5 Periodic Task</h1>
+
+<div class="body conbody">
+<p class="p" id="brx1484547937664__ID0ET3JT">The position offset that is specified for the input is output to the Servo Drive during the next task period.</p>
+
+<p class="p" id="brx1484547937664__ID0EW3JT">The following timing chart shows an example of the operation for when this instruction is executed in the primary periodic task.</p>
+
+<p class="p">The same information applies when it is used in a priority-5 periodic task.</p>
+
+<br /><img class="image linespace_7pt" src="iwe1484547936744.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="sqs1484547938850">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">When this Instruction Is Executed in the Priority-16 Periodic Task</h1>
+
+<div class="body conbody">
+<p class="p" id="sqs1484547938850__ID0EL5JT">The position offset that is specified for the input is output to the Servo Drive one primary period after the next priority-16 periodic task.</p>
+
+<br /><img class="image linespace_7pt" src="ssb1484547937867.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="pyz1484547322969">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Re-execution of Motion Control Instructions</h1>
+
+<div class="body conbody">
+<p class="p" id="pyz1484547322969__ID0EIDFK">This instruction cannot be re-executed.</p>
+
+<p class="p" id="pyz1484547322969__ID0ELDFK">A Motion Control Instruction Re-execution Disabled error (error code: 543B hex) occurs if re-execution is attempted.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="sos1484547268366">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Multi-execution of Motion Control Instructions</h1>
+
+<div class="body conbody">
+        
+<p class="p">For details on multi-execution of motion control instructions, refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Motion Control User&#8217;s Manual (Cat. No. W507)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Industrial Panel PC / Industrial Box PC Motion Control User&#8217;s Manual (Cat. No. W559)</span></span></span>.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="qyy1484547940410">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Multi-execution of Instructions for the Target Synchronized Control Instructions</h1>
+
+<div class="body conbody">
+<p class="p" id="qyy1484547940410__ID0E1CKT">If you perform multi-execution of instructions for the synchronized control instruction for which this instruction is being executed, <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> (Instruction Aborted) of this instruction changes to TRUE. If blending is used for multi-execution of two MC_CamIn (Start Cam Operation) instructions, <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> (Instruction Aborted) of this instruction remains FALSE and processing is continued. In this case, the value of <span class="ph phtype_variable"><span class="termtype">OffsetPosition</span></span> (Position Offset) is added to the initial velocity.</p>
+
+<p class="p" id="qyy1484547940410__ID0E4CKT">The following timing chart shows the operation when this instruction is executed for an MC_GearIn (Start Gear Operation) instruction and multi-execution of instructions is performed for another instance of MC_GearIn (Start Gear Operation) before execution of the first instance is completed.</p>
+
+<br /><img class="image linespace_7pt" src="qns1484547939224.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="ecp1484547941564">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Multi-execution of MC_SyncOffsetPosition Instructions</h1>
+
+<div class="body conbody">
+<p class="p" id="ecp1484547941564__ID0EMEKT">If you perform multi-execution of MC_SyncOffsetPosition instructions, <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> (Instruction Aborted) of the instance for which execution is currently in progress changes to TRUE and the next instance is executed. The starting point for instances that are executed later is found by adding the position offset that was output one cycle before the previous instance was aborted. There are no other instructions for which execution is aborted when multi-execution of instructions is used for this instruction.</p>
+
+<p class="p" id="ecp1484547941564__ID0EPEKT">A timing chart for multi-execution of MC_SyncOffsetPosition instructions is shown below.</p>
+
+<br /><img class="image linespace_7pt" src="vrc1484547940628.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="kla1484547287275">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Errors</h1>
+
+<div class="body conbody">
+<p class="p" id="kla1484547287275__ID0ET2AI">If an error occurs during instruction execution, <span class="ph phtype_variable"><span class="termtype">Error</span></span> will change to TRUE.</p>
+
+<p class="p" id="kla1484547287275__ID0EW2AI">You can find out the cause of the error by referring to the value output by <span class="ph phtype_variable"><span class="termtype">ErrorID</span></span> (Error Code).</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="qjh1484547942625">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Timing Chart When Error Occurs</h1>
+
+<div class="body conbody">
+<br /><img class="image" src="att1484547941783.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="rzo1484547270426">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Error Codes</h1>
+
+<div class="body conbody">
+        
+<p class="p">Refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series Troubleshooting Manual (Cat. No. W503)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Troubleshooting Manual (Cat. No. W564)</span></span></span> for instruction errors.</p>
+
+</div>
+
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

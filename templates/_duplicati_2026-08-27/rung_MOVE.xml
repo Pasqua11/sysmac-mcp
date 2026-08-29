@@ -1,0 +1,55 @@
+<Rungs>
+  <RungXML Comment="QUOTA POSIZIONE SCARICO" Label="" Height="95.600000000000009" Width="661">
+    <LadderElement instanceID="0x00004B21" ladderElementType="Connection" IsLeftPowerRail="true" IsRightPowerRail="false">
+      <ConnectionPoint connectionPointType="output" instanceID="0x00004B22">
+        <Edge instanceID="0x00004B26" />
+      </ConnectionPoint>
+    </LadderElement>
+    <LadderElement instanceID="0x00004B23" ladderElementType="Connection" IsLeftPowerRail="false" IsRightPowerRail="true">
+      <ConnectionPoint connectionPointType="input" instanceID="0x00004B24">
+        <Edge instanceID="0x00004B25" />
+      </ConnectionPoint>
+    </LadderElement>
+    <LadderElement instanceID="0x00004B25" ladderElementType="Edge" sourceID="0x00004B3B" targetID="0x00004B24" Focusable="true" />
+    <LadderElement instanceID="0x00004B26" ladderElementType="Edge" sourceID="0x00004B22" targetID="0x00004B29" Focusable="true" />
+    <LadderElement instanceID="0x00004B28" ladderElementType="Contact" inverted="false" diffUp="false" diffDown="false" elementComment="" variableName="Mem_Scarico" baseVariableName="Mem_Scarico" ProgramName="" baseVariableDataType="BOOL">
+      <ConnectionPoint connectionPointType="input" instanceID="0x00004B29">
+        <Edge instanceID="0x00004B26" />
+      </ConnectionPoint>
+      <ConnectionPoint connectionPointType="output" instanceID="0x00004B2A">
+        <Edge instanceID="0x00004B2B" />
+      </ConnectionPoint>
+    </LadderElement>
+    <LadderElement instanceID="0x00004B2B" ladderElementType="Edge" sourceID="0x00004B2A" targetID="0x00004B39" Focusable="true" />
+    <LadderElement instanceID="0x00004B34" ladderElementType="Function" elementComment="" typeName="MOVE" IsPolynomial="false" IsUserDefinedType="false" ArePinsGeneratedByVariableTableOrder="false">
+      <ConnectionPoint connectionPointType="input" instanceID="0x00004B39" PowerPin="true">
+        <Edge instanceID="0x00004B2B" />
+      </ConnectionPoint>
+      <ConnectionPoint connectionPointType="input" instanceID="0x00004B42" PowerPin="false">
+        <Edge instanceID="0x00004B47" />
+      </ConnectionPoint>
+      <ConnectionPoint connectionPointType="output" instanceID="0x00004B3B" PowerPin="true">
+        <Edge instanceID="0x00004B25" />
+      </ConnectionPoint>
+      <ConnectionPoint connectionPointType="output" instanceID="0x00004B44" PowerPin="false">
+        <Edge instanceID="0x00004B4B" />
+      </ConnectionPoint>
+      <PinViewModel IsInput="true" Name="EN" Datatype="BOOL" Comment="" Negated="false" IsInOutVariable="false" PowerPin="true" Visible="true" EdgeDirectionType="NoEdge" />
+      <PinViewModel IsInput="true" Name="In" Datatype="ANY" Comment="Move source" Negated="false" IsInOutVariable="false" PowerPin="false" Visible="true" EdgeDirectionType="NoEdge" />
+      <PinViewModel IsInput="false" Name="ENO" Datatype="BOOL" Comment="" Negated="false" IsInOutVariable="false" PowerPin="true" Visible="true" EdgeDirectionType="NoEdge" />
+      <PinViewModel IsInput="false" Name="Out" Datatype="ANY" Comment="Move destination" Negated="false" IsInOutVariable="false" PowerPin="false" Visible="true" EdgeDirectionType="NoEdge" />
+    </LadderElement>
+    <LadderElement instanceID="0x00004B46" ladderElementType="Variable" variableName="V_Quota_Scarico" baseVariableName="V_Quota_Scarico" ProgramName="" baseVariableDataType="REAL">
+      <ConnectionPoint connectionPointType="output" instanceID="0x00004B48">
+        <Edge instanceID="0x00004B47" />
+      </ConnectionPoint>
+    </LadderElement>
+    <LadderElement instanceID="0x00004B47" ladderElementType="Edge" sourceID="0x00004B48" targetID="0x00004B42" Focusable="false" />
+    <LadderElement instanceID="0x00004B4A" ladderElementType="Variable" variableName="Quota_Target" baseVariableName="Quota_Target" ProgramName="Programma0" baseVariableDataType="REAL">
+      <ConnectionPoint connectionPointType="input" instanceID="0x00004B4C">
+        <Edge instanceID="0x00004B4B" />
+      </ConnectionPoint>
+    </LadderElement>
+    <LadderElement instanceID="0x00004B4B" ladderElementType="Edge" sourceID="0x00004B44" targetID="0x00004B4C" Focusable="false" />
+  </RungXML>
+</Rungs>

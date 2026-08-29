@@ -1,0 +1,750 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>ChangeNTPServerAdr</title>
+</head>
+<body class="dgu1501815790218"><div class="layer02" id="dgu1501815790218">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">ChangeNTPServerAdr</h1>
+
+<div class="body conbody">
+<p class="p" id="dgu1501815790218__ID0ES2XQ">The ChangeNTPServerAdr instruction changes the NTP server address of the built-in EtherNet/IP port on a CPU Unit or the NTP server address of an EtherNet/IP Unit.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="dgu1501815790218__ID0EC3XQ" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:13%" />
+<col style="width:14%" />
+<col style="width:6%" />
+<col style="width:35%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d159526e37">Instruction</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d159526e40">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d159526e43">
+<p class="p" id="dgu1501815790218__ID0EF4XQ">FB/</p>
+
+<p class="p">FUN</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d159526e52">Graphic expression</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d159526e55">ST expression</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d159526e37 "><span class="indexterm">ChangeNTPServerAdr (Change NTP Server Address)</span>ChangeNTPServerAdr</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d159526e40 "><span class="indexterm">Change NTP Server Address</span>Change NTP Server Address</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d159526e43 ">FB</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d159526e52 ">
+<br /><img class="image" id="dgu1501815790218__image_887C120CA7624E85AE64C4D998F248F1" src="lha1501815789499.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d159526e55 ">ChangeNTPServerAdr_instance(Execute, UnitNo, AdrType, IPAdr, HostName, Done, Busy, Error, ErrorID);</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<div class="note" id="dgu1501815790218__note_N100C4_N10010_N10002"><div class="use"><span class="notetitle use">use:</span> You cannot use this instruction with NY-series Controllers.</div></div>
+
+<div class="note" id="dgu1501815790218__note_N100AC_N1000F_N10002"><div class="ver"><span class="notetitle ver">ver:</span> A CPU Unit with unit version 1.02 or later and Sysmac Studio version 1.03 or higher are required to use this instruction.</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="mlv1501817256404">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="mlv1501817256404__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:20%" />
+<col style="width:9%" />
+<col style="width:20%" />
+<col style="width:14%" />
+<col style="width:14%" />
+<col style="width:8%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d654378e79">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d654378e81">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d654378e84">I/O</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d654378e87">Description</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d654378e90">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d654378e94">Unit</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d654378e97">Default</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d654378e79 ">UnitNo</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d654378e81 ">Unit number</td>
+
+<td class="entry cellrowborder" rowspan="4" style="text-align:left;vertical-align:middle;" headers="d654378e84 ">Input</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d654378e87 ">Unit number for which to change the NTP server address</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d654378e90 ">_CBU_CPU or _CBU_No00 to _CBU_No15 <a class="xref" href="dgu1501815790218.html#mlv1501817256404__fn-1903258"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" rowspan="4" style="text-align:left;vertical-align:middle;" headers="d654378e94 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d654378e97 ">_CBU_No00</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d654378e79 ">AdrType</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d654378e81 ">Server setting method</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d654378e87 ">
+<p class="p" id="mlv1501817256404__ID0EVKYQ">NTP Server Address Setting Method</p>
+
+<p class="p" id="mlv1501817256404__ID0E3KYQ">TRUE: Host name</p>
+
+<p class="p" id="mlv1501817256404__ID0EDLYQ">FALSE: IP address</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d654378e90 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d654378e97 ">FALSE</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d654378e79 ">IPAdr[] (array)<a class="xref" href="dgu1501815790218.html#mlv1501817256404__fn-1903259"><i style="display:none;">☆</i><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d654378e81 ">IP address</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d654378e87 ">IP address of the NTP server</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d654378e90 "><a class="xref" href="dgu1501815790218.html#mlv1501817256404__fn-1903260"><i style="display:none;">☆</i><sup>*3</sup></a></td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d654378e97 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d654378e79 ">HostName</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d654378e81 ">Host name</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d654378e87 ">Host name of the address of the NTP server</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d654378e90 ">1 to 200 single-byte alphanumeric characters, <span class="ph phtype_quote"><span class="termtype">"-"</span></span> (hyphen), and <span class="ph phtype_quote"><span class="termtype">"."</span></span> (dot)<a class="xref" href="dgu1501815790218.html#mlv1501817256404__fn-1903261"><i style="display:none;">☆</i><sup>*4</sup></a></td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="mlv1501817256404__fn-1903258" id="mlv1501817256404__fn-1903258"><sup>*1</sup></a>  You can set <span class="ph phtype_type2"><span class="termtype">_CBU_No00 to _CBU_No15</span></span> only for an NJ-series CPU Unit.</div>
+<div class="fn"><a name="mlv1501817256404__fn-1903259" id="mlv1501817256404__fn-1903259"><sup>*2</sup></a>  This is a 4-element array with element numbers 0 to 3.</div>
+<div class="fn"><a name="mlv1501817256404__fn-1903260" id="mlv1501817256404__fn-1903260"><sup>*3</sup></a>  The valid range depends on whether you specify the built-in EtherNet/IP port or an EtherNet/IP Unit for <span class="ph phtype_variable"><span class="termtype">UnitNo</span></span> (Unit number). Refer to <a class="xref" href="dgu1501815790218.html#npy1501817256236"><i style="display:none;">☆</i>Valid Range for IPAdr[]</a>, below, for details. </div>
+<div class="fn"><a name="mlv1501817256404__fn-1903261" id="mlv1501817256404__fn-1903261"><sup>*4</sup></a>  There can be between 1 and 63 single-byte alphanumeric characters between <span class="ph phtype_quote"><span class="termtype">"."</span></span> (dot) and <span class="ph phtype_quote"><span class="termtype">"."</span></span> (dot). The valid range of <span class="ph phtype_variable"><span class="termtype">HostName</span></span> is valid only when server setting method <span class="ph phtype_variable"><span class="termtype">AdrType</span></span> is FALSE. </div></div></div>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="mlv1501817256404__table_N10177_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:5%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:top;" id="d654378e262">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d654378e264">Boolean</th>
+
+<th class="entry cellrowborder" colspan="4" style="text-align:center;vertical-align:middle;" id="d654378e267">Bit strings</th>
+
+<th class="entry cellrowborder" colspan="8" style="text-align:center;vertical-align:middle;" id="d654378e270">Integers</th>
+
+<th class="entry cellrowborder" colspan="2" style="text-align:center;vertical-align:middle;" id="d654378e273">Real numbers</th>
+
+<th class="entry cellrowborder" colspan="5" style="text-align:center;vertical-align:middle;" id="d654378e277">Times, durations, dates, and text strings</th>
+
+</tr>
+
+<tr class="row">
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d654378e283">BOOL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d654378e286">BYTE</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d654378e289">WORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d654378e292">DWORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d654378e295">LWORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d654378e299">USINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d654378e302">UINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d654378e305">UDINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d654378e308">ULINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d654378e311">SINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d654378e314">INT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d654378e318">DINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d654378e321">LINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d654378e324">REAL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d654378e327">LREAL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d654378e330">TIME</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d654378e333">DATE</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d654378e337">TOD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d654378e340">DT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d654378e343">STRING</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d654378e262 d654378e283 ">UnitNo</td>
+
+<td class="entry cellrowborder" colspan="20" style="text-align:center;vertical-align:middle;" headers="d654378e264 d654378e267 d654378e270 d654378e273 d654378e277 d654378e286 d654378e289 d654378e292 d654378e295 d654378e299 d654378e302 d654378e305 d654378e308 d654378e311 d654378e314 d654378e318 d654378e321 d654378e324 d654378e327 d654378e330 d654378e333 d654378e337 d654378e340 d654378e343 ">Refer to <a class="xref" href="dgu1501815790218.html"><i style="display:none;">☆</i>ChangeNTPServerAdr</a> for the enumerators of the enumerated type _eUnitNo.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d654378e262 d654378e283 ">AdrType</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e264 d654378e286 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e267 d654378e289 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e267 d654378e292 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e267 d654378e295 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e267 d654378e299 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e270 d654378e302 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e270 d654378e305 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e270 d654378e308 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e270 d654378e311 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e270 d654378e314 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e270 d654378e318 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e270 d654378e321 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e270 d654378e324 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e273 d654378e327 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e273 d654378e330 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e277 d654378e333 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e277 d654378e337 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e277 d654378e340 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e277 d654378e343 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e277 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d654378e262 d654378e283 ">IPAdr[] (array)</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e264 d654378e286 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e267 d654378e289 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e267 d654378e292 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e267 d654378e295 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e267 d654378e299 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e270 d654378e302 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e270 d654378e305 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e270 d654378e308 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e270 d654378e311 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e270 d654378e314 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e270 d654378e318 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e270 d654378e321 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e270 d654378e324 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e273 d654378e327 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e273 d654378e330 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e277 d654378e333 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e277 d654378e337 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e277 d654378e340 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e277 d654378e343 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e277 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" colspan="20" style="text-align:center;vertical-align:middle;" headers="d654378e264 d654378e267 d654378e270 d654378e273 d654378e277 d654378e286 d654378e289 d654378e292 d654378e295 d654378e299 d654378e302 d654378e305 d654378e308 d654378e311 d654378e314 d654378e318 d654378e321 d654378e324 d654378e327 d654378e330 d654378e333 d654378e337 d654378e340 d654378e343 ">Specify an array.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d654378e262 d654378e283 ">HostName</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e264 d654378e286 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e267 d654378e289 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e267 d654378e292 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e267 d654378e295 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e267 d654378e299 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e270 d654378e302 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e270 d654378e305 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e270 d654378e308 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e270 d654378e311 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e270 d654378e314 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e270 d654378e318 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e270 d654378e321 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e270 d654378e324 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e273 d654378e327 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e273 d654378e330 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e277 d654378e333 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e277 d654378e337 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e277 d654378e340 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e277 d654378e343 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d654378e277 "><span class="ph font_Wingdings"></span>OK</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="pds1501817256659">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function</h1>
+
+<div class="body conbody">
+<p class="p" id="pds1501817256659__ID0EKTZQ">The ChangeNTPServerAdr instruction changes the address of the NTP server of the built-in EtherNet/IP port or EtherNet/IP Unit that is specified with unit number <span class="ph phtype_variable"><span class="termtype">UnitNo</span></span>.</p>
+
+<p class="p" id="pds1501817256659__ID0ENTZQ">If server setting method <span class="ph phtype_variable"><span class="termtype">AdrType</span></span> is TRUE, the NTP server address is changed to IP address IPAdr[].</p>
+
+<p class="p" id="pds1501817256659__ID0EUTZQ">If server setting method <span class="ph phtype_variable"><span class="termtype">AdrType</span></span> is FALSE, the NTP server address is changed to host name <span class="ph phtype_variable"><span class="termtype">HostName</span></span>.</p>
+
+<p class="p" id="pds1501817256659__ID0E2TZQ">When <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes from FALSE to TRUE, the values of IPAdr[] or <span class="ph phtype_variable"><span class="termtype">HostName</span></span> are written as the NTP server address. The value of <span class="ph phtype_variable"><span class="termtype">Busy</span></span> remains TRUE during execution of the instruction, and the value of <span class="ph phtype_variable"><span class="termtype">Done</span></span> changes to TRUE when reception of the setting change request is completed.</p>
+
+<p class="p" id="pds1501817256659__ID0ECUZQ">The settings are not applied yet when <span class="ph phtype_variable"><span class="termtype">Done</span></span> changes to TRUE.</p>
+
+<p class="p linespace_7pt" id="pds1501817256659__ID0EPUZQ">If you specify an EtherNet/IP Unit with <span class="ph phtype_variable"><span class="termtype">UnitNo</span></span>, the EtherNet/IP Unit is restarted when execution of the instruction ends. The new NTP server address is enabled when restarting the Unit ends.</p>
+
+<p class="p linespace_7pt" id="pds1501817256659__ID0E3UZQ">You can use this instruction to change the NTP server address of the built-in EtherNet/IP port or an EtherNet/IP Unit from an HMI.</p>
+
+<p class="p linespace_7pt" id="pds1501817256659__ID0EJVZQ">The data type of <span class="ph phtype_variable"><span class="termtype">UnitNo</span></span> is enumerated type _eUnitNo. The meanings of the enumerators are as follows:</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="pds1501817256659__table_N10079_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d750996e92">Enumerator</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d750996e95">Meaning</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d750996e92 ">_CBU_CPU</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d750996e95 ">Built-in EtherNet/IP port</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d750996e92 ">_CBU_No00 to _CBU_- No15<a class="xref" href="dgu1501815790218.html#pds1501817256659__fn-1903262"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d750996e95 ">Unit number 00 to 15 of the EtherNet/IP Unit</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="pds1501817256659__fn-1903262" id="pds1501817256659__fn-1903262"><sup>*1</sup></a>  This can be set only for an NJ-series CPU Unit. </div></div></div>
+
+<p class="p linespace_7pt" id="pds1501817256659__ID0EAZZQ">Set the IP address in order in elements 0 to 3 of IPAdr[]. For example, to change the NTP server address to IP address 130.58.17.32, set IPAdr[0] to BYTE#16#82, IPAdr[1] to BYTE#16#3A, IPAdr[2] to BYTE#16#11 and IPAdr[3] to BYTE#16#20.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="npy1501817256236">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Valid Range for IPAdr[]</h1>
+
+<div class="body conbody">
+<p class="p">The valid range of the value of IPAdr[] depends on whether you specify the built-in EtherNet/IP port or an EtherNet/IP Unit for unit number <span class="ph phtype_variable"><span class="termtype">UnitNo</span></span>, as given below. The valid ranges of the values are valid only when <span class="ph phtype_variable"><span class="termtype">AdrType</span></span> is TRUE.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="npy1501817256236__table_znc_b5v_k1b" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d695673e43">Setting of <span class="ph phtype_variable"><span class="termtype">UnitNo</span></span></th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d695673e48">Valid range</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d695673e43 ">Built-in EtherNet/IP port</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d695673e48 ">
+<p class="p" id="npy1501817256236__ID0EO2ZQ">The following IP addresses cannot be used. All other IP addresses are valid.</p>
+
+<ul class="ul" id="npy1501817256236__ul_68B23F78CEA744D89F5F80B516330FA0">
+<li class="li" id="npy1501817256236__li_E564766393B643FBBA5142E2E9645CA7">IP addresses that start with 127, 0, or 255</li>
+
+<li class="li" id="npy1501817256236__li_7E9A4D27FC3346608537A4E7A1FBDB0E">Class D IP addresses (224.0.0.0 to 239.255.255.255)</li>
+
+<li class="li" id="npy1501817256236__li_2E4C97CA07DC48A9BDED097D0946D108">Class E IP addresses (240.0.0.0 to 255.255.255.255)</li>
+
+<li class="li" id="npy1501817256236__li_6B150A9DAB464CABA45968A74C049169">IP addresses that are reserved for AutoIP<a class="xref" href="dgu1501815790218.html#npy1501817256236__fn-1903263"><i style="display:none;">☆</i><sup>*1</sup></a> (169.254.0.0 to 169.254.255.255)</li>
+
+<li class="li" id="npy1501817256236__li_8168B28FDB8C429683FAB3D7E028A470">IP addresses of USB ports (192.168.255.0 to 192.168.255.255)</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d695673e43 ">EtherNet/IP Unit</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d695673e48 ">
+<p class="p" id="npy1501817256236__ID0EL5ZQ">The following IP addresses cannot be used. All other IP addresses are valid.</p>
+
+<ul class="ul" id="npy1501817256236__ul_D151E85CBE0740BB9B1D643B63C48B27">
+<li class="li" id="npy1501817256236__li_242D6229E14B4D10A956867040E06834">IP addresses that start with 127</li>
+
+<li class="li" id="npy1501817256236__li_276915F9D8094260A9F5E7C7E5FB6C30">Class D IP addresses (224.0.0.0 to 239.255.255.255)</li>
+
+<li class="li" id="npy1501817256236__li_1273C37512B1472CBC44BD13FE856E0F">Class E IP addresses (240.0.0.0 to 255.255.255.255)</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="npy1501817256236__fn-1903263" id="npy1501817256236__fn-1903263"><sup>*1</sup></a>  AutoIP is an automatic IP address assignment feature of Windows 98 and later operating systems. </div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="pze1501817259409">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Notation Example</h1>
+
+<div class="body conbody">
+<p class="p">The following example shows how to change the NTP server address of the EtherNet/IP Unit with unit number 00.</p>
+
+<p class="p linespace_7pt" id="pze1501817259409__ID0EFA1Q">If A (<span class="ph phtype_variable"><span class="termtype">Execute</span></span>) is changed to TRUE from an HMI or other device, the NTP server address is changed.</p>
+
+<p class="p" id="pze1501817259409__ID0EMA1Q">For example, assume that IPAdr0[0] is BYTE#16#C0, IPAdr0[1] is BYTE#16#A8, IPAdr0[2] is BYTE#16#FA, and IPAdr0[3] is BYTE#16#0A.</p>
+
+<p class="p">If Type (<span class="ph phtype_variable"><span class="termtype">AdrType</span></span>) is TRUE, the NTP server address is changed to IP address 192.168.250.10.</p>
+
+<p class="p">If Type (<span class="ph phtype_variable"><span class="termtype">AdrType</span></span>) is FALSE, the NTP server address is changed to host name ServerA.</p>
+
+<br /><img class="image" id="pze1501817259409__image_C4B9AC4EBA284F16B33C98A1CC7F44B2" src="fiw1501817256898.gif" /><br />
+<br /><img class="image" id="pze1501817259409__image_701BD82CEAF94808AF198BA5E8D095D9" src="mnx1501817257775.gif" /><br />
+<p class="p linespace_7pt" id="pze1501817259409__ID0ETB1Q">You can use the <span class="ph phtype_variable"><span class="termtype">_EIP_EtnOnlineSta</span></span>, <span class="ph phtype_variable"><span class="termtype">_EIP1_EtnOnlineSta</span></span>, or <span class="ph phtype_variable"><span class="termtype">_EIP2_EtnOnlineSta</span></span> system-defined variable to see if the port is in link ON status.</p>
+
+<p class="p" id="pze1501817259409__ID0E1B1Q">Here, <span class="ph phtype_variable"><span class="termtype">_EIP_EtnOnlineSta</span></span> is used as an example, but this information also applies to <span class="ph phtype_variable"><span class="termtype">_EIP1_EtnOnlineSta</span></span> and <span class="ph phtype_variable"><span class="termtype">_EIP2_EtnOnlineSta</span></span>.</p>
+
+<p class="p linespace_7pt" id="pze1501817259409__ID0EHC1Q">When <span class="ph phtype_variable"><span class="termtype">Busy</span></span> changes to FALSE, the port changes to link OFF status, and <span class="ph phtype_variable"><span class="termtype">_EIP_EtnOnlineSta</span></span> changes to FALSE. When the port then changes to link ON status, <span class="ph phtype_variable"><span class="termtype">_EIP_EtnOnlineSta</span></span> changes to TRUE.</p>
+
+<br /><img class="image" id="pze1501817259409__image_5F9C5FB359304F6AAE9872FA32B71C1E" src="lka1501817258612.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="lfj1501817259652">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Related System-defined Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="lfj1501817259652__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:30%" />
+<col style="width:20%" />
+<col style="width:10%" />
+<col style="width:40%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d585424e46">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d585424e49">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d585424e52">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d585424e55">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d585424e46 ">_EIP_EtnOnlineSta <a class="xref" href="dgu1501815790218.html#lfj1501817259652__fn-1903267"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d585424e49 ">Online</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d585424e52 ">BOOL</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d585424e55 ">
+<p class="p" id="lfj1501817259652__ID0EVH1Q">This variable indicates when built-in EtherNet/IP port communications can be used.</p>
+
+<p class="p" id="lfj1501817259652__ID0E3H1Q">TRUE: Communications are possible.</p>
+
+<p class="p" id="lfj1501817259652__ID0EDI1Q">FALSE: Communications are not possible.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d585424e46 ">
+<p class="p" id="lfj1501817259652__ID0ESI1Q">_EIP1_EtnOnlineSta<a class="xref" href="dgu1501815790218.html#lfj1501817259652__fn-1903268"><i style="display:none;">☆</i><sup>*2</sup></a></p>
+
+<p class="p" id="lfj1501817259652__ID0E3I1Q">_EIP2_EtnOnlineSta<a class="xref" href="dgu1501815790218.html#lfj1501817259652__fn-1903269"><i style="display:none;">☆</i><sup>*3</sup></a></p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="lfj1501817259652__fn-1903267" id="lfj1501817259652__fn-1903267"><sup>*1</sup></a>  Use this variable name for an NJ-series CPU Unit. </div>
+<div class="fn"><a name="lfj1501817259652__fn-1903268" id="lfj1501817259652__fn-1903268"><sup>*2</sup></a>  Use this variable name for port 1 on an NX-series CPU Unit.</div>
+<div class="fn"><a name="lfj1501817259652__fn-1903269" id="lfj1501817259652__fn-1903269"><sup>*3</sup></a>  Use this variable name for port 2 on an NX-series CPU Unit.</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="tdr1501817259881">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Additional Information</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li">
+<p class="p" id="tdr1501817259881__ID0ETK1Q">You can change the NTP server address with this instruction even if the CPU Unit is write protected.</p>
+
+</li>
+
+<li class="li">
+<p class="p" id="tdr1501817259881__ID0E5K1Q">If the NTP server whose address is to change is set to operate at a specified time interval, measuring the specified time interval will start when execution of this instruction ends.</p>
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="uzh1501817260124">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Precautions for Correct Use</h1>
+
+<div class="body conbody">
+<ul class="ul" id="uzh1501817260124__ul_75B75579CEDE4697BFAF078730948062">
+<li class="li" id="uzh1501817260124__li_N10018_N10013_N10010_N10002">Execution of this instruction is continued until processing is completed even if the value of <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to FALSE or the execution time exceeds the task period. The value of <span class="ph phtype_variable"><span class="termtype">Done</span></span> changes to TRUE when processing is completed. Use this to confirm normal completion of the processing.</li>
+
+<li class="li" id="uzh1501817260124__li_N1001D_N10013_N10010_N10002">Refer to <a class="xref" href="aag1501815842589.html#aag1501815842589"><i style="display:none;">☆</i>Using this Section</a> for a timing chart for <span class="ph phtype_variable"><span class="termtype">Execute</span></span>, <span class="ph phtype_variable"><span class="termtype">Done</span></span>, <span class="ph phtype_variable"><span class="termtype">Busy</span></span>, and <span class="ph phtype_variable"><span class="termtype">Error</span></span>.</li>
+
+<li class="li" id="uzh1501817260124__li_N10022_N10013_N10010_N10002">You cannot use this instruction in an event task. A compiling error will occur.</li>
+
+<li class="li" id="uzh1501817260124__li_N10047_N10013_N10010_N10002">If the power supply to the Controller is turned OFF while this instruction is in execution (the value of <span class="ph phtype_type2"><span class="termtype">Busy</span></span> is TRUE), a major fault level error may occur when the power supply is turned ON next time.</li>
+
+<li class="li" id="uzh1501817260124__li_N10027_N10013_N10010_N10002"><span class="ph phtype_variable"><span class="termtype">Error</span></span> is TRUE if an error occurred. The meanings of the values of <span class="ph phtype_variable"><span class="termtype">ErrorID</span></span> are given in the following table.</li>
+
+</ul>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="uzh1501817260124__table_N1006C_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1012915e90">Value of <span class="ph phtype_variable"><span class="termtype">ErrorID</span></span></th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1012915e95">Error name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1012915e98">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row" style="vertical-align:middle;">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1012915e90 ">16#0400</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1012915e95 ">Input Value Out of Range</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1012915e98 ">The value of IPAdr[] or <span class="ph phtype_variable"><span class="termtype">HostName</span></span> is not correct<a class="xref" href="dgu1501815790218.html#uzh1501817260124__fn-1903273"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:middle;">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1012915e90 ">16#2400</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1012915e95 ">No Execution Right</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1012915e98 ">
+<p class="p">The instruction was executed when changing the status was not possible.</p>
+
+<ul class="ul">
+<li class="li" id="uzh1501817260124__d34e82">While changing the settings was already in progress</li>
+
+<li class="li" id="uzh1501817260124__d34e85">While restarting the built-in EtherNet/IP port was in progress</li>
+
+<li class="li" id="uzh1501817260124__d34e88">While downloading tag data link settings from the Network Configurator was in progress</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:middle;">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1012915e90 ">16#2402</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1012915e95 ">Too Many Simultaneous Instruction Executions</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1012915e98 ">Too many ChangeIPAdr, <span class="ph">ChangeXBUnitIPAdr</span>, ChangeFTPAccount, and ChangeNTPServerAdr instructions were executed at the same time.</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="uzh1501817260124__fn-1903273" id="uzh1501817260124__fn-1903273"><sup>*1</sup></a>  The setting range is checked only for the specified <span class="ph phtype_variable"><span class="termtype">AdrType</span></span>. </div></div></div>
+
+</div>
+
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+
+
+
+
+

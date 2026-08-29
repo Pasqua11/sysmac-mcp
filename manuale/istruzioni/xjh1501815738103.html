@@ -1,0 +1,735 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>GetECError</title>
+</head>
+<body class="xjh1501815738103"><div class="layer02" id="xjh1501815738103">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">GetECError</h1>
+
+<div class="body conbody">
+<p class="p" id="xjh1501815738103__ID0EWFOM">The GetECError instruction detects errors in the EtherCAT Master Function Module.</p>
+
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="xjh1501815738103__table_N10017_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:13%" />
+<col style="width:14%" />
+<col style="width:6%" />
+<col style="width:35%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1115079e37">Instruction</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1115079e40">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1115079e43">
+<p class="p">FB/</p>
+
+<p class="p">FUN</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1115079e52">Graphic expression</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1115079e55">ST expression</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1115079e37 "><span class="indexterm">GetECError (Get EtherCAT Error Status)</span>GetECError</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1115079e40 "><span class="indexterm">Get EtherCAT Error Status</span>Get EtherCAT Error Status</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1115079e43 ">FUN</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1115079e52 ">
+<br /><img class="image" id="xjh1501815738103__image_FEA83EE71A9D482DBE207D918B0E3492" src="qyx1501815737204.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1115079e55 ">Out:=GetECError(Level, Code);</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<div class="note" id="xjh1501815738103__note_N100AB_N1000F_N10002"><div class="ver"><span class="notetitle ver">ver:</span> A CPU Unit with unit version 1.02 or later is required to detect slave errors with this instruction.</div></div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="tot1501816930264">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Variables</h1>
+ 
+<div class="body conbody">
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="tot1501816930264__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:20%" />
+<col style="width:9%" />
+<col style="width:20%" />
+<col style="width:14%" />
+<col style="width:14%" />
+<col style="width:8%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d932484e49">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d932484e51">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d932484e54">I/O</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d932484e57">Description</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d932484e60">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d932484e64">Unit</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d932484e67">Default</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d932484e49 ">Out</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d932484e51 ">Error flag</td>
+
+<td class="entry cellrowborder" rowspan="3" style="text-align:left;vertical-align:middle;" headers="d932484e54 ">Output</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d932484e57 ">
+<p class="p">TRUE: Error exists<a class="xref" href="xjh1501815738103.html#tot1501816930264__fn-1439432"><i style="display:none;">☆</i><sup>*1</sup></a></p>
+
+<p class="p">FALSE: No error</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d932484e60 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" rowspan="3" style="text-align:left;vertical-align:middle;" headers="d932484e64 ">---</td>
+
+<td class="entry cellrowborder" rowspan="3" style="text-align:left;vertical-align:middle;" headers="d932484e67 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d932484e49 ">Level</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d932484e51 ">Highest level status</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d932484e57 ">
+<p class="p">Status of the current error with the highest level<a class="xref" href="xjh1501815738103.html#tot1501816930264__fn-1439432"><i style="display:none;">☆</i><sup>*1</sup></a></p>
+
+<p class="p">0: No error</p>
+
+<p class="p">2: Partial fault level</p>
+
+<p class="p">3: Minor fault level</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d932484e60 ">0, 2, or 3</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d932484e49 ">Code</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d932484e51 ">Highest level event code</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d932484e57 ">Event code of the current error with the highest level<a class="xref" href="xjh1501815738103.html#tot1501816930264__fn-1439432"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d932484e60 ">16#00000000, 16#00070000 to 16#FFFFFFFF</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="tot1501816930264__fn-1439432" id="tot1501816930264__fn-1439432"><sup>*1</sup></a>  The errors that are detected depend on the unit version of the CPU Unit and the version of the Sysmac Studio. Refer to <a class="xref" href="xjh1501815738103.html#ckk1501816930075"><i style="display:none;">☆</i>Detected Errors and Output Variable Values</a> for details. </div></div></div>
+ 
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="tot1501816930264__table_N10125_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:5%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:top;" id="d932484e212">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d932484e214">Boolean</th>
+
+<th class="entry cellrowborder" colspan="4" style="text-align:center;vertical-align:middle;" id="d932484e217">Bit strings</th>
+
+<th class="entry cellrowborder" colspan="8" style="text-align:center;vertical-align:middle;" id="d932484e220">Integers</th>
+
+<th class="entry cellrowborder" colspan="2" style="text-align:center;vertical-align:middle;" id="d932484e223">Real numbers</th>
+
+<th class="entry cellrowborder" colspan="5" style="text-align:center;vertical-align:middle;" id="d932484e227">Times, durations, dates, and text strings</th>
+
+</tr>
+
+<tr class="row">
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d932484e233">BOOL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d932484e236">BYTE</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d932484e239">WORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d932484e242">DWORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d932484e245">LWORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d932484e249">USINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d932484e252">UINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d932484e255">UDINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d932484e258">ULINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d932484e261">SINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d932484e264">INT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d932484e268">DINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d932484e271">LINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d932484e274">REAL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d932484e277">LREAL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d932484e280">TIME</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d932484e283">DATE</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d932484e287">TOD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d932484e290">DT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d932484e293">STRING</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d932484e212 d932484e233 ">Out</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e214 d932484e236 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e217 d932484e239 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e217 d932484e242 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e217 d932484e245 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e217 d932484e249 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e220 d932484e252 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e220 d932484e255 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e220 d932484e258 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e220 d932484e261 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e220 d932484e264 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e220 d932484e268 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e220 d932484e271 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e220 d932484e274 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e223 d932484e277 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e223 d932484e280 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e227 d932484e283 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e227 d932484e287 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e227 d932484e290 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e227 d932484e293 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e227 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d932484e212 d932484e233 ">Level</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e214 d932484e236 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e217 d932484e239 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e217 d932484e242 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e217 d932484e245 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e217 d932484e249 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e220 d932484e252 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e220 d932484e255 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e220 d932484e258 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e220 d932484e261 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e220 d932484e264 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e220 d932484e268 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e220 d932484e271 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e220 d932484e274 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e223 d932484e277 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e223 d932484e280 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e227 d932484e283 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e227 d932484e287 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e227 d932484e290 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e227 d932484e293 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e227 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d932484e212 d932484e233 ">Code</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e214 d932484e236 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e217 d932484e239 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e217 d932484e242 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e217 d932484e245 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e217 d932484e249 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e220 d932484e252 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e220 d932484e255 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e220 d932484e258 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e220 d932484e261 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e220 d932484e264 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e220 d932484e268 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e220 d932484e271 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e220 d932484e274 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e223 d932484e277 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e223 d932484e280 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e227 d932484e283 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e227 d932484e287 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e227 d932484e290 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e227 d932484e293 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d932484e227 ">&#160;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="dkp1501816930527">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function</h1>
+
+<div class="body conbody">
+<p class="p" id="dkp1501816930527__ID0EAXPM">The GetECError instruction detects errors in the EtherCAT Master Function Module.</p>
+
+<p class="p" id="dkp1501816930527__ID0EDXPM">The value of <span class="ph phtype_variable"><span class="termtype">Out</span></span> is TRUE if there is an error, and FALSE if there is no error.</p>
+
+<p class="p" id="dkp1501816930527__ID0EKXPM"><span class="ph phtype_variable"><span class="termtype">Level</span></span> gives the status of the current error with the highest level.</p>
+
+<p class="p" id="dkp1501816930527__ID0ERXPM"><span class="ph phtype_variable"><span class="termtype">Code</span></span> gives the event code of the current error with the highest level.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="ckk1501816930075">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Detected Errors and Output Variable Values</h1>
+
+<div class="body conbody">
+<p class="p">The errors that are detected by this instruction depend on the unit version of the CPU Unit. The following table lists the errors that are detected for each unit version.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ckk1501816930075__table_N10017_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d110532e30">Unit version of CPU Unit</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d110532e33">Detected errors</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110532e30 ">1.02 or later</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110532e33 ">Communications port errors, master errors, and slave errors</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110532e30 ">1.01 or earlier</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110532e33 ">Communications port errors and master errors</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+        
+<p class="p linespace_7pt">The following table shows the relationship between the unit version of the CPU Unit, the status of the EtherCAT Master Function Module and values of the output variables.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ckk1501816930075__table_N10074_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d110532e90">Unit version of CPU Unit</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d110532e93">Status of EtherCAT Master Function Module</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d110532e96">Value of <span class="ph phtype_variable"><span class="termtype">Out</span></span></th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d110532e101">Value of <span class="ph phtype_variable"><span class="termtype">Level</span></span></th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d110532e106">Value of <span class="ph phtype_variable"><span class="termtype">Code</span></span></th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder bgcolor_standardgray fonttype_head" rowspan="3" style="text-align:left;vertical-align:middle;" headers="d110532e90 ">1.04 or later</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110532e93 ">No error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110532e96 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110532e101 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110532e106 ">16#0000_0000</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110532e93 ">Communications port error or master error</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d110532e96 ">TRUE</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d110532e101 ">
+<p class="p">Status of the current error with the highest level</p>
+
+<p class="p">2: Partial fault level</p>
+
+<p class="p">3: Minor fault level</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110532e106 ">
+<p class="p">Event code of the current error with the highest level<a class="xref" href="#ckk1501816930075__fn-1439426"><sup>*1</sup></a></p>
+
+<p class="p">16#0007_0000 to 16#FFFF_FFFF</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110532e93 ">Slave error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110532e106 ">16#0000_0000</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder bgcolor_standardgray fonttype_head" rowspan="3" style="text-align:left;vertical-align:middle;" headers="d110532e90 ">1.02 or 1.03</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110532e93 ">No error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110532e96 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110532e101 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110532e106 ">16#0000_0000</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110532e93 ">Communications port error or master error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110532e96 ">TRUE</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d110532e101 ">
+<p class="p">Status of the current error with the highest level</p>
+
+<p class="p">2: Partial fault level</p>
+
+<p class="p">3: Minor fault level</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110532e106 ">
+<p class="p">Event code of the current error with the highest level<a class="xref" href="#ckk1501816930075__fn-1439426"><sup>*1</sup></a></p>
+
+<p class="p">16#0007_0000 to 16#FFFF_FFFF</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110532e93 ">Slave error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110532e96 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110532e106 ">16#0000_0000</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder bgcolor_standardgray fonttype_head" rowspan="3" style="text-align:left;vertical-align:middle;" headers="d110532e90 ">1.00 or 1.01</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110532e93 ">No error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110532e96 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110532e101 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110532e106 ">16#0000_0000</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110532e93 ">Communications port error or master error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110532e96 ">TRUE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110532e101 ">
+<p class="p">Status of the current error with the highest level</p>
+
+<p class="p">2: Partial fault level</p>
+
+<p class="p">3: Minor fault level</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110532e106 ">
+<p class="p">Event code of the current error with the highest level<a class="xref" href="#ckk1501816930075__fn-1439426"><sup>*1</sup></a></p>
+
+<p class="p">16#0007_0000 to 16#FFFF_FFFF</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110532e93 ">Slave error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110532e96 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110532e101 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d110532e106 ">16#0000_0000</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="ckk1501816930075__fn-1439426" id="ckk1501816930075__fn-1439426"><sup>*1</sup></a>  If there is more than one error at the highest event level, the value is the event code for the error that occurred first.</div></div></div>
+
+        
+        
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="cjc1501816932386">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Notation Example</h1>
+<div class="body conbody"><p class="p" id="cjc1501816932386__ID0ELPAO">The following figure shows a programming example.</p>
+<br /><img class="image" id="cjc1501816932386__image_grw_j2z_21b" src="ume1501816930761.gif" /><br /><br /><img class="image" id="cjc1501816932386__image_gsd_k2z_21b" src="kjx1501816931463.gif" /><br /></div>
+<div class="related-links"></div></div><div class="layer03" id="pdc1501816932643">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Related System-defined Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="pdc1501816932643__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d750687e50">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d750687e53">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d750687e56">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d750687e59">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d750687e50 ">_EC_ErrSta</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d750687e53 ">EtherCAT Error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d750687e56 ">WORD</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d750687e59 ">
+                            
+<p class="p">Contains a summary of the errors in the EtherCAT Master Function Module. <a class="xref" href="xjh1501815738103.html#pdc1501816932643__fn_h2k_1fz_21b"><i style="display:none;">☆</i><sup>*1</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d750687e50 ">_EC_PortErr <a class="xref" href="xjh1501815738103.html#pdc1501816932643__fn_dsp_5fz_21b"><i style="display:none;">☆</i><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d750687e53 ">Communications Port Error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d750687e56 ">WORD</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d750687e59 ">
+                            
+<p class="p">Contains a summary of the EtherCAT master communications port errors. <a class="xref" href="xjh1501815738103.html#pdc1501816932643__fn_h2k_1fz_21b"><i style="display:none;">☆</i><sup>*1</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d750687e50 ">_EC_MstrErr <a class="xref" href="xjh1501815738103.html#pdc1501816932643__fn_dsp_5fz_21b"><i style="display:none;">☆</i><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d750687e53 ">Master Error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d750687e56 ">WORD</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d750687e59 ">
+                            
+<p class="p">Contains a summary of the EtherCAT master errors and the slave errors detected by the EtherCAT master. <a class="xref" href="xjh1501815738103.html#pdc1501816932643__fn_h2k_1fz_21b"><i style="display:none;">☆</i><sup>*1</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d750687e50 ">_EC_SlavErr</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d750687e53 ">Slave Error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d750687e56 ">WORD</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d750687e59 ">
+                            
+<p class="p">Contains a summary of the overall EtherCAT slave error status. <a class="xref" href="xjh1501815738103.html#pdc1501816932643__fn_h2k_1fz_21b"><i style="display:none;">☆</i><sup>*1</sup></a></p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="pdc1501816932643__fn_h2k_1fz_21b" id="pdc1501816932643__fn_h2k_1fz_21b"><sup>*1</sup></a>  Refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Built-in EtherCAT Port User&#8217;s Manual (Cat. No. W505)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series IPC Machine Controller Industrial Panel PC / Industrial Box PC Built-in EtherCAT Port User&#8217;s Manual (Cat.No. W562)</span></span></span> for details.</div>
+<div class="fn"><a name="pdc1501816932643__fn_dsp_5fz_21b" id="pdc1501816932643__fn_dsp_5fz_21b"><sup>*2</sup></a>  The GetECError instruction gets the errors that are shown by _EC_PortErr (Communications Port Error) and _EC_MstrErr (Master Error).</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="piu1501816927634">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Sample Programming</h1>
+
+<div class="body conbody">
+<p class="p" id="piu1501816927634__ID0EMRNM">Refer to <a class="xref" href="lgl1501815734893.html#jfe1501816920032"><i style="display:none;">☆</i>Sample Programming</a> for the ResetMCError instruction.</p>
+
+</div>
+
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+
+
+
+

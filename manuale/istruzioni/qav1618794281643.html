@@ -1,0 +1,1356 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>SktTLSConnect</title>
+</head>
+<body class="qav1618794281643"><div class="layer02" id="qav1618794281643">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">SktTLSConnect</h1>
+
+<div class="body conbody">
+<p class="p" id="qav1618794281643__ID0EJ5LQ">The SktTLSConnect instruction uses the established TCP connection to establish a TLS session.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="qav1618794281643__table_N10017_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:13%" />
+<col style="width:14%" />
+<col style="width:6%" />
+<col style="width:35%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d800442e37">Instruction</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d800442e40">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d800442e43">
+<p class="p" id="qav1618794281643__ID0E36LQ">FB/</p>
+
+<p class="p">FUN</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d800442e52">Graphic expression</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d800442e55">ST expression</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d800442e37 "><span class="indexterm">SktTLSConnect (Establish TLS Session)</span>SktTLSConnect</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d800442e40 "><span class="indexterm">Establish TLS Session</span>Establish TLS Session</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d800442e43 ">FB</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d800442e52 "><img class="image" id="qav1618794281643__image_azw_jpm_3pb" src="sqm1618802656971.gif" /></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d800442e55 ">SktTLSConnect_instance (Execute, Socket, TLSSessionName, Done, Busy, Error, ErrorID, Handle) ;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<div class="note" id="qav1618794281643__note_N100AC_N1000F_N10002"><div class="ver"><span class="notetitle ver">ver:</span>
+<p class="p">You can use this instruction for the following CPU Units.</p>
+
+<ul class="ul" id="qav1618794281643__ul_owf_tjg_bvb">
+<li class="li" id="qav1618794281643__li_N100D1_N100CB_N100BF_N10010_N10002">An NX502 CPU Unit</li>
+
+<li class="li" id="qav1618794281643__li_N100D7_N100CB_N100BF_N10010_N10002">
+<p class="p">An NX102-<span class="ph font_Wingdings2">&#9633;&#9633;</span>00 CPU Unit with unit version 1.46 or later or an NX102-<span class="ph font_Wingdings2">&#9633;&#9633;</span>20 CPU Unit with unit version 1.37 or later and Sysmac Studio version 1.46 or higher</p>
+
+</li>
+
+<li class="li" id="qav1618794281643__li_N100ED_N100CB_N100BF_N10010_N10002">
+<p class="p">An NX1P2 CPU Unit with unit version 1.46 or later and Sysmac Studio version 1.46 or higher</p>
+
+</li>
+
+</ul>
+
+</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="whc1618893888649">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="whc1618893888649__table_cym_bb4_jpb" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:20%" />
+<col style="width:9%" />
+<col style="width:20%" />
+<col style="width:14%" />
+<col style="width:14%" />
+<col style="width:8%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d1060254e41">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1060254e43">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1060254e46">I/O</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1060254e49">Description</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1060254e52">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1060254e56">Unit</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1060254e59">Initial value</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1060254e41 ">Socket</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1060254e43 ">Socket</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d1060254e46 ">Input</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1060254e49 ">Socket</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1060254e52 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1060254e56 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1060254e59 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1060254e41 ">TLSSessionName</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1060254e43 ">TLS session name</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1060254e49 ">Specifies the TLS session name that was set with Secure Socket Configuration commands.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1060254e52 ">17 bytes max. (plus a final NULL)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1060254e56 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1060254e59 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1060254e41 ">Handle</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1060254e43 ">TLS session handle</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1060254e46 ">Output</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1060254e49 ">Outputs the TLS session handle.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1060254e52 ">16#00000000 to FFFFFFFF</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1060254e56 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1060254e59 ">---</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="whc1618893888649__table_N10100_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:5%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:top;" id="d1060254e194">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1060254e196">Boolean</th>
+
+<th class="entry cellrowborder" colspan="4" style="text-align:center;vertical-align:middle;" id="d1060254e199">Bit strings</th>
+
+<th class="entry cellrowborder" colspan="8" style="text-align:center;vertical-align:middle;" id="d1060254e202">Integers</th>
+
+<th class="entry cellrowborder" colspan="2" style="text-align:center;vertical-align:middle;" id="d1060254e205">Real numbers</th>
+
+<th class="entry cellrowborder" colspan="5" style="text-align:center;vertical-align:middle;" id="d1060254e209">Times, durations, dates, and text strings</th>
+
+</tr>
+
+<tr class="row">
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d1060254e215">BOOL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d1060254e218">BYTE</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d1060254e221">WORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d1060254e224">DWORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d1060254e227">LWORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d1060254e231">USINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d1060254e234">UINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d1060254e237">UDINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d1060254e240">ULINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d1060254e243">SINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d1060254e246">INT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d1060254e250">DINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d1060254e253">LINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d1060254e256">REAL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d1060254e259">LREAL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d1060254e262">TIME</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d1060254e265">DATE</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d1060254e269">TOD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d1060254e272">DT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d1060254e275">STRING</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1060254e194 d1060254e215 ">Socket</td>
+
+<td class="entry cellrowborder" colspan="20" style="text-align:center;vertical-align:middle;" headers="d1060254e196 d1060254e199 d1060254e202 d1060254e205 d1060254e209 d1060254e218 d1060254e221 d1060254e224 d1060254e227 d1060254e231 d1060254e234 d1060254e237 d1060254e240 d1060254e243 d1060254e246 d1060254e250 d1060254e253 d1060254e256 d1060254e259 d1060254e262 d1060254e265 d1060254e269 d1060254e272 d1060254e275 ">Refer to <a class="xref" href="qav1618794281643.html"><i style="display:none;">☆</i>SktTLSConnect</a> for details on the structure _sSOCKET.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1060254e194 d1060254e215 ">TLSSessionName</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1060254e196 d1060254e218 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1060254e199 d1060254e221 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1060254e199 d1060254e224 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1060254e199 d1060254e227 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1060254e199 d1060254e231 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1060254e202 d1060254e234 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1060254e202 d1060254e237 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1060254e202 d1060254e240 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1060254e202 d1060254e243 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1060254e202 d1060254e246 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1060254e202 d1060254e250 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1060254e202 d1060254e253 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1060254e202 d1060254e256 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1060254e205 d1060254e259 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1060254e205 d1060254e262 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1060254e209 d1060254e265 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1060254e209 d1060254e269 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1060254e209 d1060254e272 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1060254e209 d1060254e275 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1060254e209 ">OK<span class="ph font_Wingdings"></span></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1060254e194 d1060254e215 ">Handle</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1060254e196 d1060254e218 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1060254e199 d1060254e221 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1060254e199 d1060254e224 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1060254e199 d1060254e227 ">OK<span class="ph font_Wingdings"></span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1060254e199 d1060254e231 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1060254e202 d1060254e234 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1060254e202 d1060254e237 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1060254e202 d1060254e240 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1060254e202 d1060254e243 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1060254e202 d1060254e246 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1060254e202 d1060254e250 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1060254e202 d1060254e253 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1060254e202 d1060254e256 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1060254e205 d1060254e259 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1060254e205 d1060254e262 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1060254e209 d1060254e265 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1060254e209 d1060254e269 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1060254e209 d1060254e272 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1060254e209 d1060254e275 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1060254e209 ">&#160;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="kmp1618899060014">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function</h1>
+
+<div class="body conbody">
+<p class="p" id="kmp1618899060014__ID0E1FNQ">The SktTLSConnect instruction establishes the TLS connection specified with <span class="ph phtype_variable"><span class="termtype">TLSSessionName</span></span> (TLS session name), through the TCP connection created with <span class="ph phtype_variable"><span class="termtype">Socket</span></span> (socket) of the SktTCPConnect (Connect TCP Socket) instruction.</p>
+
+<p class="p">Refer to <a class="xref" href="boe1501815780688.html"><i style="display:none;">☆</i>SktTCPConnect</a> for the SktTCPConnect (Connect TCP Socket) instruction.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="sso1501817185456">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Related System-defined Variables</h1>
+
+<div class="body conbody">
+        
+        
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="sso1501817185456__table_zlr_p4q_j1b" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:30%" />
+<col style="width:20%" />
+<col style="width:10%" />
+<col style="width:40%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d893648e54">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d893648e57">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d893648e60">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d893648e63">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d893648e54 ">_EIP_EtnOnlineSta<a class="xref" href="#sso1501817185456__fn_v41_fpq_j1b"><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" rowspan="3" style="text-align:left;vertical-align:middle;" headers="d893648e57 ">Online</td>
+
+<td class="entry cellrowborder" rowspan="3" style="text-align:left;vertical-align:middle;" headers="d893648e60 ">BOOL</td>
+
+<td class="entry cellrowborder" rowspan="3" style="text-align:left;vertical-align:middle;" headers="d893648e63 ">
+<p class="p">This variable indicates when built-in EtherNet/IP port communications can be used.</p>
+
+<p class="p">TRUE: Communications are possible.</p>
+
+<p class="p">FALSE: Communications are not possible.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d893648e54 ">
+<p class="p">_EIP1_EtnOnlineSta<a class="xref" href="#sso1501817185456__fn_agf_fpq_j1b"><sup>*2</sup></a></p>
+
+<p class="p">_EIP2_EtnOnlineSta<a class="xref" href="#sso1501817185456__fn_gfj_fpq_j1b"><sup>*3</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d893648e54 ">_EIPIn1_EtnOnlineSta<a class="xref" href="#sso1501817185456__fn_vxm_fpq_j1b"><sup>*4</sup></a></td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="sso1501817185456__fn_v41_fpq_j1b" id="sso1501817185456__fn_v41_fpq_j1b"><sup>*1</sup></a>  Use this variable name for an NJ-series CPU Unit.</div>
+<div class="fn"><a name="sso1501817185456__fn_agf_fpq_j1b" id="sso1501817185456__fn_agf_fpq_j1b"><sup>*2</sup></a>  <p class="p">Use this variable name for port 1 on an NX-series CPU Unit, or for an NY-series Controller.</p>
+
+<p class="p">You can specify _EIP_EtnOnlineSta instead of _EIP1_EtnOnlineSta.</p>
+</div>
+<div class="fn"><a name="sso1501817185456__fn_gfj_fpq_j1b" id="sso1501817185456__fn_gfj_fpq_j1b"><sup>*3</sup></a>  Use this variable name for port 2 on an NX-series CPU Unit. </div>
+<div class="fn"><a name="sso1501817185456__fn_vxm_fpq_j1b" id="sso1501817185456__fn_vxm_fpq_j1b"><sup>*4</sup></a>  Use this variable name for the internal port on an NY-series Controller. </div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="top1618901037329">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Additional Information</h1>
+
+<div class="body conbody">
+<ul class="ul" id="top1618901037329__ul_wls_hvy_3pb">
+<li class="li" id="top1618901037329__li_N10017_N10013_N10010_N10002">Refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Built-in EtherNet/IP Port User&#8217;s Manual (Cat. No. W506)</span></span></span> for details on the secure socket service functions.</li>
+
+<li class="li" id="top1618901037329__li_N1003C_N10013_N10010_N10002">
+<p class="p">In executing the Simulator, when <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes from FALSE to TRUE, <span class="ph phtype_variable"><span class="termtype">Done</span></span> changes to TRUE. Data will not be output to the communications line.</p>
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="mzv1618901692756">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Precautions for Correct Use</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="mzv1618901692756__li_N10017_N10013_N10010_N10002">Execution of this instruction is continued until processing is completed even if the value of <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to FALSE or the execution time exceeds the task period. The value of <span class="ph phtype_variable"><span class="termtype">Done</span></span> changes to TRUE when processing is completed. Use this to confirm normal completion of processing.</li>
+
+<li class="li" id="mzv1618901692756__li_N1001C_N10013_N10010_N10002">Refer to <a class="xref" href="aag1501815842589.html#aag1501815842589"><i style="display:none;">☆</i>Using this Section</a> for a timing chart for <span class="ph phtype_variable"><span class="termtype">Execute</span></span>, <span class="ph phtype_variable"><span class="termtype">Done</span></span>, <span class="ph phtype_variable"><span class="termtype">Busy</span></span>, and <span class="ph phtype_variable"><span class="termtype">Error</span></span>.</li>
+
+<li class="li" id="mzv1618901692756__li_N10021_N10013_N10010_N10002">
+<p class="p">You can use this instruction for a built-in EtherNet/IP port.</p>
+
+<p class="p">Or you can use this instruction through a port on an NX-series EtherNet/IP Unit by setting <span class="ph phtype_parameter"><span class="termtype">IP Forward</span></span> to <span class="ph phtype_choice"><span class="termtype">Use</span></span> in the NX502 CPU Unit.</p>
+
+</li>
+
+<li class="li" id="mzv1618901692756__li_N10052_N10012_N1000F_N10002">Set the secure socket setting to the CPU Unit using the Secure
+Socket Configuration commands in advance. For details about the Secure Socket Configuration commands, refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Built-in EtherNet/IP Port User&#8217;s Manual (Cat. No. W506)</span></span></span>. </li>
+
+<li class="li" id="mzv1618901692756__li_N10057_N10012_N1000F_N10002">You cannot use the handle of the same <span class="ph phtype_variable"><span class="termtype">Socket</span></span> (socket) to establish multiple TLS sessions. To establish multiple TLS sessions, use the SktTCPConnect instruction to create a handle of <span class="ph phtype_variable"><span class="termtype">Socket</span></span> (socket).</li>
+
+<li class="li" id="mzv1618901692756__li_N10035_N10013_N10010_N10002">After a TLS session is established, the SktTCPRcv instruction, SktTCPSend instruction, SktClearBuf instruction, ModbusTCPCmd instruction, ModbusTCPRead instruction, and ModbusTCPWrite instruction cannot use the handle of <span class="ph phtype_variable"><span class="termtype">Socket</span></span> (socket) that is used for the TLS session. If it is used, an error will occur when the instruction is executed.</li>
+
+<li class="li" id="mzv1618901692756__li_N1003A_N10013_N10010_N10002">You cannot use this instruction in an event task. A compiling error will occur.</li>
+
+<li class="li" id="mzv1618901692756__li_N10066_N10012_N1000F_N10002"><span class="ph phtype_variable"><span class="termtype">Handle</span></span> (TLS session handle) of the output variable created by this instruction closes when you perform any of the following:<ol class="ol liststyle_alphabet1">
+<li class="li" id="mzv1618901692756__li_N1007C_N1006F_N10066_N10012_N1000F_N10002">When you execute the SktTLSDisconnect instruction or the SktClose instruction</li>
+
+<li class="li" id="mzv1618901692756__li_N1008A_N1006F_N10066_N10012_N1000F_N10002">When you change the Controller from RUN mode to PROGRAM mode</li>
+
+</ol>
+</li>
+
+<li class="li" id="mzv1618901692756__li_N1003D_N10013_N10010_N10002">
+<p class="p">Except for NX502 CPU Units and NX102 CPU Units, you can execute a maximum of 64 of the following instructions at the same time: SktUDPCreate, SktUDPRcv, SktUDPSend, SktTCPAccept, SktTCPConnect, SktTCPRcv, SktTCPSend, SktGetTCPStatus, SktClose, SktClearBuf, SktSetOption, SktTLSConnect, SktTLSRead, ModbusTCPCmd, ModbusTCPRead, and ModbusTCPWrite.</p>
+
+<p class="p">For NX1P2 CPU Units, a maximum of 32 instructions can be executed.</p>
+
+</li>
+
+<li class="li" id="mzv1618901692756__li_N1007F_N10013_N10010_N10002">An error will occur in the following cases. <span class="ph phtype_variable"><span class="termtype">Error</span></span> will change to TRUE.<ol class="ol liststyle_alphabet1" id="mzv1618901692756__ol_fyg_v3b_tpb">
+<li class="li" id="mzv1618901692756__li_N1008F_N10089_N1007F_N10013_N10010_N10002">The value of any input parameter is outside of the valid range.</li>
+
+<li class="li" id="mzv1618901692756__li_N10094_N10089_N1007F_N10013_N10010_N10002"><span class="ph phtype_variable"><span class="termtype">TLSSessionName</span></span> (TLS session name) is not specified.</li>
+
+<li class="li" id="mzv1618901692756__li_N1009E_N10089_N1007F_N10013_N10010_N10002">The size of <span class="ph phtype_variable"><span class="termtype">TLSSessionName</span></span> (TLS session name) is larger than the maximum value.</li>
+
+<li class="li" id="mzv1618901692756__li_N100A8_N10089_N1007F_N10013_N10010_N10002">Data was not received within the time that is specified with <span class="ph phtype_variable"><span class="termtype">TimeOut</span></span> (timeout value).</li>
+
+<li class="li" id="mzv1618901692756__li_N100B7_N1008A_N1007F_N10013_N10010_N10002">The handle specified with <span class="ph phtype_variable"><span class="termtype">Socket.Handle</span></span> does not exist.</li>
+
+<li class="li" id="mzv1618901692756__li_N100C7_N1008A_N1007F_N10013_N10010_N10002">The specified <span class="ph phtype_variable"><span class="termtype">TLSSessionName</span></span> (TLS session name) is not specified in the secure socket setting.</li>
+
+<li class="li" id="mzv1618901692756__li_N100D2_N1008A_N1007F_N10013_N10010_N10002">A client certificate is not transferred to the Controller.</li>
+
+<li class="li" id="mzv1618901692756__li_N100D7_N1008A_N1007F_N10013_N10010_N10002">A password is set to the transferred client certificate.</li>
+
+<li class="li" id="mzv1618901692756__li_N100DC_N1008A_N1007F_N10013_N10010_N10002">There is no secure socket setting, or the contents of the secure socket setting are incorrect.</li>
+
+<li class="li" id="mzv1618901692756__li_N100E1_N1008A_N1007F_N10013_N10010_N10002">The contents of the client certificate are incorrect.</li>
+
+<li class="li" id="mzv1618901692756__li_N100E6_N1008A_N1007F_N10013_N10010_N10002">The private key of the client certificate is incorrect.</li>
+
+<li class="li" id="mzv1618901692756__li_N100EB_N1008A_N1007F_N10013_N10010_N10002">Establishment of secure socket communications failed.</li>
+
+<li class="li" id="mzv1618901692756__li_N100ED_N1008A_N1007F_N10013_N10010_N10002">The handle specified with <span class="ph phtype_variable"><span class="termtype">Socket.Handle</span></span> is already used for secure socket communications.</li>
+
+</ol>
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="vnf1618963177191">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Sample Programming</h1>
+
+<div class="body conbody">
+<p class="p" id="vnf1618963177191__ID0E5F2O">In this sample, the secure socket communications are used for data communications between the communications port 1 of the built-in EtherNet/IP of an NX102 CPU Unit or an NX1P2 CPU Unit and a server.</p>
+
+<img class="image" id="vnf1618963177191__image_wkm_ll1_jpb" src="hpn1618981390688.gif" />
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="pcq1618982386162">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">User Program</h1>
+
+<div class="body taskbody">
+<div class="section context" id="pcq1618982386162__context_60AC48D8475341FEB17922448EABD938">
+<p class="p">Before executing the sample program, set the secure socket setting to the CPU Unit using the Secure Socket Configuration commands. This sample program sequentially executes socket service instructions and secure socket service instructions.</p>
+
+<p class="p">If an error occurs when an instruction is executed, instructions after the one for which an error was detected will not be executed.</p>
+
+<p class="p linespace_7pt" id="pcq1618982386162__ID0E1G2O">The processing procedure is as follows:</p>
+
+</div>
+
+<ol class="ol steps" id="pcq1618982386162__steps_F5349D9C1F7F415C9161D6B70AEDC9C2"><li class="li step" id="pcq1618982386162__step_C53F197C96F54597978213ED52F35480">
+<span alt="test" class="ph cmd" id="pcq1618982386162__ID0EOH2O">The SktTCPConnect instruction is used to make a request for connection to the TCP port on the server.</span>
+</li>
+<li class="li step" id="pcq1618982386162__step_31B2D9E9ABB4471B84B11B5156A713E7">
+<span alt="test" class="ph cmd" id="pcq1618982386162__ID0EZH2O">The SktTLSConnect instruction is used to make a request to the server for establishment of secure socket communications.</span>
+</li>
+<li class="li step" id="pcq1618982386162__step_CA03B2AEB7D54C0EA0F540EF4DD24B17">
+<span alt="test" class="ph cmd" id="pcq1618982386162__ID0EEI2O">The SktTLSClearBuf instruction is used to clear the buffer.</span>
+</li>
+<li class="li step" id="pcq1618982386162__step_A1A3A57F51944643808FE7426B21471B">
+<span alt="test" class="ph cmd" id="pcq1618982386162__ID0EPI2O">The SktTLSWrite instruction is used to make a data send request. The data stored in tlsSendDat[] will be sent.</span>
+</li>
+<li class="li step" id="pcq1618982386162__step_25053DDA518549948FE040746B8B07B1">
+<span alt="test" class="ph cmd" id="pcq1618982386162__ID0E1I2O">The SktTLSRead instruction is used to make a data receive request. The received data is stored in tlsRcvDat[].</span>
+</li>
+<li class="li step" id="pcq1618982386162__step_A900C55A39854B969863A5C972376C63">
+<span alt="test" class="ph cmd" id="pcq1618982386162__ID0EFJ2O">The SktTLSDisconnect instruction is used to end the secure socket communications.</span>
+</li>
+<li class="li step" id="pcq1618982386162__step_N10071_N10024_N10014_N10002">
+<span alt="test" class="ph cmd">The SktClose instruction is used to close the socket.</span>
+</li>
+</ol>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="nqm1618983671507">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">LD</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="nqm1618983671507__table_g2c_fb4_jpb" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:10%" />
+<col style="width:25%" />
+<col style="width:22%" />
+<col style="width:15%" />
+<col style="width:27%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d696252e37">Internal Variables</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d696252e40">Variable</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d696252e43">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d696252e46">Initial value</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d696252e49">Comment</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d696252e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e40 ">testTrg</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e43 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e46 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e49 ">Execution condition</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d696252e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e40 ">Operating_TLS</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e43 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e49 ">Processing</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d696252e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e40 ">OperatingEnd_TLS</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e43 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e49 ">State transition</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d696252e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e40 ">dstAdr</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e43 ">STRING[256]</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e49 ">Destination IP address or host name</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d696252e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e40 ">dstTcpPort</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e43 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e49 ">Destination port number</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d696252e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e40 ">sock</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e43 ">_sSOCKET</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e46 ">(Handle := 0, SrcAdr := (PortNo := 0, IpAdr := ''), DstAdr := (PortNo := 0, IpAdr := ''))</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e49 ">Socket</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d696252e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e40 ">tlsSessionName</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e43 ">STRING[17]</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e49 ">TLS session name</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d696252e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e40 ">tlsSessionHandle</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e43 ">DWORD</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e49 ">TLS session handle</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d696252e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e40 ">tlsSendDat</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e43 ">ARRAY[0..1024] OF BYTE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e46 ">[1025(16#0)]</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e49 ">Send data</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d696252e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e40 ">tlsRcvDat</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e43 ">ARRAY[0..1024] OF BYTE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e46 ">[1025(16#0)]</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e49 ">Receive data</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d696252e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e40 ">tlsSendSize</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e43 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e49 ">Data size to send</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d696252e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e40 ">tlsRcvSize</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e43 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e49 ">Maximum data size that can be received</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d696252e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e40 ">rcvedSize</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e43 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e46 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e49 ">Data size that was received</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d696252e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e40 ">timeOutTime</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e43 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e46 ">10</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e49 ">Timeout time</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d696252e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e40 ">Ins_SktTCPConnect</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e43 ">SktTCPConnect</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e49 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d696252e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e40 ">Ins_SktTLSConnect</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e43 ">SktTLSConnect</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e49 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d696252e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e40 ">Ins_SktTLSClearBuf</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e43 ">SktTLSClearBuf</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e49 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d696252e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e40 ">Ins_SktTLSWrite</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e43 ">SktTLSWrite</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e49 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d696252e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e40 ">Ins_SktTLSRead</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e43 ">SktTLSRead</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e49 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d696252e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e40 ">Ins_SktTLSDisconnect</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e43 ">SktTLSDisconnect</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e49 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d696252e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e40 ">Ins_SktClose</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e43 ">SktClose</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e49 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d696252e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e40 ">RS_TLS_instance</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e43 ">RS</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d696252e49 ">&#160;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<img class="image" id="nqm1618983671507__image_tfw_g1b_jpb" src="map1618987636181.gif" />
+<img class="image" id="nqm1618983671507__image_ivp_1wg_jpb" src="lag1619057061121.gif" />
+<img class="image" id="nqm1618983671507__image_pjw_lbh_jpb" src="dzy1619060113125.gif" />
+<img class="image" id="nqm1618983671507__image_atw_v1b_jpb" src="cee1618988680967.gif" />
+<img class="image" id="nqm1618983671507__image_x4x_wfh_jpb" src="bql1619061605651.gif" />
+<img class="image" id="nqm1618983671507__image_bgs_pk3_jpb" src="wfr1619075322411.gif" />
+<img class="image" id="nqm1618983671507__image_o1x_wl3_jpb" src="jut1619076427200.gif" />
+<img class="image" id="nqm1618983671507__image_zsg_yn3_jpb" src="nfr1619077004192.gif" />
+<img class="image" id="nqm1618983671507__image_wrq_cr3_jpb" src="vwm1619078986058.gif" />
+<img class="image" id="nqm1618983671507__image_oyy_yjr_kpb" src="jiz1619491587687.gif" />
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="dsk1619060756099">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Contents of Inline ST</h1>
+
+<div class="body conbody">
+<pre class="pre codeblock">//Configuring settings for connecting to the server.
+//"tlsSessionName" must be equal to a name written in TLS setting file.
+dstAdr         :='192.168.250.2';
+dstTcpPort     :=6000;
+tlsSessionName :='TLSSession0';
+
+tlsSendSize    := SizeOfAry(In:=tlsSendDat);
+tlsRcvSize     := SizeOfAry(In:=tlsRcvDat);
+</pre>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="qkr1619135387268">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">ST</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="qkr1619135387268__table_fkl_3b4_jpb" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:10%" />
+<col style="width:25%" />
+<col style="width:22%" />
+<col style="width:15%" />
+<col style="width:27%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d821104e37">Internal Variables</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d821104e40">Variable</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d821104e43">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d821104e46">Initial value</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d821104e49">Comment</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d821104e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e40 ">testTrg</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e43 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e46 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e49 ">Execution condition</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d821104e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e40 ">DoTLS</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e43 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e49 ">Processing</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d821104e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e40 ">mainStage</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e43 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e46 ">1</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e49 ">State transition</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d821104e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e40 ">dstAdr</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e43 ">STRING[256]</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e49 ">Destination IP address or host name</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d821104e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e40 ">dstTcpPort</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e43 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e49 ">Destination port number</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d821104e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e40 ">sock</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e43 ">_sSOCKET</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e46 ">(Handle := 0, SrcAdr := (PortNo := 0, IpAdr := ''), DstAdr := (PortNo := 0, IpAdr := ''))</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e49 ">Socket</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d821104e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e40 ">tlsSessionName</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e43 ">STRING[17]</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e49 ">TLS session name</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d821104e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e40 ">tlsSessionHandle</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e43 ">DWORD</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e49 ">TLS session handle</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d821104e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e40 ">tlsSendDat</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e43 ">ARRAY[0..1024] OF BYTE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e46 ">[1025(16#0)]</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e49 ">Send data</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d821104e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e40 ">tlsRcvDat</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e43 ">ARRAY[0..1024] OF BYTE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e46 ">[1025(16#0)]</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e49 ">Receive data</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d821104e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e40 ">tlsRcvSize</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e43 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e46 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e49 ">Data size that was received</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d821104e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e40 ">timeOutTime</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e43 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e46 ">10</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e49 ">Timeout time</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d821104e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e40 ">Ins_SktTCPConnect</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e43 ">SktTCPConnect</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e49 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d821104e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e40 ">Ins_SktTLSConnect</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e43 ">SktTLSConnect</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e49 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d821104e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e40 ">Ins_SktTLSClearBuf</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e43 ">SktTLSClearBuf</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e49 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d821104e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e40 ">Ins_SktTLSWrite</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e43 ">SktTLSWrite</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e49 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d821104e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e40 ">Ins_SktTLSRead</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e43 ">SktTLSRead</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e49 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d821104e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e40 ">Ins_SktTLSDisconnect</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e43 ">SktTLSDisconnect</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e49 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d821104e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e40 ">Ins_SktClose</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e43 ">SktClose</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d821104e49 ">&#160;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt"></p>
+
+<pre class="pre codeblock">
+//Start Program when testTrg rise.
+IF ( (testTrg=TRUE) AND (DoTLS = FALSE) AND (_EIP_EtnOnlineSta =TRUE ) )THEN
+    DoTLS:=TRUE;
+    mainStage := 1;
+
+    Ins_SktTCPConnect( Execute:=FALSE ); //Initilise instance
+    Ins_SktTLSConnect( Execute:=FALSE ); //Initilise instance
+    Ins_SktTLSClearBuf( Execute:=FALSE ); //Initilise instance
+    Ins_SktTLSWrite( //Initilise instance
+        Execute:=FALSE,
+        SendDat:=tlsSendDat[0] ); //dummy
+    Ins_SktTLSRead( //Initilise instance
+        Execute:=FALSE,
+        RcvDat:=tlsRcvDat[0] ); //dummy
+    Ins_SktTLSDisconnect( Execute:=FALSE ); //Initilise instance
+    Ins_SktClose( Execute:=FALSE ); //Initilise instance
+
+    //Configuring settings for connecting to the server
+    //"tlsSessionName" must be equal to a name written in TLS setting file.
+    dstAdr :='192.168.250.2';
+    dstTcpPort :=6000;
+    tlsSessionName :='TLSSession0';
+
+END_IF;
+
+IF(DoTLS=TRUE) THEN
+    CASE mainStage OF
+    1://SktTCPConnect
+        Ins_SktTCPConnect(
+            Execute :=TRUE,
+            SrcTcpPort :=UINT#0, //own TCP port number(auto allocation)
+            DstAdr :=dstAdr, //target IP Address or host name
+            DstTcpPort :=dstTcpPort, //target TCP port number
+            Socket =&gt;sock ); //socket variable
+        IF ( Ins_SktTCPConnect.Done=TRUE )THEN
+            mainStage:=2; //Success
+        ELSIF( Ins_SktTCPConnect.Error=TRUE )THEN
+            mainStage:=101; //Error
+    END_IF;
+
+    2://SktTLSConnect
+    Ins_SktTLSConnect(
+        Execute :=TRUE,
+        Socket :=sock, //socket variable
+        TLSSessionName :=tlsSessionName, //TLS session name
+        Handle =&gt;tlsSessionHandle ); //TLS session handle
+    IF ( Ins_SktTLSConnect.Done=TRUE )THEN
+        mainStage:=3; //Success
+    ELSIF( Ins_SktTLSConnect.Error=TRUE )THEN
+        mainStage:=102; //Error
+    END_IF;
+
+    3://SktTLSClearBuf
+        Ins_SktTLSClearBuf(
+            Execute :=TRUE,
+            Handle :=tlsSessionHandle); //TLS session handle
+        IF( Ins_SktTLSClearBuf.Done=TRUE )THEN
+            mainStage:=4; //Success
+        ELSIF( Ins_SktTCPConnect.Error=TRUE )THEN
+            mainStage:=103; //Error
+        END_IF;
+
+    4: //SktTLSWrite
+        Ins_SktTLSWrite(
+            Execute :=TRUE,
+            Handle :=tlsSessionHandle, //TLS session handle
+            SendDat :=tlsSendDat[0], //sending data
+            SendDatSize :=SizeOfAry( In:=tlsSendDat ) ); //sending data size
+        IF( Ins_SktTLSWrite.Done=TRUE )THEN
+            mainStage:=5; //Success
+        ELSIF( Ins_SktTLSWrite.Error=TRUE )THEN
+            mainStage:=104; //Error
+        END_IF;
+
+    5://SktTLSRead
+        Ins_SktTLSRead(
+            Execute :=TRUE,
+            Handle :=tlsSessionHandle, //TLS session handle
+            TimeOut :=timeOutTime, //timeout time
+            RcvDatSize :=SizeOfAry( In:=tlsRcvDat ), //receive buffer size
+            RcvDat :=tlsRcvDat[0], //receiving data
+            RcvSize =&gt;tlsRcvSize ); //receiving data size
+        IF( Ins_SktTLSRead.Done=TRUE )THEN
+            mainStage:=6; //Success
+        ELSIF( Ins_SktTLSRead.Error=TRUE )THEN
+            mainStage:=105; //Error
+        END_IF;
+
+    6://SktTLSDisconnect
+        Ins_SktTLSDisconnect(
+            Execute :=TRUE,
+            Handle :=tlsSessionHandle ); //TLS session handle
+        IF( Ins_SktTLSDisconnect.Done=TRUE )THEN
+            mainStage:=7; //Success
+        ELSIF( Ins_SktTLSDisconnect.Error=TRUE )THEN
+            mainStage:=106; //Error
+        END_IF;
+
+    7://SktClose
+        Ins_SktClose(
+            Execute :=TRUE,
+            Socket :=sock ); //socket variable
+        IF( Ins_SktClose.Done=TRUE )THEN
+            mainStage:=0; //Success
+        ELSIF(Ins_SktClose.Error=TRUE )THEN
+            mainStage:=107; //Error
+        END_IF;
+
+    0://Success
+        DoTLS := FALSE;
+        testTrg := FALSE;
+
+    ELSE //Error abort
+        DoTLS := FALSE;
+        testTrg := FALSE;
+    END_CASE;
+END_IF;</pre>
+
+</div>
+
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

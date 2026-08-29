@@ -1,0 +1,1428 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+ <meta name="generator" content="Adobe RoboHelp 11">
+<title>CNC_CoordCatchMCode</title>
+<link rel="stylesheet" href="../00INTRO.css" type="text/css">
+<style title="hcp" type="text/css">
+<!--
+th.hcp1 { border-top:solid 1px #000000;
+border-right:solid 1px #000000;
+border-bottom:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+th.hcp2 { border-top:solid 1px #000000;
+border-bottom:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+td.hcp3 { border-right:solid 1px #000000;
+border-bottom:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+div.hcp4 { text-align:center; }
+td.hcp5 { border-bottom:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+span.hcp6 { font-style:italic; }
+table.hcp7 { padding-top:5.00pt;
+padding-right:4.00pt;
+padding-bottom:1.00pt; }
+td.hcp8 { vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+table.hcp9 { padding-top:6.00pt;
+padding-right:4.00pt;
+padding-bottom:1.00pt;
+margin-left:31.18pt; }
+td.hcp10 { border-left:solid 7px #000000;
+border-bottom:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+table.hcp11 { padding-left:4.00pt;
+padding-top:3.00pt;
+padding-right:4.00pt;
+padding-bottom:1.00pt;
+margin-left:42.52pt; }
+span.hcp12 { word-spacing:normal;
+font:6.0pt 'Times New Roman'; }
+p.hcp13 { text-align:left; }
+table.hcp14 { padding-left:4.00pt;
+padding-top:6.00pt;
+padding-right:4.00pt;
+padding-bottom:5.00pt;
+margin-left:42.52pt; }
+td.hcp15 { border:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+div.hcp16 { text-align:left; }
+span.hcp17 { font-family:Times New Roman;
+font-size:7.0pt; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="../../ehlpdhtm.js"></script>
+
+<p class="Title">CNC_CoordCatchMCode</p>
+<p class="FM_body1">The CNC_CoordCatchMCode instruction receives the M 
+ code output from the NC program using the sequence control program.</p>
+<p class="FM_tablespec">&#160;</p>
+
+<table style="padding-left: 4.00pt; padding-top: 3.00pt; padding-right: 4.00pt; 
+		 padding-bottom: 1.00pt;" cellspacing="0" width="661">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="144" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Instruction</p></th>
+		<th width="57" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="57" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">FB/FUN</p></th>
+		<th width="197" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Graphic 
+		 expression</p></th>
+		<th width="208" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">ST expression</p></th>
+	</tr>
+	<tr style="height: 163.00pt;">
+		<td width="144" class="hcp3"><p 
+			 class="FM_tablebody19pt">CNC_CoordCatchMCode</p></td>
+		<td width="57" class="hcp3"><p 
+			 class="FM_tablebody19pt">Catch M Code</p></td>
+		<td width="57" class="hcp3"><p 
+			 class="FM_tablebody19pt">FB</p></td>
+		<td width="197" class="hcp3"><p 
+			 class="FM_tablebodyc9pt"><span class="FM_Arial">CNC_CoordCatchMCode_instance</span></p>
+		<div class="hcp4">
+			<img alt="CNC_CoordCatchMCode_010.jpg" id="image55" src="CNC_CoordCatchMCode_010.jpg" width="193" height="147" border="0"> 
+		</div>
+		<p class="FM_body1">&#160;</p></td>
+		<td width="208" class="hcp5"><p class="FM_tablebody19pt">CNC_CoordCatchMCode_instance 
+		 (</p>
+		<p class="FM_tablebody19pt">Coord :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody19pt">MCode :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody19pt">Enable :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody19pt">MCodeNo. :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody19pt">Enabled =&gt;<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody19pt">Strobe =&gt;<span class="hcp6">parameter</span></p>
+		<p class="FM_tablebody19pt">Busy =&gt;<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody19pt">Error =&gt;<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody19pt">ErrorID =&gt;<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody19pt">);</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp7">
+	<tr style="height: 20.00pt;" bgcolor="#B3B3B3">
+		<td width="661" bgcolor="#B3B3B3" class="hcp8"><p class="FM_CRhead3">Variables</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="620" class="hcp9">
+	<tr style="height: 21.00pt;">
+		<td width="620" class="hcp10"><p 
+			 class="FM_head4">Input Variables</p></td>
+	</tr>
+</table>
+
+<p class="FM_tablespec">&#160;</p>
+
+<table cellspacing="0" width="605" class="hcp11">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="76" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="76" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Meaning</p></th>
+		<th width="76" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th width="76" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Valid 
+		 range</p></th>
+		<th width="76" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Default</p></th>
+		<th width="227" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Enable</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Execute</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">TRUE or FALSE</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">FALSE</p></td>
+		<td width="227" class="hcp5"><p class="FM_tablebody19pt">The 
+		 instruction is executed when <span class="FM_italic">Enable</span>&#160;is 
+		 TRUE.</p></td>
+	</tr>
+	<tr style="height: 37.00pt;">
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">MCodeNo</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">M Code Number</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">UINT</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">0 to 191</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="227" class="hcp5"><p class="FM_tablebody19pt">Specify 
+		 an M code number to be received. This value is applied only when 
+		 Enable changes to TRUE.</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="620" class="hcp9">
+	<tr style="height: 21.00pt;">
+		<td width="620" class="hcp10"><p 
+			 class="FM_head4">Output Variables</p></td>
+	</tr>
+</table>
+
+<p class="FM_tablespec">&#160;</p>
+
+<table cellspacing="0" width="605" class="hcp11">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="76" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="76" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Meaning</p></th>
+		<th width="76" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th width="76" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Valid 
+		 range</p></th>
+		<th width="302" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Enabled</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Enable</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">TRUE or FALSE</p></td>
+		<td width="302" class="hcp5"><p class="FM_tablebody19pt">TRUE 
+		 when the CNC coordinate system is being con­trolled.</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Strobe</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Strobe</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">TRUE or FALSE</p></td>
+		<td width="302" class="hcp5"><p class="FM_tablebody19pt">TRUE 
+		 when the M code output specified in an M code is received from 
+		 the CNC coordinate system.</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Busy</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Executing</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">TRUE or FALSE</p></td>
+		<td width="302" class="hcp5"><p class="FM_tablebody19pt">TRUE 
+		 when the instruction is acknowledged.</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Error</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Error</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">TRUE or FALSE</p></td>
+		<td width="302" class="hcp5"><p class="FM_tablebody19pt">TRUE 
+		 while there is an error.</p></td>
+	</tr>
+	<tr style="height: 28.00pt;">
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">ErrorID</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Error Code</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">WORD</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt"><a name="FTB_7"></a><a href="#FTH_7"><sup>*1</sup></a>&#160;</p></td>
+		<td width="302" class="hcp5"><p class="FM_tablebody19pt">Contains 
+		 the error code when an error occurs.</p>
+		<p class="FM_tablebody19pt">A value of 16#0000 indicates normal 
+		 execution.</p></td>
+	</tr>
+</table>
+
+
+<table style="margin-left: 42.52pt; margin-bottom: 3.50pt; margin-top: 6.00pt;" 
+		 width="605">
+	<tr>
+		<td><p class="FM_tablebody1c9pt"><a name="FTH_7"></a><sup><a href="#FTB_7">*1</a></sup>Refer 
+		 to Troubleshooting.</p></td>
+	</tr>
+</table>
+
+<p class="FM_head5"><span class="FM_Wingdings">l<span class="hcp12">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span>Output 
+ Variable Update Timing</p>
+<p class="FM_tablespec">&#160;</p>
+
+<table cellspacing="0" width="605" class="hcp11">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="76" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="265" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Timing 
+		 for changing to TRUE</p></th>
+		<th width="265" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Timing for 
+		 changing to FALSE</p></th>
+	</tr>
+	<tr style="height: 27.00pt;">
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Enabled</p></td>
+		<td width="265" class="hcp3"><p 
+			 class="FM_tablebody19pt">When <span class="FM_italic">Enable</span> 
+		 changes to TRUE.</p></td>
+		<td width="265" class="hcp5"><p class="FM_tablebul9pt">•<span class="hcp12">&#160;&#160;&#160;</span>When 
+		 <span class="FM_italic">Enable</span> changes to FALSE.</p>
+		<p class="FM_tablebul9pt">•<span class="hcp12">&#160;&#160;&#160;</span>When 
+		 <span class="FM_italic">Error</span> changes to TRUE.</p></td>
+	</tr>
+	<tr style="height: 27.00pt;">
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Busy</p></td>
+		<td width="265" class="hcp3"><p 
+			 class="FM_tablebody19pt">When <span class="FM_italic">Enable</span> 
+		 changes to TRUE.</p></td>
+		<td width="265" class="hcp5"><p class="FM_tablebul9pt">•<span class="hcp12">&#160;&#160;&#160;</span>When 
+		 <span class="FM_italic">Error</span> changes to TRUE.</p>
+		<p class="FM_tablebul9pt">•<span class="hcp12">&#160;&#160;&#160;</span>When 
+		 <span class="FM_italic">Enable</span> changes to FALSE.</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Error</p></td>
+		<td width="265" class="hcp3"><p 
+			 class="FM_tablebody19pt">When there is an error in the execution 
+		 condi­tions or input parameters for the instruction.</p></td>
+		<td width="265" class="hcp5"><p class="FM_tablebody19pt">When 
+		 the error is cleared.</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">Strobe</p></td>
+		<td width="265" class="hcp3"><p 
+			 class="FM_tablebody19pt">When the M code output specified 
+		 in an M code is received from the CNC coordinate system.</p></td>
+		<td width="265" class="hcp5"><p class="FM_tablebody19pt">When 
+		 the M code output is reset by CNC_Coor­dResetMCode.</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="620" class="hcp9">
+	<tr style="height: 21.00pt;">
+		<td width="620" class="hcp10"><p 
+			 class="FM_head4">In-Out Variables</p></td>
+	</tr>
+</table>
+
+<p class="FM_tablespec">&#160;</p>
+
+<table cellspacing="0" width="605" class="hcp11">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="91" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="91" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Meaning</p></th>
+		<th width="125" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th width="76" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Valid 
+		 range</p></th>
+		<th width="223" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="91" class="hcp3"><p 
+			 class="FM_tablebody19pt">Coord</p></td>
+		<td width="91" class="hcp3"><p 
+			 class="FM_tablebody19pt">CNC Coordi­nate System</p></td>
+		<td width="125" class="hcp3"><p 
+			 class="FM_tablebody19pt">_sCNC_COORD<br>
+		_REF</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">---</p></td>
+		<td width="223" class="hcp5"><p class="FM_tablebody19pt">Specifies 
+		 the CNC coordinate system.</p></td>
+	</tr>
+	<tr style="height: 52.00pt;">
+		<td width="91" class="hcp3"><p 
+			 class="FM_tablebody19pt">MCode</p></td>
+		<td width="91" class="hcp3"><p 
+			 class="FM_tablebody19pt">M code attached infor­mation</p></td>
+		<td width="125" class="hcp3"><p 
+			 class="FM_tablebody19pt">_sMCODE_REF</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">---</p></td>
+		<td width="223" class="hcp5"><p class="FM_tablebody19pt">Outputs 
+		 the information attached to the M code output.</p>
+		<p class="FM_tablebody19pt">(*) Create a user-defined variable 
+		 of the _sMCODE_REF type.</p></td>
+	</tr>
+</table>
+
+<p class="FM_head5"><span class="FM_Wingdings">l<span class="hcp12">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span>_sMCODE_REF</p>
+<p class="FM_tablespec">&#160;</p>
+
+<table cellspacing="0" width="605" class="hcp11">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="121" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="106" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Meaning</p></th>
+		<th width="91" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th width="76" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Valid 
+		 range</p></th>
+		<th width="212" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Function</p></th>
+	</tr>
+	<tr style="height: 91.00pt;">
+		<td width="121" class="hcp3"><p 
+			 class="FM_tablebody19pt">ExistsOutputs</p></td>
+		<td width="106" class="hcp3"><p 
+			 class="FM_tablebody19pt">Attached informa­tion output exis­tence</p></td>
+		<td width="91" class="hcp3"><p 
+			 class="FM_tablebody19pt">ARRAY[0..7] OF BOOL</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">TRUE or FALSE</p></td>
+		<td width="212" class="hcp5"><p class="FM_tablebody19pt">Outputs 
+		 whether <span class="FM_italic">Outputs</span>&#160;exists or 
+		 not when an M code is received.</p>
+		<p class="FM_tablebody19pt">The element numbers (0..7) in the array 
+		 correspond to the arguments (VA..VH) in the M code.</p>
+		<p class="FM_tablebody19pt">0=VA, 1=VB, 2=VC, 3=VD, 4=VE, 5=VF, 
+		 6=VG, 7=VH</p></td>
+	</tr>
+	<tr style="height: 91.00pt;">
+		<td width="121" class="hcp3"><p 
+			 class="FM_tablebody19pt">Outputs</p></td>
+		<td width="106" class="hcp3"><p 
+			 class="FM_tablebody19pt">Attached informa­tion output</p></td>
+		<td width="91" class="hcp3"><p 
+			 class="FM_tablebody19pt">ARRAY[0..7] OF LREAL</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">---</p></td>
+		<td width="212" class="hcp5"><p class="FM_tablebody19pt">Outputs 
+		 the <span class="FM_italic">Outputs</span>&#160;when an M code 
+		 is received.</p>
+		<p class="FM_tablebody19pt">The element numbers in the array correspond 
+		 to the arguments (VA..VH) in the M code.</p>
+		<p class="FM_tablebody19pt">0=VA, 1=VB, 2=VC, 3=VD, 4=VE, 5=VF, 
+		 6=VG, 7=VH</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp7">
+	<tr style="height: 20.00pt;" bgcolor="#B3B3B3">
+		<td width="661" bgcolor="#B3B3B3" class="hcp8"><p class="FM_CRhead3">Functions</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">The CNC_CoordCatchMCode instruction receives the M 
+ code output of the NC program as an interface to execute the M codes provided 
+ by the sequence control program from the NC program.</p>
+<p class="FM_body1">This instruction receives (Strobe changes to TRUE) 
+ the M code output of the CNC coordinate system specified using <span class="FM_italic">Coord</span>&#160;(CNC 
+ Coordinate System) in accordance with <span class="FM_italic">MCodeNo</span> 
+ (M Code Number).</p>
+<p class="FM_body1">When the M code output is received, information about 
+ whether there is the argument specified in MCode is output to <span class="FM_italic">ExistsOutputs</span>&#160;using 
+ the sequence control program, and if the argument exists, its value is 
+ output to <span class="FM_italic">Outputs</span>.</p>
+<p class="FM_body1">The <span class="FM_italic">ExistsOutputs</span>&#160;and 
+ <span class="FM_italic">Outputs</span>&#160;argument values are retained 
+ until the M code output is received again using the instance of the same 
+ CNC_CoordCatchMCode instruction.</p>
+<p class="FM_body1">If the M code is set to 0 (synchronization) or the 
+ M code output has an argument, this instruction contin­ues to wait for 
+ block stepping of the NC program until the M code output is reset.</p>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="620" class="hcp9">
+	<tr style="height: 21.00pt;">
+		<td width="620" class="hcp10"><p 
+			 class="FM_head4">Instruction Details</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">This instruction realizes to acknowledge the calls 
+ for the auxiliary functions from the NC program in the sequence control 
+ program.</p>
+<p class="FM_body1">For example, the auxiliary functions of the processing 
+ machine include ATC control, coolant ON/OFF, and spindle control. These 
+ auxiliary functions depend on the processing machine, and they can be 
+ deployed using various commands of the NJ/NX series.</p>
+<div class="hcp4">
+	<p class="hcp13"><img alt="CNC_CoordCatchMCode_020.jpg" id="image56" src="CNC_CoordCatchMCode_020.jpg" width="661" height="140" border="0"> 
+	 </p>
+</div>
+<p class="FM_body1">&#160;</p>
+<p class="FM_body1">Up to 192 of M codes outputs output from the NC program 
+ can be specified for each CNC coordinate system.</p>
+<p class="FM_body1">M code numbers (0 to 191) are used to specify the M 
+ codes outputs accepted by the CNC_Coord­CatchMCode instruction. A different 
+ auxiliary function can be programmed for each M code number of the auxiliary 
+ functions.</p>
+<p class="FM_body1">&#160;</p>
+<p class="FM_body1">Also, you can pass up to eight arguments to each M 
+ code output that is to be output from the NC pro­gram. This can be used 
+ when setting the parameter specified from an NC program to the M codes, 
+ for example, when specifying a tool number for the tool exchange auxiliary 
+ function.</p>
+<p class="FM_body1">When the M code output is enabled in the NC program, 
+ its argument that is specified for M code output is output to <span class="FM_italic">ExistsOutputs</span>&#160;(Argument 
+ Existence/Non-existence) and <span class="FM_italic">Outputs</span> (Argument 
+ Value).</p>
+<p class="FM_body1">&#160;</p>
+<p class="FM_body1">If the argument is specified using an NC program to 
+ enable the M code output, the NC program must retain the argument value 
+ until the argument value is loaded by the sequence control program. There­fore, 
+ the NC program continues to wait for a reset from the sequence control 
+ program. In the sequence control program, be sure to execute the CNC_CoordResetMCode 
+ (Reset M Code) instruction after receiving an M code output that is specified 
+ for the argument.</p>
+
+<table cellspacing="0" width="620" class="hcp9">
+	<tr style="height: 21.00pt;">
+		<td width="620" class="hcp10"><p 
+			 class="FM_head4">Timing Chart</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">A timing chart for the operation of the CNC_CoordCatchMCode 
+ instruction is shown below.</p>
+<div class="hcp4">
+	<p class="hcp13"><img alt="CNC_CoordCatchMCode_030.jpg" id="image57" src="CNC_CoordCatchMCode_030.jpg" width="661" height="227" border="0"> 
+	 </p>
+</div>
+<p class="FM_body1">&#160;</p>
+<p class="FM_body1">While <span class="FM_italic">Enabled</span>&#160;is 
+ TRUE, <span class="FM_italic">Strobe</span> is updated.</p>
+<p class="FM_body1"><span class="FM_italic">ExistsOutputs</span>&#160;and 
+ <span class="FM_italic">Outputs</span>&#160;are updated at the timing 
+ when <span class="FM_italic">Strobe</span>&#160;is updated from FALSE 
+ to TRUE. <span class="FM_italic">ExistsOutputs</span>&#160;and <span class="FM_italic">Outputs</span> 
+ are not updated at other timings.</p>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="620" class="hcp9">
+	<tr style="height: 21.00pt;">
+		<td width="620" class="hcp10"><p 
+			 class="FM_head4">Re-execution of CNC Instructions</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">You cannot re-execute CNC instructions with enable-type 
+ inputs.</p>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="620" class="hcp9">
+	<tr style="height: 21.00pt;">
+		<td width="620" class="hcp10"><p 
+			 class="FM_head4">Multi-execution of CNC Instructions</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">This instruction operates independently for each instruction, 
+ therefore it is not affected by the restriction of CNC instruction multi-execution 
+ processing.</p>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="620" class="hcp9">
+	<tr style="height: 21.00pt;">
+		<td width="620" class="hcp10"><p 
+			 class="FM_head4">Errors</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">If this instruction cannot be executed, an error occurs, 
+ and <span class="FM_italic">Error</span> will change to TRUE.</p>
+<p class="FM_body1">You can find out the cause of the error by referring 
+ to the value output by <span class="FM_italic">ErrorID</span> (Error Code).</p>
+<div class="hcp4">
+	<p class="hcp13"><img alt="CNC_CoordCatchMCode_040.jpg" id="image58" src="CNC_CoordCatchMCode_040.jpg" width="661" height="227" border="0"> 
+	 </p>
+</div>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp7">
+	<tr style="height: 20.00pt;" bgcolor="#B3B3B3">
+		<td width="661" bgcolor="#B3B3B3" class="hcp8"><p class="FM_CRhead3">Sample Programming</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">This section shows sample programming to receive the 
+ auxiliary function output and perform the reset.</p>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="620" class="hcp9">
+	<tr style="height: 21.00pt;">
+		<td width="620" class="hcp10"><p 
+			 class="FM_head4">Parameter Settings</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">The minimum settings required for this sample programming 
+ are given below.</p>
+<p class="FM_head5"><span class="FM_Wingdings">l<span class="hcp12">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span>CNC 
+ Coordinate System Settings</p>
+<p class="FM_body1">Logical CNC motor configuration</p>
+<p class="FM_tablespec">&#160;</p>
+
+<table cellspacing="0" width="265" class="hcp11">
+	<tr style="height: 25.00pt;" bgcolor="#B3B3B3">
+		<th width="113" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">CNC 
+		 coordinate system</p></th>
+		<th width="151" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Logical CNC 
+		 motor con­figuration</p></th>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="113" class="hcp3"><p 
+			 class="FM_tablebody19pt">CNC coordinate system 0</p></td>
+		<td width="151" class="hcp5"><p class="FM_tablebody19pt">3</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+<p class="FM_body1">Positioning axis configuration</p>
+<p class="FM_tablespec">&#160;</p>
+
+<table cellspacing="0" width="529" class="hcp11">
+	<tr style="height: 25.00pt;" bgcolor="#B3B3B3">
+		<th width="113" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">CNC 
+		 coordinate system</p></th>
+		<th width="151" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Positioning 
+		 axis CNC motor number</p></th>
+		<th width="151" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Positioning 
+		 axis config­uration CNC motor</p></th>
+		<th width="113" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Positioning 
+		 axis assignment</p></th>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="113" class="hcp3"><p 
+			 class="FM_tablebody19pt">CNC coordinate system 0</p></td>
+		<td width="151" class="hcp3"><p 
+			 class="FM_tablebody19pt">CNC motor P0</p></td>
+		<td width="151" class="hcp3"><p 
+			 class="FM_tablebody19pt">CNC motor 0</p></td>
+		<td width="113" class="hcp5"><p class="FM_tablebody19pt">X-axis</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="113" class="hcp3"><p 
+			 class="FM_tablebody19pt">CNC coordinate system 0</p></td>
+		<td width="151" class="hcp3"><p 
+			 class="FM_tablebody19pt">CNC motor P1</p></td>
+		<td width="151" class="hcp3"><p 
+			 class="FM_tablebody19pt">CNC motor 1</p></td>
+		<td width="113" class="hcp5"><p class="FM_tablebody19pt">Y-axis</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="113" class="hcp3"><p 
+			 class="FM_tablebody19pt">CNC coordinate system 0</p></td>
+		<td width="151" class="hcp3"><p 
+			 class="FM_tablebody19pt">CNC motor P2</p></td>
+		<td width="151" class="hcp3"><p 
+			 class="FM_tablebody19pt">CNC motor 2</p></td>
+		<td width="113" class="hcp5"><p class="FM_tablebody19pt">Z-axis</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+<p class="FM_body1">Spindle axis use CNC motor</p>
+<p class="FM_tablespec">&#160;</p>
+<p class="FM_tablespec">&#160;</p>
+
+<table cellspacing="0" width="265" class="hcp11">
+	<tr style="height: 25.00pt;" bgcolor="#B3B3B3">
+		<th width="113" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">CNC 
+		 coordinate system</p></th>
+		<th width="151" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Spindle axis 
+		 use CNC motor</p></th>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="113" class="hcp3"><p 
+			 class="FM_tablebody19pt">CNC coordinate system 0</p></td>
+		<td width="151" class="hcp5"><p class="FM_tablebody19pt">CNC 
+		 motor 3</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+<p class="FM_body1">M code settings</p>
+<p class="FM_tablespec">&#160;</p>
+<p class="FM_tablespec">&#160;</p>
+
+<table cellspacing="0" width="265" class="hcp11">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="113" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">M 
+		 code number</p></th>
+		<th width="151" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Setting value</p></th>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="113" class="hcp3"><p 
+			 class="FM_tablebody19pt">M101</p></td>
+		<td width="151" class="hcp5"><p class="FM_tablebody19pt">0 
+		 (Synchronous)</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="620" class="hcp9">
+	<tr style="height: 21.00pt;">
+		<td width="620" class="hcp10"><p 
+			 class="FM_head4">Operation Example</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">Set 101 for MCodeNo (M Code Number) using the CNC_CoordCatchMCode 
+ (Catch M Code) instruc­tion and run the sequence control program that 
+ turns ON the external output using the N11 block of the NC program shown 
+ below. After the external output turned ON, the execution of the NC program 
+ is con­tinued using the CNC_CoordResetMCode (Reset M Code) instruction.</p>
+<p class="FM_head5"><span class="FM_Wingdings">l<span class="hcp12">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span>NC 
+ Program</p>
+<p class="FM_tablespec">&#160;</p>
+
+<table cellspacing="0" width="340" class="hcp14">
+	<tr style="height: 53.00pt;">
+		<td width="340" class="hcp15"><p class="FM_body1ST" style="text-indent: 0.000pt;">N10 
+		 G91 F1000 G01 X10</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">N11 M101</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">N12 X20</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">M30</p></td>
+	</tr>
+</table>
+
+<p class="FM_head5"><span class="FM_Wingdings">l<span class="hcp12">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span>Operation 
+ Patterns</p>
+<div class="hcp16">
+	<img alt="CNC_CoordCatchMCode_050.jpg" id="image59" src="CNC_CoordCatchMCode_050.jpg" width="661" height="189" border="0"> 
+</div>
+<p class="FM_body1">&#160;</p>
+<p class="FM_list1"><span class="FM_list1num">1<span class="hcp12">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span>Turning 
+ ON the Operation Start Switch</p>
+<p class="FM_listbody1">When you turn ON the operation start switch at 
+ the home, CNC motor 0 assigned to the X-axis is positioned to 10.00 mm 
+ in the positive direction and the external output turns ON. After that, 
+ CNC motor 1 is positioned to 20.00 mm in the positive direction.</p>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="620" class="hcp9">
+	<tr style="height: 21.00pt;">
+		<td width="620" class="hcp10"><p 
+			 class="FM_head4">Ladder Diagram</p></td>
+	</tr>
+</table>
+
+<p class="FM_head5"><span class="FM_Wingdings">l<span class="hcp12">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span>Main 
+ Variables</p>
+<p class="FM_tablespec">&#160;</p>
+
+<table cellspacing="0" width="605" class="hcp11">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="113" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="151" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th width="76" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Default</p></th>
+		<th width="265" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Comment</p></th>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="113" class="hcp3"><p 
+			 class="FM_tablebody19pt">CNC_Coord000</p></td>
+		<td width="151" class="hcp3"><p 
+			 class="FM_tablebody19pt">_sCNC_COORD_REF</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">---</p></td>
+		<td width="265" class="hcp5"><p class="FM_tablebody19pt">CNC 
+		 coordinate system variable of CNC coordi­nate system 0.</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="113" class="hcp3"><p 
+			 class="FM_tablebody19pt">CNC_Motor000</p></td>
+		<td width="151" class="hcp3"><p 
+			 class="FM_tablebody19pt">_sCNC_MOTOR_REF</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">---</p></td>
+		<td width="265" class="hcp5"><p class="FM_tablebody19pt">CNC 
+		 motor variable of CNC motor 0.</p></td>
+	</tr>
+	<tr style="height: 52.00pt;">
+		<td width="113" class="hcp3"><p 
+			 class="FM_tablebody19pt">StartPg</p></td>
+		<td width="151" class="hcp3"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">FALSE</p></td>
+		<td width="265" class="hcp5"><p class="FM_tablebody19pt">Indicates 
+		 the operation start switch.</p>
+		<p class="FM_tablebody19pt">The Servo is turned ON when this variable 
+		 is TRUE and EtherCAT process data communica­tions are established.</p></td>
+	</tr>
+	<tr style="height: 52.00pt;">
+		<td width="113" class="hcp3"><p 
+			 class="FM_tablebody19pt">Coord_Ready</p></td>
+		<td width="151" class="hcp3"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">FALSE</p></td>
+		<td width="265" class="hcp5"><p class="FM_tablebody19pt">Indicates 
+		 the execution ready completion status of the NC program.</p>
+		<p class="FM_tablebody19pt">This variable changes to TRUE when 
+		 the NC program execution conditions are satisfied.</p></td>
+	</tr>
+	<tr style="height: 37.00pt;">
+		<td width="113" class="hcp3"><p 
+			 class="FM_tablebody19pt">NcpStart</p></td>
+		<td width="151" class="hcp3"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">FALSE</p></td>
+		<td width="265" class="hcp5"><p class="FM_tablebody19pt">When 
+		 this variable is TRUE and the cycle start ready is completed, 
+		 the NC program is exe­cuted.</p></td>
+	</tr>
+	<tr style="height: 79.00pt;">
+		<td width="113" class="hcp3"><p 
+			 class="FM_tablebody19pt">InitFlg</p></td>
+		<td width="151" class="hcp3"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">FALSE</p></td>
+		<td width="265" class="hcp5"><p class="FM_tablebody19pt">Indicates 
+		 the input parameter setting comple­tion.</p>
+		<p class="FM_tablebody19pt">Input parameters are set when this 
+		 variable is FALSE.</p>
+		<p class="FM_tablebody19pt">When the input parameter setting is 
+		 completed, this variable changes to TRUE.</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="113" class="hcp3"><p 
+			 class="FM_tablebody19pt">ExternalOUT</p></td>
+		<td width="151" class="hcp3"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">FALSE</p></td>
+		<td width="265" class="hcp5"><p class="FM_tablebody19pt">Indicates 
+		 the external output.</p></td>
+	</tr>
+</table>
+
+<p class="FM_head5"><span class="FM_Wingdings">l<span class="hcp12">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span>Timing 
+ Chart</p>
+<div class="hcp16">
+	<img alt="CNC_CoordCatchMCode_060.jpg" id="image60" src="CNC_CoordCatchMCode_060.jpg" width="661" height="348" border="0"> 
+</div>
+<p class="FM_body1">&#160;</p>
+<p class="FM_head5"><span class="FM_Wingdings">l<span class="hcp12">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span>Sample 
+ Programming</p>
+<p class="FM_body5">When contact <span class="FM_italic">StartPg</span>&#160;is 
+ TRUE, check that the Servo Drive is in the servo ready status and set 
+ the X-axis to the Servo ON status.</p>
+<div class="hcp16">
+	<img alt="CNC_CoordCatchMCode_070.jpg" id="image61" src="CNC_CoordCatchMCode_070.jpg" width="661" height="136" border="0"> 
+</div>
+<p class="FM_body1">&#160;</p>
+<p class="FM_body5">When the X-axis is in the Servo ON status, check that 
+ the Servo Drive is in the servo ready status and set the Y-axis to the 
+ Servo ON status.</p>
+<div class="hcp16">
+	<img alt="CNC_CoordCatchMCode_080.jpg" id="image62" src="CNC_CoordCatchMCode_080.jpg" width="661" height="136" border="0"> 
+</div>
+<p class="FM_body1">&#160;</p>
+<p class="FM_body5">When the Y-axis is in the Servo ON status, check that 
+ the Servo Drive is in the servo ready status and set the Z-axis to the 
+ Servo ON status.</p>
+<div class="hcp16">
+	<img alt="CNC_CoordCatchMCode_090.jpg" id="image63" src="CNC_CoordCatchMCode_090.jpg" width="661" height="136" border="0"> 
+</div>
+<p class="FM_body1">&#160;</p>
+<p class="FM_body5">When the Z-axis is in the Servo ON status, check that 
+ the Servo Drive is in the servo ready status and set the spindle axis 
+ to the Servo ON status.</p>
+<div class="hcp16">
+	<img alt="CNC_CoordCatchMCode_100.jpg" id="image64" src="CNC_CoordCatchMCode_100.jpg" width="661" height="136" border="0"> 
+</div>
+<p class="FM_body1">&#160;</p>
+<p class="FM_body5">When the positioning axis and spindle axis are in the 
+ Servo ON status, execute homing of the X-axis.</p>
+<div class="hcp16">
+	<img alt="CNC_CoordCatchMCode_110.jpg" id="image65" src="CNC_CoordCatchMCode_110.jpg" width="661" height="151" border="0"> 
+</div>
+<p class="FM_body1">&#160;</p>
+<p class="FM_body5">After the home of the X-axis is defined, execute homing 
+ of the Y-axis.</p>
+<div class="hcp16">
+	<img alt="CNC_CoordCatchMCode_120.jpg" id="image66" src="CNC_CoordCatchMCode_120.jpg" width="661" height="151" border="0"> 
+</div>
+<p class="FM_body1">&#160;</p>
+<p class="FM_body5">After the home of the Y-axis is defined, execute homing 
+ of the Z-axis.</p>
+<div class="hcp16">
+	<img alt="CNC_CoordCatchMCode_130.jpg" id="image67" src="CNC_CoordCatchMCode_130.jpg" width="661" height="151" border="0"> 
+</div>
+<p class="FM_body1">&#160;</p>
+<p class="FM_body5">If a minor fault level error occurs in CNC coordinate 
+ system 0, the error handler for the device (FaultHandler) is executed.</p>
+<p class="FM_body5">Program the FaultHandler according to the device.</p>
+<div class="hcp16">
+	<img alt="CNC_CoordCatchMCode_140.jpg" id="image68" src="CNC_CoordCatchMCode_140.jpg" width="661" height="76" border="0"> 
+</div>
+<p class="FM_body1">&#160;</p>
+<p class="FM_body5">When the NC program execution ready is completed, change 
+ Coord_Ready to TRUE.</p>
+<div class="hcp16">
+	<img alt="CNC_CoordCatchMCode_150.jpg" id="image69" src="CNC_CoordCatchMCode_150.jpg" width="661" height="98" border="0"> 
+</div>
+<p class="FM_body1">&#160;</p>
+<p class="FM_body5">When Coord_Ready changes to TRUE, start the execution 
+ control of the NC program.</p>
+<div class="hcp16">
+	<img alt="CNC_CoordCatchMCode_160.jpg" id="image70" src="CNC_CoordCatchMCode_160.jpg" width="661" height="166" border="0"> 
+</div>
+<p class="FM_body1">&#160;</p>
+<p class="FM_body5">When the execution control of the NC program is started, 
+ start the auxiliary function output received.</p>
+<div class="hcp16">
+	<img alt="CNC_CoordCatchMCode_170.jpg" id="image71" src="CNC_CoordCatchMCode_170.jpg" width="661" height="166" border="0"> 
+</div>
+<p class="FM_body1">&#160;</p>
+<p class="FM_body5">When the auxiliary function output received is started, 
+ set the parameters of the CNC_CoordControl (CNC Coordinate System NC Control) 
+ instruction.</p>
+<p class="FM_tablespec">&#160;</p>
+
+<table cellspacing="0" width="605" class="hcp14">
+	<tr style="height: 135.00pt;">
+		<td width="605" class="hcp15"><p class="FM_body1ST" style="text-indent: 0.000pt;">// 
+		 CNC_CoordControl parameter</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">// Specify 
+		 the NC program (No. 1) that was created on the Sysmac Studio.</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">ControlInputs.ProgramNo<span class="hcp17">&#160;&#160;&#160;</span><span class="hcp17">&#160;&#160;&#160;</span><span class="hcp17">&#160;&#160;&#160;</span>:=UINT#1;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">ControlInputs.FeedrateVelFactor<span class="hcp17">&#160;&#160;&#160;</span>:=LREAL#100.0;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">ControlInputs.SpindleVelFactor<span class="hcp17">&#160;&#160;&#160;</span>:=LREAL#100.0;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">ControlInputs.AuxiliaryLock<span class="hcp17">&#160;&#160;&#160;</span><span class="hcp17">&#160;&#160;&#160;</span>:=FALSE;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">ControlInputs.BackTrace<span class="hcp17">&#160;&#160;&#160;</span><span class="hcp17">&#160;&#160;&#160;</span><span class="hcp17">&#160;&#160;&#160;</span>:=FALSE;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">ControlInputs.DryRun<span class="hcp17">&#160;&#160;&#160;</span><span class="hcp17">&#160;&#160;&#160;</span><span class="hcp17">&#160;&#160;&#160;</span>:=FALSE;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">ControlInputs.FeedHold<span class="hcp17">&#160;&#160;&#160;</span><span class="hcp17">&#160;&#160;&#160;</span><span class="hcp17">&#160;&#160;&#160;</span>:=FALSE;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">ControlInputs.MachineLock<span class="hcp17">&#160;&#160;&#160;</span><span class="hcp17">&#160;&#160;&#160;</span>:=FALSE;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">// Change InitFlag 
+		 to TRUE after setting the input parameters.</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">InitFlg := 
+		 TRUE;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">// Start the 
+		 NC program.</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">NcpStart:=TRUE;</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+<p class="FM_body5">Check that the cycle start ready is completed and start 
+ the execution of the NC program.</p>
+<div class="hcp16">
+	<img alt="CNC_CoordCatchMCode_180.jpg" id="image72" src="CNC_CoordCatchMCode_180.jpg" width="661" height="215" border="0"> 
+</div>
+<p class="FM_body1">&#160;</p>
+<p class="FM_body5">When the auxiliary function output is received, turn 
+ ON the external output and start the auxiliary function output reset.</p>
+<p class="FM_body5">Continue the NC program after the auxiliary function 
+ output of the NC program is reset.</p>
+<div class="hcp16">
+	<img alt="CNC_CoordCatchMCode_190.jpg" id="image73" src="CNC_CoordCatchMCode_190.jpg" width="661" height="174" border="0"> 
+</div>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="620" class="hcp9">
+	<tr style="height: 21.00pt;">
+		<td width="620" class="hcp10"><p 
+			 class="FM_head4">Structured Text (ST)</p></td>
+	</tr>
+</table>
+
+<p class="FM_head5"><span class="FM_Wingdings">l<span class="hcp12">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span>Main 
+ Variables</p>
+<p class="FM_tablespec">&#160;</p>
+
+<table cellspacing="0" width="605" class="hcp11">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="113" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="151" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th width="76" bgcolor="#B3B3B3" class="hcp1"><p class="FM_tabletitlec9pt">Default</p></th>
+		<th width="265" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Comment</p></th>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="113" class="hcp3"><p 
+			 class="FM_tablebody19pt">CNC_Coord000</p></td>
+		<td width="151" class="hcp3"><p 
+			 class="FM_tablebody19pt">_sCNC_COORD_REF</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">---</p></td>
+		<td width="265" class="hcp5"><p class="FM_tablebody19pt">CNC 
+		 coordinate system variable of CNC coordi­nate system 0.</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="113" class="hcp3"><p 
+			 class="FM_tablebody19pt">CNC_Motor000</p></td>
+		<td width="151" class="hcp3"><p 
+			 class="FM_tablebody19pt">_sCNC_MOTOR_REF</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">---</p></td>
+		<td width="265" class="hcp5"><p class="FM_tablebody19pt">CNC 
+		 motor variable of CNC motor 0.</p></td>
+	</tr>
+	<tr style="height: 52.00pt;">
+		<td width="113" class="hcp3"><p 
+			 class="FM_tablebody19pt">StartPg</p></td>
+		<td width="151" class="hcp3"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">FALSE</p></td>
+		<td width="265" class="hcp5"><p class="FM_tablebody19pt">Indicates 
+		 the operation start switch.</p>
+		<p class="FM_tablebody19pt">The Servo is turned ON when this variable 
+		 is TRUE and EtherCAT process data communica­tions are established.</p></td>
+	</tr>
+	<tr style="height: 52.00pt;">
+		<td width="113" class="hcp3"><p 
+			 class="FM_tablebody19pt">Coord_Ready</p></td>
+		<td width="151" class="hcp3"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">FALSE</p></td>
+		<td width="265" class="hcp5"><p class="FM_tablebody19pt">Indicates 
+		 the execution ready completion of the NC program.</p>
+		<p class="FM_tablebody19pt">This variable changes to TRUE when 
+		 the NC program execution conditions are satisfied.</p></td>
+	</tr>
+	<tr style="height: 37.00pt;">
+		<td width="113" class="hcp3"><p 
+			 class="FM_tablebody19pt">NcpStart</p></td>
+		<td width="151" class="hcp3"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">FALSE</p></td>
+		<td width="265" class="hcp5"><p class="FM_tablebody19pt">When 
+		 this variable is TRUE and the cycle start ready is completed, 
+		 the NC program is exe­cuted.</p></td>
+	</tr>
+	<tr style="height: 79.00pt;">
+		<td width="113" class="hcp3"><p 
+			 class="FM_tablebody19pt">InitFlg</p></td>
+		<td width="151" class="hcp3"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">FALSE</p></td>
+		<td width="265" class="hcp5"><p class="FM_tablebody19pt">Indicates 
+		 the input parameter setting comple­tion.</p>
+		<p class="FM_tablebody19pt">Input parameters are set when this 
+		 variable is FALSE.</p>
+		<p class="FM_tablebody19pt">When the input parameter setting is 
+		 completed, this variable changes to TRUE.</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="113" class="hcp3"><p 
+			 class="FM_tablebody19pt">ExternalOUT</p></td>
+		<td width="151" class="hcp3"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="76" class="hcp3"><p 
+			 class="FM_tablebody19pt">FALSE</p></td>
+		<td width="265" class="hcp5"><p class="FM_tablebody19pt">Indicates 
+		 the external output.</p></td>
+	</tr>
+</table>
+
+<p class="FM_head5"><span class="FM_Wingdings">l<span class="hcp12">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span>Timing 
+ Chart</p>
+<div class="hcp16">
+	<img alt="CNC_CoordCatchMCode_200.jpg" id="image74" src="CNC_CoordCatchMCode_200.jpg" width="661" height="333" border="0"> 
+</div>
+<p class="FM_body1">&#160;</p>
+<p class="FM_head5"><span class="FM_Wingdings">l<span class="hcp12">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span>Sample 
+ Programming</p>
+<p class="FM_tablespec">&#160;</p>
+
+<table cellspacing="0" width="605" class="hcp14">
+	<tr style="height: 495.00pt;">
+		<td width="605" class="hcp15"><p class="FM_body1ST" style="text-indent: 0.000pt;">// 
+		 When StartPg is TRUE, check that the Servo Drive is in the servo 
+		 ready status and set the X-axis to the Servo ON status.</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">IF (StartPg 
+		 = TRUE)<span class="hcp17">&#160;&#160;&#160;</span>AND 
+		 (CNC_Motor000.DrvStatus.Ready=TRUE) THEN</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Pwr1_En:=TRUE;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">ELSE</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Pwr1_En:=FALSE;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">END_IF;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">// When the 
+		 X-axis is in the Servo ON status, check that the Servo Drive is 
+		 in the servo ready status and set the Y-axis to the Servo ON status.</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">IF (Pwr1_Status 
+		 = TRUE) AND (CNC_Motor001.DrvStatus.Ready=TRUE) THEN</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Pwr2_En:=TRUE;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">ELSE</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Pwr2_En:=FALSE;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">END_IF;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">// When the 
+		 Y-axis is in the Servo ON status, check that the Servo Drive is 
+		 in the servo ready status and set the Z-axis to the Servo ON status.</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">IF (Pwr2_Status 
+		 = TRUE) AND (CNC_Motor002.DrvStatus.Ready=TRUE) THEN</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Pwr3_En:=TRUE;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">ELSE</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Pwr3_En:=FALSE;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">END_IF;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">// When the 
+		 Z-axis is in the Servo ON status, check that the Servo Drive is 
+		 in the servo ready status and set the spindle axis to the Servo 
+		 ON status.</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">IF (Pwr3_Status 
+		 = TRUE) AND (CNC_Motor003.DrvStatus.Ready=TRUE) THEN</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Pwr4_En:=TRUE;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">ELSE</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Pwr4_En:=FALSE;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">END_IF;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">// When the 
+		 positioning axis and spindle axis are in the Servo ON status, 
+		 execute homing of the X-axis.</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">IF (Pwr4_Status=TRUE) 
+		 THEN</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;<span class="hcp17">&#160;&#160;&#160;</span>Hm1_Ex:=TRUE;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">END_IF;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">// After the 
+		 home of the X-axis is defined, execute homing of the Y-axis.</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">IF (Pwr2_Status=TRUE) 
+		 AND (Hm1_D=TRUE) THEN</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Hm2_Ex:=TRUE;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">END_IF;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">// After the 
+		 home of the Y-axis is defined, execute homing of the Z-axis.</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">IF (Pwr3_Status=TRUE) 
+		 AND (Hm2_D=TRUE) THEN</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Hm3_Ex:=TRUE;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">END_IF;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">// If a minor 
+		 fault level error occurs in coordinate system 0, execute the error 
+		 handler for the device (FaultHandler).</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">// Program 
+		 the FaultHandler according to the device.</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">IF (CNC_Coord000.MFaultLvl.Active=TRUE) 
+		 THEN</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>FaultHandler();</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">END_IF;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;</p></td>
+	</tr>
+</table>
+
+<p class="FM_tablespec">&#160;</p>
+
+<table cellspacing="0" width="605" class="hcp14">
+	<tr style="height: 491.00pt;">
+		<td width="605" class="hcp15"><p class="FM_body1ST" style="text-indent: 0.000pt;">// 
+		 When the NC program execution ready is completed, change Coord_Ready 
+		 to TRUE.</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">IF (Hm3_D =TRUE) 
+		 AND (CNC_Coord000.Status.Ready=TRUE) THEN</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Coord_Ready :=TRUE;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">ELSIF(CC1_Err 
+		 = TRUE) THEN</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Coord_Ready :=FALSE;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">END_IF;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">// When Coord_Ready 
+		 changes to TRUE, start the execution control of the NC program.</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">// Also, start 
+		 the auxiliary function output received to receive the auxiliary 
+		 function output from the NC program.</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">IF (Coord_Ready=TRUE)THEN</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>CC1_En:=TRUE;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>CM1_En:=TRUE;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">ELSE</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>CC1_En:=FALSE;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">END_IF;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">// Processing 
+		 when input parameters are not set</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">IF (CM1_enbd=TRUE) 
+		 AND (InitFlg=FALSE) THEN</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>// CNC_CoordControl 
+		 parameter</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>// Specify the NC 
+		 program (No. 1) that was created on the Sysmac Studio.</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>ControlInputs.ProgramNo<span class="hcp17">&#160;&#160;&#160;</span><span class="hcp17">&#160;&#160;&#160;</span><span class="hcp17">&#160;&#160;&#160;</span>:=UINT#1;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>ControlInputs.FeedrateVelFactor<span class="hcp17">&#160;&#160;&#160;</span>:=LREAL#100.0;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>ControlInputs.SpindleVelFactor<span class="hcp17">&#160;&#160;&#160;</span>:=LREAL#100.0;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>ControlInputs.AuxiliaryLock<span class="hcp17">&#160;&#160;&#160;</span><span class="hcp17">&#160;&#160;&#160;</span>:=FALSE;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>ControlInputs.BackTrace<span class="hcp17">&#160;&#160;&#160;</span><span class="hcp17">&#160;&#160;&#160;</span><span class="hcp17">&#160;&#160;&#160;</span>:=FALSE;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>ControlInputs.DryRun<span class="hcp17">&#160;&#160;&#160;</span><span class="hcp17">&#160;&#160;&#160;</span><span class="hcp17">&#160;&#160;&#160;</span>:=FALSE;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>ControlInputs.FeedHold<span class="hcp17">&#160;&#160;&#160;</span><span class="hcp17">&#160;&#160;&#160;</span><span class="hcp17">&#160;&#160;&#160;</span>:=FALSE;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>ControlInputs.MachineLock<span class="hcp17">&#160;&#160;&#160;</span><span class="hcp17">&#160;&#160;&#160;</span>:=FALSE;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>// Change InitFlag 
+		 to TRUE after setting the input parameters.</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>InitFlg := TRUE;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>// Start the NC program.</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>NcpStart:=TRUE;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">END_IF;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">// Check that 
+		 the cycle start ready is completed and start the execution of 
+		 the NC program.</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">IF (InitFlg=TRUE) 
+		 AND (ControlOutputs.CycleStartReady=TRUE) AND (NcpStart=TRUE) 
+		 THEN</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>CC1_CycleStart:=TRUE;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">END_IF;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">IF( CC1_CycleStart 
+		 =TRUE) THEN</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span><span class="hcp17">&#160;&#160;&#160;</span>ControlInputs.CycleStart:=TRUE;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">END_IF;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">// When the 
+		 NC program is executed, change CC1_CycleStart and NcpStart to 
+		 FALSE.</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">IF (ControlOutputs.ExecutingStatus 
+		 = _eCNC_EXECUTING_STATE#_cncExecuting) THEN</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>NcpStart:=FALSE;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>CC1_CycleStart:=FALSE;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>ControlInputs.CycleStart:=FALSE;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">END_IF;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">// When the 
+		 auxiliary function output is received, turn ON the external output 
+		 and start the auxiliary function output reset.</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">// After the 
+		 auxiliary function output of the NC program is reset, continue 
+		 the NC program.</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">IF CM1_str=TRUE 
+		 THEN</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>ExternalOUT:=TRUE;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>RM1_Ex:=TRUE;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">END_IF;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;</p></td>
+	</tr>
+</table>
+
+<p class="FM_tablespec">&#160;</p>
+
+<table cellspacing="0" width="605" class="hcp14">
+	<tr style="height: 507.00pt;">
+		<td width="605" class="hcp15"><p class="FM_body1ST" style="text-indent: 0.000pt;">// 
+		 Check that the NC program is restarted.</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">IF RM1_D=TRUE 
+		 THEN</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>RM1_Ex:=FALSE;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">END_IF;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">// CNC_Power 
+		 of X-axis</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">PWR1(</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Coord:= CNC_Coord000,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Enable:=Pwr1_En, </p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>LogicalMotorNo:=UINT#0, 
+		 </p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Status=&gt;Pwr1_Status,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Busy =&gt; Pwr1_Bsy,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;&#160;&#160;Error 
+		 =&gt; Pwr1_Err,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;&#160;&#160;ErrorID 
+		 =&gt; Pwr1_ErrID</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">);</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">// CNC_Power 
+		 of Y-axis</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">PWR2(</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Coord:= CNC_Coord000,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Enable:=Pwr2_En, </p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>LogicalMotorNo:=UINT#1, 
+		 </p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Status=&gt;Pwr2_Status,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Busy =&gt; Pwr2_Bsy,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;&#160;&#160;Error 
+		 =&gt; Pwr2_Err,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;&#160;&#160;ErrorID 
+		 =&gt; Pwr2_ErrID</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">);</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">// CNC_Power 
+		 of Z-axis</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">PWR3(</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Coord:= CNC_Coord000,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Enable:=Pwr3_En, </p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>LogicalMotorNo:=UINT#2, 
+		 </p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Status=&gt;Pwr3_Status,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Busy =&gt; Pwr3_Bsy,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;&#160;&#160;Error 
+		 =&gt; Pwr3_Err,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;&#160;&#160;ErrorID 
+		 =&gt; Pwr3_ErrID</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">);</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">// CNC_Power 
+		 of spindle axis</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">PWR4(</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Coord:= CNC_Coord000,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Enable:=Pwr4_En, </p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>LogicalMotorNo:=UINT#100, 
+		 </p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Status=&gt;Pwr4_Status,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Busy =&gt; Pwr4_Bsy,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;&#160;&#160;Error 
+		 =&gt; Pwr4_Err,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;&#160;&#160;ErrorID 
+		 =&gt; Pwr4_ErrID</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">);</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">// CNC_Home 
+		 of X-axis</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">HM1(</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;Coord 
+		 := CNC_Coord000 ,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;Execute 
+		 := Hm1_Ex,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;LogicalMotorNo 
+		 :=UINT#0 ,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;Done 
+		 =&gt; Hm1_D,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;Busy 
+		 =&gt; Hm1_Bsy,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;CommandAborted=&gt; 
+		 Hm1_Ca,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;Error 
+		 =&gt; Hm1_Err,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;ErrorID 
+		 =&gt; Hm1_ErrID</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">);</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">// CNC_Home 
+		 of Y-axis</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">HM2(</p></td>
+	</tr>
+</table>
+
+<p class="FM_tablespec">&#160;</p>
+
+<table cellspacing="0" width="605" class="hcp14">
+	<tr style="height: 506.00pt;">
+		<td width="605" class="hcp15"><p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;Coord 
+		 := CNC_Coord000 ,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;Execute 
+		 := Hm2_Ex,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;LogicalMotorNo 
+		 :=UINT#1 ,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;Done 
+		 =&gt; Hm2_D,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;Busy 
+		 =&gt; Hm2_Bsy,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;CommandAborted=&gt; 
+		 Hm2_Ca,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;Error 
+		 =&gt; Hm2_Err,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;ErrorID 
+		 =&gt; Hm2_ErrID</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">);</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">// CNC_Home 
+		 of Z-axis</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">HM3(</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;Coord 
+		 := CNC_Coord000 ,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;Execute 
+		 := Hm3_Ex,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;LogicalMotorNo 
+		 :=UINT#2 ,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;Done 
+		 =&gt; Hm3_D,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;Busy 
+		 =&gt; Hm3_Bsy,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;CommandAborted=&gt; 
+		 Hm3_Ca,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;Error 
+		 =&gt; Hm3_Err,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;ErrorID 
+		 =&gt; Hm3_ErrID</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">);</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">//<span class="hcp17">&#160;&#160;&#160;</span>CNC_CoordControl</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">CC1(</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Coord:= CNC_Coord000,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>ControlInputs:=ControlInputs,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>ControlOutputs:=ControlOutputs, 
+		 </p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Enable:=CC1_En, </p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Enabled=&gt;CC1_enbd, 
+		 </p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Busy=&gt;CC1_Bsy, 
+		 </p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Error=&gt;CC1_Err, 
+		 </p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>ErrorID=&gt;CC1_ErrID</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">);</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">// CNC_CoordCatchMCode</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">CM1(</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Coord:=CNC_Coord000,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>MCode:=MCode,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Enable:=CM1_En,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>MCodeNo:=UINT#101,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Enabled=&gt;CM1_enbd,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Strobe=&gt;CM1_str,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Busy=&gt;CM1_Bsy,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Error=&gt;CM1_Err, 
+		 </p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>ErrorID=&gt;CM1_ErrID</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">);</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">&#160;</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">// CNC_CoordResetMCode</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">RM1(</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Coord:=CNC_Coord000,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Execute:=RM1_Ex,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Inputs:=CMInputs, 
+		 </p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Done=&gt;RM1_D,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Busy=&gt;RM1_bsy,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>CommandAborted=&gt;RM1_Ca,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>Error=&gt;RM1_Err,</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;"><span class="hcp17">&#160;&#160;&#160;</span>ErrorID=&gt;RM1_ErrID</p>
+		<p class="FM_body1ST" style="text-indent: 0.000pt;">);</p></td>
+	</tr>
+</table>
+
+<p class="FM_tablespec">&#160;</p>
+</body>
+</html>

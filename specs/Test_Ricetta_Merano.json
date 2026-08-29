@@ -1,0 +1,581 @@
+{
+ "progetto": "Test_Ricetta_Merano",
+ "guid": "a5797552-78d1-417b-803b-2ed86b961414",
+ "sections": {
+  "Sezione0": {
+   "rungs": [
+    {
+     "cmt": "SALVO LA RICETTA",
+     "chain": [
+      "V_P_Salva_Ricetta"
+     ],
+     "out": [
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "Ricetta_Edit_Passo[1]",
+        "OUT:Out": "Ricetta_Save[Visu_Ricetta_Numero].Ricetta_Edit_Passo[1]"
+       }
+      },
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "Ricetta_Edit_Passo[2]",
+        "OUT:Out": "Ricetta_Save[Visu_Ricetta_Numero].Ricetta_Edit_Passo[2]"
+       }
+      },
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "Ricetta_Edit_Passo[3]",
+        "OUT:Out": "Ricetta_Save[Visu_Ricetta_Numero].Ricetta_Edit_Passo[3]"
+       }
+      },
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "Ricetta_Edit_Passo[4]",
+        "OUT:Out": "Ricetta_Save[Visu_Ricetta_Numero].Ricetta_Edit_Passo[4]"
+       }
+      },
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "Ricetta_Edit_Passo[5]",
+        "OUT:Out": "Ricetta_Save[Visu_Ricetta_Numero].Ricetta_Edit_Passo[5]"
+       }
+      },
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "Visu_Ricetta_Nome",
+        "OUT:Out": "Ricetta_Save[Visu_Ricetta_Numero].Nome_Ricetta"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "CARICO LA RICETTA",
+     "chain": [
+      "V_P_Carica_Ricetta"
+     ],
+     "out": [
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "Ricetta_Save[Visu_Ricetta_Numero].Ricetta_Edit_Passo[1]",
+        "OUT:Out": "Ricetta_Edit_Passo[1]"
+       }
+      },
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "Ricetta_Save[Visu_Ricetta_Numero].Ricetta_Edit_Passo[2]",
+        "OUT:Out": "Ricetta_Edit_Passo[2]"
+       }
+      },
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "Ricetta_Save[Visu_Ricetta_Numero].Ricetta_Edit_Passo[3]",
+        "OUT:Out": "Ricetta_Edit_Passo[3]"
+       }
+      },
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "Ricetta_Save[Visu_Ricetta_Numero].Ricetta_Edit_Passo[4]",
+        "OUT:Out": "Ricetta_Edit_Passo[4]"
+       }
+      },
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "Ricetta_Save[Visu_Ricetta_Numero].Ricetta_Edit_Passo[5]",
+        "OUT:Out": "Ricetta_Edit_Passo[5]"
+       }
+      },
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "Ricetta_Save[Visu_Ricetta_Numero].Nome_Ricetta",
+        "OUT:Out": "Visu_Ricetta_Nome"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "TRASFERISCO I NOMI DELLE RICETTE SALVATE A DELLE VARIABILI DA CONDIVIDERE COL VISUALIZZATORE",
+     "chain": [
+      {
+       "ist": "Visu_Listato_Ricetta_0:=Ricetta_Save[0].Nome_Ricetta;\r\nVisu_Listato_Ricetta_1:=Ricetta_Save[1].Nome_Ricetta;\r\nVisu_Listato_Ricetta_2:=Ricetta_Save[2].Nome_Ricetta;\r\nVisu_Listato_Ricetta_3:=Ricetta_Save[3].Nome_Ricetta;\r\nVisu_Listato_Ricetta_4:=Ricetta_Save[4].Nome_Ricetta;\r\nVisu_Listato_Ricetta_5:=Ricetta_Save[5].Nome_Ricetta;\r\nVisu_Listato_Ricetta_6:=Ricetta_Save[6].Nome_Ricetta;\r\nVisu_Listato_Ricetta_7:=Ricetta_Save[7].Nome_Ricetta;\r\nVisu_Listato_Ricetta_8:=Ricetta_Save[8].Nome_Ricetta;\r\nVisu_Listato_Ricetta_9:=Ricetta_Save[9].Nome_Ricetta;\r\nVisu_Listato_Ricetta_10:=Ricetta_Save[10].Nome_Ricetta;\r\nVisu_Listato_Ricetta_11:=Ricetta_Save[11].Nome_Ricetta;\r\nVisu_Listato_Ricetta_12:=Ricetta_Save[12].Nome_Ricetta;\r\nVisu_Listato_Ricetta_13:=Ricetta_Save[13].Nome_Ricetta;\r\nVisu_Listato_Ricetta_14:=Ricetta_Save[14].Nome_Ricetta;\r\nVisu_Listato_Ricetta_15:=Ricetta_Save[15].Nome_Ricetta;\r\nVisu_Listato_Ricetta_16:=Ricetta_Save[16].Nome_Ricetta;\r\nVisu_Listato_Ricetta_17:=Ricetta_Save[17].Nome_Ricetta;\r\nVisu_Listato_Ricetta_19:=Ricetta_Save[18].Nome_Ricetta;\r\nVisu_Listato_Ricetta_19:=Ricetta_Save[19].Nome_Ricetta;\r\nVisu_Listato_Ricetta_20:=Ricetta_Save[20].Nome_Ricetta;"
+      }
+     ]
+    },
+    {
+     "cmt": "GESTIONE PASSI NELL'EDIT RICETTA",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "^V_P_UP_Passo",
+       {
+        "f": "<",
+        "p": {
+         "In1": "Visu_Ricetta_Edit_Passo",
+         "In2": "5"
+        }
+       },
+       {
+        "f": "Inc",
+        "p": {
+         "InOut": "Visu_Ricetta_Edit_Passo",
+         "OUT:InOut": "Visu_Ricetta_Edit_Passo"
+        }
+       },
+       "(Cambio_UP_Passo)"
+      ],
+      [
+       "^V_P_DOWN_Passo",
+       {
+        "f": ">",
+        "p": {
+         "In1": "Visu_Ricetta_Edit_Passo",
+         "In2": "1"
+        }
+       },
+       {
+        "f": "Dec",
+        "p": {
+         "InOut": "Visu_Ricetta_Edit_Passo",
+         "OUT:InOut": "Visu_Ricetta_Edit_Passo"
+        }
+       },
+       "(Cambio_Down_Passo)"
+      ]
+     ]
+    },
+    {
+     "cmt": "TRASFERISCO I VALORI DAL PASSO AL VISU",
+     "chain": [
+      "P_On",
+      {
+       "or": [
+        "Cambio_Down_Passo",
+        "Cambio_UP_Passo",
+        "V_P_Carica_Ricetta"
+       ]
+      }
+     ],
+     "out": [
+      [
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "Ricetta_Edit_Passo[Visu_Ricetta_Edit_Passo].Dato1",
+         "OUT:Out": "Visu_Dato1"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "Ricetta_Edit_Passo[Visu_Ricetta_Edit_Passo].Dato2",
+         "OUT:Out": "Visu_Dato2"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "Ricetta_Edit_Passo[Visu_Ricetta_Edit_Passo].Dato3",
+         "OUT:Out": "Visu_Dato3"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "Ricetta_Edit_Passo[Visu_Ricetta_Edit_Passo].Dato4",
+         "OUT:Out": "Visu_Dato4"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "Ricetta_Edit_Passo[Visu_Ricetta_Edit_Passo].Dato5",
+         "OUT:Out": "Visu_Dato5"
+        }
+       }
+      ],
+      [
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "Ricetta_Edit_Passo[Visu_Ricetta_Edit_Passo].Dato_Bit1",
+         "OUT:Out": "Visu_Bit1"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "Ricetta_Edit_Passo[Visu_Ricetta_Edit_Passo].Dato_Bit2",
+         "OUT:Out": "Visu_Bit2"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "Ricetta_Edit_Passo[Visu_Ricetta_Edit_Passo].Dato_Bit3",
+         "OUT:Out": "Visu_Bit3"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "Ricetta_Edit_Passo[Visu_Ricetta_Edit_Passo].Dato_Bit4",
+         "OUT:Out": "Visu_Bit4"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "Ricetta_Edit_Passo[Visu_Ricetta_Edit_Passo].Dato_Bit5",
+         "OUT:Out": "Visu_Bit5"
+        }
+       }
+      ]
+     ]
+    },
+    {
+     "cmt": "TRASFERISCO I VALORI DAL VISU ALLA MEMORIA DI PASSO DEDICATA",
+     "chain": [
+      "V_P_Conferma_Passo"
+     ],
+     "out": [
+      [
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "Visu_Dato1",
+         "OUT:Out": "Ricetta_Edit_Passo[Visu_Ricetta_Edit_Passo].Dato1"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "Visu_Dato2",
+         "OUT:Out": "Ricetta_Edit_Passo[Visu_Ricetta_Edit_Passo].Dato2"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "Visu_Dato3",
+         "OUT:Out": "Ricetta_Edit_Passo[Visu_Ricetta_Edit_Passo].Dato3"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "Visu_Dato4",
+         "OUT:Out": "Ricetta_Edit_Passo[Visu_Ricetta_Edit_Passo].Dato4"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "Visu_Dato5",
+         "OUT:Out": "Ricetta_Edit_Passo[Visu_Ricetta_Edit_Passo].Dato5"
+        }
+       }
+      ],
+      [
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "Visu_Bit1",
+         "OUT:Out": "Ricetta_Edit_Passo[Visu_Ricetta_Edit_Passo].Dato_Bit1"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "Visu_Bit2",
+         "OUT:Out": "Ricetta_Edit_Passo[Visu_Ricetta_Edit_Passo].Dato_Bit2"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "Visu_Bit3",
+         "OUT:Out": "Ricetta_Edit_Passo[Visu_Ricetta_Edit_Passo].Dato_Bit3"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "Visu_Bit4",
+         "OUT:Out": "Ricetta_Edit_Passo[Visu_Ricetta_Edit_Passo].Dato_Bit4"
+        }
+       },
+       {
+        "f": "MOVE",
+        "p": {
+         "In": "Visu_Bit5",
+         "OUT:Out": "Ricetta_Edit_Passo[Visu_Ricetta_Edit_Passo].Dato_Bit5"
+        }
+       }
+      ]
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Cambio_Down_Passo",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Cambio_UP_Passo",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Ricetta_Edit_Passo",
+     "type": "ARRAY[1..5] OF Passo_Ricetta",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Ricetta_Save",
+     "type": "ARRAY[0..20] of Save_Ricetta_Passi",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Carica_Ricetta",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Conferma_Passo",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_DOWN_Passo",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Salva_Ricetta",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_UP_Passo",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Visu_Bit1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Visu_Bit2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Visu_Bit3",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Visu_Bit4",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Visu_Bit5",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Visu_Dato1",
+     "type": "int",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Visu_Dato2",
+     "type": "int",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Visu_Dato3",
+     "type": "int",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Visu_Dato4",
+     "type": "int",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Visu_Dato5",
+     "type": "int",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Visu_Listato_Ricetta_0",
+     "type": "STRING[128]",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Visu_Listato_Ricetta_1",
+     "type": "STRING[128]",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Visu_Listato_Ricetta_10",
+     "type": "STRING[128]",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Visu_Listato_Ricetta_11",
+     "type": "STRING[128]",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Visu_Listato_Ricetta_12",
+     "type": "STRING[128]",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Visu_Listato_Ricetta_13",
+     "type": "STRING[128]",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Visu_Listato_Ricetta_14",
+     "type": "STRING[128]",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Visu_Listato_Ricetta_15",
+     "type": "STRING[128]",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Visu_Listato_Ricetta_16",
+     "type": "STRING[128]",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Visu_Listato_Ricetta_17",
+     "type": "STRING[128]",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Visu_Listato_Ricetta_19",
+     "type": "STRING[128]",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Visu_Listato_Ricetta_2",
+     "type": "STRING[128]",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Visu_Listato_Ricetta_20",
+     "type": "STRING[128]",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Visu_Listato_Ricetta_3",
+     "type": "STRING[128]",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Visu_Listato_Ricetta_4",
+     "type": "STRING[128]",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Visu_Listato_Ricetta_5",
+     "type": "STRING[128]",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Visu_Listato_Ricetta_6",
+     "type": "STRING[128]",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Visu_Listato_Ricetta_7",
+     "type": "STRING[128]",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Visu_Listato_Ricetta_8",
+     "type": "STRING[128]",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Visu_Listato_Ricetta_9",
+     "type": "STRING[128]",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Visu_Ricetta_Edit_Passo",
+     "type": "int",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Visu_Ricetta_Nome",
+     "type": "STRING[128]",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  }
+ }
+}

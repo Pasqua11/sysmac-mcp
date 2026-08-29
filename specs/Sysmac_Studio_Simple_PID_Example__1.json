@@ -1,0 +1,226 @@
+{
+ "progetto": "Sysmac Studio Simple PID Example _1",
+ "guid": "faa8d2c6-712e-4e2a-b6fb-59a86cadbdc7",
+ "sections": {
+  "PID_Simulation": {
+   "rungs": [
+    {
+     "cmt": "Populate the PID tuning parameters with values. Theses are fairly slow acting. Remove this rung after tuning if running on an actual PLC",
+     "chain": [
+      "P_First_Run",
+      {
+       "ist": "// Starting Tuning values and Setpoint\r\nPID_PBand:=REAL#100;\r\nPID_ITime:=T#1S;\r\nPID_DTime:=T#1S;\r\nPID_SP:=REAL#55;\r\n// Remove this section when this logic is running in a PLC. these should\r\n//all be retained variables that will be overwritten when tuning is done"
+      }
+     ]
+    },
+    {
+     "cmt": "Populate the OprSetParams structure with starting values. See help for details on the structure members",
+     "chain": [
+      "P_First_Run",
+      {
+       "ist": "// Starting Operation Settings Parameters\r\nPID_OprSetParams.Alpha:=REAL#0.65;  //Setpoint filter for cascading, not relevant\r\nPID_OprSetParams.ATCalcGain:= REAL#5;//1 = FAST, 10 = SLOW\r\nPID_OprSetParams.ATHystrs:=REAL#1;\r\nPID_OprSetParams.MVLowLmt:=REAL#0;\r\nPID_OprSetParams.MVUpLmt:=REAL#100; // Limit this for autotuning if overshooting is a concern"
+      }
+     ]
+    },
+    {
+     "cmt": "Populate the InitSetParams structure with starting values. See help for details on the structure members",
+     "chain": [
+      "P_First_Run",
+      {
+       "ist": "// Starting Initial Settings Parameters\r\nPID_InitSetParams.DirOpr:=FALSE; //False = Heating, TRUE = Cooling\r\nPID_InitSetParams.RngLowLmt:=REAL#0;\r\nPID_InitSetParams.RngUpLmt:=REAL#100;\r\nPID_InitSetParams.SampTime:=T#100ms; // The time period for PID processing"
+      }
+     ]
+    },
+    {
+     "cmt": "PID Simulation\r\nTo activate the PID loop change the bit TEST_PID to true and change the PID_SP (setpoint) variable to a value between 0 and 100.\r\nThere is a floating average block below the PID block that feeds the PID output back into the PID input\r\nat a delayed rate to simulate a real-world delay.\r\n\r\nTo test auto-tuning simply turn on the bit PID_StartAT bit while the block is active. Starting values are applied with the first run bit.",
+     "chain": [
+      "Test_PID",
+      {
+       "fb": "PIDAT",
+       "inst": "PID_Testing_Block",
+       "p": {
+        "ManCtl": "PID_ManCtl",
+        "StartAT": "PID_StartAt",
+        "PV": "PID_PV",
+        "SP": "PID_SP",
+        "OprSetParams": "PID_OprSetParams",
+        "InitSetParams": "PID_InitSetParams",
+        "ProportionalBand": "PID_PBand",
+        "IntegrationTime": "PID_ITime",
+        "DerivativeTime": "PID_DTime",
+        "ManMV": "PID_ManMV",
+        "OUT:ATBusy": "PID_ATBusy",
+        "OUT:Error": "PID_Error",
+        "OUT:ErrorID": "PID_ErrorID",
+        "OUT:MV": "PID_MV",
+        "OUT:ProportionalBand": "PID_PBand",
+        "OUT:IntegrationTime": "PID_ITime",
+        "OUT:DerivativeTime": "PID_DTime",
+        "OUT:ManMV": "PID_ManMV"
+       }
+      },
+      "(AT_Done)"
+     ]
+    },
+    {
+     "cmt": "This floating average block will average the PID_MV and send it back to the PIDAT block as the PV simulating a delay caused by a process. Adjustments to the frequency of execution can be made to simulate a more-responsive or less-responsive process.",
+     "chain": [
+      {
+       "f": "Get100msClk",
+       "p": {}
+      },
+      {
+       "f": "MovingAverage",
+       "p": {
+        "In": "PID_MV",
+        "CurIndex": "index",
+        "Buf": "Buffer[0]",
+        "BufSize": "uint#100",
+        "Q": "Done",
+        "OUT:": "Average",
+        "OUT:CurIndex": "index",
+        "OUT:Buf": "Buffer[0]",
+        "OUT:Q": "Done"
+       }
+      },
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "Average",
+        "OUT:Out": "PID_PV"
+       }
+      }
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "AT_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Average",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Buffer",
+     "type": "ARRAY[0..999] OF Real",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PID_ATBusy",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PID_DTime",
+     "type": "TIME",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PID_Error",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PID_ErrorID",
+     "type": "WORD",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PID_ITime",
+     "type": "TIME",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PID_InitSetParams",
+     "type": "_sINIT_SET_PARAMS",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PID_MV",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PID_ManCtl",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PID_ManMV",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PID_OprSetParams",
+     "type": "_sOPR_SET_PARAMS",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PID_PBand",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PID_PV",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PID_SP",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PID_StartAt",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PID_Testing_Block",
+     "type": "PIDAT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Test_PID",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "index",
+     "type": "UINT",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,1128 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>NX_DOutTimeStamp</title>
+</head>
+<body class="zpe1501815828062"><div class="layer02" id="zpe1501815828062">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">NX_DOutTimeStamp</h1>
+
+<div class="body conbody">
+<p class="p" id="zpe1501815828062__ID0ECH">The NX_DOutTimeStamp instruction writes a value to the output bit of a Digital Output Unit that supports time stamp refreshing.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="zpe1501815828062__table_N10017_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:13%" />
+<col style="width:14%" />
+<col style="width:6%" />
+<col style="width:35%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d1221668e37">Instruction</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d1221668e40">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d1221668e43">
+<p class="p" id="zpe1501815828062__ID0EWAAC">FB/</p>
+
+<p class="p">FUN</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d1221668e52">Graphic expression</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d1221668e55">ST expression</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1221668e37 "><span class="indexterm">NX_DOutTimeStamp (Write Digital Output with Specified Time Stamp)</span>NX_DOutTimeStamp</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1221668e40 "><span class="indexterm">Write Digital Output with Specified Time Stamp</span>Write Digital Output with Specified Time Stamp</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1221668e43 ">FB</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1221668e52 ">
+<br /><div class="imagecenter"><img class="image imagecenter" id="zpe1501815828062__image_7A5C0ADC1169405F955FA93BDDB80721" src="vit1501815827272.gif" /></div><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1221668e55 ">NX_DOutTimeStamp_instance( Enable, SetDOut, SetTimeStamp, SyncOutTime, DOut, TimeStamp);</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<div class="note" id="zpe1501815828062__note_N100A9_N1000F_N10002"><div class="ver"><span class="notetitle ver">ver:</span> A CPU Unit with unit version 1.06 or later and Sysmac Studio version 1.07 or higher are required to use this instruction.</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="opx1501817590615">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="opx1501817590615__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:20%" />
+<col style="width:9%" />
+<col style="width:20%" />
+<col style="width:14%" />
+<col style="width:14%" />
+<col style="width:8%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d735153e47">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d735153e49">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d735153e52">I/O</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d735153e55">Description</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d735153e58">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d735153e62">Unit</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d735153e65">Default</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row" style="vertical-align:middle;">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d735153e47 ">Enable</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d735153e49 ">Enable</td>
+
+<td class="entry cellrowborder" rowspan="4" style="text-align:left;vertical-align:middle;" headers="d735153e52 ">Input</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d735153e55 ">
+<p class="p" id="opx1501817590615__ID0EAKAC">TRUE: Value of <span class="ph phtype_variable"><span class="termtype">SetDOut</span></span> is output.</p>
+
+<p class="p" id="opx1501817590615__ID0EHKAC">FALSE: Output changes to FALSE when this variable changes to FALSE.</p>
+
+</td>
+
+<td class="entry cellrowborder" rowspan="4" style="text-align:left;vertical-align:middle;" headers="d735153e58 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d735153e62 ">---</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d735153e65 ">FALSE</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:middle;">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d735153e47 ">SetDOut</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d735153e49 ">Output value</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d735153e55 ">Output value</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:middle;">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d735153e47 ">SetTimeStamp</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d735153e49 ">Specified time stamp</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d735153e55 ">Time to output value</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d735153e62 ">ns</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d735153e65 ">0</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:middle;">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d735153e47 ">SyncOutTime</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d735153e49 ">Time stamp of synchronous output</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d735153e55 ">
+<p class="p">The <span class="ph phtype_variable"><span class="termtype">Time Stamp of Synchronous Output</span></span> device variable of the EtherCAT Coupler Unit or an NX Unit on the CPU Unit</p>
+
+                            
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d735153e65 "><a class="xref" href="zpe1501815828062.html#opx1501817590615__fn_k4r_ynb_n1b"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:middle;">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d735153e47 ">DOut</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d735153e49 ">DOut Unit output bit</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d735153e52 ">In-out</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d735153e55 ">The <span class="ph phtype_variable"><span class="termtype">Output Bit **</span></span> device variable of the Digital Output Unit that supports time stamp refreshing</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d735153e58 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d735153e62 ">---</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d735153e65 ">---</td>
+
+</tr>
+
+<tr class="row" style="vertical-align:middle;">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d735153e47 ">TimeStamp</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d735153e49 ">Time stamp</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d735153e55 ">The <span class="ph phtype_variable"><span class="termtype">Output Bit ** Time Stamp</span></span> device variable of the Digital Output Unit that supports time stamp refreshing</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d735153e62 ">ns</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="opx1501817590615__fn_k4r_ynb_n1b" id="opx1501817590615__fn_k4r_ynb_n1b"><sup>*1</sup></a>  If you omit the input parameter, the default value is not applied. A building error will occur.</div></div></div>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="opx1501817590615__table_N10151_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:5%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" rowspan="2" style="text-align:center;vertical-align:top;" id="d735153e262">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d735153e264">Boolean</th>
+
+<th class="entry cellrowborder" colspan="4" style="text-align:center;vertical-align:top;" id="d735153e267">Bit strings</th>
+
+<th class="entry cellrowborder" colspan="8" style="text-align:center;vertical-align:top;" id="d735153e270">Integers</th>
+
+<th class="entry cellrowborder" colspan="2" style="text-align:center;vertical-align:top;" id="d735153e273">Real numbers</th>
+
+<th class="entry cellrowborder" colspan="5" style="text-align:center;vertical-align:top;" id="d735153e277">Times, durations, dates, and text strings</th>
+
+</tr>
+
+<tr class="row">
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d735153e283">BOOL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d735153e286">BYTE</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d735153e289">WORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d735153e292">DWORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d735153e295">LWORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d735153e299">USINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d735153e302">UINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d735153e305">UDINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d735153e308">ULINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d735153e311">SINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d735153e314">INT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d735153e318">DINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d735153e321">LINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d735153e324">REAL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d735153e327">LREAL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d735153e330">TIME</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d735153e333">DATE</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d735153e337">TOD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d735153e340">DT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d735153e343">STRING</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d735153e262 d735153e283 ">Enable</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e264 d735153e286 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e267 d735153e289 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e267 d735153e292 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e267 d735153e295 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e267 d735153e299 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e302 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e305 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e308 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e311 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e314 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e318 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e321 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e324 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e273 d735153e327 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e273 d735153e330 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e277 d735153e333 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e277 d735153e337 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e277 d735153e340 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e277 d735153e343 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e277 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d735153e262 d735153e283 ">SetDOut</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e264 d735153e286 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e267 d735153e289 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e267 d735153e292 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e267 d735153e295 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e267 d735153e299 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e302 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e305 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e308 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e311 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e314 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e318 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e321 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e324 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e273 d735153e327 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e273 d735153e330 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e277 d735153e333 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e277 d735153e337 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e277 d735153e340 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e277 d735153e343 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e277 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d735153e262 d735153e283 ">SetTimeStamp</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e264 d735153e286 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e267 d735153e289 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e267 d735153e292 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e267 d735153e295 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e267 d735153e299 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e302 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e305 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e308 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e311 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e314 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e318 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e321 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e324 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e273 d735153e327 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e273 d735153e330 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e277 d735153e333 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e277 d735153e337 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e277 d735153e340 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e277 d735153e343 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e277 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d735153e262 d735153e283 ">SyncOutTime</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e264 d735153e286 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e267 d735153e289 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e267 d735153e292 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e267 d735153e295 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e267 d735153e299 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e302 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e305 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e308 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e311 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e314 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e318 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e321 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e324 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e273 d735153e327 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e273 d735153e330 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e277 d735153e333 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e277 d735153e337 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e277 d735153e340 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e277 d735153e343 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e277 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d735153e262 d735153e283 ">DOut</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e264 d735153e286 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e267 d735153e289 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e267 d735153e292 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e267 d735153e295 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e267 d735153e299 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e302 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e305 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e308 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e311 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e314 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e318 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e321 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e324 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e273 d735153e327 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e273 d735153e330 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e277 d735153e333 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e277 d735153e337 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e277 d735153e340 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e277 d735153e343 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e277 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d735153e262 d735153e283 ">TimeStamp</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e264 d735153e286 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e267 d735153e289 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e267 d735153e292 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e267 d735153e295 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e267 d735153e299 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e302 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e305 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e308 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e311 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e314 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e318 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e321 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e270 d735153e324 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e273 d735153e327 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e273 d735153e330 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e277 d735153e333 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e277 d735153e337 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e277 d735153e340 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e277 d735153e343 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d735153e277 ">&#160;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="xpg1501817590885">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function</h1>
+
+<div class="body conbody">
+<p class="p" id="xpg1501817590885__ID0EV4AG">When the value of <span class="ph phtype_variable"><span class="termtype">Enable</span></span> is TRUE, the NX_DOutTimeStamp instruction writes <span class="ph phtype_variable"><span class="termtype">SetDOut</span></span> (Output value) at the specified time to the output bit of a Digital Output Unit that supports time stamp refreshing.</p>
+
+<p class="p" id="xpg1501817590885__ID0EY4AG">When <span class="ph phtype_variable"><span class="termtype">Enable</span></span> changes to FALSE, the value of the output bit changes to FALSE from the next task period.</p>
+
+<p class="p" id="xpg1501817590885__ID0E64AG">The time difference between the specified time and the output time is &#177;1 &#181;s max.</p>
+
+<p class="p linespace_7pt" id="xpg1501817590885__ID0EM5AG"><span class="ph phtype_variable"><span class="termtype">SyncOutTime</span></span> (Time stamp of synchronous output) is based on the clock information in the EtherCAT Coupler Unit or NX Unit connected to the NX bus on the CPU Unit under which the Digital Output Unit that supports time stamp refreshing is connected.</p>
+
+        
+<p class="p linespace_7pt">Specify the <span class="ph phtype_variable"><span class="termtype">Time Stamp of Syncronous Output</span></span> device variable of the EtherCAT Coupler Unit or NX Unit connected to the NX bus on the CPU Unit under which the Digital Output Unit is connected.</p>
+
+        
+<p class="p" id="xpg1501817590885__ID0ET5AG">However, you must add 0x200A:02 (Time Stamp of Synchronous Output) to the I/O entries for the EtherCAT Coupler Unit.</p>
+
+<p class="p linespace_7pt" id="xpg1501817590885__ID0EA6AG">Specify <span class="ph phtype_variable"><span class="termtype">DOut</span></span> (DOut Unit output bit) with the <span class="ph phtype_variable"><span class="termtype">Output Bit **</span></span> device variable that is assigned to the output bit of the Digital Output Unit that supports time stamp refreshing.</p>
+
+<p class="p linespace_7pt" id="xpg1501817590885__ID0EN6AG">Specify <span class="ph phtype_variable"><span class="termtype">TimeStamp</span></span> with the <span class="ph phtype_variable"><span class="termtype">Output Bit ** Time Stamp</span></span> device variable that is assigned to the output bit time stamp of the Digital Output Unit that supports time stamp refreshing.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="efk1501817592418">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Specifying the Output Time</h1>
+
+<div class="body taskbody">
+<div class="section context" id="efk1501817592418__context_N10012_N1000F_N10002">
+<p class="p" id="efk1501817592418__ID0EXABG">Use the following procedure to specify the output time.</p>
+
+</div>
+
+<ol class="ol steps"><li class="li step" id="efk1501817592418__step_N1001F_N1001C_N1000F_N10002">
+<span alt="test" class="ph cmd" id="efk1501817592418__ID0EGBBG">Get the device variable that is assigned to the clock information that is to serve as the reference time for the Unit bit.</span>
+</li>
+<li class="li step" id="efk1501817592418__step_N10029_N1001C_N1000F_N10002">
+<span alt="test" class="ph cmd" id="efk1501817592418__ID0ERBBG">Calculate the difference between the obtained clock information and the time to write the data to the output bit in nanoseconds, and add it to the device variable from step 1.</span>
+</li>
+<li class="li step" id="efk1501817592418__step_N10033_N1001C_N1000F_N10002">
+<span alt="test" class="ph cmd" id="efk1501817592418__ID0E3BBG">Pass the result of the addition to <span class="ph phtype_variable"><span class="termtype">SetTimeStamp</span></span> (Specified time stamp) in the NX_DOutTimeStamp instruction.</span>
+</li>
+</ol>
+
+<div class="section result" id="efk1501817592418__result_N10040_N1000F_N10002">
+<p class="p linespace_28pt" id="efk1501817592418__ID0EHCBG">For details, refer to <a class="xref" href="zpe1501815828062.html#ske1501817592231"><i style="display:none;">☆</i>Sample Programming</a> for this instruction.</p>
+
+</div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="yfa1501817592665">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Precautions for Correct Use</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="yfa1501817592665__li_N10017_N10013_N10010_N10002">You can execute this instruction only for a Digital Output Unit that supports time stamp refreshing. However, an error will not occur even if you execute this instruction when no Digital Output Unit that supports time stamp refreshing is connected.</li>
+
+<li class="li" id="yfa1501817592665__li_N1001A_N10012_N1000F_N10002">If an EtherCAT communications error occurs or if the task period is exceeded, writing may not occur at the specified time. In this case, the value is output in the next task period or later.</li>
+
+<li class="li" id="yfa1501817592665__li_N10022_N10013_N10010_N10002">If any device variables used for this instruction are modified or accessed for any other instruction or program, perform exclusive control.</li>
+
+<li class="li" id="yfa1501817592665__li_N10027_N10013_N10010_N10002">
+<p class="p">Specify <span class="ph phtype_variable"><span class="termtype">SyncOutTime</span></span> with the <span class="ph phtype_variable"><span class="termtype">Time Stamp of Synchronous Output</span></span> device variable of the EtherCAT Coupler Unit or NX Unit connected to the NX bus on the CPU Unit, to which the Digital Output Unit that supports time stamp refreshing is connected.</p>
+
+                    
+<p class="p">However, an error will not occur even if another variable is specified.</p>
+
+</li>
+
+<li class="li" id="yfa1501817592665__li_N1002C_N10013_N10010_N10002">Specify <span class="ph phtype_variable"><span class="termtype">DOut</span></span> and <span class="ph phtype_variable"><span class="termtype">TimeStamp</span></span> with the device variables of the Digital Output Unit that supports time stamp refreshing. However, an error will not occur even if another variable is specified.</li>
+
+<li class="li" id="yfa1501817592665__li_N10031_N10013_N10010_N10002">Specify <span class="ph phtype_variable"><span class="termtype">DOut</span></span> and <span class="ph phtype_variable"><span class="termtype">TimeStamp</span></span> with the device variables for the same channel of the same Unit. However, an error will not occur even if another variable is specified.</li>
+
+<li class="li" id="yfa1501817592665__li_N10036_N10013_N10010_N10002">
+<p class="p">If the value of <span class="ph phtype_variable"><span class="termtype">TimeStamp</span></span> is set as a time in the past, the value of <span class="ph phtype_variable"><span class="termtype">TimeStamp</span></span> becomes 0.</p>
+
+<p class="p">In this case, the output of the Digital Output Unit that supports time stamp refreshing is immediately refreshed.</p>
+
+<p class="p">Refer to the <span class="ph phtype_docname"><span class="termtype">NX-series Digital I/O Units User's Manual (Cat. No. W521)</span></span> for more details.</p>
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="ske1501817592231">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Sample Programming</h1>
+ 
+<div class="body conbody">
+<p class="p" id="ske1501817592231__ID0EEIBG">In this sample, 10 ms after the value of input bit 00 of a Digital Input Unit that supports time stamp refreshing changes to TRUE, output bit 00 of a Digital Output Unit that supports time stamp refreshing changes to TRUE.</p>
+
+<p class="p" id="ske1501817592231__ID0EHIBG">It is assumed that the value of input bit 00 is TRUE for a longer period than the I/O refresh period of the NX bus.</p>
+
+<p class="p">A change to TRUE in input bit 00 is used as the input trigger in this sample.</p>
+
+<p class="p">If the value of input bit 00 is TRUE for a shorter period than the I/O refresh period of the NX bus, the change to TRUE in input bit 00 may not be detected. To solve this problem, for example, you could change the programming to use input changed time of input bit 00 as the input trigger.</p>
+
+<p class="p">Refer to the <span class="ph phtype_docname"><span class="termtype">NX-series Digital I/O Units User&#8217;s Manual (Cat. No. W521)</span></span> for sample programming that turns ON an output when a specified time period expires after a change in a sensor input.</p>
+
+<br /><img class="image" id="ske1501817592231__image_B72165C0EA734A98A56438C038A017B7" src="jwl1501817591203.gif" /><br />
+</div>
+ 
+<div class="related-links"></div></div><div class="layer04" id="bdh1501817592899">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Network Configuration</h1>
+ 
+<div class="body conbody">
+<p class="p" id="bdh1501817592899__ID0EPKBG">The network is configured with Units in the table below. A Slave Terminal configured with the following Units is connected at EtherCAT node address 1. The Units are assigned the device names as shown in the table.</p>
+
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="bdh1501817592899__table_N10017_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d58794e34">Unit number</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d58794e37">Model number</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d58794e40">Unit</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d58794e43">Device name</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d58794e34 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d58794e37 ">NX-ECC201</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d58794e40 ">EtherCAT Coupler Unit</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d58794e43 ">E001</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d58794e34 ">1</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d58794e37 ">NX-ID3344</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d58794e40 ">Digital Input Unit that supports time stamp refreshing</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d58794e43 ">N1</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d58794e34 ">2</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d58794e37 ">NX-OD2154</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d58794e40 ">Digital Output Unit that supports time stamp refreshing</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d58794e43 ">N2</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer04" id="vza1501817593142">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Unit Operation Settings</h1>
+ 
+<div class="body conbody">
+<p class="p" id="vza1501817593142__ID0EXSBG">The Unit operation settings of the Digital Input Unit that supports time stamp refreshing are given in the following table.</p>
+
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="vza1501817593142__table_N10017_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d1044501e32">Item</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d1044501e35">Set value</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d1044501e38">Meaning</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d1044501e32 ">Time Stamp (Trigger Setting): Input Bit 00 Trigger Setting</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d1044501e35 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d1044501e38 ">Edge to read input changed time: Rising edge</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d1044501e32 ">Time Stamp (Mode Setting): Input Bit 00 Mode Setting</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d1044501e35 ">TRUE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d1044501e38 ">Operating mode to read input changed time: One-shot (First changed time)</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer04" id="mhd1501817593384">
+<h1 class="title topictitle1"  topicstatus="Localization:done">I/O Map</h1>
+<div class="body conbody"><p class="p" id="mhd1501817593384__ID0EIYBG">The following I/O map settings are used.</p>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="mhd1501817593384__table_N10017_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all"><col style="width:8%" /><col style="width:16%" /><col style="width:27%" /><col style="width:6%" /><col style="width:9%" /><col style="width:20%" /><col style="width:11%" /><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d650660e25">Position</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d650660e27">Port</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d650660e29">Description</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d650660e31">R/W</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d650660e33">Data type</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d650660e35">Variable</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d650660e37">Variable type</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d650660e25 ">Node1</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d650660e27 ">Time Stamp of Synchronous Output</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d650660e29 ">Contains the time stamp for the timing of synchronous outputs from the connected NX Unit. (Unit: ns)</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d650660e31 ">R</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d650660e33 ">ULINT</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d650660e35 ">E001_Time_Stamp_of_Synchronous_Output</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d650660e37 ">Global variable</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d650660e25 ">Unit1</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d650660e27 ">Input Bit 00</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d650660e29 ">Input bit 00</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d650660e31 ">R</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d650660e33 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d650660e35 ">N1_Input_Bit_00</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d650660e37 ">Global variable</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d650660e25 ">Unit1</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d650660e27 ">Input Bit 00 Time Stamp</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d650660e29 ">Input changed time for input bit 00</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d650660e31 ">R</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d650660e33 ">ULINT</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d650660e35 ">N1_Input_Bit_00_Time_Stamp</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d650660e37 ">Global variable</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d650660e25 ">Unit2</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d650660e27 ">Output Bit 00 Time Stamp</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d650660e29 ">Specified time for output bit 00</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d650660e31 ">W</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d650660e33 ">ULINT</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d650660e35 ">N2_Output_Bit_00_Time_Stamp</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d650660e37 ">Global variable</td>
+</tr>
+<tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d650660e25 ">Unit2</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d650660e27 ">Output Bit 00</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d650660e29 ">Output bit 00</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d650660e31 ">W</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d650660e33 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d650660e35 ">N2_Output_Bit_00</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d650660e37 ">Global variable</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="related-links"></div></div><div class="layer04" id="nvi1501817596719">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">LD</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="nvi1501817596719__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:9%" />
+<col style="width:28%" />
+<col style="width:20%" />
+<col style="width:9%" />
+<col style="width:32%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d704682e37">Internal Variables</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d704682e40">Variable</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d704682e43">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d704682e46">Initial value</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d704682e49">Comment</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d704682e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d704682e40 ">SetTimeStamp</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d704682e43 ">ULINT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d704682e46 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d704682e49 ">Specified time stamp</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d704682e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d704682e40 ">SetDOut</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d704682e43 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d704682e46 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d704682e49 ">Output value</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d704682e37 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d704682e40 ">NX_DOutTimeStamp_instance</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d704682e43 ">NX_DOutTimeStamp</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d704682e46 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d704682e49 ">&#160;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="nvi1501817596719__table_N100AE_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:9%" />
+<col style="width:33%" />
+<col style="width:9%" />
+<col style="width:12%" />
+<col style="width:35%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d704682e127">External Variables</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d704682e130">Variable</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d704682e133">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d704682e136">Constant</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d704682e139">Comment</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d704682e127 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d704682e130 ">N1_Input_Bit_00</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d704682e133 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d704682e136 "><br /><img class="image" id="nvi1501817596719__image_9340BA81469B47AFA5452D61D957D59F" src="lum1501817593616.gif" /><br /></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d704682e139 ">Input bit 00</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d704682e127 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d704682e130 ">N1_Input_Bit_00_Time_Stamp</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d704682e133 ">ULINT</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d704682e136 "><br /><img class="image" id="nvi1501817596719__image_F5E7ADEFEA0F4D23BDA5883A8C184442" src="lum1501817593616.gif" /><br /></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d704682e139 ">Input changed time for input bit 00</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d704682e127 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d704682e130 ">E001_Time_Stamp_of_Synchronous_Output</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d704682e133 ">ULINT</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d704682e136 "><br /><img class="image" id="nvi1501817596719__image_733CC1FD2FCB448A877FEEA73557F6C5" src="lum1501817593616.gif" /><br /></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d704682e139 ">Time stamp for the timing of synchronous outputs from the connected NX Unit</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d704682e127 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d704682e130 ">N2_Output_Bit_00</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d704682e133 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d704682e136 "><br /><img class="image" id="nvi1501817596719__image_D68721ABE61E402386F8B2D4122E399A" src="lum1501817593616.gif" /><br /></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d704682e139 ">Output bit 00</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d704682e127 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d704682e130 ">N2_Output_Bit_00_Time_Stamp</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d704682e133 ">ULINT</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d704682e136 "><br /><img class="image" id="nvi1501817596719__image_DE783E4E510C4637A7437BD33EF764CF" src="lum1501817593616.gif" /><br /></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d704682e139 ">Specified time for output bit 00</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<br /><img class="image" id="nvi1501817596719__image_04483D55A0614824940A4A9246143D68" src="rak1501817594592.gif" /><br />
+<br /><img class="image" id="nvi1501817596719__image_itv_kwm_r1b" src="krj1501817595579.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="isk1501817596978">
+<h1 class="title topictitle1"  topicstatus="Localization:done">ST</h1>
+<div class="body conbody">
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="isk1501817596978__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all"><col style="width:9%" /><col style="width:28%" /><col style="width:20%" /><col style="width:9%" /><col style="width:32%" /><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d465623e24">Internal Variables</th>
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d465623e26">Variable</th>
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d465623e28">Data type</th>
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d465623e30">Initial value</th>
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d465623e32">Comment</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d465623e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d465623e26 ">SetEN</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d465623e28 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d465623e30 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d465623e32 ">Execution condition</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d465623e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d465623e26 ">SetTimeStamp</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d465623e28 ">ULINT</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d465623e30 ">0</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d465623e32 ">Specified time stamp</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d465623e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d465623e26 ">SetDOut</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d465623e28 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d465623e30 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d465623e32 ">Output Value</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d465623e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d465623e26 ">R_TRIG_instance</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d465623e28 ">R_TRIG</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d465623e30 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d465623e32 ">&#160;</td>
+</tr>
+<tr class="row"><td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d465623e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d465623e26 ">NX_DOutTimeStamp_instance</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d465623e28 ">NX_DOutTimeStamp</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d465623e30 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d465623e32 ">&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="isk1501817596978__table_N100D9_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all"><col style="width:9%" /><col style="width:33%" /><col style="width:9%" /><col style="width:12%" /><col style="width:35%" /><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d465623e90">External Variables</th>
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d465623e92">Variable</th>
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d465623e94">Data type</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d465623e96">Constant</th>
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d465623e98">Comment</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d465623e90 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d465623e92 ">N1_Input_Bit_00</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d465623e94 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d465623e96 "><br /><img class="image" id="isk1501817596978__image_C6F0A391EF044CAD885D2CC8379E5536" src="lum1501817593616.gif" /><br /></td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d465623e98 ">Input bit 00</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d465623e90 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d465623e92 ">N1_Input_Bit_00_Time_Stamp</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d465623e94 ">ULINT</td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d465623e96 "><br /><img class="image" id="isk1501817596978__image_B1874D6C743A40E38CB4DBB962549093" src="lum1501817593616.gif" /><br /></td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d465623e98 ">Input changed time for input bit 00</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d465623e90 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d465623e92 ">E001_Time_Stamp_of_Synchronous_Output</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d465623e94 ">ULINT</td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d465623e96 "><br /><img class="image" id="isk1501817596978__image_1DEBC9E603424ED698186A65732A3860" src="lum1501817593616.gif" /><br /></td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d465623e98 ">Time stamp for the timing of synchronous outputs from the connected NX Unit</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d465623e90 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d465623e92 ">N2_Output_Bit_00</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d465623e94 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d465623e96 "><br /><img class="image" id="isk1501817596978__image_D494FB4509264FDFBC818840D3948A3C" src="lum1501817593616.gif" /><br /></td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d465623e98 ">Output bit 00</td>
+</tr>
+<tr class="row"><td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d465623e90 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d465623e92 ">N2_Output_Bit_00_Time_Stamp</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d465623e94 ">ULINT</td>
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d465623e96 "><br /><img class="image" id="isk1501817596978__image_849156C45A924DBC99B191171BCDB107" src="lum1501817593616.gif" /><br /></td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d465623e98 ">Specified time for output bit 00</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p linespace_7pt"></p>
+<pre class="pre codeblock">
+// Execution trigger input
+R_TRIG_instance( N1_Input_Bit_00, SetEN);
+// Specify the output time stamp.
+IF ( SetEN = TRUE ) THEN
+SetDOut := TRUE;
+SetTimeStamp := N1_Input_Bit_00_Time_Stamp + ULINT#10000000;
+END_IF;
+// Output
+NX_DOutTimeStamp_instance(
+Enable := TRUE,
+SetDOut := SetDOut,
+SetTimeStamp := SetTimeStamp,
+SyncOutTime := E001_Time_Stamp_of_Synchronous_Output,
+DOut := N2_Output_Bit_00,
+TimeStamp := N2_Output_Bit_00_Time_Stamp);</pre>
+</div>
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

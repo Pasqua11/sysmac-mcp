@@ -1,0 +1,209 @@
+{
+ "nome": "Gestione pompe con alternanza e riserva - collaudo",
+ "tempi": {
+  "SET_T_Pressione": "T#2s",
+  "SET_T_Secco": "T#3s"
+ },
+ "passi": [
+  {
+   "descrizione": "azzeramento di partenza: allarmi ritenuti e stato pulito",
+   "set": {
+    "IN_Emergenza": false,
+    "IN_Protezioni": true,
+    "V_S_Auto": true,
+    "IN_Livello_Min": true,
+    "IN_Livello_Max": true,
+    "IN_Press_Mandata": true,
+    "IN_Termico_P1": true,
+    "IN_Termico_P2": true,
+    "V_S_Pompa_Manuale": 0,
+    "V_S_Ore_P1": 0,
+    "V_S_Ore_P2": 0
+   },
+   "impulso": [
+    "V_P_Reset"
+   ],
+   "attendi": 0.8,
+   "verifica": {
+    "V_S_Guasto_P1": false,
+    "V_S_Guasto_P2": false,
+    "V_S_Marcia_Secco": false,
+    "V_L_Pronto": true
+   }
+  },
+  {
+   "descrizione": "stato iniziale: vasca piena, nessuna pompa in marcia",
+   "set": {
+    "IN_Emergenza": false,
+    "IN_Protezioni": true,
+    "V_S_Auto": true,
+    "IN_Livello_Min": true,
+    "IN_Livello_Max": true,
+    "IN_Press_Mandata": false,
+    "IN_Termico_P1": true,
+    "IN_Termico_P2": true,
+    "V_S_Pompa_Manuale": 0,
+    "V_S_Ore_P1": 0,
+    "V_S_Ore_P2": 0
+   },
+   "attendi": 0.5,
+   "verifica": {
+    "OUT_Pompa_1": false,
+    "OUT_Pompa_2": false,
+    "V_L_Pronto": true
+   }
+  },
+  {
+   "descrizione": "livello sceso sotto il minimo: parte la pompa 1 (ore pari)",
+   "set": {
+    "IN_Livello_Min": false,
+    "IN_Livello_Max": false
+   },
+   "attendi": 0.5,
+   "set2": {},
+   "verifica": {
+    "OUT_Pompa_1": true,
+    "OUT_Pompa_2": false,
+    "V_L_Ciclo": true
+   }
+  },
+  {
+   "descrizione": "pressione presente: nessun guasto",
+   "set": {
+    "IN_Press_Mandata": true,
+    "IN_Livello_Min": true
+   },
+   "attendi": 2.5,
+   "verifica": {
+    "V_S_Guasto_P1": false,
+    "OUT_Pompa_1": true
+   }
+  },
+  {
+   "descrizione": "livello massimo: la pompa si ferma",
+   "set": {
+    "IN_Livello_Max": true
+   },
+   "attendi": 0.5,
+   "verifica": {
+    "OUT_Pompa_1": false,
+    "OUT_Pompa_2": false,
+    "V_L_Ciclo": false
+   }
+  },
+  {
+   "descrizione": "seconda chiamata con P1 che ha piu' minuti: tocca alla pompa 2",
+   "set": {
+    "V_S_Ore_P1": 5,
+    "V_S_Ore_P2": 0,
+    "IN_Livello_Max": false,
+    "IN_Livello_Min": false
+   },
+   "attendi": 0.6,
+   "verifica": {
+    "OUT_Pompa_2": true,
+    "OUT_Pompa_1": false
+   }
+  },
+  {
+   "descrizione": "la pompa 2 non fa pressione: dopo 2 s va in guasto",
+   "set": {
+    "IN_Press_Mandata": false,
+    "IN_Livello_Min": true
+   },
+   "attendi": 2.6,
+   "verifica": {
+    "V_S_Guasto_P2": true,
+    "OUT_Pompa_2": false
+   }
+  },
+  {
+   "descrizione": "riserva: con P2 guasta subentra la pompa 1",
+   "attendi": 0.6,
+   "verifica": {
+    "OUT_Pompa_1": true,
+    "V_L_Allarme": true
+   }
+  },
+  {
+   "descrizione": "termico della pompa 1: si ferma anche lei",
+   "set": {
+    "IN_Termico_P1": false
+   },
+   "attendi": 0.6,
+   "verifica": {
+    "OUT_Pompa_1": false,
+    "V_S_Guasto_P1": true
+   }
+  },
+  {
+   "descrizione": "RESET allarmi: guasti azzerati",
+   "set": {
+    "IN_Termico_P1": true,
+    "IN_Press_Mandata": true
+   },
+   "impulso": [
+    "V_P_Reset"
+   ],
+   "attendi": 0.6,
+   "verifica": {
+    "V_S_Guasto_P1": false,
+    "V_S_Guasto_P2": false,
+    "V_L_Allarme": false
+   }
+  },
+  {
+   "descrizione": "marcia a secco: livello sotto il minimo per 3 s con pompa in marcia",
+   "set": {
+    "IN_Livello_Min": false,
+    "IN_Livello_Max": false
+   },
+   "attendi": 3.6,
+   "verifica": {
+    "V_S_Marcia_Secco": true,
+    "OUT_Pompa_1": false,
+    "OUT_Pompa_2": false,
+    "V_L_Pronto": false
+   }
+  },
+  {
+   "descrizione": "reset della marcia a secco",
+   "set": {
+    "IN_Livello_Min": true
+   },
+   "impulso": [
+    "V_P_Reset"
+   ],
+   "attendi": 0.6,
+   "verifica": {
+    "V_S_Marcia_Secco": false,
+    "V_L_Pronto": true
+   }
+  },
+  {
+   "descrizione": "selezione manuale della pompa 2 da SCADA",
+   "set": {
+    "V_S_Pompa_Manuale": 2,
+    "IN_Livello_Min": false
+   },
+   "attendi": 0.8,
+   "verifica": {
+    "OUT_Pompa_2": true,
+    "OUT_Pompa_1": false
+   }
+  },
+  {
+   "descrizione": "EMERGENZA: tutte le pompe si fermano",
+   "set": {
+    "IN_Emergenza": true
+   },
+   "attendi": 0.6,
+   "verifica": {
+    "OUT_Pompa_1": false,
+    "OUT_Pompa_2": false,
+    "V_L_Allarme": true
+   }
+  }
+ ],
+ "commento": "Su Sysmac il PLC conserva lo stato fra un collaudo e l'altro: il primo passo azzera gli allarmi ritenuti. In Python la simulazione parte da zero, quindi senza questo passo lo stesso scenario dava PASS in Python e FAIL su Sysmac."
+}

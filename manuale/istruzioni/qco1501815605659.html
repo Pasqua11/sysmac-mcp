@@ -1,0 +1,581 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>NSHLC and NSHRC</title>
+</head>
+<body class="qco1501815605659"><div class="layer02" id="qco1501815605659">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">NSHLC and NSHRC</h1>
+ 
+<div class="body conbody">
+<p class="p">These instructions shift an array of bit strings by one or more bits, with the Carry (CY) Flag available.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="qco1501815605659__table_sg3_rt4_b1b" class="table no-line" border="0">
+                
+                
+                
+<tbody class="tbody">
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;">NSHLC</td>
+
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;">:</td>
+
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;">Shifts the array to the left (toward the higher elements).</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;">NSHRC</td>
+
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;">:</td>
+
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;">Shifts the array to the right (toward the lower elements).</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="qco1501815605659__table_N10062_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:13%" />
+<col style="width:14%" />
+<col style="width:6%" />
+<col style="width:35%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d801833e76">Instruction</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d801833e79">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d801833e82">
+<p class="p">FB/</p>
+
+<p class="p">FUN</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d801833e91">Graphic expression</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d801833e94">ST expression</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d801833e76 "><span class="indexterm">NSHLC (Shift N-bits Left with Carry)</span>NSHLC</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d801833e79 "><span class="indexterm">Shift N-bits Left with Carry</span>Shift N-bits Left with Carry</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d801833e82 ">FUN</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d801833e91 ">
+<br /><img class="image" id="qco1501815605659__image_2104B13209204145899BB75843757753" src="trk1501815604156.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d801833e94 ">NSHLC(InOut, Size, Num);</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d801833e76 "><span class="indexterm">NSHRC (Shift N-bits Right with Carry)</span>NSHRC</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d801833e79 "><span class="indexterm">Shift N-bits Right with Carry</span>Shift N-bits Right with Carry</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d801833e82 ">FUN</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d801833e91 ">
+<br /><img class="image" id="qco1501815605659__image_32E688E6612946318165E820AC7F7D44" src="hwy1501815604798.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d801833e94 ">NSHRC(InOut, Size, Num);</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="wja1501816320932">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Variables</h1>
+ 
+<div class="body conbody">
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="wja1501816320932__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:20%" />
+<col style="width:9%" />
+<col style="width:20%" />
+<col style="width:14%" />
+<col style="width:14%" />
+<col style="width:8%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d1062636e38">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1062636e40">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1062636e43">I/O</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1062636e46">Description</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1062636e49">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1062636e53">Unit</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1062636e56">Default</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1062636e38 ">Size</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1062636e40 ">Number of bits in shift register</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d1062636e43 ">Input</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1062636e46 ">Number of bits in shift register</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d1062636e49 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d1062636e53 ">Bits</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d1062636e56 ">1</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1062636e38 ">Num</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1062636e40 ">Number of bits to shift</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1062636e46 ">Number of bits to shift</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1062636e38 ">InOut[] (array)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1062636e40 ">Shift register array</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1062636e43 ">In-out</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1062636e46 ">Bit string array to shift</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1062636e49 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1062636e53 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1062636e56 ">---</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1062636e38 ">Out</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1062636e40 ">Return value</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1062636e43 ">Output</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1062636e46 ">Always TRUE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1062636e49 ">TRUE only</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1062636e53 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1062636e56 ">---</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="wja1501816320932__table_N10125_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:5%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cell-norowborder" style="text-align:left;vertical-align:top;" id="d1062636e206">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1062636e208">Boolean</th>
+
+<th class="entry cellrowborder" colspan="4" style="text-align:center;vertical-align:middle;" id="d1062636e211">Bit strings</th>
+
+<th class="entry cellrowborder" colspan="8" style="text-align:center;vertical-align:middle;" id="d1062636e214">Integers</th>
+
+<th class="entry cellrowborder" colspan="2" style="text-align:center;vertical-align:middle;" id="d1062636e217">Real numbers</th>
+
+<th class="entry cellrowborder" colspan="5" style="text-align:center;vertical-align:middle;" id="d1062636e221">Times, durations, dates, and text strings</th>
+
+</tr>
+
+<tr class="row rotate_right">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d1062636e227">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1062636e229">BOOL</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1062636e232">BYTE</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1062636e235">WORD</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1062636e238">DWORD</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1062636e242">LWORD</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1062636e245">USINT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1062636e248">UINT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1062636e251">UDINT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1062636e254">ULINT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1062636e257">SINT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1062636e261">INT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1062636e264">DINT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1062636e267">LINT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1062636e270">REAL</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1062636e273">LREAL</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1062636e276">TIME</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1062636e280">DATE</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1062636e283">TOD</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1062636e286">DT</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d1062636e289">STRING</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1062636e206 d1062636e227 ">Size</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e208 d1062636e229 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e211 d1062636e232 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e211 d1062636e235 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e211 d1062636e238 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e211 d1062636e242 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e214 d1062636e245 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e214 d1062636e248 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e214 d1062636e251 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e214 d1062636e254 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e214 d1062636e257 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e214 d1062636e261 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e214 d1062636e264 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e214 d1062636e267 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e217 d1062636e270 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e217 d1062636e273 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e221 d1062636e276 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e221 d1062636e280 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e221 d1062636e283 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e221 d1062636e286 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e221 d1062636e289 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1062636e206 d1062636e227 ">Num</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e208 d1062636e229 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e211 d1062636e232 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e211 d1062636e235 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e211 d1062636e238 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e211 d1062636e242 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e214 d1062636e245 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e214 d1062636e248 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e214 d1062636e251 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e214 d1062636e254 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e214 d1062636e257 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e214 d1062636e261 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e214 d1062636e264 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e214 d1062636e267 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e217 d1062636e270 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e217 d1062636e273 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e221 d1062636e276 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e221 d1062636e280 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e221 d1062636e283 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e221 d1062636e286 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e221 d1062636e289 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1062636e206 d1062636e227 ">InOut[] (array)</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e208 d1062636e229 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e211 d1062636e232 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e211 d1062636e235 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e211 d1062636e238 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e211 d1062636e242 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e214 d1062636e245 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e214 d1062636e248 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e214 d1062636e251 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e214 d1062636e254 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e214 d1062636e257 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e214 d1062636e261 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e214 d1062636e264 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e214 d1062636e267 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e217 d1062636e270 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e217 d1062636e273 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e221 d1062636e276 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e221 d1062636e280 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e221 d1062636e283 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e221 d1062636e286 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e221 d1062636e289 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d1062636e206 d1062636e227 ">Out</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e208 d1062636e229 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e211 d1062636e232 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e211 d1062636e235 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e211 d1062636e238 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e211 d1062636e242 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e214 d1062636e245 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e214 d1062636e248 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e214 d1062636e251 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e214 d1062636e254 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e214 d1062636e257 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e214 d1062636e261 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e214 d1062636e264 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e214 d1062636e267 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e217 d1062636e270 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e217 d1062636e273 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e221 d1062636e276 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e221 d1062636e280 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e221 d1062636e283 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e221 d1062636e286 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d1062636e221 d1062636e289 ">&#160;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="awn1501816321180">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function</h1>
+
+<div class="body conbody">
+<p class="p">These instructions shift <span class="ph phtype_variable"><span class="termtype">Size</span></span> array elements in InOut[] (Shift register array) by the number of bits specified in <span class="ph phtype_variable"><span class="termtype">Num</span></span>. The shift register starts at InOut[0].</p>
+
+<p class="p">The last bit that is shifted out of the register is output to the Carry (CY) Flag. Zeros are inserted for the bits at the other end.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="sur1501816323057">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">NSHLC</h1>
+
+<div class="body conbody">
+<p class="p" id="sur1501816323057__ID0EZFEK">The NSHLC instruction shifts bits from the lower elements in the array to the higher elements and from the least-significant bits to the most-significant bits.</p>
+
+<p class="p linespace_7pt">The following example shows the NSHLC instruction when InOut[] is a BYTE array, <span class="ph phtype_variable"><span class="termtype">Size</span></span> is USINT#80 and <span class="ph phtype_variable"><span class="termtype">Num</span></span> is USINT#3.</p>
+
+<br /><img class="image" id="sur1501816323057__image_lc4_1pg_yz" src="bwl1501816321409.gif" /><br />
+<br /><img class="image" id="sur1501816323057__image_mc4_1pg_yz" src="zrp1501816322164.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="ydb1501816323331">
+<h1 class="title topictitle1"  topicstatus="Localization:done">NSHRC</h1>
+<div class="body conbody"><p class="p" id="ydb1501816323331__ID0ERGEK">The NSHRC instruction shifts bits from the higher elements in the array to the lower elements and from the most-significant bits to the least-significant bits.</p>
+</div>
+<div class="related-links"></div></div><div class="layer03" id="brd1501816308329">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Related System-defined Variables</h1>
+<div class="body conbody">
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="brd1501816308329__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all"><col style="width:26%" /><col style="width:21%" /><col style="width:9%" /><col style="width:43%" /><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d84397e23">Name</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d84397e25">Meaning</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d84397e27">Data type</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d84397e29">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d84397e23 ">P_CY</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d84397e25 ">Carry (CY) Flag</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d84397e27 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d84397e29 ">
+<p class="p" id="brd1501816308329__ID0EAABG">Value stored in Carry Flag</p>
+
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="related-links"></div></div><div class="layer03" id="xmg1501816323602">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Precautions for Correct Use</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="xmg1501816323602__li_N10015_N10012_N1000F_N10002">
+<p class="p" id="xmg1501816323602__ID0EONEK">The shift operation is not performed if the value of <span class="ph phtype_variable"><span class="termtype">Num</span></span> is <span class="ph phtype_settingvalue"><span class="termtype">0</span></span>.</p>
+
+</li>
+
+<li class="li" id="xmg1501816323602__li_N10023_N10012_N1000F_N10002">
+<p class="p" id="xmg1501816323602__ID0EZNEK">If the value of <span class="ph phtype_variable"><span class="termtype">Num</span></span> is larger than <span class="ph phtype_variable"><span class="termtype">Size</span></span>, <span class="ph phtype_variable"><span class="termtype">Size</span></span> bits from bit 0 of InOut[0] are changed to FALSE. The value of the Carry Flag (CY) changes to FALSE.</p>
+
+</li>
+
+<li class="li" id="xmg1501816323602__li_N1003B_N10012_N1000F_N10002">
+<p class="p" id="xmg1501816323602__ID0EEOEK">Return value <span class="ph phtype_variable"><span class="termtype">Out</span></span> is not used when these instructions are used in ST.</p>
+
+</li>
+
+<li class="li" id="xmg1501816323602__li_N1004A_N10012_N1000F_N10002">
+<p class="p" id="xmg1501816323602__ID0EPOEK">An error will occur in the following case. <span class="ph phtype_variable"><span class="termtype">ENO</span></span> will be FALSE, and InOut[] will not change.</p>
+
+<ol class="ol liststyle_alphabet1">
+<li class="li" id="xmg1501816323602__li_N1005C_N10058_N1004A_N10012_N1000F_N10002">
+<p class="p" id="xmg1501816323602__ID0E5OEK">The value of <span class="ph phtype_variable"><span class="termtype">Size</span></span> exceeds the array area of InOut[].</p>
+
+</li>
+
+</ol>
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+
+
+
+

@@ -1,0 +1,122 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>RETURN</title>
+</head>
+<body class="cuv1501815448339"><div class="layer02" id="cuv1501815448339">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">RETURN</h1>
+
+<div class="body conbody">
+<p class="p" id="cuv1501815448339__ID0EWPAC">The RETURN instruction ends a program, function or function block.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="cuv1501815448339__table_N10017_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:13%" />
+<col style="width:14%" />
+<col style="width:6%" />
+<col style="width:35%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d139064e37">Instruction</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d139064e40">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d139064e43">
+<p class="p">FB/</p>
+
+<p class="p">FUN</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d139064e52">Graphic expression</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d139064e55">ST expression</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d139064e37 "><span class="indexterm">RETURN (Return)</span>RETURN</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d139064e40 "><span class="indexterm">Return</span>Return</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d139064e43 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d139064e52 ">None</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d139064e55 ">RETURN;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="gdx1501815852758">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Variables</h1>
+<div class="body conbody"><p class="p" id="gdx1501815852758__ID0EEKAC">None</p>
+</div>
+<div class="related-links"></div></div><div class="layer03" id="ovz1701635301866">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function</h1>
+
+<div class="body conbody">
+<p class="p" id="ovz1701635301866__ID0EBHAE">The RETURN instruction ends a program, function or function block.</p>
+
+<ul class="ul">
+<li class="li" id="ovz1701635301866__li_N1001C_N10019_N10010_N10002"><p class="p">If this instruction is executed in a function or function block, it ends the function or function block and returns processing to the calling instruction.</p>
+</li>
+
+<li class="li" id="ovz1701635301866__li_N10024_N10019_N10010_N10002"><p class="p">If this instruction is executed in a program that has a section, it ends the section and program and executes the next program.</p>
+</li>
+
+<li class="li" id="ovz1701635301866__li_N1002C_N10019_N10010_N10002"><p class="p">If this instruction is executed in a program that does not have a section, it ends the program and executes the next program.</p>
+</li>
+
+</ul>
+
+<p class="p linespace_7pt">If the RETURN instruction is executed in the following programming, the SR instruction that follows it is not executed.</p>
+
+<p class="p linespace_7pt"></p>
+
+<pre class="pre codeblock">RETURN;
+SR_Instance(Set1:=a, Reset:=b, Q1=&gt;abc);
+</pre>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="rbk1701635320885">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Precautions for Correct Use</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="rbk1701635320885__li_N1002E_N10012_N1000F_N10002">Before you execute this instruction in a function or function block, set the return value, output variables, and <span class="ph phtype_variable"><span class="termtype">ENO</span></span> value of the POU.</li>
+
+<li class="li" id="rbk1701635320885__li_N10023_N10013_N10010_N10002">If this instruction is executed in a program, it ends the program and executes the next program. Use it with caution.</li>
+
+<li class="li" id="rbk1701635320885__li_N10038_N10012_N1000F_N10002">If you use this instruction too often, the flow of processing will be difficult to understand. Use it with caution.</li>
+
+<li class="li" id="rbk1701635320885__li_N10047_N10013_N10010_N10002">Refer to the instruction <a class="xref" href="xle1501815448142.html#xle1501815448142"><i style="display:none;">☆</i>RETURN</a> in the Sequence Control Instructions for a description of the RETURN instruction for the ladder diagram program.</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+

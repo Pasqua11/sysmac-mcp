@@ -1,0 +1,2551 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>MC_MoveLinear</title>
+</head>
+<body class="uxx1484547954747"><div class="layer02" id="uxx1484547954747">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">MC_MoveLinear</h1>
+
+<div class="body conbody">
+<p class="p" id="uxx1484547954747__ID0EEJAI">The MC_MoveLinear instruction performs <span class="indexterm">Linear Interpolation</span>linear interpolation.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="uxx1484547954747__ID0EPJAI" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:16%" />
+<col style="width:12%" />
+<col style="width:5%" />
+<col style="width:35%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d178363e41">Instruction</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d178363e44">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d178363e47">FB/ FUN</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d178363e50">Graphic expression</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d178363e53">ST expression</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d178363e41 "><span class="indexterm">MC_MoveLinear (Linear Interpolation)</span>MC_MoveLinear</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d178363e44 "><span class="indexterm">Linear Interpolation</span>Linear Interpolation</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d178363e47 ">FB</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d178363e50 ">
+<br /><img class="image" id="uxx1484547954747__image_C724FC90A5844F8D8791E0D746FBEBAD" src="qbb1484547953842.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d178363e53 ">
+<p class="p" id="uxx1484547954747__ID0ESNAI">MC_MoveLinear_instance (</p>
+
+<p class="p">AxesGroup :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Execute :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Position :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Velocity :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Acceleration :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Deceleration :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Jerk :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">CoordSystem :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">BufferMode :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">TransitionMode :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">MoveMode :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Done =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Busy =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Active =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">CommandAborted =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Error =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">ErrorID =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span></p>
+
+<p class="p">);</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="tna1484547261564">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Variables</h1>
+
+<div class="body conbody"></div>
+
+<div class="related-links"></div></div><div class="layer04" id="dqz1484547954981">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Input Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="dqz1484547954981__ID0ECRAI" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:13%" />
+<col style="width:12%" />
+<col style="width:13%" />
+<col style="width:26%" />
+<col style="width:7%" />
+<col style="width:26%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d28146e79">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d28146e82">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d28146e85">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d28146e88">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d28146e91">Default</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d28146e95">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e79 ">Execute</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e82 ">Execute</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e85 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d28146e88 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d28146e91 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e95 ">
+<p class="p" id="dqz1484547954981__ID0EXVAI">The instruction is executed when the value of this variable changes to TRUE.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e79 ">Position</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e82 ">Target Position</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e85 ">ARRAY[0..3] OF LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d28146e88 ">Negative number, positive number, or 0</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d28146e91 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e95 ">
+<p class="p" id="dqz1484547954981__ID0ECYAI">Specify the target position for linear interpolation.</p>
+
+<p class="p" id="dqz1484547954981__ID0EJYAI">The unit is command units. <a class="xref" href="#dqz1484547954981__ID0ECRAI-footnote-1280060"><sup>*1</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e79 ">Velocity<a class="xref" href="#dqz1484547954981__ID0ECRAI-footnote-1280062"><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e82 ">Target Velocity</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e85 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d28146e88 ">Positive number</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d28146e91 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e95 ">
+<p class="p" id="dqz1484547954981__ID0E11AI">Specify the target velocity.</p>
+
+<p class="p" id="dqz1484547954981__ID0EB2AI">The unit is command units/s. <a class="xref" href="#dqz1484547954981__ID0ECRAI-footnote-1280060"><sup>*1</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e79 ">Acceleration</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e82 ">Acceleration Rate</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e85 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d28146e88 ">Non-negative number</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d28146e91 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e95 ">
+<p class="p" id="dqz1484547954981__ID0EM4AI">Specify the acceleration rate.</p>
+
+<p class="p" id="dqz1484547954981__ID0ET4AI">The unit is command units/s<sup class="ph sup">2</sup>. <a class="xref" href="#dqz1484547954981__ID0ECRAI-footnote-1280060"><sup>*1</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e79 ">Deceleration</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e82 ">Deceleration Rate</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e85 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d28146e88 ">Non-negative number</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d28146e91 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e95 ">
+<p class="p" id="dqz1484547954981__ID0E56AI">Specify the deceleration rate.</p>
+
+<p class="p" id="dqz1484547954981__ID0EFABI">The unit is command units/s<sup class="ph sup">2</sup>. <a class="xref" href="#dqz1484547954981__ID0ECRAI-footnote-1280060"><sup>*1</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e79 ">Jerk</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e82 ">Jerk</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e85 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d28146e88 ">Non-negative number</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d28146e91 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e95 ">
+<p class="p" id="dqz1484547954981__ID0EQCBI">Specify the jerk.</p>
+
+<p class="p" id="dqz1484547954981__ID0EXCBI">The unit is command units/s<sup class="ph sup">3</sup>. <a class="xref" href="#dqz1484547954981__ID0ECRAI-footnote-1280060"><sup>*1</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e79 ">CoordSystem</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e82 ">Coordinate System</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e85 ">_eMC_COORD_SYSTEM</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e88 ">
+<p class="p" id="dqz1484547954981__ID0EOEBI">0: _mcACS</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d28146e91 ">0<a class="xref" href="#dqz1484547954981__ID0ECRAI-footnote-1280063"><sup>*3</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e95 ">
+<p class="p" id="dqz1484547954981__ID0EJFBI">Specify the coordinate system.</p>
+
+<p class="p" id="dqz1484547954981__ID0EQFBI">0: Axis coordinate system (ACS)</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e79 ">BufferMode</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e82 ">Buffer Mode Selection</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e85 ">_eMC_BUFFER_MODE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e88 ">
+<p class="p" id="dqz1484547954981__ID0ELHBI">0: _mcAborting</p>
+
+<p class="p" id="dqz1484547954981__ID0ESHBI">1: _mcBuffered</p>
+
+<p class="p" id="dqz1484547954981__ID0EZHBI">2: _mcBlendingLow</p>
+
+<p class="p" id="dqz1484547954981__ID0EAIBI">3: _mcBlendingPrevious</p>
+
+<p class="p" id="dqz1484547954981__ID0EHIBI">4: _mcBlendingNext</p>
+
+<p class="p" id="dqz1484547954981__ID0EOIBI">5: _mcBlendingHigh</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d28146e91 ">0<a class="xref" href="#dqz1484547954981__ID0ECRAI-footnote-1280063"><sup>*3</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e95 ">
+<p class="p" id="dqz1484547954981__ID0EGJBI">Specify the behavior when executing more than one motion instruction.</p>
+
+<p class="p" id="dqz1484547954981__ID0ENJBI">0: Aborting</p>
+
+<p class="p" id="dqz1484547954981__ID0EUJBI">1: Buffered</p>
+
+<p class="p" id="dqz1484547954981__ID0E2JBI">2: Blending low</p>
+
+<p class="p" id="dqz1484547954981__ID0ECKBI">3: Blending previous</p>
+
+<p class="p" id="dqz1484547954981__ID0EJKBI">4: Blending next</p>
+
+<p class="p" id="dqz1484547954981__ID0EQKBI">5: Blending high</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e79 ">TransitionMode</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e82 ">Transition Mode</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e85 ">_eMC_TRANSITION_MODE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e88 ">
+<p class="p" id="dqz1484547954981__ID0EJMBI">0: _mcTMNone</p>
+
+<p class="p" id="dqz1484547954981__ID0EQMBI">10: _mcTMCornerSuperimposed</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d28146e91 ">0<a class="xref" href="#dqz1484547954981__ID0ECRAI-footnote-1280063"><sup>*3</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e95 ">
+<p class="p" id="dqz1484547954981__ID0EINBI">Specify the path of motion.</p>
+
+<p class="p" id="dqz1484547954981__ID0EPNBI">0: Transition disabled</p>
+
+<p class="p" id="dqz1484547954981__ID0EWNBI">10: Superimpose corners</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e79 ">MoveMode</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e82 ">Travel Mode</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e85 ">_eMC_MOVE_MODE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e88 ">
+<p class="p" id="dqz1484547954981__ID0ELPBI">0: _mcAbsolute</p>
+
+<p class="p" id="dqz1484547954981__ID0ESPBI">1: _mcRelative</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d28146e91 ">0<a class="xref" href="#dqz1484547954981__ID0ECRAI-footnote-1280063"><sup>*3</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d28146e95 ">
+<p class="p" id="dqz1484547954981__ID0EKQBI">Select the travel method.</p>
+
+<p class="p" id="dqz1484547954981__ID0ERQBI">0: Absolute positioning</p>
+
+<p class="p" id="dqz1484547954981__ID0EYQBI">1: Relative positioning</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="dqz1484547954981__ID0ECRAI-footnote-1280060" id="dqz1484547954981__ID0ECRAI-footnote-1280060"><sup>*1</sup></a>
+                        
+<p class="p">Refer to <span class="ph phtype_type2"><span class="termtype">Unit Conversion Settings</span></span> in the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Motion Control User&#8217;s Manual (Cat. No. W507)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Industrial Panel PC / Industrial Box PC Motion Control User&#8217;s Manual (Cat. No. W559)</span></span></span> for information on command units.</p>
+
+</div>
+<div class="fn"><a name="dqz1484547954981__ID0ECRAI-footnote-1280062" id="dqz1484547954981__ID0ECRAI-footnote-1280062"><sup>*2</sup></a>
+<p class="p" id="dqz1484547954981__ID0ED4LO">Always set the target velocity. If the axes are moved without setting a target velocity, an error will occur.</p>
+
+</div>
+<div class="fn"><a name="dqz1484547954981__ID0ECRAI-footnote-1280063" id="dqz1484547954981__ID0ECRAI-footnote-1280063"><sup>*3</sup></a>
+<p class="p" id="dqz1484547954981__ID0EW4LO">The default value for an enumeration variable is actually not the number, but the enumerator.</p>
+
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="zeh1484547326292">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Output Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="zeh1484547326292__ID0EA6DM" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:17%" />
+<col style="width:14%" />
+<col style="width:9%" />
+<col style="width:10%" />
+<col style="width:47%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d214544e50">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d214544e53">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d214544e56">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d214544e59">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d214544e62">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d214544e50 ">Done</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d214544e53 ">Done</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d214544e56 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d214544e59 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d214544e62 ">
+<p class="p" id="zeh1484547326292__ID0E4CEM">TRUE when the instruction is completed.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d214544e50 ">Busy</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d214544e53 ">Executing</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d214544e56 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d214544e59 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d214544e62 ">
+<p class="p" id="zeh1484547326292__ID0E3EEM">TRUE when the instruction is acknowledged.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d214544e50 ">Active</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d214544e53 ">Controlling</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d214544e56 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d214544e59 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d214544e62 ">
+<p class="p" id="zeh1484547326292__ID0E2GEM">TRUE when the axis is being controlled.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d214544e50 ">CommandAborted</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d214544e53 ">Command Aborted</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d214544e56 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d214544e59 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d214544e62 ">
+<p class="p" id="zeh1484547326292__ID0E1IEM">TRUE when the instruction is aborted.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d214544e50 ">Error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d214544e53 ">Error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d214544e56 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d214544e59 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d214544e62 ">
+<p class="p" id="zeh1484547326292__ID0EZKEM">TRUE while there is an error.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d214544e50 ">ErrorID</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d214544e53 ">Error Code</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d214544e56 ">WORD</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d214544e59 "><a class="xref" href="#zeh1484547326292__ID0EA6DM-footnote-2079477"><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d214544e62 ">
+<p class="p" id="zeh1484547326292__ID0E1MEM">Contains the error code when an error occurs.</p>
+
+<p class="p">A value of 16#0000 indicates normal execution.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="zeh1484547326292__ID0EA6DM-footnote-2079477" id="zeh1484547326292__ID0EA6DM-footnote-2079477"><sup>*1</sup></a>
+<p class="p">The upper four digits of the event code give the error code for ErrorID. Refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series Troubleshooting Manual (Cat. No. W503)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Troubleshooting Manual (Cat. No. W564)</span></span></span> for the event codes.</p>
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="zpm1484547955215">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">Output Variable Update Timing</h1>
+ 
+<div class="body conbody">
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="zpm1484547955215__ID0E2BCI" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:17%" />
+<col style="width:41%" />
+<col style="width:40%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d219581e28">Name</th>
+ 
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d219581e31">Timing for changing to TRUE</th>
+ 
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d219581e34">Timing for changing to FALSE</th>
+ 
+</tr>
+ 
+</thead>
+ 
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d219581e28 ">Done</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d219581e31 ">
+<p class="p" id="zpm1484547955215__ID0E3DCI">When positioning is completed.</p>
+ 
+</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d219581e34 ">
+<ul class="ul" id="zpm1484547955215__ul_E5E7E8DA1A7D4D80B08789716F47C0C2">
+<li class="li" id="zpm1484547955215__li_0EFC60B2A7B54CA0A2A57E4592D454C2">
+<p class="p" id="zpm1484547955215__ID0EUECI">When <span class="ph phtype_variable"><span class="termtype">Execute</span></span> is TRUE and changes to FALSE.<span class="ph phtype_variable"><span class="termtype"></span></span></p>
+ 
+</li>
+ 
+<li class="li" id="zpm1484547955215__li_CCFA89F644AF4C218893871487024854">
+<p class="p" id="zpm1484547955215__ID0E6ECI">After one period when <span class="ph phtype_variable"><span class="termtype">Execute</span></span> is FALSE.</p>
+ 
+</li>
+ 
+</ul>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d219581e28 ">Busy</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d219581e31 ">
+<p class="p" id="zpm1484547955215__ID0EYFCI">When <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to TRUE.</p>
+ 
+</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d219581e34 ">
+<ul class="ul" id="zpm1484547955215__ul_A9FF89F08417403984A32D5D7A910D49">
+<li class="li" id="zpm1484547955215__li_60DC18C3CABF41CDBF51C6018CFD17AF">
+<p class="p" id="zpm1484547955215__ID0EQGCI">When <span class="ph phtype_variable"><span class="termtype">Done</span></span> changes to TRUE.</p>
+ 
+</li>
+ 
+<li class="li" id="zpm1484547955215__li_C71751AADF3C4270AADEEAB171AFC88A">
+<p class="p" id="zpm1484547955215__ID0E2GCI">When <span class="ph phtype_variable"><span class="termtype">Error</span></span> changes to TRUE.</p>
+ 
+</li>
+ 
+<li class="li" id="zpm1484547955215__li_CFDAA1B8FE9A4AA8A97509CA6C099F4E">
+<p class="p" id="zpm1484547955215__ID0EGHCI">When <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> changes to TRUE.</p>
+ 
+</li>
+ 
+</ul>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d219581e28 ">Active</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d219581e31 ">
+<p class="p" id="zpm1484547955215__ID0E6HCI">When the axes move.</p>
+ 
+</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d219581e34 ">
+<ul class="ul" id="zpm1484547955215__ul_29172437AF454F4DB1A2A514DE1DB561">
+<li class="li" id="zpm1484547955215__li_E4E57F1BE86442E4A333750997340439">
+<p class="p" id="zpm1484547955215__ID0EXICI">When <span class="ph phtype_variable"><span class="termtype">Done</span></span> changes to TRUE.</p>
+ 
+</li>
+ 
+<li class="li" id="zpm1484547955215__li_F517B5E0F93A4DE98A6E22A3C04AD07A">
+<p class="p" id="zpm1484547955215__ID0ECJCI">When <span class="ph phtype_variable"><span class="termtype">Error</span></span> changes to TRUE.</p>
+ 
+</li>
+ 
+<li class="li" id="zpm1484547955215__li_0BA58BA6CBCE4F4C82EFC383FDC64EAD">
+<p class="p" id="zpm1484547955215__ID0ENJCI">When <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> changes to TRUE.</p>
+ 
+</li>
+ 
+</ul>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d219581e28 ">CommandAborted</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d219581e31 ">
+<ul class="ul" id="zpm1484547955215__ul_FA08ECD159FE4D62B8224B648788D338">
+<li class="li" id="zpm1484547955215__li_55A79B3FBFB14B2286FFDEF76E05800B">
+<p class="p" id="zpm1484547955215__ID0ESKCI">When this instruction is aborted because another motion control instruction was executed with the Buffer Mode set to <span class="ph phtype_choice"><span class="termtype">Aborting</span></span>.</p>
+ 
+</li>
+ 
+<li class="li" id="zpm1484547955215__li_A30DEA44576C4C669FC41C1DDCF467F8">
+<p class="p" id="zpm1484547955215__ID0E4KCI">When this instruction is canceled due to an error.</p>
+ 
+</li>
+ 
+<li class="li" id="zpm1484547955215__li_DE7DC1A7D3494ACD8F4F503013F3F5E9">
+<p class="p" id="zpm1484547955215__ID0EILCI">When this instruction is executed while there is an error.</p>
+ 
+</li>
+ 
+<li class="li" id="zpm1484547955215__li_E4C4FEEB877A47118E49BFB578053584">
+<p class="p" id="zpm1484547955215__ID0ETLCI">When you start this instruction during MC_GroupStop instruction execution.</p>
+ 
+</li>
+ 
+</ul>
+ 
+</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d219581e34 ">
+<ul class="ul" id="zpm1484547955215__ul_8278BD6D8D824F6783F96D2229B9C2C6">
+<li class="li" id="zpm1484547955215__li_665BF0713963459F9520D1BEEDB6EA51">
+<p class="p" id="zpm1484547955215__ID0EJMCI">When <span class="ph phtype_variable"><span class="termtype">Execute</span></span> is TRUE and changes to FALSE.<span class="ph phtype_variable"><span class="termtype"></span></span></p>
+ 
+</li>
+ 
+<li class="li" id="zpm1484547955215__li_34DD60EB5CB84499BCACADB5CCF59DEF">
+<p class="p" id="zpm1484547955215__ID0EUMCI">After one period when <span class="ph phtype_variable"><span class="termtype">Execute</span></span> is FALSE.</p>
+ 
+</li>
+ 
+</ul>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d219581e28 ">Error</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d219581e31 ">
+<p class="p" id="zpm1484547955215__ID0ENNCI">When there is an error in the execution conditions or input parameters for the instruction.</p>
+ 
+</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d219581e34 ">
+<p class="p" id="zpm1484547955215__ID0EZNCI">When the error is cleared.</p>
+ 
+</td>
+ 
+</tr>
+ 
+</tbody>
+ 
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer04" id="yih1484547945699">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">In-Out Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="yih1484547945699__ID0EHXHK" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:18%" />
+<col style="width:16%" />
+<col style="width:13%" />
+<col style="width:9%" />
+<col style="width:41%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d207688e50">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d207688e53">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d207688e56">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d207688e59">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d207688e62">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d207688e50 ">AxesGroup</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d207688e53 ">Axes Group</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d207688e56 ">_sGROUP_REF</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d207688e59 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d207688e62 ">
+<p class="p" id="yih1484547945699__ID0EE2HK">Specify the axes group. <a class="xref" href="#yih1484547945699__ID0EHXHK-footnote-1280076"><sup>*1</sup></a></p>
+ 
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="yih1484547945699__ID0EHXHK-footnote-1280076" id="yih1484547945699__ID0EHXHK-footnote-1280076"><sup>*1</sup></a>  <p class="p" id="yih1484547945699__ID0E6AMO">Specify a user-defined Axes Group Variable that was created in the Axes Group Basic Settings of the Sysmac Studio (default: MC_Group*) or a system-defined axes group variable name (_MC_GRP[*], _MC1_GRP[*], or _MC2_GRP[*]).</p>
+
+                        
+<p class="p">If you use Sysmac Studio version 1.29 or higher, you can specify the system-defined axes group variable name for AT specification of a user-defined variable. This will allow you to specify the user-defined variable.</p>
+
+<p class="p">If you use Sysmac Studio version 1.28 or lower, do not specify any user-defined variable created in the variable table.</p>
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="qxe1484547955605">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="qxe1484547955605__li_N10016_N10012_N1000F_N10001">
+<p class="p" id="qxe1484547955605__ID0EBVCI">The MC_MoveLiner instruction performs linear interpolation for 2 to 4 axes.</p>
+
+</li>
+
+</ul>
+
+<div class="note" id="qxe1484547955605__note_N10022_N1000F_N10001"><div class="use"><span class="notetitle use">use:</span>
+<ul class="ul">
+<li class="li" id="qxe1484547955605__li_N1002E_N1002A_N10023_N1000F_N10001">
+<p class="p" id="qxe1484547955605__ID0EPWCI">An Instruction Execution Error with Undefined Home (error code: 5466 hex) occurs if home is undefined for any of the composition axes in the axes group.</p>
+
+</li>
+
+<li class="li" id="qxe1484547955605__li_N1003A_N1002A_N10023_N1000F_N10001">
+<p class="p" id="qxe1484547955605__ID0E1WCI">You cannot execute an instruction to perform linear interpolation if a limit input is ON for any of the logical axes that belong to the axes group.</p>
+
+</li>
+
+</ul>
+
+</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="xqt1484547315231">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Instruction Details</h1>
+
+<div class="body conbody">
+<p class="p">This section describes the instruction in detail.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="uta1484547957197">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Linear Interpolation Procedure</h1>
+
+<div class="body taskbody">
+<div class="section context" id="uta1484547957197__context_01C3C39634A749E9899CED8739C9C5BB">
+<p class="p" id="uta1484547957197__ID0EAZCI">Use the following procedure to perform linear interpolation.</p>
+
+</div>
+
+<ol class="ol steps" id="uta1484547957197__steps_4C29464237AF4D2FAC940C01E31B4018"><li class="li step stepexpand" id="uta1484547957197__step_C588767FD6AF4F9697383E1D79ED2D27">
+<span alt="test" class="ph cmd" id="uta1484547957197__ID0E3ZCI">Registering Axes Groups for Interpolation</span>
+<div class="itemgroup stepresult">
+<ul class="ul" id="uta1484547957197__ul_34E76B271BE74F7792F863DAFEA23EF0">
+<li class="li" id="uta1484547957197__li_1E3AD290FBFC4D4FAFD9377FA437A37A">
+<p class="p" id="uta1484547957197__ID0EL1CI">Select the axes group to perform interpolation.</p>
+
+<p class="p">An axes group is represented by _MC_GRP[*], or by _MC1_GRP[*], and _MC2_GRP[*].</p>
+
+                            
+</li>
+
+<li class="li" id="uta1484547957197__li_2A8D7EDCCAD24A1C8ED9318857B2A99B">
+<p class="p" id="uta1484547957197__ID0EZ1CI">Specify the axis composition with <span class="ph phtype_parameter"><span class="termtype">Composition</span></span> of the Axes Group Variable. You can specify two to four axes.</p>
+
+</li>
+
+<li class="li" id="uta1484547957197__li_29367DD9F6B147E286A6EEAED9C84236">
+<p class="p" id="uta1484547957197__ID0EE2CI">Specify the combination of axes to perform interpolation with <span class="ph phtype_parameter"><span class="termtype">Axis Selection</span></span> of the Axes Group Variable.</p>
+
+</li>
+
+<li class="li" id="uta1484547957197__li_74B2AC01E9D94A049F7769A85A6E3A32">
+<p class="p" id="uta1484547957197__ID0EP2CI">Use logical axes (axis A0 to A3) for the axes, and not axis numbers.</p>
+
+</li>
+
+<li class="li" id="uta1484547957197__li_792AB176F6BD4227A8BD5FF10E069461">
+<p class="p" id="uta1484547957197__ID0E12CI">Specify axis numbers for the logical axes A0 to A3 in order from the lowest number with <span class="ph phtype_parameter"><span class="termtype">Axis Selection</span></span>.</p>
+
+</li>
+
+<li class="li" id="uta1484547957197__li_F50A40D8587D4BB6809F91459AA4E217">
+<p class="p" id="uta1484547957197__ID0EF3CI">The axis number is specified as follows according to the model or series.</p>
+
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="uta1484547957197__table_vsj_jjy_lz" class="rules_all " frame="hsides" border="1">
+                                    
+                                    
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d177099e92">Model or series</th>
+
+<th class="entry row-nocellborder" style="text-align:left;vertical-align:top;" id="d177099e95">Axis number</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d177099e92 ">NX701 CPU Unit</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d177099e95 ">
+<p class="p" id="uta1484547957197__ID0EJ5CI">Axis 0 to Axis 255</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d177099e92 ">NX502 CPU Unit</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d177099e95 ">
+<p class="p">Axis 0 to Axis 31</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d177099e92 ">NX102 CPU Unit</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d177099e95 ">
+<p class="p">Axis 0 to Axis 14</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d177099e92 ">NX1P2 CPU Unit</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d177099e95 ">
+<p class="p" id="uta1484547957197__ID0EE6CI">Axis 0 to Axis 11</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d177099e92 ">NJ-series CPU Unit</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d177099e95 ">
+<p class="p" id="uta1484547957197__ID0E66CI">Axis 0 to Axis 63</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d177099e92 ">NY-series Controller</td>
+
+<td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d177099e95 ">
+<p class="p" id="uta1484547957197__ID0E1ADI">Axis 0 to Axis 63</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</li>
+
+</ul>
+
+<div class="note" id="uta1484547957197__note_N10102_N1002E_N10023_N1001F_N10010_N10002"><div class="memo"><span class="notetitle memo">memo:</span>
+                        
+<p class="p">For the details of the axis numbers, refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Motion Control User&#8217;s Manual (Cat. No. W507)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Industrial Panel PC / Industrial Box PC Motion Control User&#8217;s Manual (Cat. No. W559)</span></span></span>.</p>
+
+</div></div>
+
+<ul class="ul" id="uta1484547957197__ul_ug5_f1q_jx">
+<li class="li" id="uta1484547957197__li_D2555378C0E040878CCF909D0AD9C622">
+<p class="p" id="uta1484547957197__ID0ESBDI">In the Axes Group Basic Settings of the Sysmac Studio, select the axis composition to use for <span class="ph phtype_ui"><span class="termtype">Composition</span></span> and assign an axis number to the logical axis. The following example shows a 3-axis axes group that is called <span class="ph phtype_ui"><span class="termtype">MC_Group000</span></span> with the following axes registered in it: <span class="ph phtype_settingvalue"><span class="termtype">MC_Axis000</span></span>, <span class="ph phtype_settingvalue"><span class="termtype">MC_Axis001</span></span>, and <span class="ph phtype_settingvalue"><span class="termtype">MC_Axis002</span></span>.</p>
+
+<br /><img class="image linespace_7pt" id="uta1484547957197__image_8656DD9552C549A3A0ECBCA34BE8D8AC" src="cxd1484547955792.gif" /><br />
+</li>
+
+</ul>
+
+<div class="note" id="uta1484547957197__note_N10128_N1002E_N10023_N1001F_N10010_N10002"><div class="use"><span class="notetitle use">use:</span>
+<p class="p" id="uta1484547957197__ID0EKDDI">An Instruction Not Allowed for Encoder Axis Type error (543D hex) will occur and operation will end if an encoder axis or virtual encoder axis is included in the axes group.</p>
+
+<p class="p" id="uta1484547957197__ID0ERDDI">Make sure that you select only <span class="ph phtype_choice"><span class="termtype">Servo Axes</span></span> or <span class="ph phtype_choice"><span class="termtype">Virtual Servo Axes</span></span>.</p>
+
+</div></div>
+
+</div>
+</li>
+<li class="li step stepexpand" id="uta1484547957197__step_3D42780DB26A4224BE5F9658642826D7">
+<span alt="test" class="ph cmd" id="uta1484547957197__ID0EXEDI">Enabling the Axes Group</span>
+<div class="itemgroup stepresult">
+<ul class="ul" id="uta1484547957197__ul_C0B02098C4F8412E80D04DAECF14555E">
+<li class="li" id="uta1484547957197__li_901A35381E2742A6A84ACD19F59FCC0A">
+<p class="p" id="uta1484547957197__ID0EGFDI">Turn ON the Servo for the composition axes of the axes group, and then define home for each of the composition axes.</p>
+
+</li>
+
+<li class="li" id="uta1484547957197__li_E0366793E0234E11A3BDC9C38A09BB3D">
+<p class="p" id="uta1484547957197__ID0ERFDI">Execute the MC_GroupEnable instruction to enable the registered axes group.</p>
+
+</li>
+
+</ul>
+
+</div>
+</li>
+</ol>
+
+<div class="section result" id="uta1484547957197__result_92C5A8B2308E48998AE96D5931F92103">
+<p class="p linespace_28pt" id="uta1484547957197__ID0EBGDI">Using the Linear Interpolation instruction is now enabled.</p>
+
+</div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="jqz1484547960098">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Position (Target Position)</h1>
+
+<div class="body conbody">
+<ul class="ul" id="jqz1484547960098__ul_0064F9E1B71D48BEBB31CCCD480971ED">
+<li class="li" id="jqz1484547960098__li_F3511ED4D0654B138555C2E851057D25">
+<p class="p" id="jqz1484547960098__ID0EEHDI">Set the target position in <span class="ph phtype_variable"><span class="termtype">Position</span></span> (Target Position) for all of the axes specified with <span class="ph phtype_parameter"><span class="termtype">Axis Selection</span></span> of the Axes Group Variable.</p>
+
+</li>
+
+<li class="li" id="jqz1484547960098__li_195644C8742C4AE38386ECDE07E03677">
+<p class="p" id="jqz1484547960098__ID0EPHDI">You must create a 1&#215;4 array variable in the Sysmac Studio to assign <span class="ph phtype_variable"><span class="termtype">Position</span></span> (A0, A1, A2, and A3). You can use any variable name.</p>
+
+<p class="p">Assign the target positions for the axis to the elements of that array.</p>
+
+<p class="p">Always create a 1&#215;4 array even if there are fewer than four axes in the axes group.</p>
+
+<p class="p">An example is shown below when the <span class="ph phtype_variable"><span class="termtype">Pos1</span></span> array variable is declared on the Sysmac Studio.</p>
+
+<br /><img class="image linespace_7pt" id="jqz1484547960098__image_2B58E5A544D5488AAF603B1A8C8D56AB" src="nar1484547957399.gif" /><br />
+<p class="p linespace_7pt" id="jqz1484547960098__ID0EHJDI">The following example shows assigning the target positions to <span class="ph phtype_variable"><span class="termtype">Pos1</span></span> with inline ST.</p>
+
+<p class="p" id="jqz1484547960098__ID0EKJDI">In the figure, target positions (1000.0, 2000.0, 3000.0) are assigned to axes A0 to A2.</p>
+
+<br /><img class="image linespace_7pt" id="jqz1484547960098__image_7CDB2373806744DB9E82348F1DE59BE3" src="reo1484547959178.gif" /><br />
+</li>
+
+<li class="li" id="jqz1484547960098__li_680D4B9BF43549BF88AC9238DC0709D2">
+<p class="p" id="jqz1484547960098__ID0EDLDI">If an axis with the Count Mode set to <span class="ph phtype_choice"><span class="termtype">Rotary Mode</span></span> is set as an interpolation axis and you specify absolute position, the target value will be the same as if <span class="ph phtype_variable"><span class="termtype">Direction</span></span> was set to <span class="ph phtype_choice"><span class="termtype">No direction specified</span></span>.</p>
+
+<p class="p">For details, refer to <a class="xref" href="rqe1484547327478.html#mzi1484547340942"><i style="display:none;">☆</i>Direction</a>.</p>
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="avz1484547967150">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Velocity (Target Velocity), Acceleration (Acceleration Rate), Deceleration (Deceleration Rate), and Jerk</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="avz1484547967150__li_N10015_N10012_N1000F_N10001">
+<p class="p" id="avz1484547967150__ID0EHMDI">Set <span class="ph phtype_variable"><span class="termtype">Velocity</span></span>, <span class="ph phtype_variable"><span class="termtype">Acceleration</span></span>, <span class="ph phtype_variable"><span class="termtype">Deceleration</span></span>, and <span class="ph phtype_variable"><span class="termtype">Jerk</span></span> to specify the interpolation velocity, acceleration rate, deceleration rate, and jerk for linear interpolation.</p>
+
+</li>
+
+<li class="li" id="avz1484547967150__li_N10035_N10012_N1000F_N10001">
+<p class="p" id="avz1484547967150__ID0ESMDI">Linear interpolation separates the interpolated motion into motion on each axis.</p>
+
+</li>
+
+</ul>
+
+<p class="p linespace_7pt" id="avz1484547967150__ID0ECNDI">As an example, the following figure shows linear interpolation of 2 axes from point A to point B.</p>
+
+<br /><img class="image linespace_7pt" src="mpr1484547960364.gif" /><br />
+<p class="p linespace_7pt" id="avz1484547967150__ID0ECODI">For linear interpolation of four axes, the interpolation velocity and travel distance of each axis determine the target velocities as shown below.</p>
+
+<p class="p" id="avz1484547967150__ID0EPODI">F: Specified interpolation feeding velocity</p>
+
+<p class="p" id="avz1484547967150__ID0EWODI">Fa0: Interpolation feeding velocity based on expansion of F to axis A0</p>
+
+<p class="p" id="avz1484547967150__ID0E4ODI">Fa1: Interpolation feeding velocity based on expansion of F to axis A1</p>
+
+<p class="p" id="avz1484547967150__ID0EEPDI">Fa2: Interpolation feeding velocity based on expansion of F to axis A2</p>
+
+<p class="p" id="avz1484547967150__ID0ELPDI">Fa3: Interpolation feeding velocity based on expansion of F to axis A3</p>
+
+<p class="p" id="avz1484547967150__ID0ESPDI">Ta: Interpolation acceleration time</p>
+
+<p class="p" id="avz1484547967150__ID0EZPDI">Td: Interpolation deceleration time</p>
+
+<p class="p" id="avz1484547967150__ID0EAQDI">L: Travel distance on the specified path</p>
+
+<p class="p" id="avz1484547967150__ID0EHQDI">La0, La1, La2, and La3: Travel distances of axis A0, axis A1, axis A2, and axis A3.</p>
+
+<p class="p linespace_7pt" id="avz1484547967150__ID0EOQDI">L, Fa0, Fa1, Fa2, and Fa3 can be expressed with the following formulas.</p>
+
+<br /><img class="image linespace_7pt" src="zaf1484547961362.gif" /><br />
+<p class="p linespace_14pt"><strong class="ph b">Velocity (Target Velocity)</strong></p>
+
+<ul class="ul">
+<li class="li" id="avz1484547967150__li_N100A7_N100A4_N1000F_N10001">
+<p class="p" id="avz1484547967150__ID0E2RDI">An interpolation velocity specification error will occur if <span class="ph phtype_variable"><span class="termtype">Velocity</span></span> (Target Velocity) is set to <span class="ph phtype_settingvalue"><span class="termtype">0</span></span>. All axes will stop if an axis in the specified axes group is in operation.</p>
+
+</li>
+
+<li class="li" id="avz1484547967150__li_N100BC_N100A4_N1000F_N10001">
+<p class="p" id="avz1484547967150__ID0EGSDI">If any of the calculated target velocities Fa0 to Fa3 for <span class="ph phtype_variable"><span class="termtype">Velocity</span></span> (Target Velocity) exceed the maximum velocity, the <span class="ph phtype_variable"><span class="termtype">Velocity</span></span> (Target Velocity) will be automatically adjusted so that one of the axes operates at the maximum velocity.</p>
+
+</li>
+
+</ul>
+
+<p class="p linespace_14pt"><strong class="ph b">Jerk</strong></p>
+
+<p class="p" id="avz1484547967150__ID0E5SDI">The relationships between <span class="ph phtype_variable"><span class="termtype">Acceleration</span></span> (Acceleration Rate), <span class="ph phtype_variable"><span class="termtype">Deceleration</span></span> (Deceleration Rate), and <span class="ph phtype_variable"><span class="termtype">Velocity</span></span> (Target Velocity) when <span class="ph phtype_variable"><span class="termtype">Jerk</span></span> is set to <span class="ph phtype_settingvalue"><span class="termtype">0</span></span> and when it is set to any other value are shown below.<span class="ph phtype_settingvalue"><span class="termtype"></span></span></p>
+
+<p class="p linespace_7pt"></p>
+
+<ul class="ul">
+<li class="li" id="avz1484547967150__li_N10107_N10104_N1000F_N10001">
+<p class="p" id="avz1484547967150__ID0E1TDI"><span class="ph phtype_variable"><span class="termtype">Jerk</span></span> Set to <span class="ph phtype_settingvalue"><span class="termtype">0</span></span></p>
+
+<p class="p" id="avz1484547967150__ID0EEUDI">The command value for the velocity is created with acceleration rate At and deceleration rate Dt.</p>
+
+</li>
+
+</ul>
+
+<br /><img class="image linespace_7pt" src="nuc1484547962329.gif" /><br />
+<p class="p" id="avz1484547967150__ID0ECVDI">Vt: Specified interpolation velocity, At: Specified acceleration rate, Dt: Specified deceleration rate.</p>
+
+<p class="p linespace_7pt"></p>
+
+<ul class="ul">
+<li class="li" id="avz1484547967150__li_N10138_N10135_N1000F_N10001">
+<p class="p" id="avz1484547967150__ID0EWVDI">Short Travel Distance When <span class="ph phtype_variable"><span class="termtype">Jerk</span></span> Is <span class="ph phtype_settingvalue"><span class="termtype">0</span></span></p>
+
+<p class="p" id="avz1484547967150__ID0EAWDI">The interpolation velocity will not reach the specified Vt (Target Velocity).</p>
+
+</li>
+
+</ul>
+
+<img class="image" src="gha1484547963343.gif" />
+<p class="p" id="avz1484547967150__ID0E5WDI">Vt: Specified interpolation velocity, At: Specified acceleration rate, Dt: Specified deceleration rate.</p>
+
+<p class="p linespace_7pt"></p>
+
+<ul class="ul">
+<li class="li" id="avz1484547967150__li_N10168_N10165_N1000F_N10001">
+<p class="p" id="avz1484547967150__ID0EYXDI"><span class="ph phtype_variable"><span class="termtype">Jerk</span></span> Set to Value Other Than <span class="ph phtype_settingvalue"><span class="termtype">0</span></span></p>
+
+<p class="p" id="avz1484547967150__ID0ECYDI">The command value for the velocity is created with At as the upper acceleration limit and Dt as the upper deceleration limit.</p>
+
+</li>
+
+</ul>
+
+<br /><img class="image linespace_7pt" src="sha1484547964404.gif" /><br />
+<p class="p" id="avz1484547967150__ID0EAZDI">Vt: Specified interpolation velocity, At: Specified acceleration rate, Dt: Specified deceleration rate, Jt: Specified jerk</p>
+
+<p class="p linespace_7pt"></p>
+
+<ul class="ul">
+<li class="li" id="avz1484547967150__li_N10199_N10196_N1000F_N10001">
+<p class="p" id="avz1484547967150__ID0EUZDI">Short Travel Distance When <span class="ph phtype_variable"><span class="termtype">Jerk</span></span> Is Not <span class="ph phtype_settingvalue"><span class="termtype">0</span></span></p>
+
+<p class="p" id="avz1484547967150__ID0E5ZDI">The interpolation velocity will not reach the specified Vt (Target Velocity).</p>
+
+</li>
+
+</ul>
+
+<br /><img class="image linespace_7pt" src="qdm1484547965761.gif" /><br />
+<p class="p" id="avz1484547967150__ID0E31DI">Vt: Specified interpolation velocity, At: Specified acceleration rate, Dt: Specified deceleration rate, Jt: Specified jerk</p>
+
+<div class="note" id="avz1484547967150__note_N101BA_N1000F_N10001"><div class="memo"><span class="notetitle memo">memo:</span> <ul class="ul">
+<li class="li" id="avz1484547967150__li_N101CC_N101C9_N101C2_N1000F_N10001">
+<p class="p" id="avz1484547967150__ID0ET3DI">If <span class="ph phtype_settingvalue"><span class="termtype">0</span></span> is specified for <span class="ph phtype_variable"><span class="termtype">Acceleration</span></span> (Acceleration Rate), the specified <span class="ph phtype_variable"><span class="termtype">Velocity</span></span> (Target Velocity) is used immediately.</p>
+
+</li>
+
+<li class="li" id="avz1484547967150__li_N101E6_N101C9_N101C2_N1000F_N10001">
+<p class="p" id="avz1484547967150__ID0E53DI">If <span class="ph phtype_settingvalue"><span class="termtype">0</span></span> is specified for <span class="ph phtype_variable"><span class="termtype">Deceleration</span></span> (Deceleration Rate), the axis stops immediately. However, if the Buffer Mode is set to a blending mode, axis operation will change to the target velocity specified by the next operation without stopping.</p>
+
+<p class="p">For details, refer to <a class="xref" href="uxx1484547954747.html#cfd1484547966932"><i style="display:none;">☆</i>BufferMode (Buffer Mode Selection)</a>.</p>
+
+</li>
+
+<li class="li" id="avz1484547967150__li_N10205_N101C9_N101C2_N1000F_N10001">
+<p class="p" id="avz1484547967150__ID0EV4DI">When the <span class="ph phtype_variable"><span class="termtype">Acceleration</span></span> (Acceleration Rate) or <span class="ph phtype_variable"><span class="termtype">Deceleration</span></span> (Deceleration Rate) is <span class="ph phtype_settingvalue"><span class="termtype">0</span></span>, the <span class="ph phtype_variable"><span class="termtype">Jerk</span></span> setting is disabled.</p>
+
+</li>
+
+</ul>
+
+</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="fft1484547967431">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">CoordSystem (Coordinate System)</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="fft1484547967431__li_N10018_N10014_N10011_N10002">
+<p class="p" id="fft1484547967431__ID0E15DI">This variable specifies the coordinate system to use for linear interpolation.</p>
+
+</li>
+
+<li class="li" id="fft1484547967431__li_N10026_N10014_N10011_N10002">
+<p class="p" id="fft1484547967431__ID0EF6DI">Only an axis coordinate system (ACS) consisting of two or more axes is supported.</p>
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="cfd1484547966932">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">BufferMode (Buffer Mode Selection)</h1>
+
+<div class="body conbody">
+<ul class="ul" id="cfd1484547966932__ul_FDBC311A47764A008F2C93DBB136066D">
+<li class="li" id="cfd1484547966932__li_C498E322D0B04D6C842A93E0C14097EA">
+<p class="p" id="cfd1484547966932__ID0EAAAK">This variable specifies how to join the axis motions for this interpolation instruction and the previous interpolation instruction.</p>
+
+</li>
+
+<li class="li" id="cfd1484547966932__li_4ECB05C1D4BB41DBBAA0E2F49430748D">
+<p class="p" id="cfd1484547966932__ID0ELAAK">There are the following six settings.</p>
+
+</li>
+
+</ul>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="cfd1484547966932__ID0E1AAK" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:3%" />
+<col style="width:17%" />
+<col style="width:79%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:top;" id="d14632e47">Buffer Mode Selection</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d14632e50">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:top;" headers="d14632e47 ">Aborting</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d14632e50 ">
+<p class="p" id="cfd1484547966932__ID0EPCAK">Aborts the instruction being executed and switches to this instruction.</p>
+
+<p class="p" id="cfd1484547966932__ID0EWCAK">If the direction of axis motion is reversed by switching instructions, the motion will be reversed according to the <dfn class="term termtype_parameter">［Operation Selection at Reversing］</dfn> axis parameter.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" colspan="2" style="text-align:left;vertical-align:top;" headers="d14632e47 ">Buffered</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d14632e50 ">
+<p class="p" id="cfd1484547966932__ID0ERDAK">Buffers this instruction and executes it automatically after the current instruction is completed.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" colspan="2" style="text-align:left;vertical-align:top;" headers="d14632e47 ">Blending</td>
+
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;" headers="d14632e50 ">
+<p class="p" id="cfd1484547966932__ID0EMEAK">Starts the buffered instruction at the velocity (transit velocity) at which the current instruction reaches the target position. The operation of the current instruction is changed so that the axes reach the target position at the transit velocity. There are four methods to specify the transit velocity. These are described below.</p>
+
+<p class="p" id="cfd1484547966932__ID0ETEAK">You can also specify a Transition Mode as an option to the Blending Mode (see below).</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d14632e47 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d14632e47 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d14632e50 ">&#160;</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;" headers="d14632e47 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d14632e47 ">Blending low</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d14632e50 ">
+<p class="p" id="cfd1484547966932__ID0EZFAK">The lower of the target velocities of the current instruction and the buffered instruction is used as the transit velocity.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;" headers="d14632e47 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d14632e47 ">Blending previous</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d14632e50 ">
+<p class="p" id="cfd1484547966932__ID0E6GAK">The target velocity of the current instruction is used as the transit velocity.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cell-norowborder" style="text-align:left;vertical-align:top;" headers="d14632e47 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d14632e47 ">Blending next</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d14632e50 ">
+<p class="p" id="cfd1484547966932__ID0EFIAK">The target velocity of the buffered instruction is used as the transit velocity.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d14632e47 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d14632e47 ">Blending high</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d14632e50 ">
+<p class="p" id="cfd1484547966932__ID0ELJAK">The higher of the target velocities of the current instruction and the buffered instruction is used as the transit velocity.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+        
+<p class="p linespace_7pt">For details on <span class="ph phtype_variable"><span class="termtype">BufferMode</span></span> (Buffer Mode Selection), refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Motion Control User&#8217;s Manual (Cat. No. W507)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Industrial Panel PC / Industrial Box PC Motion Control User&#8217;s Manual (Cat. No. W559)</span></span></span>.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="zdy1484547969849">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">TransitionMode</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="zdy1484547969849__li_N10015_N10012_N1000F_N10001">
+<p class="p" id="zdy1484547969849__ID0EKLAK">This variable specifies how to combine the paths created by the previous interpolation operation and the next interpolation operation.</p>
+
+</li>
+
+<li class="li" id="zdy1484547969849__li_N10021_N10012_N1000F_N10001">
+<p class="p" id="zdy1484547969849__ID0EVLAK">Set the <span class="ph phtype_variable"><span class="termtype">TransitionMode</span></span> to either _mcTMNone (Transition Disabled) or _mcTMCornerSuperimposed (Superimpose Corners).</p>
+
+</li>
+
+<li class="li" id="zdy1484547969849__li_N10031_N10012_N1000F_N10001">
+<p class="p" id="zdy1484547969849__ID0EAMAK"><span class="ph phtype_variable"><span class="termtype">TransitionMode</span></span> is enabled when <span class="ph phtype_choice"><span class="termtype">Blending</span></span> is specified for <span class="ph phtype_variable"><span class="termtype">BufferMode</span></span>.</p>
+
+</li>
+
+<li class="li" id="zdy1484547969849__li_N10046_N10012_N1000F_N10001">
+<p class="p" id="zdy1484547969849__ID0ELMAK">An error will occur if you do not set <span class="ph phtype_variable"><span class="termtype">TransitionMode</span></span> to _mcTMNone (Transition Disabled) when <span class="ph phtype_choice"><span class="termtype">Blending</span></span> is not used.</p>
+
+</li>
+
+</ul>
+
+<p class="p linespace_7pt"><strong class="ph b">Transition Disabled</strong></p>
+
+<p class="p" id="zdy1484547969849__ID0EXMAK">The path is given priority when creating the velocity command value, so velocity command values of the axes may change rapidly when switching from one operation to the next.</p>
+
+<p class="p linespace_7pt" id="zdy1484547969849__ID0EGNAK">Operation Example</p>
+
+<p class="p" id="zdy1484547969849__ID0ENNAK">The <span class="ph phtype_variable"><span class="termtype">Velocity</span></span> (Target Velocity), <span class="ph phtype_variable"><span class="termtype">BufferMode</span></span>, and <span class="ph phtype_variable"><span class="termtype">TransitionMode</span></span> when transitioning from P1 to P2, and from P2 to P3 are shown below.</p>
+
+<ul class="ul">
+<li class="li" id="zdy1484547969849__li_N1008A_N10087_N1000F_N10001">
+<p class="p" id="zdy1484547969849__ID0EBOAK">Motion from P1 to P2: Velocity = F, BufferMode = Aborting, TransitionMode = _mcTMNone (Transition Disabled)</p>
+
+</li>
+
+<li class="li" id="zdy1484547969849__li_N100A5_N10087_N1000F_N10001">
+<p class="p" id="zdy1484547969849__ID0EMOAK">Motion from P2 to P3: Velocity = F, BufferMode = Blending with next, TransitionMode = _mcTMNone (Transition Disabled)</p>
+
+</li>
+
+<li class="li" id="zdy1484547969849__li_N100C0_N10087_N1000F_N10001">
+<p class="p" id="zdy1484547969849__ID0EXOAK">The motion starts from position P1 and goes through position P2. Linear interpolation is performed to position P3.</p>
+
+</li>
+
+<li class="li" id="zdy1484547969849__li_N100CC_N10087_N1000F_N10001">
+<p class="p" id="zdy1484547969849__ID0ECPAK">The linear interpolation velocity F is maintained when passing position P2. Because of this, the velocity is discontinuous at position P2 as shown in the following figure.</p>
+
+</li>
+
+</ul>
+
+<br /><img class="image linespace_7pt" id="zdy1484547969849__image_opy_qbq_jx" src="zle1484547967618.gif" /><br />
+<p class="p linespace_7pt"><strong class="ph b">Superimpose Corners</strong></p>
+
+<p class="p" id="zdy1484547969849__ID0EBQAK">Use the superimpose corners specification when you want make the axes command velocities continuous.</p>
+
+<p class="p linespace_7pt" id="zdy1484547969849__ID0EQQAK">Operation Example</p>
+
+<p class="p" id="zdy1484547969849__ID0EXQAK"><span class="ph phtype_variable"><span class="termtype">Velocity</span></span> (Target Velocity), <span class="ph phtype_variable"><span class="termtype">BufferMode</span></span>, and <span class="ph phtype_variable"><span class="termtype">TransitionMode</span></span> when transitioning from P1 to P2, and from P2 to P3 are shown below.</p>
+
+<ul class="ul">
+<li class="li" id="zdy1484547969849__li_N1010F_N1010C_N1000F_N10001">
+<p class="p" id="zdy1484547969849__ID0ELRAK">Motion from P1 to P2: Velocity = F, BufferMode = Aborting, TransitionMode = _mcTMNone (Transition Disabled)</p>
+
+</li>
+
+<li class="li" id="zdy1484547969849__li_N1012A_N1010C_N1000F_N10001">
+<p class="p" id="zdy1484547969849__ID0EWRAK">Motion from P2 to P3: Velocity = F, BufferMode = Blending with next, TransitionMode = _mcTMCornerSuperimposed (Superimpose Corners)</p>
+
+</li>
+
+<li class="li" id="zdy1484547969849__li_N10145_N1010C_N1000F_N10001">
+<p class="p" id="zdy1484547969849__ID0EBSAK">The motion starts from position P1 and passes near position P2. Linear interpolation is performed to position P3.</p>
+
+</li>
+
+<li class="li" id="zdy1484547969849__li_N10151_N1010C_N1000F_N10001">
+<p class="p" id="zdy1484547969849__ID0EMSAK">To make the axes command velocities continuous, the deceleration range of the previous motion and the acceleration range of the current motion are combined to create the command velocity. For this reason, the acceleration time of the current motion is the same as the deceleration time of the previous motion.</p>
+
+</li>
+
+</ul>
+
+<br /><img class="image linespace_7pt" id="zdy1484547969849__image_tfb_tbq_jx" src="yds1484547968710.gif" /><br />
+<p class="p linespace_7pt" id="zdy1484547969849__ID0EHTAK">The combined path passes near P2.</p>
+
+<p class="p" id="zdy1484547969849__ID0EOTAK">The distance from P2 to the path is as below:</p>
+
+<ul class="ul" id="zdy1484547969849__ul_z4y_ywp_gx">
+<li class="li" id="zdy1484547969849__li_N10177_N10173_N1000F_N10001">
+<p class="p" id="zdy1484547969849__ID0E5TAK">It is longer when the interpolation velocity is faster or the deceleration rate of the previous instruction is smaller. </p>
+
+</li>
+
+<li class="li" id="zdy1484547969849__li_N10183_N10173_N1000F_N10001">
+<p class="p" id="zdy1484547969849__ID0EJUAK">It is shorter when the interpolation velocity is slower or the deceleration rate of the previous instruction is larger.</p>
+
+</li>
+
+</ul>
+
+<div class="note" id="zdy1484547969849__note_N10182_N1000F_N10001"><div class="memo"><span class="notetitle memo">memo:</span> The <span class="ph phtype_variable"><span class="termtype">Jerk</span></span> settings are disabled in the region with superimposed corners.</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="hyr1484547971097">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Re-execution of Motion Control Instructions</h1>
+
+<div class="body conbody">
+<p class="p" id="hyr1484547971097__ID0EBXAK">This instruction cannot be re-executed.</p>
+
+<p class="p">A Motion Control Instruction Re-execution Disabled error (error code: 543B hex) occurs if re-execution is attempted, and all axes in the linear interpolation motion stop.</p>
+
+<br /><img class="image linespace_7pt" src="qpy1484547970067.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="acb1484547971300">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Multi-execution of Motion Control Instructions</h1>
+
+<div class="body conbody linespace_7pt">
+<p class="p" id="acb1484547971300__ID0EAZAK">A restriction applies to the instructions that can be used while this instruction is in execution.</p>
+
+        
+<p class="p linespace_7pt">For details on multi-execution of motion control instructions, refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Motion Control User&#8217;s Manual (Cat. No. W507)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Industrial Panel PC / Industrial Box PC Motion Control User&#8217;s Manual (Cat. No. W559)</span></span></span>.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="mry1484547972392">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Errors</h1>
+
+<div class="body conbody">
+<p class="p" id="mry1484547972392__ID0EX1AK">If an error occurs during instruction execution, <span class="ph phtype_variable"><span class="termtype">Error</span></span> will change to TRUE.</p>
+
+<p class="p" id="mry1484547972392__ID0E11AK">You can find out the cause of the error by referring to the value output by <span class="ph phtype_variable"><span class="termtype">ErrorID</span></span> (Error Code).</p>
+
+<br /><img class="image linespace_7pt" src="tsn1484547971471.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="rzo1484547270426">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Error Codes</h1>
+
+<div class="body conbody">
+        
+<p class="p">Refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series Troubleshooting Manual (Cat. No. W503)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Troubleshooting Manual (Cat. No. W564)</span></span></span> for instruction errors.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="hji1484547972610">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Sample Programming</h1>
+
+<div class="body conbody">
+<p class="p" id="hji1484547972610__ID0EB5AK">This section shows sample programming for linear interpolation with periodic multi-execution of instructions.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="fym1484547344031">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Parameter Settings</h1>
+
+<div class="body conbody">
+<p class="p" id="fym1484547344031__ID0EYJJM">The minimum settings required for this sample programming are given below.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="mis1484547972829">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">Setting Axis Parameters</h1>
+ 
+<div class="body conbody">
+<p class="p"><strong class="ph b">Axis Types</strong></p>
+ 
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="mis1484547972829__ID0ECABK" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:1.5cm" />
+<col style="width:4.0cm" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d93961e30">Axis</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d93961e33">Axis Type</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d93961e30 ">Axis 1</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d93961e33 ">Servo axis</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d93961e30 ">Axis 2</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d93961e33 ">Servo axis</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt"><strong class="ph b">Count Modes</strong></p>
+ 
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="mis1484547972829__ID0EPDBK" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:1.5cm" />
+<col style="width:4.0cm" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d93961e77">Axis</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d93961e80">Count Mode</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d93961e77 ">Axis 1</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d93961e80 ">Linear Mode</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d93961e77 ">Axis 2</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d93961e80 ">Linear Mode</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt"><strong class="ph b">Units of Display</strong></p>
+ 
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="mis1484547972829__ID0E3GBK" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:1.5cm" />
+<col style="width:4.0cm" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d93961e125">Axis</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d93961e128">Unit of Display</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d93961e125 ">Axis 1</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d93961e128 ">mm</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d93961e125 ">
+<p class="p" id="mis1484547972829__ID0EAJBK">Axis 2</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d93961e128 ">mm</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer05" id="uwo1484547973032">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Axes Group Parameter Settings</h1>
+
+<div class="body conbody">
+<p class="p"><strong class="ph b">Axis Composition</strong></p>
+
+<p class="p" id="uwo1484547973032__ID0ENKBK">Two axes are set.</p>
+
+<p class="p linespace_7pt"><strong class="ph b">Axis Selection</strong></p>
+
+<p class="p" id="uwo1484547973032__ID0EELBK">Axis 1 and axis 2 are set.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="ybo1484547973234">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">Operation Example</h1>
+ 
+<div class="body conbody">
+<p class="p" id="ybo1484547973234__ID0EKMBK">The following is an example of operation that performs linear interpolation automatically and then returns to home and stops.</p>
+ 
+<p class="p" id="ybo1484547973234__ID0ENMBK">Linear interpolations (2) to (7) are executed with multi-execution of instructions while linear interpolation (1) is being executed. Set the <span class="ph phtype_variable"><span class="termtype">Buffer Mode Selection</span></span> to <span class="ph phtype_choice"><span class="termtype">Buffered</span></span>.</p>
+ 
+<p class="p" id="ybo1484547973234__ID0EUMBK">In this sample, multi-execution of instructions is performed for (2) to (7) if the <span class="ph phtype_variable"><span class="termtype">Active</span></span> (Controlling) output variable from linear interpolation (1) is TRUE. For multi-axes coordinated operation, multi-execution is possible for up to seven instructions.</p>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer05" id="jta1484547974280">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Operation Pattern</h1>
+
+<div class="body conbody">
+<br /><img class="image" src="xnw1484547973437.gif" /><br />
+<p class="p linespace_7pt" id="jta1484547974280__ID0EBOBK">Positioning is performed using linear interpolations in the order (Axis1, Axis2) = (50.00 mm, 5.00 mm) &#8594; (0.00 mm, 10.00 mm) &#8594; (50.00 mm, 15.00 mm) &#8594; (0.00 mm, 20.00 mm) &#8594; (50.00 mm, 25.00 mm) &#8594; (50.00 mm, 0.00 mm) &#8594; (0.00 mm, 0.00 mm), then stop.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="fdq1484547345716">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Ladder Diagram</h1>
+
+<div class="body conbody"></div>
+
+<div class="related-links"></div></div><div class="layer05" id="nsd1484547974514">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">Main Variables</h1>
+ 
+<div class="body conbody">
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="nsd1484547974514__ID0EVPBK" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:32%" />
+<col style="width:14%" />
+<col style="width:9%" />
+<col style="width:43%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d105466e30">Name</th>
+ 
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d105466e33">Data type</th>
+ 
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d105466e36">Default</th>
+ 
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d105466e39">Comment</th>
+ 
+</tr>
+ 
+</thead>
+ 
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d105466e30 ">MC_Group000</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d105466e33 ">_sGROUP_REF</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d105466e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d105466e39 ">
+<p class="p" id="nsd1484547974514__ID0E3SBK">This is the Axes Group Variable for axes group 0.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d105466e30 ">MC_Group000.MFaultLvl.Active</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d105466e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d105466e36 ">FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d105466e39 ">
+<p class="p" id="nsd1484547974514__ID0EPUBK">TRUE while there is a minor fault level error for axes group 0.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d105466e30 ">MC_Group000.Status.Disabled</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d105466e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d105466e36 ">FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d105466e39 ">
+<p class="p" id="nsd1484547974514__ID0ECWBK">The value is TRUE when axes group 0 is disabled.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d105466e30 ">MC_Axis000</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d105466e33 ">_sAXIS_REF</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d105466e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d105466e39 ">
+<p class="p" id="nsd1484547974514__ID0EVXBK">This is the Axis Variable for axis 1.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d105466e30 ">MC_Axis000.Details.Homed</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d105466e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d105466e36 ">FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d105466e39 ">
+<p class="p" id="nsd1484547974514__ID0EIZBK">TRUE when home is defined for axis 1.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d105466e30 ">MC_Axis000.MFaultLvl.Active</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d105466e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d105466e36 ">FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d105466e39 ">
+<p class="p" id="nsd1484547974514__ID0E21BK">TRUE while there is a minor fault level error for axis 1.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d105466e30 ">MC_Axis001</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d105466e33 ">_sAXIS_REF</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d105466e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d105466e39 ">
+<p class="p" id="nsd1484547974514__ID0EO3BK">This is the Axis Variable for axis 2.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d105466e30 ">MC_Axis001.Details.Homed</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d105466e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d105466e36 ">FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d105466e39 ">
+<p class="p" id="nsd1484547974514__ID0EB5BK">TRUE when home is defined for axis 2.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d105466e30 ">MC_Axis001.MFaultLvl.Active</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d105466e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d105466e36 ">FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d105466e39 ">
+<p class="p" id="nsd1484547974514__ID0EU6BK">TRUE while there is a minor fault level error for axis 2.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d105466e30 ">Pwr1_Status</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d105466e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d105466e36 ">FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d105466e39 ">
+<p class="p" id="nsd1484547974514__ID0EHBCK">This variable is assigned to the <span class="ph phtype_variable"><span class="termtype">Status</span></span> output variable from the PWR1 instance of the MC_Power instruction. This variable changes to TRUE when the Servo is turned ON.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d105466e30 ">Pwr2_Status</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d105466e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d105466e36 ">FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d105466e39 ">
+<p class="p" id="nsd1484547974514__ID0E1CCK">This variable is assigned to the <span class="ph phtype_variable"><span class="termtype">Status</span></span> output variable from the PWR2 instance of the MC_Power instruction. This variable changes to TRUE when the Servo is turned ON.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d105466e30 ">StartPg</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d105466e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d105466e36 ">FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d105466e39 ">
+<p class="p" id="nsd1484547974514__ID0ENECK">The Servos for the axes in the axes group are turned ON if this variable is TRUE and EtherCAT process data communications are established.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d105466e30 ">InitFlag</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d105466e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d105466e36 ">FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d105466e39 ">
+<p class="p" id="nsd1484547974514__ID0EAGCK">This variable indicates if it is necessary to set the input parameters.</p>
+ 
+<p class="p" id="nsd1484547974514__ID0EHGCK">Input parameters are set when this variable is FALSE. When setting the input parameters is completed, this variable changes to TRUE.</p>
+ 
+</td>
+ 
+</tr>
+ 
+</tbody>
+ 
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer05" id="edt1484547996371">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Sample Programming</h1>
+
+<div class="body conbody">
+<br /><img class="image" id="edt1484547996371__image_btf_3y1_lx" src="gln1484547974685.gif" /><br />
+<br /><img class="image" id="edt1484547996371__image_zrq_3y1_lx" src="bzx1484547975793.gif" /><br />
+<br /><img class="image" id="edt1484547996371__image_qc1_jy1_lx" src="gmc1484547977088.gif" /><br />
+<br /><img class="image" id="edt1484547996371__image_i3k_jy1_lx" src="pen1484547978336.gif" /><br />
+<br /><img class="image" id="edt1484547996371__image_njx_2z1_lx" src="xsg1484547980052.gif" /><br />
+<br /><img class="image" id="edt1484547996371__image_ilj_fz1_lx" src="bsq1484547981550.gif" /><br />
+<br /><img class="image" id="edt1484547996371__image_cjt_fz1_lx" src="wyv1484547983391.gif" /><br />
+<br /><img class="image" id="edt1484547996371__image_lmc_gz1_lx" src="scr1484547984810.gif" /><br />
+<br /><img class="image" id="edt1484547996371__image_lqm_gz1_lx" src="sbs1484547986027.gif" /><br />
+<br /><img class="image" id="edt1484547996371__image_mzn_kfb_lx" src="lks1484547987478.gif" /><br />
+<br /><img class="image" id="edt1484547996371__image_xhz_kfb_lx" src="bxa1484547988882.gif" /><br />
+<br /><img class="image" id="edt1484547996371__image_n2l_lfb_lx" src="wok1484547990271.gif" /><br />
+<br /><img class="image" id="edt1484547996371__image_v2h_zfb_lx" src="jsk1484547992299.gif" /><br />
+<br /><img class="image" id="edt1484547996371__image_znt_zfb_lx" src="nmk1484547993609.gif" /><br />
+<br /><img class="image" id="edt1484547996371__image_j32_1gb_lx" src="kmc1484547995045.gif" /><br />
+<p class="p linespace_7pt"><strong class="ph b">Contents of Inline ST</strong></p>
+
+<pre class="pre codeblock">// MV_LIN1 parameters
+Mv_Lin1_Pos[0] := LREAL#50.0;
+Mv_Lin1_Pos[1] := LREAL#5.0;
+Mv_Lin1_Vel := LREAL#100.0;
+Mv_Lin1_Acc := LREAL#100.0;
+Mv_Lin1_Dec := LREAL#100.0;
+Mv_Lin1_Mm := _eMC_MOVE_MODE#_mcAbsolute;
+
+// MV_LIN2 parameters
+Mv_Lin2_Pos[0] := LREAL#0.0;
+Mv_Lin2_Pos[1] := LREAL#10.0;
+Mv_Lin2_Vel := LREAL#100.0;
+Mv_Lin2_Acc := LREAL#100.0;
+Mv_Lin2_Dec := LREAL#100.0;
+Mv_Lin2_Bm := _eMC_BUFFER_MODE#_mcBuffered;
+Mv_Lin2_Mm := _eMC_MOVE_MODE#_mcAbsolute;
+
+// MV_LIN3 parameters
+Mv_Lin3_Pos[0] := LREAL#50.0;
+Mv_Lin3_Pos[1] := LREAL#15.0;
+Mv_Lin3_Vel := LREAL#100.0;
+Mv_Lin3_Acc := LREAL#100.0;
+Mv_Lin3_Dec := LREAL#100.0;
+Mv_Lin3_Bm := _eMC_BUFFER_MODE#_mcBuffered;
+Mv_Lin3_Mm := _eMC_MOVE_MODE#_mcAbsolute;
+
+// MV_LIN4 parameters
+Mv_Lin4_Pos[0] := LREAL#0.0;
+Mv_Lin4_Pos[1] := LREAL#20.0;
+Mv_Lin4_Vel := LREAL#100.0;
+Mv_Lin4_Acc := LREAL#100.0;
+Mv_Lin4_Dec := LREAL#100.0;
+Mv_Lin4_Bm := _eMC_BUFFER_MODE#_mcBuffered;
+Mv_Lin4_Mm := _eMC_MOVE_MODE#_mcAbsolute;
+
+// MV_LIN5 parameters
+Mv_Lin5_Pos[0] := LREAL#50.0;
+Mv_Lin5_Pos[1] := LREAL#25.0;
+Mv_Lin5_Vel := LREAL#100.0;
+Mv_Lin5_Acc := LREAL#100.0;
+Mv_Lin5_Dec := LREAL#100.0;
+Mv_Lin5_Bm := _eMC_BUFFER_MODE#_mcBuffered;
+Mv_Lin5_Mm := _eMC_MOVE_MODE#_mcAbsolute;
+
+// MV_LIN6 parameters
+Mv_Lin6_Pos[0] := LREAL#50.0;
+Mv_Lin6_Pos[1] := LREAL#0.0;
+Mv_Lin6_Vel := LREAL#100.0;
+Mv_Lin6_Acc := LREAL#100.0;
+Mv_Lin6_Dec := LREAL#100.0;
+Mv_Lin6_Bm := _eMC_BUFFER_MODE#_mcBuffered;
+Mv_Lin6_Mm := _eMC_MOVE_MODE#_mcAbsolute;
+
+// MV_LIN7 parameters
+Mv_Lin7_Pos[0] := LREAL#0.0;
+Mv_Lin7_Pos[1] := LREAL#0.0;
+Mv_Lin7_Vel := LREAL#100.0;
+Mv_Lin7_Acc := LREAL#100.0;
+Mv_Lin7_Dec := LREAL#100.0;
+Mv_Lin7_Bm := _eMC_BUFFER_MODE#_mcBuffered;
+Mv_Lin7_Mm := _eMC_MOVE_MODE#_mcAbsolute;
+
+// InitFlag is changed to TRUE after input parameters are set.
+InitFlag := TRUE;
+</pre>
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="eju1484547358774">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Structured Text (ST)</h1>
+
+<div class="body conbody"></div>
+
+<div class="related-links"></div></div><div class="layer05" id="zfr1484547996667">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">Main Variables</h1>
+ 
+<div class="body conbody">
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="zfr1484547996667__ID0EIZCK" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:31%" />
+<col style="width:14%" />
+<col style="width:10%" />
+<col style="width:44%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d216418e30">Name</th>
+ 
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d216418e33">Data type</th>
+ 
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d216418e36">Default</th>
+ 
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d216418e39">Comment</th>
+ 
+</tr>
+ 
+</thead>
+ 
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d216418e30 ">MC_Group000</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d216418e33 ">_sGROUP_REF</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d216418e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d216418e39 ">
+<p class="p" id="zfr1484547996667__ID0EP3CK">This is the Axes Group Variable for axes group 0.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d216418e30 ">MC_Group000.MFaultLvl.Active</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d216418e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d216418e36 ">FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d216418e39 ">
+<p class="p" id="zfr1484547996667__ID0EC5CK">TRUE while there is a minor fault level error for axes group 0.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d216418e30 ">MC_Group000.Status.Disabled</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d216418e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d216418e36 ">FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d216418e39 ">
+<p class="p" id="zfr1484547996667__ID0EV6CK">The value is TRUE when axes group 0 is disabled.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d216418e30 ">MC_Axis000</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d216418e33 ">_sAXIS_REF</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d216418e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d216418e39 ">
+<p class="p" id="zfr1484547996667__ID0EIBDK">This is the Axis Variable for axis 1.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d216418e30 ">MC_Axis000.Details.Homed</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d216418e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d216418e36 ">FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d216418e39 ">
+<p class="p" id="zfr1484547996667__ID0E2CDK">TRUE when home is defined for axis 1.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d216418e30 ">MC_Axis000.MFaultLvl.Active</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d216418e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d216418e36 ">FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d216418e39 ">
+<p class="p" id="zfr1484547996667__ID0EOEDK">TRUE while there is a minor fault level error for axis 1.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d216418e30 ">MC_Axis001</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d216418e33 ">_sAXIS_REF</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d216418e36 ">---</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d216418e39 ">
+<p class="p" id="zfr1484547996667__ID0EBGDK">This is the Axis Variable for axis 2.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d216418e30 ">MC_Axis001.Details.Homed</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d216418e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d216418e36 ">FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d216418e39 ">
+<p class="p" id="zfr1484547996667__ID0EUHDK">TRUE when home is defined for axis 2.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d216418e30 ">MC_Axis001.MFaultLvl.Active</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d216418e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d216418e36 ">FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d216418e39 ">
+<p class="p" id="zfr1484547996667__ID0EHJDK">TRUE while there is a minor fault level error for axis 2.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d216418e30 ">Pwr1_Status</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d216418e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d216418e36 ">FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d216418e39 ">
+<p class="p" id="zfr1484547996667__ID0E1KDK">This variable is assigned to the <span class="ph phtype_variable"><span class="termtype">Status</span></span> output variable from the PWR1 instance of the MC_Power instruction. This variable changes to TRUE when the Servo is turned ON.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d216418e30 ">Pwr2_Status</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d216418e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d216418e36 ">FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d216418e39 ">
+<p class="p" id="zfr1484547996667__ID0ENMDK">This variable is assigned to the <span class="ph phtype_variable"><span class="termtype">Status</span></span> output variable from the PWR2 instance of the MC_Power instruction. This variable changes to TRUE when the Servo is turned ON.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d216418e30 ">StartPg</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d216418e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d216418e36 ">FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d216418e39 ">
+<p class="p" id="zfr1484547996667__ID0EAODK">The Servos for the axes in the axes group are turned ON if this variable is TRUE and EtherCAT process data communications are established.</p>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d216418e30 ">InitFlag</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d216418e33 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d216418e36 ">FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d216418e39 ">
+<p class="p" id="zfr1484547996667__ID0ETPDK">This variable indicates if it is necessary to set the input parameters.</p>
+ 
+<p class="p" id="zfr1484547996667__ID0E1PDK">Input parameters are set when this variable is FALSE. When setting the input parameters is completed, this variable changes to TRUE.</p>
+ 
+</td>
+ 
+</tr>
+ 
+</tbody>
+ 
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer05" id="odd1484547997088">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Sample Programming</h1>
+
+<div class="body conbody">
+<pre class="pre codeblock">// Processing when input parameters are not set
+IF InitFlag=FALSE THEN
+
+    // MV_LIN1 parameters
+    Mv_Lin1_Pos[0] := LREAL#50.0;
+    Mv_Lin1_Pos[1] := LREAL#5.0;
+    Mv_Lin1_Vel := LREAL#100.0;
+    Mv_Lin1_Acc := LREAL#100.0;
+    Mv_Lin1_Dec := LREAL#100.0;
+    Mv_Lin1_Mm := _eMC_MOVE_MODE#_mcAbsolute;
+
+    // MV_LIN2 parameters
+    Mv_Lin2_Pos[0] := LREAL#0.0;
+    Mv_Lin2_Pos[1] := LREAL#10.0;
+    Mv_Lin2_Vel := LREAL#100.0;
+    Mv_Lin2_Acc := LREAL#100.0;
+    Mv_Lin2_Dec := LREAL#100.0;
+    Mv_Lin2_Bm := _eMC_BUFFER_MODE#_mcBuffered;
+    Mv_Lin2_Mm := _eMC_MOVE_MODE#_mcAbsolute;
+
+    // MV_LIN3 parameters
+    Mv_Lin3_Pos[0] := LREAL#50.0;
+    Mv_Lin3_Pos[1] := LREAL#15.0;
+    Mv_Lin3_Vel := LREAL#100.0;
+    Mv_Lin3_Acc := LREAL#100.0;
+    Mv_Lin3_Dec := LREAL#100.0;
+    Mv_Lin3_Bm := _eMC_BUFFER_MODE#_mcBuffered;
+    Mv_Lin3_Mm := _eMC_MOVE_MODE#_mcAbsolute;
+
+    // MV_LIN4 parameters
+    Mv_Lin4_Pos[0] := LREAL#0.0;
+    Mv_Lin4_Pos[1] := LREAL#20.0;
+    Mv_Lin4_Vel := LREAL#100.0;
+    Mv_Lin4_Acc := LREAL#100.0;
+    Mv_Lin4_Dec := LREAL#100.0;
+    Mv_Lin4_Bm := _eMC_BUFFER_MODE#_mcBuffered;
+    Mv_Lin4_Mm := _eMC_MOVE_MODE#_mcAbsolute;
+
+    // MV_LIN5 parameters
+    Mv_Lin5_Pos[0] := LREAL#50.0;
+    Mv_Lin5_Pos[1] := LREAL#25.0;
+    Mv_Lin5_Vel := LREAL#100.0;
+    Mv_Lin5_Acc := LREAL#100.0;
+    Mv_Lin5_Dec := LREAL#100.0;
+    Mv_Lin5_Bm := _eMC_BUFFER_MODE#_mcBuffered;
+    Mv_Lin5_Mm := _eMC_MOVE_MODE#_mcAbsolute;
+
+    // MV_LIN6 parameters
+    Mv_Lin6_Pos[0] := LREAL#50.0;
+    Mv_Lin6_Pos[1] := LREAL#0.0;
+    Mv_Lin6_Vel := LREAL#100.0;
+    Mv_Lin6_Acc := LREAL#100.0;
+    Mv_Lin6_Dec := LREAL#100.0;
+    Mv_Lin6_Bm := _eMC_BUFFER_MODE#_mcBuffered;
+    Mv_Lin6_Mm := _eMC_MOVE_MODE#_mcAbsolute;
+
+    // MV_LIN7 parameters
+    Mv_Lin7_Pos[0] := LREAL#0.0;
+    Mv_Lin7_Pos[1] := LREAL#0.0;
+    Mv_Lin7_Vel := LREAL#100.0;
+    Mv_Lin7_Acc := LREAL#100.0;
+    Mv_Lin7_Dec := LREAL#100.0;
+    Mv_Lin7_Bm := _eMC_BUFFER_MODE#_mcBuffered;
+    Mv_Lin7_Mm := _eMC_MOVE_MODE#_mcAbsolute;
+
+    // Change InitFlag to TRUE after setting the input parameters.
+    InitFlag := TRUE;
+
+END_IF;
+
+// If StartPg is TRUE and the Servo Drive is ready, the Servo for axis 1 is turned ON.
+// If the Servo Drive is not ready, the Servo is turned OFF.
+IF (StartPg=TRUE)
+ AND (MC_Axis000.DrvStatus.Ready=TRUE) THEN
+    Pwr1_En:=TRUE; // Turn ON the Servo for axis 1.
+ELSE
+    Pwr1_En:=FALSE; // Turn OFF the Servo for axis 1.
+END_IF;
+
+// If StartPg is TRUE and the Servo Drive is ready, the Servo for axis 2 is turned ON.
+// If the Servo Drive is not ready, the Servo is turned OFF.
+IF (StartPg=TRUE)
+ AND (MC_Axis001.DrvStatus.Ready=TRUE) THEN
+    Pwr2_En:=TRUE; // Turn ON the Servo for axis 2.
+ELSE
+    Pwr2_En:=FALSE; // Turn OFF the Servo for axis 2.
+END_IF;
+
+// Processing for a minor fault level error
+// Program the FaultHandler according to the device.
+IF (MC_Axis000.MFaultLvl.Active=TRUE) OR (MC_Axis001.MFaultLvl.Active=TRUE)
+ OR (MC_Group000.MFaultLvl.Active=TRUE) THEN
+    FaultHandler();
+END_IF;
+
+// If the Servo is ON for axis 1 and home is not defined, the Home instruction is executed.
+IF (Pwr1_Status=TRUE) AND (MC_Axis000.Details.Homed=FALSE) THEN
+    Hm1_Ex:=TRUE;
+END_IF;
+
+// If the Servo is ON for axis 2 and home is not defined, the Home instruction is executed.
+IF (Pwr2_Status=TRUE) AND (MC_Axis001.Details.Homed=FALSE) THEN
+    Hm2_Ex:=TRUE;
+END_IF;
+
+// If axes group 0 is disabled while home is defined for axis 1 and axis 2, it is enabled.
+IF (Hm1_D=TRUE) AND (Hm2_D=TRUE) AND (MC_Group000.Status.Disabled=TRUE) THEN
+    Grp_En_Ex:= TRUE;
+END_IF;
+
+// After the MC_GroupEnable (Enable Axes Group) instruction is completed, linear interpolation (1) is executed.
+IF Grp_En_D=TRUE THEN
+    Mv_Lin1_Ex:=TRUE;
+END_IF;
+
+// Linear interpolations (2) to (7) are executed with multi-execution of instructions while the Active output variable for linear interpolation (1) is TRUE.
+IF Mv_Lin1_Act=TRUE THEN
+    Mv_Lin2_Ex:=TRUE;
+    Mv_Lin3_Ex:=TRUE;
+    Mv_Lin4_Ex:=TRUE;
+    Mv_Lin5_Ex:=TRUE;
+    Mv_Lin6_Ex:=TRUE;
+    Mv_Lin7_Ex:=TRUE;
+END_IF;
+
+// MC_Power for axis 1
+PWR1(
+    Axis := MC_Axis000,
+    Enable := Pwr1_En,
+    Status =&gt; Pwr1_Status,
+    Busy =&gt; Pwr1_Bsy,
+    Error =&gt; Pwr1_Err,
+    ErrorID =&gt; Pwr1_ErrID
+);
+
+// MC_Power for axis 2
+PWR2(
+    Axis := MC_Axis001,
+    Enable := Pwr2_En,
+    Status =&gt; Pwr2_Status,
+    Busy =&gt; Pwr2_Bsy,
+    Error =&gt; Pwr2_Err,
+    ErrorID =&gt; Pwr2_ErrID
+);
+
+// MC_Home for axis 1
+HM1(
+    Axis := MC_Axis000,
+    Execute := Hm1_Ex,
+    Done =&gt; Hm1_D,
+    Busy =&gt; Hm1_Bsy,
+    CommandAborted =&gt; Hm1_Ca,
+    Error =&gt; Hm1_Err,
+    ErrorID =&gt; Hm1_ErrID
+);
+
+// MC_Home for axis 2
+HM2(
+    Axis := MC_Axis001,
+    Execute := Hm2_Ex,
+    Done =&gt; Hm2_D,
+    Busy =&gt; Hm2_Bsy,
+    CommandAborted =&gt; Hm2_Ca,
+    Error =&gt; Hm2_Err,
+    ErrorID =&gt; Hm2_ErrID
+);
+
+// Axes group 0 is enabled.
+GRP_EN(
+    AxesGroup := MC_Group000,
+    Execute := Grp_En_Ex,
+    Done =&gt; Grp_En_D,
+    Busy =&gt; Grp_En_Bsy,
+    CommandAborted =&gt; Grp_En_Ca,
+    Error =&gt; Grp_En_Err,
+    ErrorID =&gt; Grp_En_ErrID
+);
+
+// Linear interpolation (1)
+MV_LIN1(
+    AxesGroup := MC_Group000,
+    Execute := Mv_Lin1_Ex,
+    Position := Mv_Lin1_Pos,
+    Velocity := Mv_Lin1_Vel,
+    Acceleration := Mv_Lin1_Acc,
+    Deceleration := Mv_Lin1_Dec,
+    MoveMode := Mv_Lin1_Mm,
+    Done =&gt; Mv_Lin1_D,
+    Busy =&gt; Mv_Lin1_Bsy,
+    Active =&gt; Mv_Lin1_Act,
+    CommandAborted =&gt; Mv_Lin1_Ca,
+    Error =&gt; Mv_Lin1_Err,
+    ErrorID =&gt; Mv_Lin1_ErrID
+);
+
+// Linear interpolation (2)
+MV_LIN2(
+    AxesGroup := MC_Group000,
+    Execute := Mv_Lin2_Ex,
+    Position := Mv_Lin2_Pos,
+    Velocity := Mv_Lin2_Vel,
+    Acceleration := Mv_Lin2_Acc,
+    Deceleration := Mv_Lin2_Dec,
+    BufferMode := Mv_Lin2_Bm,
+    MoveMode := Mv_Lin2_Mm,
+    Done =&gt; Mv_Lin2_D,
+    Busy =&gt; Mv_Lin2_Bsy,
+    Active =&gt; Mv_Lin2_Act,
+    CommandAborted =&gt; Mv_Lin2_Ca,
+    Error =&gt; Mv_Lin2_Err,
+    ErrorID =&gt; Mv_Lin2_ErrID
+);
+
+// Linear interpolation (3)
+MV_LIN3(
+    AxesGroup := MC_Group000,
+    Execute := Mv_Lin3_Ex,
+    Position := Mv_Lin3_Pos,
+    Velocity := Mv_Lin3_Vel,
+    Acceleration := Mv_Lin3_Acc,
+    Deceleration := Mv_Lin3_Dec,
+    BufferMode := Mv_Lin3_Bm,
+    MoveMode := Mv_Lin3_Mm,
+    Done =&gt; Mv_Lin3_D,
+    Busy =&gt; Mv_Lin3_Bsy,
+    Active =&gt; Mv_Lin3_Act,
+    CommandAborted =&gt; Mv_Lin3_Ca,
+    Error =&gt; Mv_Lin3_Err,
+    ErrorID =&gt; Mv_Lin3_ErrID
+);
+
+// Linear interpolation (4)
+MV_LIN4(
+    AxesGroup := MC_Group000,
+    Execute := Mv_Lin4_Ex,
+    Position := Mv_Lin4_Pos,
+    Velocity := Mv_Lin4_Vel,
+    Acceleration := Mv_Lin4_Acc,
+    Deceleration := Mv_Lin4_Dec,
+    BufferMode := Mv_Lin4_Bm,
+    MoveMode := Mv_Lin4_Mm,
+    Done =&gt; Mv_Lin4_D,
+    Busy =&gt; Mv_Lin4_Bsy,
+    Active =&gt; Mv_Lin4_Act,
+    CommandAborted =&gt; Mv_Lin4_Ca,
+    Error =&gt; Mv_Lin4_Err,
+    ErrorID =&gt; Mv_Lin4_ErrID
+);
+
+// Linear interpolation (5)
+MV_LIN5(
+    AxesGroup := MC_Group000,
+    Execute := Mv_Lin5_Ex,
+    Position := Mv_Lin5_Pos,
+    Velocity := Mv_Lin5_Vel,
+    Acceleration := Mv_Lin5_Acc,
+    Deceleration := Mv_Lin5_Dec,
+    BufferMode := Mv_Lin5_Bm,
+    MoveMode := Mv_Lin5_Mm,
+    Done =&gt; Mv_Lin5_D,
+    Busy =&gt; Mv_Lin5_Bsy,
+    Active =&gt; Mv_Lin5_Act,
+    CommandAborted =&gt; Mv_Lin5_Ca,
+    Error =&gt; Mv_Lin5_Err,
+    ErrorID =&gt; Mv_Lin5_ErrID
+);
+
+// Linear interpolation (6)
+MV_LIN6(
+    AxesGroup := MC_Group000,
+    Execute := Mv_Lin6_Ex,
+    Position := Mv_Lin6_Pos,
+    Velocity := Mv_Lin6_Vel,
+    Acceleration := Mv_Lin6_Acc,
+    Deceleration := Mv_Lin6_Dec,
+    BufferMode := Mv_Lin6_Bm,
+    MoveMode := Mv_Lin6_Mm,
+    Done =&gt; Mv_Lin6_D,
+    Busy =&gt; Mv_Lin6_Bsy,
+    Active =&gt; Mv_Lin6_Act,
+    CommandAborted =&gt; Mv_Lin6_Ca,
+    Error =&gt; Mv_Lin6_Err,
+    ErrorID =&gt; Mv_Lin6_ErrID
+);
+
+// Linear interpolation (7)
+MV_LIN7(
+    AxesGroup := MC_Group000,
+    Execute := Mv_Lin7_Ex,
+    Position := Mv_Lin7_Pos,
+    Velocity := Mv_Lin7_Vel,
+    Acceleration := Mv_Lin7_Acc,
+    Deceleration := Mv_Lin7_Dec,
+    BufferMode := Mv_Lin7_Bm,
+    MoveMode := Mv_Lin7_Mm,
+    Done =&gt; Mv_Lin7_D,
+    Busy =&gt; Mv_Lin7_Bsy,
+    Active =&gt; Mv_Lin7_Act,
+    CommandAborted =&gt; Mv_Lin7_Ca,
+    Error =&gt; Mv_Lin7_Err,
+    ErrorID =&gt; Mv_Lin7_ErrID
+);
+</pre>
+
+</div>
+
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

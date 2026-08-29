@@ -1,0 +1,1214 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 11">
+<title>MC_InverseKin</title>
+
+<style title="hcp" type="text/css">
+<!--
+table.hcp1 { padding-left:4.00pt;
+padding-top:3.00pt;
+padding-right:4.00pt;
+padding-bottom:1.00pt; }
+th.hcp2 { border-top:solid 1px #000000;
+border-right:solid 1px #000000;
+border-bottom:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+th.hcp3 { border-top:solid 1px #000000;
+border-bottom:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+td.hcp4 { border-right:solid 1px #000000;
+border-bottom:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+td.hcp5 { border-bottom:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+span.hcp6 { font-style:italic; }
+table.hcp7 { padding-top:5.00pt;
+padding-right:4.00pt;
+padding-bottom:1.00pt; }
+td.hcp8 { vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+table.hcp9 { padding-top:5.00pt;
+padding-right:4.00pt;
+padding-bottom:1.00pt;
+margin-left:31.18pt; }
+td.hcp10 { border-left:solid 1px #000000;
+border-bottom:solid 1px #000000; }
+table.hcp11 { margin-bottom:3.50pt;
+margin-top:6.00pt; }
+span.hcp12 { word-spacing:normal;
+font:6.0pt 'Times New Roman'; }
+table.hcp13 { padding-left:4.00pt;
+padding-top:3.00pt;
+padding-right:4.00pt;
+padding-bottom:1.00pt;
+margin-left:56.69pt; }
+th.hcp14 { border-right:solid 1px #000000;
+border-bottom:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+th.hcp15 { border-bottom:solid 1px #000000;
+vertical-align:top;
+padding-left:6.00pt;
+padding-top:3.00pt;
+padding-right:6.00pt;
+padding-bottom:3.00pt; }
+-->
+</style>
+</head>
+
+<body>
+<script type="text/javascript" src="../../ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<p class="Title">MC_InverseKin</p>
+<p class="FM_body1">The MC_InverseKin instruction performs inverse kinematics 
+ transformation.</p>
+
+<table cellspacing="0" width="661" class="hcp1">
+	<tr style="height: 25.00pt;" bgcolor="#B3B3B3">
+		<th width="143" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Instruction</p></th>
+		<th width="71" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="37" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">FB/FUN</p></th>
+		<th width="197" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Graphic 
+		 expression</p></th>
+		<th width="215" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec9pt">ST expression</p></th>
+	</tr>
+	<tr style="height: 155.00pt;">
+		<td width="143" class="hcp4"><p 
+			 class="FM_tablebody18pt">MC_InverseKin</p></td>
+		<td width="71" class="hcp4"><p 
+			 class="FM_tablebody19pt">Inverse Kinematics</p></td>
+		<td width="37" class="hcp4"><p 
+			 class="FM_tablebodyc9pt">FB</p></td>
+		<td style="border-right: solid 1px #000000; border-bottom: solid 1px #000000;" 
+			 width="197"><div style="text-align: center;">
+			<img alt="C08-00_010.jpg" id="image33" src="C08-00_010.jpg" border="0"> 
+		</div>
+		<p class="FM_1pt" style="text-align: justify;">&#160;</p></td>
+		<td width="215" class="hcp5"><p class="FM_tablebody18pt">MC_InverseKin_instance 
+		 (</p>
+		<p class="FM_tablebody18pt">AxesGroup :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">Enable :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">Position :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">ToolID :=<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">Valid =&gt;<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">Busy =&gt;<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">Error =&gt;<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">ErrorID =&gt;<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">AxesPosition =&gt;<span class="hcp6">parameter</span>,</p>
+		<p class="FM_tablebody18pt">OutWorkspace =&gt;<span class="hcp6">parameter</span></p>
+		<p class="FM_tablebody18pt">);</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp7">
+	<tr style="height: 20.00pt;" bgcolor="#B3B3B3">
+		<td width="661" bgcolor="#B3B3B3" class="hcp8"><p class="FM_CRhead3">Variables</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">This section describes the input variables, output 
+ variables and in-out variables for the MC_InverseKin (Inverse Kinematics) 
+ instruction.</p>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="620" class="hcp9">
+	<tr style="height: 20.00pt;">
+		<td width="620" class="hcp10"><p class="FM_head4">Input Variables</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="662" class="hcp1">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="91" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="83" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Meaning</p></th>
+		<th width="98" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th width="125" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Valid 
+		 range</p></th>
+		<th width="53" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Default</p></th>
+		<th width="212" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 37.00pt;">
+		<td width="91" class="hcp4"><p 
+			 class="FM_tablebody19pt">Enable</p></td>
+		<td width="83" class="hcp4"><p 
+			 class="FM_tablebody19pt">Enable</p></td>
+		<td width="98" class="hcp4"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="125" class="hcp4"><p 
+			 class="FM_tablebody19pt">TRUE or FALSE</p></td>
+		<td width="53" class="hcp4"><p 
+			 class="FM_tablebody19pt">FALSE</p></td>
+		<td width="212" class="hcp5"><p class="FM_tablebody19pt">Transforms 
+		 a target position into axes target positions when <span class="hcp6">Enable</span>&#160;changes 
+		 to TRUE.</p></td>
+	</tr>
+	<tr style="height: 27.40pt;">
+		<td width="91" class="hcp4"><p 
+			 class="FM_tablebody19pt">Position</p></td>
+		<td width="83" class="hcp4"><p 
+			 class="FM_tablebody19pt">Target Posi­tion</p></td>
+		<td width="98" class="hcp4"><p 
+			 class="FM_tablebody19pt">ARRAY[0..5] OF LREAL</p></td>
+		<td width="125" class="hcp4"><p 
+			 class="FM_tablebody19pt">Positive number, negative number 
+		 or 0</p></td>
+		<td width="53" class="hcp4"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="212" class="hcp5"><p class="FM_tablebody19pt">Set 
+		 the target position in the machine coordinate system (MCS). *1</p></td>
+	</tr>
+	<tr style="height: 106.00pt;">
+		<td width="91" class="hcp4"><p 
+			 class="FM_tablebody19pt">ArmConfig *2</p></td>
+		<td width="83" class="hcp4"><p 
+			 class="FM_tablebody19pt">Arm Configu­ration</p></td>
+		<td width="98" class="hcp4"><p 
+			 class="FM_tablebody19pt">_eMC_ARM_­CONFIG</p></td>
+		<td width="125" class="hcp4"><p 
+			 class="FM_tablebody19pt">_mcCurrentArmCon­fig</p>
+		<p class="FM_tablebody19pt">_mcRightArmConfig or _mcLeftArmConfig</p></td>
+		<td width="53" class="hcp4"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="212" class="hcp5"><p class="FM_tablebody19pt">For 
+		 the robots that have more than one way to reach a Cartesian position, 
+		 the inverse kinematics calculation will be done for the current, 
+		 left or right option:</p>
+		<p class="FM_tablebody19pt">0: _mcCurrentArmConfig</p>
+		<p class="FM_tablebody19pt">1: _mcRightArmConfig</p>
+		<p class="FM_tablebody19pt">2: _mcLeftArmConfig</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="91" class="hcp4"><p 
+			 class="FM_tablebody19pt">ToolID</p></td>
+		<td width="83" class="hcp4"><p 
+			 class="FM_tablebody19pt">Tool ID</p></td>
+		<td width="98" class="hcp4"><p 
+			 class="FM_tablebody19pt">UINT</p></td>
+		<td width="125" class="hcp4"><p 
+			 class="FM_tablebody19pt">0 to 16</p></td>
+		<td width="53" class="hcp4"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="212" class="hcp5"><p class="FM_tablebody19pt">Select 
+		 the ID of the robot tool.</p></td>
+	</tr>
+</table>
+
+
+<table width="662" class="hcp11">
+	<tr>
+		<td><p class="FM_asterisk1"><sup>*1</sup> Refer to <span class="FM_italic">Details 
+		 on Position and <a href="#AxesPosition">AxesPosition</a></span> 
+		 for details.</p>
+		<p class="FM_asterisk1">*2 A CPU Unit with robot version 1.04 or 
+		 later and Sysmac Studio version 1.18 or higher are required to 
+		 use this input. For any previous version combinations, this type 
+		 does not exist.</p>
+		<p class="FM_asterisk1">&#160;The input can be used only in combinations 
+		 with SCARA RRP, RRP+R, PRR and PRR+R kinematics and it will be 
+		 ignored with the other kinematics.</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="620" class="hcp9">
+	<tr style="height: 20.00pt;">
+		<td width="620" class="hcp10"><p class="FM_head4">Output Variables</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp1">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="90" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="95" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Meaning</p></th>
+		<th width="79" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th width="128" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Valid 
+		 range</p></th>
+		<th width="270" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 37.00pt;">
+		<td width="90" class="hcp4"><p 
+			 class="FM_tablebody19pt">Valid</p></td>
+		<td width="95" class="hcp4"><p 
+			 class="FM_tablebody19pt">Enabled</p></td>
+		<td width="79" class="hcp4"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="128" class="hcp4"><p 
+			 class="FM_tablebody19pt">TRUE or FALSE</p></td>
+		<td width="270" class="hcp5"><p class="FM_tablebody19pt"><span class="hcp6">AxesPosition</span>&#160;(Axes Target 
+		 Position) is valid when this variable is TRUE. Axes target positions 
+		 are updated each period.</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="90" class="hcp4"><p 
+			 class="FM_tablebody19pt">Busy</p></td>
+		<td width="95" class="hcp4"><p 
+			 class="FM_tablebody19pt">Executing</p></td>
+		<td width="79" class="hcp4"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="128" class="hcp4"><p 
+			 class="FM_tablebody19pt">TRUE or FALSE</p></td>
+		<td width="270" class="hcp5"><p class="FM_tablebody19pt">TRUE 
+		 when the instruction is acknowledged.</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="90" class="hcp4"><p 
+			 class="FM_tablebody19pt">Error</p></td>
+		<td width="95" class="hcp4"><p 
+			 class="FM_tablebody19pt">Error</p></td>
+		<td width="79" class="hcp4"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="128" class="hcp4"><p 
+			 class="FM_tablebody19pt" style="font-size: 9pt; font-family: Arial, sans-serif;">TRUE 
+		 or FALSE</p></td>
+		<td width="270" class="hcp5"><p class="FM_tablebody19pt">TRUE 
+		 while there is an error.</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="90" class="hcp4"><p 
+			 class="FM_tablebody19pt">ErrorID</p></td>
+		<td width="95" class="hcp4"><p 
+			 class="FM_tablebody19pt">Error Code</p></td>
+		<td width="79" class="hcp4"><p 
+			 class="FM_tablebody19pt">WORD</p></td>
+		<td width="128" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><sup>*1</sup>&#160;</p></td>
+		<td width="270" class="hcp5"><p class="FM_tablebody19pt">Contains 
+		 the error code when an error occurs. A value of 16#0000 indicates 
+		 normal execution.</p></td>
+	</tr>
+	<tr style="height: 39.40pt;">
+		<td width="90" class="hcp4"><p 
+			 class="FM_tablebody19pt">AxesPosition</p></td>
+		<td width="95" class="hcp4"><p 
+			 class="FM_tablebody19pt">Axes Target Position</p></td>
+		<td width="79" class="hcp4"><p 
+			 class="FM_tablebody19pt">ARRAY[0..5] OF LREAL</p></td>
+		<td width="128" class="hcp4"><p 
+			 class="FM_tablebody19pt">Positive number, neg­ative number 
+		 or 0</p></td>
+		<td width="270" class="hcp5"><p class="FM_tablebody19pt">Contains 
+		 axes target positions that are trans­formed from a target position 
+		 in the machine coordinate system (MCS).<sup>*2</sup></p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="90" class="hcp4"><p 
+			 class="FM_tablebody19pt">OutWorkspace</p></td>
+		<td width="95" class="hcp4"><p 
+			 class="FM_tablebody19pt">Outside Work­space</p></td>
+		<td width="79" class="hcp4"><p 
+			 class="FM_tablebody19pt">BOOL</p></td>
+		<td width="128" class="hcp4"><p 
+			 class="FM_tablebody19pt">TRUE or FALSE</p></td>
+		<td width="270" class="hcp5"><p class="FM_tablebody19pt">TRUE 
+		 when the target position is outside the workspace.</p></td>
+	</tr>
+</table>
+
+
+<table width="661" class="hcp11">
+	<tr>
+		<td><p class="FM_asterisk1"><sup>*1</sup> Refer to <a><span class="FM_italic">Troubleshooting</span></a> 
+		 manual pages for details.</p>
+		<p class="FM_asterisk1"><sup>*2 </sup>Refer to <span class="FM_italic">Details 
+		 on Position and <a href="#AxesPosition">AxesPosition</a></span> 
+		 details.</p></td>
+	</tr>
+</table>
+
+<p class="FM_head5"><span class="FM_Wingdings">l<span class="hcp12">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span>Output 
+ Variable Update Timing</p>
+
+<table cellspacing="0" width="661" class="hcp1">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="117" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="282" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Timing 
+		 for changing to TRUE</p></th>
+		<th width="262" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec9pt">Timing for 
+		 changing to FALSE</p></th>
+	</tr>
+	<tr style="height: 27.00pt;">
+		<td width="117" class="hcp4"><p 
+			 class="FM_tablebody19pt">Valid</p></td>
+		<td width="282" class="hcp4"><p 
+			 class="FM_tablebody19pt">When kinematics transformation is 
+		 completed suc­cessfully.</p></td>
+		<td width="262" class="hcp5"><p class="FM_tablebul9pt">•<span class="hcp12">&#160;&#160;&#160;</span>When 
+		 <span class="hcp6">Error</span> changes to TRUE.</p>
+		<p class="FM_tablebul9pt">•<span class="hcp12">&#160;&#160;&#160;</span>When 
+		 <span class="hcp6">Enable</span> is FALSE.</p></td>
+	</tr>
+	<tr style="height: 27.00pt;">
+		<td width="117" class="hcp4"><p 
+			 class="FM_tablebody19pt">Busy</p></td>
+		<td width="282" class="hcp4"><p 
+			 class="FM_tablebody19pt">When <span class="hcp6">Execute</span> 
+		 changes to TRUE.</p></td>
+		<td width="262" class="hcp5"><p class="FM_tablebul9pt">•<span class="hcp12">&#160;&#160;&#160;</span>When 
+		 <span class="hcp6">Enable</span> changes to FALSE.</p>
+		<p class="FM_tablebul9pt">•<span class="hcp12">&#160;&#160;&#160;</span>When 
+		 Error changes to TRUE.</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="117" class="hcp4"><p 
+			 class="FM_tablebody19pt">Error</p></td>
+		<td width="282" class="hcp4"><p 
+			 class="FM_tablebody19pt">When there is an error in the execution 
+		 conditions or input parameters for the instruction.</p></td>
+		<td width="262" class="hcp5"><p class="FM_tablebody19pt">When 
+		 the error is cleared.</p></td>
+	</tr>
+	<tr style="height: 53.00pt;">
+		<td width="117" class="hcp4"><p 
+			 class="FM_tablebody19pt">OutWorkspace</p></td>
+		<td width="282" class="hcp4"><p 
+			 class="FM_tablebody19pt">When the target position is outside 
+		 the workspace.</p></td>
+		<td width="262" class="hcp5"><p class="FM_tablebul9pt">•<span class="hcp12">&#160;&#160;&#160;</span>When 
+		 the target position is within the work­space.</p>
+		<p class="FM_tablebul9pt">•<span class="hcp12">&#160;&#160;&#160;</span>When 
+		 <span class="hcp6">Enable</span> is FALSE.</p>
+		<p class="FM_tablebul9pt">•<span class="hcp12">&#160;&#160;&#160;</span>When 
+		 <span class="hcp6">Error</span> changes to TRUE.</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="620" class="hcp9">
+	<tr style="height: 20.00pt;">
+		<td width="620" class="hcp10"><p class="FM_head4">In-Out Variables</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp1">
+	<tr style="height: 25.00pt;" bgcolor="#B3B3B3">
+		<th width="117" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="110" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Meaning</p></th>
+		<th width="100" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th width="64" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Valid 
+		 range</p></th>
+		<th width="271" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="117" class="hcp4"><p 
+			 class="FM_tablebody19pt">AxesGroup</p></td>
+		<td width="110" class="hcp4"><p 
+			 class="FM_tablebody19pt">Axes Group</p></td>
+		<td width="100" class="hcp4"><p 
+			 class="FM_tablebody19pt">_sGROUP_REF</p></td>
+		<td width="64" class="hcp4"><p 
+			 class="FM_tablebodycc9pt">---</p></td>
+		<td width="271" class="hcp5"><p class="FM_tablebody19pt">Specify 
+		 the axes group.</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="661" class="hcp7">
+	<tr style="height: 20.00pt;" bgcolor="#B3B3B3">
+		<td width="661" bgcolor="#B3B3B3" class="hcp8"><p class="FM_CRhead3">Function</p></td>
+	</tr>
+</table>
+
+<p class="FM_bul1">•<span class="hcp12">&#160;&#160;&#160;&#160;</span>This 
+ instruction transforms <span class="hcp6">Position</span>&#160;(Target 
+ Position) in the machine coordinate system (MCS) into axes target positions 
+ in the axis coordinate systems (ACS).</p>
+<p class="FM_bul1">•<span class="hcp12">&#160;&#160;&#160;&#160;</span>If 
+ <span class="hcp6">Position</span>&#160;(Target Position) 
+ is outside the workspace, <span class="hcp6">OutWorkspace</span>&#160;(Outside 
+ Workspace) changes to TRUE regardless of workspace is enabled or disabled.</p>
+<p class="FM_bul1">•<span class="hcp12">&#160;&#160;&#160;&#160;</span><span class="hcp6">Valid </span>(Enabled) changes to TRUE 
+ when transformation of <span class="hcp6">Position</span>&#160;(Target 
+ Position) into axes target positions in the axis coordinate systems (ACS) 
+ is completed.</p>
+<p class="FM_bul1">•<span class="hcp12">&#160;&#160;&#160;&#160;</span>You 
+ can use this instruction only when the following condition is met.</p>
+<p class="FM_body5">The kinematics is already set with MC_SetKinTransform 
+ (Set Kinematics Transformation) instruc­tion.</p>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="620" class="hcp9">
+	<tr style="height: 20.00pt;">
+		<td width="620" class="hcp10"><p class="FM_head4">Details on Position and AxesPosition</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">The following are the details on <span class="hcp6">Position</span>&#160;(Target 
+ Position) which you set and <span class="hcp6">AxesPosition</span>&#160;(Axes 
+ Target Position) which is the result of transformation.</p>
+<p class="FM_head5"><span class="FM_Wingdings">l<span class="hcp12">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></span>Position</p>
+<p class="FM_body5">Set the target position in the machine coordinate system 
+ (MCS).</p>
+
+<table cellspacing="0" width="586" class="hcp13">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="117" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="88" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th width="129" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Valid 
+		 range</p></th>
+		<th width="252" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="117" class="hcp4"><p 
+			 class="FM_tablebody19pt">Position [0]</p></td>
+		<td width="88" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="129" class="hcp4"><p 
+			 class="FM_tablebody19pt">Positive number, neg­ative number 
+		 or 0</p></td>
+		<td width="252" class="hcp5"><p class="FM_tablebody19pt">The 
+		 target position on X axis in the machine coordinate system [mm]</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="117" class="hcp4"><p 
+			 class="FM_tablebody19pt">Position [1]</p></td>
+		<td width="88" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="129" class="hcp4"><p 
+			 class="FM_tablebody19pt">Positive number, neg­ative number 
+		 or 0</p></td>
+		<td width="252" class="hcp5"><p class="FM_tablebody19pt">The 
+		 target position on Y axis in the machine coordinate system [mm]</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="117" class="hcp4"><p 
+			 class="FM_tablebody19pt">Position [2]</p></td>
+		<td width="88" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="129" class="hcp4"><p 
+			 class="FM_tablebody19pt">Positive number, neg­ative number 
+		 or 0</p></td>
+		<td width="252" class="hcp5"><p class="FM_tablebody19pt">The 
+		 target position on Z axis in the machine coordinate system [mm]</p></td>
+	</tr>
+	<tr style="height: 37.00pt;">
+		<td width="117" class="hcp4"><p 
+			 class="FM_tablebody19pt">Position [3]</p></td>
+		<td width="88" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="129" class="hcp4"><p 
+			 class="FM_tablebody19pt">Greater than <span class="FM_Symbol">-</span>180.0, 
+		 less than or equal to 180.0</p></td>
+		<td width="252" class="hcp5"><p class="FM_tablebody19pt">The 
+		 target rotational position around X axis in the machine coordinate 
+		 system [degree]</p></td>
+	</tr>
+	<tr style="height: 37.00pt;">
+		<td width="117" class="hcp4"><p 
+			 class="FM_tablebody19pt">Position [4]</p></td>
+		<td width="88" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="129" class="hcp4"><p 
+			 class="FM_tablebody19pt">Greater than <span class="FM_Symbol">-</span>180.0, 
+		 less than or equal to 180.0</p></td>
+		<td width="252" class="hcp5"><p class="FM_tablebody19pt">The 
+		 target rotational position around Y axis in the machine coordinate 
+		 system [degree]</p></td>
+	</tr>
+	<tr style="height: 37.00pt;">
+		<td width="117" class="hcp4"><p 
+			 class="FM_tablebody19pt">Position [5]</p></td>
+		<td width="88" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="129" class="hcp4"><p 
+			 class="FM_tablebody19pt">Greater than <span class="FM_Symbol">-</span>180.0, 
+		 less than or equal to 180.0</p></td>
+		<td width="252" class="hcp5"><p class="FM_tablebody19pt">The 
+		 target rotational position around Z axis in the machine coordinate 
+		 system [degree]</p></td>
+	</tr>
+</table>
+
+<p class="FM_body5">The target position you can set in <span class="FM_italic">Position</span>&#160;(Target 
+ Position) varies depending on <span class="hcp6">KinType</span> 
+ (Kinemat­ics Type Selection) as shown below.</p>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="586" class="hcp13">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th colspan="2" width="343" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Position</p></th>
+		<th colspan="3" width="243" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Kinematics 
+		 type</p></th>
+		
+	</tr>
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="136" bgcolor="#B3B3B3" class="hcp14"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="207" bgcolor="#B3B3B3" class="hcp14"><p class="FM_tabletitlec9pt">Description</p></th>
+		<th width="81" bgcolor="#B3B3B3" class="hcp14"><p class="FM_tabletitlec9pt">Delta3</p></th>
+		<th width="81" bgcolor="#B3B3B3" class="hcp14"><p class="FM_tabletitlec9pt">Delta3R</p></th>
+		<th width="81" bgcolor="#B3B3B3" class="hcp15"><p class="FM_tabletitlec9pt">Delta2</p></th>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="136" class="hcp4"><p 
+			 class="FM_tablebody19pt">Position [0]</p></td>
+		<td width="207" class="hcp4"><p 
+			 class="FM_tablebody19pt">The target position on X axis [mm]</p></td>
+		<td width="81" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Valid</span></p></td>
+		<td width="81" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Valid</span></p></td>
+		<td width="81" class="hcp5"><p class="FM_tablebodycc9pt" 
+													 style="font-size: 9pt; 
+													 font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Valid</span></p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="136" class="hcp4"><p 
+			 class="FM_tablebody19pt">Position [1]</p></td>
+		<td width="207" class="hcp4"><p 
+			 class="FM_tablebody19pt">The target position on Y axis [mm]</p></td>
+		<td width="81" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Valid</span></p></td>
+		<td width="81" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Valid</span></p></td>
+		<td width="81" class="hcp5"><p class="FM_tablebodycc9pt" 
+													 style="font-size: 9pt; 
+													 font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Invalid</span></p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="136" class="hcp4"><p 
+			 class="FM_tablebody19pt">Position [2]</p></td>
+		<td width="207" class="hcp4"><p 
+			 class="FM_tablebody19pt">The target position on Z axis [mm]</p></td>
+		<td width="81" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Valid</span></p></td>
+		<td width="81" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Valid</span></p></td>
+		<td width="81" class="hcp5"><p class="FM_tablebodycc9pt" 
+													 style="font-size: 9pt; 
+													 font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Valid</span></p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="136" class="hcp4"><p 
+			 class="FM_tablebody19pt">Position [3]</p></td>
+		<td width="207" class="hcp4"><p 
+			 class="FM_tablebody19pt">The target rotational position around 
+		 X axis [degree]</p></td>
+		<td width="81" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Invalid</span></p></td>
+		<td width="81" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Invalid</span></p></td>
+		<td width="81" class="hcp5"><p class="FM_tablebodycc9pt" 
+													 style="font-size: 9pt; 
+													 font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Invalid</span></p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="136" class="hcp4"><p 
+			 class="FM_tablebody19pt">Position [4]</p></td>
+		<td width="207" class="hcp4"><p 
+			 class="FM_tablebody19pt">The target rotational position around 
+		 Y axis [degree]</p></td>
+		<td width="81" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Invalid</span></p></td>
+		<td width="81" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Invalid</span></p></td>
+		<td width="81" class="hcp5"><p class="FM_tablebodycc9pt" 
+													 style="font-size: 9pt; 
+													 font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Invalid</span></p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="136" class="hcp4"><p 
+			 class="FM_tablebody19pt">Position [5]</p></td>
+		<td width="207" class="hcp4"><p 
+			 class="FM_tablebody19pt">The target rotational position around 
+		 Z axis [degree]</p></td>
+		<td width="81" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Invalid</span></p></td>
+		<td width="81" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Valid</span></p></td>
+		<td width="81" class="hcp5"><p class="FM_tablebodycc9pt" 
+													 style="font-size: 9pt; 
+													 font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Invalid</span></p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="586" class="hcp13">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="105" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt" 
+												 style="font-family: Arial, sans-serif;">Position</p></th>
+		<th colspan="5" width="481" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt" 
+												 style="font-family: Arial, sans-serif;">Kinematics 
+		 type</p></th>
+		
+	</tr>
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th rowspan="2" width="105" bgcolor="#B3B3B3" class="hcp14"><p class="FM_tabletitlec9pt" style="font-family: Arial, sans-serif;">Name</p></th>
+		<th rowspan="2" width="130" bgcolor="#B3B3B3" class="hcp14"><p class="FM_tabletitlec9pt" style="font-family: Arial, sans-serif;">Cartesian 
+		 3D</p>
+		<p class="FM_tabletitlec9pt" style="font-family: Arial, sans-serif;">Cartesian 
+		 3D-Gantry</p></th>
+		<th colspan="3" width="210" bgcolor="#B3B3B3" class="hcp14"><p class="FM_tabletitlec9pt" style="font-family: Arial, sans-serif;">Cartesian 
+		 2D</p></th>
+		<th rowspan="2" width="140" bgcolor="#B3B3B3" class="hcp15"><p 
+			 class="FM_tabletitlec9pt" style="font-family: Arial, sans-serif;">Cartesian 
+		 2D-Gantry</p>
+		<p class="FM_tabletitlec9pt" style="font-family: Arial, sans-serif;">H-Bot</p></th>
+	</tr>
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="70" bgcolor="#B3B3B3" class="hcp14"><p class="FM_tabletitlec9pt" style="font-family: Arial, sans-serif;">Plane 
+		 XY</p></th>
+		<th width="70" bgcolor="#B3B3B3" class="hcp14"><p class="FM_tabletitlec9pt" style="font-family: Arial, sans-serif;">Plane 
+		 XZ</p></th>
+		<th width="70" bgcolor="#B3B3B3" class="hcp14"><p class="FM_tabletitlec9pt" style="font-family: Arial, sans-serif;">Plane 
+		 YZ</p></th>
+		
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="105" class="hcp4"><p 
+			 class="FM_tablebody19pt" style="font-family: Arial, sans-serif;">Position 
+		 [0]</p></td>
+		<td width="130" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Valid</span></p></td>
+		<td width="70" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Valid</span></p></td>
+		<td width="70" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Valid</span></p></td>
+		<td width="70" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Invalid</span></p></td>
+		<td width="140" class="hcp5"><p class="FM_tablebodycc9pt" 
+													 style="font-size: 9pt; 
+													 font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Valid</span></p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="105" class="hcp4"><p 
+			 class="FM_tablebody19pt" style="font-family: Arial, sans-serif;">Position 
+		 [1]</p></td>
+		<td width="130" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Valid</span></p></td>
+		<td width="70" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Valid</span></p></td>
+		<td width="70" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Invalid</span></p></td>
+		<td width="70" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Valid</span></p></td>
+		<td width="140" class="hcp5"><p class="FM_tablebodycc9pt" 
+													 style="font-size: 9pt; 
+													 font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Valid</span></p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="105" class="hcp4"><p 
+			 class="FM_tablebody19pt" style="font-family: Arial, sans-serif;">Position 
+		 [2]</p></td>
+		<td width="130" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Valid</span></p></td>
+		<td width="70" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Invalid</span></p></td>
+		<td width="70" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Valid</span></p></td>
+		<td width="70" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Valid</span></p></td>
+		<td width="140" class="hcp5"><p class="FM_tablebodycc9pt" 
+													 style="font-size: 9pt; 
+													 font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Invalid</span></p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="105" class="hcp4"><p 
+			 class="FM_tablebody19pt" style="font-family: Arial, sans-serif;">Position 
+		 [3]</p></td>
+		<td width="130" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Invalid</span></p></td>
+		<td colspan="3" width="210" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Invalid</span></p></td>
+		<td width="140" class="hcp5"><p class="FM_tablebodycc9pt" 
+													 style="font-size: 9pt; 
+													 font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Invalid</span></p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="105" class="hcp4"><p 
+			 class="FM_tablebody19pt" style="font-family: Arial, sans-serif;">Position 
+		 [4]</p></td>
+		<td width="130" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Invalid</span></p></td>
+		<td colspan="3" width="210" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Invalid</span></p></td>
+		<td width="140" class="hcp5"><p class="FM_tablebodycc9pt" 
+													 style="font-size: 9pt; 
+													 font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Invalid</span></p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="105" class="hcp4"><p 
+			 class="FM_tablebody19pt" style="font-family: Arial, sans-serif;">Position 
+		 [5]</p></td>
+		<td width="130" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Invalid</span></p></td>
+		<td colspan="3" width="210" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Invalid</span></p></td>
+		<td width="140" class="hcp5"><p class="FM_tablebodycc9pt" 
+													 style="font-size: 9pt; 
+													 font-family: Arial, sans-serif;"><span 
+		 class="FM_Wingdings2">Invalid</span></p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="516" class="hcp13">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="105" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Position</p></th>
+		<th colspan="3" width="411" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Kinematics 
+		 type</p></th>
+		
+	</tr>
+	<tr style="height: 25.00pt;" bgcolor="#B3B3B3">
+		<th width="105" bgcolor="#B3B3B3" class="hcp14"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="130" bgcolor="#B3B3B3" class="hcp14"><p class="FM_tabletitlec9pt">SCARA RRP</p>
+		<p class="FM_tabletitlec9pt">SCARA PRR</p></th>
+		<th width="140" bgcolor="#B3B3B3" class="hcp14"><p class="FM_tabletitlec9pt">SCARA RRP+R</p>
+		<p class="FM_tabletitlec9pt">SCARA PRR+R</p></th>
+		<th width="140" bgcolor="#B3B3B3" class="hcp15"><p 
+			 class="FM_tabletitlec9pt">Expansion1</p></th>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="105" class="hcp4"><p 
+			 class="FM_tablebody19pt">Position [0]</p></td>
+		<td width="130" class="hcp4"><p 
+			 class="FM_tablebodycc9pt">Valid</p></td>
+		<td width="140" class="hcp4"><p 
+			 class="FM_tablebodycc9pt">Valid</p></td>
+		<td width="140" class="hcp5"><p class="FM_tablebodycc9pt">Valid</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="105" class="hcp4"><p 
+			 class="FM_tablebody19pt">Position [1]</p></td>
+		<td width="130" class="hcp4"><p 
+			 class="FM_tablebodycc9pt">Valid</p></td>
+		<td width="140" class="hcp4"><p 
+			 class="FM_tablebodycc9pt">Valid</p></td>
+		<td width="140" class="hcp5"><p class="FM_tablebodycc9pt">Valid</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="105" class="hcp4"><p 
+			 class="FM_tablebody19pt">Position [2]</p></td>
+		<td width="130" class="hcp4"><p 
+			 class="FM_tablebodycc9pt">Valid</p></td>
+		<td width="140" class="hcp4"><p 
+			 class="FM_tablebodycc9pt">Valid</p></td>
+		<td width="140" class="hcp5"><p class="FM_tablebodycc9pt">Invalid</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="105" class="hcp4"><p 
+			 class="FM_tablebody19pt">Position [3]</p></td>
+		<td width="130" class="hcp4"><p 
+			 class="FM_tablebodycc9pt">Invalid</p></td>
+		<td width="140" class="hcp4"><p 
+			 class="FM_tablebodycc9pt">Invalid</p></td>
+		<td width="140" class="hcp5"><p class="FM_tablebodycc9pt">Invalid</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="105" class="hcp4"><p 
+			 class="FM_tablebody19pt">Position [4]</p></td>
+		<td width="130" class="hcp4"><p 
+			 class="FM_tablebodycc9pt">Invalid</p></td>
+		<td width="140" class="hcp4"><p 
+			 class="FM_tablebodycc9pt">Invalid</p></td>
+		<td width="140" class="hcp5"><p class="FM_tablebodycc9pt">Invalid</p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="105" class="hcp4"><p 
+			 class="FM_tablebody19pt">Position [5]</p></td>
+		<td width="130" class="hcp4"><p 
+			 class="FM_tablebodycc9pt">Invalid</p></td>
+		<td width="140" class="hcp4"><p 
+			 class="FM_tablebodycc9pt">Valid</p></td>
+		<td width="140" class="hcp5"><p class="FM_tablebodycc9pt">Valid</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+<p class="FM_head5"><span class="FM_Wingdings">l</span><span class="hcp12">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><a 
+	 name="AxesPosition">AxesPosition</a></p>
+<p class="FM_body5">This variable contains axes target positions that are 
+ transformed from a target position in the machine coordinate system (MCS).</p>
+
+<table cellspacing="0" width="586" class="hcp13">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="117" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="88" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Data 
+		 type</p></th>
+		<th width="129" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Valid 
+		 range</p></th>
+		<th width="252" bgcolor="#B3B3B3" class="hcp3"><p class="FM_tabletitlec9pt">Description</p></th>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="117" class="hcp4"><p 
+			 class="FM_tablebody19pt">AxesPosition [0]</p></td>
+		<td width="88" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="129" class="hcp4"><p 
+			 class="FM_tablebody19pt">Positive number, neg­ative number 
+		 or 0</p></td>
+		<td width="252" class="hcp5"><p class="FM_tablebody19pt">The 
+		 target position in the axis coordinate sys­tem for A0 axis ([degree] 
+		 or [mm], depending on <span class="FM_italic">KinType</span>)</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="117" class="hcp4"><p 
+			 class="FM_tablebody19pt">AxesPosition [1]</p></td>
+		<td width="88" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="129" class="hcp4"><p 
+			 class="FM_tablebody19pt">Positive number, neg­ative number 
+		 or 0</p></td>
+		<td width="252" class="hcp5"><p class="FM_tablebody19pt">The 
+		 target position in the axis coordinate sys­tem for A1 axis ([degree] 
+		 or [mm], depending on <span class="FM_italic">KinType</span>)</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="117" class="hcp4"><p 
+			 class="FM_tablebody19pt">AxesPosition [2]</p></td>
+		<td width="88" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="129" class="hcp4"><p 
+			 class="FM_tablebody19pt">Positive number, neg­ative number 
+		 or 0</p></td>
+		<td width="252" class="hcp5"><p class="FM_tablebody19pt">The 
+		 target position in the axis coordinate sys­tem for A2 axis ([degree] 
+		 or [mm], depending on <span class="FM_italic">KinType</span>)</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="117" class="hcp4"><p 
+			 class="FM_tablebody19pt">AxesPosition [3]</p></td>
+		<td width="88" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="129" class="hcp4"><p 
+			 class="FM_tablebody19pt">Positive number, neg­ative number 
+		 or 0</p></td>
+		<td width="252" class="hcp5"><p class="FM_tablebody19pt">The 
+		 target position in the axis coordinate sys­tem for A3 axis ([degree] 
+		 or [mm], depending on <span class="FM_italic">KinType</span>)</p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="117" class="hcp4"><p 
+			 class="FM_tablebody19pt">AxesPosition [4] to [5] (Reserved)</p></td>
+		<td width="88" class="hcp4"><p 
+			 class="FM_tablebody19pt">LREAL</p></td>
+		<td width="129" class="hcp4"><p 
+			 class="FM_tablebody19pt">0</p></td>
+		<td width="252" class="hcp5"><p class="FM_tablebody19pt">(Reserved)</p></td>
+	</tr>
+</table>
+
+<p class="FM_12">&#160;</p>
+<p class="FM_body5"><span class="hcp6">AxesPosition</span>&#160;(Axes 
+ Target Position) varies depending on <span class="hcp6">KinType</span>&#160;(Kinematics 
+ Type Selection) as shown below.</p>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="586" class="hcp13">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th colspan="2" width="343" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">AxesPosition</p></th>
+		<th colspan="3" width="243" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt">Kinematics 
+		 type</p></th>
+		
+	</tr>
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="136" bgcolor="#B3B3B3" class="hcp14"><p class="FM_tabletitlec9pt">Name</p></th>
+		<th width="207" bgcolor="#B3B3B3" class="hcp14"><p class="FM_tabletitlec9pt">Description</p></th>
+		<th width="81" bgcolor="#B3B3B3" class="hcp14"><p class="FM_tabletitlec9pt">Delta3</p></th>
+		<th width="81" bgcolor="#B3B3B3" class="hcp14"><p class="FM_tabletitlec9pt">Delta3R</p></th>
+		<th width="81" bgcolor="#B3B3B3" class="hcp15"><p class="FM_tabletitlec9pt">Delta2</p></th>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="136" class="hcp4"><p 
+			 class="FM_tablebody19pt">AxesPosition [0]</p></td>
+		<td width="207" class="hcp4"><p 
+			 class="FM_tablebody19pt">The target position in the axis coordi­nate 
+		 system for A0 axis ([degree] or [mm], depending on <span class="FM_italic">KinType</span>)</p></td>
+		<td width="81" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Used</span></p></td>
+		<td width="81" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Used</span></p></td>
+		<td width="81" class="hcp5"><p class="FM_tablebodycc9pt" 
+													 style="font-size: 9pt; 
+													 font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Used</span></p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="136" class="hcp4"><p 
+			 class="FM_tablebody19pt">AxesPosition [1]</p></td>
+		<td width="207" class="hcp4"><p 
+			 class="FM_tablebody19pt">The target position in the axis coordi­nate 
+		 system for A1 axis ([degree] or [mm], depending on <span class="FM_italic">KinType</span>)</p></td>
+		<td width="81" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Used</span></p></td>
+		<td width="81" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Used</span></p></td>
+		<td width="81" class="hcp5"><p class="FM_tablebodycc9pt" 
+													 style="font-size: 9pt; 
+													 font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Used</span></p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="136" class="hcp4"><p 
+			 class="FM_tablebody19pt">AxesPosition [2]</p></td>
+		<td width="207" class="hcp4"><p 
+			 class="FM_tablebody19pt">The target position in the axis coordi­nate 
+		 system for A2 axis ([degree] or [mm], depending on <span class="FM_italic">KinType</span>)</p></td>
+		<td width="81" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Used</span></p></td>
+		<td width="81" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Used</span></p></td>
+		<td width="81" class="hcp5"><p class="FM_tablebodycc9pt" 
+													 style="font-size: 9pt; 
+													 font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Not used</span></p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="136" class="hcp4"><p 
+			 class="FM_tablebody19pt">AxesPosition [3]</p></td>
+		<td width="207" class="hcp4"><p 
+			 class="FM_tablebody19pt">The target position in the axis coordi­nate 
+		 system for A3 axis ([degree] or [mm], depending on <span class="FM_italic">KinType</span>)</p></td>
+		<td width="81" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Not used</span></p></td>
+		<td width="81" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Used</span></p></td>
+		<td width="81" class="hcp5"><p class="FM_tablebodycc9pt" 
+													 style="font-size: 9pt; 
+													 font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Not used</span></p></td>
+	</tr>
+	<tr style="height: 25.00pt;">
+		<td width="136" class="hcp4"><p 
+			 class="FM_tablebody19pt">AxesPosition [4] to [5] (Reserved)</p></td>
+		<td width="207" class="hcp4"><p 
+			 class="FM_tablebody19pt">(Reserved)</p></td>
+		<td width="81" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Not used</span></p></td>
+		<td width="81" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Not used</span></p></td>
+		<td width="81" class="hcp5"><p class="FM_tablebodycc9pt" 
+													 style="font-size: 9pt; 
+													 font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Not used</span></p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="586" class="hcp13">
+	<tr style="height: 13.00pt;" bgcolor="#B3B3B3">
+		<th width="193" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt" 
+												 style="font-family: Arial, sans-serif;">AxesPosition</p></th>
+		<th colspan="3" width="393" bgcolor="#B3B3B3" class="hcp2"><p class="FM_tabletitlec9pt" 
+												 style="font-family: Arial, sans-serif;">Kinematics 
+		 type</p></th>
+		
+	</tr>
+	<tr style="height: 25.00pt;" bgcolor="#B3B3B3">
+		<th width="193" bgcolor="#B3B3B3" class="hcp14"><p class="FM_tabletitlec9pt" style="font-family: Arial, sans-serif;">Name</p></th>
+		<th width="131" bgcolor="#B3B3B3" class="hcp14"><p class="FM_tabletitlec9pt" style="font-family: Arial, sans-serif;">Cartesian 
+		 3D-Gantry</p></th>
+		<th width="131" bgcolor="#B3B3B3" class="hcp14"><p class="FM_tabletitlec9pt" style="font-family: Arial, sans-serif;">Cartesian 
+		 3D</p>
+		<p class="FM_tabletitlec9pt" style="font-family: Arial, sans-serif;">Cartesian 
+		 2D-Gantry</p></th>
+		<th width="131" bgcolor="#B3B3B3" class="hcp15"><p 
+			 class="FM_tabletitlec9pt" style="font-family: Arial, sans-serif;">Cartesian 
+		 2D</p>
+		<p class="FM_tabletitlec9pt" style="font-family: Arial, sans-serif;">H-Bot</p></th>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="193" class="hcp4"><p 
+			 class="FM_tablebody19pt" style="font-family: Arial, sans-serif;">AxesPosition 
+		 [0]</p></td>
+		<td width="131" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Used</span></p></td>
+		<td width="131" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Used</span></p></td>
+		<td width="131" class="hcp5"><p class="FM_tablebodycc9pt" 
+													 style="font-size: 9pt; 
+													 font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Used</span></p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="193" class="hcp4"><p 
+			 class="FM_tablebody19pt" style="font-family: Arial, sans-serif;">AxesPosition 
+		 [1]</p></td>
+		<td width="131" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Used</span></p></td>
+		<td width="131" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Used</span></p></td>
+		<td width="131" class="hcp5"><p class="FM_tablebodycc9pt" 
+													 style="font-size: 9pt; 
+													 font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Used</span></p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="193" class="hcp4"><p 
+			 class="FM_tablebody19pt" style="font-family: Arial, sans-serif;">AxesPosition 
+		 [2]</p></td>
+		<td width="131" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Used</span></p></td>
+		<td width="131" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Used</span></p></td>
+		<td width="131" class="hcp5"><p class="FM_tablebodycc9pt" 
+													 style="font-size: 9pt; 
+													 font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Not used</span></p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="193" class="hcp4"><p 
+			 class="FM_tablebody19pt" style="font-family: Arial, sans-serif;">AxesPosition 
+		 [3]</p></td>
+		<td width="131" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Used</span></p></td>
+		<td width="131" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Not used</span></p></td>
+		<td width="131" class="hcp5"><p class="FM_tablebodycc9pt" 
+													 style="font-size: 9pt; 
+													 font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Not used</span></p></td>
+	</tr>
+	<tr style="height: 13.00pt;">
+		<td width="193" class="hcp4"><p 
+			 class="FM_tablebody19pt" style="font-family: Arial, sans-serif;">AxesPosition 
+		 [4] to [5] (Reserved)</p></td>
+		<td width="131" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Not used</span></p></td>
+		<td width="131" class="hcp4"><p 
+			 class="FM_tablebodycc9pt" style="font-size: 9pt; font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Not used</span></p></td>
+		<td width="131" class="hcp5"><p class="FM_tablebodycc9pt" 
+													 style="font-size: 9pt; 
+													 font-family: Arial, sans-serif;"><span 
+		 class="FM_Arial">Not used</span></p></td>
+	</tr>
+</table>
+
+<p class="FM_tablespec">&#160;</p>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="620" class="hcp9">
+	<tr style="height: 20.00pt;">
+		<td width="620" class="hcp10"><p class="FM_head4">Timing Charts</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">&#160;</p>
+<div>
+	<img alt="C08-02_010.jpg" id="image34" src="C08-02_010.jpg" border="0"> 
+	 
+</div>
+<p class="FM_body1">&#160;</p>
+
+<table cellspacing="0" width="620" class="hcp9">
+	<tr style="height: 20.00pt;">
+		<td width="620" class="hcp10"><p class="FM_head4">Errors</p></td>
+	</tr>
+</table>
+
+<p class="FM_body1">If an error occurs during instruction execution, <span class="hcp6">Error</span> will change to TRUE.</p>
+<p class="FM_body1">You can find out the cause of the error by referring 
+ to the value output by <span class="hcp6">ErrorID</span> 
+ (Error Code).</p>
+<p class="FM_body1">&#160;</p>
+<div>
+	<img alt="C08-02_020.jpg" id="image35" src="C08-02_020.jpg" border="0"> 
+	 
+</div>
+<p class="FM_fig">&#160;</p>
+<p class="FM_fig">&#160;</p>
+</body>
+</html>

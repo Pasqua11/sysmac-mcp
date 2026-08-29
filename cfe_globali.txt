@@ -1,0 +1,464 @@
+IN_Emergenza	BOOL	fungo di emergenza
+IN_Protezioni	BOOL	protezioni perimetrali chiuse
+IN_Press_Aria	BOOL	pressostato aria compressa
+IN_Aspirazione	BOOL	flussostato aspirazione cappa
+IN_DIW_Press	BOOL	pressostato acqua deionizzata
+IN_Termico_Gen	BOOL	termico generale (NC: TRUE = ok)
+V_S_Auto	BOOL	selettore automatico
+V_S_Semiauto	BOOL	selettore semiautomatico
+V_P_Start	BOOL	start ciclo
+V_P_Stop	BOOL	stop ciclo
+V_P_Reset	BOOL	reset allarmi
+V_P_Pausa	BOOL	pausa ciclo
+V_S_Ricetta_Sel	INT	numero ricetta selezionata da SCADA
+V_S_Ricetta_Att	INT	ricetta in esecuzione
+V_S_Passo	INT	passo di ricetta in corso
+V_S_Cesti_Fatti	INT	cesti processati
+V_S_Allarmi_Att	INT	numero di allarmi attivi
+V_L_Pronto	BOOL	spia macchina pronta
+V_L_Ciclo	BOOL	spia ciclo in corso
+V_L_Allarme	BOOL	spia allarme cumulativo
+V_L_Pausa	BOOL	spia pausa
+V_L_Fine_Ciclo	BOOL	spia ciclo completato
+V_S_All_Emergenza	BOOL	allarme emergenza premuta
+V_S_All_Protezioni	BOOL	allarme protezioni aperte
+V_S_All_Aria	BOOL	allarme mancanza aria
+V_S_All_Aspirazione	BOOL	allarme aspirazione insufficiente
+V_S_All_DIW	BOOL	allarme mancanza acqua DI
+V_S_All_Termico	BOOL	allarme termico generale
+V_S_All_Ricetta	BOOL	allarme ricetta non congruente
+V_S_All_Robot	BOOL	allarme robot in posizione errata
+V_S_All_Timeout	BOOL	allarme timeout movimento
+V_S_All_Portello	BOOL	allarme portello aperto in ciclo
+IN_Liv_Min_V1	BOOL	livello minimo vasca 1
+IN_Liv_Max_V1	BOOL	livello massimo vasca 1
+IN_Temp_Ok_V1	BOOL	termostato vasca 1 in banda
+IN_Temp_Alta_V1	BOOL	termostato di sicurezza vasca 1
+IN_Ricircolo_V1	BOOL	flussostato ricircolo vasca 1
+IN_Robot_Su_V1	BOOL	robot in posizione vasca 1
+OUT_Risc_V1	BOOL	riscaldamento vasca 1
+OUT_Pompa_V1	BOOL	pompa ricircolo vasca 1
+OUT_Carico_V1	BOOL	elettrovalvola carico vasca 1
+OUT_Scarico_V1	BOOL	elettrovalvola scarico vasca 1
+SET_T_Perm_V1	TIME	permanenza in vasca 1
+SET_T_Carico_V1	TIME	tempo massimo di carico vasca 1
+SET_Cicli_Max_V1	INT	cicli oltre i quali cambiare la soluzione
+V_S_Cicli_V1	INT	cicli fatti con la soluzione della vasca 1
+V_S_Usa_V1	BOOL	vasca 1 prevista dalla ricetta
+V_S_Soluzione_Vecchia_V1	BOOL	soluzione vasca 1 da sostituire
+V_S_All_Liv_V1	BOOL	allarme livello vasca 1
+V_S_All_Temp_V1	BOOL	allarme temperatura vasca 1
+V_S_All_TempAlta_V1	BOOL	allarme sovratemperatura vasca 1
+V_S_All_Ricircolo_V1	BOOL	allarme ricircolo vasca 1
+V_S_All_Carico_V1	BOOL	allarme carico vasca 1 non riuscito
+V_L_Vasca_Ready_V1	BOOL	vasca 1 pronta al processo
+V_S_Passo_V1	INT	passo di ricetta assegnato alla vasca 1
+IN_Cond_Bassa_V1	BOOL	conducibilita' vasca 1 sotto soglia
+IN_Cond_Alta_V1	BOOL	conducibilita' vasca 1 sopra soglia
+IN_pH_Basso_V1	BOOL	pH vasca 1 sotto soglia
+IN_pH_Alto_V1	BOOL	pH vasca 1 sopra soglia
+IN_Liv_Sfioro_V1	BOOL	sfioro vasca 1 intervenuto
+IN_Filtro_Sporco_V1	BOOL	pressostato differenziale filtro 1
+IN_Chim_A_Min_V1	BOOL	livello minimo tanica chimico A vasca 1
+IN_Chim_B_Min_V1	BOOL	livello minimo tanica chimico B vasca 1
+OUT_Dos_A_V1	BOOL	pompa dosatrice chimico A vasca 1
+OUT_Dos_B_V1	BOOL	pompa dosatrice chimico B vasca 1
+OUT_Rabbocco_V1	BOOL	elettrovalvola rabbocco vasca 1
+OUT_Agitazione_V1	BOOL	aria di agitazione vasca 1
+OUT_Cascata_V1	BOOL	lavaggio a cascata vasca 1
+SET_T_Dos_V1	TIME	durata di una dosata vasca 1
+SET_T_Rabbocco_V1	TIME	tempo massimo di rabbocco vasca 1
+SET_T_Pausa_Dos_V1	TIME	attesa di omogeneizzazione fra due dosate
+V_S_Dosate_V1	INT	dosate eseguite in vasca 1
+V_S_All_Cond_V1	BOOL	allarme conducibilita' vasca 1
+V_S_All_pH_V1	BOOL	allarme pH vasca 1
+V_S_All_Sfioro_V1	BOOL	allarme sfioro vasca 1
+V_S_All_Filtro_V1	BOOL	allarme filtro intasato vasca 1
+V_S_All_Chim_V1	BOOL	allarme chimico esaurito vasca 1
+V_S_All_Rabbocco_V1	BOOL	allarme rabbocco vasca 1
+IN_Liv_Min_V2	BOOL	livello minimo vasca 2
+IN_Liv_Max_V2	BOOL	livello massimo vasca 2
+IN_Temp_Ok_V2	BOOL	termostato vasca 2 in banda
+IN_Temp_Alta_V2	BOOL	termostato di sicurezza vasca 2
+IN_Ricircolo_V2	BOOL	flussostato ricircolo vasca 2
+IN_Robot_Su_V2	BOOL	robot in posizione vasca 2
+OUT_Risc_V2	BOOL	riscaldamento vasca 2
+OUT_Pompa_V2	BOOL	pompa ricircolo vasca 2
+OUT_Carico_V2	BOOL	elettrovalvola carico vasca 2
+OUT_Scarico_V2	BOOL	elettrovalvola scarico vasca 2
+SET_T_Perm_V2	TIME	permanenza in vasca 2
+SET_T_Carico_V2	TIME	tempo massimo di carico vasca 2
+SET_Cicli_Max_V2	INT	cicli oltre i quali cambiare la soluzione
+V_S_Cicli_V2	INT	cicli fatti con la soluzione della vasca 2
+V_S_Usa_V2	BOOL	vasca 2 prevista dalla ricetta
+V_S_Soluzione_Vecchia_V2	BOOL	soluzione vasca 2 da sostituire
+V_S_All_Liv_V2	BOOL	allarme livello vasca 2
+V_S_All_Temp_V2	BOOL	allarme temperatura vasca 2
+V_S_All_TempAlta_V2	BOOL	allarme sovratemperatura vasca 2
+V_S_All_Ricircolo_V2	BOOL	allarme ricircolo vasca 2
+V_S_All_Carico_V2	BOOL	allarme carico vasca 2 non riuscito
+V_L_Vasca_Ready_V2	BOOL	vasca 2 pronta al processo
+V_S_Passo_V2	INT	passo di ricetta assegnato alla vasca 2
+IN_Cond_Bassa_V2	BOOL	conducibilita' vasca 2 sotto soglia
+IN_Cond_Alta_V2	BOOL	conducibilita' vasca 2 sopra soglia
+IN_pH_Basso_V2	BOOL	pH vasca 2 sotto soglia
+IN_pH_Alto_V2	BOOL	pH vasca 2 sopra soglia
+IN_Liv_Sfioro_V2	BOOL	sfioro vasca 2 intervenuto
+IN_Filtro_Sporco_V2	BOOL	pressostato differenziale filtro 2
+IN_Chim_A_Min_V2	BOOL	livello minimo tanica chimico A vasca 2
+IN_Chim_B_Min_V2	BOOL	livello minimo tanica chimico B vasca 2
+OUT_Dos_A_V2	BOOL	pompa dosatrice chimico A vasca 2
+OUT_Dos_B_V2	BOOL	pompa dosatrice chimico B vasca 2
+OUT_Rabbocco_V2	BOOL	elettrovalvola rabbocco vasca 2
+OUT_Agitazione_V2	BOOL	aria di agitazione vasca 2
+OUT_Cascata_V2	BOOL	lavaggio a cascata vasca 2
+SET_T_Dos_V2	TIME	durata di una dosata vasca 2
+SET_T_Rabbocco_V2	TIME	tempo massimo di rabbocco vasca 2
+SET_T_Pausa_Dos_V2	TIME	attesa di omogeneizzazione fra due dosate
+V_S_Dosate_V2	INT	dosate eseguite in vasca 2
+V_S_All_Cond_V2	BOOL	allarme conducibilita' vasca 2
+V_S_All_pH_V2	BOOL	allarme pH vasca 2
+V_S_All_Sfioro_V2	BOOL	allarme sfioro vasca 2
+V_S_All_Filtro_V2	BOOL	allarme filtro intasato vasca 2
+V_S_All_Chim_V2	BOOL	allarme chimico esaurito vasca 2
+V_S_All_Rabbocco_V2	BOOL	allarme rabbocco vasca 2
+IN_Liv_Min_V3	BOOL	livello minimo vasca 3
+IN_Liv_Max_V3	BOOL	livello massimo vasca 3
+IN_Temp_Ok_V3	BOOL	termostato vasca 3 in banda
+IN_Temp_Alta_V3	BOOL	termostato di sicurezza vasca 3
+IN_Ricircolo_V3	BOOL	flussostato ricircolo vasca 3
+IN_Robot_Su_V3	BOOL	robot in posizione vasca 3
+OUT_Risc_V3	BOOL	riscaldamento vasca 3
+OUT_Pompa_V3	BOOL	pompa ricircolo vasca 3
+OUT_Carico_V3	BOOL	elettrovalvola carico vasca 3
+OUT_Scarico_V3	BOOL	elettrovalvola scarico vasca 3
+SET_T_Perm_V3	TIME	permanenza in vasca 3
+SET_T_Carico_V3	TIME	tempo massimo di carico vasca 3
+SET_Cicli_Max_V3	INT	cicli oltre i quali cambiare la soluzione
+V_S_Cicli_V3	INT	cicli fatti con la soluzione della vasca 3
+V_S_Usa_V3	BOOL	vasca 3 prevista dalla ricetta
+V_S_Soluzione_Vecchia_V3	BOOL	soluzione vasca 3 da sostituire
+V_S_All_Liv_V3	BOOL	allarme livello vasca 3
+V_S_All_Temp_V3	BOOL	allarme temperatura vasca 3
+V_S_All_TempAlta_V3	BOOL	allarme sovratemperatura vasca 3
+V_S_All_Ricircolo_V3	BOOL	allarme ricircolo vasca 3
+V_S_All_Carico_V3	BOOL	allarme carico vasca 3 non riuscito
+V_L_Vasca_Ready_V3	BOOL	vasca 3 pronta al processo
+V_S_Passo_V3	INT	passo di ricetta assegnato alla vasca 3
+IN_Cond_Bassa_V3	BOOL	conducibilita' vasca 3 sotto soglia
+IN_Cond_Alta_V3	BOOL	conducibilita' vasca 3 sopra soglia
+IN_pH_Basso_V3	BOOL	pH vasca 3 sotto soglia
+IN_pH_Alto_V3	BOOL	pH vasca 3 sopra soglia
+IN_Liv_Sfioro_V3	BOOL	sfioro vasca 3 intervenuto
+IN_Filtro_Sporco_V3	BOOL	pressostato differenziale filtro 3
+IN_Chim_A_Min_V3	BOOL	livello minimo tanica chimico A vasca 3
+IN_Chim_B_Min_V3	BOOL	livello minimo tanica chimico B vasca 3
+OUT_Dos_A_V3	BOOL	pompa dosatrice chimico A vasca 3
+OUT_Dos_B_V3	BOOL	pompa dosatrice chimico B vasca 3
+OUT_Rabbocco_V3	BOOL	elettrovalvola rabbocco vasca 3
+OUT_Agitazione_V3	BOOL	aria di agitazione vasca 3
+OUT_Cascata_V3	BOOL	lavaggio a cascata vasca 3
+SET_T_Dos_V3	TIME	durata di una dosata vasca 3
+SET_T_Rabbocco_V3	TIME	tempo massimo di rabbocco vasca 3
+SET_T_Pausa_Dos_V3	TIME	attesa di omogeneizzazione fra due dosate
+V_S_Dosate_V3	INT	dosate eseguite in vasca 3
+V_S_All_Cond_V3	BOOL	allarme conducibilita' vasca 3
+V_S_All_pH_V3	BOOL	allarme pH vasca 3
+V_S_All_Sfioro_V3	BOOL	allarme sfioro vasca 3
+V_S_All_Filtro_V3	BOOL	allarme filtro intasato vasca 3
+V_S_All_Chim_V3	BOOL	allarme chimico esaurito vasca 3
+V_S_All_Rabbocco_V3	BOOL	allarme rabbocco vasca 3
+IN_Liv_Min_V4	BOOL	livello minimo vasca 4
+IN_Liv_Max_V4	BOOL	livello massimo vasca 4
+IN_Temp_Ok_V4	BOOL	termostato vasca 4 in banda
+IN_Temp_Alta_V4	BOOL	termostato di sicurezza vasca 4
+IN_Ricircolo_V4	BOOL	flussostato ricircolo vasca 4
+IN_Robot_Su_V4	BOOL	robot in posizione vasca 4
+OUT_Risc_V4	BOOL	riscaldamento vasca 4
+OUT_Pompa_V4	BOOL	pompa ricircolo vasca 4
+OUT_Carico_V4	BOOL	elettrovalvola carico vasca 4
+OUT_Scarico_V4	BOOL	elettrovalvola scarico vasca 4
+SET_T_Perm_V4	TIME	permanenza in vasca 4
+SET_T_Carico_V4	TIME	tempo massimo di carico vasca 4
+SET_Cicli_Max_V4	INT	cicli oltre i quali cambiare la soluzione
+V_S_Cicli_V4	INT	cicli fatti con la soluzione della vasca 4
+V_S_Usa_V4	BOOL	vasca 4 prevista dalla ricetta
+V_S_Soluzione_Vecchia_V4	BOOL	soluzione vasca 4 da sostituire
+V_S_All_Liv_V4	BOOL	allarme livello vasca 4
+V_S_All_Temp_V4	BOOL	allarme temperatura vasca 4
+V_S_All_TempAlta_V4	BOOL	allarme sovratemperatura vasca 4
+V_S_All_Ricircolo_V4	BOOL	allarme ricircolo vasca 4
+V_S_All_Carico_V4	BOOL	allarme carico vasca 4 non riuscito
+V_L_Vasca_Ready_V4	BOOL	vasca 4 pronta al processo
+V_S_Passo_V4	INT	passo di ricetta assegnato alla vasca 4
+IN_Cond_Bassa_V4	BOOL	conducibilita' vasca 4 sotto soglia
+IN_Cond_Alta_V4	BOOL	conducibilita' vasca 4 sopra soglia
+IN_pH_Basso_V4	BOOL	pH vasca 4 sotto soglia
+IN_pH_Alto_V4	BOOL	pH vasca 4 sopra soglia
+IN_Liv_Sfioro_V4	BOOL	sfioro vasca 4 intervenuto
+IN_Filtro_Sporco_V4	BOOL	pressostato differenziale filtro 4
+IN_Chim_A_Min_V4	BOOL	livello minimo tanica chimico A vasca 4
+IN_Chim_B_Min_V4	BOOL	livello minimo tanica chimico B vasca 4
+OUT_Dos_A_V4	BOOL	pompa dosatrice chimico A vasca 4
+OUT_Dos_B_V4	BOOL	pompa dosatrice chimico B vasca 4
+OUT_Rabbocco_V4	BOOL	elettrovalvola rabbocco vasca 4
+OUT_Agitazione_V4	BOOL	aria di agitazione vasca 4
+OUT_Cascata_V4	BOOL	lavaggio a cascata vasca 4
+SET_T_Dos_V4	TIME	durata di una dosata vasca 4
+SET_T_Rabbocco_V4	TIME	tempo massimo di rabbocco vasca 4
+SET_T_Pausa_Dos_V4	TIME	attesa di omogeneizzazione fra due dosate
+V_S_Dosate_V4	INT	dosate eseguite in vasca 4
+V_S_All_Cond_V4	BOOL	allarme conducibilita' vasca 4
+V_S_All_pH_V4	BOOL	allarme pH vasca 4
+V_S_All_Sfioro_V4	BOOL	allarme sfioro vasca 4
+V_S_All_Filtro_V4	BOOL	allarme filtro intasato vasca 4
+V_S_All_Chim_V4	BOOL	allarme chimico esaurito vasca 4
+V_S_All_Rabbocco_V4	BOOL	allarme rabbocco vasca 4
+IN_Liv_Min_V5	BOOL	livello minimo vasca 5
+IN_Liv_Max_V5	BOOL	livello massimo vasca 5
+IN_Temp_Ok_V5	BOOL	termostato vasca 5 in banda
+IN_Temp_Alta_V5	BOOL	termostato di sicurezza vasca 5
+IN_Ricircolo_V5	BOOL	flussostato ricircolo vasca 5
+IN_Robot_Su_V5	BOOL	robot in posizione vasca 5
+OUT_Risc_V5	BOOL	riscaldamento vasca 5
+OUT_Pompa_V5	BOOL	pompa ricircolo vasca 5
+OUT_Carico_V5	BOOL	elettrovalvola carico vasca 5
+OUT_Scarico_V5	BOOL	elettrovalvola scarico vasca 5
+SET_T_Perm_V5	TIME	permanenza in vasca 5
+SET_T_Carico_V5	TIME	tempo massimo di carico vasca 5
+SET_Cicli_Max_V5	INT	cicli oltre i quali cambiare la soluzione
+V_S_Cicli_V5	INT	cicli fatti con la soluzione della vasca 5
+V_S_Usa_V5	BOOL	vasca 5 prevista dalla ricetta
+V_S_Soluzione_Vecchia_V5	BOOL	soluzione vasca 5 da sostituire
+V_S_All_Liv_V5	BOOL	allarme livello vasca 5
+V_S_All_Temp_V5	BOOL	allarme temperatura vasca 5
+V_S_All_TempAlta_V5	BOOL	allarme sovratemperatura vasca 5
+V_S_All_Ricircolo_V5	BOOL	allarme ricircolo vasca 5
+V_S_All_Carico_V5	BOOL	allarme carico vasca 5 non riuscito
+V_L_Vasca_Ready_V5	BOOL	vasca 5 pronta al processo
+V_S_Passo_V5	INT	passo di ricetta assegnato alla vasca 5
+IN_Cond_Bassa_V5	BOOL	conducibilita' vasca 5 sotto soglia
+IN_Cond_Alta_V5	BOOL	conducibilita' vasca 5 sopra soglia
+IN_pH_Basso_V5	BOOL	pH vasca 5 sotto soglia
+IN_pH_Alto_V5	BOOL	pH vasca 5 sopra soglia
+IN_Liv_Sfioro_V5	BOOL	sfioro vasca 5 intervenuto
+IN_Filtro_Sporco_V5	BOOL	pressostato differenziale filtro 5
+IN_Chim_A_Min_V5	BOOL	livello minimo tanica chimico A vasca 5
+IN_Chim_B_Min_V5	BOOL	livello minimo tanica chimico B vasca 5
+OUT_Dos_A_V5	BOOL	pompa dosatrice chimico A vasca 5
+OUT_Dos_B_V5	BOOL	pompa dosatrice chimico B vasca 5
+OUT_Rabbocco_V5	BOOL	elettrovalvola rabbocco vasca 5
+OUT_Agitazione_V5	BOOL	aria di agitazione vasca 5
+OUT_Cascata_V5	BOOL	lavaggio a cascata vasca 5
+SET_T_Dos_V5	TIME	durata di una dosata vasca 5
+SET_T_Rabbocco_V5	TIME	tempo massimo di rabbocco vasca 5
+SET_T_Pausa_Dos_V5	TIME	attesa di omogeneizzazione fra due dosate
+V_S_Dosate_V5	INT	dosate eseguite in vasca 5
+V_S_All_Cond_V5	BOOL	allarme conducibilita' vasca 5
+V_S_All_pH_V5	BOOL	allarme pH vasca 5
+V_S_All_Sfioro_V5	BOOL	allarme sfioro vasca 5
+V_S_All_Filtro_V5	BOOL	allarme filtro intasato vasca 5
+V_S_All_Chim_V5	BOOL	allarme chimico esaurito vasca 5
+V_S_All_Rabbocco_V5	BOOL	allarme rabbocco vasca 5
+IN_Liv_Min_V6	BOOL	livello minimo vasca 6
+IN_Liv_Max_V6	BOOL	livello massimo vasca 6
+IN_Temp_Ok_V6	BOOL	termostato vasca 6 in banda
+IN_Temp_Alta_V6	BOOL	termostato di sicurezza vasca 6
+IN_Ricircolo_V6	BOOL	flussostato ricircolo vasca 6
+IN_Robot_Su_V6	BOOL	robot in posizione vasca 6
+OUT_Risc_V6	BOOL	riscaldamento vasca 6
+OUT_Pompa_V6	BOOL	pompa ricircolo vasca 6
+OUT_Carico_V6	BOOL	elettrovalvola carico vasca 6
+OUT_Scarico_V6	BOOL	elettrovalvola scarico vasca 6
+SET_T_Perm_V6	TIME	permanenza in vasca 6
+SET_T_Carico_V6	TIME	tempo massimo di carico vasca 6
+SET_Cicli_Max_V6	INT	cicli oltre i quali cambiare la soluzione
+V_S_Cicli_V6	INT	cicli fatti con la soluzione della vasca 6
+V_S_Usa_V6	BOOL	vasca 6 prevista dalla ricetta
+V_S_Soluzione_Vecchia_V6	BOOL	soluzione vasca 6 da sostituire
+V_S_All_Liv_V6	BOOL	allarme livello vasca 6
+V_S_All_Temp_V6	BOOL	allarme temperatura vasca 6
+V_S_All_TempAlta_V6	BOOL	allarme sovratemperatura vasca 6
+V_S_All_Ricircolo_V6	BOOL	allarme ricircolo vasca 6
+V_S_All_Carico_V6	BOOL	allarme carico vasca 6 non riuscito
+V_L_Vasca_Ready_V6	BOOL	vasca 6 pronta al processo
+V_S_Passo_V6	INT	passo di ricetta assegnato alla vasca 6
+IN_Cond_Bassa_V6	BOOL	conducibilita' vasca 6 sotto soglia
+IN_Cond_Alta_V6	BOOL	conducibilita' vasca 6 sopra soglia
+IN_pH_Basso_V6	BOOL	pH vasca 6 sotto soglia
+IN_pH_Alto_V6	BOOL	pH vasca 6 sopra soglia
+IN_Liv_Sfioro_V6	BOOL	sfioro vasca 6 intervenuto
+IN_Filtro_Sporco_V6	BOOL	pressostato differenziale filtro 6
+IN_Chim_A_Min_V6	BOOL	livello minimo tanica chimico A vasca 6
+IN_Chim_B_Min_V6	BOOL	livello minimo tanica chimico B vasca 6
+OUT_Dos_A_V6	BOOL	pompa dosatrice chimico A vasca 6
+OUT_Dos_B_V6	BOOL	pompa dosatrice chimico B vasca 6
+OUT_Rabbocco_V6	BOOL	elettrovalvola rabbocco vasca 6
+OUT_Agitazione_V6	BOOL	aria di agitazione vasca 6
+OUT_Cascata_V6	BOOL	lavaggio a cascata vasca 6
+SET_T_Dos_V6	TIME	durata di una dosata vasca 6
+SET_T_Rabbocco_V6	TIME	tempo massimo di rabbocco vasca 6
+SET_T_Pausa_Dos_V6	TIME	attesa di omogeneizzazione fra due dosate
+V_S_Dosate_V6	INT	dosate eseguite in vasca 6
+V_S_All_Cond_V6	BOOL	allarme conducibilita' vasca 6
+V_S_All_pH_V6	BOOL	allarme pH vasca 6
+V_S_All_Sfioro_V6	BOOL	allarme sfioro vasca 6
+V_S_All_Filtro_V6	BOOL	allarme filtro intasato vasca 6
+V_S_All_Chim_V6	BOOL	allarme chimico esaurito vasca 6
+V_S_All_Rabbocco_V6	BOOL	allarme rabbocco vasca 6
+IN_Liv_Min_V7	BOOL	livello minimo vasca 7
+IN_Liv_Max_V7	BOOL	livello massimo vasca 7
+IN_Temp_Ok_V7	BOOL	termostato vasca 7 in banda
+IN_Temp_Alta_V7	BOOL	termostato di sicurezza vasca 7
+IN_Ricircolo_V7	BOOL	flussostato ricircolo vasca 7
+IN_Robot_Su_V7	BOOL	robot in posizione vasca 7
+OUT_Risc_V7	BOOL	riscaldamento vasca 7
+OUT_Pompa_V7	BOOL	pompa ricircolo vasca 7
+OUT_Carico_V7	BOOL	elettrovalvola carico vasca 7
+OUT_Scarico_V7	BOOL	elettrovalvola scarico vasca 7
+SET_T_Perm_V7	TIME	permanenza in vasca 7
+SET_T_Carico_V7	TIME	tempo massimo di carico vasca 7
+SET_Cicli_Max_V7	INT	cicli oltre i quali cambiare la soluzione
+V_S_Cicli_V7	INT	cicli fatti con la soluzione della vasca 7
+V_S_Usa_V7	BOOL	vasca 7 prevista dalla ricetta
+V_S_Soluzione_Vecchia_V7	BOOL	soluzione vasca 7 da sostituire
+V_S_All_Liv_V7	BOOL	allarme livello vasca 7
+V_S_All_Temp_V7	BOOL	allarme temperatura vasca 7
+V_S_All_TempAlta_V7	BOOL	allarme sovratemperatura vasca 7
+V_S_All_Ricircolo_V7	BOOL	allarme ricircolo vasca 7
+V_S_All_Carico_V7	BOOL	allarme carico vasca 7 non riuscito
+V_L_Vasca_Ready_V7	BOOL	vasca 7 pronta al processo
+V_S_Passo_V7	INT	passo di ricetta assegnato alla vasca 7
+IN_Cond_Bassa_V7	BOOL	conducibilita' vasca 7 sotto soglia
+IN_Cond_Alta_V7	BOOL	conducibilita' vasca 7 sopra soglia
+IN_pH_Basso_V7	BOOL	pH vasca 7 sotto soglia
+IN_pH_Alto_V7	BOOL	pH vasca 7 sopra soglia
+IN_Liv_Sfioro_V7	BOOL	sfioro vasca 7 intervenuto
+IN_Filtro_Sporco_V7	BOOL	pressostato differenziale filtro 7
+IN_Chim_A_Min_V7	BOOL	livello minimo tanica chimico A vasca 7
+IN_Chim_B_Min_V7	BOOL	livello minimo tanica chimico B vasca 7
+OUT_Dos_A_V7	BOOL	pompa dosatrice chimico A vasca 7
+OUT_Dos_B_V7	BOOL	pompa dosatrice chimico B vasca 7
+OUT_Rabbocco_V7	BOOL	elettrovalvola rabbocco vasca 7
+OUT_Agitazione_V7	BOOL	aria di agitazione vasca 7
+OUT_Cascata_V7	BOOL	lavaggio a cascata vasca 7
+SET_T_Dos_V7	TIME	durata di una dosata vasca 7
+SET_T_Rabbocco_V7	TIME	tempo massimo di rabbocco vasca 7
+SET_T_Pausa_Dos_V7	TIME	attesa di omogeneizzazione fra due dosate
+V_S_Dosate_V7	INT	dosate eseguite in vasca 7
+V_S_All_Cond_V7	BOOL	allarme conducibilita' vasca 7
+V_S_All_pH_V7	BOOL	allarme pH vasca 7
+V_S_All_Sfioro_V7	BOOL	allarme sfioro vasca 7
+V_S_All_Filtro_V7	BOOL	allarme filtro intasato vasca 7
+V_S_All_Chim_V7	BOOL	allarme chimico esaurito vasca 7
+V_S_All_Rabbocco_V7	BOOL	allarme rabbocco vasca 7
+IN_Liv_Min_V8	BOOL	livello minimo vasca 8
+IN_Liv_Max_V8	BOOL	livello massimo vasca 8
+IN_Temp_Ok_V8	BOOL	termostato vasca 8 in banda
+IN_Temp_Alta_V8	BOOL	termostato di sicurezza vasca 8
+IN_Ricircolo_V8	BOOL	flussostato ricircolo vasca 8
+IN_Robot_Su_V8	BOOL	robot in posizione vasca 8
+OUT_Risc_V8	BOOL	riscaldamento vasca 8
+OUT_Pompa_V8	BOOL	pompa ricircolo vasca 8
+OUT_Carico_V8	BOOL	elettrovalvola carico vasca 8
+OUT_Scarico_V8	BOOL	elettrovalvola scarico vasca 8
+SET_T_Perm_V8	TIME	permanenza in vasca 8
+SET_T_Carico_V8	TIME	tempo massimo di carico vasca 8
+SET_Cicli_Max_V8	INT	cicli oltre i quali cambiare la soluzione
+V_S_Cicli_V8	INT	cicli fatti con la soluzione della vasca 8
+V_S_Usa_V8	BOOL	vasca 8 prevista dalla ricetta
+V_S_Soluzione_Vecchia_V8	BOOL	soluzione vasca 8 da sostituire
+V_S_All_Liv_V8	BOOL	allarme livello vasca 8
+V_S_All_Temp_V8	BOOL	allarme temperatura vasca 8
+V_S_All_TempAlta_V8	BOOL	allarme sovratemperatura vasca 8
+V_S_All_Ricircolo_V8	BOOL	allarme ricircolo vasca 8
+V_S_All_Carico_V8	BOOL	allarme carico vasca 8 non riuscito
+V_L_Vasca_Ready_V8	BOOL	vasca 8 pronta al processo
+V_S_Passo_V8	INT	passo di ricetta assegnato alla vasca 8
+IN_Cond_Bassa_V8	BOOL	conducibilita' vasca 8 sotto soglia
+IN_Cond_Alta_V8	BOOL	conducibilita' vasca 8 sopra soglia
+IN_pH_Basso_V8	BOOL	pH vasca 8 sotto soglia
+IN_pH_Alto_V8	BOOL	pH vasca 8 sopra soglia
+IN_Liv_Sfioro_V8	BOOL	sfioro vasca 8 intervenuto
+IN_Filtro_Sporco_V8	BOOL	pressostato differenziale filtro 8
+IN_Chim_A_Min_V8	BOOL	livello minimo tanica chimico A vasca 8
+IN_Chim_B_Min_V8	BOOL	livello minimo tanica chimico B vasca 8
+OUT_Dos_A_V8	BOOL	pompa dosatrice chimico A vasca 8
+OUT_Dos_B_V8	BOOL	pompa dosatrice chimico B vasca 8
+OUT_Rabbocco_V8	BOOL	elettrovalvola rabbocco vasca 8
+OUT_Agitazione_V8	BOOL	aria di agitazione vasca 8
+OUT_Cascata_V8	BOOL	lavaggio a cascata vasca 8
+SET_T_Dos_V8	TIME	durata di una dosata vasca 8
+SET_T_Rabbocco_V8	TIME	tempo massimo di rabbocco vasca 8
+SET_T_Pausa_Dos_V8	TIME	attesa di omogeneizzazione fra due dosate
+V_S_Dosate_V8	INT	dosate eseguite in vasca 8
+V_S_All_Cond_V8	BOOL	allarme conducibilita' vasca 8
+V_S_All_pH_V8	BOOL	allarme pH vasca 8
+V_S_All_Sfioro_V8	BOOL	allarme sfioro vasca 8
+V_S_All_Filtro_V8	BOOL	allarme filtro intasato vasca 8
+V_S_All_Chim_V8	BOOL	allarme chimico esaurito vasca 8
+V_S_All_Rabbocco_V8	BOOL	allarme rabbocco vasca 8
+IN_Liv_Min_V9	BOOL	livello minimo vasca 9
+IN_Liv_Max_V9	BOOL	livello massimo vasca 9
+IN_Temp_Ok_V9	BOOL	termostato vasca 9 in banda
+IN_Temp_Alta_V9	BOOL	termostato di sicurezza vasca 9
+IN_Ricircolo_V9	BOOL	flussostato ricircolo vasca 9
+IN_Robot_Su_V9	BOOL	robot in posizione vasca 9
+OUT_Risc_V9	BOOL	riscaldamento vasca 9
+OUT_Pompa_V9	BOOL	pompa ricircolo vasca 9
+OUT_Carico_V9	BOOL	elettrovalvola carico vasca 9
+OUT_Scarico_V9	BOOL	elettrovalvola scarico vasca 9
+SET_T_Perm_V9	TIME	permanenza in vasca 9
+SET_T_Carico_V9	TIME	tempo massimo di carico vasca 9
+SET_Cicli_Max_V9	INT	cicli oltre i quali cambiare la soluzione
+V_S_Cicli_V9	INT	cicli fatti con la soluzione della vasca 9
+V_S_Usa_V9	BOOL	vasca 9 prevista dalla ricetta
+V_S_Soluzione_Vecchia_V9	BOOL	soluzione vasca 9 da sostituire
+V_S_All_Liv_V9	BOOL	allarme livello vasca 9
+V_S_All_Temp_V9	BOOL	allarme temperatura vasca 9
+V_S_All_TempAlta_V9	BOOL	allarme sovratemperatura vasca 9
+V_S_All_Ricircolo_V9	BOOL	allarme ricircolo vasca 9
+V_S_All_Carico_V9	BOOL	allarme carico vasca 9 non riuscito
+V_L_Vasca_Ready_V9	BOOL	vasca 9 pronta al processo
+V_S_Passo_V9	INT	passo di ricetta assegnato alla vasca 9
+IN_Cond_Bassa_V9	BOOL	conducibilita' vasca 9 sotto soglia
+IN_Cond_Alta_V9	BOOL	conducibilita' vasca 9 sopra soglia
+IN_pH_Basso_V9	BOOL	pH vasca 9 sotto soglia
+IN_pH_Alto_V9	BOOL	pH vasca 9 sopra soglia
+IN_Liv_Sfioro_V9	BOOL	sfioro vasca 9 intervenuto
+IN_Filtro_Sporco_V9	BOOL	pressostato differenziale filtro 9
+IN_Chim_A_Min_V9	BOOL	livello minimo tanica chimico A vasca 9
+IN_Chim_B_Min_V9	BOOL	livello minimo tanica chimico B vasca 9
+OUT_Dos_A_V9	BOOL	pompa dosatrice chimico A vasca 9
+OUT_Dos_B_V9	BOOL	pompa dosatrice chimico B vasca 9
+OUT_Rabbocco_V9	BOOL	elettrovalvola rabbocco vasca 9
+OUT_Agitazione_V9	BOOL	aria di agitazione vasca 9
+OUT_Cascata_V9	BOOL	lavaggio a cascata vasca 9
+SET_T_Dos_V9	TIME	durata di una dosata vasca 9
+SET_T_Rabbocco_V9	TIME	tempo massimo di rabbocco vasca 9
+SET_T_Pausa_Dos_V9	TIME	attesa di omogeneizzazione fra due dosate
+V_S_Dosate_V9	INT	dosate eseguite in vasca 9
+V_S_All_Cond_V9	BOOL	allarme conducibilita' vasca 9
+V_S_All_pH_V9	BOOL	allarme pH vasca 9
+V_S_All_Sfioro_V9	BOOL	allarme sfioro vasca 9
+V_S_All_Filtro_V9	BOOL	allarme filtro intasato vasca 9
+V_S_All_Chim_V9	BOOL	allarme chimico esaurito vasca 9
+V_S_All_Rabbocco_V9	BOOL	allarme rabbocco vasca 9
+IN_Robot_Carico	BOOL	robot in posizione di carico
+IN_Robot_Scarico	BOOL	robot in posizione di scarico
+IN_Robot_Alto	BOOL	robot in quota alta
+IN_Robot_Basso	BOOL	robot in quota bassa
+IN_Cesto_Presente	BOOL	cesto presente in pinza
+IN_Cesto_Carico	BOOL	cesto in attesa al carico
+IN_Portello_1	BOOL	portello anteriore chiuso
+IN_Portello_2	BOOL	portello posteriore chiuso
+OUT_Robot_Avanti	BOOL	traslazione robot avanti
+OUT_Robot_Indietro	BOOL	traslazione robot indietro
+OUT_Robot_Sale	BOOL	sollevamento robot
+OUT_Robot_Scende	BOOL	discesa robot
+OUT_Pinza_Chiudi	BOOL	chiusura pinza
+OUT_Pinza_Apri	BOOL	apertura pinza
+OUT_Blocco_Portelli	BOOL	elettroserratura portelli
+SET_T_Mov	TIME	tempo massimo di un movimento
+V_S_Pos_Robot	INT	posizione corrente del robot
+V_S_Pos_Target	INT	posizione richiesta al robot

@@ -1,0 +1,141 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>ResetNXBError</title>
+</head>
+<body class="juy1501815739139"><div class="layer02" id="juy1501815739139">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">ResetNXBError</h1>
+
+<div class="body conbody">
+<p class="p" id="juy1501815739139__ID0EX5AO">The ResetNXBError instruction resets Controller errors in the NX Bus Function Module.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="juy1501815739139__table_N10017_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:13%" />
+<col style="width:14%" />
+<col style="width:6%" />
+<col style="width:35%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d521573e37">Instruction</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d521573e40">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d521573e43">
+<p class="p">FB/</p>
+
+<p class="p">FUN</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d521573e52">Graphic expression</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d521573e55">ST expression</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d521573e37 "><span class="indexterm">ResetNXBError (Reset NX Bus Error)</span>ResetNXBError</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d521573e40 "><span class="indexterm">Reset NX Bus Error</span>Reset NX Bus Error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d521573e43 ">FB</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d521573e52 ">
+<br /><img class="image" id="juy1501815739139__image_9B0B99EB047C4B67BEEBD741B2903BDB" src="pmg1501815738353.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d521573e55 ">ResetNXBError_instance(Execute, Done, Busy, Error, ErrorID);</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<div class="note" id="juy1501815739139__note_N100AB_N1000F_N10002"><div class="use"><span class="notetitle use">use:</span> You can use this instruction for the NX502 CPU Unit, NX102 CPU Unit, and NX1P2 CPU Unit.</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="nfh1501816899851">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Variables</h1>
+<div class="body conbody"><p class="p">Only common variables are used.</p>
+</div>
+<div class="related-links"></div></div><div class="layer03" id="var1501816932900">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function</h1>
+
+<div class="body conbody">
+<p class="p" id="var1501816932900__ID0EDIBO">The ResetNXBError instruction resets the current Controller errors in the NX Bus Function Module.</p>
+
+<p class="p linespace_7pt">After an error is reset, the <span class="ph phtype_variable"><span class="termtype">Busy</span></span> output variable changes to FALSE and the <span class="ph phtype_variable"><span class="termtype">Done</span></span> output variable changes to TRUE.</p>
+
+<p class="p" id="var1501816932900__ID0ETIBO">For Safety Control Units, however, errors are not reset.</p>
+
+<p class="p linespace_7pt">If this instruction is executed again in a different instance from the instance for which error reset processing is in progress, the latter instruction will result in an error.</p>
+
+<p class="p" id="var1501816932900__ID0EHJBO">The <span class="ph phtype_variable"><span class="termtype">Error</span></span> output variable of the latter command changes to TRUE and the error code (Multi-execution of Instructions: 041A) is output to the <span class="ph phtype_variable"><span class="termtype">ErrorID</span></span> output variable.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="czy1501816933142">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Related System-defined Variables</h1>
+<div class="body conbody">
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="czy1501816933142__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all"><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d145907e18">Name</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d145907e20">Meaning</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d145907e18 ">_NXB_ErrSta</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d145907e20 ">NX Bus Function Module Error Status</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="related-links"></div></div><div class="layer03" id="maz1501816933378">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Additional Information</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="maz1501816933378__li_N10015_N10012_N1000F_N10002">
+<p class="p">If you execute this instruction on the Simulator, <span class="ph phtype_variable"><span class="termtype"><em class="ph i">Done</em></span></span> will change to TRUE, <span class="ph phtype_variable"><span class="termtype">Busy</span></span> and <span class="ph phtype_variable"><span class="termtype">Error</span></span> to FALSE, and <span class="ph phtype_variable"><span class="termtype"><em class="ph i">ErrorID</em></span></span> to <span class="ph phtype_type2"><span class="termtype">0</span></span> when <span class="ph phtype_variable"><span class="termtype"><em class="ph i">Execute</em></span></span> changes from FALSE to TRUE. And errors will not be cleared.</p>
+
+</li>
+
+<li class="li" id="maz1501816933378__li_N1003C_N10012_N1000F_N10002">
+<p class="p">If the cause of the error is not solved and the error status remains after resetting an error, the error reset may appear to be impossible.</p>
+
+</li>
+
+<li class="li" id="maz1501816933378__li_N10045_N10012_N1000F_N10002">
+<p class="p">The event log is not cleared.</p>
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="cdh1501816933615">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Precautions for Correct Use</h1>
+<div class="body conbody"><p class="p">You cannot use this instruction in an event task. A compiling error will occur.</p>
+</div>
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+
+
+

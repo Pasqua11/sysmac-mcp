@@ -1,0 +1,89 @@
+{
+ "progetto": "Riscalda_Syntech",
+ "guid": "cdcdfcce-1155-4e3f-9ccf-d8cf52f4e3d9",
+ "sections": {
+  "Sezione0": {
+   "rungs": [
+    {
+     "cmt": "RISCALDAMENTO VASCA1",
+     "chain": [
+      "P_On",
+      {
+       "or": [
+        {
+         "f": "MOVE",
+         "p": {
+          "In": "SET_Riscalda_V1",
+          "OUT:Out": "SET_Real_Riscalda_V1"
+         }
+        },
+        [
+         "V_S_Riscalda_V1",
+         {
+          "or": [
+           [
+            {
+             "f": "<",
+             "p": {
+              "In1": "PV_Temper_Sicurezza",
+              "In2": "SET_Temp_Safety_Resistenza"
+             }
+            },
+            "(/STOP_Ch1_Temperatura)"
+           ],
+           "(OUT_CONTATTORE)"
+          ]
+         }
+        ]
+       ]
+      }
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "OUT_CONTATTORE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_Temper_Sicurezza",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Real_Riscalda_V1",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Riscalda_V1",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_Temp_Safety_Resistenza",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "STOP_Ch1_Temperatura",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_S_Riscalda_V1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  }
+ }
+}

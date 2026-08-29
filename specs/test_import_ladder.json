@@ -1,0 +1,1697 @@
+{
+ "progetto": "test_import_ladder",
+ "guid": "ef1b0f31-abdc-4ccf-809f-3d539d0724f4",
+ "sections": {
+  "Sezione2": {
+   "rungs": [
+    {
+     "cmt": "",
+     "_NON_CONVERTITO": "rung vuoto"
+    },
+    {
+     "cmt": "CALCOLO QUOTE PER MOVIMENTAZIONE",
+     "chain": [
+      "P_On",
+      {
+       "ist": "(*Quote robot movimentazione da PRESA a DEPOSITO*) \r\n(*MOV1 asse X*) \r\nDistance1[0]:=(X_PRESA - 50); \r\nDistance1[1]:=0; \r\n(*MOV2 asse Y giÃ¹*) \r\nDistance2[0]:=(Distance1[0]); \r\nDistance2[1]:=(Y_PRESA); \r\n(*MOV3 asse X aggancio*) \r\nDistance3[0]:=(X_PRESA ); \r\nDistance3[1]:=Distance2[1]; \r\n(*MOV4A asse Y aggancio *) \r\nDistance4_Acc[0]:=0; \r\nDistance4_Acc[1]:=-50;(*mm di velocitÃ  bassa) \r\n(*MOV4 asse Y salita con cesto*) \r\nDistance4[0]:=Distance3[0]; \r\nDistance4[1]:=0; \r\n(*MOV5 asse X con cesto*) \r\nDistance5[0]:=(X_DEPOSITO ); \r\nDistance5[1]:=Distance4[1]; \r\n(*MOV6 asse Y deposito cesto*) \r\nDistance6[0]:=(Distance5[0]); \r\nDistance6[1]:=(Y_DEPOSITO-50); \r\n(*MOV6A asse Y deposito cesto velocitÃ  bassa*) \r\nDistance6_Dec[0]:=(Distance5[0]); \r\nDistance6_Dec[1]:=(Y_DEPOSITO); \r\n(*MOV7*) \r\nDistance7[0]:=(X_DEPOSITO -50); \r\nDistance7[1]:=Distance6_Dec[1]; \r\n(*MOV8*) \r\nDistance8[0]:=(Distance7[0] ); \r\nDistance8[1]:=0; \r\n \r\n;"
+      }
+     ]
+    },
+    {
+     "cmt": "BLOCCO PRINCIPALE DI MOVIMENTAZIONE ASSI DOVE CARICO DI VOLTA IN VOLTA LE QUOTE CALCOLATE",
+     "_NON_CONVERTITO": "ramo parallelo vuoto (bypass) non rappresentabile"
+    },
+    {
+     "cmt": "CALCOLO QUOTE PER MOVIMENTAZIONE",
+     "chain": [
+      "P_On",
+      {
+       "ist": "(*Quote robot movimentazione da PRESA a DEPOSITO*) \r\n(*MOV1 asse X*) \r\nDistance1[0]:=(X_PRESA - 50); \r\nDistance1[1]:=0; \r\n(*MOV2 asse Y giÃ¹*) \r\nDistance2[0]:=(Distance1[0]); \r\nDistance2[1]:=(Y_PRESA); \r\n(*MOV3 asse X aggancio*) \r\nDistance3[0]:=(X_PRESA ); \r\nDistance3[1]:=Distance2[1]; \r\n(*MOV4A asse Y aggancio *) \r\nDistance4_Acc[0]:=0; \r\nDistance4_Acc[1]:=-50;(*mm di velocitÃ  bassa) \r\n(*MOV4 asse Y salita con cesto*) \r\nDistance4[0]:=Distance3[0]; \r\nDistance4[1]:=0; \r\n(*MOV5 asse X con cesto*) \r\nDistance5[0]:=(X_DEPOSITO ); \r\nDistance5[1]:=Distance4[1]; \r\n(*MOV6 asse Y deposito cesto*) \r\nDistance6[0]:=(Distance5[0]); \r\nDistance6[1]:=(Y_DEPOSITO-50); \r\n(*MOV6A asse Y deposito cesto velocitÃ  bassa*) \r\nDistance6_Dec[0]:=(Distance5[0]); \r\nDistance6_Dec[1]:=(Y_DEPOSITO); \r\n(*MOV7*) \r\nDistance7[0]:=(X_DEPOSITO -50); \r\nDistance7[1]:=Distance6_Dec[1]; \r\n(*MOV8*) \r\nDistance8[0]:=(Distance7[0] ); \r\nDistance8[1]:=0; \r\n \r\n;"
+      }
+     ]
+    },
+    {
+     "cmt": "BLOCCO PRINCIPALE DI MOVIMENTAZIONE ASSI DOVE CARICO DI VOLTA IN VOLTA LE QUOTE CALCOLATE",
+     "_NON_CONVERTITO": "ramo parallelo vuoto (bypass) non rappresentabile"
+    },
+    {
+     "cmt": "FINE CICLO MOVIMENTAZIONE",
+     "chain": [
+      "MOV8_Done",
+      "(End_Movimenti)"
+     ]
+    },
+    {
+     "cmt": "CONSENSO DI AGGANCIO",
+     "_NON_CONVERTITO": "ramo parallelo vuoto (bypass) non rappresentabile"
+    },
+    {
+     "cmt": "CONSENSO DI SGANCIO",
+     "chain": [
+      "MOV7_Done",
+      {
+       "or": [
+        [
+         {
+          "or": [
+           "Car_V1",
+           "Car_V3",
+           "V1_V2",
+           "V2_V3",
+           "V3_V4",
+           "V4_V5",
+           "V5_V6"
+          ]
+         },
+         "/Enable_Agitazione",
+         "/OUT_AGITAZIONE",
+         "IN_AGITAZ_UP"
+        ],
+        "V7_F1",
+        "F1_Scar",
+        "V7_F2",
+        "V6_V7",
+        "F2_Scar"
+       ]
+      },
+      "(OK_Sgancio)"
+     ]
+    },
+    {
+     "cmt": "BIT DI ATTESA DI DISCESA DEL LIFT  PRIMA DELLA TRASLAZIONE ORIZZONTALE CON CESTO AGGANCIATO DELLE SEQUENZE DI MOVIMENTAZIONE DA VASCA 7 A FORNO 1/2",
+     "chain": [
+      {
+       "or": [
+        "V7_F1",
+        "V7_F2"
+       ]
+      },
+      "(Alt_Lift_Down)"
+     ]
+    },
+    {
+     "cmt": "OK IL LIFT Ã¨ BASSO E POSSO TRASLARE",
+     "chain": [
+      {
+       "or": [
+        "/Alt_Lift_Down",
+        [
+         "/OUT_LIFT_ENABLE",
+         "/IN_LIFT_SU",
+         "IN_LIFT_EXTRACORSA",
+         "IN_LIFT_GIU"
+        ]
+       ]
+      },
+      "(OK_Lift_Down)"
+     ]
+    },
+    {
+     "cmt": "CONTROLLO SE LA SEQUENZA DI MOVIMENTAZIONE Ã¨ CORRETTA",
+     "chain": [
+      {
+       "or": [
+        [
+         "MOV1_Done",
+         "/MOV2_Done",
+         {
+          "or": [
+           "MOV3_Done",
+           "MOV4A_Done",
+           "MOV4_Done",
+           "MOV5_Done",
+           "MOV6_Done",
+           "MOV6A_Done",
+           "MOV7_Done",
+           "MOV8_Done"
+          ]
+         }
+        ],
+        [
+         "MOV2_Done",
+         "/MOV3_Done",
+         {
+          "or": [
+           "MOV4A_Done",
+           "MOV4_Done",
+           "MOV5_Done",
+           "MOV6_Done",
+           "MOV6A_Done",
+           "MOV7_Done",
+           "MOV8_Done"
+          ]
+         }
+        ],
+        [
+         "MOV3_Done",
+         "/MOV4A_Done",
+         {
+          "or": [
+           "MOV4_Done",
+           "MOV5_Done",
+           "MOV6_Done",
+           "MOV6A_Done",
+           "MOV7_Done",
+           "MOV8_Done"
+          ]
+         }
+        ],
+        [
+         "MOV5_Done",
+         "/MOV6_Done",
+         {
+          "or": [
+           "MOV6A_Done",
+           "MOV7_Done",
+           "MOV8_Done"
+          ]
+         }
+        ],
+        [
+         "MOV4_Done",
+         "/MOV5_Done",
+         {
+          "or": [
+           "MOV6_Done",
+           "MOV6A_Done",
+           "MOV7_Done",
+           "MOV8_Done"
+          ]
+         }
+        ],
+        [
+         "MOV4A_Done",
+         "/MOV4_Done",
+         {
+          "or": [
+           "MOV5_Done",
+           "MOV6_Done",
+           "MOV6A_Done",
+           "MOV7_Done",
+           "MOV8_Done"
+          ]
+         }
+        ],
+        [
+         "MOV6_Done",
+         "/MOV6A_Done",
+         {
+          "or": [
+           "MOV7_Done",
+           "MOV8_Done"
+          ]
+         }
+        ],
+        [
+         "MOV6A_Done",
+         "/MOV7_Done",
+         "MOV8_Done"
+        ]
+       ]
+      },
+      {
+       "f": "@Inc",
+       "p": {
+        "InOut": "Errori_Movimento",
+        "OUT:InOut": "Errori_Movimento"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "FINE CICLO MOVIMENTAZIONE",
+     "chain": [
+      "MOV8_Done",
+      "(End_Movimenti)"
+     ]
+    },
+    {
+     "cmt": "CONSENSO DI AGGANCIO",
+     "_NON_CONVERTITO": "ramo parallelo vuoto (bypass) non rappresentabile"
+    },
+    {
+     "cmt": "CONSENSO DI SGANCIO",
+     "chain": [
+      "MOV7_Done",
+      {
+       "or": [
+        [
+         {
+          "or": [
+           "Car_V1",
+           "Car_V3",
+           "V1_V2",
+           "V2_V3",
+           "V3_V4",
+           "V4_V5",
+           "V5_V6"
+          ]
+         },
+         "/Enable_Agitazione",
+         "/OUT_AGITAZIONE",
+         "IN_AGITAZ_UP"
+        ],
+        "V7_F1",
+        "F1_Scar",
+        "V7_F2",
+        "V6_V7",
+        "F2_Scar"
+       ]
+      },
+      "(OK_Sgancio)"
+     ]
+    },
+    {
+     "cmt": "BIT DI ATTESA DI DISCESA DEL LIFT  PRIMA DELLA TRASLAZIONE ORIZZONTALE CON CESTO AGGANCIATO DELLE SEQUENZE DI MOVIMENTAZIONE DA VASCA 7 A FORNO 1/2",
+     "chain": [
+      {
+       "or": [
+        "V7_F1",
+        "V7_F2"
+       ]
+      },
+      "(Alt_Lift_Down)"
+     ]
+    },
+    {
+     "cmt": "OK IL LIFT Ã¨ BASSO E POSSO TRASLARE",
+     "chain": [
+      {
+       "or": [
+        "/Alt_Lift_Down",
+        [
+         "/OUT_LIFT_ENABLE",
+         "/IN_LIFT_SU",
+         "IN_LIFT_EXTRACORSA",
+         "IN_LIFT_GIU"
+        ]
+       ]
+      },
+      "(OK_Lift_Down)"
+     ]
+    },
+    {
+     "cmt": "CONTROLLO SE LA SEQUENZA DI MOVIMENTAZIONE Ã¨ CORRETTA",
+     "chain": [
+      {
+       "or": [
+        [
+         "MOV1_Done",
+         "/MOV2_Done",
+         {
+          "or": [
+           "MOV3_Done",
+           "MOV4A_Done",
+           "MOV4_Done",
+           "MOV5_Done",
+           "MOV6_Done",
+           "MOV6A_Done",
+           "MOV7_Done",
+           "MOV8_Done"
+          ]
+         }
+        ],
+        [
+         "MOV2_Done",
+         "/MOV3_Done",
+         {
+          "or": [
+           "MOV4A_Done",
+           "MOV4_Done",
+           "MOV5_Done",
+           "MOV6_Done",
+           "MOV6A_Done",
+           "MOV7_Done",
+           "MOV8_Done"
+          ]
+         }
+        ],
+        [
+         "MOV3_Done",
+         "/MOV4A_Done",
+         {
+          "or": [
+           "MOV4_Done",
+           "MOV5_Done",
+           "MOV6_Done",
+           "MOV6A_Done",
+           "MOV7_Done",
+           "MOV8_Done"
+          ]
+         }
+        ],
+        [
+         "MOV5_Done",
+         "/MOV6_Done",
+         {
+          "or": [
+           "MOV6A_Done",
+           "MOV7_Done",
+           "MOV8_Done"
+          ]
+         }
+        ],
+        [
+         "MOV4_Done",
+         "/MOV5_Done",
+         {
+          "or": [
+           "MOV6_Done",
+           "MOV6A_Done",
+           "MOV7_Done",
+           "MOV8_Done"
+          ]
+         }
+        ],
+        [
+         "MOV4A_Done",
+         "/MOV4_Done",
+         {
+          "or": [
+           "MOV5_Done",
+           "MOV6_Done",
+           "MOV6A_Done",
+           "MOV7_Done",
+           "MOV8_Done"
+          ]
+         }
+        ],
+        [
+         "MOV6_Done",
+         "/MOV6A_Done",
+         {
+          "or": [
+           "MOV7_Done",
+           "MOV8_Done"
+          ]
+         }
+        ],
+        [
+         "MOV6A_Done",
+         "/MOV7_Done",
+         "MOV8_Done"
+        ]
+       ]
+      },
+      {
+       "f": "@Inc",
+       "p": {
+        "InOut": "Errori_Movimento",
+        "OUT:InOut": "Errori_Movimento"
+       }
+      }
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Alt_Lift_Down",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Car_V1",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Car_V3",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Distance1",
+     "type": "ARRAY[0..3] OF LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Distance2",
+     "type": "ARRAY[0..3] OF LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Distance3",
+     "type": "ARRAY[0..3] OF LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Distance4",
+     "type": "ARRAY[0..3] OF LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Distance4_Acc",
+     "type": "ARRAY[0..3] OF LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Distance5",
+     "type": "ARRAY[0..3] OF LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Distance6",
+     "type": "ARRAY[0..3] OF LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Distance6_Dec",
+     "type": "ARRAY[0..3] OF LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Distance7",
+     "type": "ARRAY[0..3] OF LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Distance8",
+     "type": "ARRAY[0..3] OF LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Enable_Agitazione",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "End_Movimenti",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Errori_Movimento",
+     "type": "INT",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "F1_Scar",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "F2_Scar",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "IN_AGITAZ_UP",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIFT_EXTRACORSA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIFT_GIU",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_LIFT_SU",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV1_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV2_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV3_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV4A_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV4_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV5_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV6A_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV6_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV7_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV8_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OK_Lift_Down",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OK_Sgancio",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_AGITAZIONE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_LIFT_ENABLE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V1_V2",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V2_V3",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V3_V4",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V4_V5",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V5_V6",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V6_V7",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V7_F1",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V7_F2",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "X_DEPOSITO",
+     "type": "REAL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "X_PRESA",
+     "type": "REAL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Y_DEPOSITO",
+     "type": "REAL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Y_PRESA",
+     "type": "REAL",
+     "retain": true,
+     "comment": ""
+    }
+   ]
+  },
+  "Sezione1": {
+   "rungs": [
+    {
+     "cmt": "",
+     "_NON_CONVERTITO": "rung vuoto"
+    },
+    {
+     "cmt": "PORTELLI  CHUSURA ",
+     "chain": [
+      {
+       "or": [
+        "Mem_Puls_Marcia",
+        [
+         "Marcia_ON",
+         "/Apro_Porte"
+        ]
+       ]
+      }
+     ],
+     "out": [
+      "(OUT_PORTELLI)",
+      "(/IN_PORTE_APERTE)"
+     ]
+    },
+    {
+     "cmt": "PORTELLI  PRENOTO L'APERTURA DEI PORTELLI",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "Marcia_ON",
+       "V_P_Prenoto_Porte",
+       {
+        "fb": "TON",
+        "inst": "Tim26",
+        "p": {
+         "PT": "TIME#500MS"
+        }
+       },
+       "(S Call_Prenoto_Porte)"
+      ],
+      [
+       "IN_PULS_MARCIA",
+       "/IN_PORTE_APERTE",
+       "(R Call_Prenoto_Porte)"
+      ]
+     ]
+    },
+    {
+     "cmt": "ATTIVO L'APERTURA DEI PORTELLI",
+     "chain": [
+      "Call_Prenoto_Porte",
+      "End_Reset_Robot",
+      "/Movim_Prenotati",
+      {
+       "fb": "TON",
+       "inst": "Tim27",
+       "p": {
+        "PT": "TIME#1S"
+       }
+      },
+      "/OUT_AGITAZIONE",
+      "/OUT_NASTRO_CARICO",
+      "/OUT_NASTRO_SCARICO",
+      {
+       "fb": "TON",
+       "inst": "Tim28",
+       "p": {
+        "PT": "TIME#1S"
+       }
+      },
+      "(Apro_Porte)"
+     ]
+    },
+    {
+     "cmt": "MEMORIZZO CHE HO ESEGUITO UN APERTURA PORTELLI COMANDATA DA VISUALIZZATORE",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "Call_Prenoto_Porte",
+       "Apro_Porte",
+       "(S Mem_Portelle_Open)"
+      ],
+      [
+       "Marcia_ON",
+       "(R Mem_Portelle_Open)"
+      ]
+     ]
+    },
+    {
+     "cmt": "DOPO UNA CHIUSURA PORTELLI RESETTO GLI ALLARMI DEL ROBOT IN AUTOMATICO",
+     "chain": [
+      "P_On",
+      {
+       "or": [
+        "vMem_Portelle_Open",
+        "Robot_Ready",
+        "IN_RESET"
+       ]
+      }
+     ],
+     "out": [
+      "(S Reset_Auto_All_Robot)",
+      "(R Reset_Auto_All_Robot)"
+     ]
+    },
+    {
+     "cmt": "LAMP PRENOTAZIONE PORTELLI",
+     "chain": [
+      {
+       "or": [
+        "Apro_Porte",
+        [
+         "Call_Prenoto_Porte",
+         {
+          "f": "Get1sClk",
+          "p": {}
+         }
+        ]
+       ]
+      },
+      "(V_L_Prenoto_Porte)"
+     ]
+    },
+    {
+     "cmt": "MEMORIZZO CHE HO ESEGUITO UN APERTURA PORTELLI.MI SERVE DURANTE LA RIPARTENZA DELLA MOVIMENTAZIONE PER EVITARE UNA  DISCESA BRUSCA DELL'ASSE Y DURANTE IL MOV 2.QUINDI METTO UNA PAUSA TRA MOV1 E MOV 2 ",
+     "chain": [
+      "P_On"
+     ],
+     "out": [
+      [
+       "vMem_Portelle_Open",
+       "(S Pausa_Mov1_2)"
+      ],
+      [
+       "MOV3_Done",
+       "(R Pausa_Mov1_2)"
+      ]
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Apro_Porte",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Call_Prenoto_Porte",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "End_Reset_Robot",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_PORTE_APERTE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_PULS_MARCIA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_RESET",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV3_Done",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Marcia_ON",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Portelle_Open",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Puls_Marcia",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Movim_Prenotati",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_AGITAZIONE",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_NASTRO_CARICO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_NASTRO_SCARICO",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "OUT_PORTELLI",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Pausa_Mov1_2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Reset_Auto_All_Robot",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Robot_Ready",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim26",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim27",
+     "type": "TON",
+     "retain": false,
+     "comment": "blocco agitazione per prenotazione apertura Portelli"
+    },
+    {
+     "name": "Tim28",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_L_Prenoto_Porte",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V_P_Prenoto_Porte",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  },
+  "Sezione0": {
+   "rungs": [
+    {
+     "cmt": "GIRO IL BIT DI MARCIA",
+     "chain": [
+      "/IN_MARCIA",
+      "(Marcia_ON)"
+     ]
+    },
+    {
+     "cmt": "RITARDO ABILITAZIONE SERVO",
+     "chain": [
+      "Marcia_ON",
+      {
+       "fb": "TON",
+       "inst": "Tim_Marcia",
+       "p": {
+        "PT": "T#3s"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "ABILITAZIONE SERVO ASSE X",
+     "chain": [
+      "Tim_Marcia.Q",
+      "mc_x.DrvStatus.Ready",
+      "mc_x.DrvStatus.MainPower",
+      {
+       "fb": "MC_Power",
+       "inst": "Power_x",
+       "p": {
+        "Axis": "mc_x",
+        "OUT:Axis": "mc_x"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "ABILITAZIONE SERVO ASSE Y",
+     "chain": [
+      "Tim_Marcia.Q",
+      "mc_y.DrvStatus.Ready",
+      "mc_y.DrvStatus.MainPower",
+      {
+       "fb": "MC_Power",
+       "inst": "Power_y",
+       "p": {
+        "Axis": "mc_y",
+        "OUT:Axis": "mc_y"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "RITARDO ABILITAZIONE GRUPPO ASSI",
+     "chain": [
+      "End_Reset_Robot",
+      {
+       "fb": "TON",
+       "inst": "Tim3",
+       "p": {
+        "PT": "T#2s"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "CONSENSO GRUPPO ASSI",
+     "chain": [
+      "Tim3.Q",
+      "(GruppoEnable)"
+     ]
+    },
+    {
+     "cmt": "ABILITAZIONE GRUPPO ASSI PER INTERPOLAZIONI",
+     "chain": [
+      "GruppoEnable",
+      {
+       "fb": "MC_GroupEnable",
+       "inst": "Group1",
+       "p": {
+        "AxesGroup": "MC_Group000",
+        "OUT:AxesGroup": "MC_Group000"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "DISABILITAZIONE GRUPPO ASSI",
+     "chain": [
+      "/GruppoEnable",
+      {
+       "fb": "MC_GroupDisable",
+       "inst": "Group1_OFF",
+       "p": {
+        "AxesGroup": "MC_Group000",
+        "OUT:AxesGroup": "MC_Group000"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "RESET ERRORI ASSE X",
+     "chain": [
+      "IN_RESET",
+      {
+       "fb": "MC_Reset",
+       "inst": "X_Reset_Error",
+       "p": {
+        "Axis": "mc_x",
+        "OUT:Axis": "mc_x"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "RESET ERRORI GRUPPO ASSI",
+     "chain": [
+      "IN_RESET",
+      {
+       "fb": "MC_GroupReset",
+       "inst": "Group_Reset_Error",
+       "p": {
+        "AxesGroup": "MC_Group000",
+        "OUT:AxesGroup": "MC_Group000"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "ARRESTO ASSE X",
+     "chain": [
+      "/End_Reset_Robot",
+      {
+       "fb": "MC_Stop",
+       "inst": "MC_X_Stop",
+       "p": {
+        "Axis": "mc_x",
+        "Deceleration": "200",
+        "OUT:Axis": "mc_x"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "ROBOT READY",
+     "chain": [
+      "mc_x.DrvStatus.ServoOn",
+      "mc_y.DrvStatus.ServoOn",
+      "/mc_x.MFaultLvl.Active",
+      "/mc_y.MFaultLvl.Active",
+      "(Robot_Ready)"
+     ]
+    },
+    {
+     "cmt": "MANUALE ASSE X",
+     "chain": [
+      "Robot_Ready",
+      "X_Jog_SX",
+      {
+       "fb": "MC_MoveJog",
+       "inst": "Manu_X",
+       "p": {
+        "Axis": "mc_x",
+        "NegativeEnable": "X_Jog_DX",
+        "Velocity": "40",
+        "Acceleration": "15",
+        "Deceleration": "100000",
+        "OUT:Axis": "mc_x"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "CALCOLO QUOTE MOVIMENTAZIONE",
+     "chain": [
+      "P_On",
+      {
+       "ist": "Distance1[0]:=X_PRESA+X_AGGANCIO;\r\nDistance1[1]:=0;"
+      }
+     ]
+    },
+    {
+     "cmt": "MOV1 - TRASLAZIONE INTERPOLATA SOPRA LA PRESA",
+     "chain": [
+      "Movim_Prenotati",
+      {
+       "fb": "MC_MoveLinearAbsolute",
+       "inst": "MOV1",
+       "p": {
+        "AxesGroup": "MC_Group000",
+        "Position": "Distance1",
+        "Velocity": "300",
+        "Acceleration": "500",
+        "Deceleration": "500",
+        "OUT:AxesGroup": "MC_Group000"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "1) DUE USCITE: ABILITAZIONE SERVO X E Y NELLO STESSO RUNG",
+     "chain": [
+      "Tim_Marcia.Q",
+      "mc_x.DrvStatus.Ready",
+      "mc_y.DrvStatus.Ready"
+     ],
+     "out": [
+      {
+       "fb": "MC_Power",
+       "inst": "Power_x",
+       "p": {
+        "Axis": "mc_x",
+        "OUT:Axis": "mc_x"
+       }
+      },
+      {
+       "fb": "MC_Power",
+       "inst": "Power_y",
+       "p": {
+        "Axis": "mc_y",
+        "OUT:Axis": "mc_y"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "2bis) STESSO RUNG CON ALTEZZA CALCOLATA",
+     "chain": [
+      {
+       "or": [
+        "IN_RESET",
+        [
+         "Reset_Auto_All_Robot",
+         {
+          "f": "Get100msClk",
+          "p": {}
+         }
+        ]
+       ]
+      }
+     ],
+     "out": [
+      {
+       "fb": "MC_Reset",
+       "inst": "X_Reset_Error",
+       "p": {
+        "Axis": "mc_x",
+        "OUT:Axis": "mc_x"
+       }
+      },
+      {
+       "fb": "MC_Reset",
+       "inst": "Y_Reset_Error",
+       "p": {
+        "Axis": "mc_y",
+        "OUT:Axis": "mc_y"
+       }
+      },
+      {
+       "fb": "MC_GroupReset",
+       "inst": "Group_Reset_Error",
+       "p": {
+        "AxesGroup": "MC_Group000",
+        "OUT:AxesGroup": "MC_Group000"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "3) OR A 12 RAMI: MOVIMENTAZIONE PRENOTATA",
+     "chain": [
+      {
+       "or": [
+        "Car_V1",
+        "Car_V3",
+        "V1_V2",
+        "V2_V3",
+        "V3_V4",
+        "V4_V5",
+        "V5_V6",
+        "V6_V7",
+        "V7_F1",
+        "V7_F2",
+        "F1_Scar",
+        "F2_Scar"
+       ]
+      },
+      "(Movim_Prenotati)"
+     ]
+    },
+    {
+     "cmt": "4) OR IN MEZZO ALLA CATENA + DUE BOBINE",
+     "chain": [
+      "Robot_Ready",
+      {
+       "or": [
+        "Look1",
+        "Look2"
+       ]
+      },
+      "/IN_MARCIA"
+     ],
+     "out": [
+      "(Blocco_Portellino)",
+      "(Spia_Blocco)"
+     ]
+    },
+    {
+     "cmt": "2bis) STESSO RUNG CON ALTEZZA CALCOLATA",
+     "chain": [
+      {
+       "or": [
+        "IN_RESET",
+        [
+         "Reset_Auto_All_Robot",
+         {
+          "f": "Get100msClk",
+          "p": {}
+         }
+        ]
+       ]
+      }
+     ],
+     "out": [
+      {
+       "fb": "MC_Reset",
+       "inst": "X_Reset_Error",
+       "p": {
+        "Axis": "mc_x",
+        "OUT:Axis": "mc_x"
+       }
+      },
+      {
+       "fb": "MC_Reset",
+       "inst": "Y_Reset_Error",
+       "p": {
+        "Axis": "mc_y",
+        "OUT:Axis": "mc_y"
+       }
+      },
+      {
+       "fb": "MC_GroupReset",
+       "inst": "Group_Reset_Error",
+       "p": {
+        "AxesGroup": "MC_Group000",
+        "OUT:AxesGroup": "MC_Group000"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "TEST TOF (tipi concreti)",
+     "chain": [
+      "IN_MARCIA",
+      {
+       "fb": "TOF",
+       "inst": "Ist_Rit_Reset_EC_Error",
+       "p": {
+        "PT": "T#5s"
+       }
+      },
+      "(Eseguito)"
+     ]
+    },
+    {
+     "cmt": "[ADDITIONAL_HOOD / Vasca2_QDR] #QDR: SE NEI SETTAGGI HO IMPOSTATO UNA QDR ATTIVO LA SEQUENZA",
+     "chain": [
+      "Mem_Ciclo_V2"
+     ],
+     "out": [
+      [
+       {
+        "f": ">",
+        "p": {
+         "In1": "SET_QDR_V2",
+         "In2": "0"
+        }
+       },
+       "(QDR_V2_Enable)"
+      ],
+      {
+       "f": "@MOVE",
+       "p": {
+        "In": "0",
+        "OUT:Out": "PV_QDR_V2"
+       }
+      }
+     ]
+    },
+    {
+     "cmt": "5) OR CON RITENUTA (MARCIA/ARRESTO CLASSICO)",
+     "chain": [
+      {
+       "or": [
+        "^IN_RESET",
+        "Mem_Start"
+       ]
+      },
+      "/IN_MARCIA",
+      "(Mem_Start)"
+     ]
+    }
+   ],
+   "variables": [
+    {
+     "name": "Blocco_Portellino",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Car_V1",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Car_V3",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Distance1",
+     "type": "ARRAY[0..3] OF LREAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "End_Reset_Robot",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Eseguito",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "F1_Scar",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "F2_Scar",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "Group1",
+     "type": "MC_GroupEnable",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Group1_OFF",
+     "type": "MC_GroupDisable",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Group_Reset_Error",
+     "type": "MC_GroupReset",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "GruppoEnable",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "IN_MARCIA",
+     "type": "BOOL",
+     "retain": false,
+     "comment": "0=MARCIA ON"
+    },
+    {
+     "name": "IN_RESET",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Ist_Rit_Reset_EC_Error",
+     "type": "TOF",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Look1",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Look2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MC_Group000",
+     "type": "_sGROUP_REF",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MC_X_Stop",
+     "type": "MC_Stop",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "MOV1",
+     "type": "MC_MoveLinearAbsolute",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Manu_X",
+     "type": "MC_MoveJog",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Marcia_ON",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Ciclo_V2",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Mem_Start",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Movim_Prenotati",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "PV_QDR_V2",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Power_x",
+     "type": "MC_Power",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Power_y",
+     "type": "MC_Power",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "QDR_V2_Enable",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Reset_Auto_All_Robot",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Robot_Ready",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "SET_QDR_V2",
+     "type": "REAL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Spia_Blocco",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim3",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Tim_Marcia",
+     "type": "TON",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "V1_V2",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V2_V3",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V3_V4",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V4_V5",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V5_V6",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V6_V7",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V7_F1",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "V7_F2",
+     "type": "BOOL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "X_AGGANCIO",
+     "type": "REAL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "X_Jog_DX",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "X_Jog_SX",
+     "type": "BOOL",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "X_PRESA",
+     "type": "REAL",
+     "retain": true,
+     "comment": ""
+    },
+    {
+     "name": "X_Reset_Error",
+     "type": "MC_Reset",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "Y_Reset_Error",
+     "type": "MC_Reset",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "mc_x",
+     "type": "_sAXIS_REF",
+     "retain": false,
+     "comment": ""
+    },
+    {
+     "name": "mc_y",
+     "type": "_sAXIS_REF",
+     "retain": false,
+     "comment": ""
+    }
+   ]
+  }
+ }
+}

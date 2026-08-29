@@ -1,0 +1,823 @@
+{
+ "out_dir": "out",
+ "variables": [
+  {
+   "name": "Consensi",
+   "type": "BOOL",
+   "comment": "consensi di sicurezza presenti"
+  },
+  {
+   "name": "Mem_S1_Ciclo",
+   "type": "BOOL",
+   "comment": "sequenza 1 attiva"
+  },
+  {
+   "name": "Mem_S1_Fine",
+   "type": "BOOL",
+   "comment": "sequenza 1 completata"
+  },
+  {
+   "name": "Mem_S1_1",
+   "type": "BOOL",
+   "comment": "passo 1 in corso"
+  },
+  {
+   "name": "End_S1_1",
+   "type": "BOOL",
+   "comment": "passo 1 completato"
+  },
+  {
+   "name": "Tim_S1_1",
+   "type": "TON",
+   "comment": "temporizzatore passo 1"
+  },
+  {
+   "name": "Mem_S1_2",
+   "type": "BOOL",
+   "comment": "passo 2 in corso"
+  },
+  {
+   "name": "End_S1_2",
+   "type": "BOOL",
+   "comment": "passo 2 completato"
+  },
+  {
+   "name": "Tim_S1_2",
+   "type": "TON",
+   "comment": "temporizzatore passo 2"
+  },
+  {
+   "name": "Mem_S1_3",
+   "type": "BOOL",
+   "comment": "passo 3 in corso"
+  },
+  {
+   "name": "End_S1_3",
+   "type": "BOOL",
+   "comment": "passo 3 completato"
+  },
+  {
+   "name": "Tim_S1_3",
+   "type": "TON",
+   "comment": "temporizzatore passo 3"
+  },
+  {
+   "name": "Mem_S2_Ciclo",
+   "type": "BOOL",
+   "comment": "sequenza 2 attiva"
+  },
+  {
+   "name": "Mem_S2_Fine",
+   "type": "BOOL",
+   "comment": "sequenza 2 completata"
+  },
+  {
+   "name": "Mem_S2_1",
+   "type": "BOOL",
+   "comment": "passo 1 in corso"
+  },
+  {
+   "name": "End_S2_1",
+   "type": "BOOL",
+   "comment": "passo 1 completato"
+  },
+  {
+   "name": "Tim_S2_1",
+   "type": "TON",
+   "comment": "temporizzatore passo 1"
+  },
+  {
+   "name": "Mem_S2_2",
+   "type": "BOOL",
+   "comment": "passo 2 in corso"
+  },
+  {
+   "name": "End_S2_2",
+   "type": "BOOL",
+   "comment": "passo 2 completato"
+  },
+  {
+   "name": "Tim_S2_2",
+   "type": "TON",
+   "comment": "temporizzatore passo 2"
+  },
+  {
+   "name": "Mem_S2_3",
+   "type": "BOOL",
+   "comment": "passo 3 in corso"
+  },
+  {
+   "name": "End_S2_3",
+   "type": "BOOL",
+   "comment": "passo 3 completato"
+  },
+  {
+   "name": "Tim_S2_3",
+   "type": "TON",
+   "comment": "temporizzatore passo 3"
+  },
+  {
+   "name": "Mem_S2_4",
+   "type": "BOOL",
+   "comment": "passo 4 in corso"
+  },
+  {
+   "name": "End_S2_4",
+   "type": "BOOL",
+   "comment": "passo 4 completato"
+  },
+  {
+   "name": "Tim_S2_4",
+   "type": "TON",
+   "comment": "temporizzatore passo 4"
+  },
+  {
+   "name": "Mem_S2_5",
+   "type": "BOOL",
+   "comment": "passo 5 in corso"
+  },
+  {
+   "name": "End_S2_5",
+   "type": "BOOL",
+   "comment": "passo 5 completato"
+  },
+  {
+   "name": "Tim_S2_5",
+   "type": "TON",
+   "comment": "temporizzatore passo 5"
+  },
+  {
+   "name": "Mem_M3",
+   "type": "BOOL",
+   "comment": "richiesta di marcia motore 3"
+  }
+ ],
+ "sections": {
+  "Sicurezze": [
+   {
+    "cmt": "CONSENSI DI SICUREZZA",
+    "chain": [
+     "/IN_Emergenza",
+     "IN_Protezioni",
+     "(Consensi)"
+    ]
+   }
+  ],
+  "sequenza_1_3_passi": [
+   {
+    "cmt": "SEQUENZA 1 - AZZERAMENTO ALL'AVVIO",
+    "chain": [
+     "^V_P_S1_Start"
+    ],
+    "out": [
+     [
+      "(R End_S1_1)"
+     ],
+     [
+      "(R End_S1_2)"
+     ],
+     [
+      "(R End_S1_3)"
+     ],
+     [
+      "(R Mem_S1_Fine)"
+     ],
+     [
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "0",
+        "OUT:Out": "V_S_S1_Passo"
+       }
+      }
+     ]
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 1 - AVVIO",
+    "chain": [
+     "^V_P_S1_Start",
+     "Consensi",
+     "(S Mem_S1_Ciclo)"
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 1 - ARRESTO",
+    "chain": [
+     {
+      "or": [
+       "^V_P_S1_Stop",
+       "/Consensi",
+       "Mem_S1_Fine"
+      ]
+     },
+     "(R Mem_S1_Ciclo)"
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 1 - INGRESSO PASSO 1",
+    "chain": [
+     "Mem_S1_Ciclo",
+     "Mem_S1_Ciclo",
+     "/End_S1_1",
+     "(S Mem_S1_1)"
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 1 - PASSO 1 IN CORSO",
+    "chain": [
+     "Mem_S1_1",
+     {
+      "fb": "TON",
+      "inst": "Tim_S1_1",
+      "p": {
+       "PT": "SET_T_S1_1"
+      }
+     }
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 1 - USCITA DEL PASSO 1",
+    "chain": [
+     "Mem_S1_1",
+     "Consensi",
+     "(OUT_S1_1)"
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 1 - FINE PASSO 1",
+    "chain": [
+     "Tim_S1_1.Q"
+    ],
+    "out": [
+     [
+      "(S End_S1_1)"
+     ],
+     [
+      "(R Mem_S1_1)"
+     ],
+     [
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "1",
+        "OUT:Out": "V_S_S1_Passo"
+       }
+      }
+     ]
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 1 - INGRESSO PASSO 2",
+    "chain": [
+     "Mem_S1_Ciclo",
+     "End_S1_1",
+     "/End_S1_2",
+     "(S Mem_S1_2)"
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 1 - PASSO 2 IN CORSO",
+    "chain": [
+     "Mem_S1_2",
+     {
+      "fb": "TON",
+      "inst": "Tim_S1_2",
+      "p": {
+       "PT": "SET_T_S1_2"
+      }
+     }
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 1 - USCITA DEL PASSO 2",
+    "chain": [
+     "Mem_S1_2",
+     "Consensi",
+     "(OUT_S1_2)"
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 1 - FINE PASSO 2",
+    "chain": [
+     "Tim_S1_2.Q"
+    ],
+    "out": [
+     [
+      "(S End_S1_2)"
+     ],
+     [
+      "(R Mem_S1_2)"
+     ],
+     [
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "2",
+        "OUT:Out": "V_S_S1_Passo"
+       }
+      }
+     ]
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 1 - INGRESSO PASSO 3",
+    "chain": [
+     "Mem_S1_Ciclo",
+     "End_S1_2",
+     "/End_S1_3",
+     "(S Mem_S1_3)"
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 1 - PASSO 3 IN CORSO",
+    "chain": [
+     "Mem_S1_3",
+     {
+      "fb": "TON",
+      "inst": "Tim_S1_3",
+      "p": {
+       "PT": "SET_T_S1_3"
+      }
+     }
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 1 - USCITA DEL PASSO 3",
+    "chain": [
+     "Mem_S1_3",
+     "Consensi",
+     "(OUT_S1_3)"
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 1 - FINE PASSO 3",
+    "chain": [
+     "Tim_S1_3.Q"
+    ],
+    "out": [
+     [
+      "(S End_S1_3)"
+     ],
+     [
+      "(R Mem_S1_3)"
+     ],
+     [
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "3",
+        "OUT:Out": "V_S_S1_Passo"
+       }
+      }
+     ]
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 1 - COMPLETATA",
+    "chain": [
+     "Mem_S1_Ciclo",
+     "End_S1_3",
+     "(S Mem_S1_Fine)"
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 1 - SPIE",
+    "chain": [
+     "Mem_S1_Ciclo",
+     "(V_L_S1_Ciclo)"
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 1 - SPIA FINE",
+    "chain": [
+     "Mem_S1_Fine",
+     "(V_L_S1_Fine)"
+    ]
+   }
+  ],
+  "sequenza_2_5_passi": [
+   {
+    "cmt": "SEQUENZA 2 - AZZERAMENTO ALL'AVVIO",
+    "chain": [
+     "^V_P_S2_Start"
+    ],
+    "out": [
+     [
+      "(R End_S2_1)"
+     ],
+     [
+      "(R End_S2_2)"
+     ],
+     [
+      "(R End_S2_3)"
+     ],
+     [
+      "(R End_S2_4)"
+     ],
+     [
+      "(R End_S2_5)"
+     ],
+     [
+      "(R Mem_S2_Fine)"
+     ],
+     [
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "0",
+        "OUT:Out": "V_S_S2_Passo"
+       }
+      }
+     ]
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 2 - AVVIO",
+    "chain": [
+     "^V_P_S2_Start",
+     "Consensi",
+     "(S Mem_S2_Ciclo)"
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 2 - ARRESTO",
+    "chain": [
+     {
+      "or": [
+       "^V_P_S2_Stop",
+       "/Consensi",
+       "Mem_S2_Fine"
+      ]
+     },
+     "(R Mem_S2_Ciclo)"
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 2 - INGRESSO PASSO 1",
+    "chain": [
+     "Mem_S2_Ciclo",
+     "Mem_S2_Ciclo",
+     "/End_S2_1",
+     "(S Mem_S2_1)"
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 2 - PASSO 1 IN CORSO",
+    "chain": [
+     "Mem_S2_1",
+     {
+      "fb": "TON",
+      "inst": "Tim_S2_1",
+      "p": {
+       "PT": "SET_T_S2_1"
+      }
+     }
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 2 - USCITA DEL PASSO 1",
+    "chain": [
+     "Mem_S2_1",
+     "Consensi",
+     "(OUT_S2_1)"
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 2 - FINE PASSO 1",
+    "chain": [
+     "Tim_S2_1.Q"
+    ],
+    "out": [
+     [
+      "(S End_S2_1)"
+     ],
+     [
+      "(R Mem_S2_1)"
+     ],
+     [
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "1",
+        "OUT:Out": "V_S_S2_Passo"
+       }
+      }
+     ]
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 2 - INGRESSO PASSO 2",
+    "chain": [
+     "Mem_S2_Ciclo",
+     "End_S2_1",
+     "/End_S2_2",
+     "(S Mem_S2_2)"
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 2 - PASSO 2 IN CORSO",
+    "chain": [
+     "Mem_S2_2",
+     {
+      "fb": "TON",
+      "inst": "Tim_S2_2",
+      "p": {
+       "PT": "SET_T_S2_2"
+      }
+     }
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 2 - USCITA DEL PASSO 2",
+    "chain": [
+     "Mem_S2_2",
+     "Consensi",
+     "(OUT_S2_2)"
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 2 - FINE PASSO 2",
+    "chain": [
+     "Tim_S2_2.Q"
+    ],
+    "out": [
+     [
+      "(S End_S2_2)"
+     ],
+     [
+      "(R Mem_S2_2)"
+     ],
+     [
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "2",
+        "OUT:Out": "V_S_S2_Passo"
+       }
+      }
+     ]
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 2 - INGRESSO PASSO 3",
+    "chain": [
+     "Mem_S2_Ciclo",
+     "End_S2_2",
+     "/End_S2_3",
+     "(S Mem_S2_3)"
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 2 - PASSO 3 IN CORSO",
+    "chain": [
+     "Mem_S2_3",
+     {
+      "fb": "TON",
+      "inst": "Tim_S2_3",
+      "p": {
+       "PT": "SET_T_S2_3"
+      }
+     }
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 2 - USCITA DEL PASSO 3",
+    "chain": [
+     "Mem_S2_3",
+     "Consensi",
+     "(OUT_S2_3)"
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 2 - FINE PASSO 3",
+    "chain": [
+     "Tim_S2_3.Q"
+    ],
+    "out": [
+     [
+      "(S End_S2_3)"
+     ],
+     [
+      "(R Mem_S2_3)"
+     ],
+     [
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "3",
+        "OUT:Out": "V_S_S2_Passo"
+       }
+      }
+     ]
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 2 - INGRESSO PASSO 4",
+    "chain": [
+     "Mem_S2_Ciclo",
+     "End_S2_3",
+     "/End_S2_4",
+     "(S Mem_S2_4)"
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 2 - PASSO 4 IN CORSO",
+    "chain": [
+     "Mem_S2_4",
+     {
+      "fb": "TON",
+      "inst": "Tim_S2_4",
+      "p": {
+       "PT": "SET_T_S2_4"
+      }
+     }
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 2 - USCITA DEL PASSO 4",
+    "chain": [
+     "Mem_S2_4",
+     "Consensi",
+     "(OUT_S2_4)"
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 2 - FINE PASSO 4",
+    "chain": [
+     "Tim_S2_4.Q"
+    ],
+    "out": [
+     [
+      "(S End_S2_4)"
+     ],
+     [
+      "(R Mem_S2_4)"
+     ],
+     [
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "4",
+        "OUT:Out": "V_S_S2_Passo"
+       }
+      }
+     ]
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 2 - INGRESSO PASSO 5",
+    "chain": [
+     "Mem_S2_Ciclo",
+     "End_S2_4",
+     "/End_S2_5",
+     "(S Mem_S2_5)"
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 2 - PASSO 5 IN CORSO",
+    "chain": [
+     "Mem_S2_5",
+     {
+      "fb": "TON",
+      "inst": "Tim_S2_5",
+      "p": {
+       "PT": "SET_T_S2_5"
+      }
+     }
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 2 - USCITA DEL PASSO 5",
+    "chain": [
+     "Mem_S2_5",
+     "Consensi",
+     "(OUT_S2_5)"
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 2 - FINE PASSO 5",
+    "chain": [
+     "Tim_S2_5.Q"
+    ],
+    "out": [
+     [
+      "(S End_S2_5)"
+     ],
+     [
+      "(R Mem_S2_5)"
+     ],
+     [
+      {
+       "f": "MOVE",
+       "p": {
+        "In": "5",
+        "OUT:Out": "V_S_S2_Passo"
+       }
+      }
+     ]
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 2 - COMPLETATA",
+    "chain": [
+     "Mem_S2_Ciclo",
+     "End_S2_5",
+     "(S Mem_S2_Fine)"
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 2 - SPIE",
+    "chain": [
+     "Mem_S2_Ciclo",
+     "(V_L_S2_Ciclo)"
+    ]
+   },
+   {
+    "cmt": "SEQUENZA 2 - SPIA FINE",
+    "chain": [
+     "Mem_S2_Fine",
+     "(V_L_S2_Fine)"
+    ]
+   }
+  ],
+  "motore_3": [
+   {
+    "cmt": "MOTORE 3 - MARCIA",
+    "chain": [
+     "^V_P_M3_Marcia",
+     "Consensi",
+     "IN_M3_Termico",
+     "/V_S_M3_Guasto",
+     "(S Mem_M3)"
+    ]
+   },
+   {
+    "cmt": "MOTORE 3 - ARRESTO",
+    "chain": [
+     {
+      "or": [
+       "^V_P_M3_Arresto",
+       "/Consensi",
+       "/IN_M3_Termico"
+      ]
+     },
+     "(R Mem_M3)"
+    ]
+   },
+   {
+    "cmt": "MOTORE 3 - COMANDO",
+    "chain": [
+     "Mem_M3",
+     "Consensi",
+     "IN_M3_Termico",
+     "(OUT_M3)"
+    ]
+   },
+   {
+    "cmt": "MOTORE 3 - GUASTO TERMICO",
+    "chain": [
+     "/IN_M3_Termico",
+     "(S V_S_M3_Guasto)"
+    ]
+   },
+   {
+    "cmt": "MOTORE 3 - RESET GUASTO",
+    "chain": [
+     "^V_P_Reset",
+     "IN_M3_Termico",
+     "(R V_S_M3_Guasto)"
+    ]
+   },
+   {
+    "cmt": "MOTORE 3 - SPIA",
+    "chain": [
+     "OUT_M3",
+     "(V_L_M3)"
+    ]
+   }
+  ],
+  "Allarmi": [
+   {
+    "cmt": "SPIA ALLARME CUMULATIVO",
+    "chain": [
+     {
+      "or": [
+       "V_S_M3_Guasto",
+       "/Consensi"
+      ]
+     },
+     "(V_L_Allarme)"
+    ]
+   },
+   {
+    "cmt": "MACCHINA PRONTA",
+    "chain": [
+     "Consensi",
+     "/V_L_Allarme",
+     "(V_L_Pronto)"
+    ]
+   }
+  ]
+ }
+}

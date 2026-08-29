@@ -1,0 +1,802 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>FileWriteVar</title>
+</head>
+<body class="dpm1501815813062"><div class="layer02" id="dpm1501815813062">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">FileWriteVar</h1>
+
+<div class="body conbody">
+<p class="p" id="dpm1501815813062__ID0ESPAC">The FileWriteVar instruction writes the value of a variable to the specified file in the SD Memory Card. The value is written in binary format.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="dpm1501815813062__table_N10017_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:13%" />
+<col style="width:14%" />
+<col style="width:6%" />
+<col style="width:35%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d178410e37">Instruction</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d178410e40">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d178410e43">
+<p class="p" id="dpm1501815813062__ID0EGBAE">FB/</p>
+
+<p class="p">FUN</p>
+
+</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d178410e52">Graphic expression</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d178410e55">ST expression</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d178410e37 "><span class="indexterm">FileWriteVar (Write Variable to File)</span>FileWriteVar</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d178410e40 "><span class="indexterm">Write Variable to File</span>Write Variable to File</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d178410e43 ">FB</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d178410e52 ">
+<br /><img class="image" id="dpm1501815813062__image_ABAFBBDD2D514F2FBA0869F51ACFC067" src="inc1501815812464.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d178410e55 ">FileWriteVar_instance(Execute, FileName, WriteVar, OverWrite, Done, Busy, Error, ErrorID);</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="car1501817449878">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Variables</h1>
+ 
+<div class="body conbody">
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="car1501817449878__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:20%" />
+<col style="width:9%" />
+<col style="width:20%" />
+<col style="width:14%" />
+<col style="width:14%" />
+<col style="width:8%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d94713e45">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d94713e47">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d94713e50">I/O</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d94713e53">Description</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d94713e56">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d94713e60">Unit</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d94713e63">Default</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d94713e45 ">FileName</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d94713e47 ">File name</td>
+
+<td class="entry cellrowborder" rowspan="3" style="text-align:left;vertical-align:middle;" headers="d94713e50 ">Input</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d94713e53 ">Name of file to which to write variable</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d94713e56 ">66 bytes max. (65 single-byte alphanumeric characters plus the final NULL character)</td>
+
+<td class="entry cellrowborder" rowspan="3" style="text-align:left;vertical-align:middle;" headers="d94713e60 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d94713e63 ">''</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d94713e45 ">WriteVar</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d94713e47 ">Variable</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d94713e53 ">Variable to write</td>
+
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d94713e56 ">Depends on data type.</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d94713e63 "><a class="xref" href="dpm1501815813062.html#car1501817449878__fn-1352614"><i style="display:none;">☆</i><sup>*1</sup></a></td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d94713e45 ">OverWrite</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d94713e47 ">Overwrite enable</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d94713e53 ">
+<p class="p" id="car1501817449878__ID0E5OAE">TRUE: Enable overwrite.</p>
+
+<p class="p">FALSE: Prohibit overwrite.</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d94713e63 ">FALSE</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="car1501817449878__fn-1352614" id="car1501817449878__fn-1352614"><sup>*1</sup></a>  If you omit the input parameter, the default value is not applied. A building error will occur.</div></div></div>
+ 
+      
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="car1501817449878__table_N1010B_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:11%" />
+<col style="width:5%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:top;" id="d94713e192">&#160;</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d94713e194">Boolean</th>
+
+<th class="entry cellrowborder" colspan="4" style="text-align:center;vertical-align:middle;" id="d94713e197">Bit strings</th>
+
+<th class="entry cellrowborder" colspan="8" style="text-align:center;vertical-align:middle;" id="d94713e200">Integers</th>
+
+<th class="entry cellrowborder" colspan="2" style="text-align:center;vertical-align:middle;" id="d94713e203">Real numbers</th>
+
+<th class="entry cellrowborder" colspan="5" style="text-align:center;vertical-align:middle;" id="d94713e207">Times, durations, dates, and text strings</th>
+
+</tr>
+
+<tr class="row">
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d94713e213">BOOL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d94713e216">BYTE</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d94713e219">WORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d94713e222">DWORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d94713e225">LWORD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d94713e229">USINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d94713e232">UINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d94713e235">UDINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d94713e238">ULINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d94713e241">SINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d94713e244">INT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d94713e248">DINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d94713e251">LINT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d94713e254">REAL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d94713e257">LREAL</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d94713e260">TIME</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d94713e263">DATE</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d94713e267">TOD</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d94713e270">DT</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:middle;" id="d94713e273">STRING</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d94713e192 d94713e213 ">FileName</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94713e194 d94713e216 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94713e197 d94713e219 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94713e197 d94713e222 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94713e197 d94713e225 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94713e197 d94713e229 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94713e200 d94713e232 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94713e200 d94713e235 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94713e200 d94713e238 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94713e200 d94713e241 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94713e200 d94713e244 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94713e200 d94713e248 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94713e200 d94713e251 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94713e200 d94713e254 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94713e203 d94713e257 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94713e203 d94713e260 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94713e207 d94713e263 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94713e207 d94713e267 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94713e207 d94713e270 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94713e207 d94713e273 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d94713e207 "><span class="ph font_Wingdings"></span>OK</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" rowspan="2" style="text-align:left;vertical-align:middle;" headers="d94713e192 d94713e213 ">WriteVar</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d94713e194 d94713e216 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d94713e197 d94713e219 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d94713e197 d94713e222 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d94713e197 d94713e225 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d94713e197 d94713e229 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d94713e200 d94713e232 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d94713e200 d94713e235 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d94713e200 d94713e238 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d94713e200 d94713e241 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d94713e200 d94713e244 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d94713e200 d94713e248 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d94713e200 d94713e251 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d94713e200 d94713e254 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d94713e203 d94713e257 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d94713e203 d94713e260 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d94713e207 d94713e263 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d94713e207 d94713e267 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d94713e207 d94713e270 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d94713e207 d94713e273 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d94713e207 "><span class="ph font_Wingdings"></span>OK</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" colspan="20" style="text-align:center;vertical-align:middle;" headers="d94713e194 d94713e197 d94713e200 d94713e203 d94713e207 d94713e216 d94713e219 d94713e222 d94713e225 d94713e229 d94713e232 d94713e235 d94713e238 d94713e241 d94713e244 d94713e248 d94713e251 d94713e254 d94713e257 d94713e260 d94713e263 d94713e267 d94713e270 d94713e273 ">An enumeration, array, array element, structure, or structure member can also be specified.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d94713e192 d94713e213 ">OverWrite</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d94713e194 d94713e216 "><span class="ph font_Wingdings"></span>OK</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94713e197 d94713e219 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94713e197 d94713e222 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94713e197 d94713e225 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94713e197 d94713e229 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94713e200 d94713e232 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94713e200 d94713e235 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94713e200 d94713e238 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94713e200 d94713e241 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94713e200 d94713e244 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94713e200 d94713e248 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94713e200 d94713e251 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94713e200 d94713e254 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94713e203 d94713e257 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94713e203 d94713e260 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94713e207 d94713e263 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94713e207 d94713e267 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94713e207 d94713e270 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94713e207 d94713e273 ">&#160;</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d94713e207 ">&#160;</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer03" id="szr1501817452001">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function</h1>
+
+<div class="body conbody">
+<p class="p" id="szr1501817452001__ID0ERSAG">The FileWriteVar instruction writes the value of variable <span class="ph phtype_variable"><span class="termtype">WriteVar</span></span> to the file specified by <span class="ph phtype_variable"><span class="termtype">FileName</span></span> in the SD Memory Card. The value is written in binary format.</p>
+
+<p class="p" id="szr1501817452001__ID0EUSAG">You can specify an enumeration, array, array element, structure, or structure member for <span class="ph phtype_variable"><span class="termtype">WriteVar</span></span>.</p>
+
+<p class="p linespace_7pt" id="szr1501817452001__ID0EBTAG">If a file with the name <span class="ph phtype_variable"><span class="termtype">FileName</span></span> does not exist on the SD Memory Card, it is created.</p>
+
+<p class="p" id="szr1501817452001__ID0EITAG"><span class="ph phtype_variable"><span class="termtype">FileName</span></span> includes the path. If a specified directory does not exist in the SD Memory Card, it is created. However, the directory is created only when only the lowest directory level of the specified path does not exist.</p>
+
+<p class="p" id="szr1501817452001__ID0EPTAG">If a file with the name <span class="ph phtype_variable"><span class="termtype">FileName</span></span> already exists in the SD Memory Card, the following processing is performed depending on the value of overwrite enable <span class="ph phtype_variable"><span class="termtype">OverWrite</span></span>.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="szr1501817452001__table_N1004D_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all">
+                
+                
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d902199e63">Value of <span class="ph phtype_variable"><span class="termtype">OverWrite</span></span></th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d902199e68">Processing</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d902199e63 ">TRUE (Enable overwrite.)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d902199e68 ">The existing file is overwritten.</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d902199e63 ">FALSE (Prohibit overwrite.)</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d902199e68 ">The file is not overwritten and an error occurs.</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<p class="p linespace_7pt" id="szr1501817452001__ID0EDXAG">The following figure shows a programming example.</p>
+
+<p class="p">The contents of array variable <span class="ph phtype_variable"><span class="termtype">abc</span></span> is written to a file named 'Temp/f_name.bin'. Variable <span class="ph phtype_variable"><span class="termtype">abc</span></span> is an INT array variable with three elements.</p>
+
+<br /><img class="image" id="szr1501817452001__image_4F8B95A1131F44D18CB37080225866DB" src="ois1501817450125.gif" /><br />
+<br /><img class="image" id="szr1501817452001__image_7732257211BF48BAAB09B7D7BC4A19D9" src="tzi1501817450987.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="sps1501817452252">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Related System-defined Variables</h1>
+
+<div class="body conbody">
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="sps1501817452252__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all"><col style="width:20%" /><col style="width:20%" /><col style="width:9%" /><col style="width:50%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d889751e42">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d889751e45">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d889751e48">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d889751e51">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d889751e42 ">_Card1Ready</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d889751e45 ">SD Memory Card Ready Flag</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d889751e48 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d889751e51 ">
+<p class="p" id="sps1501817452252__ID0EJ3AG">This flag indicates if the SD Memory Card can be accessed by instructions and communications commands. <a class="xref" href="dpm1501815813062.html#sps1501817452252__fn_gkg_1hz_l1b"><i style="display:none;">☆</i><sup>*1</sup></a></p>
+
+<p class="p">TRUE: Can be used.</p>
+
+<p class="p" id="sps1501817452252__ID0EV3AG">FALSE: Cannot be used.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d889751e42 ">_Card1Protect<a class="xref" href="dpm1501815813062.html#sps1501817452252__fn-1352739"><i style="display:none;">☆</i><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d889751e45 ">SD Memory Card Write Protected Flag</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d889751e48 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d889751e51 ">
+<p class="p" id="sps1501817452252__ID0EL5AG">This flag indicates if the SD Memory Card is write protected when it is inserted and ready to use.</p>
+
+<p class="p">TRUE: Write protected.</p>
+
+<p class="p">FALSE: Not write protected.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d889751e42 ">_Card1Err<a class="xref" href="dpm1501815813062.html#sps1501817452252__fn-1352739"><i style="display:none;">☆</i><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d889751e45 ">SD Memory Card Error Flag</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d889751e48 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d889751e51 ">
+<p class="p" id="sps1501817452252__ID0ECABG">This flag indicates if an SD Memory Card that cannot be used is mounted or if a format error occurs.</p>
+
+<p class="p">TRUE: Error.</p>
+
+<p class="p">FALSE: No error.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d889751e42 ">_Card1Access<a class="xref" href="dpm1501815813062.html#sps1501817452252__fn-1352739"><i style="display:none;">☆</i><sup>*2</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d889751e45 ">SD Memory Card Access Flag</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d889751e48 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d889751e51 ">
+<p class="p" id="sps1501817452252__ID0EZBBG">This flag indicates if the SD Memory Card is currently being accessed.</p>
+
+<p class="p">TRUE: Being accessed.</p>
+
+<p class="p">FALSE: Not being accessed.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d889751e42 ">_Card1PowerFail</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d889751e45 ">SD Memory Card Power Interruption Flag</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d889751e48 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d889751e51 ">
+<p class="p" id="sps1501817452252__ID0EQDBG">This flag indicates if an error occurred in completing processing when power was interrupted during access.<a class="xref" href="dpm1501815813062.html#sps1501817452252__fn-1352740"><i style="display:none;">☆</i><sup>*3</sup></a> This flag is not cleared automatically.</p>
+
+<p class="p">TRUE: Error.</p>
+
+<p class="p">FALSE: No error.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="sps1501817452252__fn_gkg_1hz_l1b" id="sps1501817452252__fn_gkg_1hz_l1b"><sup>*1</sup></a>  For the NJ/NX-series, it is a precondition that the SD Memory Card is physically inserted and mounted normally. For an NY-series Controller, it is a precondition that the shared folder (Virtual SD Memory Card) is detected by the Controller.</div>
+<div class="fn"><a name="sps1501817452252__fn-1352739" id="sps1501817452252__fn-1352739"><sup>*2</sup></a>  These variables are not used for the NY-series Controller. They are fixed to FALSE.</div>
+<div class="fn"><a name="sps1501817452252__fn-1352740" id="sps1501817452252__fn-1352740"><sup>*3</sup></a>  For the NJ/NX-series, this indicates an access to the SD Memory Card. For an NY-series Controller, this indicates an access to the shared folder (Virtual SD Memory Card).</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="qyj1501817452499">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Additional Information</h1>
+<div class="body conbody"><p class="p" id="qyj1501817452499__ID0EHFBG">The root directory of the file name is the top level of the SD Memory Card.</p>
+</div>
+<div class="related-links"></div></div><div class="layer03" id="oyl1501817452732">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Precautions for Correct Use</h1>
+
+<div class="body conbody">
+<ul class="ul"><li class="li" id="oyl1501817452732__li_N10017_N10013_N10010_N10002">Execution of this instruction is continued until completed even when the value of <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to FALSE or the execution time exceeds the task period. The value of <span class="ph phtype_variable"><span class="termtype">Done</span></span> changes to TRUE when the execution is completed. Use this to confirm normal completion of processing.</li>
+<li class="li" id="oyl1501817452732__li_N1001C_N10013_N10010_N10002">Refer to <a class="xref" href="aag1501815842589.html"><i style="display:none;">☆</i>Using this Section</a> for a timing chart of <span class="ph phtype_variable"><span class="termtype">Execute</span></span>, <span class="ph phtype_variable"><span class="termtype">Done</span></span>, <span class="ph phtype_variable"><span class="termtype">Busy</span></span>, and <span class="ph phtype_variable"><span class="termtype">Error</span></span>.</li>
+<li class="li" id="oyl1501817452732__li_N10023_N10013_N10010_N10002">
+<p class="p">The entire data to write in the instruction is not retained. </p>
+
+<p class="p">The concurrency of the value may not be maintained because the value is not synchronized with the execution timing of the instruction and the variable to pass to <span class="ph phtype_variable"><span class="termtype">WriteVar</span></span> is accessed each time.</p>
+
+<p class="p">Do not access to the target variable during instruction execution.</p>
+
+<p class="p">If the variable is accessed during instruction execution, an unintended value may be written in the file.</p>
+
+</li>
+
+<li class="li" id="oyl1501817452732__li_N10042_N10012_N1000F_N10002">Always use a variable for the input parameter to pass to <span class="ph phtype_variable"><span class="termtype">WriteVar</span></span>. A building error will occur if a constant is passed.</li>
+
+<li class="li" id="oyl1501817452732__li_N1004B_N10012_N1000F_N10002">If <span class="ph phtype_variable"><span class="termtype">WriteVar</span></span> is an enumeration, you cannot directly pass an enumerator to it. A building error will occur if an enumerator is passed to it directly.</li>
+
+<li class="li" id="oyl1501817452732__li_N10054_N10012_N1000F_N10002">If the specified file is larger than the size of <span class="ph phtype_variable"><span class="termtype">WriteVar</span></span>, an error does not occur and only data that corresponds to the size of <span class="ph phtype_variable"><span class="termtype">WriteVar</span></span> is written. Once this instruction is executed, the specified file is reduced to the size of <span class="ph phtype_variable"><span class="termtype">WriteVar</span></span>.</li>
+<li class="li" id="oyl1501817452732__li_N1004F_N10013_N10010_N10002">Data is written in byte increments. The lower bytes are written before the upper bytes (little endian).</li>
+<li class="li" id="oyl1501817452732__li_N1006D_N10012_N1000F_N10002">If <span class="ph phtype_variable"><span class="termtype">WriteVar</span></span> is a structure, adjustment areas between members may be inserted depending on the composition.</li>
+<li class="li" id="oyl1501817452732__li_N1005F_N10013_N10010_N10002">Do not simultaneously access the same file. Perform exclusive control of SD Memory Card instructions in the user program.</li>
+<li class="li" id="oyl1501817452732__li_N10088_N10013_N10010_N10002">
+<p class="p">Even if the FileWriteVar (Write Variable to File) instruction is used to write the data to the SD Memory Card and the instruction ends normally, the data may not be written correctly to the SD Memory Card.</p>
+
+<p class="p">If you want to confirm that the data was written correctly to the SD Memory Card, write the user program so that the written data is read with the FileReadVar (Read Variable from File) instruction and compared to the original data.</p>
+
+</li>
+
+<li class="li" id="oyl1501817452732__li_N1007B_N10012_N1000F_N10002">An error will occur in the following cases. <span class="ph phtype_variable"><span class="termtype">Error</span></span> will change to TRUE. <ol class="ol liststyle_alphabet1"><li class="li" id="oyl1501817452732__li_N10074_N1006F_N10064_N10013_N10010_N10002">The SD Memory Card is not in a usable condition.</li>
+<li class="li" id="oyl1501817452732__li_N10079_N1006F_N10064_N10013_N10010_N10002">The SD Memory Card is write protected.</li>
+<li class="li" id="oyl1501817452732__li_N1007E_N1006F_N10064_N10013_N10010_N10002">There is insufficient space available on the SD Memory Card.</li>
+<li class="li" id="oyl1501817452732__li_N10083_N1006F_N10064_N10013_N10010_N10002">The value of <span class="ph phtype_variable"><span class="termtype">FileName</span></span> is not a valid file name.</li>
+<li class="li" id="oyl1501817452732__li_N100A5_N10084_N1007B_N10012_N1000F_N10002">A file with the name <span class="ph phtype_variable"><span class="termtype">FileName</span></span> already exits, and the file is being accessed.</li>
+
+<li class="li" id="oyl1501817452732__li_N100AE_N10084_N1007B_N10012_N1000F_N10002">A file with the name <span class="ph phtype_variable"><span class="termtype">FileName</span></span> already exits, and the value of <span class="ph phtype_variable"><span class="termtype">OverWrite</span></span> is FALSE.</li>
+
+<li class="li" id="oyl1501817452732__li_N100BC_N10084_N1007B_N10012_N1000F_N10002">A file with the name <span class="ph phtype_variable"><span class="termtype">FileName</span></span> already exits, and the file is write protected.</li>
+<li class="li" id="oyl1501817452732__li_N100AF_N1006F_N10064_N10013_N10010_N10002">The value of <span class="ph phtype_variable"><span class="termtype">FileName</span></span> exceeds the maximum number of bytes allowed in a file name.</li>
+<li class="li" id="oyl1501817452732__li_N100B4_N1006F_N10064_N10013_N10010_N10002">The maximum number of files or directories is exceeded.</li>
+<li class="li" id="oyl1501817452732__li_N100B9_N1006F_N10064_N10013_N10010_N10002">Five or more of the following SD Memory Card instructions, which do not have <span class="ph phtype_variable"><span class="termtype">FileID</span></span>, are executed at the same time: FileWriteVar, FileReadVar, FileCopy, DirCreate, FileRemove, DirRemove, and FileRename.</li>
+<li class="li" id="oyl1501817452732__li_N100BE_N1006F_N10064_N10013_N10010_N10002">While the SD Memory Card is being accessed, an error occurs and causes an access failure. </li>
+</ol>
+</li>
+
+</ul>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="pts1501817452980">
+<h1 class="title topictitle1"  topicstatus="Localization:done">Sample Programming</h1>
+<div class="body conbody"><p class="p" id="pts1501817452980__ID0E1OBG">This sample writes all of array variable Var1[] to the file &#8216;File1.dat.&#8217;</p>
+</div>
+<div class="related-links"></div></div><div class="layer04" id="tmn1501817457958">
+<h1 class="title topictitle1"  topicstatus="Localization:done">LD</h1>
+<div class="body conbody">
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="tmn1501817457958__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all"><col style="width:12%" /><col style="width:25%" /><col style="width:27%" /><col style="width:15%" /><col style="width:18%" /><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d925870e24">Internal Variables</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d925870e26">Variable</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d925870e28">Data type</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d925870e30">Initial value</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d925870e32">Comment</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d925870e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d925870e26 ">OperatingEnd</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d925870e28 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d925870e30 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d925870e32 ">Processing completed.</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d925870e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d925870e26 ">Trigger</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d925870e28 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d925870e30 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d925870e32 ">Execution condition</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d925870e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d925870e26 ">Operating</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d925870e28 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d925870e30 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d925870e32 ">Processing</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d925870e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d925870e26 ">Var1</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d925870e28 ">ARRAY[0..999] OF INT</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d925870e30 ">[1000(0)]</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d925870e32 ">Write data</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d925870e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d925870e26 ">RS_instance</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d925870e28 ">RS</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d925870e30 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d925870e32 ">&#160;</td>
+</tr>
+<tr class="row"><td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d925870e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d925870e26 ">FileWriteVar_instance</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d925870e28 ">FileWriteVar</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d925870e30 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d925870e32 ">&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="tmn1501817457958__table_N1012B_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all"><col style="width:12%" /><col style="width:25%" /><col style="width:27%" /><col style="width:34%" /><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d925870e99">External Variables</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d925870e101">Variable</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d925870e103">Data type</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d925870e105">Comment</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d925870e99 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d925870e101 ">_Card1Ready</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d925870e103 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d925870e105 ">SD Memory Card Ready Flag</td>
+</tr>
+</tbody>
+</table>
+</div>
+<br /><img class="image" id="tmn1501817457958__image_7CD4DCCDACB34C2F9B62D1BE6D644016" src="bms1501817453205.gif" /><br /><br /><img class="image" id="tmn1501817457958__image_kd2_w4g_r1b" src="aoh1501817454085.gif" /><br /><br /><img class="image" id="tmn1501817457958__image_xsl_w4g_r1b" src="tnd1501817454977.gif" /><br /><br /><img class="image" id="tmn1501817457958__image_qqt_w4g_r1b" src="lzf1501817455966.gif" /><br /><br /><img class="image" id="tmn1501817457958__image_vbb_x4g_r1b" src="osa1501817456977.gif" /><br /></div>
+<div class="related-links"></div></div><div class="layer04" id="gzf1501817458216">
+<h1 class="title topictitle1"  topicstatus="Localization:done">ST</h1>
+<div class="body conbody">
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="gzf1501817458216__table_N10012_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all"><col style="width:12%" /><col style="width:25%" /><col style="width:27%" /><col style="width:15%" /><col style="width:18%" /><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d345887e24">Internal Variables</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d345887e26">Variable</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d345887e28">Data type</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d345887e30">Initial value</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d345887e32">Comment</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d345887e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d345887e26 ">Trigger</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d345887e28 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d345887e30 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d345887e32 ">Execution condition</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d345887e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d345887e26 ">LastTrigger</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d345887e28 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d345887e30 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d345887e32 ">Value of Trigger from previous task period</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d345887e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d345887e26 ">OperatingStart</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d345887e28 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d345887e30 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d345887e32 ">Processing started.</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d345887e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d345887e26 ">Operating</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d345887e28 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d345887e30 ">FALSE</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d345887e32 ">Processing</td>
+</tr>
+<tr class="row"><td class="entry nocellnorowborder" style="text-align:left;vertical-align:top;" headers="d345887e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d345887e26 ">Var1</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d345887e28 ">ARRAY[0..999] OF INT</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d345887e30 ">[1000(0)]</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d345887e32 ">Variable</td>
+</tr>
+<tr class="row"><td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d345887e24 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d345887e26 ">FileWriteVar_instance</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d345887e28 ">FileWriteVar</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d345887e30 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d345887e32 ">&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="gzf1501817458216__table_N1012D_N1000F_N10002" class="rules_all " frame="border" border="1" rules="all"><col style="width:12%" /><col style="width:25%" /><col style="width:27%" /><col style="width:34%" /><thead class="thead" style="text-align:left;"><tr class="row"><th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d345887e101">External Variables</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d345887e103">Variable</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d345887e105">Data type</th>
+<th class="entry cellrowborder" style="text-align:center;vertical-align:middle;" id="d345887e107">Comment</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry row-nocellborder" style="text-align:left;vertical-align:top;" headers="d345887e101 ">&#160;</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d345887e103 ">_Card1Ready</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d345887e105 ">BOOL</td>
+<td class="entry cellrowborder" style="text-align:left;vertical-align:middle;" headers="d345887e107 ">SD Memory Card Ready Flag</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p linespace_7pt"></p>
+<pre class="pre codeblock">
+// Detect when Trigger changes to TRUE.       
+IF ( (Trigger=TRUE) AND (LastTrigger=FALSE) AND (_Card1Ready=TRUE) ) THEN
+    OperatingStart:=TRUE;
+    Operating     :=TRUE;
+END_IF;
+LastTrigger:=Trigger;
+     
+// Initialize FileWriteVar instruction.
+IF (OperatingStart=TRUE) THEN
+    FileWriteVar_instance(
+        Execute    :=FALSE,
+        WriteVar   :=Var1);
+    OperatingStart:=FALSE;   
+END_IF;
+     
+// Execute FileWriteVar instruction.
+IF (Operating=TRUE) THEN
+    FileWriteVar_instance(
+        Execute  :=TRUE,
+        FileName :='File1.dat',  // File name
+        WriteVar :=Var1,           // Variable
+        OverWrite:=TRUE);          // Enable overwrite.
+     
+    IF (FileWriteVar_instance.Done=TRUE) THEN
+        // Processing after normal end.
+        Operating:=FALSE;
+    END_IF;
+     
+    IF (FileWriteVar_instance.Error=TRUE) THEN
+        // Processing after error end.
+        Operating:=FALSE;
+    END_IF;
+END_IF;</pre>
+</div>
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+
+
+
+
+
+

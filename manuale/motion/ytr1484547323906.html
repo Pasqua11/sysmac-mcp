@@ -1,0 +1,1442 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>MC_HomeWithParameter</title>
+</head>
+<body class="ytr1484547323906"><div class="layer02" id="ytr1484547323906">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">MC_HomeWithParameter</h1>
+
+<div class="body conbody">
+<p class="p" id="ytr1484547323906__ID0EOHFK">The MC_HomeWithParameter instruction sets the homing parameter and operates the motor to determine home. It uses the limit signals, home proximity signal, and home signal.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="ytr1484547323906__ID0EZHFK" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:13%" />
+<col style="width:11%" />
+<col style="width:5%" />
+<col style="width:39%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d208767e36">Instruction</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d208767e39">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d208767e42">FB/ FUN</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d208767e45">Graphic expression</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d208767e48">ST expression</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row fontsize_8pt">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d208767e36 "><span class="indexterm">MC_HomeWithParameter (Home with Parameters)</span> MC_HomeWithParameter</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d208767e39 "><span class="indexterm">Home with Parameters</span>Home with Parameters</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d208767e42 ">FB</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d208767e45 ">
+<br /><img class="image" id="ytr1484547323906__image_61979DAC06FF4B9689C82D69FC11CB35" src="vdo1484547323141.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d208767e48 ">
+<p class="p" id="ytr1484547323906__ID0E5LFK">MC_HomeWithParameter_instance (</p>
+
+<p class="p">Axis :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">HomingParameter :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Execute :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Done =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Busy =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">CommandAborted =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Error =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">ErrorID =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span></p>
+
+<p class="p">);</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<div class="note" id="ytr1484547323906__note_N100CB_N1000F_N10001"><div class="ver"><span class="notetitle ver">ver:</span> <p class="p" id="ytr1484547323906__ID0EZNFK">A CPU Unit with unit version 1.03 or later and Sysmac Studio version 1.04 or higher are required to use this instruction.</p>
+
+</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="tna1484547261564">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Variables</h1>
+
+<div class="body conbody"></div>
+
+<div class="related-links"></div></div><div class="layer04" id="nba1484547289552">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">Input Variables</h1>
+ 
+<div class="body conbody">
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="nba1484547289552__ID0EEGBI" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:14%" />
+<col style="width:11%" />
+<col style="width:16%" />
+<col style="width:12%" />
+<col style="width:8%" />
+<col style="width:37%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d98958e35">Name</th>
+ 
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d98958e38">Meaning</th>
+ 
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d98958e41">Data type</th>
+ 
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d98958e44">Valid range</th>
+ 
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d98958e47">Default</th>
+ 
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d98958e51">Description</th>
+ 
+</tr>
+ 
+</thead>
+ 
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d98958e35 ">Execute</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d98958e38 ">Execute</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d98958e41 ">BOOL</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d98958e44 ">TRUE or FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d98958e47 ">FALSE</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d98958e51 ">
+<p class="p" id="nba1484547289552__ID0EZKBI">The instruction is executed when the value of this variable changes to TRUE.</p>
+ 
+</td>
+ 
+</tr>
+ 
+</tbody>
+ 
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer04" id="pol1484547289771">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Output Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="pol1484547289771__ID0ELMBI" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:17%" />
+<col style="width:14%" />
+<col style="width:9%" />
+<col style="width:10%" />
+<col style="width:47%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d127788e50">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d127788e53">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d127788e56">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d127788e59">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d127788e62">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d127788e50 ">Done</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d127788e53 ">Done</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d127788e56 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d127788e59 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d127788e62 ">
+<p class="p" id="pol1484547289771__ID0EIQBI">TRUE when the instruction is completed.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d127788e50 ">Busy</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d127788e53 ">Executing</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d127788e56 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d127788e59 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d127788e62 ">
+<p class="p" id="pol1484547289771__ID0EHSBI">TRUE when the instruction is acknowledged.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d127788e50 ">CommandAborted</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d127788e53 ">Command Aborted</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d127788e56 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d127788e59 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d127788e62 ">
+<p class="p" id="pol1484547289771__ID0EGUBI">TRUE when the instruction is aborted.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d127788e50 ">Error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d127788e53 ">Error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d127788e56 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d127788e59 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d127788e62 ">
+<p class="p" id="pol1484547289771__ID0EFWBI">TRUE while there is an error.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d127788e50 ">ErrorID</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d127788e53 ">Error Code</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d127788e56 ">WORD</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d127788e59 "><a class="xref" href="#pol1484547289771__ID0ELMBI-footnote-2079456"><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d127788e62 ">
+<p class="p" id="pol1484547289771__ID0EGYBI">Contains the error code when an error occurs.</p>
+
+<p class="p">A value of 16#0000 indicates normal execution.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="pol1484547289771__ID0ELMBI-footnote-2079456" id="pol1484547289771__ID0ELMBI-footnote-2079456"><sup>*1</sup></a>
+<p class="p">The upper four digits of the event code give the error code for ErrorID. Refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series Troubleshooting Manual (Cat. No. W503)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Troubleshooting Manual (Cat. No. W564)</span></span></span> for the event codes.</p>
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="amb1484547290005">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">Output Variable Update Timing</h1>
+ 
+<div class="body conbody">
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="amb1484547290005__ID0EEZBI" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:17%" />
+<col style="width:43%" />
+<col style="width:39%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d2506e28">Name</th>
+ 
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d2506e31">Timing for changing to TRUE</th>
+ 
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d2506e34">Timing for changing to FALSE</th>
+ 
+</tr>
+ 
+</thead>
+ 
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d2506e28 ">Done</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d2506e31 ">When the instruction is completed.</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d2506e34 ">
+<ul class="ul" id="amb1484547290005__ul_0FAF3963AC924A3EAC9ABB1608C326F8">
+<li class="li" id="amb1484547290005__li_3B79BD87B9AC4237B378FB0F3EB3D33E">
+<p class="p" id="amb1484547290005__ID0E42BI">When <span class="ph phtype_variable"><span class="termtype">Execute</span></span> is TRUE and changes to FALSE.<span class="ph phtype_variable"><span class="termtype"></span></span></p>
+ 
+</li>
+ 
+<li class="li" id="amb1484547290005__li_7311FC6E0F1448CC80740E759AA40C67">
+<p class="p" id="amb1484547290005__ID0EI3BI">After one period when <span class="ph phtype_variable"><span class="termtype">Execute</span></span> is FALSE.</p>
+ 
+</li>
+ 
+</ul>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d2506e28 ">Busy</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d2506e31 ">
+<p class="p" id="amb1484547290005__ID0EB4BI">When <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to TRUE.</p>
+ 
+</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d2506e34 ">
+<ul class="ul" id="amb1484547290005__ul_C4804AB281F14912BCE9947A46CBEF88">
+<li class="li" id="amb1484547290005__li_55624C1FEDC2410F905C22CDB42FA519">
+<p class="p" id="amb1484547290005__ID0EZ4BI">When <span class="ph phtype_variable"><span class="termtype">Done</span></span> changes to TRUE.</p>
+ 
+</li>
+ 
+<li class="li" id="amb1484547290005__li_76BD48D0BCA04CF08B5F7D86E40679B4">
+<p class="p" id="amb1484547290005__ID0EE5BI">When <span class="ph phtype_variable"><span class="termtype">Error</span></span> changes to TRUE.</p>
+ 
+</li>
+ 
+<li class="li" id="amb1484547290005__li_FAF7CCF650F64258973AB037D1C42B3A">
+<p class="p" id="amb1484547290005__ID0EP5BI">When <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> changes to TRUE.</p>
+ 
+</li>
+ 
+</ul>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d2506e28 ">CommandAborted</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d2506e31 ">
+<ul class="ul" id="amb1484547290005__ul_63E0582840FD47219039DCA1EDC4F8A3">
+<li class="li" id="amb1484547290005__li_E245275C32214B7B905820B8DC4492E4">
+<p class="p" id="amb1484547290005__ID0EU6BI">When this instruction is aborted because another motion control instruction was executed with the Buffer Mode set to <span class="ph phtype_choice"><span class="termtype">Aborting</span></span>.</p>
+ 
+</li>
+ 
+<li class="li" id="amb1484547290005__li_FB9B597BBA7E4465B90AEB0209BD6140">
+<p class="p" id="amb1484547290005__ID0E66BI">When this instruction is canceled due to an error.</p>
+ 
+</li>
+ 
+<li class="li" id="amb1484547290005__li_9BCA9029190C40DAB5F2871CA689868E">
+<p class="p" id="amb1484547290005__ID0EKACI">When this instruction is executed while there is an error.</p>
+ 
+</li>
+ 
+<li class="li" id="amb1484547290005__li_336E16AE17A94E3AAA8125032DBA3115">
+<p class="p" id="amb1484547290005__ID0EVACI">When you start this instruction during MC_Stop instruction execution.</p>
+ 
+</li>
+ 
+</ul>
+ 
+</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d2506e34 ">
+<ul class="ul" id="amb1484547290005__ul_BCE10B6AF8C04368955ABD29824178E7">
+<li class="li" id="amb1484547290005__li_28DD298975764FB98FC1FD924FAC9D21">
+<p class="p" id="amb1484547290005__ID0ELBCI">When <span class="ph phtype_variable"><span class="termtype">Execute</span></span> is TRUE and changes to FALSE.<span class="ph phtype_variable"><span class="termtype"></span></span></p>
+ 
+</li>
+ 
+<li class="li" id="amb1484547290005__li_6BE2A6BFCA704414B661C5B12A88ED2B">
+<p class="p" id="amb1484547290005__ID0EWBCI">After one period when <span class="ph phtype_variable"><span class="termtype">Execute</span></span> is FALSE.</p>
+ 
+</li>
+ 
+</ul>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d2506e28 ">Error</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d2506e31 ">
+<p class="p" id="amb1484547290005__ID0EPCCI">When there is an error in the execution conditions or input parameters for the instruction.</p>
+ 
+</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d2506e34 ">
+<p class="p" id="amb1484547290005__ID0E2CCI">When the error is cleared.</p>
+ 
+</td>
+ 
+</tr>
+ 
+</tbody>
+ 
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer04" id="jdp1484547324124">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">In-Out Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="jdp1484547324124__ID0EQOGK" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:18%" />
+<col style="width:16%" />
+<col style="width:13%" />
+<col style="width:9%" />
+<col style="width:41%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d67434e59">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d67434e62">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d67434e65">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d67434e68">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d67434e71">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d67434e59 ">Axis</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d67434e62 ">Axis</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d67434e65 ">_sAXIS_REF</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d67434e68 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d67434e71 ">
+<p class="p" id="jdp1484547324124__ID0ENSGK">Specify the axis. <a class="xref" href="#jdp1484547324124__ID0EQOGK-footnote-2080089"><sup>*1</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d67434e59 ">HomingParameter</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d67434e62 ">Homing Parameter</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d67434e65 ">_sHOMING_REF</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d67434e68 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d67434e71 ">
+<p class="p" id="jdp1484547324124__ID0ERUGK">Set the homing parameter. <a class="xref" href="#jdp1484547324124__ID0EQOGK-footnote-2080093"><sup>*2</sup></a></p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="jdp1484547324124__ID0EQOGK-footnote-2080089" id="jdp1484547324124__ID0EQOGK-footnote-2080089"><sup>*1</sup></a>  <p class="p" id="jdp1484547324124__ID0ERPKT">Specify a user-defined Axis Variable that was created in the Axis Basic Settings of the Sysmac Studio (default: MC_Axis*) or a system-defined axis variable name (_MC_AX[*], <span class="ph">_MC1_AX[*] or _MC2_AX[*]</span>).</p>
+
+<p class="p">If you use Sysmac Studio version 1.29 or higher, you can specify the system-defined axis variable name for AT specification of a user-defined variable. This will allow you to specify the user-defined variable.</p>
+
+<p class="p">If you use Sysmac Studio version 1.28 or lower, do not specify any user-defined variable created in the variable table.</p>
+</div>
+<div class="fn"><a name="jdp1484547324124__ID0EQOGK-footnote-2080093" id="jdp1484547324124__ID0EQOGK-footnote-2080093"><sup>*2</sup></a>  <p class="p" id="jdp1484547324124__ID0EEQKT">Define a user-defined variable with a data type of _sHOMING_REF.</p>
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="nsj1484547324389">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">_sHOMING_REF</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="nsj1484547324389__ID0EYVGK" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:12%" />
+<col style="width:12%" />
+<col style="width:13%" />
+<col style="width:23%" />
+<col style="width:37%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d106137e75">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d106137e78">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d106137e81">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d106137e84">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d106137e87">Function</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e75 ">HomingMode</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e78 ">Homing Method</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e81 ">_eMC_HOMING_MODE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e84 ">
+<p class="p" id="nsj1484547324389__ID0EPZGK">0: _mcHomeSwTurnHomeSwOff</p>
+
+<p class="p" id="nsj1484547324389__ID0EYZGK">1: _mcHomeSwTurnHomeSwOn</p>
+
+<p class="p" id="nsj1484547324389__ID0EB1GK">4: _mcHomeSwOff</p>
+
+<p class="p" id="nsj1484547324389__ID0EI1GK">5: _mcHomeSwOn</p>
+
+<p class="p" id="nsj1484547324389__ID0EP1GK">8: _mcLimitInputOff</p>
+
+<p class="p" id="nsj1484547324389__ID0EW1GK">9: _mcHomeSwTurnHomeMask</p>
+
+<p class="p" id="nsj1484547324389__ID0E61GK">11: _mcLimitInputOnly</p>
+
+<p class="p" id="nsj1484547324389__ID0EG2GK">12: _mcHomeSwTurnHoldingTime</p>
+
+<p class="p" id="nsj1484547324389__ID0EP2GK">13: _mcNoHomeSwHoldingHomeInput</p>
+
+<p class="p" id="nsj1484547324389__ID0EY2GK">14: _mcHomePreset</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e87 ">
+<p class="p" id="nsj1484547324389__ID0EE3GK">Specify the new setting of the Homing Method.</p>
+
+<p class="p" id="nsj1484547324389__ID0EL3GK">0: Proximity reverse turn/home proximity input OFF</p>
+
+<p class="p" id="nsj1484547324389__ID0ES3GK">1: Proximity reverse turn/home proximity input ON</p>
+
+<p class="p" id="nsj1484547324389__ID0EZ3GK">4: Home proximity input OFF</p>
+
+<p class="p" id="nsj1484547324389__ID0EA4GK">5: Home proximity input ON</p>
+
+<p class="p" id="nsj1484547324389__ID0EH4GK">8: Limit input OFF</p>
+
+<p class="p" id="nsj1484547324389__ID0EO4GK">9: Proximity reverse turn/home input mask distance</p>
+
+<p class="p" id="nsj1484547324389__ID0EV4GK">11: Limit inputs only</p>
+
+<p class="p" id="nsj1484547324389__ID0E34GK">12: Proximity reverse turn/holding time</p>
+
+<p class="p" id="nsj1484547324389__ID0ED5GK">13: No home proximity input/holding home input</p>
+
+<p class="p" id="nsj1484547324389__ID0EK5GK">14: Zero position preset</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e75 ">HomeInput</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e78 ">Home Input Signal</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e81 ">_eMC_HOME_INPUT</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e84 ">
+<p class="p" id="nsj1484547324389__ID0EBAHK">0: _mcZPhase</p>
+
+<p class="p" id="nsj1484547324389__ID0EIAHK">1: _mcExternalSignal</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e87 ">
+<p class="p" id="nsj1484547324389__ID0EUAHK">Select the input to use for the home input signal.</p>
+
+<p class="p" id="nsj1484547324389__ID0E2AHK">0: Use the Z-phase input as home.</p>
+
+<p class="p" id="nsj1484547324389__ID0ECBHK">1: Use external home input.<a class="xref" href="#nsj1484547324389__ID0EYVGK-footnote-2080050"><sup>*1</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e75 ">StartDir</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e78 ">Homing Start Direction</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e81 ">_eMC_DIRECTION</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e84 ">
+<p class="p" id="nsj1484547324389__ID0E1CHK">0: _mcPositiveDirection</p>
+
+<p class="p" id="nsj1484547324389__ID0EBDHK">2: _mcNegativeDirection</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e87 ">
+<p class="p" id="nsj1484547324389__ID0ENDHK">Set the start direction for when homing is started.</p>
+
+<p class="p" id="nsj1484547324389__ID0EUDHK">0: Positive direction</p>
+
+<p class="p" id="nsj1484547324389__ID0E2DHK">2: Negative direction</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e75 ">HomeDir</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e78 ">Home Input Detection Direction</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e81 ">_eMC_DIRECTION</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e84 ">
+<p class="p" id="nsj1484547324389__ID0EQFHK">0: _mcPositiveDirection</p>
+
+<p class="p" id="nsj1484547324389__ID0EXFHK">2: _mcNegativeDirection</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e87 ">
+<p class="p" id="nsj1484547324389__ID0EDGHK">Set the home input detection direction for homing.</p>
+
+<p class="p" id="nsj1484547324389__ID0EKGHK">0: Positive direction</p>
+
+<p class="p" id="nsj1484547324389__ID0ERGHK">2: Negative direction</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e75 ">PosiLmtMode</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e78 ">Operation Selection at Positive Limit Input</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e81 ">_eMC_LIMIT_REVERSE_MODE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e84 ">
+<p class="p" id="nsj1484547324389__ID0EMIHK">0: _mcErrorStop</p>
+
+<p class="p" id="nsj1484547324389__ID0ETIHK">1: _mcRevImmediateStop</p>
+
+<p class="p" id="nsj1484547324389__ID0E1IHK">2: _mcRevDecelerationStop</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e87 ">
+<p class="p" id="nsj1484547324389__ID0EIJHK">Set the stopping method when the positive limit input turns ON during homing.</p>
+
+<p class="p" id="nsj1484547324389__ID0EPJHK">0: No reverse turn/minor fault stop (Stop according to Limit Input Stop Method parameter.)</p>
+
+<p class="p" id="nsj1484547324389__ID0EWJHK">1:Reverse turn/immediate stop</p>
+
+<p class="p" id="nsj1484547324389__ID0E4JHK">2: Reverse turn/deceleration stop</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e75 ">NegaLmtMode</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e78 ">Operation Selection at Negative Limit Input</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e81 ">_eMC_LIMIT_REVERSE_MODE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e84 ">
+<p class="p" id="nsj1484547324389__ID0EYLHK">0: _mcErrorStop</p>
+
+<p class="p" id="nsj1484547324389__ID0E6LHK">1: _mcRevImmediateStop</p>
+
+<p class="p" id="nsj1484547324389__ID0EGMHK">2: _mcRevDecelerationStop</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e87 ">
+<p class="p" id="nsj1484547324389__ID0EUMHK">Set the stopping method when the negative limit input turns ON during homing.</p>
+
+<p class="p" id="nsj1484547324389__ID0E2MHK">0: No reverse turn/minor fault stop (Stop according to Limit Input Stop Method parameter.)</p>
+
+<p class="p" id="nsj1484547324389__ID0ECNHK">1: Reverse turn/immediate stop</p>
+
+<p class="p" id="nsj1484547324389__ID0EJNHK">2: Reverse turn/deceleration stop</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e75 ">Vel</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e78 ">Homing Velocity</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e81 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d106137e84 ">Positive number</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e87 ">
+<p class="p" id="nsj1484547324389__ID0EIPHK">Set the homing velocity.</p>
+
+<p class="p" id="nsj1484547324389__ID0EPPHK">Set the homing velocity to a value that is less than the maximum velocity and greater than or equal to the homing approach velocity.</p>
+
+<p class="p" id="nsj1484547324389__ID0EWPHK">The unit is command units/s. <a class="xref" href="#nsj1484547324389__ID0EYVGK-footnote-2080053"><sup>*2</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e75 ">ApproachVel</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e78 ">Homing Approach Velocity</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e81 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d106137e84 ">Positive number</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e87 ">
+<p class="p" id="nsj1484547324389__ID0EYRHK">Set the velocity to use after the home proximity input turns ON.</p>
+
+<p class="p" id="nsj1484547324389__ID0E6RHK">Set the homing velocity to a value that is less than the maximum velocity and greater than or equal to the homing approach velocity.</p>
+
+<p class="p" id="nsj1484547324389__ID0EGSHK">The unit is command units/s. <a class="xref" href="#nsj1484547324389__ID0EYVGK-footnote-2080053"><sup>*2</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e75 ">Acc</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e78 ">Homing Acceleration</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e81 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d106137e84 ">Non-negative number</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e87 ">
+<p class="p" id="nsj1484547324389__ID0EFUHK">Set the acceleration rate for homing.</p>
+
+<p class="p" id="nsj1484547324389__ID0EMUHK">Set 0 for no acceleration.</p>
+
+<p class="p" id="nsj1484547324389__ID0ETUHK">The unit is command units/s<sup class="ph sup">2</sup>. <a class="xref" href="#nsj1484547324389__ID0EYVGK-footnote-2080053"><sup>*2</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e75 ">Dec</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e78 ">Homing Deceleration</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e81 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d106137e84 ">Non-negative number</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e87 ">
+<p class="p" id="nsj1484547324389__ID0ESWHK">Set the deceleration rate for homing.</p>
+
+<p class="p" id="nsj1484547324389__ID0EZWHK">Set 0 for no deceleration.</p>
+
+<p class="p" id="nsj1484547324389__ID0EAXHK">The unit is command units/s<sup class="ph sup">2</sup>. <a class="xref" href="#nsj1484547324389__ID0EYVGK-footnote-2080053"><sup>*2</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e75 ">Jerk</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e78 ">Homing Jerk</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e81 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d106137e84 ">Non-negative number</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e87 ">
+<p class="p" id="nsj1484547324389__ID0E6YHK">Set the jerk for homing.</p>
+
+<p class="p" id="nsj1484547324389__ID0EGZHK">Set 0 for no jerk.</p>
+
+<p class="p" id="nsj1484547324389__ID0ENZHK">Set the value to within the range of 40-bit data for pulses.</p>
+
+<p class="p" id="nsj1484547324389__ID0EUZHK">The unit is command units/s<sup class="ph sup">3</sup>. <a class="xref" href="#nsj1484547324389__ID0EYVGK-footnote-2080053"><sup>*2</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e75 ">Mask</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e78 ">Home Input Mask Distance</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e81 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d106137e84 ">Non-negative number</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e87 ">
+<p class="p" id="nsj1484547324389__ID0ET2HK">Set the home input mask distance when you set the Homing Operation Mode to <span class="ph phtype_choice"><span class="termtype">Proximity Reverse Turn/Home Input Mask Distance</span></span>.</p>
+
+<p class="p" id="nsj1484547324389__ID0E12HK">The unit is command units. <a class="xref" href="#nsj1484547324389__ID0EYVGK-footnote-2080053"><sup>*2</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e75 ">Offset</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e78 ">Home Offset</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e81 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d106137e84 ">Negative number, positive number, or 0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e87 ">
+<p class="p" id="nsj1484547324389__ID0EZ4HK">Preset the actual position for the value that is set after homing.</p>
+
+<p class="p" id="nsj1484547324389__ID0EA5HK">In Rotary Mode, set the Home Offset parameter so that it is greater than or equal to the modulo minimum position and less than the modulo maximum position. Also set the value to within the range of 40-bit data for pulses.</p>
+
+<p class="p" id="nsj1484547324389__ID0EH5HK">The unit is command units. <a class="xref" href="#nsj1484547324389__ID0EYVGK-footnote-2080053"><sup>*2</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e75 ">PushTime</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e78 ">Homing Holding Time</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e81 ">UINT</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d106137e84 ">0 to 10,000</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e87 ">
+<p class="p" id="nsj1484547324389__ID0EHAAM">Set the holding time when you set the Homing Operation Mode to <span class="ph phtype_choice"><span class="termtype">Proximity Reverse Turn/Holding Time</span></span>.</p>
+
+<p class="p" id="nsj1484547324389__ID0EOAAM">The unit is milliseconds.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e75 ">Compensation</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e78 ">Homing Compensation Value</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e81 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d106137e84 ">Negative number, positive number, or 0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e87 ">
+<p class="p" id="nsj1484547324389__ID0ENCAM">Set the homing compensation value that is applied after the home is defined.</p>
+
+<p class="p" id="nsj1484547324389__ID0EUCAM">In Rotary Mode, set the homing compensation value so that the absolute value of the homing compensation value is less than the absolute value of the difference between the modulo maximum position and modulo minimum position. Also set the value to within the range of 40-bit data for pulses.</p>
+
+<p class="p" id="nsj1484547324389__ID0E2CAM">The unit is command units. <a class="xref" href="#nsj1484547324389__ID0EYVGK-footnote-2080053"><sup>*2</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e75 ">CompensationVel</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e78 ">Homing Compensation Velocity</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e81 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d106137e84 ">Positive number</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d106137e87 ">
+<p class="p" id="nsj1484547324389__ID0E1EAM">Set the velocity to use for homing compensation.</p>
+
+<p class="p" id="nsj1484547324389__ID0EBFAM">Set the value to less than the maximum velocity.</p>
+
+<p class="p" id="nsj1484547324389__ID0EIFAM">The unit is command units/s. <a class="xref" href="#nsj1484547324389__ID0EYVGK-footnote-2080053"><sup>*2</sup></a></p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="nsj1484547324389__ID0EYVGK-footnote-2080050" id="nsj1484547324389__ID0EYVGK-footnote-2080050"><sup>*1</sup></a>  <p class="p" id="nsj1484547324389__ID0EXQKT">This setting can be used for an OMRON 1S-series Servo Drive and G5-series Servo Drive. The input allocated to latch 1 for the Servo Drive is used as the external home input. In the default setting of the OMRON 1S-series Servo Drives and G5-series Servo Drives, the external latch input 1 is allocated to latch 1.</p>
+
+<p class="p">For details, refer to the <span class="ph phtype_docname"><span class="termtype">AC Servomotors/Servo Drives 1S-series with Built-in EtherCAT Communications User&#8217;s Manual (Cat. No. I586)</span></span>, <span class="ph phtype_docname"><span class="termtype">AC Servomotors/Servo Drives 1S-series with Built-in EtherCAT Communications and Safety Functionality User&#8217;s Manual (Cat. No. I621)</span></span>, <span class="ph phtype_docname"><span class="termtype">AC Servomotors/Servo Drives G5-series with Built-in EtherCAT Communications User&#8217;s Manual (Cat. No. I576)</span></span> or the <span class="ph phtype_docname"><span class="termtype">AC Servomotors/Servo Drives G5-series with Built-in EtherCAT Communications Linear Motor Type User&#8217;s Manual (Cat. No. I577)</span></span>.</p>
+</div>
+<div class="fn"><a name="nsj1484547324389__ID0EYVGK-footnote-2080053" id="nsj1484547324389__ID0EYVGK-footnote-2080053"><sup>*2</sup></a>
+                        
+<p class="p">Refer to <span class="ph phtype_type2"><span class="termtype">Unit Conversion Settingsins</span></span> in the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Motion Control User&#8217;s Manual (Cat. No. W507)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Industrial Panel PC / Industrial Box PC Motion Control User&#8217;s Manual (Cat. No. W559)</span></span></span> for information on command units.</p>
+
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="tzy1484547324639">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function</h1>
+
+<div class="body conbody">
+<ul class="ul" id="tzy1484547324639__ul_FBC39DEA454A4A24B5269451707F2B49">
+<li class="li" id="tzy1484547324639__li_53A0CE501BDD4E8C8AC865886A54F67F">
+<p class="p" id="tzy1484547324639__ID0E3GAM">Homing starts when <span class="ph phtype_variable"><span class="termtype">Execute</span></span> changes to TRUE for the axis specified in <span class="ph phtype_variable"><span class="termtype">Axis</span></span>.</p>
+
+</li>
+
+<li class="li" id="tzy1484547324639__li_48799131969446548ABEBCD892D6A942">
+<p class="p" id="tzy1484547324639__ID0EHHAM">Set the parameters used by the MC_HomeWithParameter instruction in the <span class="ph phtype_variable"><span class="termtype">HomingParameter</span></span> in-out variable.</p>
+
+</li>
+
+<li class="li" id="tzy1484547324639__li_36A6DDA9BA384ED3AC7F48F8BDBFE56F">
+<p class="p" id="tzy1484547324639__ID0ESHAM">The axis parameters are not changed when this instruction is executed.</p>
+
+</li>
+
+<li class="li" id="tzy1484547324639__li_F7E05D105FCA475ABDC11FDAD1F55E01">
+<p class="p" id="tzy1484547324639__ID0E4HAM">The only difference between this instruction and the MC_Home instruction is how the parameters are set. For this instruction, the parameters are set in the <span class="ph phtype_variable"><span class="termtype">HomingParameter</span></span> in-out variable. For the MC_Home instruction, the parameters are set in the <span class="ph phtype_parameter"><span class="termtype">Homing Method</span></span> of the axis parameters in the Sysmac Studio.</p>
+
+</li>
+
+</ul>
+
+<p class="p linespace_7pt" id="tzy1484547324639__ID0ENIAM">Refer to <a class="xref" href="vte1484547289334.html#vte1484547289334"><i style="display:none;">☆</i>MC_Home</a> for all instruction specifications except for how to set the parameters.</p>
+
+<div class="note" id="tzy1484547324639__note_N1006E_N1000F_N10001"><div class="use"><span class="notetitle use">use:</span> The homing parameters that are set in this instruction are valid only when this instruction is executed. If you execute the MC_Home instruction after this instruction, operation will be based on the homing parameters that are set in the axis parameters.</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="gmh1484547324826">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Relationship between the Homing Method and Homing Parameters</h1>
+
+<div class="body conbody">
+<p class="p" id="gmh1484547324826__ID0ELLAM">Some of the homing parameters are not used depending on the setting of the homing method. Range and consistency checks are not performed for the parameters that are not used. Range and consistency checks are performed when the instruction is executed.</p>
+
+<p class="p linespace_7pt" id="gmh1484547324826__ID0E1LAM">The following table shows the homing parameters that are used for each homing method.</p>
+
+<p class="p linespace_7pt indent_right">(<span class="ph font_Wingdings">&#9675;</span>: Parameter is used, ---: Parameter is not used.)</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="gmh1484547324826__ID0EHMAM" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:33%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<col style="width:4%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d50207e68">&#160;</th>
+
+<th class="entry cellrowborder" colspan="15" style="text-align:center;vertical-align:top;" id="d50207e70">Homing parameter</th>
+
+</tr>
+
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:bottom;" id="d50207e76">
+<p class="p" id="gmh1484547324826__ID0EQOAM">Homing method</p>
+
+</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:top;" id="d50207e82">Home Input Signal</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:top;" id="d50207e85">Homing Start Direction</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:top;" id="d50207e88">Home Input Detection Direction</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:top;" id="d50207e91">Operation Selection at Positive Limit Input</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:top;" id="d50207e95">Operation Selection at Negative Limit Input</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:top;" id="d50207e98">Homing Velocity</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:top;" id="d50207e101">Homing Approach Velocity</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:top;" id="d50207e104">Homing Acceleration</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:top;" id="d50207e107">Homing Deceleration</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:top;" id="d50207e110">Homing Jerk</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:top;" id="d50207e114">Home Input Mask Distance</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:top;" id="d50207e117">Home Offset</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:top;" id="d50207e120">Homing Holding Time</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:top;" id="d50207e123">Homing Compensation Value</th>
+
+<th class="entry cellrowborder rotate_right" style="text-align:center;vertical-align:top;" id="d50207e126">Homing Compensation Velocity</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row" style="vertical-align:middle;">
+<td class="entry cellrowborder fonttype_head bgcolor_standardgray" style="text-align:left;vertical-align:middle;" headers="d50207e68 d50207e76 ">Proximity reverse turn/home proximity input OFF</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e82 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e85 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e88 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e91 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e95 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e98 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e101 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e104 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e107 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e110 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e114 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e117 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e120 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e123 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e126 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:middle;">
+<td class="entry cellrowborder fonttype_head bgcolor_standardgray" style="text-align:left;vertical-align:middle;" headers="d50207e68 d50207e76 ">Proximity reverse turn/home proximity input ON</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e82 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e85 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e88 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e91 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e95 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e98 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e101 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e104 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e107 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e110 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e114 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e117 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e120 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e123 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e126 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:middle;">
+<td class="entry cellrowborder fonttype_head bgcolor_standardgray" style="text-align:left;vertical-align:middle;" headers="d50207e68 d50207e76 ">Home proximity input OFF</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e82 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e85 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e88 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e91 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e95 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e98 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e101 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e104 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e107 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e110 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e114 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e117 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e120 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e123 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e126 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:middle;">
+<td class="entry cellrowborder fonttype_head bgcolor_standardgray" style="text-align:left;vertical-align:middle;" headers="d50207e68 d50207e76 ">Home proximity input ON</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e82 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e85 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e88 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e91 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e95 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e98 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e101 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e104 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e107 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e110 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e114 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e117 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e120 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e123 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e126 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:middle;">
+<td class="entry cellrowborder fonttype_head bgcolor_standardgray" style="text-align:left;vertical-align:middle;" headers="d50207e68 d50207e76 ">Limit input OFF</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e82 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e85 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e88 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e91 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e95 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e98 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e101 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e104 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e107 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e110 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e114 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e117 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e120 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e123 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e126 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:middle;">
+<td class="entry cellrowborder fonttype_head bgcolor_standardgray" style="text-align:left;vertical-align:middle;" headers="d50207e68 d50207e76 ">Proximity reverse turn/home input mask distance</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e82 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e85 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e88 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e91 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e95 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e98 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e101 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e104 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e107 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e110 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e114 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e117 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e120 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e123 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e126 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:middle;">
+<td class="entry cellrowborder fonttype_head bgcolor_standardgray" style="text-align:left;vertical-align:middle;" headers="d50207e68 d50207e76 ">Limit inputs only</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e82 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e85 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e88 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e91 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e95 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e98 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e101 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e104 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e107 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e110 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e114 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e117 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e120 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e123 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e126 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:middle;">
+<td class="entry cellrowborder fonttype_head bgcolor_standardgray" style="text-align:left;vertical-align:middle;" headers="d50207e68 d50207e76 ">Proximity reverse turn/holding time</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e82 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e85 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e88 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e91 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e95 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e98 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e101 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e104 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e107 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e110 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e114 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e117 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e120 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e123 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e126 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:middle;">
+<td class="entry cellrowborder fonttype_head bgcolor_standardgray" style="text-align:left;vertical-align:middle;" headers="d50207e68 d50207e76 ">No home proximity input/holding home input</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e82 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e85 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e88 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e91 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e95 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e98 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e101 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e104 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e107 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e110 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e114 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e117 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e120 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e123 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e126 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+</tr>
+
+<tr class="row" style="vertical-align:middle;">
+<td class="entry cellrowborder fonttype_head bgcolor_standardgray" style="text-align:left;vertical-align:middle;" headers="d50207e68 d50207e76 ">Zero position preset</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e82 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e85 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e88 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e91 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e95 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e98 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e101 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e104 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e107 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e110 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e114 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e117 "><span class="ph font_Wingdings">&#9675;</span></td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e120 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e123 ">---</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:middle;" headers="d50207e70 d50207e126 ">---</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+<div class="note" id="gmh1484547324826__note_N10492_N1000F_N10001"><div class="memo"><span class="notetitle memo">memo:</span> If you use NX-series Position Interface Units, do not select holding for the Homing Operation Mode. Refer to the <span class="ph phtype_docname"><span class="termtype">NX-series Position Interface Units User&#8217;s Manual (Cat. No. W524)</span></span> for details.</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="pyz1484547322969">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Re-execution of Motion Control Instructions</h1>
+
+<div class="body conbody">
+<p class="p" id="pyz1484547322969__ID0EIDFK">This instruction cannot be re-executed.</p>
+
+<p class="p" id="pyz1484547322969__ID0ELDFK">A Motion Control Instruction Re-execution Disabled error (error code: 543B hex) occurs if re-execution is attempted.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="sos1484547268366">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Multi-execution of Motion Control Instructions</h1>
+
+<div class="body conbody">
+        
+<p class="p">For details on multi-execution of motion control instructions, refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Motion Control User&#8217;s Manual (Cat. No. W507)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Industrial Panel PC / Industrial Box PC Motion Control User&#8217;s Manual (Cat. No. W559)</span></span></span>.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="rzo1484547270426">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Error Codes</h1>
+
+<div class="body conbody">
+        
+<p class="p">Refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series Troubleshooting Manual (Cat. No. W503)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Troubleshooting Manual (Cat. No. W564)</span></span></span> for instruction errors.</p>
+
+</div>
+
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

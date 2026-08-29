@@ -1,0 +1,18 @@
+﻿{"nome":"Semaforo incrocio - ciclo 4 fasi","passi":[
+ {"set":{"IN_MARCIA":0}},
+ {"attendi":1},
+ {"verifica":{"Sem1_Verde":false,"Sem1_Giallo":false,"Sem1_Rosso":false,"Sem2_Verde":false,"Sem2_Giallo":false,"Sem2_Rosso":false},"descrizione":"a riposo: tutte spente"},
+ {"set":{"IN_MARCIA":1}},
+ {"attendi":2},
+ {"verifica":{"Sem1_Verde":true,"Sem1_Giallo":false,"Sem1_Rosso":false,"Sem2_Rosso":true,"Sem2_Verde":false,"Sem2_Giallo":false},"descrizione":"FASE 1 (t=2s) Sem1 VERDE / Sem2 ROSSO"},
+ {"attendi":9},
+ {"verifica":{"Sem1_Verde":false,"Sem1_Giallo":true,"Sem1_Rosso":false,"Sem2_Rosso":true,"Sem2_Verde":false},"descrizione":"FASE 2 (t=11s) Sem1 GIALLO / Sem2 ROSSO"},
+ {"attendi":4},
+ {"verifica":{"Sem1_Rosso":true,"Sem1_Verde":false,"Sem1_Giallo":false,"Sem2_Verde":true,"Sem2_Rosso":false,"Sem2_Giallo":false},"descrizione":"FASE 3 (t=15s) Sem1 ROSSO / Sem2 VERDE"},
+ {"attendi":9},
+ {"verifica":{"Sem1_Rosso":true,"Sem2_Giallo":true,"Sem2_Verde":false},"descrizione":"FASE 4 (t=24s) Sem1 ROSSO / Sem2 GIALLO"},
+ {"watch":["Sem1_Verde","Sem1_Giallo","Sem1_Rosso","Sem2_Verde","Sem2_Giallo","Sem2_Rosso"],"secondi":8,"intervallo":0.2,"descrizione":"timeline ripartenza ciclo"},
+ {"set":{"IN_MARCIA":0}},
+ {"attendi":1},
+ {"verifica":{"Sem1_Verde":false,"Sem1_Giallo":false,"Sem1_Rosso":false,"Sem2_Verde":false,"Sem2_Giallo":false,"Sem2_Rosso":false},"descrizione":"arresto: tutte spente"}
+]}

@@ -1,0 +1,745 @@
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN"><html><head><meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<link rel="stylesheet" type="text/css" href="commonltr.css" />
+<link rel="stylesheet" type="text/css" href="omron.css" media="all" />
+<link rel="stylesheet" type="text/css" href="omron_en-us.css" media="all" />
+<script type="text/javascript" language="javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" language="javascript" src="display.js"></script>
+
+<title>MC_MoveJog</title>
+</head>
+<body class="dcn1484547271440"><div class="layer02" id="dcn1484547271440">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">MC_MoveJog</h1>
+
+<div class="body conbody">
+<p class="p" id="dcn1484547271440__ID0EFWAG">The MC_MoveJog instruction jogs an axis according to the specified target velocity.</p>
+
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="dcn1484547271440__ID0EQWAG" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:16%" />
+<col style="width:12%" />
+<col style="width:5%" />
+<col style="width:35%" />
+<col style="width:29%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d22892e36">Instruction</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d22892e39">Name</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d22892e42">FB/ FUN</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d22892e45">Graphic expression</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d22892e48">ST expression</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row fontsize_8pt">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d22892e36 "><span class="indexterm">MC_MoveJog (Jog)</span> MC_MoveJog</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d22892e39 "><span class="indexterm">Jog</span>Jog</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d22892e42 ">FB</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d22892e45 ">
+<br /><img class="image" id="dcn1484547271440__image_22E1EF5CB5BB4C69A03FDFD135E2C2B6" src="uys1484547270628.gif" /><br />
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d22892e48 ">
+<p class="p" id="dcn1484547271440__ID0ET1AG">MC_MoveJog_instance (</p>
+
+<p class="p">Axis :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">PositiveEnable :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">NegativeEnable :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Velocity :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Acceleration :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Deceleration :=<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Busy =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">CommandAborted =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">Error =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span>,</p>
+
+<p class="p">ErrorID =&gt;<span class="ph phtype_settingvalue"><span class="termtype">parameter</span></span></p>
+
+<p class="p">);</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+</div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="tna1484547261564">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Variables</h1>
+
+<div class="body conbody"></div>
+
+<div class="related-links"></div></div><div class="layer04" id="coh1484547271658">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Input Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="coh1484547271658__ID0EV4AG" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:14%" />
+<col style="width:14%" />
+<col style="width:8%" />
+<col style="width:12%" />
+<col style="width:8%" />
+<col style="width:41%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d18260e55">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d18260e58">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d18260e61">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d18260e64">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d18260e67">Default</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d18260e71">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d18260e55 ">PositiveEnable</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d18260e58 ">Positive Direction Enable</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d18260e61 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d18260e64 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d18260e67 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d18260e71 ">
+<p class="p" id="coh1484547271658__ID0EKCBG">When this variable changes to TRUE, the axis starts moving in the positive direction.</p>
+
+<p class="p">When it changes to FALSE, the axis stops moving.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d18260e55 ">NegativeEnable</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d18260e58 ">Negative Direction Enable</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d18260e61 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d18260e64 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d18260e67 ">FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d18260e71 ">
+<p class="p" id="coh1484547271658__ID0EVEBG">When this variable changes to TRUE, the axis starts moving in the negative direction.</p>
+
+<p class="p">When it changes to FALSE, the axis stops moving.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d18260e55 ">Velocity</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d18260e58 ">Target Velocity</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d18260e61 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d18260e64 ">Non-negative number</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d18260e67 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d18260e71 ">
+<p class="p" id="coh1484547271658__ID0ECHBG">Specify the target velocity.</p>
+
+<p class="p">The unit is command units/s.<a class="xref" href="#coh1484547271658__ID0EV4AG-footnote-2079452"><sup>*1</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d18260e55 ">Acceleration</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d18260e58 ">Acceleration Rate</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d18260e61 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d18260e64 ">Non-negative number</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d18260e67 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d18260e71 ">
+<p class="p" id="coh1484547271658__ID0EUJBG">Specify the acceleration rate.</p>
+
+<p class="p">The unit is command units/s<sup class="ph sup">2</sup>.<a class="xref" href="#coh1484547271658__ID0EV4AG-footnote-2079452"><sup>*1</sup></a></p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d18260e55 ">Deceleration</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d18260e58 ">Deceleration Rate</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d18260e61 ">LREAL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d18260e64 ">Non-negative number</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d18260e67 ">0</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d18260e71 ">
+<p class="p" id="coh1484547271658__ID0EDMBG">Specify the deceleration rate.</p>
+
+<p class="p">The unit is command units/s<sup class="ph sup">2</sup>.<a class="xref" href="#coh1484547271658__ID0EV4AG-footnote-2079452"><sup>*1</sup></a></p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="coh1484547271658__ID0EV4AG-footnote-2079452" id="coh1484547271658__ID0EV4AG-footnote-2079452"><sup>*1</sup></a>
+<p class="p">Refer to <span class="ph phtype_type2"><span class="termtype">Unit Conversion Settingsins</span></span> in the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Motion Control User&#8217;s Manual (Cat. No. W507)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Industrial Panel PC / Industrial Box PC Motion Control User&#8217;s Manual (Cat. No. W559)</span></span></span> for information on command units.</p>
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="klw1484547271892">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Output Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="klw1484547271892__ID0EXNBG" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:17%" />
+<col style="width:13%" />
+<col style="width:9%" />
+<col style="width:9%" />
+<col style="width:50%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d82801e50">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d82801e53">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d82801e56">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d82801e59">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d82801e62">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d82801e50 ">Busy</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d82801e53 ">Executing</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d82801e56 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d82801e59 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d82801e62 ">
+<p class="p" id="klw1484547271892__ID0EURBG">TRUE when the instruction is acknowledged.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d82801e50 ">CommandAborted</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d82801e53 ">Command Aborted</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d82801e56 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d82801e59 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d82801e62 ">
+<p class="p" id="klw1484547271892__ID0ETTBG">TRUE when the instruction is aborted.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d82801e50 ">Error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d82801e53 ">Error</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d82801e56 ">BOOL</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d82801e59 ">TRUE or FALSE</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d82801e62 ">
+<p class="p" id="klw1484547271892__ID0ESVBG">TRUE while there is an error.</p>
+
+</td>
+
+</tr>
+
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d82801e50 ">ErrorID</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d82801e53 ">Error Code</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d82801e56 ">WORD</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d82801e59 "><a class="xref" href="#klw1484547271892__ID0EXNBG-footnote-2079454"><sup>*1</sup></a></td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d82801e62 ">
+<p class="p" id="klw1484547271892__ID0ETXBG">Contains the error code when an error occurs.</p>
+
+<p class="p">A value of 16#0000 indicates normal execution.</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="klw1484547271892__ID0EXNBG-footnote-2079454" id="klw1484547271892__ID0EXNBG-footnote-2079454"><sup>*1</sup></a>
+<p class="p">The upper four digits of the event code give the error code for ErrorID. Refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series Troubleshooting Manual (Cat. No. W503)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Troubleshooting Manual (Cat. No. W564)</span></span></span> for the event codes.</p>
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="wks1484547272142">
+ 
+<h1 class="title topictitle1"  topicstatus="Localization:done">Output Variable Update Timing</h1>
+ 
+<div class="body conbody">
+     
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="wks1484547272142__ID0ERYBG" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:17%" />
+<col style="width:41%" />
+<col style="width:41%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d192577e28">Name</th>
+ 
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d192577e31">Timing for changing to TRUE</th>
+ 
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d192577e34">Timing for changing to FALSE</th>
+ 
+</tr>
+ 
+</thead>
+ 
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d192577e28 ">Busy</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d192577e31 ">
+<p class="p" id="wks1484547272142__ID0ES1BG">When <span class="ph phtype_variable"><span class="termtype">PositiveEnable</span></span> or <span class="ph phtype_variable"><span class="termtype">NegativeEnable</span></span> changes to TRUE.</p>
+ 
+</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d192577e34 ">
+<ul class="ul" id="wks1484547272142__ul_DFDB449F104A4B18A6C398E30D3143E4">
+<li class="li" id="wks1484547272142__li_3F1B4BE507A6477DB870A91BBD0F427F">
+<p class="p" id="wks1484547272142__ID0EK2BG">When the axis stops.</p>
+ 
+</li>
+ 
+<li class="li" id="wks1484547272142__li_73972B531B274B398E3546D93ABEA4CD">
+<p class="p" id="wks1484547272142__ID0EV2BG">When <span class="ph phtype_variable"><span class="termtype">Error</span></span> changes to TRUE.</p>
+ 
+</li>
+ 
+<li class="li" id="wks1484547272142__li_814750144A61477DB4BB34118EFF2781">
+<p class="p" id="wks1484547272142__ID0EA3BG">When <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> changes to TRUE.</p>
+ 
+</li>
+ 
+</ul>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d192577e28 ">CommandAborted</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d192577e31 ">
+<ul class="ul" id="wks1484547272142__ul_F2F5E98CE275452FB8ED3BC078B8EDCD">
+<li class="li" id="wks1484547272142__li_D9B5B5DF4B1B4B1ABA5545ADF90969DF">
+<p class="p" id="wks1484547272142__ID0EF4BG">When this instruction is aborted because another motion control instruction was executed with the Buffer Mode set to <span class="ph phtype_choice"><span class="termtype">Aborting</span></span>.</p>
+ 
+</li>
+ 
+<li class="li" id="wks1484547272142__li_CEDC59A71E464AD9BB472566CFFBFEEF">
+<p class="p" id="wks1484547272142__ID0EQ4BG">When this instruction is canceled due to an error.</p>
+ 
+</li>
+ 
+<li class="li" id="wks1484547272142__li_0A8AF5DC7AD94171BC2832CD68879AC4">
+<p class="p" id="wks1484547272142__ID0E24BG">When this instruction is executed while there is an error.</p>
+ 
+</li>
+ 
+<li class="li" id="wks1484547272142__li_1E7E182CF47B46E0B417B35FB0E26B9B">
+<p class="p" id="wks1484547272142__ID0EG5BG">When you start this instruction during MC_Stop instruction execution.</p>
+ 
+</li>
+ 
+</ul>
+ 
+</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d192577e34 ">
+<ul class="ul" id="wks1484547272142__ul_3FD7B5D9A3204C2EB3A8DD055EDDC005">
+<li class="li" id="wks1484547272142__li_B9D10A05983841D78C3142A875F70E5E">
+<p class="p" id="wks1484547272142__ID0E35BG">When <span class="ph phtype_variable"><span class="termtype">PositiveEnable</span></span> is TRUE and changes to FALSE.<span class="ph phtype_variable"><span class="termtype"></span></span></p>
+ 
+</li>
+ 
+<li class="li" id="wks1484547272142__li_6F6B498A5E29441D917F98589CB9FC20">
+<p class="p" id="wks1484547272142__ID0EH6BG">When <span class="ph phtype_variable"><span class="termtype">NegativeEnable</span></span> is TRUE and changes to FALSE.<span class="ph phtype_variable"><span class="termtype"></span></span></p>
+ 
+</li>
+ 
+<li class="li" id="wks1484547272142__li_BC5963A6E3414F1883FF4E7C305A1FDB">
+<p class="p" id="wks1484547272142__ID0ES6BG">After one period when <span class="ph phtype_variable"><span class="termtype">PositiveEnable</span></span> and <span class="ph phtype_variable"><span class="termtype">NegativeEnable</span></span> are FALSE.</p>
+ 
+</li>
+ 
+</ul>
+ 
+</td>
+ 
+</tr>
+ 
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d192577e28 ">
+<p class="p" id="wks1484547272142__ID0EAAAI">Error</p>
+ 
+</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d192577e31 ">
+<p class="p" id="wks1484547272142__ID0EMAAI">When there is an error in the execution conditions or input parameters for the instruction.</p>
+ 
+</td>
+ 
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d192577e34 ">
+<p class="p" id="wks1484547272142__ID0EYAAI">When the error is cleared.</p>
+ 
+</td>
+ 
+</tr>
+ 
+</tbody>
+ 
+</table>
+</div>
+ 
+</div>
+ 
+<div class="related-links"></div></div><div class="layer04" id="htx1484547262438">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">In-Out Variables</h1>
+
+<div class="body conbody">
+        
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="htx1484547262438__ID0E23AE" class="rules_all " frame="border" border="1" rules="all">
+<col style="width:17%" />
+<col style="width:16%" />
+<col style="width:13%" />
+<col style="width:10%" />
+<col style="width:42%" />
+<thead class="thead" style="text-align:left;">
+<tr class="row">
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d58021e50">Name</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d58021e53">Meaning</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d58021e56">Data type</th>
+
+<th class="entry cellrowborder" style="text-align:center;vertical-align:top;" id="d58021e59">Valid range</th>
+
+<th class="entry cellrowborder" style="text-align:left;vertical-align:top;" id="d58021e62">Description</th>
+
+</tr>
+
+</thead>
+
+<tbody class="tbody">
+<tr class="row">
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d58021e50 ">Axis</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d58021e53 ">Axis</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d58021e56 ">
+<p class="p" id="htx1484547262438__ID0EBAAG">_sAXIS_REF</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:center;vertical-align:top;" headers="d58021e59 ">
+<p class="p" id="htx1484547262438__ID0ENAAG">---</p>
+
+</td>
+
+<td class="entry cellrowborder" style="text-align:left;vertical-align:top;" headers="d58021e62 ">
+<p class="p" id="htx1484547262438__ID0EZAAG">Specifies the axis. <a class="xref" href="#htx1484547262438__ID0E23AE-footnote-2079946"><sup>*1</sup></a></p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+<div class="desc tabledesc">
+<div class="fn"><a name="htx1484547262438__ID0E23AE-footnote-2079946" id="htx1484547262438__ID0E23AE-footnote-2079946"><sup>*1</sup></a>  <p class="p" id="htx1484547262438__ID0EKKKT">Specify a user-defined Axis Variable that was created in the Axis Basic Settings of the Sysmac Studio (default: MC_Axis*) or a system-defined axis variable name (_MC_AX[*], _MC1_AX[*], or _MC2_AX[*]).</p>
+
+                        
+<p class="p">If you use Sysmac Studio version 1.29 or higher, you can specify the system-defined axis variable name for AT specification of a user-defined variable. This will allow you to specify the user-defined variable.</p>
+
+<p class="p">If you use Sysmac Studio version 1.28 or lower, do not specify any user-defined variable created in the variable table.</p>
+</div></div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer03" id="pws1484547281299">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Function</h1>
+
+<div class="body conbody">
+<ul class="ul" id="pws1484547281299__ul_759C65BA70604D9295C1A47053AF30F7">
+<li class="li" id="pws1484547281299__li_DFCF61BB024648FAB27BF6B723423A3A">
+<p class="p" id="pws1484547281299__ID0EAIAI">The MC_MoveJog (Jog) instruction performs jogging according to the specified <span class="ph phtype_variable"><span class="termtype">Velocity</span></span> (Target Velocity).</p>
+
+</li>
+
+<li class="li" id="pws1484547281299__li_E39A9F91338F4D57BA338B8A1C4635AE">
+<p class="p" id="pws1484547281299__ID0ELIAI">To jog in the positive direction, change <span class="ph phtype_variable"><span class="termtype">PositiveEnable</span></span> (Positive Direction Enable) to TRUE. To jog in the negative direction, change <span class="ph phtype_variable"><span class="termtype">NegativeEnable</span></span> (Negative Direction Enable) to TRUE.</p>
+
+</li>
+
+<li class="li" id="pws1484547281299__li_1278B9EA6FC545A7AB18219170EC4EA5">
+<p class="p" id="pws1484547281299__ID0EWIAI">If <span class="ph phtype_variable"><span class="termtype">PositiveEnable</span></span> (Positive Direction Enable) and <span class="ph phtype_variable"><span class="termtype">NegativeEnable</span></span> (Negative Direction Enable) are changed to TRUE at the same time, <span class="ph phtype_variable"><span class="termtype">PositiveEnable</span></span> (Positive Direction Enable) takes priority. As a result, the axis will jog in the positive direction.</p>
+
+</li>
+
+<li class="li" id="pws1484547281299__li_C47A83ACAA4A455284BCC846D1C8B4C5">
+<p class="p" id="pws1484547281299__ID0EBJAI">If the command velocity of the MC_MoveJog (Jog) instruction exceeds the <span class="ph phtype_parameter"><span class="termtype">Maximum Jog Velocity</span></span> value that is set in the axis parameters, the <span class="ph phtype_parameter"><span class="termtype">Maximum Jog Velocity</span></span> value is used.</p>
+
+</li>
+
+</ul>
+
+<div class="note" id="pws1484547281299__note_N1006E_N1000F_N10001"><div class="use"><span class="notetitle use">use:</span>
+<ul class="ul" id="pws1484547281299__ul_724FCF562F2A457EAEDFA2D619A6370B">
+<li class="li" id="pws1484547281299__li_DF28B0AD708F4C1389EB456D5D23BD59">
+<p class="p" id="pws1484547281299__ID0EQKAI">When creating a ladder diagram program, you must connect the <span class="ph phtype_variable"><span class="termtype">PositiveEnable</span></span> (Positive Direction Enable) input variable to the left bus bar and specify a variable for the <span class="ph phtype_variable"><span class="termtype">NegativeEnable</span></span> (Negative Direction Enable) input variable as shown below.</p>
+
+<br /><img class="image linespace_7pt" id="pws1484547281299__image_89270BB1ED0C4AB2A445EA81AE0C35D9" src="mnw1484547272391.gif" /><br />
+<p class="p linespace_7pt" id="pws1484547281299__p_bjd_xnn_j4b">To use the master control instructions (MC and MCR) for the MC_MoveJog (Jog) instruction, do not program the instructions as shown below. If you do, master control is applied only to <span class="ph phtype_variable"><span class="termtype">PositiveEnable</span></span> (Positive Direction Enable), i.e., it is not applied to <span class="ph phtype_variable"><span class="termtype">NegativeEnable</span></span> (Negative Direction Enable).</p>
+
+<br /><img class="image linespace_7pt" id="pws1484547281299__image_u43_c2z_jx" src="ygg1484547273733.gif" /><br />
+<br /><img class="image" id="pws1484547281299__image_lbk_d2z_jx" src="qcj1484547274809.gif" /><br />
+<br /><img class="image" id="pws1484547281299__image_rz2_22z_jx" src="lez1484547275948.gif" /><br />
+<p class="p linespace_7pt" id="pws1484547281299__p_pkp_xnn_j4b">Always use the master control instructions for the MC_Power instruction.</p>
+
+<br /><img class="image linespace_7pt" id="pws1484547281299__image_kw4_t2z_jx" src="ues1484547276962.gif" /><br />
+<br /><img class="image" id="pws1484547281299__image_qpk_52z_jx" src="eyo1484547277976.gif" /><br />
+<br /><img class="image" id="pws1484547281299__image_lj1_v2z_jx" src="frh1484547279100.gif" /><br />
+<br /><img class="image" id="pws1484547281299__image_rs4_v2z_jx" src="cnq1484547280083.gif" /><br />
+</li>
+
+</ul>
+
+</div></div>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="mdm1484547282485">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Timing Charts</h1>
+
+<div class="body conbody">
+<ul class="ul">
+<li class="li" id="mdm1484547282485__li_N10015_N10012_N1000F_N10001">
+<p class="p" id="mdm1484547282485__ID0EAOAI"><span class="ph phtype_variable"><span class="termtype">Busy</span></span> (Executing) changes to TRUE as soon as <span class="ph phtype_variable"><span class="termtype">PositiveEnable</span></span> (Positive Direction Enable) or <span class="ph phtype_variable"><span class="termtype">NegativeEnable</span></span> (Negative Direction Enable) changes to TRUE.</p>
+
+</li>
+
+<li class="li" id="mdm1484547282485__li_N1002F_N10012_N1000F_N10001">
+<p class="p" id="mdm1484547282485__ID0ELOAI">The axis starts deceleration as soon as <span class="ph phtype_variable"><span class="termtype">PositiveEnable</span></span> (Positive Direction Enable) or <span class="ph phtype_variable"><span class="termtype">NegativeEnable</span></span> (Negative Direction Enable) changes to FALSE. <span class="ph phtype_variable"><span class="termtype">Busy</span></span> (Executing) changes to FALSE when the axis stops completely.</p>
+
+</li>
+
+<li class="li" id="mdm1484547282485__li_N10049_N10012_N1000F_N10001">
+<p class="p" id="mdm1484547282485__ID0EWOAI">If another instruction aborts this instruction, <span class="ph phtype_variable"><span class="termtype">CommandAborted</span></span> changes to TRUE and <span class="ph phtype_variable"><span class="termtype">Busy</span></span> (Executing) changes to FALSE.</p>
+
+</li>
+
+</ul>
+
+<br /><img class="image linespace_7pt" src="khq1484547281502.gif" /><br />
+<p class="p linespace_7pt" id="mdm1484547282485__ID0ETPAI">You can specify the <span class="ph phtype_variable"><span class="termtype">Velocity</span></span> (Target Velocity), <span class="ph phtype_variable"><span class="termtype">Acceleration</span></span> (Acceleration Rate), and <span class="ph phtype_variable"><span class="termtype">Deceleration</span></span> (Deceleration Rate) as input variables.</p>
+
+<p class="p" id="mdm1484547282485__ID0E1PAI">Input variables <span class="ph phtype_variable"><span class="termtype">Velocity</span></span> (Target Velocity), <span class="ph phtype_variable"><span class="termtype">Acceleration</span></span> (Acceleration Rate), and <span class="ph phtype_variable"><span class="termtype">Deceleration</span></span> (Deceleration Rate) are updated in the motion only when <span class="ph phtype_variable"><span class="termtype">PositiveEnable</span></span> (Positive Direction Enable) or <span class="ph phtype_variable"><span class="termtype">NegativeEnable</span></span> (Negative Direction Enable) changes to TRUE. Therefore, the axis velocity will not change even if <span class="ph phtype_variable"><span class="termtype">Velocity</span></span> (Target Velocity) changes while <span class="ph phtype_variable"><span class="termtype">PositiveEnable</span></span> (Positive Direction Enable) or <span class="ph phtype_variable"><span class="termtype">NegativeEnable</span></span> (Negative Direction Enable) remains TRUE.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="rqi1484547283577">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Timing Chart When Target Velocity Is 0</h1>
+
+<div class="body conbody">
+<p class="p" id="rqi1484547283577__ID0EQQAI">When the <span class="ph phtype_variable"><span class="termtype">Velocity</span></span> (Target Velocity) is 0 and you start jogging the axis, the axis will enter continuous operation without motion. The following timing chart shows an example when the <span class="ph phtype_variable"><span class="termtype">Velocity</span></span> (Target Velocity) is 0 and you start jogging the axis.</p>
+
+<br /><img class="image linespace_7pt" src="leu1484547282750.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="ehr1484547284716">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Timing Chart When Acceleration/Deceleration Rate Is 0</h1>
+
+<div class="body conbody">
+<p class="p" id="ehr1484547284716__ID0E2RAI">When the <span class="ph phtype_variable"><span class="termtype">Acceleration</span></span> (Acceleration Rate) or <span class="ph phtype_variable"><span class="termtype">Deceleration</span></span> (Deceleration Rate) is 0 and you start jogging the axis, the axis will reach the target velocity without accelerating or decelerating.</p>
+
+<p class="p" id="ehr1484547284716__ID0E5RAI">The timing chart below shows an example when the <span class="ph phtype_variable"><span class="termtype">Acceleration</span></span> (Acceleration Rate) and <span class="ph phtype_variable"><span class="termtype">Deceleration</span></span> (Deceleration Rate) are 0.</p>
+
+<br /><img class="image linespace_7pt" src="jpp1484547283811.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="cxy1484547284981">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Re-execution of Motion Control Instructions</h1>
+
+<div class="body conbody"></div>
+
+<div class="related-links"></div></div><div class="layer05" id="oia1484547286011">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Restarting with Enable in the Same Direction</h1>
+
+<div class="body conbody">
+<p class="p" id="oia1484547286011__ID0ECUAI">If you change <span class="ph phtype_variable"><span class="termtype">PositiveEnable</span></span> (Positive Direction Enable) or <span class="ph phtype_variable"><span class="termtype">NegativeEnable</span></span> (Negative Direction Enable) to TRUE when it is FALSE and the axis is decelerating, the axis will begin to accelerate towards the target velocity.<span class="ph phtype_variable"><span class="termtype"></span></span><span class="ph phtype_variable"><span class="termtype"></span></span></p>
+
+<p class="p" id="oia1484547286011__ID0EFUAI">If you change the <span class="ph phtype_variable"><span class="termtype">Velocity</span></span> (Target Velocity), <span class="ph phtype_variable"><span class="termtype">Acceleration</span></span> (Acceleration Rate), or <span class="ph phtype_variable"><span class="termtype">Deceleration</span></span> (Deceleration Rate) at this time, the new value of the input parameter is used in operation.</p>
+
+<p class="p" id="oia1484547286011__ID0EMUAI">The axis is not stopped, and <span class="ph phtype_variable"><span class="termtype">Busy</span></span> (Executing) does not change to FALSE.</p>
+
+<p class="p linespace_7pt" id="oia1484547286011__ID0E6UAI">The following example shows operation when <span class="ph phtype_variable"><span class="termtype">PositiveEnable</span></span> (Positive Direction Enable) changes to TRUE during deceleration.</p>
+
+<br /><img class="image linespace_7pt" src="fpr1484547285168.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="var1484547287041">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Restarting with Enable in the Opposite Direction</h1>
+
+<div class="body conbody">
+<p class="p" id="var1484547287041__ID0EMWAI">If you change <span class="ph phtype_variable"><span class="termtype">NegativeEnable</span></span> (Negative Direction Enable) to TRUE when <span class="ph phtype_variable"><span class="termtype">PositiveEnable</span></span> (Positive Direction Enable) is TRUE and the axis is jogging in the positive direction, the axis will reverse its direction and start jogging in the negative direction.</p>
+
+<p class="p" id="var1484547287041__ID0ETWAI">When this happens, you can jog the axis with the input variables for when <span class="ph phtype_variable"><span class="termtype">NegativeEnable</span></span> (Negative Direction Enable) changes to TRUE. The input variables are <span class="ph phtype_variable"><span class="termtype">Velocity</span></span> (Target Velocity), <span class="ph phtype_variable"><span class="termtype">Acceleration</span></span> (Acceleration Rate), and <span class="ph phtype_variable"><span class="termtype">Deceleration</span></span> (Deceleration Rate).</p>
+
+<p class="p linespace_7pt" id="var1484547287041__ID0EAXAI">The deceleration rate when the axis direction is reversed and the acceleration rate after it is reversed follow the input variables for when <span class="ph phtype_variable"><span class="termtype">NegativeEnable</span></span> (Negative Direction Enable) changes to TRUE, regardless of the <span class="ph phtype_parameter"><span class="termtype">Operation Selection at Reversing</span></span> axis parameter.</p>
+
+<p class="p" id="var1484547287041__ID0EHXAI">When <span class="ph phtype_variable"><span class="termtype">NegativeEnable</span></span> (Negative Direction Enable) is TRUE and the axis is jogging in the negative direction, the same operation occurs when <span class="ph phtype_variable"><span class="termtype">PositiveEnable</span></span> (Positive Direction Enable) changes to TRUE.</p>
+
+<p class="p linespace_7pt" id="var1484547287041__ID0EUXAI">If <span class="ph phtype_variable"><span class="termtype">NegativeEnable</span></span> (Negative Direction Enable) changes to TRUE while <span class="ph phtype_variable"><span class="termtype">PositiveEnable</span></span> (Positive Direction Enable) is TRUE, the axis starts jogging in the negative direction. In this case, the axis will not jog in the positive direction even if <span class="ph phtype_variable"><span class="termtype">NegativeEnable</span></span> (Negative Direction Enable) changes to FALSE. <span class="ph phtype_variable"><span class="termtype"></span></span></p>
+
+<p class="p" id="var1484547287041__ID0E2XAI">To jog the axis in the positive direction, change <span class="ph phtype_variable"><span class="termtype">PositiveEnable</span></span> (Positive Direction Enable) to FALSE, and then back to TRUE again.</p>
+
+<p class="p" id="var1484547287041__ID0ECYAI">The same operation applies to the opposite case.</p>
+
+<p class="p linespace_7pt" id="var1484547287041__ID0EJYAI">The following example shows an operation example when <span class="ph phtype_variable"><span class="termtype">NegativeEnable</span></span> (Negative Direction Enable) changes to TRUE after <span class="ph phtype_variable"><span class="termtype">PositiveEnable</span></span> (Positive Direction Enable) changes to TRUE.</p>
+
+<br /><img class="image linespace_7pt" id="var1484547287041__image_9738593118D04B4DA8444AD2D000F609" src="cgm1484547286245.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="sos1484547268366">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Multi-execution of Motion Control Instructions</h1>
+
+<div class="body conbody">
+        
+<p class="p">For details on multi-execution of motion control instructions, refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series CPU Unit Motion Control User&#8217;s Manual (Cat. No. W507)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Industrial Panel PC / Industrial Box PC Motion Control User&#8217;s Manual (Cat. No. W559)</span></span></span>.</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer04" id="kla1484547287275">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Errors</h1>
+
+<div class="body conbody">
+<p class="p" id="kla1484547287275__ID0ET2AI">If an error occurs during instruction execution, <span class="ph phtype_variable"><span class="termtype">Error</span></span> will change to TRUE.</p>
+
+<p class="p" id="kla1484547287275__ID0EW2AI">You can find out the cause of the error by referring to the value output by <span class="ph phtype_variable"><span class="termtype">ErrorID</span></span> (Error Code).</p>
+
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="lgf1484547288367">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Timing Chart When Error Occurs</h1>
+
+<div class="body conbody">
+<br /><img class="image" src="lig1484547287493.gif" /><br />
+</div>
+
+<div class="related-links"></div></div><div class="layer05" id="rzo1484547270426">
+
+<h1 class="title topictitle1"  topicstatus="Localization:done">Error Codes</h1>
+
+<div class="body conbody">
+        
+<p class="p">Refer to the <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NJ/NX-series Troubleshooting Manual (Cat. No. W503)</span></span></span> or <span class="ph phtype_docname"><span class="termtype"><span class="keyword">NY-series Troubleshooting Manual (Cat. No. W564)</span></span></span> for instruction errors.</p>
+
+</div>
+
+<div class="related-links"></div></div></body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
