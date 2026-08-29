@@ -1,4 +1,4 @@
-# Replica dell'ambiente sul notebook — MCP `sysmac-ladder`
+﻿# Replica dell'ambiente sul notebook — MCP `sysmac-ladder`
 
 Stato di riferimento: PC fisso `victus-tecnico`, 29/08/2026.
 Questo repository contiene **solo il server MCP sysmac-ladder** (server, generatori ST/ladder,
@@ -86,8 +86,8 @@ Test offline (senza Sysmac aperto): generazione ST e simulazione, es. `sysmac_si
 |---|---|---|
 | Skill personali (price-research, leggi-email-outlook, vault-carica-commessa, layout-piastra-quadro, bilancio-aziendale, wordpress-avada-syntech, genera-documenti, converti-documenti-anydoc, manual-style-analyzer) | sincronizzate dall'account Claude | **automatiche**: entrando con lo stesso account compaiono sul notebook. Verificare con `/skills` |
 | Plugin installati | account Claude / `.claude\plugins` | automatici con l'account |
-| Memoria di lavoro | `C:\Users\tecni\Claude\CLAUDE.md` + `memory\` (33 file) | da copiare a parte (o secondo repo) |
-| Istruzioni globali | `C:\Users\tecni\.claude\CLAUDE.md` | da copiare a parte |
+| Memoria di lavoro Sysmac | `memory\` (parte attinente) | **inclusa nel repo**: cartella `_memoria\`, istruzioni in `_memoria\LEGGIMI.md` |
+| Istruzioni globali | `C:\Users\tecni\.claude\CLAUDE.md` | da copiare a parte: percorsi server e regola prezzi, serve solo se sul notebook fai anche preventivi/offerte |
 | Script prezzi/ricerca/email | `sacchi_cli.py`, `sacchi_to_db.py`, `rs_to_db.py`, `aggiorna_prezzi_2026.py`, `qc_prezzi.py`, `cerca_server.ps1`, `cerca_contenuto.ps1`, `leggi_email.ps1`, `sysmac_ui.ps1` | da copiare a parte |
 | DB prezzi | `prezzi_fornitori.db` | **tenerne una copia sola** (server o PC fisso): due copie divergono e lo storico si sporca |
 | Cookie/sessioni (`sacchi_cookies.json`, `chrome_sacchi_profile`) | locali | non trasferire: rigenerarli con un login sul notebook |
